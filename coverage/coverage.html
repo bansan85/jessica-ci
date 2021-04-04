@@ -1,0 +1,1002 @@
+<!doctype html><html><head><meta name='viewport' content='width=device-width,initial-scale=1'><meta charset='UTF-8'><style>.red {
+  background-color: #ffd0d0;
+}
+.cyan {
+  background-color: cyan;
+}
+body {
+  font-family: -apple-system, sans-serif;
+}
+pre {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+.source-name-title {
+  padding: 5px 10px;
+  border-bottom: 1px solid #dbdbdb;
+  background-color: #eee;
+  line-height: 35px;
+}
+.centered {
+  display: table;
+  margin-left: left;
+  margin-right: auto;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+.expansion-view {
+  background-color: rgba(0, 0, 0, 0);
+  margin-left: 0px;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+table {
+  border-collapse: collapse;
+}
+.light-row {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+}
+.light-row-bold {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+  font-weight: bold;
+}
+.column-entry {
+  text-align: left;
+}
+.column-entry-bold {
+  font-weight: bold;
+  text-align: left;
+}
+.column-entry-yellow {
+  text-align: left;
+  background-color: #ffffd0;
+}
+.column-entry-yellow:hover {
+  background-color: #fffff0;
+}
+.column-entry-red {
+  text-align: left;
+  background-color: #ffd0d0;
+}
+.column-entry-red:hover {
+  background-color: #fff0f0;
+}
+.column-entry-green {
+  text-align: left;
+  background-color: #d0ffd0;
+}
+.column-entry-green:hover {
+  background-color: #f0fff0;
+}
+.line-number {
+  text-align: right;
+  color: #aaa;
+}
+.covered-line {
+  text-align: right;
+  color: #0080ff;
+}
+.uncovered-line {
+  text-align: right;
+  color: #ff3300;
+}
+.tooltip {
+  position: relative;
+  display: inline;
+  background-color: #b3e6ff;
+  text-decoration: none;
+}
+.tooltip span.tooltip-content {
+  position: absolute;
+  width: 100px;
+  margin-left: -50px;
+  color: #FFFFFF;
+  background: #000000;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 6px;
+}
+.tooltip span.tooltip-content:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-top: 8px solid #000000;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+:hover.tooltip span.tooltip-content {
+  visibility: visible;
+  opacity: 0.8;
+  bottom: 30px;
+  left: 50%;
+  z-index: 999;
+}
+th, td {
+  vertical-align: top;
+  padding: 2px 8px;
+  border-collapse: collapse;
+  border-right: solid 1px #eee;
+  border-left: solid 1px #eee;
+  text-align: left;
+}
+td pre {
+  display: inline-block;
+}
+td:first-child {
+  border-left: none;
+}
+td:last-child {
+  border-right: none;
+}
+tr:hover {
+  background-color: #f0f0f0;
+}
+</style></head><body><div class='centered'><table><div class='source-name-title'><pre>/home/runner/work/jessica/jessica/include/jessica/calc/geotechnical/meyerhof.h</pre></div><tr><td><pre>Line</pre></td><td><pre>Count</pre></td><td><pre>Source (<a href='#L28'>jump to first uncovered line</a>)</pre></td></tr><tr><td class='line-number'><a name='L1' href='#L1'><pre>1</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#pragma once</pre></td></tr><tr><td class='line-number'><a name='L2' href='#L2'><pre>2</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L3' href='#L3'><pre>3</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;memory&gt;</pre></td></tr><tr><td class='line-number'><a name='L4' href='#L4'><pre>4</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L5' href='#L5'><pre>5</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;jessica/data/geotechnical/foundation_strip.h&gt;</pre></td></tr><tr><td class='line-number'><a name='L6' href='#L6'><pre>6</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;jessica/data/load/vertical_eccentric.h&gt;</pre></td></tr><tr><td class='line-number'><a name='L7' href='#L7'><pre>7</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L8' href='#L8'><pre>8</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>namespace Calc::Geotechnical</pre></td></tr><tr><td class='line-number'><a name='L9' href='#L9'><pre>9</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>{</pre></td></tr><tr><td class='line-number'><a name='L10' href='#L10'><pre>10</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>class IMeyerhofShallowFoundation</pre></td></tr><tr><td class='line-number'><a name='L11' href='#L11'><pre>11</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>{</pre></td></tr><tr><td class='line-number'><a name='L12' href='#L12'><pre>12</pre></a></td><td class='uncovered-line'></td><td class='code'><pre> public:</pre></td></tr><tr><td class='line-number'><a name='L13' href='#L13'><pre>13</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  IMeyerhofShallowFoundation(IMeyerhofShallowFoundation &amp;&amp;) noexcept = delete;</pre></td></tr><tr><td class='line-number'><a name='L14' href='#L14'><pre>14</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  IMeyerhofShallowFoundation &amp;operator=(const IMeyerhofShallowFoundation &amp;) =</pre></td></tr><tr><td class='line-number'><a name='L15' href='#L15'><pre>15</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>      delete;</pre></td></tr><tr><td class='line-number'><a name='L16' href='#L16'><pre>16</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  IMeyerhofShallowFoundation &amp;operator=(</pre></td></tr><tr><td class='line-number'><a name='L17' href='#L17'><pre>17</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>      IMeyerhofShallowFoundation &amp;&amp;) noexcept = delete;</pre></td></tr><tr><td class='line-number'><a name='L18' href='#L18'><pre>18</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>  virtual ~IMeyerhofShallowFoundation() = default;</pre></td></tr><tr><td class='line-number'><a name='L19' href='#L19'><pre>19</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L20' href='#L20'><pre>20</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  [[nodiscard]] virtual std::shared_ptr&lt;IMeyerhofShallowFoundation&gt; Clone()</pre></td></tr><tr><td class='line-number'><a name='L21' href='#L21'><pre>21</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>      const = 0;</pre></td></tr><tr><td class='line-number'><a name='L22' href='#L22'><pre>22</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L23' href='#L23'><pre>23</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  [[nodiscard]] virtual double Qref() const = 0;</pre></td></tr><tr><td class='line-number'><a name='L24' href='#L24'><pre>24</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  [[nodiscard]] virtual double B_() const noexcept = 0;</pre></td></tr><tr><td class='line-number'><a name='L25' href='#L25'><pre>25</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L26' href='#L26'><pre>26</pre></a></td><td class='uncovered-line'></td><td class='code'><pre> protected:</pre></td></tr><tr><td class='line-number'><a name='L27' href='#L27'><pre>27</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>  IMeyerhofShallowFoundation() = default;</pre></td></tr><tr><td class='line-number'><a name='L28' href='#L28'><pre>28</pre></a></td><td class='uncovered-line'><pre>0</pre></td><td class='code'><pre>  IMeyerhofShallowFoundation(const IMeyerhofShallowFoundation &amp;) = defaul<span class='red'>t</span>;</pre></td></tr><tr><td class='line-number'><a name='L29' href='#L29'><pre>29</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>};</pre></td></tr><tr><td class='line-number'><a name='L30' href='#L30'><pre>30</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L31' href='#L31'><pre>31</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>class Create</pre></td></tr><tr><td class='line-number'><a name='L32' href='#L32'><pre>32</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>{</pre></td></tr><tr><td class='line-number'><a name='L33' href='#L33'><pre>33</pre></a></td><td class='uncovered-line'></td><td class='code'><pre> public:</pre></td></tr><tr><td class='line-number'><a name='L34' href='#L34'><pre>34</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  static std::shared_ptr&lt;IMeyerhofShallowFoundation&gt; MeyerhofShallowFoundation(</pre></td></tr><tr><td class='line-number'><a name='L35' href='#L35'><pre>35</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>      const std::shared_ptr&lt;Data::Load::IVerticalEccentric&gt; &amp;load,</pre></td></tr><tr><td class='line-number'><a name='L36' href='#L36'><pre>36</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>      const std::shared_ptr&lt;Data::Geotechnical::IFoundationStrip&gt; &amp;foundation);</pre></td></tr><tr><td class='line-number'><a name='L37' href='#L37'><pre>37</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>};</pre></td></tr><tr><td class='line-number'><a name='L38' href='#L38'><pre>38</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>}  // namespace Calc::Geotechnical</pre></td></tr></table></div></body></html><!doctype html><html><head><meta name='viewport' content='width=device-width,initial-scale=1'><meta charset='UTF-8'><style>.red {
+  background-color: #ffd0d0;
+}
+.cyan {
+  background-color: cyan;
+}
+body {
+  font-family: -apple-system, sans-serif;
+}
+pre {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+.source-name-title {
+  padding: 5px 10px;
+  border-bottom: 1px solid #dbdbdb;
+  background-color: #eee;
+  line-height: 35px;
+}
+.centered {
+  display: table;
+  margin-left: left;
+  margin-right: auto;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+.expansion-view {
+  background-color: rgba(0, 0, 0, 0);
+  margin-left: 0px;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+table {
+  border-collapse: collapse;
+}
+.light-row {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+}
+.light-row-bold {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+  font-weight: bold;
+}
+.column-entry {
+  text-align: left;
+}
+.column-entry-bold {
+  font-weight: bold;
+  text-align: left;
+}
+.column-entry-yellow {
+  text-align: left;
+  background-color: #ffffd0;
+}
+.column-entry-yellow:hover {
+  background-color: #fffff0;
+}
+.column-entry-red {
+  text-align: left;
+  background-color: #ffd0d0;
+}
+.column-entry-red:hover {
+  background-color: #fff0f0;
+}
+.column-entry-green {
+  text-align: left;
+  background-color: #d0ffd0;
+}
+.column-entry-green:hover {
+  background-color: #f0fff0;
+}
+.line-number {
+  text-align: right;
+  color: #aaa;
+}
+.covered-line {
+  text-align: right;
+  color: #0080ff;
+}
+.uncovered-line {
+  text-align: right;
+  color: #ff3300;
+}
+.tooltip {
+  position: relative;
+  display: inline;
+  background-color: #b3e6ff;
+  text-decoration: none;
+}
+.tooltip span.tooltip-content {
+  position: absolute;
+  width: 100px;
+  margin-left: -50px;
+  color: #FFFFFF;
+  background: #000000;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 6px;
+}
+.tooltip span.tooltip-content:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-top: 8px solid #000000;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+:hover.tooltip span.tooltip-content {
+  visibility: visible;
+  opacity: 0.8;
+  bottom: 30px;
+  left: 50%;
+  z-index: 999;
+}
+th, td {
+  vertical-align: top;
+  padding: 2px 8px;
+  border-collapse: collapse;
+  border-right: solid 1px #eee;
+  border-left: solid 1px #eee;
+  text-align: left;
+}
+td pre {
+  display: inline-block;
+}
+td:first-child {
+  border-left: none;
+}
+td:last-child {
+  border-right: none;
+}
+tr:hover {
+  background-color: #f0f0f0;
+}
+</style></head><body><div class='centered'><table><div class='source-name-title'><pre>/home/runner/work/jessica/jessica/include/jessica/data/geotechnical/foundation_strip.h</pre></div><tr><td><pre>Line</pre></td><td><pre>Count</pre></td><td><pre>Source</pre></td></tr><tr><td class='line-number'><a name='L1' href='#L1'><pre>1</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#pragma once</pre></td></tr><tr><td class='line-number'><a name='L2' href='#L2'><pre>2</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L3' href='#L3'><pre>3</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;memory&gt;</pre></td></tr><tr><td class='line-number'><a name='L4' href='#L4'><pre>4</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L5' href='#L5'><pre>5</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>namespace Data::Geotechnical</pre></td></tr><tr><td class='line-number'><a name='L6' href='#L6'><pre>6</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>{</pre></td></tr><tr><td class='line-number'><a name='L7' href='#L7'><pre>7</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>class IFoundationStrip</pre></td></tr><tr><td class='line-number'><a name='L8' href='#L8'><pre>8</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>{</pre></td></tr><tr><td class='line-number'><a name='L9' href='#L9'><pre>9</pre></a></td><td class='uncovered-line'></td><td class='code'><pre> public:</pre></td></tr><tr><td class='line-number'><a name='L10' href='#L10'><pre>10</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  IFoundationStrip(IFoundationStrip &amp;&amp;) noexcept = delete;</pre></td></tr><tr><td class='line-number'><a name='L11' href='#L11'><pre>11</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  IFoundationStrip &amp;operator=(const IFoundationStrip &amp;) = delete;</pre></td></tr><tr><td class='line-number'><a name='L12' href='#L12'><pre>12</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  IFoundationStrip &amp;operator=(IFoundationStrip &amp;&amp;) noexcept = delete;</pre></td></tr><tr><td class='line-number'><a name='L13' href='#L13'><pre>13</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>  virtual ~IFoundationStrip() = default;</pre></td></tr><tr><td class='line-number'><a name='L14' href='#L14'><pre>14</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L15' href='#L15'><pre>15</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  [[nodiscard]] virtual std::shared_ptr&lt;IFoundationStrip&gt; Clone() const = 0;</pre></td></tr><tr><td class='line-number'><a name='L16' href='#L16'><pre>16</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L17' href='#L17'><pre>17</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  [[nodiscard]] virtual double B() const noexcept = 0;</pre></td></tr><tr><td class='line-number'><a name='L18' href='#L18'><pre>18</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  [[nodiscard]] virtual std::shared_ptr&lt;IFoundationStrip&gt; B(double b) = 0;</pre></td></tr><tr><td class='line-number'><a name='L19' href='#L19'><pre>19</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L20' href='#L20'><pre>20</pre></a></td><td class='uncovered-line'></td><td class='code'><pre> protected:</pre></td></tr><tr><td class='line-number'><a name='L21' href='#L21'><pre>21</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  IFoundationStrip() = default;</pre></td></tr><tr><td class='line-number'><a name='L22' href='#L22'><pre>22</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  IFoundationStrip(const IFoundationStrip &amp;) = default;</pre></td></tr><tr><td class='line-number'><a name='L23' href='#L23'><pre>23</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>};</pre></td></tr><tr><td class='line-number'><a name='L24' href='#L24'><pre>24</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L25' href='#L25'><pre>25</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>class Create</pre></td></tr><tr><td class='line-number'><a name='L26' href='#L26'><pre>26</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>{</pre></td></tr><tr><td class='line-number'><a name='L27' href='#L27'><pre>27</pre></a></td><td class='uncovered-line'></td><td class='code'><pre> public:</pre></td></tr><tr><td class='line-number'><a name='L28' href='#L28'><pre>28</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  static std::shared_ptr&lt;IFoundationStrip&gt; FoundationStrip();</pre></td></tr><tr><td class='line-number'><a name='L29' href='#L29'><pre>29</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>};</pre></td></tr><tr><td class='line-number'><a name='L30' href='#L30'><pre>30</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>}  // namespace Data::Geotechnical</pre></td></tr></table></div></body></html><!doctype html><html><head><meta name='viewport' content='width=device-width,initial-scale=1'><meta charset='UTF-8'><style>.red {
+  background-color: #ffd0d0;
+}
+.cyan {
+  background-color: cyan;
+}
+body {
+  font-family: -apple-system, sans-serif;
+}
+pre {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+.source-name-title {
+  padding: 5px 10px;
+  border-bottom: 1px solid #dbdbdb;
+  background-color: #eee;
+  line-height: 35px;
+}
+.centered {
+  display: table;
+  margin-left: left;
+  margin-right: auto;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+.expansion-view {
+  background-color: rgba(0, 0, 0, 0);
+  margin-left: 0px;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+table {
+  border-collapse: collapse;
+}
+.light-row {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+}
+.light-row-bold {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+  font-weight: bold;
+}
+.column-entry {
+  text-align: left;
+}
+.column-entry-bold {
+  font-weight: bold;
+  text-align: left;
+}
+.column-entry-yellow {
+  text-align: left;
+  background-color: #ffffd0;
+}
+.column-entry-yellow:hover {
+  background-color: #fffff0;
+}
+.column-entry-red {
+  text-align: left;
+  background-color: #ffd0d0;
+}
+.column-entry-red:hover {
+  background-color: #fff0f0;
+}
+.column-entry-green {
+  text-align: left;
+  background-color: #d0ffd0;
+}
+.column-entry-green:hover {
+  background-color: #f0fff0;
+}
+.line-number {
+  text-align: right;
+  color: #aaa;
+}
+.covered-line {
+  text-align: right;
+  color: #0080ff;
+}
+.uncovered-line {
+  text-align: right;
+  color: #ff3300;
+}
+.tooltip {
+  position: relative;
+  display: inline;
+  background-color: #b3e6ff;
+  text-decoration: none;
+}
+.tooltip span.tooltip-content {
+  position: absolute;
+  width: 100px;
+  margin-left: -50px;
+  color: #FFFFFF;
+  background: #000000;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 6px;
+}
+.tooltip span.tooltip-content:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-top: 8px solid #000000;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+:hover.tooltip span.tooltip-content {
+  visibility: visible;
+  opacity: 0.8;
+  bottom: 30px;
+  left: 50%;
+  z-index: 999;
+}
+th, td {
+  vertical-align: top;
+  padding: 2px 8px;
+  border-collapse: collapse;
+  border-right: solid 1px #eee;
+  border-left: solid 1px #eee;
+  text-align: left;
+}
+td pre {
+  display: inline-block;
+}
+td:first-child {
+  border-left: none;
+}
+td:last-child {
+  border-right: none;
+}
+tr:hover {
+  background-color: #f0f0f0;
+}
+</style></head><body><div class='centered'><table><div class='source-name-title'><pre>/home/runner/work/jessica/jessica/include/jessica/data/load/vertical_eccentric.h</pre></div><tr><td><pre>Line</pre></td><td><pre>Count</pre></td><td><pre>Source</pre></td></tr><tr><td class='line-number'><a name='L1' href='#L1'><pre>1</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#pragma once</pre></td></tr><tr><td class='line-number'><a name='L2' href='#L2'><pre>2</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L3' href='#L3'><pre>3</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;memory&gt;</pre></td></tr><tr><td class='line-number'><a name='L4' href='#L4'><pre>4</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L5' href='#L5'><pre>5</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>namespace Data::Load</pre></td></tr><tr><td class='line-number'><a name='L6' href='#L6'><pre>6</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>{</pre></td></tr><tr><td class='line-number'><a name='L7' href='#L7'><pre>7</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>class IVerticalEccentric</pre></td></tr><tr><td class='line-number'><a name='L8' href='#L8'><pre>8</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>{</pre></td></tr><tr><td class='line-number'><a name='L9' href='#L9'><pre>9</pre></a></td><td class='uncovered-line'></td><td class='code'><pre> public:</pre></td></tr><tr><td class='line-number'><a name='L10' href='#L10'><pre>10</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  IVerticalEccentric(IVerticalEccentric &amp;&amp;) noexcept = delete;</pre></td></tr><tr><td class='line-number'><a name='L11' href='#L11'><pre>11</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  IVerticalEccentric &amp;operator=(const IVerticalEccentric &amp;) = delete;</pre></td></tr><tr><td class='line-number'><a name='L12' href='#L12'><pre>12</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  IVerticalEccentric &amp;operator=(IVerticalEccentric &amp;&amp;) noexcept = delete;</pre></td></tr><tr><td class='line-number'><a name='L13' href='#L13'><pre>13</pre></a></td><td class='covered-line'><pre>8</pre></td><td class='code'><pre>  virtual ~IVerticalEccentric() = default;</pre></td></tr><tr><td class='line-number'><a name='L14' href='#L14'><pre>14</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L15' href='#L15'><pre>15</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  [[nodiscard]] virtual std::shared_ptr&lt;IVerticalEccentric&gt; Clone() const = 0;</pre></td></tr><tr><td class='line-number'><a name='L16' href='#L16'><pre>16</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L17' href='#L17'><pre>17</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  [[nodiscard]] virtual double V() const noexcept = 0;</pre></td></tr><tr><td class='line-number'><a name='L18' href='#L18'><pre>18</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  [[nodiscard]] virtual double E() const noexcept = 0;</pre></td></tr><tr><td class='line-number'><a name='L19' href='#L19'><pre>19</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  [[nodiscard]] virtual std::shared_ptr&lt;IVerticalEccentric&gt; V(</pre></td></tr><tr><td class='line-number'><a name='L20' href='#L20'><pre>20</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>      double v) const = 0;</pre></td></tr><tr><td class='line-number'><a name='L21' href='#L21'><pre>21</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  [[nodiscard]] virtual std::shared_ptr&lt;IVerticalEccentric&gt; E(</pre></td></tr><tr><td class='line-number'><a name='L22' href='#L22'><pre>22</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>      double e) const = 0;</pre></td></tr><tr><td class='line-number'><a name='L23' href='#L23'><pre>23</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L24' href='#L24'><pre>24</pre></a></td><td class='uncovered-line'></td><td class='code'><pre> protected:</pre></td></tr><tr><td class='line-number'><a name='L25' href='#L25'><pre>25</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>  IVerticalEccentric() = default;</pre></td></tr><tr><td class='line-number'><a name='L26' href='#L26'><pre>26</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>  IVerticalEccentric(const IVerticalEccentric &amp;) = default;</pre></td></tr><tr><td class='line-number'><a name='L27' href='#L27'><pre>27</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>};</pre></td></tr><tr><td class='line-number'><a name='L28' href='#L28'><pre>28</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L29' href='#L29'><pre>29</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>class Create</pre></td></tr><tr><td class='line-number'><a name='L30' href='#L30'><pre>30</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>{</pre></td></tr><tr><td class='line-number'><a name='L31' href='#L31'><pre>31</pre></a></td><td class='uncovered-line'></td><td class='code'><pre> public:</pre></td></tr><tr><td class='line-number'><a name='L32' href='#L32'><pre>32</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  static std::shared_ptr&lt;IVerticalEccentric&gt; VerticalEccentric();</pre></td></tr><tr><td class='line-number'><a name='L33' href='#L33'><pre>33</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>};</pre></td></tr><tr><td class='line-number'><a name='L34' href='#L34'><pre>34</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>}  // namespace Data::Load</pre></td></tr></table></div></body></html><!doctype html><html><head><meta name='viewport' content='width=device-width,initial-scale=1'><meta charset='UTF-8'><style>.red {
+  background-color: #ffd0d0;
+}
+.cyan {
+  background-color: cyan;
+}
+body {
+  font-family: -apple-system, sans-serif;
+}
+pre {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+.source-name-title {
+  padding: 5px 10px;
+  border-bottom: 1px solid #dbdbdb;
+  background-color: #eee;
+  line-height: 35px;
+}
+.centered {
+  display: table;
+  margin-left: left;
+  margin-right: auto;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+.expansion-view {
+  background-color: rgba(0, 0, 0, 0);
+  margin-left: 0px;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+table {
+  border-collapse: collapse;
+}
+.light-row {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+}
+.light-row-bold {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+  font-weight: bold;
+}
+.column-entry {
+  text-align: left;
+}
+.column-entry-bold {
+  font-weight: bold;
+  text-align: left;
+}
+.column-entry-yellow {
+  text-align: left;
+  background-color: #ffffd0;
+}
+.column-entry-yellow:hover {
+  background-color: #fffff0;
+}
+.column-entry-red {
+  text-align: left;
+  background-color: #ffd0d0;
+}
+.column-entry-red:hover {
+  background-color: #fff0f0;
+}
+.column-entry-green {
+  text-align: left;
+  background-color: #d0ffd0;
+}
+.column-entry-green:hover {
+  background-color: #f0fff0;
+}
+.line-number {
+  text-align: right;
+  color: #aaa;
+}
+.covered-line {
+  text-align: right;
+  color: #0080ff;
+}
+.uncovered-line {
+  text-align: right;
+  color: #ff3300;
+}
+.tooltip {
+  position: relative;
+  display: inline;
+  background-color: #b3e6ff;
+  text-decoration: none;
+}
+.tooltip span.tooltip-content {
+  position: absolute;
+  width: 100px;
+  margin-left: -50px;
+  color: #FFFFFF;
+  background: #000000;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 6px;
+}
+.tooltip span.tooltip-content:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-top: 8px solid #000000;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+:hover.tooltip span.tooltip-content {
+  visibility: visible;
+  opacity: 0.8;
+  bottom: 30px;
+  left: 50%;
+  z-index: 999;
+}
+th, td {
+  vertical-align: top;
+  padding: 2px 8px;
+  border-collapse: collapse;
+  border-right: solid 1px #eee;
+  border-left: solid 1px #eee;
+  text-align: left;
+}
+td pre {
+  display: inline-block;
+}
+td:first-child {
+  border-left: none;
+}
+td:last-child {
+  border-right: none;
+}
+tr:hover {
+  background-color: #f0f0f0;
+}
+</style></head><body><div class='centered'><table><div class='source-name-title'><pre>/home/runner/work/jessica/jessica/src/calc/geotechnical/meyerhof.cc</pre></div><tr><td><pre>Line</pre></td><td><pre>Count</pre></td><td><pre>Source (<a href='#L19'>jump to first uncovered line</a>)</pre></td></tr><tr><td class='line-number'><a name='L1' href='#L1'><pre>1</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;memory&gt;</pre></td></tr><tr><td class='line-number'><a name='L2' href='#L2'><pre>2</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L3' href='#L3'><pre>3</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;jessica/calc/geotechnical/meyerhof.h&gt;</pre></td></tr><tr><td class='line-number'><a name='L4' href='#L4'><pre>4</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;jessica/data/geotechnical/foundation_strip.h&gt;</pre></td></tr><tr><td class='line-number'><a name='L5' href='#L5'><pre>5</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;jessica/data/load/vertical_eccentric.h&gt;</pre></td></tr><tr><td class='line-number'><a name='L6' href='#L6'><pre>6</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L7' href='#L7'><pre>7</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>namespace</pre></td></tr><tr><td class='line-number'><a name='L8' href='#L8'><pre>8</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>{</pre></td></tr><tr><td class='line-number'><a name='L9' href='#L9'><pre>9</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>class MeyerhofShallowFoundation final</pre></td></tr><tr><td class='line-number'><a name='L10' href='#L10'><pre>10</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    : public Calc::Geotechnical::IMeyerhofShallowFoundation</pre></td></tr><tr><td class='line-number'><a name='L11' href='#L11'><pre>11</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>{</pre></td></tr><tr><td class='line-number'><a name='L12' href='#L12'><pre>12</pre></a></td><td class='uncovered-line'></td><td class='code'><pre> public:</pre></td></tr><tr><td class='line-number'><a name='L13' href='#L13'><pre>13</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  MeyerhofShallowFoundation(</pre></td></tr><tr><td class='line-number'><a name='L14' href='#L14'><pre>14</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>      const std::shared_ptr&lt;Data::Load::IVerticalEccentric&gt;&amp; load,</pre></td></tr><tr><td class='line-number'><a name='L15' href='#L15'><pre>15</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>      const std::shared_ptr&lt;Data::Geotechnical::IFoundationStrip&gt;&amp; foundation)</pre></td></tr><tr><td class='line-number'><a name='L16' href='#L16'><pre>16</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>      : load_(load), foundation_(foundation)</pre></td></tr><tr><td class='line-number'><a name='L17' href='#L17'><pre>17</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>  {</pre></td></tr><tr><td class='line-number'><a name='L18' href='#L18'><pre>18</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>  }</pre></td></tr><tr><td class='line-number'><a name='L19' href='#L19'><pre>19</pre></a></td><td class='uncovered-line'><pre>0</pre></td><td class='code'><pre>  MeyerhofShallowFoundation(const MeyerhofShallowFoundation&amp;) = defaul<span class='red'>t</span>;</pre></td></tr><tr><td class='line-number'><a name='L20' href='#L20'><pre>20</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  MeyerhofShallowFoundation(MeyerhofShallowFoundation&amp;&amp;) noexcept = delete;</pre></td></tr><tr><td class='line-number'><a name='L21' href='#L21'><pre>21</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  MeyerhofShallowFoundation&amp; operator=(const MeyerhofShallowFoundation&amp;) =</pre></td></tr><tr><td class='line-number'><a name='L22' href='#L22'><pre>22</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>      delete;</pre></td></tr><tr><td class='line-number'><a name='L23' href='#L23'><pre>23</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  MeyerhofShallowFoundation&amp; operator=(MeyerhofShallowFoundation&amp;&amp;) noexcept =</pre></td></tr><tr><td class='line-number'><a name='L24' href='#L24'><pre>24</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>      delete;</pre></td></tr><tr><td class='line-number'><a name='L25' href='#L25'><pre>25</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>  ~MeyerhofShallowFoundation() override = default;</pre></td></tr><tr><td class='line-number'><a name='L26' href='#L26'><pre>26</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L27' href='#L27'><pre>27</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  [[nodiscard]] std::shared_ptr&lt;IMeyerhofShallowFoundation&gt; Clone()</pre></td></tr><tr><td class='line-number'><a name='L28' href='#L28'><pre>28</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>      const override</pre></td></tr><tr><td class='line-number'><a name='L29' href='#L29'><pre>29</pre></a></td><td class='uncovered-line'><pre>0</pre></td><td class='code'><pre>  <span class='red'>{</span></pre></td></tr><tr><td class='line-number'><a name='L30' href='#L30'><pre>30</pre></a></td><td class='uncovered-line'><pre>0</pre></td><td class='code'><pre><span class='red'>    return std::make_shared&lt;MeyerhofShallowFoundation&gt;(*this);</span></pre></td></tr><tr><td class='line-number'><a name='L31' href='#L31'><pre>31</pre></a></td><td class='uncovered-line'><pre>0</pre></td><td class='code'><pre><span class='red'>  }</span></pre></td></tr><tr><td class='line-number'><a name='L32' href='#L32'><pre>32</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L33' href='#L33'><pre>33</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>  [[nodiscard]] double Qref() const override { return load_-&gt;V() / B_(); }</pre></td></tr><tr><td class='line-number'><a name='L34' href='#L34'><pre>34</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  [[nodiscard]] double B_() const noexcept override</pre></td></tr><tr><td class='line-number'><a name='L35' href='#L35'><pre>35</pre></a></td><td class='covered-line'><pre>4</pre></td><td class='code'><pre>  {</pre></td></tr><tr><td class='line-number'><a name='L36' href='#L36'><pre>36</pre></a></td><td class='covered-line'><pre>4</pre></td><td class='code'><pre>    return foundation_-&gt;B() - 2. * load_-&gt;E();</pre></td></tr><tr><td class='line-number'><a name='L37' href='#L37'><pre>37</pre></a></td><td class='covered-line'><pre>4</pre></td><td class='code'><pre>  }</pre></td></tr><tr><td class='line-number'><a name='L38' href='#L38'><pre>38</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L39' href='#L39'><pre>39</pre></a></td><td class='uncovered-line'></td><td class='code'><pre> private:</pre></td></tr><tr><td class='line-number'><a name='L40' href='#L40'><pre>40</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  const std::shared_ptr&lt;Data::Load::IVerticalEccentric&gt;&amp; load_;</pre></td></tr><tr><td class='line-number'><a name='L41' href='#L41'><pre>41</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  const std::shared_ptr&lt;Data::Geotechnical::IFoundationStrip&gt;&amp; foundation_;</pre></td></tr><tr><td class='line-number'><a name='L42' href='#L42'><pre>42</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>};</pre></td></tr><tr><td class='line-number'><a name='L43' href='#L43'><pre>43</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>}  // namespace</pre></td></tr><tr><td class='line-number'><a name='L44' href='#L44'><pre>44</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L45' href='#L45'><pre>45</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>namespace Calc::Geotechnical</pre></td></tr><tr><td class='line-number'><a name='L46' href='#L46'><pre>46</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>{</pre></td></tr><tr><td class='line-number'><a name='L47' href='#L47'><pre>47</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>std::shared_ptr&lt;IMeyerhofShallowFoundation&gt;</pre></td></tr><tr><td class='line-number'><a name='L48' href='#L48'><pre>48</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>Geotechnical::Create::MeyerhofShallowFoundation(</pre></td></tr><tr><td class='line-number'><a name='L49' href='#L49'><pre>49</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    const std::shared_ptr&lt;Data::Load::IVerticalEccentric&gt;&amp; load,</pre></td></tr><tr><td class='line-number'><a name='L50' href='#L50'><pre>50</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>    const std::shared_ptr&lt;Data::Geotechnical::IFoundationStrip&gt;&amp; foundation)</pre></td></tr><tr><td class='line-number'><a name='L51' href='#L51'><pre>51</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>{</pre></td></tr><tr><td class='line-number'><a name='L52' href='#L52'><pre>52</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>  return std::make_shared&lt;::MeyerhofShallowFoundation&gt;(load, foundation);</pre></td></tr><tr><td class='line-number'><a name='L53' href='#L53'><pre>53</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>}</pre></td></tr><tr><td class='line-number'><a name='L54' href='#L54'><pre>54</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>}  // namespace Calc::Geotechnical</pre></td></tr></table></div></body></html><!doctype html><html><head><meta name='viewport' content='width=device-width,initial-scale=1'><meta charset='UTF-8'><style>.red {
+  background-color: #ffd0d0;
+}
+.cyan {
+  background-color: cyan;
+}
+body {
+  font-family: -apple-system, sans-serif;
+}
+pre {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+.source-name-title {
+  padding: 5px 10px;
+  border-bottom: 1px solid #dbdbdb;
+  background-color: #eee;
+  line-height: 35px;
+}
+.centered {
+  display: table;
+  margin-left: left;
+  margin-right: auto;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+.expansion-view {
+  background-color: rgba(0, 0, 0, 0);
+  margin-left: 0px;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+table {
+  border-collapse: collapse;
+}
+.light-row {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+}
+.light-row-bold {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+  font-weight: bold;
+}
+.column-entry {
+  text-align: left;
+}
+.column-entry-bold {
+  font-weight: bold;
+  text-align: left;
+}
+.column-entry-yellow {
+  text-align: left;
+  background-color: #ffffd0;
+}
+.column-entry-yellow:hover {
+  background-color: #fffff0;
+}
+.column-entry-red {
+  text-align: left;
+  background-color: #ffd0d0;
+}
+.column-entry-red:hover {
+  background-color: #fff0f0;
+}
+.column-entry-green {
+  text-align: left;
+  background-color: #d0ffd0;
+}
+.column-entry-green:hover {
+  background-color: #f0fff0;
+}
+.line-number {
+  text-align: right;
+  color: #aaa;
+}
+.covered-line {
+  text-align: right;
+  color: #0080ff;
+}
+.uncovered-line {
+  text-align: right;
+  color: #ff3300;
+}
+.tooltip {
+  position: relative;
+  display: inline;
+  background-color: #b3e6ff;
+  text-decoration: none;
+}
+.tooltip span.tooltip-content {
+  position: absolute;
+  width: 100px;
+  margin-left: -50px;
+  color: #FFFFFF;
+  background: #000000;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 6px;
+}
+.tooltip span.tooltip-content:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-top: 8px solid #000000;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+:hover.tooltip span.tooltip-content {
+  visibility: visible;
+  opacity: 0.8;
+  bottom: 30px;
+  left: 50%;
+  z-index: 999;
+}
+th, td {
+  vertical-align: top;
+  padding: 2px 8px;
+  border-collapse: collapse;
+  border-right: solid 1px #eee;
+  border-left: solid 1px #eee;
+  text-align: left;
+}
+td pre {
+  display: inline-block;
+}
+td:first-child {
+  border-left: none;
+}
+td:last-child {
+  border-right: none;
+}
+tr:hover {
+  background-color: #f0f0f0;
+}
+</style></head><body><div class='centered'><table><div class='source-name-title'><pre>/home/runner/work/jessica/jessica/src/data/geotechnical/foundation_strip.cc</pre></div><tr><td><pre>Line</pre></td><td><pre>Count</pre></td><td><pre>Source (<a href='#L19'>jump to first uncovered line</a>)</pre></td></tr><tr><td class='line-number'><a name='L1' href='#L1'><pre>1</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;limits&gt;</pre></td></tr><tr><td class='line-number'><a name='L2' href='#L2'><pre>2</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;memory&gt;</pre></td></tr><tr><td class='line-number'><a name='L3' href='#L3'><pre>3</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L4' href='#L4'><pre>4</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;jessica/data/geotechnical/foundation_strip.h&gt;</pre></td></tr><tr><td class='line-number'><a name='L5' href='#L5'><pre>5</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L6' href='#L6'><pre>6</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>namespace</pre></td></tr><tr><td class='line-number'><a name='L7' href='#L7'><pre>7</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>{</pre></td></tr><tr><td class='line-number'><a name='L8' href='#L8'><pre>8</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>class FoundationStrip : public Data::Geotechnical::IFoundationStrip</pre></td></tr><tr><td class='line-number'><a name='L9' href='#L9'><pre>9</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>{</pre></td></tr><tr><td class='line-number'><a name='L10' href='#L10'><pre>10</pre></a></td><td class='uncovered-line'></td><td class='code'><pre> public:</pre></td></tr><tr><td class='line-number'><a name='L11' href='#L11'><pre>11</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  FoundationStrip() = default;</pre></td></tr><tr><td class='line-number'><a name='L12' href='#L12'><pre>12</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  FoundationStrip(const FoundationStrip &amp;) = default;</pre></td></tr><tr><td class='line-number'><a name='L13' href='#L13'><pre>13</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  FoundationStrip(FoundationStrip &amp;&amp;) noexcept = delete;</pre></td></tr><tr><td class='line-number'><a name='L14' href='#L14'><pre>14</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  FoundationStrip &amp;operator=(const FoundationStrip &amp;) = delete;</pre></td></tr><tr><td class='line-number'><a name='L15' href='#L15'><pre>15</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  FoundationStrip &amp;operator=(FoundationStrip &amp;&amp;) noexcept = delete;</pre></td></tr><tr><td class='line-number'><a name='L16' href='#L16'><pre>16</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>  ~FoundationStrip() override = default;</pre></td></tr><tr><td class='line-number'><a name='L17' href='#L17'><pre>17</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L18' href='#L18'><pre>18</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  [[nodiscard]] std::shared_ptr&lt;IFoundationStrip&gt; Clone() const override</pre></td></tr><tr><td class='line-number'><a name='L19' href='#L19'><pre>19</pre></a></td><td class='uncovered-line'><pre>0</pre></td><td class='code'><pre>  <span class='red'>{</span></pre></td></tr><tr><td class='line-number'><a name='L20' href='#L20'><pre>20</pre></a></td><td class='uncovered-line'><pre>0</pre></td><td class='code'><pre><span class='red'>    return std::make_shared&lt;FoundationStrip&gt;(*this);</span></pre></td></tr><tr><td class='line-number'><a name='L21' href='#L21'><pre>21</pre></a></td><td class='uncovered-line'><pre>0</pre></td><td class='code'><pre><span class='red'>  }</span></pre></td></tr><tr><td class='line-number'><a name='L22' href='#L22'><pre>22</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L23' href='#L23'><pre>23</pre></a></td><td class='covered-line'><pre>4</pre></td><td class='code'><pre>  [[nodiscard]] double B() const noexcept override { return b_; }</pre></td></tr><tr><td class='line-number'><a name='L24' href='#L24'><pre>24</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  [[nodiscard]] std::shared_ptr&lt;IFoundationStrip&gt; B(double b) override</pre></td></tr><tr><td class='line-number'><a name='L25' href='#L25'><pre>25</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  {</pre></td></tr><tr><td class='line-number'><a name='L26' href='#L26'><pre>26</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>    auto retval = std::make_shared&lt;FoundationStrip&gt;(*this);</pre></td></tr><tr><td class='line-number'><a name='L27' href='#L27'><pre>27</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>    retval-&gt;b_ = b;</pre></td></tr><tr><td class='line-number'><a name='L28' href='#L28'><pre>28</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>    return retval;</pre></td></tr><tr><td class='line-number'><a name='L29' href='#L29'><pre>29</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  }</pre></td></tr><tr><td class='line-number'><a name='L30' href='#L30'><pre>30</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L31' href='#L31'><pre>31</pre></a></td><td class='uncovered-line'></td><td class='code'><pre> private:</pre></td></tr><tr><td class='line-number'><a name='L32' href='#L32'><pre>32</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  double b_ = std::numeric_limits&lt;double&gt;::quiet_NaN();</pre></td></tr><tr><td class='line-number'><a name='L33' href='#L33'><pre>33</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>};</pre></td></tr><tr><td class='line-number'><a name='L34' href='#L34'><pre>34</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>}  // namespace</pre></td></tr><tr><td class='line-number'><a name='L35' href='#L35'><pre>35</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L36' href='#L36'><pre>36</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>namespace Data::Geotechnical</pre></td></tr><tr><td class='line-number'><a name='L37' href='#L37'><pre>37</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>{</pre></td></tr><tr><td class='line-number'><a name='L38' href='#L38'><pre>38</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>std::shared_ptr&lt;IFoundationStrip&gt; Create::FoundationStrip()</pre></td></tr><tr><td class='line-number'><a name='L39' href='#L39'><pre>39</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>{</pre></td></tr><tr><td class='line-number'><a name='L40' href='#L40'><pre>40</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  return std::make_shared&lt;::FoundationStrip&gt;();</pre></td></tr><tr><td class='line-number'><a name='L41' href='#L41'><pre>41</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>}</pre></td></tr><tr><td class='line-number'><a name='L42' href='#L42'><pre>42</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>}  // namespace Data::Geotechnical</pre></td></tr></table></div></body></html><!doctype html><html><head><meta name='viewport' content='width=device-width,initial-scale=1'><meta charset='UTF-8'><style>.red {
+  background-color: #ffd0d0;
+}
+.cyan {
+  background-color: cyan;
+}
+body {
+  font-family: -apple-system, sans-serif;
+}
+pre {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+.source-name-title {
+  padding: 5px 10px;
+  border-bottom: 1px solid #dbdbdb;
+  background-color: #eee;
+  line-height: 35px;
+}
+.centered {
+  display: table;
+  margin-left: left;
+  margin-right: auto;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+.expansion-view {
+  background-color: rgba(0, 0, 0, 0);
+  margin-left: 0px;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+table {
+  border-collapse: collapse;
+}
+.light-row {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+}
+.light-row-bold {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+  font-weight: bold;
+}
+.column-entry {
+  text-align: left;
+}
+.column-entry-bold {
+  font-weight: bold;
+  text-align: left;
+}
+.column-entry-yellow {
+  text-align: left;
+  background-color: #ffffd0;
+}
+.column-entry-yellow:hover {
+  background-color: #fffff0;
+}
+.column-entry-red {
+  text-align: left;
+  background-color: #ffd0d0;
+}
+.column-entry-red:hover {
+  background-color: #fff0f0;
+}
+.column-entry-green {
+  text-align: left;
+  background-color: #d0ffd0;
+}
+.column-entry-green:hover {
+  background-color: #f0fff0;
+}
+.line-number {
+  text-align: right;
+  color: #aaa;
+}
+.covered-line {
+  text-align: right;
+  color: #0080ff;
+}
+.uncovered-line {
+  text-align: right;
+  color: #ff3300;
+}
+.tooltip {
+  position: relative;
+  display: inline;
+  background-color: #b3e6ff;
+  text-decoration: none;
+}
+.tooltip span.tooltip-content {
+  position: absolute;
+  width: 100px;
+  margin-left: -50px;
+  color: #FFFFFF;
+  background: #000000;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 6px;
+}
+.tooltip span.tooltip-content:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-top: 8px solid #000000;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+:hover.tooltip span.tooltip-content {
+  visibility: visible;
+  opacity: 0.8;
+  bottom: 30px;
+  left: 50%;
+  z-index: 999;
+}
+th, td {
+  vertical-align: top;
+  padding: 2px 8px;
+  border-collapse: collapse;
+  border-right: solid 1px #eee;
+  border-left: solid 1px #eee;
+  text-align: left;
+}
+td pre {
+  display: inline-block;
+}
+td:first-child {
+  border-left: none;
+}
+td:last-child {
+  border-right: none;
+}
+tr:hover {
+  background-color: #f0f0f0;
+}
+</style></head><body><div class='centered'><table><div class='source-name-title'><pre>/home/runner/work/jessica/jessica/src/data/load/vertical_eccentric.cc</pre></div><tr><td><pre>Line</pre></td><td><pre>Count</pre></td><td><pre>Source</pre></td></tr><tr><td class='line-number'><a name='L1' href='#L1'><pre>1</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;limits&gt;</pre></td></tr><tr><td class='line-number'><a name='L2' href='#L2'><pre>2</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;memory&gt;</pre></td></tr><tr><td class='line-number'><a name='L3' href='#L3'><pre>3</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L4' href='#L4'><pre>4</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;jessica/data/load/vertical_eccentric.h&gt;</pre></td></tr><tr><td class='line-number'><a name='L5' href='#L5'><pre>5</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L6' href='#L6'><pre>6</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>namespace</pre></td></tr><tr><td class='line-number'><a name='L7' href='#L7'><pre>7</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>{</pre></td></tr><tr><td class='line-number'><a name='L8' href='#L8'><pre>8</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>class VerticalEccentric : public Data::Load::IVerticalEccentric</pre></td></tr><tr><td class='line-number'><a name='L9' href='#L9'><pre>9</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>{</pre></td></tr><tr><td class='line-number'><a name='L10' href='#L10'><pre>10</pre></a></td><td class='uncovered-line'></td><td class='code'><pre> public:</pre></td></tr><tr><td class='line-number'><a name='L11' href='#L11'><pre>11</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>  VerticalEccentric() = default;</pre></td></tr><tr><td class='line-number'><a name='L12' href='#L12'><pre>12</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>  VerticalEccentric(const VerticalEccentric &amp;) = default;</pre></td></tr><tr><td class='line-number'><a name='L13' href='#L13'><pre>13</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  VerticalEccentric(VerticalEccentric &amp;&amp;) noexcept = delete;</pre></td></tr><tr><td class='line-number'><a name='L14' href='#L14'><pre>14</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  VerticalEccentric &amp;operator=(const VerticalEccentric &amp;) = delete;</pre></td></tr><tr><td class='line-number'><a name='L15' href='#L15'><pre>15</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  VerticalEccentric &amp;operator=(VerticalEccentric &amp;&amp;) noexcept = delete;</pre></td></tr><tr><td class='line-number'><a name='L16' href='#L16'><pre>16</pre></a></td><td class='covered-line'><pre>8</pre></td><td class='code'><pre>  ~VerticalEccentric() override = default;</pre></td></tr><tr><td class='line-number'><a name='L17' href='#L17'><pre>17</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L18' href='#L18'><pre>18</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  [[nodiscard]] std::shared_ptr&lt;IVerticalEccentric&gt; Clone() const override</pre></td></tr><tr><td class='line-number'><a name='L19' href='#L19'><pre>19</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  {</pre></td></tr><tr><td class='line-number'><a name='L20' href='#L20'><pre>20</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>    return std::make_shared&lt;VerticalEccentric&gt;(*this);</pre></td></tr><tr><td class='line-number'><a name='L21' href='#L21'><pre>21</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  }</pre></td></tr><tr><td class='line-number'><a name='L22' href='#L22'><pre>22</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L23' href='#L23'><pre>23</pre></a></td><td class='covered-line'><pre>7</pre></td><td class='code'><pre>  [[nodiscard]] double V() const noexcept override { return v_; }</pre></td></tr><tr><td class='line-number'><a name='L24' href='#L24'><pre>24</pre></a></td><td class='covered-line'><pre>9</pre></td><td class='code'><pre>  [[nodiscard]] double E() const noexcept override { return e_; }</pre></td></tr><tr><td class='line-number'><a name='L25' href='#L25'><pre>25</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  [[nodiscard]] std::shared_ptr&lt;IVerticalEccentric&gt; V(double v) const override</pre></td></tr><tr><td class='line-number'><a name='L26' href='#L26'><pre>26</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>  {</pre></td></tr><tr><td class='line-number'><a name='L27' href='#L27'><pre>27</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>    auto retval = std::make_shared&lt;VerticalEccentric&gt;(*this);</pre></td></tr><tr><td class='line-number'><a name='L28' href='#L28'><pre>28</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>    retval-&gt;v_ = v;</pre></td></tr><tr><td class='line-number'><a name='L29' href='#L29'><pre>29</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>    return retval;</pre></td></tr><tr><td class='line-number'><a name='L30' href='#L30'><pre>30</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>  }</pre></td></tr><tr><td class='line-number'><a name='L31' href='#L31'><pre>31</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  [[nodiscard]] std::shared_ptr&lt;IVerticalEccentric&gt; E(double e) const override</pre></td></tr><tr><td class='line-number'><a name='L32' href='#L32'><pre>32</pre></a></td><td class='covered-line'><pre>3</pre></td><td class='code'><pre>  {</pre></td></tr><tr><td class='line-number'><a name='L33' href='#L33'><pre>33</pre></a></td><td class='covered-line'><pre>3</pre></td><td class='code'><pre>    auto retval = std::make_shared&lt;VerticalEccentric&gt;(*this);</pre></td></tr><tr><td class='line-number'><a name='L34' href='#L34'><pre>34</pre></a></td><td class='covered-line'><pre>3</pre></td><td class='code'><pre>    retval-&gt;e_ = e;</pre></td></tr><tr><td class='line-number'><a name='L35' href='#L35'><pre>35</pre></a></td><td class='covered-line'><pre>3</pre></td><td class='code'><pre>    return retval;</pre></td></tr><tr><td class='line-number'><a name='L36' href='#L36'><pre>36</pre></a></td><td class='covered-line'><pre>3</pre></td><td class='code'><pre>  }</pre></td></tr><tr><td class='line-number'><a name='L37' href='#L37'><pre>37</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L38' href='#L38'><pre>38</pre></a></td><td class='uncovered-line'></td><td class='code'><pre> private:</pre></td></tr><tr><td class='line-number'><a name='L39' href='#L39'><pre>39</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  double v_ = std::numeric_limits&lt;double&gt;::quiet_NaN();</pre></td></tr><tr><td class='line-number'><a name='L40' href='#L40'><pre>40</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>  double e_ = std::numeric_limits&lt;double&gt;::quiet_NaN();</pre></td></tr><tr><td class='line-number'><a name='L41' href='#L41'><pre>41</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>};</pre></td></tr><tr><td class='line-number'><a name='L42' href='#L42'><pre>42</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>}  // namespace</pre></td></tr><tr><td class='line-number'><a name='L43' href='#L43'><pre>43</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L44' href='#L44'><pre>44</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>namespace Data::Load</pre></td></tr><tr><td class='line-number'><a name='L45' href='#L45'><pre>45</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>{</pre></td></tr><tr><td class='line-number'><a name='L46' href='#L46'><pre>46</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>std::shared_ptr&lt;IVerticalEccentric&gt; Create::VerticalEccentric()</pre></td></tr><tr><td class='line-number'><a name='L47' href='#L47'><pre>47</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>{</pre></td></tr><tr><td class='line-number'><a name='L48' href='#L48'><pre>48</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>  return std::make_shared&lt;::VerticalEccentric&gt;();</pre></td></tr><tr><td class='line-number'><a name='L49' href='#L49'><pre>49</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>}</pre></td></tr><tr><td class='line-number'><a name='L50' href='#L50'><pre>50</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>}  // namespace Data::Load</pre></td></tr></table></div></body></html><!doctype html><html><head><meta name='viewport' content='width=device-width,initial-scale=1'><meta charset='UTF-8'><style>.red {
+  background-color: #ffd0d0;
+}
+.cyan {
+  background-color: cyan;
+}
+body {
+  font-family: -apple-system, sans-serif;
+}
+pre {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+.source-name-title {
+  padding: 5px 10px;
+  border-bottom: 1px solid #dbdbdb;
+  background-color: #eee;
+  line-height: 35px;
+}
+.centered {
+  display: table;
+  margin-left: left;
+  margin-right: auto;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+.expansion-view {
+  background-color: rgba(0, 0, 0, 0);
+  margin-left: 0px;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+table {
+  border-collapse: collapse;
+}
+.light-row {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+}
+.light-row-bold {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+  font-weight: bold;
+}
+.column-entry {
+  text-align: left;
+}
+.column-entry-bold {
+  font-weight: bold;
+  text-align: left;
+}
+.column-entry-yellow {
+  text-align: left;
+  background-color: #ffffd0;
+}
+.column-entry-yellow:hover {
+  background-color: #fffff0;
+}
+.column-entry-red {
+  text-align: left;
+  background-color: #ffd0d0;
+}
+.column-entry-red:hover {
+  background-color: #fff0f0;
+}
+.column-entry-green {
+  text-align: left;
+  background-color: #d0ffd0;
+}
+.column-entry-green:hover {
+  background-color: #f0fff0;
+}
+.line-number {
+  text-align: right;
+  color: #aaa;
+}
+.covered-line {
+  text-align: right;
+  color: #0080ff;
+}
+.uncovered-line {
+  text-align: right;
+  color: #ff3300;
+}
+.tooltip {
+  position: relative;
+  display: inline;
+  background-color: #b3e6ff;
+  text-decoration: none;
+}
+.tooltip span.tooltip-content {
+  position: absolute;
+  width: 100px;
+  margin-left: -50px;
+  color: #FFFFFF;
+  background: #000000;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 6px;
+}
+.tooltip span.tooltip-content:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-top: 8px solid #000000;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+:hover.tooltip span.tooltip-content {
+  visibility: visible;
+  opacity: 0.8;
+  bottom: 30px;
+  left: 50%;
+  z-index: 999;
+}
+th, td {
+  vertical-align: top;
+  padding: 2px 8px;
+  border-collapse: collapse;
+  border-right: solid 1px #eee;
+  border-left: solid 1px #eee;
+  text-align: left;
+}
+td pre {
+  display: inline-block;
+}
+td:first-child {
+  border-left: none;
+}
+td:last-child {
+  border-right: none;
+}
+tr:hover {
+  background-color: #f0f0f0;
+}
+</style></head><body><div class='centered'><table><div class='source-name-title'><pre>/home/runner/work/jessica/jessica/test/calc/geotechnical/meyerhof.cc</pre></div><tr><td><pre>Line</pre></td><td><pre>Count</pre></td><td><pre>Source</pre></td></tr><tr><td class='line-number'><a name='L1' href='#L1'><pre>1</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;cmath&gt;</pre></td></tr><tr><td class='line-number'><a name='L2' href='#L2'><pre>2</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;memory&gt;</pre></td></tr><tr><td class='line-number'><a name='L3' href='#L3'><pre>3</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L4' href='#L4'><pre>4</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;gtest/gtest.h&gt;</pre></td></tr><tr><td class='line-number'><a name='L5' href='#L5'><pre>5</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L6' href='#L6'><pre>6</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;jessica/calc/geotechnical/meyerhof.h&gt;</pre></td></tr><tr><td class='line-number'><a name='L7' href='#L7'><pre>7</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;jessica/data/geotechnical/foundation_strip.h&gt;</pre></td></tr><tr><td class='line-number'><a name='L8' href='#L8'><pre>8</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;jessica/data/load/vertical_eccentric.h&gt;</pre></td></tr><tr><td class='line-number'><a name='L9' href='#L9'><pre>9</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L10' href='#L10'><pre>10</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>TEST(data, CalcMeyehof)  // NOLINT</pre></td></tr><tr><td class='line-number'><a name='L11' href='#L11'><pre>11</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>{</pre></td></tr><tr><td class='line-number'><a name='L12' href='#L12'><pre>12</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  const auto foundation = Data::Geotechnical::Create::FoundationStrip()-&gt;B(1.);</pre></td></tr><tr><td class='line-number'><a name='L13' href='#L13'><pre>13</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  const auto load =</pre></td></tr><tr><td class='line-number'><a name='L14' href='#L14'><pre>14</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      Data::Load::Create::VerticalEccentric()-&gt;V(100000.)-&gt;E(0.25);</pre></td></tr><tr><td class='line-number'><a name='L15' href='#L15'><pre>15</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  const auto calc =</pre></td></tr><tr><td class='line-number'><a name='L16' href='#L16'><pre>16</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      Calc::Geotechnical::Create::MeyerhofShallowFoundation(load, foundation);</pre></td></tr><tr><td class='line-number'><a name='L17' href='#L17'><pre>17</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  EXPECT_EQ(calc-&gt;B_(), 0.5);</pre></td></tr><tr><td class='line-number'><a name='L18' href='#L18'><pre>18</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  EXPECT_EQ(calc-&gt;Qref(), 200000.);</pre></td></tr><tr><td class='line-number'><a name='L19' href='#L19'><pre>19</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  const auto load2 = load-&gt;E(0.5);</pre></td></tr><tr><td class='line-number'><a name='L20' href='#L20'><pre>20</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  const auto calc2 =</pre></td></tr><tr><td class='line-number'><a name='L21' href='#L21'><pre>21</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>      Calc::Geotechnical::Create::MeyerhofShallowFoundation(load2, foundation);</pre></td></tr><tr><td class='line-number'><a name='L22' href='#L22'><pre>22</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  EXPECT_EQ(calc2-&gt;B_(), 0.);</pre></td></tr><tr><td class='line-number'><a name='L23' href='#L23'><pre>23</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>  EXPECT_TRUE(std::isinf(calc2-&gt;Qref()));</pre></td></tr><tr><td class='line-number'><a name='L24' href='#L24'><pre>24</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>}</pre></td></tr></table></div></body></html>
