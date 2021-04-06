@@ -463,11 +463,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Classe: camel case (i.e. <code>LoadClass</code>),</p>
 </li>
 <li>
-<p>Function: camel case (i.e. <code>Execute</code>). For accessor (getter / setter), don&#8217;t use prefix <code>Get</code> and <code>Set</code>. Getters should not have argument and Setter should have one.</p>
+<p>Function: camel case (i.e. <code>ExecuteRule</code>).</p>
+</li>
+<li>
+<p>Accessors (getter / setter) do not use prefix <code>Get</code> and <code>Set</code>. Getters should not have argument and Setter should have one.</p>
 </li>
 <li>
 <p>Extension:</p>
-</li>
+<div class="ulist">
+<ul>
 <li>
 <p>C++ source: <code>.cc</code> and <code>.h</code>,</p>
 </li>
@@ -479,6 +483,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 </ul>
 </div>
+</li>
+</ul>
+</div>
 <div class="paragraph">
 <p>Do not use abbreviation.</p>
 </div>
@@ -486,18 +493,69 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exceptions">Exceptions</h2>
-<div class="sectionbody">
-
-</div>
-</div>
-<div class="sect1">
-<h2 id="_specialization">Specialization</h2>
+<h2 id="_more_formatting_rules">More formatting rules</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_formatting_files">Formatting files</h3>
 <div class="paragraph">
 <p>Use LF as end of line. A choice must be done between Windows and Linux. Shorter is better and easier.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_more_coding_style">More coding style</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_functional_programming">Functional programming</h3>
+<div class="paragraph">
+<p>The software use functional programming when possible. So Getter and Setter are const. Setter return <code>std::shared_ptr</code>.</p>
+</div>
+<div class="paragraph">
+<p>Functional programming makes all data const, so delete or make private / protected move constructor and move assignment.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_interface">Interface</h3>
+<div class="paragraph">
+<p>Each public class should have an interface. This ease test and hide implementation and private field.</p>
+</div>
+<div class="paragraph">
+<p>To declare an interface, use pure virtual function everywhere.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rc-copy-virtual">A polymorphic class should suppress copying</a>. All classes have interface, so delete or make private / protected copy constructor and copy assignment.</p>
+</div>
+<div class="paragraph">
+<p>Using setter need to copy data. <a href="https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rh-copy">For making deep copies of polymorphic classes prefer a virtual clone function instead of copy construction/assignment</a></p>
+</div>
+<div class="paragraph">
+<p>Ownership of a return value of a setter must be able to be shared. Use <code>std::shared_ptr&lt;..*&gt;</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cpp" data-lang="cpp">class IFoundationStrip
+{
+ public:
+  IFoundationStrip(IFoundationStrip&amp;&amp;) noexcept = delete;
+  IFoundationStrip&amp; operator=(const IFoundationStrip&amp;) = delete;
+  IFoundationStrip&amp; operator=(IFoundationStrip&amp;&amp;) noexcept = delete;
+  virtual ~IFoundationStrip() = default;
+
+  [[nodiscard]] virtual std::shared_ptr&lt;IFoundationStrip&gt; Clone() const = 0;
+
+  [[nodiscard]] virtual double B() const noexcept = 0;
+  [[nodiscard]] virtual std::shared_ptr&lt;IFoundationStrip&gt; B(double b) = 0;
+
+ protected:
+  IFoundationStrip() = default;
+  IFoundationStrip(const IFoundationStrip&amp;) = default;
+};</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Default constructor must be declared as protected to be inheritable.
+Copy constructor must be declared as protected to be clonable.</p>
 </div>
 </div>
 </div>
