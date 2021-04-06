@@ -533,6 +533,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>Ownership of a return value of a setter must be able to be shared. Use <code>std::shared_ptr&lt;..*&gt;</code>.</p>
 </div>
+<div class="paragraph">
+<p>Default constructor must be declared as protected to be inheritable.
+Copy constructor must be declared as protected to be clonable.</p>
+</div>
+<div class="paragraph">
+<p>Exemple of interface:</p>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">class IFoundationStrip
@@ -555,8 +562,40 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="paragraph">
-<p>Default constructor must be declared as protected to be inheritable.
-Copy constructor must be declared as protected to be clonable.</p>
+<p>Exemple of class:</p>
+</div>
+<div class="paragraph">
+<p>Copy constructor must be public to use <code>std::make_shared</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">class FoundationStrip : public IFoundationStrip
+{
+ public:
+  FoundationStrip() = default;
+  FoundationStrip(const FoundationStrip&amp;) = default;
+  FoundationStrip(FoundationStrip&amp;&amp;) noexcept = delete;
+  FoundationStrip&amp; operator=(const FoundationStrip&amp;) = delete;
+  FoundationStrip&amp; operator=(FoundationStrip&amp;&amp;) noexcept = delete;
+  ~FoundationStrip() override = default;
+
+  [[nodiscard]] std::shared_ptr&lt;IFoundationStrip&gt; Clone() const override
+  {
+    return std::make_shared&lt;FoundationStrip&gt;(*this);
+  }
+
+  [[nodiscard]] double B() const noexcept override { return b_; }
+  [[nodiscard]] std::shared_ptr&lt;IFoundationStrip&gt; B(double b) override
+  {
+    auto retval = std::make_shared&lt;FoundationStrip&gt;(*this);
+    retval-&gt;b_ = b;
+    return retval;
+  }
+
+ private:
+  double b_ = std::numeric_limits&lt;double&gt;::quiet_NaN();
+};</code></pre>
+</div>
 </div>
 </div>
 </div>
