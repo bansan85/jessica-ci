@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-04-06 20:53:00</td>
+            <td class="headerValue">2021-04-07 21:50:56</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">7</td>
@@ -88,9 +88,9 @@
 <a name="10"><span class="lineNum">      10 </span>                :            :  public:</a>
 <a name="11"><span class="lineNum">      11 </span>                :<span class="lineCov">          2 :   FoundationStrip() = default;</span></a>
 <a name="12"><span class="lineNum">      12 </span>                :<span class="lineCov">          3 :   FoundationStrip(const FoundationStrip&amp;) = default;</span></a>
-<a name="13"><span class="lineNum">      13 </span>                :            :   FoundationStrip(FoundationStrip&amp;&amp;) noexcept = delete;</a>
+<a name="13"><span class="lineNum">      13 </span>                :            :   FoundationStrip(FoundationStrip&amp;&amp;) = delete;</a>
 <a name="14"><span class="lineNum">      14 </span>                :            :   FoundationStrip&amp; operator=(const FoundationStrip&amp;) = delete;</a>
-<a name="15"><span class="lineNum">      15 </span>                :            :   FoundationStrip&amp; operator=(FoundationStrip&amp;&amp;) noexcept = delete;</a>
+<a name="15"><span class="lineNum">      15 </span>                :            :   FoundationStrip&amp; operator=(FoundationStrip&amp;&amp;) = delete;</a>
 <a name="16"><span class="lineNum">      16 </span>                :<span class="lineCov">          5 :   ~FoundationStrip() override = default;</span></a>
 <a name="17"><span class="lineNum">      17 </span>                :            : </a>
 <a name="18"><span class="lineNum">      18 </span>                :<span class="lineCov">          1 :   [[nodiscard]] std::shared_ptr&lt;IFoundationStrip&gt; Clone() const override</span></a>

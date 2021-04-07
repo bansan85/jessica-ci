@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-04-06 20:53:00</td>
+            <td class="headerValue">2021-04-07 21:50:56</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -56,9 +56,9 @@
 </td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">17</td>
-            <td class="headerCovTableEntry">60</td>
-            <td class="headerCovTableEntryLo">28.3 %</td>
+            <td class="headerCovTableEntry">15</td>
+            <td class="headerCovTableEntry">56</td>
+            <td class="headerCovTableEntryLo">26.8 %</td>
           </tr>
           <tr><td><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -79,36 +79,35 @@
 <a name="1"><span class="lineNum">       1 </span>                :            : #include &lt;cmath&gt;</a>
 <a name="2"><span class="lineNum">       2 </span>                :            : #include &lt;memory&gt;</a>
 <a name="3"><span class="lineNum">       3 </span>                :            : </a>
-<a name="4"><span class="lineNum">       4 </span>                :            : #include &lt;gtest/gtest.h&gt;</a>
-<a name="5"><span class="lineNum">       5 </span>                :            : </a>
-<a name="6"><span class="lineNum">       6 </span>                :            : #include &lt;jessica/calc/geotechnical/meyerhof.h&gt;</a>
-<a name="7"><span class="lineNum">       7 </span>                :            : #include &lt;jessica/data/geotechnical/foundation_strip.h&gt;</a>
-<a name="8"><span class="lineNum">       8 </span>                :            : #include &lt;jessica/data/load/vertical_eccentric.h&gt;</a>
-<a name="9"><span class="lineNum">       9 </span>                :            : </a>
-<a name="10"><span class="lineNum">      10 </span>                :<span class="lineCov">          2 : TEST(data, CalcMeyehof)  // NOLINT</span></a>
-<a name="11"><span class="lineNum">      11 </span>                :            : {</a>
-<a name="12"><span class="lineNum">      12 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          2 :   const auto foundation = Data::Geotechnical::Create::FoundationStrip()-&gt;B(1.);</span></a>
-<a name="13"><span class="lineNum">      13 </span>                :            :   const auto load =</a>
-<a name="14"><span class="lineNum">      14 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">          3 :       Data::Load::Create::VerticalEccentric()-&gt;V(100000.)-&gt;E(0.25);</span></a>
+<a name="4"><span class="lineNum">       4 </span>                :            : #include &lt;jessica/calc/geotechnical/meyerhof.h&gt;</a>
+<a name="5"><span class="lineNum">       5 </span>                :            : #include &lt;jessica/data/geotechnical/foundation_strip.h&gt;</a>
+<a name="6"><span class="lineNum">       6 </span>                :            : #include &lt;jessica/data/load/vertical_eccentric.h&gt;</a>
+<a name="7"><span class="lineNum">       7 </span>                :            : #include &lt;jessica/test/test.h&gt;</a>
+<a name="8"><span class="lineNum">       8 </span>                :            : </a>
+<a name="9"><span class="lineNum">       9 </span>                :<span class="lineCov">          2 : JTEST_NAME(data, CalcMeyehof)  // NOLINT</span></a>
+<a name="10"><span class="lineNum">      10 </span>                :            : {</a>
+<a name="11"><span class="lineNum">      11 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          2 :   const auto foundation = Data::Geotechnical::Create::FoundationStrip()-&gt;B(1.);</span></a>
+<a name="12"><span class="lineNum">      12 </span>                :            :   const auto load =</a>
+<a name="13"><span class="lineNum">      13 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">          3 :       Data::Load::Create::VerticalEccentric()-&gt;V(100000.)-&gt;E(0.25);</span></a>
 <span class="lineNum">         </span>         <span class="branchCov" title="Branch 4 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span>]
-<a name="15"><span class="lineNum">      15 </span>                :            :   const auto calc =</a>
-<a name="16"><span class="lineNum">      16 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          2 :       Calc::Geotechnical::Create::MeyerhofShallowFoundation(load, foundation);</span></a>
-<a name="17"><span class="lineNum">      17 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 1 time"> + </span> :<span class="lineCov">          1 :   EXPECT_EQ(calc-&gt;B_(), 0.5);</span></a>
+<a name="14"><span class="lineNum">      14 </span>                :            :   const auto calc =</a>
+<a name="15"><span class="lineNum">      15 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          2 :       Calc::Geotechnical::Create::MeyerhofShallowFoundation(load, foundation);</span></a>
+<a name="16"><span class="lineNum">      16 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 1 time"> + </span> :<span class="lineCov">          1 :   JTEST_EQ(calc-&gt;B_(), 0.5);</span></a>
 <span class="lineNum">         </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span><span class="branchNoCov" title="Branch 6 was not taken"> - </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span><span class="branchNoCov" title="Branch 8 was not taken"> - </span> 
 <span class="lineNum">         </span>            <span class="branchNoCov" title="Branch 9 was not taken"> - </span>]
-<a name="18"><span class="lineNum">      18 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">          1 :   EXPECT_EQ(calc-&gt;Qref(), 200000.);</span></a>
-<span class="lineNum">         </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchCov" title="Branch 5 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 6 was not taken"> - </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span><span class="branchNoCov" title="Branch 8 was not taken"> - </span> 
-<span class="lineNum">         </span>      <span class="branchNoCov" title="Branch 9 was not taken"> - </span><span class="branchNoCov" title="Branch 10 was not taken"> - </span><span class="branchNoCov" title="Branch 11 was not taken"> - </span>]
-<a name="19"><span class="lineNum">      19 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          2 :   const auto load2 = load-&gt;E(0.5);</span></a>
-<a name="20"><span class="lineNum">      20 </span>                :            :   const auto calc2 =</a>
-<a name="21"><span class="lineNum">      21 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          2 :       Calc::Geotechnical::Create::MeyerhofShallowFoundation(load2, foundation);</span></a>
-<a name="22"><span class="lineNum">      22 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 1 time"> + </span> :<span class="lineCov">          1 :   EXPECT_EQ(calc2-&gt;B_(), 0.);</span></a>
+<a name="17"><span class="lineNum">      17 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 1 time"> + </span> :<span class="lineCov">          1 :   JTEST_EQ(calc-&gt;Qref(), 200000.);</span></a>
 <span class="lineNum">         </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span><span class="branchNoCov" title="Branch 6 was not taken"> - </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span><span class="branchNoCov" title="Branch 8 was not taken"> - </span> 
 <span class="lineNum">         </span>            <span class="branchNoCov" title="Branch 9 was not taken"> - </span>]
-<a name="23"><span class="lineNum">      23 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 1 time"> + </span> :<span class="lineCov">          1 :   EXPECT_TRUE(std::isinf(calc2-&gt;Qref()));</span></a>
+<a name="18"><span class="lineNum">      18 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          2 :   const auto load2 = load-&gt;E(0.5);</span></a>
+<a name="19"><span class="lineNum">      19 </span>                :            :   const auto calc2 =</a>
+<a name="20"><span class="lineNum">      20 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          2 :       Calc::Geotechnical::Create::MeyerhofShallowFoundation(load2, foundation);</span></a>
+<a name="21"><span class="lineNum">      21 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 1 time"> + </span> :<span class="lineCov">          1 :   JTEST_EQ(calc2-&gt;B_(), 0.);</span></a>
 <span class="lineNum">         </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span><span class="branchNoCov" title="Branch 6 was not taken"> - </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span><span class="branchNoCov" title="Branch 8 was not taken"> - </span> 
-<span class="lineNum">         </span>      <span class="branchNoCov" title="Branch 9 was not taken"> - </span><span class="branchNoCov" title="Branch 10 was not taken"> - </span><span class="branchNoCov" title="Branch 11 was not taken"> - </span>]
-<a name="24"><span class="lineNum">      24 </span>                :<span class="lineCov">          1 : }</span></a>
+<span class="lineNum">         </span>            <span class="branchNoCov" title="Branch 9 was not taken"> - </span>]
+<a name="22"><span class="lineNum">      22 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">          1 :   JTEST_TRUE(std::isinf(calc2-&gt;Qref()));</span></a>
+<span class="lineNum">         </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span><span class="branchNoCov" title="Branch 6 was not taken"> - </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span><span class="branchNoCov" title="Branch 8 was not taken"> - </span> 
+<span class="lineNum">         </span>            <span class="branchNoCov" title="Branch 9 was not taken"> - </span>]
+<a name="23"><span class="lineNum">      23 </span>                :<span class="lineCov">          1 : }</span></a>
 </pre>
       </td>
     </tr>

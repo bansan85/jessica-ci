@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-04-06 20:53:00</td>
+            <td class="headerValue">2021-04-07 21:50:56</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -79,28 +79,27 @@
 <a name="1"><span class="lineNum">       1 </span>                :            : #include &lt;cmath&gt;</a>
 <a name="2"><span class="lineNum">       2 </span>                :            : #include &lt;memory&gt;</a>
 <a name="3"><span class="lineNum">       3 </span>                :            : </a>
-<a name="4"><span class="lineNum">       4 </span>                :            : #include &lt;gtest/gtest.h&gt;</a>
-<a name="5"><span class="lineNum">       5 </span>                :            : </a>
-<a name="6"><span class="lineNum">       6 </span>                :            : #include &lt;jessica/data/geotechnical/foundation_strip.h&gt;</a>
-<a name="7"><span class="lineNum">       7 </span>                :            : </a>
-<a name="8"><span class="lineNum">       8 </span>                :<span class="lineCov">          2 : TEST(data, FoundationStrip)  // NOLINT</span></a>
-<a name="9"><span class="lineNum">       9 </span>                :            : {</a>
-<a name="10"><span class="lineNum">      10 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          2 :   const auto foundation = Data::Geotechnical::Create::FoundationStrip();</span></a>
-<a name="11"><span class="lineNum">      11 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">          1 :   EXPECT_TRUE(std::isnan(foundation-&gt;B()));</span></a>
+<a name="4"><span class="lineNum">       4 </span>                :            : #include &lt;jessica/data/geotechnical/foundation_strip.h&gt;</a>
+<a name="5"><span class="lineNum">       5 </span>                :            : #include &lt;jessica/test/test.h&gt;</a>
+<a name="6"><span class="lineNum">       6 </span>                :            : </a>
+<a name="7"><span class="lineNum">       7 </span>                :<span class="lineCov">          2 : JTEST_NAME(data, FoundationStrip)  // NOLINT</span></a>
+<a name="8"><span class="lineNum">       8 </span>                :            : {</a>
+<a name="9"><span class="lineNum">       9 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          2 :   const auto foundation = Data::Geotechnical::Create::FoundationStrip();</span></a>
+<a name="10"><span class="lineNum">      10 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">          1 :   JTEST_TRUE(std::isnan(foundation-&gt;B()));</span></a>
 <span class="lineNum">         </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span><span class="branchNoCov" title="Branch 6 was not taken"> - </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span><span class="branchNoCov" title="Branch 8 was not taken"> - </span> 
 <span class="lineNum">         </span>            <span class="branchNoCov" title="Branch 9 was not taken"> - </span>]
-<a name="12"><span class="lineNum">      12 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          2 :   const auto foundation2 = foundation-&gt;B(1.);</span></a>
-<a name="13"><span class="lineNum">      13 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">          1 :   EXPECT_TRUE(std::isnan(foundation-&gt;B()));</span></a>
+<a name="11"><span class="lineNum">      11 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          2 :   const auto foundation2 = foundation-&gt;B(1.);</span></a>
+<a name="12"><span class="lineNum">      12 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">          1 :   JTEST_TRUE(std::isnan(foundation-&gt;B()));</span></a>
 <span class="lineNum">         </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span><span class="branchNoCov" title="Branch 6 was not taken"> - </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span><span class="branchNoCov" title="Branch 8 was not taken"> - </span> 
 <span class="lineNum">         </span>            <span class="branchNoCov" title="Branch 9 was not taken"> - </span>]
-<a name="14"><span class="lineNum">      14 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 1 time"> + </span> :<span class="lineCov">          1 :   EXPECT_EQ(foundation2-&gt;B(), 1.);</span></a>
+<a name="13"><span class="lineNum">      13 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 1 time"> + </span> :<span class="lineCov">          1 :   JTEST_EQ(foundation2-&gt;B(), 1.);</span></a>
 <span class="lineNum">         </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span><span class="branchNoCov" title="Branch 6 was not taken"> - </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span><span class="branchNoCov" title="Branch 8 was not taken"> - </span> 
 <span class="lineNum">         </span>            <span class="branchNoCov" title="Branch 9 was not taken"> - </span>]
-<a name="15"><span class="lineNum">      15 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          2 :   const auto foundation3 = foundation2-&gt;Clone();</span></a>
-<a name="16"><span class="lineNum">      16 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 1 time"> + </span> :<span class="lineCov">          1 :   EXPECT_EQ(foundation2-&gt;B(), foundation3-&gt;B());</span></a>
+<a name="14"><span class="lineNum">      14 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          2 :   const auto foundation3 = foundation2-&gt;Clone();</span></a>
+<a name="15"><span class="lineNum">      15 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 1 time"> + </span> :<span class="lineCov">          1 :   JTEST_EQ(foundation2-&gt;B(), foundation3-&gt;B());</span></a>
 <span class="lineNum">         </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span><span class="branchNoCov" title="Branch 6 was not taken"> - </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span><span class="branchNoCov" title="Branch 8 was not taken"> - </span> 
 <span class="lineNum">         </span>            <span class="branchNoCov" title="Branch 9 was not taken"> - </span>]
-<a name="17"><span class="lineNum">      17 </span>                :<span class="lineCov">          1 : }</span></a>
+<a name="16"><span class="lineNum">      16 </span>                :<span class="lineCov">          1 : }</span></a>
 </pre>
       </td>
     </tr>
