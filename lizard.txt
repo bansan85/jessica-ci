@@ -1,0 +1,44 @@
+================================================
+  NLOC    CCN   token  PARAM  length  location  
+------------------------------------------------
+      10      1     99      2      10 JTEST_NAME ./test/data/geotechnical/foundation_strip.cc
+      15      1    166      2      15 JTEST_NAME ./test/data/load/vertical_eccentric.cc
+      15      1    153      2      15 JTEST_NAME ./test/calc/geotechnical/meyerhof.cc
+       4      1     18      0       4 FoundationStrip::Clone ./src/data/geotechnical/foundation_strip.cc
+       1      1     11      0       1 FoundationStrip::B ./src/data/geotechnical/foundation_strip.cc
+       6      1     31      1       6 FoundationStrip::B ./src/data/geotechnical/foundation_strip.cc
+       4      1     18      0       4 Data::Geotechnical::Create::FoundationStrip ./src/data/geotechnical/foundation_strip.cc
+       4      1     18      0       4 VerticalEccentric::Clone ./src/data/load/vertical_eccentric.cc
+       1      1     11      0       1 VerticalEccentric::V ./src/data/load/vertical_eccentric.cc
+       1      1     11      0       1 VerticalEccentric::E ./src/data/load/vertical_eccentric.cc
+       6      1     32      1       6 VerticalEccentric::V ./src/data/load/vertical_eccentric.cc
+       6      1     32      1       6 VerticalEccentric::E ./src/data/load/vertical_eccentric.cc
+       4      1     18      0       4 Data::Load::Create::VerticalEccentric ./src/data/load/vertical_eccentric.cc
+       8      1     93      0       9 main ./src/main/main1.cc
+       6      1     42      2       6 MeyerhofShallowFoundation::MeyerhofShallowFoundation ./src/calc/geotechnical/meyerhof.cc
+       5      1     18      0       5 MeyerhofShallowFoundation::Clone ./src/calc/geotechnical/meyerhof.cc
+       4      1     19      0       4 MeyerhofShallowFoundation::Qref ./src/calc/geotechnical/meyerhof.cc
+       4      1     24      0       4 MeyerhofShallowFoundation::B_ ./src/calc/geotechnical/meyerhof.cc
+       6      1     50      2       6 Calc::Geotechnical::Geotechnical::Create::MeyerhofShallowFoundation ./src/calc/geotechnical/meyerhof.cc
+11 file analyzed.
+==============================================================
+NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
+--------------------------------------------------------------
+     14      10.0     1.0       99.0         1     ./test/data/geotechnical/foundation_strip.cc
+     19      15.0     1.0      166.0         1     ./test/data/load/vertical_eccentric.cc
+     21      15.0     1.0      153.0         1     ./test/calc/geotechnical/meyerhof.cc
+     36       3.8     1.0       19.5         4     ./src/data/geotechnical/foundation_strip.cc
+     44       3.7     1.0       20.3         6     ./src/data/load/vertical_eccentric.cc
+     13       8.0     1.0       93.0         1     ./src/main/main1.cc
+     50       5.0     1.0       30.6         5     ./src/calc/geotechnical/meyerhof.cc
+     23       0.0     0.0        0.0         0     ./include/jessica/data/geotechnical/foundation_strip.h
+     27       0.0     0.0        0.0         0     ./include/jessica/data/load/vertical_eccentric.h
+      1       0.0     0.0        0.0         0     ./include/jessica/test/test.h
+     29       0.0     0.0        0.0         0     ./include/jessica/calc/geotechnical/meyerhof.h
+
+===============================================================================================================
+No thresholds exceeded (cyclomatic_complexity > 15 or length > 1000 or nloc > 1000000 or parameter_count > 100)
+==========================================================================================
+Total nloc   Avg.NLOC  AvgCCN  Avg.token   Fun Cnt  Warning cnt   Fun Rt   nloc Rt
+------------------------------------------------------------------------------------------
+       277       5.8     1.0       45.5       19            0      0.00    0.00
