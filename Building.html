@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.13">
-<title>Coding style</title>
+<title>Building</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,188 +438,167 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>Coding style</h1>
+<h1>Building</h1>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_general_rule">General rule</h2>
+<h2 id="_dependencies">Dependencies</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_building">Building</h3>
 <div class="paragraph">
-<p>The <a href="https://google.github.io/styleguide/cppguide.html">Google C++ Style Guide</a> must be apply.</p>
+<p>Tools needed:</p>
 </div>
-<div class="paragraph">
-<p>Rule in the current paragraph is a reminder of the official guide.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Compiler: gcc, clang or Visual Studio,</p>
+</li>
+<li>
+<p><a href="https://cmake.org/">cmake</a>.</p>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_naming_convention">Naming convention</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Filename: lower case with underline between words (i.e. <code>file_name.cc</code>),</p>
-</li>
-<li>
-<p>Classe: camel case (i.e. <code>LoadClass</code>),</p>
-</li>
-<li>
-<p>Function: camel case (i.e. <code>ExecuteRule</code>).</p>
-</li>
-<li>
-<p>Accessors (getter / setter) do not use prefix <code>Get</code> and <code>Set</code>. Getters should not have argument and Setter should have one.</p>
-</li>
-<li>
-<p>Extension:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>C++ source: <code>.cc</code> and <code>.h</code>,</p>
-</li>
-<li>
-<p>Asciidoc: <code>.adoc</code>,</p>
-</li>
-<li>
-<p>yaml: <code>.yml</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
+<h3 id="_backend">Backend</h3>
 <div class="paragraph">
-<p>Do not use abbreviation.</p>
+<p>No dependencies.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tests">Tests</h3>
+<div class="paragraph">
+<p>You need:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/google/googletest">gtest</a>.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_more_formatting_rules">More formatting rules</h2>
+<h2 id="_continuous_integration">Continuous integration</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_formatting_files">Formatting files</h3>
+<h3 id="_building_2">Building</h3>
 <div class="paragraph">
-<p>Use LF as end of line. A choice must be done between Windows and Linux. Shorter is better and easier.</p>
+<p>The build is tested with Ubuntu-LTS with gcc and clang and Windows with Visual Studio.</p>
 </div>
-<div class="paragraph">
-<p>The main formating code I don&#8217;t respect in Google standard is that all brackets are in new line. Only exception if both opening and closing bracket are in same line.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_more_coding_style">More coding style</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_functional_programming">Functional programming</h3>
-<div class="paragraph">
-<p>The software use functional programming when possible. Why ? Because I want to try it.</p>
-</div>
-<div class="paragraph">
-<p>Getter and Setter are const. Setter return <code>std::shared_ptr</code>.</p>
-</div>
-<div class="paragraph">
-<p>Functional programming makes all data const, so delete or make private / protected move constructor and move assignment.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_interface">Interface</h3>
-<div class="paragraph">
-<p>Each public class should have an interface. This ease test (perfectly compatible with mock of gtest) and hide implementation and private field.</p>
-</div>
-<div class="paragraph">
-<p>To declare an interface, use pure virtual function everywhere.</p>
-</div>
-<div class="paragraph">
-<p><a href="https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rc-copy-virtual">A polymorphic class should suppress copying</a>. All classes have interface, so delete or make private / protected copy constructor and copy assignment.</p>
-</div>
-<div class="paragraph">
-<p>Using setter need to copy data. <a href="https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rh-copy">For making deep copies of polymorphic classes prefer a virtual clone function instead of copy construction/assignment</a></p>
-</div>
-<div class="paragraph">
-<p>Ownership of a return value of a setter must be able to be shared. Use <code>std::shared_ptr&lt;..*&gt;</code>.</p>
-</div>
-<div class="paragraph">
-<p>Default constructor must be declared as protected to be inheritable.
-Copy constructor must be declared as protected to be clonable.</p>
-</div>
-<div class="paragraph">
-<p>Exemple of interface:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">class IFoundationStrip
-{
- public:
-  IFoundationStrip(IFoundationStrip&amp;&amp;) noexcept = delete;
-  IFoundationStrip&amp; operator=(const IFoundationStrip&amp;) = delete;
-  IFoundationStrip&amp; operator=(IFoundationStrip&amp;&amp;) noexcept = delete;
-  virtual ~IFoundationStrip() = default;
-
-  [[nodiscard]] virtual std::shared_ptr&lt;IFoundationStrip&gt; Clone() const = 0;
-
-  [[nodiscard]] virtual double B() const noexcept = 0;
-  [[nodiscard]] virtual std::shared_ptr&lt;IFoundationStrip&gt; B(double b) = 0;
-
- protected:
-  IFoundationStrip() = default;
-  IFoundationStrip(const IFoundationStrip&amp;) = default;
-};</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Exemple of class:</p>
-</div>
-<div class="paragraph">
-<p>Copy constructor must be public to use <code>std::make_shared</code>.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">class FoundationStrip : public IFoundationStrip
-{
- public:
-  FoundationStrip() = default;
-  FoundationStrip(const FoundationStrip&amp;) = default;
-  FoundationStrip(FoundationStrip&amp;&amp;) noexcept = delete;
-  FoundationStrip&amp; operator=(const FoundationStrip&amp;) = delete;
-  FoundationStrip&amp; operator=(FoundationStrip&amp;&amp;) noexcept = delete;
-  ~FoundationStrip() override = default;
-
-  [[nodiscard]] std::shared_ptr&lt;IFoundationStrip&gt; Clone() const override
-  {
-    return std::make_shared&lt;FoundationStrip&gt;(*this);
-  }
-
-  [[nodiscard]] double B() const noexcept override { return b_; }
-  [[nodiscard]] std::shared_ptr&lt;IFoundationStrip&gt; B(double b) override
-  {
-    auto retval = std::make_shared&lt;FoundationStrip&gt;(*this);
-    retval-&gt;b_ = b;
-    return retval;
-  }
-
- private:
-  double b_ = std::numeric_limits&lt;double&gt;::quiet_NaN();
-};</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_dependencies">Dependencies</h3>
-<div class="paragraph">
-<p>Avoid deep dependencies.
-If you use external dependency for just a few functions that could be easily replaced by another library, create an header adapter. See <code>jessica/test/test.h</code> for example.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_avoid">Avoid&#8230;&#8203;</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>&#8230;&#8203;too much symbol.</p>
+<p>Linux</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Use anonymous namespace where possible.</p>
+<p>Compilers tested : gcc-10 and clang-11.</p>
 </div>
+<div class="paragraph">
+<p>Packages are installed with ''apt-get''.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Windows</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Compilers tested : Visual Studio 2019.</p>
+</div>
+<div class="paragraph">
+<p>Packages are installed with ''vcpkg''.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_auto_formatting">Auto formatting</h3>
+<div class="paragraph">
+<p>Don&#8217;t spend to much time about formatting. Continuous integration will automatically create commit to fix them with <a href="https://github.com/cheshirekow/cmake_format">cmake-format</a> and <a href="https://clang.llvm.org/docs/ClangFormat.html">clang-format</a>.</p>
+</div>
+<div class="paragraph">
+<p>This is done in the <code>linters</code> workflow. If a file need to be formatted, a new commit is added with a fix and the current build will fail.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_linters">Linters</h3>
+<div class="paragraph">
+<p>Lots (maybe too much) of linters are used:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>yml: <a href="https://github.com/adrienverge/yamllint">yamllint</a>,</p>
+</li>
+<li>
+<p>sh: <a href="https://github.com/koalaman/shellcheck">shellcheck</a>,</p>
+</li>
+<li>
+<p>requirements.txt: <a href="https://github.com/pyupio/safety">safety</a>,</p>
+</li>
+<li>
+<p>cc : <a href="https://include-what-you-use.org/">iwyu</a>, <a href="http://cppcheck.sourceforge.net/">cppcheck</a>, <a href="https://clang.llvm.org/extra/clang-tidy/">clang-tidy</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_data_generated">Data generated</h3>
+<div class="paragraph">
+<p>I decided to use my own interface and not other well-integrated softwares like <a href="https://codecov.io">codecov</a> or <a href="https://codescene.io">codescene</a> to keep data under control.</p>
+</div>
+<div class="paragraph">
+<p>All data are stored in <a href="https://github.com/bansan85/jessica-ci">jessica-ci</a> repository.</p>
+</div>
+<div class="paragraph">
+<p>Every commit, following data are generated:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Data</th>
+<th class="tableblock halign-left valign-top">Git branch</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tests</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ubuntu-clang,
+ubuntu-gcc,
+windows-msbuild.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Duration of each tests,
+List of installed packages for Linux.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Coverage</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">coverage-clang,
+coverage-gcc.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Coverage information.
+Should be the same with both compilers.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Documentation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">documentation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTML documentation.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Metrics</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">metrics</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Complexity and length of functions.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
