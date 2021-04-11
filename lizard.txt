@@ -3,7 +3,7 @@
 ------------------------------------------------
       10      1     99      2      10 JTEST_NAME ./test/data/geotechnical/foundation_strip.cc
       15      1    166      2      15 JTEST_NAME ./test/data/load/vertical_eccentric.cc
-      15      1    153      2      15 JTEST_NAME ./test/calc/geotechnical/meyerhof.cc
+      18      1    193      2      18 JTEST_NAME ./test/calc/geotechnical/meyerhof.cc
        4      1     18      0       4 FoundationStrip::Clone ./src/data/geotechnical/foundation_strip.cc
        1      1     11      0       1 FoundationStrip::B ./src/data/geotechnical/foundation_strip.cc
        6      1     31      1       6 FoundationStrip::B ./src/data/geotechnical/foundation_strip.cc
@@ -26,7 +26,7 @@ NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
 --------------------------------------------------------------
      14      10.0     1.0       99.0         1     ./test/data/geotechnical/foundation_strip.cc
      19      15.0     1.0      166.0         1     ./test/data/load/vertical_eccentric.cc
-     21      15.0     1.0      153.0         1     ./test/calc/geotechnical/meyerhof.cc
+     24      18.0     1.0      193.0         1     ./test/calc/geotechnical/meyerhof.cc
      36       3.8     1.0       19.5         4     ./src/data/geotechnical/foundation_strip.cc
      44       3.7     1.0       20.3         6     ./src/data/load/vertical_eccentric.cc
      13       8.0     1.0       93.0         1     ./src/main/main1.cc
@@ -41,4 +41,4 @@ No thresholds exceeded (cyclomatic_complexity > 15 or length > 1000 or nloc > 10
 ==========================================================================================
 Total nloc   Avg.NLOC  AvgCCN  Avg.token   Fun Cnt  Warning cnt   Fun Rt   nloc Rt
 ------------------------------------------------------------------------------------------
-       277       5.8     1.0       45.5       19            0      0.00    0.00
+       280       5.9     1.0       47.6       19            0      0.00    0.00
