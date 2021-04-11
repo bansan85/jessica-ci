@@ -98,7 +98,7 @@
 <a name="20"><span class="lineNum">      20 </span>                :<span class="lineCov">          1 :     return std::make_shared&lt;FoundationStrip&gt;(*this);</span></a>
 <a name="21"><span class="lineNum">      21 </span>                :            :   }</a>
 <a name="22"><span class="lineNum">      22 </span>                :            : </a>
-<a name="23"><span class="lineNum">      23 </span>                :<span class="lineCov">          9 :   [[nodiscard]] double B() const noexcept override { return b_; }</span></a>
+<a name="23"><span class="lineNum">      23 </span>                :<span class="lineCov">         13 :   [[nodiscard]] double B() const noexcept override { return b_; }</span></a>
 <a name="24"><span class="lineNum">      24 </span>                :<span class="lineCov">          2 :   [[nodiscard]] std::shared_ptr&lt;IFoundationStrip&gt; B(double b) override</span></a>
 <a name="25"><span class="lineNum">      25 </span>                :            :   {</a>
 <a name="26"><span class="lineNum">      26 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          4 :     auto retval = std::make_shared&lt;FoundationStrip&gt;(*this);</span></a>

@@ -98,8 +98,8 @@
 <a name="20"><span class="lineNum">      20 </span>                :<span class="lineCov">          1 :     return std::make_shared&lt;VerticalEccentric&gt;(*this);</span></a>
 <a name="21"><span class="lineNum">      21 </span>                :            :   }</a>
 <a name="22"><span class="lineNum">      22 </span>                :            : </a>
-<a name="23"><span class="lineNum">      23 </span>                :<span class="lineCov">          7 :   [[nodiscard]] double V() const noexcept override { return v_; }</span></a>
-<a name="24"><span class="lineNum">      24 </span>                :<span class="lineCov">          9 :   [[nodiscard]] double E() const noexcept override { return e_; }</span></a>
+<a name="23"><span class="lineNum">      23 </span>                :<span class="lineCov">          9 :   [[nodiscard]] double V() const noexcept override { return v_; }</span></a>
+<a name="24"><span class="lineNum">      24 </span>                :<span class="lineCov">         13 :   [[nodiscard]] double E() const noexcept override { return e_; }</span></a>
 <a name="25"><span class="lineNum">      25 </span>                :<span class="lineCov">          2 :   [[nodiscard]] std::shared_ptr&lt;IVerticalEccentric&gt; V(double v) const override</span></a>
 <a name="26"><span class="lineNum">      26 </span>                :            :   {</a>
 <a name="27"><span class="lineNum">      27 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          4 :     auto retval = std::make_shared&lt;VerticalEccentric&gt;(*this);</span></a>
