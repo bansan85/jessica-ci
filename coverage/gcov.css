@@ -36,15 +36,6 @@ td.title
   font-style: italic;
   font-weight: bold;
 }
-/* 'Line coverage date bins" leader */
-td.subTableHeader
-{
-  text-align: center;
-  padding-bottom: 6px;
-  font-family: sans-serif;
-  font-weight: bold;
-  vertical-align: center;
-}
 
 /* All views: header item format */
 td.headerItem
@@ -182,32 +173,10 @@ td.coverFile
 {
   text-align: left;
   padding-left: 10px;
-  padding-right: 20px;
+  padding-right: 20px; 
   color: #284FA8;
   background-color: #DAE7FE;
   font-family: monospace;
-}
-
-/* Directory view/File view (all): filename entry format */
-td.overallOwner
-{
-  text-align: center;
-  font-style: bold;
-  font-family: sans-serif;
-  background-color: #DAE7FE;
-  padding-right: 10px;
-  padding-left: 10px;
-}
-
-/* Directory view/File view (all): filename entry format */
-td.ownerName
-{
-  text-align: right;
-  font-style: italic;
-  font-family: sans-serif;
-  background-color: #E5DBDB;
-  padding-right: 10px;
-  padding-left: 20px;
 }
 
 /* Directory view/File view (all): bar-graph entry format*/
@@ -216,14 +185,6 @@ td.coverBar
   padding-left: 10px;
   padding-right: 10px;
   background-color: #DAE7FE;
-}
-
-/* Directory view/File view (all): bar-graph entry format*/
-td.owner_coverBar
-{
-  padding-left: 10px;
-  padding-right: 10px;
-  background-color: #E5DBDB;
 }
 
 /* Directory view/File view (all): bar-graph outline color */
@@ -244,40 +205,6 @@ td.coverPerHi
   font-family: sans-serif;
 }
 
-/* 'owner' entry:  slightly lighter color than 'coverPerHi' */
-td.owner_coverPerHi
-{
-  text-align: right;
-  padding-left: 10px;
-  padding-right: 10px;
-  background-color: #82E0AA;
-  font-weight: bold;
-  font-family: sans-serif;
-}
-
-/* Directory view/File view (all): line count entry */
-td.coverNumDflt
-{
-  text-align: right;
-  padding-left: 10px;
-  padding-right: 10px;
-  background-color: #DAE7FE;
-  white-space: nowrap;
-  font-family: sans-serif;
-}
-
-/* td background color and font for 'the 'owner' section of the table */
-td.ownerTla
-{
-  text-align: right;
-  padding-left: 10px;
-  padding-right: 10px;
-  background-color: #E5DBDB;
-  white-space: nowrap;
-  font-family: sans-serif;
-  font-style: italic;
-}
-
 /* Directory view/File view (all): line count entry for files with
    high coverage rate */
 td.coverNumHi
@@ -286,16 +213,6 @@ td.coverNumHi
   padding-left: 10px;
   padding-right: 10px;
   background-color: #A7FC9D;
-  white-space: nowrap;
-  font-family: sans-serif;
-}
-
-td.owner_coverNumHi
-{
-  text-align: right;
-  padding-left: 10px;
-  padding-right: 10px;
-  background-color: #82E0AA;
   white-space: nowrap;
   font-family: sans-serif;
 }
@@ -312,16 +229,6 @@ td.coverPerMed
   font-family: sans-serif;
 }
 
-td.owner_coverPerMed
-{
-  text-align: right;
-  padding-left: 10px;
-  padding-right: 10px;
-  background-color: #F9E79F;
-  font-weight: bold;
-  font-family: sans-serif;
-}
-
 /* Directory view/File view (all): line count entry for files with
    medium coverage rate */
 td.coverNumMed
@@ -330,16 +237,6 @@ td.coverNumMed
   padding-left: 10px;
   padding-right: 10px;
   background-color: #FFEA20;
-  white-space: nowrap;
-  font-family: sans-serif;
-}
-
-td.owner_coverNumMed
-{
-  text-align: right;
-  padding-left: 10px;
-  padding-right: 10px;
-  background-color: #F9E79F;
   white-space: nowrap;
   font-family: sans-serif;
 }
@@ -356,16 +253,6 @@ td.coverPerLo
   font-family: sans-serif;
 }
 
-td.owner_coverPerLo
-{
-  text-align: right;
-  padding-left: 10px;
-  padding-right: 10px;
-  background-color: #EC7063;
-  font-weight: bold;
-  font-family: sans-serif;
-}
-
 /* Directory view/File view (all): line count entry for files with
    low coverage rate */
 td.coverNumLo
@@ -374,16 +261,6 @@ td.coverNumLo
   padding-left: 10px;
   padding-right: 10px;
   background-color: #FF0000;
-  white-space: nowrap;
-  font-family: sans-serif;
-}
-
-td.owner_coverNumLo
-{
-  text-align: right;
-  padding-left: 10px;
-  padding-right: 10px;
-  background-color: #EC7063;
   white-space: nowrap;
   font-family: sans-serif;
 }
@@ -423,7 +300,7 @@ td.testPer
 {
   text-align: right;
   padding-left: 10px;
-  padding-right: 10px;
+  padding-right: 10px; 
   background-color: #DAE7FE;
   font-family: sans-serif;
 }
@@ -433,7 +310,7 @@ td.testNum
 {
   text-align: right;
   padding-left: 10px;
-  padding-right: 10px;
+  padding-right: 10px; 
   background-color: #DAE7FE;
   font-family: sans-serif;
 }
@@ -460,7 +337,7 @@ td.coverFn
 {
   text-align: left;
   padding-left: 10px;
-  padding-right: 20px;
+  padding-right: 20px; 
   color: #284FA8;
   background-color: #DAE7FE;
   font-family: monospace;
@@ -488,39 +365,6 @@ td.coverFnHi
   font-family: sans-serif;
 }
 
-td.coverFnAlias
-{
-  text-align: right;
-  padding-left: 10px;
-  padding-right: 20px;
-  color: #284FA8;
-  /* make this a slightly different color than the leader - otherewise,
-     otherwise the alias is hard to distinguish in the table */
-  background-color: "#E5DBDB"; # very light pale grey/blue
-  font-family: monospace;
-}
-
-/* Source code view: function entry zero count*/
-td.coverFnAliasLo
-{
-  text-align: right;
-  padding-left: 10px;
-  padding-right: 10px;
-  background-color: #EC7063; # lighter red
-  font-family: sans-serif;
-}
-
-/* Source code view: function entry nonzero count*/
-td.coverFnAliasHi
-{
-  text-align: right;
-  padding-left: 10px;
-  padding-right: 10px;
-  background-color: #DAE7FE;
-  font-weight: bold;
-  font-family: sans-serif;
-}
-
 /* Source code view: source code format */
 pre.source
 {
@@ -535,6 +379,13 @@ span.lineNum
   background-color: #EFE383;
 }
 
+/* Source code view: format for lines which were executed */
+td.lineCov,
+span.lineCov
+{
+  background-color: #CAD7FE;
+}
+
 /* Source code view: format for Cov legend */
 span.coverLegendCov
 {
@@ -544,12 +395,54 @@ span.coverLegendCov
   background-color: #CAD7FE;
 }
 
+/* Source code view: format for lines which were not executed */
+td.lineNoCov,
+span.lineNoCov
+{
+  background-color: #FF6230;
+}
+
 /* Source code view: format for NoCov legend */
 span.coverLegendNoCov
 {
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 2px;
+  background-color: #FF6230;
+}
+
+/* Source code view (function table): standard link - visited format */
+td.lineNoCov > a:visited,
+td.lineCov > a:visited
+{  
+  color: black;
+  text-decoration: underline;
+}  
+
+/* Source code view: format for lines which were executed only in a
+   previous version */
+span.lineDiffCov
+{
+  background-color: #B5F7AF;
+}
+
+/* Source code view: format for branches which were executed
+ * and taken */
+span.branchCov
+{
+  background-color: #CAD7FE;
+}
+
+/* Source code view: format for branches which were executed
+ * but not taken */
+span.branchNoCov
+{
+  background-color: #FF6230;
+}
+
+/* Source code view: format for branches which were not executed */
+span.branchNoExec
+{
   background-color: #FF6230;
 }
 
@@ -623,179 +516,4 @@ span.coverLegendCovHi
   padding-right: 10px;
   padding-top: 2px;
   background-color: #A7FC9D;
-}
-
-
-/* Source code view/table entry backround: format for lines classified as "Uncovered New Code" */
-td.tlaUNC
-{
-  text-align: right;
-  background-color: #FF6230
-}
-
-/* Source code view/table entry backround: format for lines classified as "Uncovered New Code" */
-span.tlaUNC
-{
-  text-align: left;
-  background-color: #FF6230
-}
-
-/* Source code view/table entry backround: format for lines classified as "Lost Baseline Coverage" */
-td.tlaLBC
-{
-  text-align: right;
-  background-color: #FF6230
-}
-
-/* Source code view/table entry backround: format for lines classified as "Lost Baseline Coverage" */
-span.tlaLBC
-{
-  text-align: left;
-  background-color: #FF6230
-}
-
-/* Source code view/table entry backround: format for lines classified as "Uncovered Included Code" */
-td.tlaUIC
-{
-  text-align: right;
-  background-color: #FF6230
-}
-
-/* Source code view/table entry backround: format for lines classified as "Uncovered Included Code" */
-span.tlaUIC
-{
-  text-align: left;
-  background-color: #FF6230
-}
-
-/* Source code view/table entry backround: format for lines classified as "Uncovered Baseline Code" */
-td.tlaUBC
-{
-  text-align: right;
-  background-color: #FF6230
-}
-
-/* Source code view/table entry backround: format for lines classified as "Uncovered Baseline Code" */
-span.tlaUBC
-{
-  text-align: left;
-  background-color: #FF6230
-}
-
-/* Source code view/table entry backround: format for lines classified as "Gain Baseline Coverage" */
-td.tlaGBC
-{
-  text-align: right;
-  background-color: #CAD7FE
-}
-
-/* Source code view/table entry backround: format for lines classified as "Gain Baseline Coverage" */
-span.tlaGBC
-{
-  text-align: left;
-  background-color: #CAD7FE
-}
-
-/* Source code view/table entry backround: format for lines classified as "Gain Included Coverage" */
-td.tlaGIC
-{
-  text-align: right;
-  background-color: #CAD7FE
-}
-
-/* Source code view/table entry backround: format for lines classified as "Gain Included Coverage" */
-span.tlaGIC
-{
-  text-align: left;
-  background-color: #CAD7FE
-}
-
-/* Source code view/table entry backround: format for lines classified as "Gain New Coverage" */
-td.tlaGNC
-{
-  text-align: right;
-  background-color: #CAD7FE
-}
-
-/* Source code view/table entry backround: format for lines classified as "Gain New Coverage" */
-span.tlaGNC
-{
-  text-align: left;
-  background-color: #CAD7FE
-}
-
-/* Source code view/table entry backround: format for lines classified as "Covered Baseline Code" */
-td.tlaCBC
-{
-  text-align: right;
-  background-color: #CAD7FE
-}
-
-/* Source code view/table entry backround: format for lines classified as "Covered Baseline Code" */
-span.tlaCBC
-{
-  text-align: left;
-  background-color: #CAD7FE
-}
-
-/* Source code view/table entry backround: format for lines classified as "Excluded Uncovered Baseline" */
-td.tlaEUB
-{
-  text-align: right;
-  background-color: #FFFFFF
-}
-
-/* Source code view/table entry backround: format for lines classified as "Excluded Uncovered Baseline" */
-span.tlaEUB
-{
-  text-align: left;
-  background-color: #FFFFFF
-}
-
-/* Source code view/table entry backround: format for lines classified as "Excluded Covered Baseline" */
-td.tlaECB
-{
-  text-align: right;
-  background-color: #FFFFFF
-}
-
-/* Source code view/table entry backround: format for lines classified as "Excluded Covered Baseline" */
-span.tlaECB
-{
-  text-align: left;
-  background-color: #FFFFFF
-}
-
-/* Source code view/table entry backround: format for lines classified as "Deleted Uncovered Baseline" */
-td.tlaDUB
-{
-  text-align: right;
-  background-color: #FFFFFF
-}
-
-/* Source code view/table entry backround: format for lines classified as "Deleted Uncovered Baseline" */
-span.tlaDUB
-{
-  text-align: left;
-  background-color: #FFFFFF
-}
-
-/* Source code view/table entry backround: format for lines classified as "Deleted Covered Baseline" */
-td.tlaDCB
-{
-  text-align: right;
-  background-color: #FFFFFF
-}
-
-/* Source code view/table entry backround: format for lines classified as "Deleted Covered Baseline" */
-span.tlaDCB
-{
-  text-align: left;
-  background-color: #FFFFFF
-}
-
-/* Source code view: format for date/owner bin that isn't hit */
-span.missBins
-{
-  background-color: #FF0000 /* red */
 }
