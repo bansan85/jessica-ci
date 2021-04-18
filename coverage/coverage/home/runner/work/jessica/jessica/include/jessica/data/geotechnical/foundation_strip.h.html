@@ -76,7 +76,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>namespace Data::Geotechnical</pre>
+          <pre>#include &lt;jessica/compat.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -86,7 +86,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -96,7 +96,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>class IFoundationStrip</pre>
+          <pre>namespace Jessica::Data::Geotechnical</pre>
         </td>
       </tr>
       <tr>
@@ -116,7 +116,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> public:</pre>
+          <pre>class JESSICA_DLL_PUBLIC IFoundationStrip</pre>
         </td>
       </tr>
       <tr>
@@ -126,7 +126,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  IFoundationStrip(IFoundationStrip&amp;&amp;) = delete;</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -136,7 +136,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  IFoundationStrip& operator=(const IFoundationStrip&amp;) = delete;</pre>
+          <pre> public:</pre>
         </td>
       </tr>
       <tr>
@@ -146,7 +146,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  IFoundationStrip& operator=(IFoundationStrip&amp;&amp;) = delete;</pre>
+          <pre>  IFoundationStrip(IFoundationStrip&amp;&amp;) = delete;</pre>
         </td>
       </tr>
       <tr>
@@ -154,11 +154,9 @@
           <a name='L13' href='#L13' id="L13">
           <pre>13</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>2</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  virtual ~IFoundationStrip() = default;</pre>
+          <pre>  IFoundationStrip& operator=(const IFoundationStrip&amp;) = delete;</pre>
         </td>
       </tr>
       <tr>
@@ -168,7 +166,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>  IFoundationStrip& operator=(IFoundationStrip&amp;&amp;) = delete;</pre>
         </td>
       </tr>
       <tr>
@@ -176,9 +174,11 @@
           <a name='L15' href='#L15' id="L15">
           <pre>15</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>2</pre>
+        </td>
         <td class='code'>
-          <pre>  [[nodiscard]] virtual std::shared_ptr&lt;IFoundationStrip&gt; Clone() const = 0;</pre>
+          <pre>  virtual ~IFoundationStrip() = default;</pre>
         </td>
       </tr>
       <tr>
@@ -198,7 +198,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] virtual double B() const noexcept = 0;</pre>
+          <pre>  [[nodiscard]] virtual std::shared_ptr&lt;IFoundationStrip&gt; Clone() const = 0;</pre>
         </td>
       </tr>
       <tr>
@@ -208,7 +208,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] virtual std::shared_ptr&lt;IFoundationStrip&gt; B(double b) = 0;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -218,7 +218,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>  [[nodiscard]] virtual double B() const noexcept = 0;</pre>
         </td>
       </tr>
       <tr>
@@ -228,13 +228,33 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> protected:</pre>
+          <pre>  [[nodiscard]] virtual std::shared_ptr&lt;IFoundationStrip&gt; B(double b) = 0;</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L21' href='#L21' id="L21">
           <pre>21</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L22' href='#L22' id="L22">
+          <pre>22</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre> protected:</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L23' href='#L23' id="L23">
+          <pre>23</pre></a>
         </td>
         <td class='covered-line'>
           <pre>1</pre>
@@ -245,8 +265,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L22' href='#L22' id="L22">
-          <pre>22</pre></a>
+          <a name='L24' href='#L24' id="L24">
+          <pre>24</pre></a>
         </td>
         <td class='covered-line'>
           <pre>1</pre>
@@ -257,32 +277,12 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L23' href='#L23' id="L23">
-          <pre>23</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>};</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L24' href='#L24' id="L24">
-          <pre>24</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
           <a name='L25' href='#L25' id="L25">
           <pre>25</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>class Create</pre>
+          <pre>};</pre>
         </td>
       </tr>
       <tr>
@@ -292,7 +292,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -302,7 +302,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> public:</pre>
+          <pre>class JESSICA_DLL_PUBLIC Create</pre>
         </td>
       </tr>
       <tr>
@@ -312,7 +312,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  static std::shared_ptr&lt;IFoundationStrip&gt; FoundationStrip();</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -322,7 +322,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>};</pre>
+          <pre> public:</pre>
         </td>
       </tr>
       <tr>
@@ -332,7 +332,27 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>}  // namespace Data::Geotechnical</pre>
+          <pre>  static std::shared_ptr&lt;IFoundationStrip&gt; FoundationStrip();</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L31' href='#L31' id="L31">
+          <pre>31</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>};</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L32' href='#L32' id="L32">
+          <pre>32</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>}  // namespace Jessica::Data::Geotechnical</pre>
         </td>
       </tr>
     </table>

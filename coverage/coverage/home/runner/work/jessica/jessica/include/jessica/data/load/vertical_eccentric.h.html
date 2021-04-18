@@ -76,7 +76,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>namespace Data::Load</pre>
+          <pre>#include &lt;jessica/compat.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -86,7 +86,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -96,7 +96,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>class IVerticalEccentric</pre>
+          <pre>namespace Jessica::Data::Load</pre>
         </td>
       </tr>
       <tr>
@@ -116,7 +116,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> public:</pre>
+          <pre>class JESSICA_DLL_PUBLIC IVerticalEccentric</pre>
         </td>
       </tr>
       <tr>
@@ -126,7 +126,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  IVerticalEccentric(IVerticalEccentric&amp;&amp;) = delete;</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -136,7 +136,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  IVerticalEccentric& operator=(const IVerticalEccentric&amp;) = delete;</pre>
+          <pre> public:</pre>
         </td>
       </tr>
       <tr>
@@ -146,7 +146,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  IVerticalEccentric& operator=(IVerticalEccentric&amp;&amp;) = delete;</pre>
+          <pre>  IVerticalEccentric(IVerticalEccentric&amp;&amp;) = delete;</pre>
         </td>
       </tr>
       <tr>
@@ -154,11 +154,9 @@
           <a name='L13' href='#L13' id="L13">
           <pre>13</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>8</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  virtual ~IVerticalEccentric() = default;</pre>
+          <pre>  IVerticalEccentric& operator=(const IVerticalEccentric&amp;) = delete;</pre>
         </td>
       </tr>
       <tr>
@@ -168,7 +166,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>  IVerticalEccentric& operator=(IVerticalEccentric&amp;&amp;) = delete;</pre>
         </td>
       </tr>
       <tr>
@@ -176,9 +174,11 @@
           <a name='L15' href='#L15' id="L15">
           <pre>15</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>10</pre>
+        </td>
         <td class='code'>
-          <pre>  [[nodiscard]] virtual std::shared_ptr&lt;IVerticalEccentric&gt; Clone() const = 0;</pre>
+          <pre>  virtual ~IVerticalEccentric() = default;</pre>
         </td>
       </tr>
       <tr>
@@ -198,7 +198,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] virtual double V() const noexcept = 0;</pre>
+          <pre>  [[nodiscard]] virtual std::shared_ptr&lt;IVerticalEccentric&gt; Clone() const = 0;</pre>
         </td>
       </tr>
       <tr>
@@ -208,7 +208,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] virtual double E() const noexcept = 0;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -218,7 +218,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] virtual std::shared_ptr&lt;IVerticalEccentric&gt; V(</pre>
+          <pre>  [[nodiscard]] virtual double V() const noexcept = 0;</pre>
         </td>
       </tr>
       <tr>
@@ -228,7 +228,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      double v) const = 0;</pre>
+          <pre>  [[nodiscard]] virtual double E() const noexcept = 0;</pre>
         </td>
       </tr>
       <tr>
@@ -238,7 +238,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] virtual std::shared_ptr&lt;IVerticalEccentric&gt; E(</pre>
+          <pre>  [[nodiscard]] virtual std::shared_ptr&lt;IVerticalEccentric&gt; V(</pre>
         </td>
       </tr>
       <tr>
@@ -248,7 +248,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      double e) const = 0;</pre>
+          <pre>      double v) const = 0;</pre>
         </td>
       </tr>
       <tr>
@@ -258,7 +258,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>  [[nodiscard]] virtual std::shared_ptr&lt;IVerticalEccentric&gt; E(</pre>
         </td>
       </tr>
       <tr>
@@ -268,13 +268,33 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> protected:</pre>
+          <pre>      double e) const = 0;</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L25' href='#L25' id="L25">
           <pre>25</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L26' href='#L26' id="L26">
+          <pre>26</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre> protected:</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L27' href='#L27' id="L27">
+          <pre>27</pre></a>
         </td>
         <td class='covered-line'>
           <pre>2</pre>
@@ -285,34 +305,14 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L26' href='#L26' id="L26">
-          <pre>26</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>6</pre>
-        </td>
-        <td class='code'>
-          <pre>  IVerticalEccentric(const IVerticalEccentric&amp;) = default;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L27' href='#L27' id="L27">
-          <pre>27</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>};</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
           <a name='L28' href='#L28' id="L28">
           <pre>28</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>8</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre>  IVerticalEccentric(const IVerticalEccentric&amp;) = default;</pre>
         </td>
       </tr>
       <tr>
@@ -322,7 +322,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>class Create</pre>
+          <pre>};</pre>
         </td>
       </tr>
       <tr>
@@ -332,7 +332,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -342,7 +342,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> public:</pre>
+          <pre>class JESSICA_DLL_PUBLIC Create</pre>
         </td>
       </tr>
       <tr>
@@ -352,7 +352,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  static std::shared_ptr&lt;IVerticalEccentric&gt; VerticalEccentric();</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -362,7 +362,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>};</pre>
+          <pre> public:</pre>
         </td>
       </tr>
       <tr>
@@ -372,7 +372,27 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>}  // namespace Data::Load</pre>
+          <pre>  static std::shared_ptr&lt;IVerticalEccentric&gt; VerticalEccentric();</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L35' href='#L35' id="L35">
+          <pre>35</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>};</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L36' href='#L36' id="L36">
+          <pre>36</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>}  // namespace Jessica::Data::Load</pre>
         </td>
       </tr>
     </table>

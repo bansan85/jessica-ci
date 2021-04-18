@@ -76,7 +76,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/data/geotechnical/foundation_strip.h&gt;</pre>
+          <pre>#include &lt;jessica/compat.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -86,7 +86,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/data/load/vertical_eccentric.h&gt;</pre>
+          <pre>#include &lt;jessica/data/geotechnical/foundation_strip.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -96,7 +96,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>#include &lt;jessica/data/load/vertical_eccentric.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -106,7 +106,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>namespace Calc::Geotechnical</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -116,7 +116,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>namespace Jessica::Calc::Geotechnical</pre>
         </td>
       </tr>
       <tr>
@@ -126,7 +126,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>class IMeyerhofShallowFoundation</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -136,7 +136,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>class JESSICA_DLL_PUBLIC IMeyerhofShallowFoundation</pre>
         </td>
       </tr>
       <tr>
@@ -146,7 +146,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> public:</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -156,7 +156,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  IMeyerhofShallowFoundation(IMeyerhofShallowFoundation&amp;&amp;) = delete;</pre>
+          <pre> public:</pre>
         </td>
       </tr>
       <tr>
@@ -166,7 +166,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  IMeyerhofShallowFoundation& operator=(const IMeyerhofShallowFoundation&amp;) =</pre>
+          <pre>  IMeyerhofShallowFoundation(IMeyerhofShallowFoundation&amp;&amp;) = delete;</pre>
         </td>
       </tr>
       <tr>
@@ -176,7 +176,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      delete;</pre>
+          <pre>  IMeyerhofShallowFoundation& operator=(const IMeyerhofShallowFoundation&amp;) =</pre>
         </td>
       </tr>
       <tr>
@@ -186,7 +186,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  IMeyerhofShallowFoundation& operator=(IMeyerhofShallowFoundation&amp;&amp;) = delete;</pre>
+          <pre>      delete;</pre>
         </td>
       </tr>
       <tr>
@@ -194,11 +194,9 @@
           <a name='L17' href='#L17' id="L17">
           <pre>17</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>3</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  virtual ~IMeyerhofShallowFoundation() = default;</pre>
+          <pre>  IMeyerhofShallowFoundation& operator=(IMeyerhofShallowFoundation&amp;&amp;) = delete;</pre>
         </td>
       </tr>
       <tr>
@@ -206,9 +204,11 @@
           <a name='L18' href='#L18' id="L18">
           <pre>18</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>5</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre>  virtual ~IMeyerhofShallowFoundation() = default;</pre>
         </td>
       </tr>
       <tr>
@@ -218,7 +218,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] virtual std::shared_ptr&lt;IMeyerhofShallowFoundation&gt; Clone()</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -228,7 +228,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      const = 0;</pre>
+          <pre>  [[nodiscard]] virtual std::shared_ptr&lt;IMeyerhofShallowFoundation&gt; Clone()</pre>
         </td>
       </tr>
       <tr>
@@ -238,7 +238,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>      const = 0;</pre>
         </td>
       </tr>
       <tr>
@@ -248,7 +248,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] virtual double Qref() const noexcept = 0;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -258,7 +258,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] virtual double B_() const noexcept = 0;</pre>
+          <pre>  [[nodiscard]] virtual double Qref() const noexcept = 0;</pre>
         </td>
       </tr>
       <tr>
@@ -268,7 +268,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>  [[nodiscard]] virtual double B_() const noexcept = 0;</pre>
         </td>
       </tr>
       <tr>
@@ -278,7 +278,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> protected:</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -286,8 +286,18 @@
           <a name='L26' href='#L26' id="L26">
           <pre>26</pre></a>
         </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre> protected:</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L27' href='#L27' id="L27">
+          <pre>27</pre></a>
+        </td>
         <td class='covered-line'>
-          <pre>2</pre>
+          <pre>4</pre>
         </td>
         <td class='code'>
           <pre>  IMeyerhofShallowFoundation() = default;</pre>
@@ -295,8 +305,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L27' href='#L27' id="L27">
-          <pre>27</pre></a>
+          <a name='L28' href='#L28' id="L28">
+          <pre>28</pre></a>
         </td>
         <td class='covered-line'>
           <pre>1</pre>
@@ -307,22 +317,12 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L28' href='#L28' id="L28">
-          <pre>28</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>};</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
           <a name='L29' href='#L29' id="L29">
           <pre>29</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>};</pre>
         </td>
       </tr>
       <tr>
@@ -332,7 +332,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>class Create</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -342,7 +342,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>class JESSICA_DLL_PUBLIC Create</pre>
         </td>
       </tr>
       <tr>
@@ -352,7 +352,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> public:</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -362,7 +362,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  static std::shared_ptr&lt;IMeyerhofShallowFoundation&gt; MeyerhofShallowFoundation(</pre>
+          <pre> public:</pre>
         </td>
       </tr>
       <tr>
@@ -372,7 +372,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      const std::shared_ptr&lt;Data::Load::IVerticalEccentric&gt;& load,</pre>
+          <pre>  static std::shared_ptr&lt;IMeyerhofShallowFoundation&gt; MeyerhofShallowFoundation(</pre>
         </td>
       </tr>
       <tr>
@@ -382,7 +382,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      const std::shared_ptr&lt;Data::Geotechnical::IFoundationStrip&gt;& foundation);</pre>
+          <pre>      const std::shared_ptr&lt;Data::Load::IVerticalEccentric&gt;& load,</pre>
         </td>
       </tr>
       <tr>
@@ -392,7 +392,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>};</pre>
+          <pre>      const std::shared_ptr&lt;Data::Geotechnical::IFoundationStrip&gt;& foundation);</pre>
         </td>
       </tr>
       <tr>
@@ -402,7 +402,17 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>}  // namespace Calc::Geotechnical</pre>
+          <pre>};</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L38' href='#L38' id="L38">
+          <pre>38</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>}  // namespace Jessica::Calc::Geotechnical</pre>
         </td>
       </tr>
     </table>
