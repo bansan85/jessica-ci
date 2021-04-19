@@ -522,7 +522,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>}  // namespace Jessica::Calc::Geotechnical</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -532,7 +532,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>std::shared_ptr&lt;IMeyerhofShallowFoundation&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -542,7 +542,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>namespace Jessica::Calc::Geotechnical</pre>
+          <pre>Geotechnical::Create::MeyerhofShallowFoundation(</pre>
         </td>
       </tr>
       <tr>
@@ -552,7 +552,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>    const std::shared_ptr&lt;Jessica::Data::Load::IVerticalEccentric&gt;& load,</pre>
         </td>
       </tr>
       <tr>
@@ -562,7 +562,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>std::shared_ptr&lt;IMeyerhofShallowFoundation&gt;</pre>
+          <pre>    const std::shared_ptr&lt;Jessica::Data::Geotechnical::IFoundationStrip&gt;&</pre>
         </td>
       </tr>
       <tr>
@@ -572,7 +572,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>Geotechnical::Create::MeyerhofShallowFoundation(</pre>
+          <pre>        foundation)</pre>
         </td>
       </tr>
       <tr>
@@ -580,9 +580,11 @@
           <a name='L53' href='#L53' id="L53">
           <pre>53</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>4</pre>
+        </td>
         <td class='code'>
-          <pre>    const std::shared_ptr&lt;Jessica::Data::Load::IVerticalEccentric&gt;& load,</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -590,9 +592,11 @@
           <a name='L54' href='#L54' id="L54">
           <pre>54</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>4</pre>
+        </td>
         <td class='code'>
-          <pre>    const std::shared_ptr&lt;Jessica::Data::Geotechnical::IFoundationStrip&gt;&</pre>
+          <pre>  return std::make_shared&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -600,9 +604,11 @@
           <a name='L55' href='#L55' id="L55">
           <pre>55</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>4</pre>
+        </td>
         <td class='code'>
-          <pre>        foundation)</pre>
+          <pre>      Jessica::Calc::Geotechnical::MeyerhofShallowFoundation&gt;(load, foundation);</pre>
         </td>
       </tr>
       <tr>
@@ -614,49 +620,13 @@
           <pre>4</pre>
         </td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>}</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L57' href='#L57' id="L57">
           <pre>57</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
-        <td class='code'>
-          <pre>  return std::make_shared&lt;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L58' href='#L58' id="L58">
-          <pre>58</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
-        <td class='code'>
-          <pre>      Jessica::Calc::Geotechnical::MeyerhofShallowFoundation&gt;(load, foundation);</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L59' href='#L59' id="L59">
-          <pre>59</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
-        <td class='code'>
-          <pre>}</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L60' href='#L60' id="L60">
-          <pre>60</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
