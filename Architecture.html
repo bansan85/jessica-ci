@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.14">
-<title>Coding style</title>
+<title>Architecture</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,224 +438,33 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>Coding style</h1>
+<h1>Architecture</h1>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_general_rule">General rule</h2>
+<h2 id="_library">Library</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <a href="https://google.github.io/styleguide/cppguide.html">Google C++ Style Guide</a> must be apply.</p>
+<p>The whole backend is build in a single library.</p>
 </div>
 <div class="paragraph">
-<p>Rule in the current paragraph is a reminder of the official guide.</p>
+<p>The library must be buildable with option <code>-fvisibility=hidden</code>. So all symbols that need to be used must be explicitly exported.</p>
 </div>
-<div class="sect2">
-<h3 id="_naming_convention">Naming convention</h3>
+<div class="paragraph">
+<p>For this job, it will be used:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>Filename: lower case with underline between words (i.e. <code>file_name.cc</code>),</p>
+<p><code>__declspec(dllimport)</code> and <code>__declspec(dllexport)</code> will be used for <a href="https://docs.microsoft.com/en-us/cpp/build/importing-and-exporting">Windows</a>,</p>
 </li>
 <li>
-<p>Classe: camel case (i.e. <code>LoadClass</code>),</p>
-</li>
-<li>
-<p>Function: camel case (i.e. <code>ExecuteRule</code>).</p>
-</li>
-<li>
-<p>Accessors (getter / setter) do not use prefix <code>Get</code> and <code>Set</code>. Getters should not have argument and Setter should have one.</p>
-</li>
-<li>
-<p>Extension:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>C++ source: <code>.cc</code> and <code>.h</code>,</p>
-</li>
-<li>
-<p>Asciidoc: <code>.adoc</code>,</p>
-</li>
-<li>
-<p>yaml: <code>.yml</code>.</p>
-</li>
-</ul>
-</div>
+<p><code>__attribute__visibility("default")</code> will be used for Linux.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Do not use abbreviation.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_more_formatting_rules">More formatting rules</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_formatting_files">Formatting files</h3>
-<div class="paragraph">
-<p>Use LF as end of line. A choice must be done between Windows and Linux. Shorter is better and easier.</p>
-</div>
-<div class="paragraph">
-<p>The main formating code I don&#8217;t respect in Google standard is that all brackets are in new line. Only exception if both opening and closing bracket are in same line.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_license">License</h3>
-<div class="paragraph">
-<p>Writing license header on each source file is only mandatory for GPL.
-For the MIT licence, there is only a copy in the file LICENSE.md.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_more_coding_style">More coding style</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_namespace">Namespace</h3>
-<div class="paragraph">
-<p>All symbols have a main namespace <code>Jessica</code>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_functional_programming">Functional programming</h3>
-<div class="paragraph">
-<p>The software use functional programming when possible. Why ? Because I want to try it.</p>
-</div>
-<div class="paragraph">
-<p>Getter and Setter are const. Setter return <code>std::shared_ptr</code>.</p>
-</div>
-<div class="paragraph">
-<p>Functional programming makes all data const, so delete or make private / protected move constructor and move assignment.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_interface">Interface</h3>
-<div class="paragraph">
-<p>Each public class should have an interface. This ease test (perfectly compatible with mock of gtest) and hide implementation and private field.</p>
-</div>
-<div class="paragraph">
-<p>To declare an interface, use pure virtual function everywhere.</p>
-</div>
-<div class="paragraph">
-<p><a href="https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rc-copy-virtual">A polymorphic class should suppress copying</a>. All classes have interface, so delete or make private / protected copy constructor and copy assignment.</p>
-</div>
-<div class="paragraph">
-<p>Using setter need to copy data. <a href="https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rh-copy">For making deep copies of polymorphic classes prefer a virtual clone function instead of copy construction/assignment</a></p>
-</div>
-<div class="paragraph">
-<p>Ownership of a return value of a setter must be able to be shared. Use <code>std::shared_ptr&lt;..*&gt;</code>.</p>
-</div>
-<div class="paragraph">
-<p>Default constructor must be declared as protected to be inheritable.
-Copy constructor must be declared as protected to be clonable.</p>
-</div>
-<div class="paragraph">
-<p>Exemple of interface:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">namespace Jessica::Data::Geotechnical
-{
-class JESSICA_DLL_PUBLIC IFoundationStrip
-{
- public:
-  IFoundationStrip(IFoundationStrip&amp;&amp;) = delete;
-  IFoundationStrip&amp; operator=(const IFoundationStrip&amp;) = delete;
-  IFoundationStrip&amp; operator=(IFoundationStrip&amp;&amp;) = delete;
-  virtual ~IFoundationStrip() = default;
-
-  [[nodiscard]] virtual std::shared_ptr&lt;IFoundationStrip&gt; Clone() const = 0;
-
-  [[nodiscard]] virtual double B() const noexcept = 0;
-  [[nodiscard]] virtual std::shared_ptr&lt;IFoundationStrip&gt; B(double b) = 0;
-
- protected:
-  IFoundationStrip() = default;
-  IFoundationStrip(const IFoundationStrip&amp;) = default;
-};
-
-class JESSICA_DLL_PUBLIC Create
-{
- public:
-  static std::shared_ptr&lt;IFoundationStrip&gt; FoundationStrip();
-};
-}  // namespace Jessica::Data::Geotechnical</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Exemple of class:</p>
-</div>
-<div class="paragraph">
-<p>Copy constructor must be public to use <code>std::make_shared</code>.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">namespace Jessica::Data::Geotechnical
-{
-class JESSICA_DLL_PUBLIC FoundationStrip
-    : public Jessica::Data::Geotechnical::IFoundationStrip
-{
- public:
-  FoundationStrip() = default;
-  FoundationStrip(const FoundationStrip&amp;) = default;
-  FoundationStrip(FoundationStrip&amp;&amp;) = delete;
-  FoundationStrip&amp; operator=(const FoundationStrip&amp;) = delete;
-  FoundationStrip&amp; operator=(FoundationStrip&amp;&amp;) = delete;
-  ~FoundationStrip() override = default;
-
-  [[nodiscard]] std::shared_ptr&lt;IFoundationStrip&gt; Clone() const override
-  {
-    return std::make_shared&lt;FoundationStrip&gt;(*this);
-  }
-
-  [[nodiscard]] double B() const noexcept override { return b_; }
-  [[nodiscard]] std::shared_ptr&lt;IFoundationStrip&gt; B(double b) override
-  {
-    auto retval = std::make_shared&lt;FoundationStrip&gt;(*this);
-    retval-&gt;b_ = b;
-    return retval;
-  }
-
- private:
-  double b_ = std::numeric_limits&lt;double&gt;::quiet_NaN();
-};
-
-std::shared_ptr&lt;IFoundationStrip&gt; Create::FoundationStrip()
-{
-  return std::make_shared&lt;Jessica::Data::Geotechnical::FoundationStrip&gt;();
-}
-}  // namespace Jessica::Data::Geotechnical</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>At first, the idea was to put the implementation <code>FoundationStrip</code> in a anonymous namespace.
-Infortunatly, to make the sanitizer <code>cfi</code> works, the <code>vtable</code> of <code>FoundationStrip</code> must be exported.
-I kept separation between interface and implementation for tests.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_dependencies">Dependencies</h3>
-<div class="paragraph">
-<p>Avoid deep dependencies.
-If you use external dependency for just a few functions that could be easily replaced by another library, create an header adapter. See <code>jessica/test/test.h</code> for example.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_avoid">Avoid&#8230;&#8203;</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;too much symbol.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Use anonymous namespace where possible.</p>
-</div>
+<p>Internally, you must define the macro <code>BUILDING_JESSICA_DLL</code>.</p>
 </div>
 </div>
 </div>
