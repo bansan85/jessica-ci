@@ -90,7 +90,7 @@
 <a name="12"><span class="lineNum">      12</span>                 :             :   IFoundationStrip(IFoundationStrip&amp;&amp;) = delete;</a>
 <a name="13"><span class="lineNum">      13</span>                 :             :   IFoundationStrip&amp; operator=(const IFoundationStrip&amp;) = delete;</a>
 <a name="14"><span class="lineNum">      14</span>                 :             :   IFoundationStrip&amp; operator=(IFoundationStrip&amp;&amp;) = delete;</a>
-<a name="15"><span class="lineNum">      15</span>                 :<span class="tlaGNC">           3 :   virtual ~IFoundationStrip() = default;</span></a>
+<a name="15"><span class="lineNum">      15</span>                 :<span class="tlaGNC">           5 :   virtual ~IFoundationStrip() = default;</span></a>
 <a name="16"><span class="lineNum">      16</span>                 :             : </a>
 <a name="17"><span class="lineNum">      17</span>                 :             :   [[nodiscard]] virtual std::shared_ptr&lt;IFoundationStrip&gt; Clone() const = 0;</a>
 <a name="18"><span class="lineNum">      18</span>                 :             : </a>
@@ -99,7 +99,7 @@
 <a name="21"><span class="lineNum">      21</span>                 :             : </a>
 <a name="22"><span class="lineNum">      22</span>                 :             :  protected:</a>
 <a name="23"><span class="lineNum">      23</span>                 :<span class="tlaGNC">           2 :   IFoundationStrip() = default;</span></a>
-<a name="24"><span class="lineNum">      24</span>                 :<span class="tlaGNC">           1 :   IFoundationStrip(const IFoundationStrip&amp;) = default;</span></a>
+<a name="24"><span class="lineNum">      24</span>                 :<span class="tlaGNC">           3 :   IFoundationStrip(const IFoundationStrip&amp;) = default;</span></a>
 <a name="25"><span class="lineNum">      25</span>                 :             : };</a>
 <a name="26"><span class="lineNum">      26</span>                 :             : </a>
 <a name="27"><span class="lineNum">      27</span>                 :             : class JESSICA_DLL_PUBLIC Create</a>
