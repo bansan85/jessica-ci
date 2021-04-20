@@ -15,7 +15,7 @@
   <h4></h4>
   <div class='centered'>
     <div class='source-name-title'>
-      <pre>/home/runner/work/jessica/jessica/src/backend/data/geotechnical/foundation_strip.cc</pre>
+      <pre>/home/runner/work/jessica/jessica/src/backend/data/load/vertical_eccentric.cc</pre>
     </div>
     <table>
       <tr>
@@ -26,8 +26,7 @@
           <pre>Count</pre>
         </td>
         <td>
-          <pre>Source (<a href=
-          '#L21'>jump to first uncovered line</a>)</pre>
+          <pre>Source</pre>
         </td>
       </tr>
       <tr>
@@ -77,7 +76,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/data/geotechnical/foundation_strip.h&gt;</pre>
+          <pre>#include &lt;jessica/data/load/vertical_eccentric.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -97,7 +96,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>namespace Jessica::Data::Geotechnical</pre>
+          <pre>namespace Jessica::Data::Load</pre>
         </td>
       </tr>
       <tr>
@@ -117,7 +116,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>class JESSICA_DLL_PUBLIC FoundationStrip</pre>
+          <pre>class JESSICA_DLL_PUBLIC VerticalEccentric</pre>
         </td>
       </tr>
       <tr>
@@ -127,7 +126,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    : public Jessica::Data::Geotechnical::IFoundationStrip</pre>
+          <pre>    : public Jessica::Data::Load::IVerticalEccentric</pre>
         </td>
       </tr>
       <tr>
@@ -156,10 +155,10 @@
           <pre>13</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>1</pre>
+          <pre>2</pre>
         </td>
         <td class='code'>
-          <pre>  FoundationStrip() = default;</pre>
+          <pre>  VerticalEccentric() = default;</pre>
         </td>
       </tr>
       <tr>
@@ -168,10 +167,10 @@
           <pre>14</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>1</pre>
+          <pre>8</pre>
         </td>
         <td class='code'>
-          <pre>  FoundationStrip(const FoundationStrip&amp;) = default;</pre>
+          <pre>  VerticalEccentric(const VerticalEccentric&amp;) = default;</pre>
         </td>
       </tr>
       <tr>
@@ -181,7 +180,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  FoundationStrip(FoundationStrip&amp;&amp;) = delete;</pre>
+          <pre>  VerticalEccentric(VerticalEccentric&amp;&amp;) = delete;</pre>
         </td>
       </tr>
       <tr>
@@ -191,7 +190,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  FoundationStrip& operator=(const FoundationStrip&amp;) = delete;</pre>
+          <pre>  VerticalEccentric& operator=(const VerticalEccentric&amp;) = delete;</pre>
         </td>
       </tr>
       <tr>
@@ -201,7 +200,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  FoundationStrip& operator=(FoundationStrip&amp;&amp;) = delete;</pre>
+          <pre>  VerticalEccentric& operator=(VerticalEccentric&amp;&amp;) = delete;</pre>
         </td>
       </tr>
       <tr>
@@ -210,10 +209,10 @@
           <pre>18</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>2</pre>
+          <pre>10</pre>
         </td>
         <td class='code'>
-          <pre>  ~FoundationStrip() override = default;</pre>
+          <pre>  ~VerticalEccentric() override = default;</pre>
         </td>
       </tr>
       <tr>
@@ -233,7 +232,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] std::shared_ptr&lt;IFoundationStrip&gt; Clone() const override</pre>
+          <pre>  [[nodiscard]] std::shared_ptr&lt;IVerticalEccentric&gt; Clone() const override</pre>
         </td>
       </tr>
       <tr>
@@ -241,11 +240,11 @@
           <a name='L21' href='#L21' id="L21">
           <pre>21</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
+        <td class='covered-line'>
+          <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  <span class='red'>{</span></pre>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -253,12 +252,11 @@
           <a name='L22' href='#L22' id="L22">
           <pre>22</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
+        <td class='covered-line'>
+          <pre>1</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>    return std::make_shared&lt;FoundationStrip&gt;(*this);</span></pre>
+          <pre>    return std::make_shared&lt;VerticalEccentric&gt;(*this);</pre>
         </td>
       </tr>
       <tr>
@@ -266,11 +264,11 @@
           <a name='L23' href='#L23' id="L23">
           <pre>23</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
+        <td class='covered-line'>
+          <pre>1</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>  }</span></pre>
+          <pre>  }</pre>
         </td>
       </tr>
       <tr>
@@ -289,10 +287,10 @@
           <pre>25</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>10</pre>
+          <pre>9</pre>
         </td>
         <td class='code'>
-          <pre>  [[nodiscard]] double B() const noexcept override { return b_; }</pre>
+          <pre>  [[nodiscard]] double V() const noexcept override { return v_; }</pre>
         </td>
       </tr>
       <tr>
@@ -300,9 +298,11 @@
           <a name='L26' href='#L26' id="L26">
           <pre>26</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>15</pre>
+        </td>
         <td class='code'>
-          <pre>  [[nodiscard]] std::shared_ptr&lt;IFoundationStrip&gt; B(double b) override</pre>
+          <pre>  [[nodiscard]] double E() const noexcept override { return e_; }</pre>
         </td>
       </tr>
       <tr>
@@ -310,11 +310,9 @@
           <a name='L27' href='#L27' id="L27">
           <pre>27</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>1</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>  [[nodiscard]] std::shared_ptr&lt;IVerticalEccentric&gt; V(double v) const override</pre>
         </td>
       </tr>
       <tr>
@@ -323,10 +321,10 @@
           <pre>28</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>1</pre>
+          <pre>2</pre>
         </td>
         <td class='code'>
-          <pre>    auto retval = std::make_shared&lt;FoundationStrip&gt;(*this);</pre>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -335,10 +333,10 @@
           <pre>29</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>1</pre>
+          <pre>2</pre>
         </td>
         <td class='code'>
-          <pre>    retval-&gt;b_ = b;</pre>
+          <pre>    auto retval = std::make_shared&lt;VerticalEccentric&gt;(*this);</pre>
         </td>
       </tr>
       <tr>
@@ -347,10 +345,10 @@
           <pre>30</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>1</pre>
+          <pre>2</pre>
         </td>
         <td class='code'>
-          <pre>    return retval;</pre>
+          <pre>    retval-&gt;v_ = v;</pre>
         </td>
       </tr>
       <tr>
@@ -359,10 +357,10 @@
           <pre>31</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>1</pre>
+          <pre>2</pre>
         </td>
         <td class='code'>
-          <pre>  }</pre>
+          <pre>    return retval;</pre>
         </td>
       </tr>
       <tr>
@@ -370,9 +368,11 @@
           <a name='L32' href='#L32' id="L32">
           <pre>32</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>2</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre>  }</pre>
         </td>
       </tr>
       <tr>
@@ -382,7 +382,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> private:</pre>
+          <pre>  [[nodiscard]] std::shared_ptr&lt;IVerticalEccentric&gt; E(double e) const override</pre>
         </td>
       </tr>
       <tr>
@@ -390,9 +390,11 @@
           <a name='L34' href='#L34' id="L34">
           <pre>34</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>5</pre>
+        </td>
         <td class='code'>
-          <pre>  double b_ = std::numeric_limits&lt;double&gt;::quiet_NaN();</pre>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -400,9 +402,11 @@
           <a name='L35' href='#L35' id="L35">
           <pre>35</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>5</pre>
+        </td>
         <td class='code'>
-          <pre>};</pre>
+          <pre>    auto retval = std::make_shared&lt;VerticalEccentric&gt;(*this);</pre>
         </td>
       </tr>
       <tr>
@@ -410,9 +414,11 @@
           <a name='L36' href='#L36' id="L36">
           <pre>36</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>5</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre>    retval-&gt;e_ = e;</pre>
         </td>
       </tr>
       <tr>
@@ -420,9 +426,11 @@
           <a name='L37' href='#L37' id="L37">
           <pre>37</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>5</pre>
+        </td>
         <td class='code'>
-          <pre>std::shared_ptr&lt;IFoundationStrip&gt; Create::FoundationStrip()</pre>
+          <pre>    return retval;</pre>
         </td>
       </tr>
       <tr>
@@ -431,10 +439,10 @@
           <pre>38</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>1</pre>
+          <pre>5</pre>
         </td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>  }</pre>
         </td>
       </tr>
       <tr>
@@ -442,11 +450,9 @@
           <a name='L39' href='#L39' id="L39">
           <pre>39</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>1</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  return std::make_shared&lt;Jessica::Data::Geotechnical::FoundationStrip&gt;();</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -454,11 +460,9 @@
           <a name='L40' href='#L40' id="L40">
           <pre>40</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>1</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>}</pre>
+          <pre> private:</pre>
         </td>
       </tr>
       <tr>
@@ -468,7 +472,93 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>}  // namespace Jessica::Data::Geotechnical</pre>
+          <pre>  double v_ = std::numeric_limits&lt;double&gt;::quiet_NaN();</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L42' href='#L42' id="L42">
+          <pre>42</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  double e_ = std::numeric_limits&lt;double&gt;::quiet_NaN();</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L43' href='#L43' id="L43">
+          <pre>43</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>};</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L44' href='#L44' id="L44">
+          <pre>44</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L45' href='#L45' id="L45">
+          <pre>45</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>std::shared_ptr&lt;IVerticalEccentric&gt; Create::VerticalEccentric()</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L46' href='#L46' id="L46">
+          <pre>46</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>2</pre>
+        </td>
+        <td class='code'>
+          <pre>{</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L47' href='#L47' id="L47">
+          <pre>47</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>2</pre>
+        </td>
+        <td class='code'>
+          <pre>  return std::make_shared&lt;Jessica::Data::Load::VerticalEccentric&gt;();</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L48' href='#L48' id="L48">
+          <pre>48</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>2</pre>
+        </td>
+        <td class='code'>
+          <pre>}</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L49' href='#L49' id="L49">
+          <pre>49</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>}  // namespace Jessica::Data::Load</pre>
         </td>
       </tr>
     </table>
