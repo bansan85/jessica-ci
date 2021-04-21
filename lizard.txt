@@ -1,9 +1,9 @@
 ================================================
   NLOC    CCN   token  PARAM  length  location  
 ------------------------------------------------
-       5      1     24      2       5 JTEST_NAME ./test/backend/data/geotechnical/foundation_strip.cc
-       4      1     24      2       4 JTEST_NAME ./test/backend/data/load/vertical_eccentric.cc
-       5      1     30      2       5 JTEST_NAME ./test/backend/calc/geotechnical/meyerhof.cc
+      11      1    101      2      11 JTEST_NAME ./test/backend/data/geotechnical/foundation_strip.cc
+      15      1    168      2      15 JTEST_NAME ./test/backend/data/load/vertical_eccentric.cc
+      31      1    303      2      33 JTEST_NAME ./test/backend/calc/geotechnical/meyerhof.cc
        4      1     18      0       4 Jessica::Data::Geotechnical::JESSICA_DLL_PUBLICFoundationStrip::Clone ./src/backend/data/geotechnical/foundation_strip.cc
        1      1     11      0       1 Jessica::Data::Geotechnical::JESSICA_DLL_PUBLICFoundationStrip::B ./src/backend/data/geotechnical/foundation_strip.cc
        6      1     31      1       6 Jessica::Data::Geotechnical::JESSICA_DLL_PUBLICFoundationStrip::B ./src/backend/data/geotechnical/foundation_strip.cc
@@ -24,9 +24,9 @@
 ==============================================================
 NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
 --------------------------------------------------------------
-      9       5.0     1.0       24.0         1     ./test/backend/data/geotechnical/foundation_strip.cc
-      8       4.0     1.0       24.0         1     ./test/backend/data/load/vertical_eccentric.cc
-     13       5.0     1.0       30.0         1     ./test/backend/calc/geotechnical/meyerhof.cc
+     15      11.0     1.0      101.0         1     ./test/backend/data/geotechnical/foundation_strip.cc
+     19      15.0     1.0      168.0         1     ./test/backend/data/load/vertical_eccentric.cc
+     39      31.0     1.0      303.0         1     ./test/backend/calc/geotechnical/meyerhof.cc
      35       3.8     1.0       20.8         4     ./src/backend/data/geotechnical/foundation_strip.cc
      43       3.7     1.0       21.2         6     ./src/backend/data/load/vertical_eccentric.cc
      51       5.4     1.0       32.4         5     ./src/backend/calc/geotechnical/meyerhof.cc
@@ -42,4 +42,4 @@ No thresholds exceeded (cyclomatic_complexity > 15 or length > 1000 or nloc > 10
 ==========================================================================================
 Total nloc   Avg.NLOC  AvgCCN  Avg.token   Fun Cnt  Warning cnt   Fun Rt   nloc Rt
 ------------------------------------------------------------------------------------------
-       258       4.7     1.0       28.9       19            0      0.00    0.00
+       301       6.9     1.0       54.9       19            0      0.00    0.00
