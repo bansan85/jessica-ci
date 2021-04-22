@@ -1,9 +1,19 @@
 ================================================
   NLOC    CCN   token  PARAM  length  location  
 ------------------------------------------------
-      11      1    101      2      11 JTEST_NAME ./test/backend/data/geotechnical/foundation_strip.cc
-      15      1    168      2      15 JTEST_NAME ./test/backend/data/load/vertical_eccentric.cc
-      31      1    303      2      33 JTEST_NAME ./test/backend/calc/geotechnical/meyerhof.cc
+       5      1     27      2       5 Jessica::Data::Geotechnical::JESSICA_DLL_PUBLICIFoundationStrip::f ./include/jessica/data/geotechnical/foundation_strip.h
+       5      1     28      2       5 Jessica::Data::Geotechnical::JESSICA_DLL_PUBLICIFoundationStrip::f ./include/jessica/data/geotechnical/foundation_strip.h
+       5      1     31      2       5 Jessica::Data::Geotechnical::JESSICA_DLL_PUBLICIFoundationStrip::f ./include/jessica/data/geotechnical/foundation_strip.h
+       5      1     27      2       5 Jessica::Data::Load::JESSICA_DLL_PUBLICIVerticalEccentric::f ./include/jessica/data/load/vertical_eccentric.h
+       5      1     28      2       5 Jessica::Data::Load::JESSICA_DLL_PUBLICIVerticalEccentric::f ./include/jessica/data/load/vertical_eccentric.h
+       5      1     28      2       5 Jessica::Data::Load::JESSICA_DLL_PUBLICIVerticalEccentric::f ./include/jessica/data/load/vertical_eccentric.h
+       5      1     31      2       5 Jessica::Data::Load::JESSICA_DLL_PUBLICIVerticalEccentric::f ./include/jessica/data/load/vertical_eccentric.h
+       5      1     31      2       5 Jessica::Data::Load::JESSICA_DLL_PUBLICIVerticalEccentric::f ./include/jessica/data/load/vertical_eccentric.h
+       6      1     27      2       6 Jessica::Calc::Geotechnical::JESSICA_DLL_PUBLICIMeyerhofShallowFoundation::f ./include/jessica/calc/geotechnical/meyerhof.h
+       6      1     28      2       6 Jessica::Calc::Geotechnical::JESSICA_DLL_PUBLICIMeyerhofShallowFoundation::f ./include/jessica/calc/geotechnical/meyerhof.h
+       6      1     28      2       6 Jessica::Calc::Geotechnical::JESSICA_DLL_PUBLICIMeyerhofShallowFoundation::f ./include/jessica/calc/geotechnical/meyerhof.h
+      10      1    116      2      10 Jessica::Util::Decorator::LogDuration::f ./include/jessica/util/decorator/log_duration.h
+       5      1     60      2       5 Jessica::Util::Decorator::LogCall::f ./include/jessica/util/decorator/log_call.h
        4      1     18      0       4 Jessica::Data::Geotechnical::JESSICA_DLL_PUBLICFoundationStrip::Clone ./src/backend/data/geotechnical/foundation_strip.cc
        1      1     11      0       1 Jessica::Data::Geotechnical::JESSICA_DLL_PUBLICFoundationStrip::B ./src/backend/data/geotechnical/foundation_strip.cc
        6      1     31      1       6 Jessica::Data::Geotechnical::JESSICA_DLL_PUBLICFoundationStrip::B ./src/backend/data/geotechnical/foundation_strip.cc
@@ -20,26 +30,31 @@
        4      1     24      0       4 Jessica::Calc::Geotechnical::JESSICA_DLL_PUBLICMeyerhofShallowFoundation::B_ ./src/backend/calc/geotechnical/meyerhof.cc
        8      1     59      2       8 Jessica::Calc::Geotechnical::Geotechnical::Create::MeyerhofShallowFoundation ./src/backend/calc/geotechnical/meyerhof.cc
       11      1     99      0      12 main ./src/main/main1.cc
-12 file analyzed.
+      11      1    101      2      11 JTEST_NAME ./test/backend/data/geotechnical/foundation_strip.cc
+      15      1    168      2      15 JTEST_NAME ./test/backend/data/load/vertical_eccentric.cc
+      31      1    303      2      33 JTEST_NAME ./test/backend/calc/geotechnical/meyerhof.cc
+14 file analyzed.
 ==============================================================
 NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
 --------------------------------------------------------------
-     15      11.0     1.0      101.0         1     ./test/backend/data/geotechnical/foundation_strip.cc
-     19      15.0     1.0      168.0         1     ./test/backend/data/load/vertical_eccentric.cc
-     39      31.0     1.0      303.0         1     ./test/backend/calc/geotechnical/meyerhof.cc
+     52       5.0     1.0       28.7         3     ./include/jessica/data/geotechnical/foundation_strip.h
+     73       5.0     1.0       29.0         5     ./include/jessica/data/load/vertical_eccentric.h
+     60       6.0     1.0       27.7         3     ./include/jessica/calc/geotechnical/meyerhof.h
+      1       0.0     0.0        0.0         0     ./include/jessica/test/test.h
+     22      10.0     1.0      116.0         1     ./include/jessica/util/decorator/log_duration.h
+     16       5.0     1.0       60.0         1     ./include/jessica/util/decorator/log_call.h
+      0       0.0     0.0        0.0         0     ./include/jessica/compat.h
      35       3.8     1.0       20.8         4     ./src/backend/data/geotechnical/foundation_strip.cc
      43       3.7     1.0       21.2         6     ./src/backend/data/load/vertical_eccentric.cc
      51       5.4     1.0       32.4         5     ./src/backend/calc/geotechnical/meyerhof.cc
      16      11.0     1.0       99.0         1     ./src/main/main1.cc
-     24       0.0     0.0        0.0         0     ./include/jessica/data/geotechnical/foundation_strip.h
-     28       0.0     0.0        0.0         0     ./include/jessica/data/load/vertical_eccentric.h
-      1       0.0     0.0        0.0         0     ./include/jessica/test/test.h
-     30       0.0     0.0        0.0         0     ./include/jessica/calc/geotechnical/meyerhof.h
-      0       0.0     0.0        0.0         0     ./include/jessica/compat.h
+     32      11.0     1.0      101.0         1     ./test/backend/data/geotechnical/foundation_strip.cc
+     40      15.0     1.0      168.0         1     ./test/backend/data/load/vertical_eccentric.cc
+     90      31.0     1.0      303.0         1     ./test/backend/calc/geotechnical/meyerhof.cc
 
 ===============================================================================================================
 No thresholds exceeded (cyclomatic_complexity > 15 or length > 1000 or nloc > 1000000 or parameter_count > 100)
 ==========================================================================================
 Total nloc   Avg.NLOC  AvgCCN  Avg.token   Fun Cnt  Warning cnt   Fun Rt   nloc Rt
 ------------------------------------------------------------------------------------------
-       301       6.9     1.0       54.9       19            0      0.00    0.00
+       531       6.4     1.0       47.9       32            0      0.00    0.00
