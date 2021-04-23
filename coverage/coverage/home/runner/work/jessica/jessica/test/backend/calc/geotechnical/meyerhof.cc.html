@@ -944,7 +944,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto calc3 =</pre>
+          <pre>  const auto calc3 = DecoratorCalc::f(calc2, NC::Clone{});</pre>
         </td>
       </tr>
       <tr>
@@ -956,7 +956,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>      DecoratorCalc::f(calc2, NC::Clone{});</pre>
+          <pre>  JTEST_EQ(DecoratorCalc::f(calc2, NC::GetB_{}),</pre>
         </td>
       </tr>
       <tr>
@@ -968,7 +968,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ(DecoratorCalc::f(calc2, NC::GetB_{}), DecoratorCalc::f(calc3, NC::GetB_{}));</pre>
+          <pre>           DecoratorCalc::f(calc3, NC::GetB_{}));</pre>
         </td>
       </tr>
       <tr>
