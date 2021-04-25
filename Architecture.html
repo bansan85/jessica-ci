@@ -444,6 +444,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="_library">Library</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_export_the_interface">Export the interface</h3>
 <div class="paragraph">
 <p>The whole backend is build in a single library.</p>
 </div>
@@ -465,6 +467,263 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div class="paragraph">
 <p>Internally, you must define the macro <code>BUILDING_JESSICA_DLL</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_manage_data">Manage data</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Data are stored in class.</p>
+</div>
+<div class="paragraph">
+<p>Each of these class have an pure abstract interface.</p>
+</div>
+<div class="paragraph">
+<p>The implementation of the interface is just an adapter to the class that really store the data.</p>
+</div>
+<div class="paragraph">
+<p>And if needed, you</p>
+</div>
+<div class="sect2">
+<h3 id="_interface">Interface</h3>
+<div class="paragraph">
+<p>Each public class should have an interface. This ease test (perfectly compatible with mock of gtest) and hide implementation and private field.</p>
+</div>
+<div class="paragraph">
+<p>To declare an interface, use pure virtual function everywhere.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rc-copy-virtual">A polymorphic class should suppress copying</a>. All classes have interface, so delete or make private / protected copy constructor and copy assignment.</p>
+</div>
+<div class="paragraph">
+<p>Using setter need to copy data. <a href="https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rh-copy">For making deep copies of polymorphic classes prefer a virtual clone function instead of copy construction/assignment</a></p>
+</div>
+<div class="paragraph">
+<p>Ownership of a return value of a setter must be able to be shared. Use a <code>std::shared_ptr&lt;&gt;</code>.</p>
+</div>
+<div class="paragraph">
+<p>Default constructor must be declared as protected to be inheritable.
+Copy constructor must be declared as protected to be clonable.</p>
+</div>
+<div class="paragraph">
+<p>Exemple of interface:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">namespace Jessica::Data::Geotechnical
+{
+class JESSICA_DLL_PUBLIC IFoundationStrip
+{
+ public:
+  IFoundationStrip(IFoundationStrip&amp;&amp;) = delete;
+  IFoundationStrip&amp; operator=(const IFoundationStrip&amp;) = delete;
+  IFoundationStrip&amp; operator=(IFoundationStrip&amp;&amp;) = delete;
+  virtual ~IFoundationStrip() = default;
+
+  [[nodiscard]] virtual std::shared_ptr&lt;IFoundationStrip&gt; Clone() const = 0;
+
+  [[nodiscard]] virtual double B() const = 0;
+  [[nodiscard]] virtual std::shared_ptr&lt;IFoundationStrip&gt; B(double b) const = 0;
+
+ protected:
+  IFoundationStrip() = default;
+  IFoundationStrip(const IFoundationStrip&amp;) = default;
+};
+}  // namespace Jessica::Data::Geotechnical</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_adapter_behind_the_interface">Adapter behind the interface</h3>
+<div class="paragraph">
+<p>The interface use a standard paradigm of programmation.
+But internally, all functions are redirected by function that all overload the same function <code>f</code>.
+The goal is to ease the use of template class to decorate all functions with a single template function.</p>
+</div>
+<div class="paragraph">
+<p>To deal with function without argument or with same number of arguments of same type, I needed to add an explicit symbol. I don&#8217;t want to force this symbol (a <code>struct</code>) in argument to avoid empty parameter. So I add his symbol in the name via <code>template</code>. This symbol will be explicit for function without argument and implicit for function with arguments.</p>
+</div>
+<div class="paragraph">
+<p>Copy constructor must be public to use <code>std::make_shared</code>.</p>
+</div>
+<div class="paragraph">
+<p>At first, the idea was to put the implementation <code>FoundationStrip</code> in a anonymous namespace.
+Infortunatly, to make the sanitizer <code>cfi</code> works, the <code>vtable</code> of <code>FoundationStrip</code> must be exported.
+I kept separation between interface and implementation for tests with mocks.</p>
+</div>
+<div class="paragraph">
+<p>Exemple of class that convert a class with classic functions <code>FoundationStrip</code> to a class with all the same functions <code>f</code> <code>FoundationStripImpl</code>.</p>
+</div>
+<div class="paragraph">
+<p>You can noticed the class is template. This is to add decorator to the class (see after). If decorator is not needed, just use <code>FoundationStripImpl</code> as template;</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">namespace Jessica::Data::Geotechnical
+{
+template &lt;typename T&gt;
+class JESSICA_DLL_PUBLIC FoundationStrip final
+    : public Jessica::Data::Geotechnical::IFoundationStrip
+{
+ public:
+  FoundationStrip() = default;
+  FoundationStrip(const FoundationStrip&amp;) = default;
+  FoundationStrip(FoundationStrip&amp;&amp;) = delete;
+  FoundationStrip&amp; operator=(const FoundationStrip&amp;) = delete;
+  FoundationStrip&amp; operator=(FoundationStrip&amp;&amp;) = delete;
+  ~FoundationStrip() override = default;
+
+  [[nodiscard]] std::shared_ptr&lt;IFoundationStrip&gt; Clone() const override
+  {
+    return std::make_shared&lt;FoundationStrip&gt;(*this);
+  }
+
+  [[nodiscard]] double B() const override
+  {
+    // If function has no argument, you must explicit the template.
+    return T::template f&lt;FoundationStripImpl::GetB&gt;(*impl_);
+  }
+
+  [[nodiscard]] std::shared_ptr&lt;IFoundationStrip&gt; B(double b) const override
+  {
+    auto retval = std::make_shared&lt;FoundationStrip&gt;(*this);
+    retval-&gt;impl_ =
+        T::template f(*retval-&gt;impl_, FoundationStripImpl::SetB{.b = b});
+    return retval;
+  }
+
+ private:
+  std::shared_ptr&lt;FoundationStripImpl&gt; impl_ =
+      std::make_shared&lt;FoundationStripImpl&gt;();
+};
+}  // namespace Jessica::Data::Geotechnical</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_implementation_behind_the_adapter">Implementation behind the adapter</h3>
+<div class="paragraph">
+<p>Example of class <code>..Impl</code>:</p>
+</div>
+<div class="paragraph">
+<p>Inside the class, you must start to define symbol that will be used to differentiate <code>f</code> specialization.
+This struct must define an explicit <code>ReturnType</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">class JESSICA_DLL_PUBLIC FoundationStripImpl
+{
+ public:
+  // List of all struct, one for each function templated specialized.
+  struct Clone
+  {
+    using ReturnType = std::shared_ptr&lt;FoundationStripImpl&gt;;
+  };
+
+  struct GetB
+  {
+    using ReturnType = double;
+  };
+
+  struct SetB
+  {
+    using ReturnType = std::shared_ptr&lt;FoundationStripImpl&gt;;
+    double b;
+  };
+
+  FoundationStripImpl() = default;
+  FoundationStripImpl(const FoundationStripImpl&amp;) = default;
+  FoundationStripImpl(FoundationStripImpl&amp;&amp;) = delete;
+  FoundationStripImpl&amp; operator=(const FoundationStripImpl&amp;) = delete;
+  FoundationStripImpl&amp; operator=(FoundationStripImpl&amp;&amp;) = delete;
+
+  // General template for function without argument.
+  template &lt;typename T&gt;
+  static typename T::ReturnType f(const FoundationStripImpl&amp;)
+  {
+    static_assert(Jessica::Helper::StaticAssert&lt;T&gt;::value, "Must specialized");
+  }
+
+  // General template for function with arguments.
+  template &lt;typename T&gt;
+  static typename T::ReturnType f(const FoundationStripImpl&amp;, const T&amp;)
+  {
+    static_assert(Jessica::Helper::StaticAssert&lt;T&gt;::value, "Must specialized");
+  }
+
+ private:
+  double b_ = std::numeric_limits&lt;double&gt;::quiet_NaN();
+};
+
+// Clone function
+template &lt;&gt;
+[[nodiscard]] std::shared_ptr&lt;FoundationStripImpl&gt;
+FoundationStripImpl::f&lt;FoundationStripImpl::Clone&gt;(
+    const FoundationStripImpl&amp; self)
+{
+  return std::make_shared&lt;FoundationStripImpl&gt;(self);
+}
+
+// Getter function
+template &lt;&gt;
+[[nodiscard]] double FoundationStripImpl::f&lt;FoundationStripImpl::GetB&gt;(
+    const FoundationStripImpl&amp; self)
+{
+  return self.b_;
+}
+
+// Setter function
+template &lt;&gt;
+[[nodiscard]] std::shared_ptr&lt;FoundationStripImpl&gt; FoundationStripImpl::f&lt;&gt;(
+    const FoundationStripImpl&amp; self, const SetB&amp; b)
+{
+  auto retval = std::make_shared&lt;FoundationStripImpl&gt;(self);
+  retval-&gt;b_ = b.b;
+  return retval;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_decorator">Decorator</h3>
+<div class="paragraph">
+<p>Decorators may be add between the adapter and the implementation.</p>
+</div>
+<div class="paragraph">
+<p>You have to implement two generalized template functions.
+One for <code>f</code> functions without argument and one for <code>f</code> functions with argument.</p>
+</div>
+<div class="paragraph">
+<p>If needed, you can specialize some functions.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">template &lt;typename T&gt;
+class JESSICA_DLL_PUBLIC LogCall
+{
+ public:
+  using Root = typename Jessica::Helper::ExtractRootType&lt;T&gt;::Root;
+
+  template &lt;typename Args&gt;
+  static auto f(const Root&amp; classe, const Args&amp;&amp; args)
+  {
+    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; " "
+              &lt;&lt; typeid(Args).name() &lt;&lt; std::endl;
+    return T::template f(classe, std::forward&lt;const Args&gt;(args));
+  }
+
+  template &lt;typename Args&gt;
+  static auto f(const Root&amp; classe)
+  {
+    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; " "
+              &lt;&lt; typeid(Args).name() &lt;&lt; std::endl;
+    return T::template f&lt;Args&gt;(classe);
+  }
+};</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
