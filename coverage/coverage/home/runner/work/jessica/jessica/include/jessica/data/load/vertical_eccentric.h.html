@@ -116,7 +116,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>namespace Function</pre>
+          <pre>class JESSICA_DLL_PUBLIC IVerticalEccentric</pre>
         </td>
       </tr>
       <tr>
@@ -136,7 +136,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>struct Clone</pre>
+          <pre> public:</pre>
         </td>
       </tr>
       <tr>
@@ -146,7 +146,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>  IVerticalEccentric(IVerticalEccentric&amp;&amp;) = delete;</pre>
         </td>
       </tr>
       <tr>
@@ -156,7 +156,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>};</pre>
+          <pre>  IVerticalEccentric& operator=(const IVerticalEccentric&amp;) = delete;</pre>
         </td>
       </tr>
       <tr>
@@ -166,7 +166,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>struct GetV</pre>
+          <pre>  IVerticalEccentric& operator=(IVerticalEccentric&amp;&amp;) = delete;</pre>
         </td>
       </tr>
       <tr>
@@ -174,9 +174,11 @@
           <a name='L15' href='#L15' id="L15">
           <pre>15</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>16</pre>
+        </td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>  virtual ~IVerticalEccentric() = default;</pre>
         </td>
       </tr>
       <tr>
@@ -186,7 +188,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>};</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -196,7 +198,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>struct SetV</pre>
+          <pre>  [[nodiscard]] virtual std::shared_ptr&lt;IVerticalEccentric&gt; Clone() const = 0;</pre>
         </td>
       </tr>
       <tr>
@@ -206,7 +208,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -216,7 +218,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  double v;</pre>
+          <pre>  [[nodiscard]] virtual double V() const = 0;</pre>
         </td>
       </tr>
       <tr>
@@ -226,7 +228,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>};</pre>
+          <pre>  [[nodiscard]] virtual std::shared_ptr&lt;IVerticalEccentric&gt; V(</pre>
         </td>
       </tr>
       <tr>
@@ -236,7 +238,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>struct GetE</pre>
+          <pre>      double v) const = 0;</pre>
         </td>
       </tr>
       <tr>
@@ -246,7 +248,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>  [[nodiscard]] virtual double E() const = 0;</pre>
         </td>
       </tr>
       <tr>
@@ -256,7 +258,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>};</pre>
+          <pre>  [[nodiscard]] virtual std::shared_ptr&lt;IVerticalEccentric&gt; E(</pre>
         </td>
       </tr>
       <tr>
@@ -266,7 +268,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>struct SetE</pre>
+          <pre>      double e) const = 0;</pre>
         </td>
       </tr>
       <tr>
@@ -276,7 +278,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -286,7 +288,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  double e;</pre>
+          <pre> protected:</pre>
         </td>
       </tr>
       <tr>
@@ -294,9 +296,11 @@
           <a name='L27' href='#L27' id="L27">
           <pre>27</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>3</pre>
+        </td>
         <td class='code'>
-          <pre>};</pre>
+          <pre>  IVerticalEccentric() = default;</pre>
         </td>
       </tr>
       <tr>
@@ -304,9 +308,11 @@
           <a name='L28' href='#L28' id="L28">
           <pre>28</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>13</pre>
+        </td>
         <td class='code'>
-          <pre>}  // namespace Function</pre>
+          <pre>  IVerticalEccentric(const IVerticalEccentric&amp;) = default;</pre>
         </td>
       </tr>
       <tr>
@@ -316,561 +322,13 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>class JESSICA_DLL_PUBLIC IVerticalEccentric</pre>
+          <pre>};</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L30' href='#L30' id="L30">
           <pre>30</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>{</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L31' href='#L31' id="L31">
-          <pre>31</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre> public:</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L32' href='#L32' id="L32">
-          <pre>32</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  IVerticalEccentric(IVerticalEccentric&amp;&amp;) = delete;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L33' href='#L33' id="L33">
-          <pre>33</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  IVerticalEccentric& operator=(const IVerticalEccentric&amp;) = delete;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L34' href='#L34' id="L34">
-          <pre>34</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  IVerticalEccentric& operator=(IVerticalEccentric&amp;&amp;) = delete;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L35' href='#L35' id="L35">
-          <pre>35</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>20</pre>
-        </td>
-        <td class='code'>
-          <pre>  virtual ~IVerticalEccentric() = default;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L36' href='#L36' id="L36">
-          <pre>36</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L37' href='#L37' id="L37">
-          <pre>37</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  [[nodiscard]] virtual std::shared_ptr&lt;IVerticalEccentric&gt; Clone() const = 0;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L38' href='#L38' id="L38">
-          <pre>38</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L39' href='#L39' id="L39">
-          <pre>39</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  [[nodiscard]] virtual double V() const noexcept = 0;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L40' href='#L40' id="L40">
-          <pre>40</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  [[nodiscard]] virtual double E() const noexcept = 0;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L41' href='#L41' id="L41">
-          <pre>41</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  [[nodiscard]] virtual std::shared_ptr&lt;IVerticalEccentric&gt; V(</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L42' href='#L42' id="L42">
-          <pre>42</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>      double v) const = 0;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L43' href='#L43' id="L43">
-          <pre>43</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  [[nodiscard]] virtual std::shared_ptr&lt;IVerticalEccentric&gt; E(</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L44' href='#L44' id="L44">
-          <pre>44</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>      double e) const = 0;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L45' href='#L45' id="L45">
-          <pre>45</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L46' href='#L46' id="L46">
-          <pre>46</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  [[nodiscard]] static std::shared_ptr&lt;IVerticalEccentric&gt; f(</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L47' href='#L47' id="L47">
-          <pre>47</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>      const std::shared_ptr&lt;IVerticalEccentric&gt;& self, const Function::Clone&amp;)</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L48' href='#L48' id="L48">
-          <pre>48</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  {</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L49' href='#L49' id="L49">
-          <pre>49</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    return self-&gt;Clone();</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L50' href='#L50' id="L50">
-          <pre>50</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  }</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L51' href='#L51' id="L51">
-          <pre>51</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L52' href='#L52' id="L52">
-          <pre>52</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  [[nodiscard]] static double f(const std::shared_ptr&lt;IVerticalEccentric&gt;& self,</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L53' href='#L53' id="L53">
-          <pre>53</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>                                const Function::GetV&amp;) noexcept</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L54' href='#L54' id="L54">
-          <pre>54</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  {</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L55' href='#L55' id="L55">
-          <pre>55</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    return self-&gt;V();</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L56' href='#L56' id="L56">
-          <pre>56</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  }</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L57' href='#L57' id="L57">
-          <pre>57</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  [[nodiscard]] static double f(const std::shared_ptr&lt;IVerticalEccentric&gt;& self,</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L58' href='#L58' id="L58">
-          <pre>58</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>                                const Function::GetE&amp;) noexcept</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L59' href='#L59' id="L59">
-          <pre>59</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  {</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L60' href='#L60' id="L60">
-          <pre>60</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    return self-&gt;E();</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L61' href='#L61' id="L61">
-          <pre>61</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  }</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L62' href='#L62' id="L62">
-          <pre>62</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  [[nodiscard]] static std::shared_ptr&lt;IVerticalEccentric&gt; f(</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L63' href='#L63' id="L63">
-          <pre>63</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>      const std::shared_ptr&lt;IVerticalEccentric&gt;& self, const Function::SetV& a)</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L64' href='#L64' id="L64">
-          <pre>64</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>2</pre>
-        </td>
-        <td class='code'>
-          <pre>  {</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L65' href='#L65' id="L65">
-          <pre>65</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>2</pre>
-        </td>
-        <td class='code'>
-          <pre>    return self-&gt;V(a.v);</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L66' href='#L66' id="L66">
-          <pre>66</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>2</pre>
-        </td>
-        <td class='code'>
-          <pre>  }</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L67' href='#L67' id="L67">
-          <pre>67</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  [[nodiscard]] static std::shared_ptr&lt;IVerticalEccentric&gt; f(</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L68' href='#L68' id="L68">
-          <pre>68</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>      const std::shared_ptr&lt;IVerticalEccentric&gt;& self, const Function::SetE& a)</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L69' href='#L69' id="L69">
-          <pre>69</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>5</pre>
-        </td>
-        <td class='code'>
-          <pre>  {</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L70' href='#L70' id="L70">
-          <pre>70</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>5</pre>
-        </td>
-        <td class='code'>
-          <pre>    return self-&gt;E(a.e);</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L71' href='#L71' id="L71">
-          <pre>71</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>5</pre>
-        </td>
-        <td class='code'>
-          <pre>  }</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L72' href='#L72' id="L72">
-          <pre>72</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L73' href='#L73' id="L73">
-          <pre>73</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre> protected:</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L74' href='#L74' id="L74">
-          <pre>74</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
-        <td class='code'>
-          <pre>  IVerticalEccentric() = default;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L75' href='#L75' id="L75">
-          <pre>75</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>16</pre>
-        </td>
-        <td class='code'>
-          <pre>  IVerticalEccentric(const IVerticalEccentric&amp;) = default;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L76' href='#L76' id="L76">
-          <pre>76</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>};</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L77' href='#L77' id="L77">
-          <pre>77</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L78' href='#L78' id="L78">
-          <pre>78</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>class JESSICA_DLL_PUBLIC Create</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L79' href='#L79' id="L79">
-          <pre>79</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>{</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L80' href='#L80' id="L80">
-          <pre>80</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre> public:</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L81' href='#L81' id="L81">
-          <pre>81</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  static std::shared_ptr&lt;IVerticalEccentric&gt; VerticalEccentric();</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L82' href='#L82' id="L82">
-          <pre>82</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>};</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L83' href='#L83' id="L83">
-          <pre>83</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>

@@ -96,7 +96,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/data/geotechnical/foundation_strip.h&gt;</pre>
+          <pre>#include &lt;jessica/calc/geotechnical/meyerhof_impl.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -106,7 +106,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/data/load/vertical_eccentric.h&gt;</pre>
+          <pre>#include &lt;jessica/data/geotechnical/foundation_strip.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -116,7 +116,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/test/test.h&gt;</pre>
+          <pre>#include &lt;jessica/data/geotechnical/foundation_strip_impl.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -126,7 +126,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/util/decorator/log_call.h&gt;</pre>
+          <pre>#include &lt;jessica/data/load/vertical_eccentric.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -136,7 +136,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/util/decorator/log_duration.h&gt;</pre>
+          <pre>#include &lt;jessica/data/load/vertical_eccentric_impl.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -146,7 +146,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>#include &lt;jessica/test/test.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -156,7 +156,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>JTEST_NAME(data, CalcMeyehof)  // NOLINT</pre>
+          <pre>#include &lt;jessica/util/decorator/log_call.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -164,11 +164,9 @@
           <a name='L14' href='#L14' id="L14">
           <pre>14</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>1</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>#include &lt;jessica/util/decorator/log_duration.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -176,11 +174,9 @@
           <a name='L15' href='#L15' id="L15">
           <pre>15</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>1</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  const auto foundation =</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -188,11 +184,9 @@
           <a name='L16' href='#L16' id="L16">
           <pre>16</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>1</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      Jessica::Data::Geotechnical::Create::FoundationStrip()-&gt;B(1.);</pre>
+          <pre>JTEST_NAME(data, CalcMeyehof)  // NOLINT</pre>
         </td>
       </tr>
       <tr>
@@ -204,7 +198,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto load =</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -216,7 +210,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>      Jessica::Data::Load::Create::VerticalEccentric()-&gt;V(100000.)-&gt;E(0.25);</pre>
+          <pre>  const auto foundation =</pre>
         </td>
       </tr>
       <tr>
@@ -228,7 +222,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto calc =</pre>
+          <pre>      std::make_shared&lt;Jessica::Data::Geotechnical::FoundationStrip&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -240,7 +234,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>      Jessica::Calc::Geotechnical::Create::MeyerhofShallowFoundation(</pre>
+          <pre>          Jessica::Data::Geotechnical::FoundationStripImpl&gt;&gt;()</pre>
         </td>
       </tr>
       <tr>
@@ -252,7 +246,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>          load, foundation);</pre>
+          <pre>          -&gt;B(1.);</pre>
         </td>
       </tr>
       <tr>
@@ -264,7 +258,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ(calc-&gt;B_(), 0.5);</pre>
+          <pre>  const auto load = std::make_shared&lt;Jessica::Data::Load::VerticalEccentric&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -276,7 +270,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ(calc-&gt;Qref(), 200000.);</pre>
+          <pre>      Jessica::Data::Load::VerticalEccentricImpl&gt;&gt;()</pre>
         </td>
       </tr>
       <tr>
@@ -288,7 +282,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto load2 = load-&gt;E(0.5);</pre>
+          <pre>                        -&gt;V(100000.)</pre>
         </td>
       </tr>
       <tr>
@@ -300,7 +294,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto calc2 =</pre>
+          <pre>                        -&gt;E(0.25);</pre>
         </td>
       </tr>
       <tr>
@@ -312,7 +306,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>      Jessica::Calc::Geotechnical::Create::MeyerhofShallowFoundation(</pre>
+          <pre>  const auto calc =</pre>
         </td>
       </tr>
       <tr>
@@ -324,7 +318,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>          load2, foundation);</pre>
+          <pre>      std::make_shared&lt;Jessica::Calc::Geotechnical::MeyerhofShallowFoundation&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -336,7 +330,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ(calc2-&gt;B_(), 0.);</pre>
+          <pre>          Jessica::Calc::Geotechnical::MeyerhofShallowFoundationImpl&gt;&gt;(</pre>
         </td>
       </tr>
       <tr>
@@ -348,7 +342,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_TRUE(std::isinf(calc2-&gt;Qref()));</pre>
+          <pre>          load, foundation);</pre>
         </td>
       </tr>
       <tr>
@@ -360,7 +354,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto calc3 = calc2-&gt;Clone();</pre>
+          <pre>  JTEST_EQ(calc-&gt;B_(), 0.5);</pre>
         </td>
       </tr>
       <tr>
@@ -372,7 +366,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ(calc2-&gt;B_(), calc3-&gt;B_());</pre>
+          <pre>  JTEST_EQ(calc-&gt;Qref(), 200000.);</pre>
         </td>
       </tr>
       <tr>
@@ -384,7 +378,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ(calc2-&gt;Qref(), calc3-&gt;Qref());</pre>
+          <pre>  const auto load2 = load-&gt;E(0.5);</pre>
         </td>
       </tr>
       <tr>
@@ -396,7 +390,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre></pre>
+          <pre>  const auto calc2 =</pre>
         </td>
       </tr>
       <tr>
@@ -408,7 +402,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto load_maxe = load-&gt;E(DBL_MAX);</pre>
+          <pre>      std::make_shared&lt;Jessica::Calc::Geotechnical::MeyerhofShallowFoundation&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -420,7 +414,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto calc_maxe =</pre>
+          <pre>          Jessica::Calc::Geotechnical::MeyerhofShallowFoundationImpl&gt;&gt;(</pre>
         </td>
       </tr>
       <tr>
@@ -432,7 +426,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>      Jessica::Calc::Geotechnical::Create::MeyerhofShallowFoundation(</pre>
+          <pre>          load2, foundation);</pre>
         </td>
       </tr>
       <tr>
@@ -444,7 +438,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>          load_maxe, foundation);</pre>
+          <pre>  JTEST_EQ(calc2-&gt;B_(), 0.);</pre>
         </td>
       </tr>
       <tr>
@@ -456,7 +450,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ(calc_maxe-&gt;B_(), -std::numeric_limits&lt;double&gt;::infinity());</pre>
+          <pre>  JTEST_TRUE(std::isinf(calc2-&gt;Qref()));</pre>
         </td>
       </tr>
       <tr>
@@ -468,7 +462,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre></pre>
+          <pre>  const auto calc3 = calc2-&gt;Clone();</pre>
         </td>
       </tr>
       <tr>
@@ -480,7 +474,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto load_mine = load-&gt;E(-DBL_MAX);</pre>
+          <pre>  JTEST_EQ(calc2-&gt;B_(), calc3-&gt;B_());</pre>
         </td>
       </tr>
       <tr>
@@ -492,7 +486,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto calc_mine =</pre>
+          <pre>  JTEST_EQ(calc2-&gt;Qref(), calc3-&gt;Qref());</pre>
         </td>
       </tr>
       <tr>
@@ -504,7 +498,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>      Jessica::Calc::Geotechnical::Create::MeyerhofShallowFoundation(</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -516,7 +510,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>          load_mine, foundation);</pre>
+          <pre>  const auto load_maxe = load-&gt;E(DBL_MAX);</pre>
         </td>
       </tr>
       <tr>
@@ -528,7 +522,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ(calc_mine-&gt;B_(), std::numeric_limits&lt;double&gt;::infinity());</pre>
+          <pre>  const auto calc_maxe =</pre>
         </td>
       </tr>
       <tr>
@@ -540,7 +534,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>}</pre>
+          <pre>      std::make_shared&lt;Jessica::Calc::Geotechnical::MeyerhofShallowFoundation&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -548,9 +542,11 @@
           <a name='L46' href='#L46' id="L46">
           <pre>46</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre>          Jessica::Calc::Geotechnical::MeyerhofShallowFoundationImpl&gt;&gt;(</pre>
         </td>
       </tr>
       <tr>
@@ -558,9 +554,11 @@
           <a name='L47' href='#L47' id="L47">
           <pre>47</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
         <td class='code'>
-          <pre>JTEST_NAME(data, CalcMeyehofDecorator)  // NOLINT</pre>
+          <pre>          load_maxe, foundation);</pre>
         </td>
       </tr>
       <tr>
@@ -572,7 +570,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>  JTEST_EQ(calc_maxe-&gt;B_(), -std::numeric_limits&lt;double&gt;::infinity());</pre>
         </td>
       </tr>
       <tr>
@@ -584,7 +582,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  namespace NL = Jessica::Data::Load::Function;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -596,7 +594,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  namespace NF = Jessica::Data::Geotechnical::Function;</pre>
+          <pre>  const auto load_mine = load-&gt;E(-DBL_MAX);</pre>
         </td>
       </tr>
       <tr>
@@ -608,7 +606,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  namespace NC = Jessica::Calc::Geotechnical::Function;</pre>
+          <pre>  const auto calc_mine =</pre>
         </td>
       </tr>
       <tr>
@@ -620,7 +618,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  using DecoratorFoundation =</pre>
+          <pre>      std::make_shared&lt;Jessica::Calc::Geotechnical::MeyerhofShallowFoundation&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -632,7 +630,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>      Jessica::Util::Decorator::LogCall&lt;Jessica::Util::Decorator::LogDuration&lt;</pre>
+          <pre>          Jessica::Calc::Geotechnical::MeyerhofShallowFoundationImpl&gt;&gt;(</pre>
         </td>
       </tr>
       <tr>
@@ -644,7 +642,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>          Jessica::Data::Geotechnical::IFoundationStrip&gt;&gt;;</pre>
+          <pre>          load_mine, foundation);</pre>
         </td>
       </tr>
       <tr>
@@ -656,7 +654,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  using DecoratorLoad =</pre>
+          <pre>  JTEST_EQ(calc_mine-&gt;B_(), std::numeric_limits&lt;double&gt;::infinity());</pre>
         </td>
       </tr>
       <tr>
@@ -668,7 +666,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>      Jessica::Util::Decorator::LogCall&lt;Jessica::Util::Decorator::LogDuration&lt;</pre>
+          <pre>}</pre>
         </td>
       </tr>
       <tr>
@@ -676,11 +674,9 @@
           <a name='L57' href='#L57' id="L57">
           <pre>57</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>1</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>          Jessica::Data::Load::IVerticalEccentric&gt;&gt;;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -688,11 +684,9 @@
           <a name='L58' href='#L58' id="L58">
           <pre>58</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>1</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  using DecoratorCalc =</pre>
+          <pre>JTEST_NAME(data, CalcMeyehofDecorator)  // NOLINT</pre>
         </td>
       </tr>
       <tr>
@@ -704,7 +698,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>      Jessica::Util::Decorator::LogCall&lt;Jessica::Util::Decorator::LogDuration&lt;</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -716,7 +710,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>          Jessica::Calc::Geotechnical::IMeyerhofShallowFoundation&gt;&gt;;</pre>
+          <pre>  using DecoratorFoundation =</pre>
         </td>
       </tr>
       <tr>
@@ -728,7 +722,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre></pre>
+          <pre>      Jessica::Util::Decorator::LogCall&lt;Jessica::Util::Decorator::LogDuration&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -740,7 +734,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto foundation =</pre>
+          <pre>          Jessica::Data::Geotechnical::FoundationStripImpl&gt;&gt;;</pre>
         </td>
       </tr>
       <tr>
@@ -752,7 +746,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>      Jessica::Data::Geotechnical::Create::FoundationStrip();</pre>
+          <pre>  using DecoratorLoad =</pre>
         </td>
       </tr>
       <tr>
@@ -764,7 +758,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto foundation2 = DecoratorFoundation::f(foundation, NF::SetB{1.});</pre>
+          <pre>      Jessica::Util::Decorator::LogCall&lt;Jessica::Util::Decorator::LogDuration&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -776,7 +770,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto load_1 = Jessica::Data::Load::Create::VerticalEccentric();</pre>
+          <pre>          Jessica::Data::Load::VerticalEccentricImpl&gt;&gt;;</pre>
         </td>
       </tr>
       <tr>
@@ -788,7 +782,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto load_2 = DecoratorLoad::f(load_1, NL::SetV{100000.});</pre>
+          <pre>  using DecoratorCalc =</pre>
         </td>
       </tr>
       <tr>
@@ -800,7 +794,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto load = DecoratorLoad::f(load_2, NL::SetE{0.25});</pre>
+          <pre>      Jessica::Util::Decorator::LogCall&lt;Jessica::Util::Decorator::LogDuration&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -812,7 +806,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto calc =</pre>
+          <pre>          Jessica::Calc::Geotechnical::MeyerhofShallowFoundationImpl&gt;&gt;;</pre>
         </td>
       </tr>
       <tr>
@@ -824,7 +818,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>      Jessica::Calc::Geotechnical::Create::MeyerhofShallowFoundation(</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -836,7 +830,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>          load, foundation2);</pre>
+          <pre>  const auto foundation = std::make_shared&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -848,7 +842,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ(DecoratorCalc::f(calc, NC::GetB_{}), 0.5);</pre>
+          <pre>      Jessica::Data::Geotechnical::FoundationStrip&lt;DecoratorFoundation&gt;&gt;();</pre>
         </td>
       </tr>
       <tr>
@@ -860,7 +854,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ(DecoratorCalc::f(calc, NC::GetQref{}), 200000.);</pre>
+          <pre>  const auto foundation2 = foundation-&gt;B(1.);</pre>
         </td>
       </tr>
       <tr>
@@ -872,7 +866,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto load2 = DecoratorLoad::f(load, NL::SetE{0.5});</pre>
+          <pre>  const auto load_1 =</pre>
         </td>
       </tr>
       <tr>
@@ -884,7 +878,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto calc2 =</pre>
+          <pre>      std::make_shared&lt;Jessica::Data::Load::VerticalEccentric&lt;DecoratorLoad&gt;&gt;();</pre>
         </td>
       </tr>
       <tr>
@@ -896,7 +890,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>      Jessica::Calc::Geotechnical::Create::MeyerhofShallowFoundation(</pre>
+          <pre>  const auto load_2 = load_1-&gt;V(100000.);</pre>
         </td>
       </tr>
       <tr>
@@ -908,7 +902,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>          load2, foundation2);</pre>
+          <pre>  const auto load = load_2-&gt;E(0.25);</pre>
         </td>
       </tr>
       <tr>
@@ -920,7 +914,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ(DecoratorCalc::f(calc2, NC::GetB_{}), 0.);</pre>
+          <pre>  const auto calc = std::make_shared&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -932,7 +926,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_TRUE(std::isinf(DecoratorCalc::f(calc2, NC::GetQref{})));</pre>
+          <pre>      Jessica::Calc::Geotechnical::MeyerhofShallowFoundation&lt;DecoratorCalc&gt;&gt;(</pre>
         </td>
       </tr>
       <tr>
@@ -944,7 +938,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto calc3 = DecoratorCalc::f(calc2, NC::Clone{});</pre>
+          <pre>      load, foundation2);</pre>
         </td>
       </tr>
       <tr>
@@ -956,7 +950,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ(DecoratorCalc::f(calc2, NC::GetB_{}),</pre>
+          <pre>  JTEST_EQ(calc-&gt;B_(), 0.5);</pre>
         </td>
       </tr>
       <tr>
@@ -968,7 +962,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>           DecoratorCalc::f(calc3, NC::GetB_{}));</pre>
+          <pre>  JTEST_EQ(calc-&gt;Qref(), 200000.);</pre>
         </td>
       </tr>
       <tr>
@@ -980,7 +974,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ(DecoratorCalc::f(calc2, NC::GetQref{}),</pre>
+          <pre>  const auto load2 = load-&gt;E(0.5);</pre>
         </td>
       </tr>
       <tr>
@@ -992,7 +986,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>           DecoratorCalc::f(calc3, NC::GetQref{}));</pre>
+          <pre>  const auto calc2 = std::make_shared&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -1004,7 +998,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre></pre>
+          <pre>      Jessica::Calc::Geotechnical::MeyerhofShallowFoundation&lt;DecoratorCalc&gt;&gt;(</pre>
         </td>
       </tr>
       <tr>
@@ -1016,7 +1010,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto load_maxe = DecoratorLoad::f(load, NL::SetE{DBL_MAX});</pre>
+          <pre>      load2, foundation2);</pre>
         </td>
       </tr>
       <tr>
@@ -1028,7 +1022,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto calc_maxe =</pre>
+          <pre>  JTEST_EQ(calc2-&gt;B_(), 0.);</pre>
         </td>
       </tr>
       <tr>
@@ -1040,7 +1034,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>      Jessica::Calc::Geotechnical::Create::MeyerhofShallowFoundation(</pre>
+          <pre>  JTEST_TRUE(std::isinf(calc2-&gt;Qref()));</pre>
         </td>
       </tr>
       <tr>
@@ -1052,7 +1046,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>          load_maxe, foundation2);</pre>
+          <pre>  const auto calc3 = calc2-&gt;Clone();</pre>
         </td>
       </tr>
       <tr>
@@ -1064,7 +1058,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ(DecoratorCalc::f(calc_maxe, NC::GetB_{}),</pre>
+          <pre>  JTEST_EQ(calc2-&gt;B_(), calc3-&gt;B_());</pre>
         </td>
       </tr>
       <tr>
@@ -1076,7 +1070,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>           -std::numeric_limits&lt;double&gt;::infinity());</pre>
+          <pre>  JTEST_EQ(calc2-&gt;Qref(), calc3-&gt;Qref());</pre>
         </td>
       </tr>
       <tr>
@@ -1100,7 +1094,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto load_mine = DecoratorLoad::f(load, NL::SetE{-DBL_MAX});</pre>
+          <pre>  const auto load_maxe = load-&gt;E(DBL_MAX);</pre>
         </td>
       </tr>
       <tr>
@@ -1112,7 +1106,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto calc_mine =</pre>
+          <pre>  const auto calc_maxe = std::make_shared&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -1124,7 +1118,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>      Jessica::Calc::Geotechnical::Create::MeyerhofShallowFoundation(</pre>
+          <pre>      Jessica::Calc::Geotechnical::MeyerhofShallowFoundation&lt;DecoratorCalc&gt;&gt;(</pre>
         </td>
       </tr>
       <tr>
@@ -1136,7 +1130,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>          load_mine, foundation2);</pre>
+          <pre>      load_maxe, foundation2);</pre>
         </td>
       </tr>
       <tr>
@@ -1148,7 +1142,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ(DecoratorCalc::f(calc_mine, NC::GetB_{}),</pre>
+          <pre>  JTEST_EQ(calc_maxe-&gt;B_(), -std::numeric_limits&lt;double&gt;::infinity());</pre>
         </td>
       </tr>
       <tr>
@@ -1160,13 +1154,73 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>           std::numeric_limits&lt;double&gt;::infinity());</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L98' href='#L98' id="L98">
           <pre>98</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
+        <td class='code'>
+          <pre>  const auto load_mine = load-&gt;E(-DBL_MAX);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L99' href='#L99' id="L99">
+          <pre>99</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
+        <td class='code'>
+          <pre>  const auto calc_mine = std::make_shared&lt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L100' href='#L100' id="L100">
+          <pre>100</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
+        <td class='code'>
+          <pre>      Jessica::Calc::Geotechnical::MeyerhofShallowFoundation&lt;DecoratorCalc&gt;&gt;(</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L101' href='#L101' id="L101">
+          <pre>101</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
+        <td class='code'>
+          <pre>      load_mine, foundation2);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L102' href='#L102' id="L102">
+          <pre>102</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
+        <td class='code'>
+          <pre>  JTEST_EQ(calc_mine-&gt;B_(), std::numeric_limits&lt;double&gt;::infinity());</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L103' href='#L103' id="L103">
+          <pre>103</pre></a>
         </td>
         <td class='covered-line'>
           <pre>1</pre>
