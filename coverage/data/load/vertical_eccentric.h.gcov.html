@@ -90,7 +90,7 @@
 <a name="12"><span class="lineNum">      12</span>                 :             :   IVerticalEccentric(IVerticalEccentric&amp;&amp;) = delete;</a>
 <a name="13"><span class="lineNum">      13</span>                 :             :   IVerticalEccentric&amp; operator=(const IVerticalEccentric&amp;) = delete;</a>
 <a name="14"><span class="lineNum">      14</span>                 :             :   IVerticalEccentric&amp; operator=(IVerticalEccentric&amp;&amp;) = delete;</a>
-<a name="15"><span class="lineNum">      15</span>                 :<span class="tlaGNC">          16 :   virtual ~IVerticalEccentric() = default;</span></a>
+<a name="15"><span class="lineNum">      15</span>                 :<span class="tlaGNC">          20 :   virtual ~IVerticalEccentric() = default;</span></a>
 <a name="16"><span class="lineNum">      16</span>                 :             : </a>
 <a name="17"><span class="lineNum">      17</span>                 :             :   [[nodiscard]] virtual std::shared_ptr&lt;IVerticalEccentric&gt; Clone() const = 0;</a>
 <a name="18"><span class="lineNum">      18</span>                 :             : </a>
@@ -102,8 +102,8 @@
 <a name="24"><span class="lineNum">      24</span>                 :             :       double e) const = 0;</a>
 <a name="25"><span class="lineNum">      25</span>                 :             : </a>
 <a name="26"><span class="lineNum">      26</span>                 :             :  protected:</a>
-<a name="27"><span class="lineNum">      27</span>                 :<span class="tlaGNC">           3 :   IVerticalEccentric() = default;</span></a>
-<a name="28"><span class="lineNum">      28</span>                 :<span class="tlaGNC">          13 :   IVerticalEccentric(const IVerticalEccentric&amp;) = default;</span></a>
+<a name="27"><span class="lineNum">      27</span>                 :<span class="tlaGNC">           4 :   IVerticalEccentric() = default;</span></a>
+<a name="28"><span class="lineNum">      28</span>                 :<span class="tlaGNC">          16 :   IVerticalEccentric(const IVerticalEccentric&amp;) = default;</span></a>
 <a name="29"><span class="lineNum">      29</span>                 :             : };</a>
 <a name="30"><span class="lineNum">      30</span>                 :             : }  // namespace Jessica::Data::Load</a>
         </pre>
