@@ -112,4 +112,15 @@ src/main/CMakeFiles/main1.dir/main1.cc.o: \
   /home/runner/work/jessica/jessica/include/jessica/data/geotechnical/foundation_strip_impl.h \
   /home/runner/work/jessica/jessica/include/jessica/data/load/vertical_eccentric_impl.h \
   /home/runner/work/jessica/jessica/include/jessica/util/decorator/log_call.h \
-  /home/runner/work/jessica/jessica/include/jessica/util/decorator/log_duration.h
+  /home/runner/work/jessica/jessica/include/jessica/util/decorator/log_duration.h \
+  /home/runner/work/jessica/jessica/emsdk/upstream/emscripten/cache/sysroot/include/emscripten/bind.h \
+  /home/runner/work/jessica/jessica/emsdk/upstream/emscripten/cache/sysroot/include/assert.h \
+  /home/runner/work/jessica/jessica/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/vector \
+  /home/runner/work/jessica/jessica/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__split_buffer \
+  /home/runner/work/jessica/jessica/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/map \
+  /home/runner/work/jessica/jessica/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__tree \
+  /home/runner/work/jessica/jessica/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__node_handle \
+  /home/runner/work/jessica/jessica/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/optional \
+  /home/runner/work/jessica/jessica/emsdk/upstream/emscripten/cache/sysroot/include/emscripten/val.h \
+  /home/runner/work/jessica/jessica/emsdk/upstream/emscripten/cache/sysroot/include/emscripten/wire.h \
+  /home/runner/work/jessica/jessica/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/array
