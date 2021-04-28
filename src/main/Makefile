@@ -119,44 +119,6 @@ depend:
 	cd /home/runner/work/jessica/jessica/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-# Convenience name for target.
-src/main/CMakeFiles/main1.dir/rule:
-	cd /home/runner/work/jessica/jessica/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/main/CMakeFiles/main1.dir/rule
-.PHONY : src/main/CMakeFiles/main1.dir/rule
-
-# Convenience name for target.
-main1: src/main/CMakeFiles/main1.dir/rule
-.PHONY : main1
-
-# fast build rule for target.
-main1/fast:
-	cd /home/runner/work/jessica/jessica/build && $(MAKE) $(MAKESILENT) -f src/main/CMakeFiles/main1.dir/build.make src/main/CMakeFiles/main1.dir/build
-.PHONY : main1/fast
-
-main1.o: main1.cc.o
-.PHONY : main1.o
-
-# target to build an object file
-main1.cc.o:
-	cd /home/runner/work/jessica/jessica/build && $(MAKE) $(MAKESILENT) -f src/main/CMakeFiles/main1.dir/build.make src/main/CMakeFiles/main1.dir/main1.cc.o
-.PHONY : main1.cc.o
-
-main1.i: main1.cc.i
-.PHONY : main1.i
-
-# target to preprocess a source file
-main1.cc.i:
-	cd /home/runner/work/jessica/jessica/build && $(MAKE) $(MAKESILENT) -f src/main/CMakeFiles/main1.dir/build.make src/main/CMakeFiles/main1.dir/main1.cc.i
-.PHONY : main1.cc.i
-
-main1.s: main1.cc.s
-.PHONY : main1.s
-
-# target to generate assembly for a file
-main1.cc.s:
-	cd /home/runner/work/jessica/jessica/build && $(MAKE) $(MAKESILENT) -f src/main/CMakeFiles/main1.dir/build.make src/main/CMakeFiles/main1.dir/main1.cc.s
-.PHONY : main1.cc.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -165,10 +127,6 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... main1"
-	@echo "... main1.o"
-	@echo "... main1.i"
-	@echo "... main1.s"
 .PHONY : help
 
 

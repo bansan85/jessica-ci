@@ -90,14 +90,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/jessica/jessica/build/CMakeFiles /home/runner/work/jessica/jessica/build//CMakeFiles/progress.marks
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
+	cd /home/runner/work/jessica/jessica/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/jessica/jessica/build/CMakeFiles /home/runner/work/jessica/jessica/build/src/javascript//CMakeFiles/progress.marks
+	cd /home/runner/work/jessica/jessica/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/javascript/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/jessica/jessica/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clean
+	cd /home/runner/work/jessica/jessica/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/javascript/clean
 .PHONY : clean
 
 # The main clean target
@@ -106,31 +106,18 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+	cd /home/runner/work/jessica/jessica/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/javascript/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+	cd /home/runner/work/jessica/jessica/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/javascript/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/runner/work/jessica/jessica/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
-
-#=============================================================================
-# Target rules for targets named jessica_js
-
-# Build rule for target.
-jessica_js: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 jessica_js
-.PHONY : jessica_js
-
-# fast build rule for target.
-jessica_js/fast:
-	$(MAKE) $(MAKESILENT) -f src/javascript/wasm/CMakeFiles/jessica_js.dir/build.make src/javascript/wasm/CMakeFiles/jessica_js.dir/build
-.PHONY : jessica_js/fast
 
 # Help Target
 help:
@@ -140,7 +127,6 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... jessica_js"
 .PHONY : help
 
 
@@ -152,6 +138,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/runner/work/jessica/jessica/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

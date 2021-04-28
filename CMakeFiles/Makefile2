@@ -81,22 +81,55 @@ clean: src/clean
 # Directory level rules for directory src
 
 # Recursive "all" directory target.
+src/all: src/javascript/all
 src/all: src/main/all
 .PHONY : src/all
 
 # Recursive "preinstall" directory target.
+src/preinstall: src/javascript/preinstall
 src/preinstall: src/main/preinstall
 .PHONY : src/preinstall
 
 # Recursive "clean" directory target.
+src/clean: src/javascript/clean
 src/clean: src/main/clean
 .PHONY : src/clean
+
+#=============================================================================
+# Directory level rules for directory src/javascript
+
+# Recursive "all" directory target.
+src/javascript/all: src/javascript/wasm/all
+.PHONY : src/javascript/all
+
+# Recursive "preinstall" directory target.
+src/javascript/preinstall: src/javascript/wasm/preinstall
+.PHONY : src/javascript/preinstall
+
+# Recursive "clean" directory target.
+src/javascript/clean: src/javascript/wasm/clean
+.PHONY : src/javascript/clean
+
+#=============================================================================
+# Directory level rules for directory src/javascript/wasm
+
+# Recursive "all" directory target.
+src/javascript/wasm/all: src/javascript/wasm/CMakeFiles/jessica_js.dir/all
+.PHONY : src/javascript/wasm/all
+
+# Recursive "preinstall" directory target.
+src/javascript/wasm/preinstall:
+.PHONY : src/javascript/wasm/preinstall
+
+# Recursive "clean" directory target.
+src/javascript/wasm/clean: src/javascript/wasm/CMakeFiles/jessica_js.dir/clean
+.PHONY : src/javascript/wasm/clean
 
 #=============================================================================
 # Directory level rules for directory src/main
 
 # Recursive "all" directory target.
-src/main/all: src/main/CMakeFiles/main1.dir/all
+src/main/all:
 .PHONY : src/main/all
 
 # Recursive "preinstall" directory target.
@@ -104,34 +137,34 @@ src/main/preinstall:
 .PHONY : src/main/preinstall
 
 # Recursive "clean" directory target.
-src/main/clean: src/main/CMakeFiles/main1.dir/clean
+src/main/clean:
 .PHONY : src/main/clean
 
 #=============================================================================
-# Target rules for target src/main/CMakeFiles/main1.dir
+# Target rules for target src/javascript/wasm/CMakeFiles/jessica_js.dir
 
 # All Build rule for target.
-src/main/CMakeFiles/main1.dir/all:
-	$(MAKE) $(MAKESILENT) -f src/main/CMakeFiles/main1.dir/build.make src/main/CMakeFiles/main1.dir/depend
-	$(MAKE) $(MAKESILENT) -f src/main/CMakeFiles/main1.dir/build.make src/main/CMakeFiles/main1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/runner/work/jessica/jessica/build/CMakeFiles --progress-num=1,2 "Built target main1"
-.PHONY : src/main/CMakeFiles/main1.dir/all
+src/javascript/wasm/CMakeFiles/jessica_js.dir/all:
+	$(MAKE) $(MAKESILENT) -f src/javascript/wasm/CMakeFiles/jessica_js.dir/build.make src/javascript/wasm/CMakeFiles/jessica_js.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/javascript/wasm/CMakeFiles/jessica_js.dir/build.make src/javascript/wasm/CMakeFiles/jessica_js.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/runner/work/jessica/jessica/build/CMakeFiles --progress-num=1,2,3,4 "Built target jessica_js"
+.PHONY : src/javascript/wasm/CMakeFiles/jessica_js.dir/all
 
 # Build rule for subdir invocation for target.
-src/main/CMakeFiles/main1.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/jessica/jessica/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/main/CMakeFiles/main1.dir/all
+src/javascript/wasm/CMakeFiles/jessica_js.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/jessica/jessica/build/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/javascript/wasm/CMakeFiles/jessica_js.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/work/jessica/jessica/build/CMakeFiles 0
-.PHONY : src/main/CMakeFiles/main1.dir/rule
+.PHONY : src/javascript/wasm/CMakeFiles/jessica_js.dir/rule
 
 # Convenience name for target.
-main1: src/main/CMakeFiles/main1.dir/rule
-.PHONY : main1
+jessica_js: src/javascript/wasm/CMakeFiles/jessica_js.dir/rule
+.PHONY : jessica_js
 
 # clean rule for target.
-src/main/CMakeFiles/main1.dir/clean:
-	$(MAKE) $(MAKESILENT) -f src/main/CMakeFiles/main1.dir/build.make src/main/CMakeFiles/main1.dir/clean
-.PHONY : src/main/CMakeFiles/main1.dir/clean
+src/javascript/wasm/CMakeFiles/jessica_js.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/javascript/wasm/CMakeFiles/jessica_js.dir/build.make src/javascript/wasm/CMakeFiles/jessica_js.dir/clean
+.PHONY : src/javascript/wasm/CMakeFiles/jessica_js.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

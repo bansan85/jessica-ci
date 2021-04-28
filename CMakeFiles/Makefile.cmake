@@ -14,6 +14,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../emsdk/upstream/emscripten/cmake/Modules/CMakeSystemSpecificInformation.cmake"
   "../emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake"
   "../src/CMakeLists.txt"
+  "../src/javascript/CMakeLists.txt"
+  "../src/javascript/wasm/CMakeLists.txt"
   "../src/main/CMakeLists.txt"
   "/usr/local/share/cmake-3.20/Modules/CMakeCCompiler.cmake.in"
   "/usr/local/share/cmake-3.20/Modules/CMakeCInformation.cmake"
@@ -67,10 +69,12 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/3.20.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/javascript/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/javascript/wasm/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/main/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "src/main/CMakeFiles/main1.dir/DependInfo.cmake"
+  "src/javascript/wasm/CMakeFiles/jessica_js.dir/DependInfo.cmake"
   )

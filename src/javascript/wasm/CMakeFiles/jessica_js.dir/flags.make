@@ -4,7 +4,7 @@
 # compile CXX with /home/runner/work/jessica/jessica/emsdk/upstream/emscripten/em++
 CXX_DEFINES = -DBUILDING_JESSICA_DLL
 
-CXX_INCLUDES = @CMakeFiles/main1.dir/includes_CXX.rsp
+CXX_INCLUDES = @CMakeFiles/jessica_js.dir/includes_CXX.rsp
 
 CXX_FLAGS = -Weverything -Werror -Wno-c++98-compat -Wno-padded -Wno-c++98-compat-pedantic -Wno-weak-vtables -Wno-c99-extensions -Wno-global-constructors -Oz -std=gnu++20
 
