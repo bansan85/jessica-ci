@@ -133,77 +133,29 @@ jessica_js/fast:
 	cd /home/runner/work/jessica/jessica/build && $(MAKE) $(MAKESILENT) -f src/javascript/wasm/CMakeFiles/jessica_js.dir/build.make src/javascript/wasm/CMakeFiles/jessica_js.dir/build
 .PHONY : jessica_js/fast
 
-bindings/calc/geotechnical.o: bindings/calc/geotechnical.cpp.o
-.PHONY : bindings/calc/geotechnical.o
+bindings.o: bindings.cpp.o
+.PHONY : bindings.o
 
 # target to build an object file
-bindings/calc/geotechnical.cpp.o:
-	cd /home/runner/work/jessica/jessica/build && $(MAKE) $(MAKESILENT) -f src/javascript/wasm/CMakeFiles/jessica_js.dir/build.make src/javascript/wasm/CMakeFiles/jessica_js.dir/bindings/calc/geotechnical.cpp.o
-.PHONY : bindings/calc/geotechnical.cpp.o
+bindings.cpp.o:
+	cd /home/runner/work/jessica/jessica/build && $(MAKE) $(MAKESILENT) -f src/javascript/wasm/CMakeFiles/jessica_js.dir/build.make src/javascript/wasm/CMakeFiles/jessica_js.dir/bindings.cpp.o
+.PHONY : bindings.cpp.o
 
-bindings/calc/geotechnical.i: bindings/calc/geotechnical.cpp.i
-.PHONY : bindings/calc/geotechnical.i
-
-# target to preprocess a source file
-bindings/calc/geotechnical.cpp.i:
-	cd /home/runner/work/jessica/jessica/build && $(MAKE) $(MAKESILENT) -f src/javascript/wasm/CMakeFiles/jessica_js.dir/build.make src/javascript/wasm/CMakeFiles/jessica_js.dir/bindings/calc/geotechnical.cpp.i
-.PHONY : bindings/calc/geotechnical.cpp.i
-
-bindings/calc/geotechnical.s: bindings/calc/geotechnical.cpp.s
-.PHONY : bindings/calc/geotechnical.s
-
-# target to generate assembly for a file
-bindings/calc/geotechnical.cpp.s:
-	cd /home/runner/work/jessica/jessica/build && $(MAKE) $(MAKESILENT) -f src/javascript/wasm/CMakeFiles/jessica_js.dir/build.make src/javascript/wasm/CMakeFiles/jessica_js.dir/bindings/calc/geotechnical.cpp.s
-.PHONY : bindings/calc/geotechnical.cpp.s
-
-bindings/data/geotechnical.o: bindings/data/geotechnical.cpp.o
-.PHONY : bindings/data/geotechnical.o
-
-# target to build an object file
-bindings/data/geotechnical.cpp.o:
-	cd /home/runner/work/jessica/jessica/build && $(MAKE) $(MAKESILENT) -f src/javascript/wasm/CMakeFiles/jessica_js.dir/build.make src/javascript/wasm/CMakeFiles/jessica_js.dir/bindings/data/geotechnical.cpp.o
-.PHONY : bindings/data/geotechnical.cpp.o
-
-bindings/data/geotechnical.i: bindings/data/geotechnical.cpp.i
-.PHONY : bindings/data/geotechnical.i
+bindings.i: bindings.cpp.i
+.PHONY : bindings.i
 
 # target to preprocess a source file
-bindings/data/geotechnical.cpp.i:
-	cd /home/runner/work/jessica/jessica/build && $(MAKE) $(MAKESILENT) -f src/javascript/wasm/CMakeFiles/jessica_js.dir/build.make src/javascript/wasm/CMakeFiles/jessica_js.dir/bindings/data/geotechnical.cpp.i
-.PHONY : bindings/data/geotechnical.cpp.i
+bindings.cpp.i:
+	cd /home/runner/work/jessica/jessica/build && $(MAKE) $(MAKESILENT) -f src/javascript/wasm/CMakeFiles/jessica_js.dir/build.make src/javascript/wasm/CMakeFiles/jessica_js.dir/bindings.cpp.i
+.PHONY : bindings.cpp.i
 
-bindings/data/geotechnical.s: bindings/data/geotechnical.cpp.s
-.PHONY : bindings/data/geotechnical.s
-
-# target to generate assembly for a file
-bindings/data/geotechnical.cpp.s:
-	cd /home/runner/work/jessica/jessica/build && $(MAKE) $(MAKESILENT) -f src/javascript/wasm/CMakeFiles/jessica_js.dir/build.make src/javascript/wasm/CMakeFiles/jessica_js.dir/bindings/data/geotechnical.cpp.s
-.PHONY : bindings/data/geotechnical.cpp.s
-
-bindings/data/load.o: bindings/data/load.cpp.o
-.PHONY : bindings/data/load.o
-
-# target to build an object file
-bindings/data/load.cpp.o:
-	cd /home/runner/work/jessica/jessica/build && $(MAKE) $(MAKESILENT) -f src/javascript/wasm/CMakeFiles/jessica_js.dir/build.make src/javascript/wasm/CMakeFiles/jessica_js.dir/bindings/data/load.cpp.o
-.PHONY : bindings/data/load.cpp.o
-
-bindings/data/load.i: bindings/data/load.cpp.i
-.PHONY : bindings/data/load.i
-
-# target to preprocess a source file
-bindings/data/load.cpp.i:
-	cd /home/runner/work/jessica/jessica/build && $(MAKE) $(MAKESILENT) -f src/javascript/wasm/CMakeFiles/jessica_js.dir/build.make src/javascript/wasm/CMakeFiles/jessica_js.dir/bindings/data/load.cpp.i
-.PHONY : bindings/data/load.cpp.i
-
-bindings/data/load.s: bindings/data/load.cpp.s
-.PHONY : bindings/data/load.s
+bindings.s: bindings.cpp.s
+.PHONY : bindings.s
 
 # target to generate assembly for a file
-bindings/data/load.cpp.s:
-	cd /home/runner/work/jessica/jessica/build && $(MAKE) $(MAKESILENT) -f src/javascript/wasm/CMakeFiles/jessica_js.dir/build.make src/javascript/wasm/CMakeFiles/jessica_js.dir/bindings/data/load.cpp.s
-.PHONY : bindings/data/load.cpp.s
+bindings.cpp.s:
+	cd /home/runner/work/jessica/jessica/build && $(MAKE) $(MAKESILENT) -f src/javascript/wasm/CMakeFiles/jessica_js.dir/build.make src/javascript/wasm/CMakeFiles/jessica_js.dir/bindings.cpp.s
+.PHONY : bindings.cpp.s
 
 # Help Target
 help:
@@ -214,15 +166,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... jessica_js"
-	@echo "... bindings/calc/geotechnical.o"
-	@echo "... bindings/calc/geotechnical.i"
-	@echo "... bindings/calc/geotechnical.s"
-	@echo "... bindings/data/geotechnical.o"
-	@echo "... bindings/data/geotechnical.i"
-	@echo "... bindings/data/geotechnical.s"
-	@echo "... bindings/data/load.o"
-	@echo "... bindings/data/load.i"
-	@echo "... bindings/data/load.s"
+	@echo "... bindings.o"
+	@echo "... bindings.i"
+	@echo "... bindings.s"
 .PHONY : help
 
 
