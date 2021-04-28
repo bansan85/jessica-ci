@@ -6,5 +6,5 @@ CXX_DEFINES = -DBUILDING_JESSICA_DLL
 
 CXX_INCLUDES = @CMakeFiles/main1.dir/includes_CXX.rsp
 
-CXX_FLAGS = -Weverything -Werror -Wno-c++98-compat -Wno-padded -Wno-c++98-compat-pedantic -Wno-weak-vtables -Wno-c99-extensions -Wno-global-constructors -O2 -std=gnu++20
+CXX_FLAGS = -Weverything -Werror -Wno-c++98-compat -Wno-padded -Wno-c++98-compat-pedantic -Wno-weak-vtables -Wno-c99-extensions -Wno-global-constructors -Os -std=gnu++20
 
