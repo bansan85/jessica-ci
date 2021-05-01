@@ -1,43 +1,43 @@
-const Module = require("/home/runner/work/jessica/jessica/build/src/javascript/wasm/jessica.js");
+const Module = require('/home/runner/work/jessica/jessica/build/src/javascript/wasm/jessica.js');
 
-  const consoleSpy = jest.spyOn(console, 'log');
 test('VerticalEccentric', async () => {
-Module().then(async instance => {
+  const consoleSpy = jest.spyOn(console, 'log');
+  Module().then(async (instance) => {
     const vert1 = new instance.VerticalEccentricDeco();
-  expect(vert1.GetE()).toBeNaN();
-  expect(vert1.GetV()).toBeNaN();
-  const vert2 = vert1.SetE(0.2);
-  expect(vert2.GetE()).toBe(0.2);
-  expect(vert2.GetV()).toBeNaN();
-  const vert3 = vert2.SetV(100);
-  expect(vert3.GetE()).toBe(0.2);
-  expect(vert3.GetV()).toBe(100);
-  const vert4 = vert3.Clone();
-  expect(vert4.GetE()).toBe(vert3.GetE());
-  expect(vert4.GetV()).toBe(vert3.GetV());
-});
+    expect(vert1.getE()).toBeNaN();
+    expect(vert1.getV()).toBeNaN();
+    const vert2 = vert1.setE(0.2);
+    expect(vert2.getE()).toBe(0.2);
+    expect(vert2.getV()).toBeNaN();
+    const vert3 = vert2.setV(100);
+    expect(vert3.getE()).toBe(0.2);
+    expect(vert3.getV()).toBe(100);
+    const vert4 = vert3.clone();
+    expect(vert4.getE()).toBe(vert3.getE());
+    expect(vert4.getV()).toBe(vert3.getV());
+  });
 });
 
 test('FoundationStrip', async () => {
   const consoleSpy = jest.spyOn(console, 'log');
-Module().then(async instance => {
+  Module().then(async (instance) => {
     const foundation = new instance.FoundationStripDeco();
-  expect(foundation.GetB()).toBeNaN();
-  const foundation2 = foundation.SetB(1.0);
-  expect(foundation2.GetB()).toBe(1.0);
-  const foundation3 = foundation2.Clone();
-  expect(foundation3.GetB()).toBe(foundation2.GetB());
-});
+    expect(foundation.getB()).toBeNaN();
+    const foundation2 = foundation.setB(1.0);
+    expect(foundation2.getB()).toBe(1.0);
+    const foundation3 = foundation2.clone();
+    expect(foundation3.getB()).toBe(foundation2.getB());
+  });
 });
 
 test('CalcMeyehof', async () => {
   const consoleSpy = jest.spyOn(console, 'log');
-Module().then(async instance => {
-    const foundation = new instance.FoundationStripDeco().SetB(1.0);
-    const vert = new instance.VerticalEccentricDeco().SetV(100000.).SetE(0.25);
+  Module().then(async (instance) => {
+    const foundation = new instance.FoundationStripDeco().setB(1.0);
+    const vert = new instance.VerticalEccentricDeco().setV(100000.).setE(0.25);
 
     const calc = new instance.MeyerhofShallowFoundationDeco(vert, foundation);
-  expect(calc.GetB_()).toBe(0.5);
-  expect(calc.GetQref()).toBe(200000.);
-});
+    expect(calc.getB_()).toBe(0.5);
+    expect(calc.getQref()).toBe(200000.);
+  });
 });
