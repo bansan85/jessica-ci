@@ -18,7 +18,7 @@
 BUILD_COVERAGE:BOOL=OFF
 
 //Build the testing tree.
-BUILD_TESTING:BOOL=OFF
+BUILD_TESTING:BOOL=ON
 
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=/usr/bin/addr2line
@@ -232,6 +232,22 @@ CMAKE_TOOLCHAIN_FILE:FILEPATH=/home/runner/work/jessica/jessica/emsdk/upstream/e
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
+//Path to the coverage program that CTest uses for performing coverage
+// inspection
+COVERAGE_COMMAND:FILEPATH=/usr/bin/gcov
+
+//Extra command line flags to pass to the coverage tool
+COVERAGE_EXTRA_FLAGS:STRING=-l
+
+//How many times to retry timed-out CTest submissions.
+CTEST_SUBMIT_RETRY_COUNT:STRING=3
+
+//How long to wait between timed-out CTest submissions.
+CTEST_SUBMIT_RETRY_DELAY:STRING=5
+
+//Maximum time allowed before CTest will kill the test.
+DART_TESTING_TIMEOUT:STRING=1500
+
 //If true, we are targeting Emscripten output.
 EMSCRIPTEN:BOOL=1
 
@@ -242,11 +258,26 @@ EMSCRIPTEN_FORCE_COMPILERS:BOOL=ON
 // If disabled (default), UNIX ar archives (.a) are generated.
 EMSCRIPTEN_GENERATE_BITCODE_STATIC_LIBRARIES:BOOL=OFF
 
+//Path to a program.
+GITCOMMAND:FILEPATH=/usr/bin/git
+
 //Value Computed by CMake
 Jessica_BINARY_DIR:STATIC=/home/runner/work/jessica/jessica/build
 
 //Value Computed by CMake
 Jessica_SOURCE_DIR:STATIC=/home/runner/work/jessica/jessica
+
+//Command to build the project
+MAKECOMMAND:STRING=/usr/local/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
+
+//Path to the memory checking command, used for memory error detection.
+MEMORYCHECK_COMMAND:FILEPATH=MEMORYCHECK_COMMAND-NOTFOUND
+
+//File that contains suppressions for the memory checker
+MEMORYCHECK_SUPPRESSIONS_FILE:FILEPATH=
+
+//Name of the computer/site where compile is being run
+SITE:STRING=fv-az202-506
 
 
 ########################
@@ -271,6 +302,8 @@ CMAKE_COLOR_MAKEFILE-ADVANCED:INTERNAL=1
 CMAKE_COMMAND:INTERNAL=/usr/local/bin/cmake
 //Path to cpack program executable.
 CMAKE_CPACK_COMMAND:INTERNAL=/usr/local/bin/cpack
+//ADVANCED property for variable: CMAKE_CTEST_COMMAND
+CMAKE_CTEST_COMMAND-ADVANCED:INTERNAL=1
 //Path to ctest program executable.
 CMAKE_CTEST_COMMAND:INTERNAL=/usr/local/bin/ctest
 //ADVANCED property for variable: CMAKE_CXX_COMPILER
@@ -353,7 +386,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=4
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=6
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -398,6 +431,26 @@ CMAKE_UNAME:INTERNAL=/usr/bin/uname
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Test COMPILER_SUPPORTS_RETURN_STD_MOVE_IN_C_11
 COMPILER_SUPPORTS_RETURN_STD_MOVE_IN_C_11:INTERNAL=
+//ADVANCED property for variable: COVERAGE_COMMAND
+COVERAGE_COMMAND-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: COVERAGE_EXTRA_FLAGS
+COVERAGE_EXTRA_FLAGS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CTEST_SUBMIT_RETRY_COUNT
+CTEST_SUBMIT_RETRY_COUNT-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CTEST_SUBMIT_RETRY_DELAY
+CTEST_SUBMIT_RETRY_DELAY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: DART_TESTING_TIMEOUT
+DART_TESTING_TIMEOUT-ADVANCED:INTERNAL=1
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
+//ADVANCED property for variable: GITCOMMAND
+GITCOMMAND-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MAKECOMMAND
+MAKECOMMAND-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MEMORYCHECK_COMMAND
+MEMORYCHECK_COMMAND-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MEMORYCHECK_SUPPRESSIONS_FILE
+MEMORYCHECK_SUPPRESSIONS_FILE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: SITE
+SITE-ADVANCED:INTERNAL=1
 
