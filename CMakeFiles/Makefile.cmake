@@ -16,7 +16,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../src/CMakeLists.txt"
   "../src/javascript/CMakeLists.txt"
   "../src/javascript/wasm/CMakeLists.txt"
-  "../src/main/CMakeLists.txt"
   "/usr/local/share/cmake-3.20/Modules/CMakeCCompiler.cmake.in"
   "/usr/local/share/cmake-3.20/Modules/CMakeCInformation.cmake"
   "/usr/local/share/cmake-3.20/Modules/CMakeCXXCompiler.cmake.in"
@@ -71,7 +70,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "src/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/javascript/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/javascript/wasm/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "src/main/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:

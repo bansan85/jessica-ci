@@ -42,8 +42,3 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/runner/work/jessica/jessica/build/src/javascript/cmake_install.cmake")
 endif()
 
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("/home/runner/work/jessica/jessica/build/src/main/cmake_install.cmake")
-endif()
-
