@@ -23,7 +23,7 @@ test('FoundationStrip', async () => {
 Module().then(async instance => {
     const foundation = new instance.FoundationStripDeco();
   expect(foundation.GetB()).toBeNaN();
-  const foundation2 = foundation.SetE(1.0);
+  const foundation2 = foundation.SetB(1.0);
   expect(foundation2.GetB()).toBe(1.0);
   const foundation3 = foundation2.Clone();
   expect(foundation3.GetB()).toBe(foundation2.GetB());
