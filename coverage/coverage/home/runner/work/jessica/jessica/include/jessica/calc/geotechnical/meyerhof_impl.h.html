@@ -984,7 +984,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      const std::shared_ptr&lt;Data::Load::IVerticalEccentric&gt;& load,</pre>
+          <pre>      const std::shared_ptr&lt;Jessica::Data::Load::IVerticalEccentric&gt;& load,</pre>
         </td>
       </tr>
       <tr>
@@ -994,7 +994,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      const std::shared_ptr&lt;Data::Geotechnical::IFoundationStrip&gt;& foundation)</pre>
+          <pre>      const std::shared_ptr&lt;Jessica::Data::Geotechnical::IFoundationStrip&gt;&</pre>
         </td>
       </tr>
       <tr>
@@ -1004,13 +1004,23 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      : impl_(std::make_shared&lt;MeyerhofShallowFoundationImpl&gt;(load, foundation))</pre>
+          <pre>          foundation)</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L96' href='#L96' id="L96">
           <pre>96</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>      : impl_(std::make_shared&lt;MeyerhofShallowFoundationImpl&gt;(load, foundation))</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L97' href='#L97' id="L97">
+          <pre>97</pre></a>
         </td>
         <td class='covered-line'>
           <pre>8</pre>
@@ -1021,8 +1031,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L97' href='#L97' id="L97">
-          <pre>97</pre></a>
+          <a name='L98' href='#L98' id="L98">
+          <pre>98</pre></a>
         </td>
         <td class='covered-line'>
           <pre>8</pre>
@@ -1048,8 +1058,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L96' href='#L96' id="L96">
-                    <pre>96</pre></a>
+                    <a name='L97' href='#L97' id="L97">
+                    <pre>97</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -1060,8 +1070,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L97' href='#L97' id="L97">
-                    <pre>97</pre></a>
+                    <a name='L98' href='#L98' id="L98">
+                    <pre>98</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -1092,8 +1102,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L96' href='#L96' id="L96">
-                    <pre>96</pre></a>
+                    <a name='L97' href='#L97' id="L97">
+                    <pre>97</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -1104,8 +1114,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L97' href='#L97' id="L97">
-                    <pre>97</pre></a>
+                    <a name='L98' href='#L98' id="L98">
+                    <pre>98</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -1121,8 +1131,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L98' href='#L98' id="L98">
-          <pre>98</pre></a>
+          <a name='L99' href='#L99' id="L99">
+          <pre>99</pre></a>
         </td>
         <td class='covered-line'>
           <pre>2</pre>
@@ -1148,8 +1158,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L98' href='#L98' id="L98">
-                    <pre>98</pre></a>
+                    <a name='L99' href='#L99' id="L99">
+                    <pre>99</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1180,8 +1190,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L98' href='#L98' id="L98">
-                    <pre>98</pre></a>
+                    <a name='L99' href='#L99' id="L99">
+                    <pre>99</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1197,22 +1207,12 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L99' href='#L99' id="L99">
-          <pre>99</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  MeyerhofShallowFoundation(MeyerhofShallowFoundation&amp;&amp;) = delete;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
           <a name='L100' href='#L100' id="L100">
           <pre>100</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  MeyerhofShallowFoundation& operator=(const MeyerhofShallowFoundation&amp;) =</pre>
+          <pre>  MeyerhofShallowFoundation(MeyerhofShallowFoundation&amp;&amp;) = delete;</pre>
         </td>
       </tr>
       <tr>
@@ -1222,7 +1222,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      delete;</pre>
+          <pre>  MeyerhofShallowFoundation& operator=(const MeyerhofShallowFoundation&amp;) =</pre>
         </td>
       </tr>
       <tr>
@@ -1232,13 +1232,23 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  MeyerhofShallowFoundation& operator=(MeyerhofShallowFoundation&amp;&amp;) = delete;</pre>
+          <pre>      delete;</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L103' href='#L103' id="L103">
           <pre>103</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  MeyerhofShallowFoundation& operator=(MeyerhofShallowFoundation&amp;&amp;) = delete;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L104' href='#L104' id="L104">
+          <pre>104</pre></a>
         </td>
         <td class='covered-line'>
           <pre>10</pre>
@@ -1264,8 +1274,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L103' href='#L103' id="L103">
-                    <pre>103</pre></a>
+                    <a name='L104' href='#L104' id="L104">
+                    <pre>104</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>5</pre>
@@ -1296,8 +1306,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L103' href='#L103' id="L103">
-                    <pre>103</pre></a>
+                    <a name='L104' href='#L104' id="L104">
+                    <pre>104</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>5</pre>
@@ -1313,22 +1323,12 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L104' href='#L104' id="L104">
-          <pre>104</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
           <a name='L105' href='#L105' id="L105">
           <pre>105</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] std::shared_ptr&lt;IMeyerhofShallowFoundation&gt; Clone()</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1338,7 +1338,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      const override</pre>
+          <pre>  [[nodiscard]] std::shared_ptr&lt;IMeyerhofShallowFoundation&gt; Clone()</pre>
         </td>
       </tr>
       <tr>
@@ -1346,11 +1346,9 @@
           <a name='L107' href='#L107' id="L107">
           <pre>107</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>2</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>      const override</pre>
         </td>
       </tr>
       <tr>
@@ -1362,13 +1360,25 @@
           <pre>2</pre>
         </td>
         <td class='code'>
-          <pre>    return std::make_shared&lt;MeyerhofShallowFoundation&gt;(*this);</pre>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L109' href='#L109' id="L109">
           <pre>109</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>2</pre>
+        </td>
+        <td class='code'>
+          <pre>    return std::make_shared&lt;MeyerhofShallowFoundation&gt;(*this);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L110' href='#L110' id="L110">
+          <pre>110</pre></a>
         </td>
         <td class='covered-line'>
           <pre>2</pre>
@@ -1394,8 +1404,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L107' href='#L107' id="L107">
-                    <pre>107</pre></a>
+                    <a name='L108' href='#L108' id="L108">
+                    <pre>108</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1406,8 +1416,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L108' href='#L108' id="L108">
-                    <pre>108</pre></a>
+                    <a name='L109' href='#L109' id="L109">
+                    <pre>109</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1418,8 +1428,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L109' href='#L109' id="L109">
-                    <pre>109</pre></a>
+                    <a name='L110' href='#L110' id="L110">
+                    <pre>110</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1450,8 +1460,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L107' href='#L107' id="L107">
-                    <pre>107</pre></a>
+                    <a name='L108' href='#L108' id="L108">
+                    <pre>108</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1462,8 +1472,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L108' href='#L108' id="L108">
-                    <pre>108</pre></a>
+                    <a name='L109' href='#L109' id="L109">
+                    <pre>109</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1474,8 +1484,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L109' href='#L109' id="L109">
-                    <pre>109</pre></a>
+                    <a name='L110' href='#L110' id="L110">
+                    <pre>110</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1491,8 +1501,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L110' href='#L110' id="L110">
-          <pre>110</pre></a>
+          <a name='L111' href='#L111' id="L111">
+          <pre>111</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1501,24 +1511,12 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L111' href='#L111' id="L111">
-          <pre>111</pre></a>
+          <a name='L112' href='#L112' id="L112">
+          <pre>112</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
           <pre>  [[nodiscard]] double Qref() const override</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L112' href='#L112' id="L112">
-          <pre>112</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>8</pre>
-        </td>
-        <td class='code'>
-          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -1530,13 +1528,25 @@
           <pre>8</pre>
         </td>
         <td class='code'>
-          <pre>    return T::template f&lt;MeyerhofShallowFoundationImpl::GetQref&gt;(*impl_);</pre>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L114' href='#L114' id="L114">
           <pre>114</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>8</pre>
+        </td>
+        <td class='code'>
+          <pre>    return T::template f&lt;MeyerhofShallowFoundationImpl::GetQref&gt;(*impl_);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L115' href='#L115' id="L115">
+          <pre>115</pre></a>
         </td>
         <td class='covered-line'>
           <pre>8</pre>
@@ -1562,8 +1572,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L112' href='#L112' id="L112">
-                    <pre>112</pre></a>
+                    <a name='L113' href='#L113' id="L113">
+                    <pre>113</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -1574,8 +1584,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L113' href='#L113' id="L113">
-                    <pre>113</pre></a>
+                    <a name='L114' href='#L114' id="L114">
+                    <pre>114</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -1586,8 +1596,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L114' href='#L114' id="L114">
-                    <pre>114</pre></a>
+                    <a name='L115' href='#L115' id="L115">
+                    <pre>115</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -1618,8 +1628,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L112' href='#L112' id="L112">
-                    <pre>112</pre></a>
+                    <a name='L113' href='#L113' id="L113">
+                    <pre>113</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -1630,8 +1640,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L113' href='#L113' id="L113">
-                    <pre>113</pre></a>
+                    <a name='L114' href='#L114' id="L114">
+                    <pre>114</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -1642,8 +1652,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L114' href='#L114' id="L114">
-                    <pre>114</pre></a>
+                    <a name='L115' href='#L115' id="L115">
+                    <pre>115</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -1659,8 +1669,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L115' href='#L115' id="L115">
-          <pre>115</pre></a>
+          <a name='L116' href='#L116' id="L116">
+          <pre>116</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1669,24 +1679,12 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L116' href='#L116' id="L116">
-          <pre>116</pre></a>
+          <a name='L117' href='#L117' id="L117">
+          <pre>117</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
           <pre>  [[nodiscard]] double B_() const override</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L117' href='#L117' id="L117">
-          <pre>117</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>12</pre>
-        </td>
-        <td class='code'>
-          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -1698,13 +1696,25 @@
           <pre>12</pre>
         </td>
         <td class='code'>
-          <pre>    return T::template f&lt;MeyerhofShallowFoundationImpl::GetB_&gt;(*impl_);</pre>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L119' href='#L119' id="L119">
           <pre>119</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>12</pre>
+        </td>
+        <td class='code'>
+          <pre>    return T::template f&lt;MeyerhofShallowFoundationImpl::GetB_&gt;(*impl_);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L120' href='#L120' id="L120">
+          <pre>120</pre></a>
         </td>
         <td class='covered-line'>
           <pre>12</pre>
@@ -1730,8 +1740,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L117' href='#L117' id="L117">
-                    <pre>117</pre></a>
+                    <a name='L118' href='#L118' id="L118">
+                    <pre>118</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>6</pre>
@@ -1742,8 +1752,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L118' href='#L118' id="L118">
-                    <pre>118</pre></a>
+                    <a name='L119' href='#L119' id="L119">
+                    <pre>119</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>6</pre>
@@ -1754,8 +1764,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L119' href='#L119' id="L119">
-                    <pre>119</pre></a>
+                    <a name='L120' href='#L120' id="L120">
+                    <pre>120</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>6</pre>
@@ -1786,8 +1796,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L117' href='#L117' id="L117">
-                    <pre>117</pre></a>
+                    <a name='L118' href='#L118' id="L118">
+                    <pre>118</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>6</pre>
@@ -1798,8 +1808,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L118' href='#L118' id="L118">
-                    <pre>118</pre></a>
+                    <a name='L119' href='#L119' id="L119">
+                    <pre>119</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>6</pre>
@@ -1810,8 +1820,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L119' href='#L119' id="L119">
-                    <pre>119</pre></a>
+                    <a name='L120' href='#L120' id="L120">
+                    <pre>120</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>6</pre>
@@ -1827,22 +1837,12 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L120' href='#L120' id="L120">
-          <pre>120</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
           <a name='L121' href='#L121' id="L121">
           <pre>121</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> private:</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1852,7 +1852,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  std::shared_ptr&lt;MeyerhofShallowFoundationImpl&gt; impl_;</pre>
+          <pre> private:</pre>
         </td>
       </tr>
       <tr>
@@ -1862,13 +1862,23 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>};</pre>
+          <pre>  std::shared_ptr&lt;MeyerhofShallowFoundationImpl&gt; impl_;</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L124' href='#L124' id="L124">
           <pre>124</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>};</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L125' href='#L125' id="L125">
+          <pre>125</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
