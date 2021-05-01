@@ -1,8 +1,15 @@
-const Module = require('/home/runner/work/jessica/jessica/build/src/javascript/wasm/jessica.js');
+const jessica = require('/home/runner/work/jessica/jessica/build/src/javascript/wasm/jessica.js');
+
+jest.spyOn(console, 'log');
+
+test('WarmUpJessica', async () => {
+  jessica().then(async (instance) => {
+  });
+});
+
 
 test('VerticalEccentric', async () => {
-  const consoleSpy = jest.spyOn(console, 'log');
-  Module().then(async (instance) => {
+  jessica().then(async (instance) => {
     const vert1 = new instance.VerticalEccentricDeco();
     expect(vert1.getE()).toBeNaN();
     expect(vert1.getV()).toBeNaN();
@@ -19,8 +26,7 @@ test('VerticalEccentric', async () => {
 });
 
 test('FoundationStrip', async () => {
-  const consoleSpy = jest.spyOn(console, 'log');
-  Module().then(async (instance) => {
+  jessica().then(async (instance) => {
     const foundation = new instance.FoundationStripDeco();
     expect(foundation.getB()).toBeNaN();
     const foundation2 = foundation.setB(1.0);
@@ -31,8 +37,7 @@ test('FoundationStrip', async () => {
 });
 
 test('CalcMeyehof', async () => {
-  const consoleSpy = jest.spyOn(console, 'log');
-  Module().then(async (instance) => {
+  jessica().then(async (instance) => {
     const foundation = new instance.FoundationStripDeco().setB(1.0);
     const vert = new instance.VerticalEccentricDeco().setV(100000.).setE(0.25);
 

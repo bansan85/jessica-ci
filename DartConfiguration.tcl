@@ -11,7 +11,7 @@ BuildDirectory: /home/runner/work/jessica/jessica/build
 CostDataFile: 
 
 # Site is something like machine.domain, i.e. pragmatic.crd
-Site: fv-az136-22
+Site: fv-az119-922
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
 BuildName: Emscripten-em++

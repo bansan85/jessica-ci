@@ -1,10 +1,10 @@
 
-var Module = (function() {
+var jessica = (function() {
   var _scriptDir = typeof document !== 'undefined' && document.currentScript ? document.currentScript.src : undefined;
   if (typeof __filename !== 'undefined') _scriptDir = _scriptDir || __filename;
   return (
-function(Module) {
-  Module = Module || {};
+function(jessica) {
+  jessica = jessica || {};
 
 
 
@@ -21,7 +21,7 @@ function(Module) {
 // after the generated code, you will need to define   var Module = {};
 // before the code. Then that object will be used in the code, and you
 // can continue to use Module afterwards as well.
-var Module = typeof Module !== 'undefined' ? Module : {};
+var Module = typeof jessica !== 'undefined' ? jessica : {};
 
 // Set up the promise that indicates the Module is initialized
 var readyPromiseResolve, readyPromiseReject;
@@ -7198,13 +7198,13 @@ run();
 
 
 
-  return Module.ready
+  return jessica.ready
 }
 );
 })();
 if (typeof exports === 'object' && typeof module === 'object')
-  module.exports = Module;
+  module.exports = jessica;
 else if (typeof define === 'function' && define['amd'])
-  define([], function() { return Module; });
+  define([], function() { return jessica; });
 else if (typeof exports === 'object')
-  exports["Module"] = Module;
+  exports["jessica"] = jessica;
