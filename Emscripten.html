@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.15">
-<title>Building</title>
+<title>Emscripten</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,261 +438,154 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>Building</h1>
+<h1>Emscripten</h1>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_how_to">How to</h2>
+<h2 id="_examples">Examples</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_linux">Linux</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">mkdir build
-cmake -S . -B build
-cmake --build build/ --target all
-cd build
-ctest --output-on-failure
-cd ..</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_windows">Windows</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">.\vcpkg\bootstrap-vcpkg.bat
-.\vcpkg\vcpkg install gtest
-mkdir build
-cmake -S . -B build -G "Visual Studio 16 2019" -A x64 -DCMAKE_TOOLCHAIN_FILE=./vcpkg/scripts/buildsystems/vcpkg.cmake
-cmake --build build --target ALL_BUILD --config Debug
-cd build
-ctest -C Debug --output-on-failure
-cd ..</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_web_assembly">Web Assembly</h3>
+<h3 id="_bindings">Bindings</h3>
 <div class="paragraph">
-<p>You need to install <a href="https://emscripten.org/docs/getting_started/downloads.html">Emscripten</a>.</p>
+<p>First, you need to define bindings in cpp source.</p>
 </div>
 <div class="paragraph">
-<p>Run once:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">git clone --depth=1 https://github.com/emscripten-core/emsdk.git
-cd emsdk
-./emsdk install latest
-./emsdk activate latest</code></pre>
-</div>
+<p>You only need to explicitly define symbols you externally need.</p>
 </div>
 <div class="paragraph">
-<p>Run everytime:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">source ./emsdk_env.sh
-mkdir build
-emcmake cmake -S . -B build
-emcmake cmake --build build/ --target all
-cd build
-ctest --output-on-failure
-cd ..</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_dependencies">Dependencies</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_building">Building</h3>
-<div class="paragraph">
-<p>Tools needed:</p>
+<p>The syntax is easy, just don&#8217;t forget to:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Compiler: gcc, clang or Visual Studio with C++20 support,</p>
+<p>all function and constructor you will need,</p>
 </li>
 <li>
-<p><a href="https://cmake.org/">cmake</a>.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_backend">Backend</h3>
-<div class="paragraph">
-<p>No dependencies.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_tests">Tests</h3>
-<div class="paragraph">
-<p>You need:</p>
-</div>
+<p>declare all symbol when used in return type or argument:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/google/googletest">gtest</a>.</p>
+<p>smart pointer symbol (''unique_ptr'' and ''shared_ptr'') with ''smart_ptr'',</p>
+</li>
+<li>
+<p>interface and inheritance with ''base&lt;&gt;''.</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_documentation">Documentation</h3>
-<div class="paragraph">
-<p>You need <a href="https://highlightjs.org">highlight.js</a>.</p>
-</div>
-<div class="paragraph">
-<p>Build it with:</p>
+</li>
+<li>
+<p>declare all bindings in the same cpp source file. I have trouble with the linker and duplicated weak symbols.</p>
+</li>
+</ul>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">node tools/build.js -t browser cpp bash javascript html</code></pre>
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;iostream&gt;
+#include &lt;memory&gt;
+
+#include &lt;emscripten/bind.h&gt;
+
+#include &lt;jessica/calc/geotechnical/meyerhof.h&gt;
+#include &lt;jessica/calc/geotechnical/meyerhof_impl.h&gt;
+#include &lt;jessica/data/geotechnical/foundation_strip.h&gt;
+#include &lt;jessica/data/geotechnical/foundation_strip_impl.h&gt;
+#include &lt;jessica/data/load/vertical_eccentric.h&gt;
+#include &lt;jessica/data/load/vertical_eccentric_impl.h&gt;
+#include &lt;jessica/util/decorator/log_call.h&gt;
+#include &lt;jessica/util/decorator/log_duration.h&gt;
+
+using namespace emscripten;
+
+EMSCRIPTEN_BINDINGS(jessica)
+{
+  class_&lt;Jessica::Data::Geotechnical::IFoundationStrip&gt;("IFoundationStrip")
+      .smart_ptr&lt;
+          std::shared_ptr&lt;Jessica::Data::Geotechnical::IFoundationStrip&gt;&gt;(
+          "IFoundationStrip")
+      .function(
+          "setB",
+          select_overload&lt;std::shared_ptr&lt;
+              Jessica::Data::Geotechnical::IFoundationStrip&gt;(double) const&gt;(
+              &amp;Jessica::Data::Geotechnical::IFoundationStrip::B))
+      .function("getB", select_overload&lt;double() const&gt;(
+                            &amp;Jessica::Data::Geotechnical::IFoundationStrip::B));
+
+  class_&lt;Jessica::Data::Geotechnical::FoundationStrip&lt;
+             Jessica::Util::Decorator::LogCall&lt;
+                 Jessica::Util::Decorator::LogDuration&lt;
+                     Jessica::Data::Geotechnical::FoundationStripImpl&gt;&gt;&gt;,
+         base&lt;Jessica::Data::Geotechnical::IFoundationStrip&gt;&gt;(
+      "FoundationStripDeco")
+      .constructor&lt;&gt;()
+      .function(
+          "clone",
+          &amp;Jessica::Data::Geotechnical::FoundationStrip&lt;
+              Jessica::Util::Decorator::LogCall&lt;
+                  Jessica::Util::Decorator::LogDuration&lt;
+                      Jessica::Data::Geotechnical::FoundationStripImpl&gt;&gt;&gt;::
+              Clone)
+      .function(
+          "setB",
+          select_overload&lt;std::shared_ptr&lt;
+              Jessica::Data::Geotechnical::IFoundationStrip&gt;(double) const&gt;(
+              &amp;Jessica::Data::Geotechnical::FoundationStrip&lt;
+                  Jessica::Util::Decorator::LogCall&lt;
+                      Jessica::Util::Decorator::LogDuration&lt;
+                          Jessica::Data::Geotechnical::FoundationStripImpl&gt;&gt;&gt;::
+                  B))
+      .function(
+          "getB",
+          select_overload&lt;double() const&gt;(
+              &amp;Jessica::Data::Geotechnical::FoundationStrip&lt;
+                  Jessica::Util::Decorator::LogCall&lt;
+                      Jessica::Util::Decorator::LogDuration&lt;
+                          Jessica::Data::Geotechnical::FoundationStripImpl&gt;&gt;&gt;::
+                  B));
+}</code></pre>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_continuous_integration">Continuous integration</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_tools">Tools</h3>
 <div class="paragraph">
-<p>The build is tested with Ubuntu-LTS with gcc and clang and Windows with Visual Studio.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Linux</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Compilers tested : gcc-10 and clang-11.</p>
-</div>
-<div class="paragraph">
-<p>Packages are installed with ''apt-get''.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Windows</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Compilers tested : Visual Studio 2019.</p>
-</div>
-<div class="paragraph">
-<p>Packages are installed with ''vcpkg''.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_auto_formatting">Auto formatting</h3>
-<div class="paragraph">
-<p>Don&#8217;t spend to much time about formatting. Continuous integration will automatically create commit to fix them with <a href="https://github.com/cheshirekow/cmake_format">cmake-format</a> and <a href="https://clang.llvm.org/docs/ClangFormat.html">clang-format</a>.</p>
-</div>
-<div class="paragraph">
-<p>This is done in the <code>linters</code> workflow. If a file need to be formatted, a new commit is added with a fix and the current build will fail.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_linters">Linters</h3>
-<div class="paragraph">
-<p>Lots (maybe too much) of linters are used:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>yaml: <a href="https://github.com/adrienverge/yamllint">yamllint</a>,</p>
-</li>
-<li>
-<p>bash: <a href="https://github.com/koalaman/shellcheck">shellcheck</a>,</p>
-</li>
-<li>
-<p>requirements.txt: <a href="https://github.com/pyupio/safety">safety</a>,</p>
-</li>
-<li>
-<p>c++: <a href="https://include-what-you-use.org/">iwyu</a>, <a href="http://cppcheck.sourceforge.net/">cppcheck</a>, <a href="https://clang.llvm.org/extra/clang-tidy/">clang-tidy</a>.</p>
-</li>
-<li>
-<p>javascript: <a href="https://eslint.org/">ESLint</a>,</p>
-</li>
-<li>
-<p>css: <a href="https://stylelint.io/">stylelint</a>,</p>
-</li>
-<li>
-<p>html: <a href="https://prettier.io">prettier</a></p>
-</li>
-</ul>
+<p>Compile this source with ''-s EXPORT_NAME=jessica -s MODULARIZE=1 --bind''.
+''--bind'' will keep every symbol. This will grow size but it&#8217;s easier than ''-s EXPORTED_FUNCTIONS=[]''.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_sanitizers">Sanitizers</h3>
+<h3 id="_usage_in_html">Usage in HTML</h3>
 <div class="paragraph">
-<p>Enable all sanitizers : address, thread, leak, undefined, cfi.</p>
+<p>Remember you need to declare with ''EMSCRIPTEN_BINDINGS'' symbols you want to use. The source must be compile with ''-s MODULARIZE=1''.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-html hljs" data-lang="html">&lt;head&gt;
+  &lt;script type="text/javascript" src="jessica.js"&gt;&lt;/script&gt;
+  &lt;script type="text/javascript"&gt;
+    jessica().then(async (instance) =&gt; {
+      const vert1 = new instance.VerticalEccentricDeco();
+      console.log(`${vert1.getE()}`);
+      console.log(`${vert1.getV()}`);
+      const vert2 = vert1.setE(0.2);
+      console.log(`${vert2.getE()}`);
+      console.log(`${vert2.getV()}`);
+      const vert3 = vert2.setV(100);
+      console.log(`${vert3.getE()}`);
+      console.log(`${vert3.getV()}`);
+
+      const found1 = new instance.FoundationStripDeco();
+      console.log(`${found1.getB()}`);
+      const found2 = found1.setB(1.0);
+      console.log(`${found2.getB()}`);
+
+      const meyer1 = new instance.MeyerhofShallowFoundationDeco(vert3, found2);
+      console.log(`${meyer1.getQref()}`);
+      console.log(`${meyer1.getB_()}`);
+
+      console.log(`STOP`);
+    });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;&lt;/body&gt;</code></pre>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_data_generated">Data generated</h3>
-<div class="paragraph">
-<p>I decided to use my own interface in addition to other well-integrated softwares like <a href="https://codecov.io">codecov</a> to keep data under control.</p>
-</div>
-<div class="paragraph">
-<p>All data are stored in <a href="https://github.com/bansan85/jessica-ci">jessica-ci</a> repository.</p>
-</div>
-<div class="paragraph">
-<p>Every commit, following data are generated:</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 60%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Data</th>
-<th class="tableblock halign-left valign-top">Git branch</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Tests</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ubuntu-clang,
-ubuntu-gcc,
-windows-msbuild,
-emscripten.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Duration of each tests,
-List of installed packages for Linux.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Coverage</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">coverage-clang,
-coverage-gcc.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Coverage information.
-Should be the same with both compilers.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Documentation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">documentation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HTML documentation.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Metrics</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">metrics</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Complexity and length of functions.</p></td>
-</tr>
-</tbody>
-</table>
 </div>
 </div>
 </div>
