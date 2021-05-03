@@ -1,9 +1,48 @@
+[HANDLER_VERBOSE_OUTPUT] 
+UpdateCTestConfiguration  from :/home/runner/work/jessica/jessica/build/DartConfiguration.tcl
+
+Parse Config file:/home/runner/work/jessica/jessica/build/DartConfiguration.tcl
+UpdateCTestConfiguration  from :/home/runner/work/jessica/jessica/build/DartConfiguration.tcl
+Parse Config file:/home/runner/work/jessica/jessica/build/DartConfiguration.tcl
 [HANDLER_OUTPUT] 
 Test project /home/runner/work/jessica/jessica/build
 
+[HANDLER_VERBOSE_OUTPUT] 
+Constructing a list of tests
+
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+[HANDLER_OUTPUT] 
     Start 1: NpmTest
-1/1 Test #1: NpmTest ..........................   Passed    3.12 sec
+
+[HANDLER_VERBOSE_OUTPUT] 
+
+1: Test command: /usr/local/bin/npm "run" "test"
+
+1: Test timeout computed to be: 1500
+1: 
+1: > @ test /home/runner/work/jessica/jessica/build/test/javascript
+1: > node --trace-warnings --unhandled-rejections=strict node_modules/.bin/jest
+1: 
+1: PASS ./jessica.test.js
+1:   ✓ WarmUpJessica (143 ms)
+1:   ✓ VerticalEccentric (4 ms)
+1:   ✓ FoundationStrip (2 ms)
+1:   ✓ CalcMeyehof (2 ms)
+1: 
+1: Test Suites: 1 passed, 1 total
+1: Tests:       4 passed, 4 total
+1: Snapshots:   0 total
+1: Time:        2.18 s
+1: Ran all test suites.
+[HANDLER_OUTPUT] 
+1/1 Test #1: NpmTest ..........................
+   Passed    3.45 sec
 
 100% tests passed, 0 tests failed out of 1
 
-Total Test time (real) =   3.13 sec
+Total Test time (real) =   3.46 sec
