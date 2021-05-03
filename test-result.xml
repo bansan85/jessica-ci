@@ -1,13 +1,216 @@
+[HANDLER_VERBOSE_OUTPUT] 
+UpdateCTestConfiguration  from :/home/runner/work/jessica/jessica/build/DartConfiguration.tcl
+
+Parse Config file:/home/runner/work/jessica/jessica/build/DartConfiguration.tcl
+UpdateCTestConfiguration  from :/home/runner/work/jessica/jessica/build/DartConfiguration.tcl
+Parse Config file:/home/runner/work/jessica/jessica/build/DartConfiguration.tcl
 [HANDLER_OUTPUT] 
 Test project /home/runner/work/jessica/jessica/build
 
+[HANDLER_VERBOSE_OUTPUT] 
+Constructing a list of tests
+
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+[HANDLER_OUTPUT] 
     Start 1: TestGeotechnicalFoundationStrip
-1/3 Test #1: TestGeotechnicalFoundationStrip ...   Passed    0.00 sec
+
+[HANDLER_VERBOSE_OUTPUT] 
+
+1: Test command: /home/runner/work/jessica/jessica/build/test/backend/data/test_geotechnical_foundation_strip
+
+1: Test timeout computed to be: 1500
+1: Running main() from /build/googletest-j5yxiC/googletest-1.10.0/googletest/src/gtest_main.cc
+1: [==========] Running 2 tests from 1 test suite.
+1: [----------] Global test environment set-up.
+1: [----------] 2 tests from data
+1: [ RUN      ] data.FoundationStrip
+1: [       OK ] data.FoundationStrip (0 ms)
+1: [ RUN      ] data.FoundationStripDecorator
+1: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data12Geotechnical19FoundationStripImplEEE N7Jessica4Data12Geotechnical19FoundationStripImpl4GetBE
+1: duration 0.0001 ms
+1: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data12Geotechnical19FoundationStripImplEEE N7Jessica4Data12Geotechnical19FoundationStripImpl4SetBE
+1: duration 0 ms
+1: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data12Geotechnical19FoundationStripImplEEE N7Jessica4Data12Geotechnical19FoundationStripImpl4GetBE
+1: duration 0.0001 ms
+1: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data12Geotechnical19FoundationStripImplEEE N7Jessica4Data12Geotechnical19FoundationStripImpl4GetBE
+1: duration 0 ms
+1: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data12Geotechnical19FoundationStripImplEEE N7Jessica4Data12Geotechnical19FoundationStripImpl4GetBE
+1: duration 0 ms
+1: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data12Geotechnical19FoundationStripImplEEE N7Jessica4Data12Geotechnical19FoundationStripImpl4GetBE
+1: duration 0 ms
+1: [       OK ] data.FoundationStripDecorator (0 ms)
+1: [----------] 2 tests from data (0 ms total)
+1: 
+1: [----------] Global test environment tear-down
+1: [==========] 2 tests from 1 test suite ran. (0 ms total)
+1: [  PASSED  ] 2 tests.
+[HANDLER_OUTPUT] 
+1/3 Test #1: TestGeotechnicalFoundationStrip ...
+   Passed    0.00 sec
+[HANDLER_VERBOSE_OUTPUT] 
+test 2
+
+[HANDLER_OUTPUT] 
     Start 2: TestLoadVerticalEccentric
-2/3 Test #2: TestLoadVerticalEccentric .........   Passed    0.00 sec
+
+[HANDLER_VERBOSE_OUTPUT] 
+
+2: Test command: /home/runner/work/jessica/jessica/build/test/backend/data/test_load_vertical_eccentric
+
+2: Test timeout computed to be: 1500
+2: Running main() from /build/googletest-j5yxiC/googletest-1.10.0/googletest/src/gtest_main.cc
+2: [==========] Running 2 tests from 1 test suite.
+2: [----------] Global test environment set-up.
+2: [----------] 2 tests from data
+2: [ RUN      ] data.VerticalEccentric
+2: [       OK ] data.VerticalEccentric (0 ms)
+2: [ RUN      ] data.VerticalEccentricDecorator
+2: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEEE N7Jessica4Data4Load21VerticalEccentricImpl4GetEE
+2: duration 0.0001 ms
+2: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEEE N7Jessica4Data4Load21VerticalEccentricImpl4GetVE
+2: duration 0 ms
+2: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEEE N7Jessica4Data4Load21VerticalEccentricImpl4SetVE
+2: duration 0.0001 ms
+2: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEEE N7Jessica4Data4Load21VerticalEccentricImpl4GetEE
+2: duration 0 ms
+2: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEEE N7Jessica4Data4Load21VerticalEccentricImpl4GetVE
+2: duration 0.0001 ms
+2: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEEE N7Jessica4Data4Load21VerticalEccentricImpl4SetEE
+2: duration 0.0001 ms
+2: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEEE N7Jessica4Data4Load21VerticalEccentricImpl4GetEE
+2: duration 0 ms
+2: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEEE N7Jessica4Data4Load21VerticalEccentricImpl4GetVE
+2: duration 0.0001 ms
+2: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEEE N7Jessica4Data4Load21VerticalEccentricImpl4GetEE
+2: duration 0.0001 ms
+2: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEEE N7Jessica4Data4Load21VerticalEccentricImpl4GetEE
+2: duration 0.0001 ms
+2: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEEE N7Jessica4Data4Load21VerticalEccentricImpl4GetVE
+2: duration 0 ms
+2: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEEE N7Jessica4Data4Load21VerticalEccentricImpl4GetVE
+2: duration 0 ms
+2: [       OK ] data.VerticalEccentricDecorator (0 ms)
+2: [----------] 2 tests from data (0 ms total)
+2: 
+2: [----------] Global test environment tear-down
+2: [==========] 2 tests from 1 test suite ran. (0 ms total)
+2: [  PASSED  ] 2 tests.
+[HANDLER_OUTPUT] 
+2/3 Test #2: TestLoadVerticalEccentric .........
+   Passed    0.00 sec
+[HANDLER_VERBOSE_OUTPUT] 
+test 3
+
+[HANDLER_OUTPUT] 
     Start 3: TestCalcMeyerhof
-3/3 Test #3: TestCalcMeyerhof ..................   Passed    0.00 sec
+
+[HANDLER_VERBOSE_OUTPUT] 
+
+3: Test command: /home/runner/work/jessica/jessica/build/test/backend/calc/geotechnical/test_calc_meyerhof
+
+3: Test timeout computed to be: 1500
+3: Running main() from /build/googletest-j5yxiC/googletest-1.10.0/googletest/src/gtest_main.cc
+3: [==========] Running 2 tests from 1 test suite.
+3: [----------] Global test environment set-up.
+3: [----------] 2 tests from data
+3: [ RUN      ] data.CalcMeyehof
+3: [       OK ] data.CalcMeyehof (0 ms)
+3: [ RUN      ] data.CalcMeyehofDecorator
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data12Geotechnical19FoundationStripImplEEE N7Jessica4Data12Geotechnical19FoundationStripImpl4SetBE
+3: duration 0.000501 ms
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEEE N7Jessica4Data4Load21VerticalEccentricImpl4SetVE
+3: duration 0.0002 ms
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEEE N7Jessica4Data4Load21VerticalEccentricImpl4SetEE
+3: duration 0.0003 ms
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplEEE N7Jessica4Calc12Geotechnical29MeyerhofShallowFoundationImpl5GetB_E
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data12Geotechnical19FoundationStripImplEEE N7Jessica4Data12Geotechnical19FoundationStripImpl4GetBE
+3: duration 0.0001 ms
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEEE N7Jessica4Data4Load21VerticalEccentricImpl4GetEE
+3: duration 0.0001 ms
+3: duration 0.226923 ms
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplEEE N7Jessica4Calc12Geotechnical29MeyerhofShallowFoundationImpl7GetQrefE
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEEE N7Jessica4Data4Load21VerticalEccentricImpl4GetVE
+3: duration 0 ms
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data12Geotechnical19FoundationStripImplEEE N7Jessica4Data12Geotechnical19FoundationStripImpl4GetBE
+3: duration 0.0001 ms
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEEE N7Jessica4Data4Load21VerticalEccentricImpl4GetEE
+3: duration 0.0001 ms
+3: duration 0.595461 ms
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEEE N7Jessica4Data4Load21VerticalEccentricImpl4SetEE
+3: duration 0.0002 ms
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplEEE N7Jessica4Calc12Geotechnical29MeyerhofShallowFoundationImpl5GetB_E
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data12Geotechnical19FoundationStripImplEEE N7Jessica4Data12Geotechnical19FoundationStripImpl4GetBE
+3: duration 0.0001 ms
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEEE N7Jessica4Data4Load21VerticalEccentricImpl4GetEE
+3: duration 0.0001 ms
+3: duration 0.190419 ms
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplEEE N7Jessica4Calc12Geotechnical29MeyerhofShallowFoundationImpl7GetQrefE
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEEE N7Jessica4Data4Load21VerticalEccentricImpl4GetVE
+3: duration 0.0001 ms
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data12Geotechnical19FoundationStripImplEEE N7Jessica4Data12Geotechnical19FoundationStripImpl4GetBE
+3: duration 0.0001 ms
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEEE N7Jessica4Data4Load21VerticalEccentricImpl4GetEE
+3: duration 0 ms
+3: duration 0.397441 ms
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplEEE N7Jessica4Calc12Geotechnical29MeyerhofShallowFoundationImpl5GetB_E
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data12Geotechnical19FoundationStripImplEEE N7Jessica4Data12Geotechnical19FoundationStripImpl4GetBE
+3: duration 0.0001 ms
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEEE N7Jessica4Data4Load21VerticalEccentricImpl4GetEE
+3: duration 0.0001 ms
+3: duration 0.370737 ms
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplEEE N7Jessica4Calc12Geotechnical29MeyerhofShallowFoundationImpl5GetB_E
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data12Geotechnical19FoundationStripImplEEE N7Jessica4Data12Geotechnical19FoundationStripImpl4GetBE
+3: duration 0.0001 ms
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEEE N7Jessica4Data4Load21VerticalEccentricImpl4GetEE
+3: duration 0.0001 ms
+3: duration 0.320533 ms
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplEEE N7Jessica4Calc12Geotechnical29MeyerhofShallowFoundationImpl7GetQrefE
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEEE N7Jessica4Data4Load21VerticalEccentricImpl4GetVE
+3: duration 0.0001 ms
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data12Geotechnical19FoundationStripImplEEE N7Jessica4Data12Geotechnical19FoundationStripImpl4GetBE
+3: duration 0.0001 ms
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEEE N7Jessica4Data4Load21VerticalEccentricImpl4GetEE
+3: duration 0 ms
+3: duration 0.539655 ms
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplEEE N7Jessica4Calc12Geotechnical29MeyerhofShallowFoundationImpl7GetQrefE
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEEE N7Jessica4Data4Load21VerticalEccentricImpl4GetVE
+3: duration 0.0001 ms
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data12Geotechnical19FoundationStripImplEEE N7Jessica4Data12Geotechnical19FoundationStripImpl4GetBE
+3: duration 0.0001 ms
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEEE N7Jessica4Data4Load21VerticalEccentricImpl4GetEE
+3: duration 0.0001 ms
+3: duration 0.451946 ms
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEEE N7Jessica4Data4Load21VerticalEccentricImpl4SetEE
+3: duration 0.0002 ms
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplEEE N7Jessica4Calc12Geotechnical29MeyerhofShallowFoundationImpl5GetB_E
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data12Geotechnical19FoundationStripImplEEE N7Jessica4Data12Geotechnical19FoundationStripImpl4GetBE
+3: duration 0.0001 ms
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEEE N7Jessica4Data4Load21VerticalEccentricImpl4GetEE
+3: duration 0.0001 ms
+3: duration 0.332033 ms
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEEE N7Jessica4Data4Load21VerticalEccentricImpl4SetEE
+3: duration 0.0002 ms
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplEEE N7Jessica4Calc12Geotechnical29MeyerhofShallowFoundationImpl5GetB_E
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data12Geotechnical19FoundationStripImplEEE N7Jessica4Data12Geotechnical19FoundationStripImpl4GetBE
+3: duration 0.0001 ms
+3: DecoratorLogger N7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEEE N7Jessica4Data4Load21VerticalEccentricImpl4GetEE
+3: duration 0.000101 ms
+3: duration 0.252026 ms
+3: [       OK ] data.CalcMeyehofDecorator (6 ms)
+3: [----------] 2 tests from data (7 ms total)
+3: 
+3: [----------] Global test environment tear-down
+3: [==========] 2 tests from 1 test suite ran. (7 ms total)
+3: [  PASSED  ] 2 tests.
+[HANDLER_OUTPUT] 
+3/3 Test #3: TestCalcMeyerhof ..................
+   Passed    0.01 sec
 
 100% tests passed, 0 tests failed out of 3
 
-Total Test time (real) =   0.06 sec
+Total Test time (real) =   0.09 sec
