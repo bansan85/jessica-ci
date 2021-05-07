@@ -31,18 +31,18 @@
             <td class="headerValue">coverage2.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntryHi">90.5&nbsp;%</td>
+            <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
             <td class="headerCovTableEntry">21</td>
-            <td class="headerCovTableEntry">19</td>
+            <td class="headerCovTableEntry">21</td>
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
             <td class="headerValue></td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntryHi">93.8&nbsp;%</td>
+            <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
             <td class="headerCovTableEntry">16</td>
-            <td class="headerCovTableEntry">15</td>
+            <td class="headerCovTableEntry">16</td>
           </tr>
           <tr>
             <td class="headerItem">Legend:</td>
@@ -130,10 +130,10 @@
 <a name="52"><span class="lineNum">      52</span>                 :             : </a>
 <a name="53"><span class="lineNum">      53</span>                 :             : template &lt;&gt;</a>
 <a name="54"><span class="lineNum">      54</span>                 :             : [[nodiscard]] std::shared_ptr&lt;FoundationStripImpl&gt;</a>
-<a name="55"><span class="lineNum">      55</span>                 :<span class="tlaUNC">           0 : FoundationStripImpl::f&lt;FoundationStripImpl::Clone&gt;(</span></a>
+<a name="55"><span class="lineNum">      55</span>                 :<span class="tlaGNC">           4 : FoundationStripImpl::f&lt;FoundationStripImpl::Clone&gt;(</span></a>
 <a name="56"><span class="lineNum">      56</span>                 :             :     const FoundationStripImpl&amp; self)</a>
 <a name="57"><span class="lineNum">      57</span>                 :             : {</a>
-<a name="58"><span class="lineNum">      58</span>                 :<span class="tlaUNC">           0 :   return std::make_shared&lt;FoundationStripImpl&gt;(self);</span></a>
+<a name="58"><span class="lineNum">      58</span>                 :<span class="tlaGNC">           4 :   return std::make_shared&lt;FoundationStripImpl&gt;(self);</span></a>
 <a name="59"><span class="lineNum">      59</span>                 :             : }</a>
 <a name="60"><span class="lineNum">      60</span>                 :             : </a>
 <a name="61"><span class="lineNum">      61</span>                 :             : template &lt;&gt;</a>
@@ -147,7 +147,7 @@
 <a name="69"><span class="lineNum">      69</span>                 :<span class="tlaGNC">           4 : [[nodiscard]] std::shared_ptr&lt;FoundationStripImpl&gt; FoundationStripImpl::f&lt;&gt;(</span></a>
 <a name="70"><span class="lineNum">      70</span>                 :             :     const FoundationStripImpl&amp; self, const SetB&amp; b)</a>
 <a name="71"><span class="lineNum">      71</span>                 :             : {</a>
-<a name="72"><span class="lineNum">      72</span>                 :<span class="tlaGNC">           4 :   auto retval = std::make_shared&lt;FoundationStripImpl&gt;(self);</span></a>
+<a name="72"><span class="lineNum">      72</span>                 :<span class="tlaGNC">           4 :   auto retval = f&lt;FoundationStripImpl::Clone&gt;(self);</span></a>
 <a name="73"><span class="lineNum">      73</span>                 :<span class="tlaGNC">           4 :   retval-&gt;b_ = b.b;</span></a>
 <a name="74"><span class="lineNum">      74</span>                 :<span class="tlaGNC">           4 :   return retval;</span></a>
 <a name="75"><span class="lineNum">      75</span>                 :             : }</a>
