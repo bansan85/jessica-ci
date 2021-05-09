@@ -553,7 +553,7 @@ cd ..</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">node tools/build.js -t browser cpp bash javascript html</code></pre>
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">node tools/build.js -t browser bash cpp xml javascript yaml</code></pre>
 </div>
 </div>
 </div>
@@ -600,7 +600,27 @@ cd ..</code></pre>
 <p>Don&#8217;t spend to much time about formatting. Continuous integration will automatically create commit to fix them with <a href="https://github.com/cheshirekow/cmake_format">cmake-format</a> and <a href="https://clang.llvm.org/docs/ClangFormat.html">clang-format</a>.</p>
 </div>
 <div class="paragraph">
-<p>This is done in the <code>linters</code> workflow. If a file need to be formatted, a new commit is added with a fix and the current build will fail.</p>
+<p>This is done in the <code>format</code> workflow. If a file need to be formatted, a new commit is added with a fix and the current build and next workflows will fail.</p>
+</div>
+<div class="paragraph">
+<p>GitHub does not support two things:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>When a workflow runs when another workflow has finished, the result is not added to the status of the commit. <a href="https://github.com/bansan85/action-workflow_run-status">action-workflow_run-status</a> fix it.</p>
+</li>
+<li>
+<p>The start of a workflow that runs on <code>completed</code> event does not depend on the success or the failure of the previous workflow. Use the following code to fix it.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yml hljs" data-lang="yml">      - name: Stop if format failed
+        if: ${{ github.event.workflow_run.conclusion != 'success' }}
+        run: exit 1</code></pre>
+</div>
 </div>
 </div>
 <div class="sect2">
