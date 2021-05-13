@@ -1040,75 +1040,9 @@
           <a name='L86' href='#L86' id="L86">
           <pre>86</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>6</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  ~FoundationStrip() = default;</pre>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7Jessica4Data12Geotechnical15FoundationStripINS1_19FoundationStripImplEED2Ev</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L86' href='#L86' id="L86">
-                    <pre>86</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  ~FoundationStrip() = default;</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7Jessica4Data12Geotechnical15FoundationStripINS_4Util9Decorator7LogCallINS4_11LogDurationINS1_19FoundationStripImplEEEEEED2Ev</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L86' href='#L86' id="L86">
-                    <pre>86</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  ~FoundationStrip() = default;</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1118,7 +1052,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>  [[nodiscard]] std::shared_ptr&lt;FoundationStrip&lt;T&gt;&gt; Clone() const</pre>
         </td>
       </tr>
       <tr>
@@ -1128,7 +1062,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] std::shared_ptr&lt;FoundationStrip&lt;T&gt;&gt; Clone() const</pre>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -1138,7 +1072,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>    return std::make_shared&lt;FoundationStrip&lt;T&gt;&gt;(*this);</pre>
         </td>
       </tr>
       <tr>
@@ -1148,7 +1082,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    return std::make_shared&lt;FoundationStrip&lt;T&gt;&gt;(*this);</pre>
+          <pre>  }</pre>
         </td>
       </tr>
       <tr>
@@ -1158,7 +1092,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  }</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1168,7 +1102,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>  [[nodiscard]] double B() const</pre>
         </td>
       </tr>
       <tr>
@@ -1176,9 +1110,11 @@
           <a name='L93' href='#L93' id="L93">
           <pre>93</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>30</pre>
+        </td>
         <td class='code'>
-          <pre>  [[nodiscard]] double B() const</pre>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -1190,25 +1126,13 @@
           <pre>30</pre>
         </td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>    return T::template f&lt;FoundationStripImpl::GetB&gt;(*impl_);</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L95' href='#L95' id="L95">
           <pre>95</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>30</pre>
-        </td>
-        <td class='code'>
-          <pre>    return T::template f&lt;FoundationStripImpl::GetB&gt;(*impl_);</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L96' href='#L96' id="L96">
-          <pre>96</pre></a>
         </td>
         <td class='covered-line'>
           <pre>30</pre>
@@ -1234,8 +1158,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L94' href='#L94' id="L94">
-                    <pre>94</pre></a>
+                    <a name='L93' href='#L93' id="L93">
+                    <pre>93</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>20</pre>
@@ -1246,8 +1170,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L95' href='#L95' id="L95">
-                    <pre>95</pre></a>
+                    <a name='L94' href='#L94' id="L94">
+                    <pre>94</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>20</pre>
@@ -1258,8 +1182,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L96' href='#L96' id="L96">
-                    <pre>96</pre></a>
+                    <a name='L95' href='#L95' id="L95">
+                    <pre>95</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>20</pre>
@@ -1290,8 +1214,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L94' href='#L94' id="L94">
-                    <pre>94</pre></a>
+                    <a name='L93' href='#L93' id="L93">
+                    <pre>93</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>10</pre>
@@ -1302,8 +1226,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L95' href='#L95' id="L95">
-                    <pre>95</pre></a>
+                    <a name='L94' href='#L94' id="L94">
+                    <pre>94</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>10</pre>
@@ -1314,8 +1238,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L96' href='#L96' id="L96">
-                    <pre>96</pre></a>
+                    <a name='L95' href='#L95' id="L95">
+                    <pre>95</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>10</pre>
@@ -1331,8 +1255,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L97' href='#L97' id="L97">
-          <pre>97</pre></a>
+          <a name='L96' href='#L96' id="L96">
+          <pre>96</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1341,12 +1265,24 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L98' href='#L98' id="L98">
-          <pre>98</pre></a>
+          <a name='L97' href='#L97' id="L97">
+          <pre>97</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
           <pre>  [[nodiscard]] std::shared_ptr&lt;FoundationStrip&lt;T&gt;&gt; B(double b) const</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L98' href='#L98' id="L98">
+          <pre>98</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>3</pre>
+        </td>
+        <td class='code'>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -1358,7 +1294,7 @@
           <pre>3</pre>
         </td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>    auto retval = std::make_shared&lt;FoundationStrip&lt;T&gt;&gt;(*this);</pre>
         </td>
       </tr>
       <tr>
@@ -1370,7 +1306,7 @@
           <pre>3</pre>
         </td>
         <td class='code'>
-          <pre>    auto retval = std::make_shared&lt;FoundationStrip&lt;T&gt;&gt;(*this);</pre>
+          <pre>    retval-&gt;impl_ =</pre>
         </td>
       </tr>
       <tr>
@@ -1382,7 +1318,7 @@
           <pre>3</pre>
         </td>
         <td class='code'>
-          <pre>    retval-&gt;impl_ =</pre>
+          <pre>        T::template f(*retval-&gt;impl_, FoundationStripImpl::SetB{.b = b});</pre>
         </td>
       </tr>
       <tr>
@@ -1394,25 +1330,13 @@
           <pre>3</pre>
         </td>
         <td class='code'>
-          <pre>        T::template f(*retval-&gt;impl_, FoundationStripImpl::SetB{.b = b});</pre>
+          <pre>    return retval;</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L103' href='#L103' id="L103">
           <pre>103</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>3</pre>
-        </td>
-        <td class='code'>
-          <pre>    return retval;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L104' href='#L104' id="L104">
-          <pre>104</pre></a>
         </td>
         <td class='covered-line'>
           <pre>3</pre>
@@ -1438,6 +1362,18 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
+                    <a name='L98' href='#L98' id="L98">
+                    <pre>98</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
                     <a name='L99' href='#L99' id="L99">
                     <pre>99</pre></a>
                   </td>
@@ -1445,7 +1381,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>  {</pre>
+                    <pre>    auto retval = std::make_shared&lt;FoundationStrip&lt;T&gt;&gt;(*this);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1457,7 +1393,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>    auto retval = std::make_shared&lt;FoundationStrip&lt;T&gt;&gt;(*this);</pre>
+                    <pre>    retval-&gt;impl_ =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1469,7 +1405,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>    retval-&gt;impl_ =</pre>
+                    <pre>        T::template f(*retval-&gt;impl_, FoundationStripImpl::SetB{.b = b});</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1481,25 +1417,13 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>        T::template f(*retval-&gt;impl_, FoundationStripImpl::SetB{.b = b});</pre>
+                    <pre>    return retval;</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L103' href='#L103' id="L103">
                     <pre>103</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L104' href='#L104' id="L104">
-                    <pre>104</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>2</pre>
@@ -1530,6 +1454,18 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
+                    <a name='L98' href='#L98' id="L98">
+                    <pre>98</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
                     <a name='L99' href='#L99' id="L99">
                     <pre>99</pre></a>
                   </td>
@@ -1537,7 +1473,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>  {</pre>
+                    <pre>    auto retval = std::make_shared&lt;FoundationStrip&lt;T&gt;&gt;(*this);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1549,7 +1485,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    auto retval = std::make_shared&lt;FoundationStrip&lt;T&gt;&gt;(*this);</pre>
+                    <pre>    retval-&gt;impl_ =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1561,7 +1497,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    retval-&gt;impl_ =</pre>
+                    <pre>        T::template f(*retval-&gt;impl_, FoundationStripImpl::SetB{.b = b});</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1573,25 +1509,13 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>        T::template f(*retval-&gt;impl_, FoundationStripImpl::SetB{.b = b});</pre>
+                    <pre>    return retval;</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L103' href='#L103' id="L103">
                     <pre>103</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L104' href='#L104' id="L104">
-                    <pre>104</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1607,12 +1531,22 @@
       </tr>
       <tr>
         <td class='line-number'>
+          <a name='L104' href='#L104' id="L104">
+          <pre>104</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
           <a name='L105' href='#L105' id="L105">
           <pre>105</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre> private:</pre>
         </td>
       </tr>
       <tr>
@@ -1622,7 +1556,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> private:</pre>
+          <pre>  std::shared_ptr&lt;FoundationStripImpl&gt; impl_ =</pre>
         </td>
       </tr>
       <tr>
@@ -1632,7 +1566,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  std::shared_ptr&lt;FoundationStripImpl&gt; impl_ =</pre>
+          <pre>      std::make_shared&lt;FoundationStripImpl&gt;();</pre>
         </td>
       </tr>
       <tr>
@@ -1642,23 +1576,13 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      std::make_shared&lt;FoundationStripImpl&gt;();</pre>
+          <pre>};</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L109' href='#L109' id="L109">
           <pre>109</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>};</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L110' href='#L110' id="L110">
-          <pre>110</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>

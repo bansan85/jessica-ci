@@ -1336,75 +1336,9 @@
           <a name='L114' href='#L114' id="L114">
           <pre>114</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>26</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  ~VerticalEccentric() = default;</pre>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7Jessica4Data4Load17VerticalEccentricINS1_21VerticalEccentricImplEED2Ev</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L114' href='#L114' id="L114">
-                    <pre>114</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>16</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  ~VerticalEccentric() = default;</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7Jessica4Data4Load17VerticalEccentricINS_4Util9Decorator7LogCallINS4_11LogDurationINS1_21VerticalEccentricImplEEEEEED2Ev</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L114' href='#L114' id="L114">
-                    <pre>114</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  ~VerticalEccentric() = default;</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1414,7 +1348,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>  [[nodiscard]] std::shared_ptr&lt;VerticalEccentric&gt; Clone() const</pre>
         </td>
       </tr>
       <tr>
@@ -1422,9 +1356,11 @@
           <a name='L116' href='#L116' id="L116">
           <pre>116</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>21</pre>
+        </td>
         <td class='code'>
-          <pre>  [[nodiscard]] std::shared_ptr&lt;VerticalEccentric&gt; Clone() const</pre>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -1436,25 +1372,13 @@
           <pre>21</pre>
         </td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>    return std::make_shared&lt;VerticalEccentric&gt;(*this);</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L118' href='#L118' id="L118">
           <pre>118</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>21</pre>
-        </td>
-        <td class='code'>
-          <pre>    return std::make_shared&lt;VerticalEccentric&gt;(*this);</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L119' href='#L119' id="L119">
-          <pre>119</pre></a>
         </td>
         <td class='covered-line'>
           <pre>21</pre>
@@ -1480,8 +1404,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L117' href='#L117' id="L117">
-                    <pre>117</pre></a>
+                    <a name='L116' href='#L116' id="L116">
+                    <pre>116</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>13</pre>
@@ -1492,8 +1416,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L118' href='#L118' id="L118">
-                    <pre>118</pre></a>
+                    <a name='L117' href='#L117' id="L117">
+                    <pre>117</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>13</pre>
@@ -1504,8 +1428,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L119' href='#L119' id="L119">
-                    <pre>119</pre></a>
+                    <a name='L118' href='#L118' id="L118">
+                    <pre>118</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>13</pre>
@@ -1536,8 +1460,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L117' href='#L117' id="L117">
-                    <pre>117</pre></a>
+                    <a name='L116' href='#L116' id="L116">
+                    <pre>116</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>8</pre>
@@ -1548,8 +1472,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L118' href='#L118' id="L118">
-                    <pre>118</pre></a>
+                    <a name='L117' href='#L117' id="L117">
+                    <pre>117</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>8</pre>
@@ -1560,8 +1484,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L119' href='#L119' id="L119">
-                    <pre>119</pre></a>
+                    <a name='L118' href='#L118' id="L118">
+                    <pre>118</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>8</pre>
@@ -1577,8 +1501,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L120' href='#L120' id="L120">
-          <pre>120</pre></a>
+          <a name='L119' href='#L119' id="L119">
+          <pre>119</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1587,12 +1511,24 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L121' href='#L121' id="L121">
-          <pre>121</pre></a>
+          <a name='L120' href='#L120' id="L120">
+          <pre>120</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
           <pre>  [[nodiscard]] double V() const</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L121' href='#L121' id="L121">
+          <pre>121</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>22</pre>
+        </td>
+        <td class='code'>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -1604,25 +1540,13 @@
           <pre>22</pre>
         </td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>    return T::template f&lt;VerticalEccentricImpl::GetV&gt;(*impl_);</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L123' href='#L123' id="L123">
           <pre>123</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>22</pre>
-        </td>
-        <td class='code'>
-          <pre>    return T::template f&lt;VerticalEccentricImpl::GetV&gt;(*impl_);</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L124' href='#L124' id="L124">
-          <pre>124</pre></a>
         </td>
         <td class='covered-line'>
           <pre>22</pre>
@@ -1648,8 +1572,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L122' href='#L122' id="L122">
-                    <pre>122</pre></a>
+                    <a name='L121' href='#L121' id="L121">
+                    <pre>121</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>13</pre>
@@ -1660,8 +1584,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L123' href='#L123' id="L123">
-                    <pre>123</pre></a>
+                    <a name='L122' href='#L122' id="L122">
+                    <pre>122</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>13</pre>
@@ -1672,8 +1596,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L124' href='#L124' id="L124">
-                    <pre>124</pre></a>
+                    <a name='L123' href='#L123' id="L123">
+                    <pre>123</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>13</pre>
@@ -1704,8 +1628,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L122' href='#L122' id="L122">
-                    <pre>122</pre></a>
+                    <a name='L121' href='#L121' id="L121">
+                    <pre>121</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>9</pre>
@@ -1716,8 +1640,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L123' href='#L123' id="L123">
-                    <pre>123</pre></a>
+                    <a name='L122' href='#L122' id="L122">
+                    <pre>122</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>9</pre>
@@ -1728,8 +1652,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L124' href='#L124' id="L124">
-                    <pre>124</pre></a>
+                    <a name='L123' href='#L123' id="L123">
+                    <pre>123</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>9</pre>
@@ -1745,8 +1669,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L125' href='#L125' id="L125">
-          <pre>125</pre></a>
+          <a name='L124' href='#L124' id="L124">
+          <pre>124</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1755,12 +1679,24 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L126' href='#L126' id="L126">
-          <pre>126</pre></a>
+          <a name='L125' href='#L125' id="L125">
+          <pre>125</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
           <pre>  [[nodiscard]] double E() const</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L126' href='#L126' id="L126">
+          <pre>126</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>40</pre>
+        </td>
+        <td class='code'>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -1772,25 +1708,13 @@
           <pre>40</pre>
         </td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>    return T::template f&lt;VerticalEccentricImpl::GetE&gt;(*impl_);</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L128' href='#L128' id="L128">
           <pre>128</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>40</pre>
-        </td>
-        <td class='code'>
-          <pre>    return T::template f&lt;VerticalEccentricImpl::GetE&gt;(*impl_);</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L129' href='#L129' id="L129">
-          <pre>129</pre></a>
         </td>
         <td class='covered-line'>
           <pre>40</pre>
@@ -1816,8 +1740,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L127' href='#L127' id="L127">
-                    <pre>127</pre></a>
+                    <a name='L126' href='#L126' id="L126">
+                    <pre>126</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>25</pre>
@@ -1828,8 +1752,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L128' href='#L128' id="L128">
-                    <pre>128</pre></a>
+                    <a name='L127' href='#L127' id="L127">
+                    <pre>127</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>25</pre>
@@ -1840,8 +1764,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L129' href='#L129' id="L129">
-                    <pre>129</pre></a>
+                    <a name='L128' href='#L128' id="L128">
+                    <pre>128</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>25</pre>
@@ -1872,8 +1796,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L127' href='#L127' id="L127">
-                    <pre>127</pre></a>
+                    <a name='L126' href='#L126' id="L126">
+                    <pre>126</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>15</pre>
@@ -1884,8 +1808,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L128' href='#L128' id="L128">
-                    <pre>128</pre></a>
+                    <a name='L127' href='#L127' id="L127">
+                    <pre>127</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>15</pre>
@@ -1896,8 +1820,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L129' href='#L129' id="L129">
-                    <pre>129</pre></a>
+                    <a name='L128' href='#L128' id="L128">
+                    <pre>128</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>15</pre>
@@ -1913,8 +1837,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L130' href='#L130' id="L130">
-          <pre>130</pre></a>
+          <a name='L129' href='#L129' id="L129">
+          <pre>129</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1923,12 +1847,24 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L131' href='#L131' id="L131">
-          <pre>131</pre></a>
+          <a name='L130' href='#L130' id="L130">
+          <pre>130</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
           <pre>  [[nodiscard]] std::shared_ptr&lt;VerticalEccentric&gt; V(double v) const</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L131' href='#L131' id="L131">
+          <pre>131</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>5</pre>
+        </td>
+        <td class='code'>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -1940,7 +1876,7 @@
           <pre>5</pre>
         </td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>    auto retval = Clone();</pre>
         </td>
       </tr>
       <tr>
@@ -1952,7 +1888,7 @@
           <pre>5</pre>
         </td>
         <td class='code'>
-          <pre>    auto retval = Clone();</pre>
+          <pre>    retval-&gt;impl_ =</pre>
         </td>
       </tr>
       <tr>
@@ -1964,7 +1900,7 @@
           <pre>5</pre>
         </td>
         <td class='code'>
-          <pre>    retval-&gt;impl_ =</pre>
+          <pre>        T::template f(*retval-&gt;impl_, VerticalEccentricImpl::SetV{.v = v});</pre>
         </td>
       </tr>
       <tr>
@@ -1976,25 +1912,13 @@
           <pre>5</pre>
         </td>
         <td class='code'>
-          <pre>        T::template f(*retval-&gt;impl_, VerticalEccentricImpl::SetV{.v = v});</pre>
+          <pre>    return retval;</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L136' href='#L136' id="L136">
           <pre>136</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>5</pre>
-        </td>
-        <td class='code'>
-          <pre>    return retval;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L137' href='#L137' id="L137">
-          <pre>137</pre></a>
         </td>
         <td class='covered-line'>
           <pre>5</pre>
@@ -2020,6 +1944,18 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
+                    <a name='L131' href='#L131' id="L131">
+                    <pre>131</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>3</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
                     <a name='L132' href='#L132' id="L132">
                     <pre>132</pre></a>
                   </td>
@@ -2027,7 +1963,7 @@
                     <pre>3</pre>
                   </td>
                   <td class='code'>
-                    <pre>  {</pre>
+                    <pre>    auto retval = Clone();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2039,7 +1975,7 @@
                     <pre>3</pre>
                   </td>
                   <td class='code'>
-                    <pre>    auto retval = Clone();</pre>
+                    <pre>    retval-&gt;impl_ =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2051,7 +1987,7 @@
                     <pre>3</pre>
                   </td>
                   <td class='code'>
-                    <pre>    retval-&gt;impl_ =</pre>
+                    <pre>        T::template f(*retval-&gt;impl_, VerticalEccentricImpl::SetV{.v = v});</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2063,25 +1999,13 @@
                     <pre>3</pre>
                   </td>
                   <td class='code'>
-                    <pre>        T::template f(*retval-&gt;impl_, VerticalEccentricImpl::SetV{.v = v});</pre>
+                    <pre>    return retval;</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L136' href='#L136' id="L136">
                     <pre>136</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>3</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L137' href='#L137' id="L137">
-                    <pre>137</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>3</pre>
@@ -2112,6 +2036,18 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
+                    <a name='L131' href='#L131' id="L131">
+                    <pre>131</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
                     <a name='L132' href='#L132' id="L132">
                     <pre>132</pre></a>
                   </td>
@@ -2119,7 +2055,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>  {</pre>
+                    <pre>    auto retval = Clone();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2131,7 +2067,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>    auto retval = Clone();</pre>
+                    <pre>    retval-&gt;impl_ =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2143,7 +2079,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>    retval-&gt;impl_ =</pre>
+                    <pre>        T::template f(*retval-&gt;impl_, VerticalEccentricImpl::SetV{.v = v});</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2155,25 +2091,13 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>        T::template f(*retval-&gt;impl_, VerticalEccentricImpl::SetV{.v = v});</pre>
+                    <pre>    return retval;</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L136' href='#L136' id="L136">
                     <pre>136</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L137' href='#L137' id="L137">
-                    <pre>137</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>2</pre>
@@ -2189,8 +2113,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L138' href='#L138' id="L138">
-          <pre>138</pre></a>
+          <a name='L137' href='#L137' id="L137">
+          <pre>137</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -2199,12 +2123,24 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L139' href='#L139' id="L139">
-          <pre>139</pre></a>
+          <a name='L138' href='#L138' id="L138">
+          <pre>138</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
           <pre>  [[nodiscard]] std::shared_ptr&lt;VerticalEccentric&gt; E(double e) const</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L139' href='#L139' id="L139">
+          <pre>139</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>14</pre>
+        </td>
+        <td class='code'>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -2216,7 +2152,7 @@
           <pre>14</pre>
         </td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>    auto retval = Clone();</pre>
         </td>
       </tr>
       <tr>
@@ -2228,7 +2164,7 @@
           <pre>14</pre>
         </td>
         <td class='code'>
-          <pre>    auto retval = Clone();</pre>
+          <pre>    retval-&gt;impl_ =</pre>
         </td>
       </tr>
       <tr>
@@ -2240,7 +2176,7 @@
           <pre>14</pre>
         </td>
         <td class='code'>
-          <pre>    retval-&gt;impl_ =</pre>
+          <pre>        T::template f(*retval-&gt;impl_, VerticalEccentricImpl::SetE{.e = e});</pre>
         </td>
       </tr>
       <tr>
@@ -2252,25 +2188,13 @@
           <pre>14</pre>
         </td>
         <td class='code'>
-          <pre>        T::template f(*retval-&gt;impl_, VerticalEccentricImpl::SetE{.e = e});</pre>
+          <pre>    return retval;</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L144' href='#L144' id="L144">
           <pre>144</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>14</pre>
-        </td>
-        <td class='code'>
-          <pre>    return retval;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L145' href='#L145' id="L145">
-          <pre>145</pre></a>
         </td>
         <td class='covered-line'>
           <pre>14</pre>
@@ -2296,6 +2220,18 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
+                    <a name='L139' href='#L139' id="L139">
+                    <pre>139</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>9</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
                     <a name='L140' href='#L140' id="L140">
                     <pre>140</pre></a>
                   </td>
@@ -2303,7 +2239,7 @@
                     <pre>9</pre>
                   </td>
                   <td class='code'>
-                    <pre>  {</pre>
+                    <pre>    auto retval = Clone();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2315,7 +2251,7 @@
                     <pre>9</pre>
                   </td>
                   <td class='code'>
-                    <pre>    auto retval = Clone();</pre>
+                    <pre>    retval-&gt;impl_ =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2327,7 +2263,7 @@
                     <pre>9</pre>
                   </td>
                   <td class='code'>
-                    <pre>    retval-&gt;impl_ =</pre>
+                    <pre>        T::template f(*retval-&gt;impl_, VerticalEccentricImpl::SetE{.e = e});</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2339,25 +2275,13 @@
                     <pre>9</pre>
                   </td>
                   <td class='code'>
-                    <pre>        T::template f(*retval-&gt;impl_, VerticalEccentricImpl::SetE{.e = e});</pre>
+                    <pre>    return retval;</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L144' href='#L144' id="L144">
                     <pre>144</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L145' href='#L145' id="L145">
-                    <pre>145</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>9</pre>
@@ -2388,6 +2312,18 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
+                    <a name='L139' href='#L139' id="L139">
+                    <pre>139</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
                     <a name='L140' href='#L140' id="L140">
                     <pre>140</pre></a>
                   </td>
@@ -2395,7 +2331,7 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>  {</pre>
+                    <pre>    auto retval = Clone();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2407,7 +2343,7 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>    auto retval = Clone();</pre>
+                    <pre>    retval-&gt;impl_ =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2419,7 +2355,7 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>    retval-&gt;impl_ =</pre>
+                    <pre>        T::template f(*retval-&gt;impl_, VerticalEccentricImpl::SetE{.e = e});</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2431,25 +2367,13 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>        T::template f(*retval-&gt;impl_, VerticalEccentricImpl::SetE{.e = e});</pre>
+                    <pre>    return retval;</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L144' href='#L144' id="L144">
                     <pre>144</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L145' href='#L145' id="L145">
-                    <pre>145</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>5</pre>
@@ -2465,12 +2389,22 @@
       </tr>
       <tr>
         <td class='line-number'>
+          <a name='L145' href='#L145' id="L145">
+          <pre>145</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
           <a name='L146' href='#L146' id="L146">
           <pre>146</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre> private:</pre>
         </td>
       </tr>
       <tr>
@@ -2480,7 +2414,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> private:</pre>
+          <pre>  std::shared_ptr&lt;VerticalEccentricImpl&gt; impl_ =</pre>
         </td>
       </tr>
       <tr>
@@ -2490,7 +2424,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  std::shared_ptr&lt;VerticalEccentricImpl&gt; impl_ =</pre>
+          <pre>      std::make_shared&lt;VerticalEccentricImpl&gt;();</pre>
         </td>
       </tr>
       <tr>
@@ -2500,23 +2434,13 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      std::make_shared&lt;VerticalEccentricImpl&gt;();</pre>
+          <pre>};</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L150' href='#L150' id="L150">
           <pre>150</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>};</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L151' href='#L151' id="L151">
-          <pre>151</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
