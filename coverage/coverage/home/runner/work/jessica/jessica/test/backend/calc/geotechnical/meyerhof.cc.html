@@ -1843,6 +1843,230 @@
           <pre>}</pre>
         </td>
       </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L155' href='#L155' id="L155">
+          <pre>155</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L156' href='#L156' id="L156">
+          <pre>156</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>JTEST_NAME(data, CalcMeyehofOnly)  // NOLINT</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L157' href='#L157' id="L157">
+          <pre>157</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
+        <td class='code'>
+          <pre>{</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L158' href='#L158' id="L158">
+          <pre>158</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
+        <td class='code'>
+          <pre>  using DecoratorFoundation = Jessica::Data::Geotechnical::FoundationStripImpl;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L159' href='#L159' id="L159">
+          <pre>159</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
+        <td class='code'>
+          <pre>  using DecoratorLoad = Jessica::Data::Load::VerticalEccentricImpl;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L160' href='#L160' id="L160">
+          <pre>160</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
+        <td class='code'>
+          <pre>  using DecoratorCalc =</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L161' href='#L161' id="L161">
+          <pre>161</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
+        <td class='code'>
+          <pre>      Jessica::Util::Decorator::LogCall&lt;Jessica::Util::Decorator::LogDuration&lt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L162' href='#L162' id="L162">
+          <pre>162</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
+        <td class='code'>
+          <pre>          Jessica::Calc::Geotechnical::MeyerhofShallowFoundationImpl&lt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L163' href='#L163' id="L163">
+          <pre>163</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
+        <td class='code'>
+          <pre>              DecoratorLoad, DecoratorFoundation&gt;&gt;&gt;;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L164' href='#L164' id="L164">
+          <pre>164</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L165' href='#L165' id="L165">
+          <pre>165</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
+        <td class='code'>
+          <pre>  const auto calc = std::make_shared&lt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L166' href='#L166' id="L166">
+          <pre>166</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
+        <td class='code'>
+          <pre>      Jessica::Calc::Geotechnical::MeyerhofShallowFoundation&lt;DecoratorCalc&gt;&gt;();</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L167' href='#L167' id="L167">
+          <pre>167</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
+        <td class='code'>
+          <pre>  const auto calc2 = calc-&gt;LoadE(0.25)-&gt;LoadV(100000.)-&gt;FoundationB(1.);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L168' href='#L168' id="L168">
+          <pre>168</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
+        <td class='code'>
+          <pre>  JTEST_EQ(calc2-&gt;LoadE(), 0.25);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L169' href='#L169' id="L169">
+          <pre>169</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
+        <td class='code'>
+          <pre>  JTEST_EQ(calc2-&gt;LoadV(), 100000.);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L170' href='#L170' id="L170">
+          <pre>170</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
+        <td class='code'>
+          <pre>  JTEST_EQ(calc2-&gt;FoundationB(), 1.);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L171' href='#L171' id="L171">
+          <pre>171</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
+        <td class='code'>
+          <pre>  JTEST_EQ(calc2-&gt;B_(), 0.5);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L172' href='#L172' id="L172">
+          <pre>172</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
+        <td class='code'>
+          <pre>  JTEST_EQ(calc2-&gt;Qref(), 200000.);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L173' href='#L173' id="L173">
+          <pre>173</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
+        <td class='code'>
+          <pre>}</pre>
+        </td>
+      </tr>
     </table>
   </div>
 </body>
