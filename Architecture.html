@@ -890,7 +890,8 @@ class JESSICA_DLL_PUBLIC MeyerhofShallowFoundation final
 
   [[nodiscard]] double LoadV() const
   {
-    return T::template f&lt;MeyerhofShallowFoundationImpl&lt;U, V&gt;::GetLoadV&gt;(*impl_);
+    return T::template f&lt;
+        typename MeyerhofShallowFoundationImpl&lt;U, V&gt;::GetLoadV&gt;(*impl_);
   }
 
   [[nodiscard]] std::shared_ptr&lt;MeyerhofShallowFoundation&gt; LoadV(double v) const
@@ -904,7 +905,8 @@ class JESSICA_DLL_PUBLIC MeyerhofShallowFoundation final
 
   [[nodiscard]] double LoadE() const
   {
-    return T::template f&lt;MeyerhofShallowFoundationImpl&lt;U, V&gt;::GetLoadE&gt;(*impl_);
+    return T::template f&lt;
+        typename MeyerhofShallowFoundationImpl&lt;U, V&gt;::GetLoadE&gt;(*impl_);
   }
 
   [[nodiscard]] std::shared_ptr&lt;MeyerhofShallowFoundation&gt; LoadE(double e) const
@@ -918,8 +920,8 @@ class JESSICA_DLL_PUBLIC MeyerhofShallowFoundation final
 
   [[nodiscard]] double FoundationB() const
   {
-    return T::template f&lt;MeyerhofShallowFoundationImpl&lt;U, V&gt;::GetFoundationB&gt;(
-        *impl_);
+    return T::template f&lt;
+        typename MeyerhofShallowFoundationImpl&lt;U, V&gt;::GetFoundationB&gt;(*impl_);
   }
 
   [[nodiscard]] std::shared_ptr&lt;MeyerhofShallowFoundation&gt; FoundationB(
