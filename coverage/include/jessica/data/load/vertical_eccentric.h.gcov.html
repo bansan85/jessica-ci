@@ -82,7 +82,7 @@
 <a name="4"><span class="lineNum">       4</span>                 :             : #include &lt;memory&gt;</a>
 <a name="5"><span class="lineNum">       5</span>                 :             : </a>
 <a name="6"><span class="lineNum">       6</span>                 :             : #include &lt;jessica/compat.h&gt;</a>
-<a name="7"><span class="lineNum">       7</span>                 :             : #include &lt;jessica/data/load/vertical_eccentric.h&gt;</a>
+<a name="7"><span class="lineNum">       7</span>                 :             : #include &lt;jessica/data/load/vertical_eccentric_concept.h&gt;</a>
 <a name="8"><span class="lineNum">       8</span>                 :             : #include &lt;jessica/helper/template.h&gt;</a>
 <a name="9"><span class="lineNum">       9</span>                 :             : </a>
 <a name="10"><span class="lineNum">      10</span>                 :             : namespace Jessica::Data::Load</a>
@@ -225,7 +225,12 @@
 <a name="147"><span class="lineNum">     147</span>                 :             :   std::shared_ptr&lt;VerticalEccentricImpl&gt; impl_ =</a>
 <a name="148"><span class="lineNum">     148</span>                 :             :       std::make_shared&lt;VerticalEccentricImpl&gt;();</a>
 <a name="149"><span class="lineNum">     149</span>                 :             : };</a>
-<a name="150"><span class="lineNum">     150</span>                 :             : }  // namespace Jessica::Data::Load</a>
+<a name="150"><span class="lineNum">     150</span>                 :             : </a>
+<a name="151"><span class="lineNum">     151</span>                 :             : #ifdef JCONCEPTS</a>
+<a name="152"><span class="lineNum">     152</span>                 :             : static_assert(VerticalEccentricConcept&lt;VerticalEccentric&lt;int&gt;&gt;);</a>
+<a name="153"><span class="lineNum">     153</span>                 :             : #endif</a>
+<a name="154"><span class="lineNum">     154</span>                 :             : </a>
+<a name="155"><span class="lineNum">     155</span>                 :             : }  // namespace Jessica::Data::Load</a>
         </pre>
               </td>
             </tr>

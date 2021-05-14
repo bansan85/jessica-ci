@@ -82,7 +82,7 @@
 <a name="4"><span class="lineNum">       4</span>                 :             : #include &lt;memory&gt;</a>
 <a name="5"><span class="lineNum">       5</span>                 :             : </a>
 <a name="6"><span class="lineNum">       6</span>                 :             : #include &lt;jessica/compat.h&gt;</a>
-<a name="7"><span class="lineNum">       7</span>                 :             : #include &lt;jessica/data/geotechnical/foundation_strip.h&gt;</a>
+<a name="7"><span class="lineNum">       7</span>                 :             : #include &lt;jessica/data/geotechnical/foundation_strip_concept.h&gt;</a>
 <a name="8"><span class="lineNum">       8</span>                 :             : #include &lt;jessica/helper/template.h&gt;</a>
 <a name="9"><span class="lineNum">       9</span>                 :             : </a>
 <a name="10"><span class="lineNum">      10</span>                 :             : namespace Jessica::Data::Geotechnical</a>
@@ -184,7 +184,12 @@
 <a name="106"><span class="lineNum">     106</span>                 :             :   std::shared_ptr&lt;FoundationStripImpl&gt; impl_ =</a>
 <a name="107"><span class="lineNum">     107</span>                 :             :       std::make_shared&lt;FoundationStripImpl&gt;();</a>
 <a name="108"><span class="lineNum">     108</span>                 :             : };</a>
-<a name="109"><span class="lineNum">     109</span>                 :             : }  // namespace Jessica::Data::Geotechnical</a>
+<a name="109"><span class="lineNum">     109</span>                 :             : </a>
+<a name="110"><span class="lineNum">     110</span>                 :             : #ifdef JCONCEPTS</a>
+<a name="111"><span class="lineNum">     111</span>                 :             : static_assert(FoundationStripConcept&lt;FoundationStrip&lt;int&gt;&gt;);</a>
+<a name="112"><span class="lineNum">     112</span>                 :             : #endif</a>
+<a name="113"><span class="lineNum">     113</span>                 :             : </a>
+<a name="114"><span class="lineNum">     114</span>                 :             : }  // namespace Jessica::Data::Geotechnical</a>
         </pre>
               </td>
             </tr>
