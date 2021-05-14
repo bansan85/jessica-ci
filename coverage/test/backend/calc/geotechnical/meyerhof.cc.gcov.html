@@ -32,8 +32,8 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
-            <td class="headerCovTableEntry">69</td>
-            <td class="headerCovTableEntry">69</td>
+            <td class="headerCovTableEntry">78</td>
+            <td class="headerCovTableEntry">78</td>
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
@@ -41,8 +41,8 @@
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
-            <td class="headerCovTableEntry">6</td>
-            <td class="headerCovTableEntry">6</td>
+            <td class="headerCovTableEntry">8</td>
+            <td class="headerCovTableEntry">8</td>
           </tr>
           <tr>
             <td class="headerItem">Legend:</td>
@@ -56,9 +56,9 @@
 </td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntryLo">30.2&nbsp;%</td>
-            <td class="headerCovTableEntry">378</td>
-            <td class="headerCovTableEntry">114</td>
+            <td class="headerCovTableEntryLo">29.8&nbsp;%</td>
+            <td class="headerCovTableEntry">446</td>
+            <td class="headerCovTableEntry">133</td>
           </tr>
                   <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
                 </table>
@@ -284,6 +284,36 @@
 <span class="lineNum">        </span> <span class="tlaUNC" title="Branch 4 was not taken"> - </span><span class="tlaGBC" title="Branch 5 was taken 1 time"> + </span><span class="tlaUNC" title="Branch 6 was not taken"> - </span><span class="tlaUNC" title="Branch 7 was not taken"> - </span><span class="tlaUNC" title="Branch 8 was not taken"> - </span> 
 <span class="lineNum">        </span>       <span class="tlaUNC" title="Branch 9 was not taken"> - </span><span class="tlaUNC" title="Branch 10 was not taken"> - </span><span class="tlaUNC" title="Branch 11 was not taken"> - </span>]
 <a name="154"><span class="lineNum">     154</span>                 :<span class="tlaGNC">           1 : }</span></a>
+<a name="155"><span class="lineNum">     155</span>                 :             : </a>
+<a name="156"><span class="lineNum">     156</span>                 :<span class="tlaGNC">           2 : JTEST_NAME(data, CalcMeyehofOnly)  // NOLINT</span></a>
+<a name="157"><span class="lineNum">     157</span>                 :             : {</a>
+<a name="158"><span class="lineNum">     158</span>                 :             :   using DecoratorFoundation = Jessica::Data::Geotechnical::FoundationStripImpl;</a>
+<a name="159"><span class="lineNum">     159</span>                 :             :   using DecoratorLoad = Jessica::Data::Load::VerticalEccentricImpl;</a>
+<a name="160"><span class="lineNum">     160</span>                 :             :   using DecoratorCalc =</a>
+<a name="161"><span class="lineNum">     161</span>                 :             :       Jessica::Util::Decorator::LogCall&lt;Jessica::Util::Decorator::LogDuration&lt;</a>
+<a name="162"><span class="lineNum">     162</span>                 :             :           Jessica::Calc::Geotechnical::MeyerhofShallowFoundationImpl&lt;</a>
+<a name="163"><span class="lineNum">     163</span>                 :             :               DecoratorLoad, DecoratorFoundation&gt;&gt;&gt;;</a>
+<a name="164"><span class="lineNum">     164</span>                 :             : </a>
+<a name="165"><span class="lineNum">     165</span>                 :             :   const auto calc = std::make_shared&lt;</a>
+<a name="166"><span class="lineNum">     166</span>         [<span class="tlaGBC" title="Branch 0 was taken 1 time"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span>]:<span class="tlaGNC">           2 :       Jessica::Calc::Geotechnical::MeyerhofShallowFoundation&lt;DecoratorCalc&gt;&gt;();</span></a>
+<a name="167"><span class="lineNum">     167</span>   [<span class="tlaGBC" title="Branch 0 was taken 1 time"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span><span class="tlaGBC" title="Branch 2 was taken 1 time"> + </span><span class="tlaUNC" title="Branch 3 was not taken"> - </span> :<span class="tlaGNC">           3 :   const auto calc2 = calc-&gt;LoadE(0.25)-&gt;LoadV(100000.)-&gt;FoundationB(1.);</span></a>
+<span class="lineNum">        </span>          <span class="tlaGBC" title="Branch 4 was taken 1 time"> + </span><span class="tlaUNC" title="Branch 5 was not taken"> - </span>]
+<a name="168"><span class="lineNum">     168</span>   [<span class="tlaGBC" title="Branch 0 was taken 1 time"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span><span class="tlaGBC" title="Branch 2 was taken 1 time"> + </span><span class="tlaUNC" title="Branch 3 was not taken"> - </span> :<span class="tlaGNC">           1 :   JTEST_EQ(calc2-&gt;LoadE(), 0.25);</span></a>
+<span class="lineNum">        </span> <span class="tlaUNC" title="Branch 4 was not taken"> - </span><span class="tlaGBC" title="Branch 5 was taken 1 time"> + </span><span class="tlaUNC" title="Branch 6 was not taken"> - </span><span class="tlaUNC" title="Branch 7 was not taken"> - </span><span class="tlaUNC" title="Branch 8 was not taken"> - </span> 
+<span class="lineNum">        </span>       <span class="tlaUNC" title="Branch 9 was not taken"> - </span><span class="tlaUNC" title="Branch 10 was not taken"> - </span><span class="tlaUNC" title="Branch 11 was not taken"> - </span>]
+<a name="169"><span class="lineNum">     169</span>   [<span class="tlaGBC" title="Branch 0 was taken 1 time"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span><span class="tlaGBC" title="Branch 2 was taken 1 time"> + </span><span class="tlaUNC" title="Branch 3 was not taken"> - </span> :<span class="tlaGNC">           1 :   JTEST_EQ(calc2-&gt;LoadV(), 100000.);</span></a>
+<span class="lineNum">        </span> <span class="tlaUNC" title="Branch 4 was not taken"> - </span><span class="tlaGBC" title="Branch 5 was taken 1 time"> + </span><span class="tlaUNC" title="Branch 6 was not taken"> - </span><span class="tlaUNC" title="Branch 7 was not taken"> - </span><span class="tlaUNC" title="Branch 8 was not taken"> - </span> 
+<span class="lineNum">        </span>       <span class="tlaUNC" title="Branch 9 was not taken"> - </span><span class="tlaUNC" title="Branch 10 was not taken"> - </span><span class="tlaUNC" title="Branch 11 was not taken"> - </span>]
+<a name="170"><span class="lineNum">     170</span>   [<span class="tlaGBC" title="Branch 0 was taken 1 time"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span><span class="tlaGBC" title="Branch 2 was taken 1 time"> + </span><span class="tlaUNC" title="Branch 3 was not taken"> - </span> :<span class="tlaGNC">           1 :   JTEST_EQ(calc2-&gt;FoundationB(), 1.);</span></a>
+<span class="lineNum">        </span> <span class="tlaUNC" title="Branch 4 was not taken"> - </span><span class="tlaGBC" title="Branch 5 was taken 1 time"> + </span><span class="tlaUNC" title="Branch 6 was not taken"> - </span><span class="tlaUNC" title="Branch 7 was not taken"> - </span><span class="tlaUNC" title="Branch 8 was not taken"> - </span> 
+<span class="lineNum">        </span>       <span class="tlaUNC" title="Branch 9 was not taken"> - </span><span class="tlaUNC" title="Branch 10 was not taken"> - </span><span class="tlaUNC" title="Branch 11 was not taken"> - </span>]
+<a name="171"><span class="lineNum">     171</span>   [<span class="tlaGBC" title="Branch 0 was taken 1 time"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span><span class="tlaGBC" title="Branch 2 was taken 1 time"> + </span><span class="tlaUNC" title="Branch 3 was not taken"> - </span> :<span class="tlaGNC">           1 :   JTEST_EQ(calc2-&gt;B_(), 0.5);</span></a>
+<span class="lineNum">        </span> <span class="tlaUNC" title="Branch 4 was not taken"> - </span><span class="tlaGBC" title="Branch 5 was taken 1 time"> + </span><span class="tlaUNC" title="Branch 6 was not taken"> - </span><span class="tlaUNC" title="Branch 7 was not taken"> - </span><span class="tlaUNC" title="Branch 8 was not taken"> - </span> 
+<span class="lineNum">        </span>       <span class="tlaUNC" title="Branch 9 was not taken"> - </span><span class="tlaUNC" title="Branch 10 was not taken"> - </span><span class="tlaUNC" title="Branch 11 was not taken"> - </span>]
+<a name="172"><span class="lineNum">     172</span>   [<span class="tlaGBC" title="Branch 0 was taken 1 time"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span><span class="tlaGBC" title="Branch 2 was taken 1 time"> + </span><span class="tlaUNC" title="Branch 3 was not taken"> - </span> :<span class="tlaGNC">           1 :   JTEST_EQ(calc2-&gt;Qref(), 200000.);</span></a>
+<span class="lineNum">        </span> <span class="tlaUNC" title="Branch 4 was not taken"> - </span><span class="tlaGBC" title="Branch 5 was taken 1 time"> + </span><span class="tlaUNC" title="Branch 6 was not taken"> - </span><span class="tlaUNC" title="Branch 7 was not taken"> - </span><span class="tlaUNC" title="Branch 8 was not taken"> - </span> 
+<span class="lineNum">        </span>       <span class="tlaUNC" title="Branch 9 was not taken"> - </span><span class="tlaUNC" title="Branch 10 was not taken"> - </span><span class="tlaUNC" title="Branch 11 was not taken"> - </span>]
+<a name="173"><span class="lineNum">     173</span>                 :<span class="tlaGNC">           1 : }</span></a>
         </pre>
               </td>
             </tr>
