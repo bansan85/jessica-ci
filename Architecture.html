@@ -478,94 +478,98 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Data are stored in class.</p>
 </div>
 <div class="paragraph">
-<p>Each of these class have an pure abstract interface.</p>
+<p>Each of these class have an interface with concept.</p>
 </div>
 <div class="paragraph">
 <p>The implementation of the interface is just an adapter to the class that really store the data.</p>
 </div>
 <div class="paragraph">
-<p>And if needed, you</p>
+<p>Between each adapter and data, you may add decorators.</p>
 </div>
 <div class="sect2">
 <h3 id="_interface">Interface</h3>
 <div class="paragraph">
-<p>Each public class should have an interface. This ease test (perfectly compatible with mock of gtest) and hide implementation and private field.</p>
+<p>Each public class should have an interface. This ease test (perfectly compatible with mock of gtest) and hide implementation and private fields.</p>
 </div>
 <div class="paragraph">
-<p>To declare an interface, use pure virtual function everywhere.</p>
-</div>
-<div class="paragraph">
-<p><a href="https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rc-copy-virtual">A polymorphic class should suppress copying</a>. All classes have interface, so delete or make private / protected copy constructor and copy assignment.</p>
-</div>
-<div class="paragraph">
-<p>Using setter need to copy data. <a href="https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rh-copy">For making deep copies of polymorphic classes prefer a virtual clone function instead of copy construction/assignment</a></p>
-</div>
-<div class="paragraph">
-<p>Ownership of a return value of a setter must be able to be shared. Use a <code>std::shared_ptr&lt;&gt;</code>.</p>
-</div>
-<div class="paragraph">
-<p>Default constructor must be declared as protected to be inheritable.
-Copy constructor must be declared as protected to be clonable.</p>
+<p>Ownership of a return value of a setter must be able to be shared. Use a <code>std::shared_ptr&lt;&gt;</code>. Pass them by reference and store them by copy.</p>
 </div>
 <div class="paragraph">
 <p>Exemple of interface:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">namespace Jessica::Data::Geotechnical
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#if !defined(JCONCEPTS) &amp;&amp; __has_include(&lt;concepts&gt;)
+  #define JCONCEPTS
+  #include &lt;concepts&gt;
+#endif
+
+#ifdef JCONCEPTS
+  #include &lt;memory&gt;
+
+namespace Jessica::Data::Geotechnical
 {
-class JESSICA_DLL_PUBLIC IFoundationStrip
+template &lt;typename T&gt;
+concept FoundationStripConcept = requires(const T t)
 {
- public:
-  IFoundationStrip(IFoundationStrip&amp;&amp;) = delete;
-  IFoundationStrip&amp; operator=(const IFoundationStrip&amp;) = delete;
-  IFoundationStrip&amp; operator=(IFoundationStrip&amp;&amp;) = delete;
-  virtual ~IFoundationStrip() = default;
-
-  [[nodiscard]] virtual std::shared_ptr&lt;IFoundationStrip&gt; Clone() const = 0;
-
-  [[nodiscard]] virtual double B() const = 0;
-  [[nodiscard]] virtual std::shared_ptr&lt;IFoundationStrip&gt; B(double b) const = 0;
-
- protected:
-  IFoundationStrip() = default;
-  IFoundationStrip(const IFoundationStrip&amp;) = default;
+  {
+    t.Clone()
+  }
+  -&gt;std::same_as&lt;std::shared_ptr&lt;T&gt;&gt;;
+  {
+    t.B()
+  }
+  -&gt;std::same_as&lt;double&gt;;
+  {
+    t.B(std::declval&lt;double&gt;())
+  }
+  -&gt;std::same_as&lt;std::shared_ptr&lt;T&gt;&gt;;
 };
-}  // namespace Jessica::Data::Geotechnical</code></pre>
+}  // namespace Jessica::Data::Geotechnical
+
+#endif</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>TODO: remove <code>JCONCEPTS</code> when emscripten will support concepts.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_adapter_behind_the_interface">Adapter behind the interface</h3>
 <div class="paragraph">
 <p>The interface use a standard paradigm of programmation.
-But internally, all functions are redirected by function that all overload the same function <code>f</code>.
+But internally, all functions are redirected to functions that all overload the same function <code>f</code>.
 The goal is to ease the use of template class to decorate all functions with a single template function.</p>
 </div>
 <div class="paragraph">
-<p>To deal with function without argument or with same number of arguments of same type, I needed to add an explicit symbol. I don&#8217;t want to force this symbol (a <code>struct</code>) in argument to avoid empty parameter. So I add his symbol in the name via <code>template</code>. This symbol will be explicit for function without argument and implicit for function with arguments.</p>
+<p>To deal with functions without argument or with same number of arguments of same type, I needed to add an explicit symbol.
+I don&#8217;t want to force this symbol (a <code>struct</code>) in argument to avoid empty parameter. So I also add this symbol in the name via <code>template</code>. This symbol will be explicit for function without argument and implicit for function with arguments:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">T::template f&lt;FoundationStripImpl::GetB&gt;(*impl_);
+T::template f(*retval-&gt;impl_, FoundationStripImpl::SetB{.b = b});</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>Copy constructor must be public to use <code>std::make_shared</code>.</p>
 </div>
 <div class="paragraph">
-<p>At first, the idea was to put the implementation <code>FoundationStrip</code> in a anonymous namespace.
-Infortunatly, to make the sanitizer <code>cfi</code> works, the <code>vtable</code> of <code>FoundationStrip</code> must be exported.
-I kept separation between interface and implementation for tests with mocks.</p>
-</div>
-<div class="paragraph">
-<p>Exemple of class that convert a class with classic functions <code>FoundationStrip</code> to a class with all the same functions <code>f</code> <code>FoundationStripImpl</code>.</p>
+<p>Example of class that convert a class with classic functions <code>FoundationStrip</code> to a class with all the same functions <code>f</code> <code>FoundationStripImpl</code>.</p>
 </div>
 <div class="paragraph">
 <p>You can noticed the class is template. This is to add decorator to the class (see after). If decorator is not needed, just use <code>FoundationStripImpl</code> as template;</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">namespace Jessica::Data::Geotechnical
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;jessica/compat.h&gt;
+#include &lt;jessica/data/geotechnical/foundation_strip_concept.h&gt;
+#include &lt;jessica/helper/template.h&gt;
+
+namespace Jessica::Data::Geotechnical
 {
 template &lt;typename T&gt;
 class JESSICA_DLL_PUBLIC FoundationStrip final
-    : public Jessica::Data::Geotechnical::IFoundationStrip
 {
  public:
   FoundationStrip() = default;
@@ -573,22 +577,20 @@ class JESSICA_DLL_PUBLIC FoundationStrip final
   FoundationStrip(FoundationStrip&amp;&amp;) = delete;
   FoundationStrip&amp; operator=(const FoundationStrip&amp;) = delete;
   FoundationStrip&amp; operator=(FoundationStrip&amp;&amp;) = delete;
-  ~FoundationStrip() override = default;
 
-  [[nodiscard]] std::shared_ptr&lt;IFoundationStrip&gt; Clone() const override
+  [[nodiscard]] std::shared_ptr&lt;FoundationStrip&lt;T&gt;&gt; Clone() const
   {
-    return std::make_shared&lt;FoundationStrip&gt;(*this);
+    return std::make_shared&lt;FoundationStrip&lt;T&gt;&gt;(*this);
   }
 
-  [[nodiscard]] double B() const override
+  [[nodiscard]] double B() const
   {
-    // If function has no argument, you must explicit the template.
     return T::template f&lt;FoundationStripImpl::GetB&gt;(*impl_);
   }
 
-  [[nodiscard]] std::shared_ptr&lt;IFoundationStrip&gt; B(double b) const override
+  [[nodiscard]] std::shared_ptr&lt;FoundationStrip&lt;T&gt;&gt; B(double b) const
   {
-    auto retval = std::make_shared&lt;FoundationStrip&gt;(*this);
+    auto retval = std::make_shared&lt;FoundationStrip&lt;T&gt;&gt;(*this);
     retval-&gt;impl_ =
         T::template f(*retval-&gt;impl_, FoundationStripImpl::SetB{.b = b});
     return retval;
@@ -598,6 +600,10 @@ class JESSICA_DLL_PUBLIC FoundationStrip final
   std::shared_ptr&lt;FoundationStripImpl&gt; impl_ =
       std::make_shared&lt;FoundationStripImpl&gt;();
 };
+
+#ifdef JCONCEPTS
+static_assert(FoundationStripConcept&lt;FoundationStrip&lt;int&gt;&gt;);
+#endif
 }  // namespace Jessica::Data::Geotechnical</code></pre>
 </div>
 </div>
@@ -608,15 +614,22 @@ class JESSICA_DLL_PUBLIC FoundationStrip final
 <p>Example of class <code>..Impl</code>:</p>
 </div>
 <div class="paragraph">
-<p>Inside the class, you must start to define symbol that will be used to differentiate <code>f</code> specialization.
+<p>Inside the class, you must start to define the symbol that will be used to specialize <code>f</code> function.
 This struct must define an explicit <code>ReturnType</code>.</p>
+</div>
+<div class="paragraph">
+<p>In this example, standard specialization is used.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">class JESSICA_DLL_PUBLIC FoundationStripImpl
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;jessica/compat.h&gt;
+#include &lt;jessica/helper/template.h&gt;
+
+namespace Jessica::Data::Geotechnical
+{
+class JESSICA_DLL_PUBLIC FoundationStripImpl
 {
  public:
-  // List of all struct, one for each function templated specialized.
   struct Clone
   {
     using ReturnType = std::shared_ptr&lt;FoundationStripImpl&gt;;
@@ -639,14 +652,12 @@ This struct must define an explicit <code>ReturnType</code>.</p>
   FoundationStripImpl&amp; operator=(const FoundationStripImpl&amp;) = delete;
   FoundationStripImpl&amp; operator=(FoundationStripImpl&amp;&amp;) = delete;
 
-  // General template for function without argument.
   template &lt;typename T&gt;
   static typename T::ReturnType f(const FoundationStripImpl&amp;)
   {
     static_assert(Jessica::Helper::StaticAssert&lt;T&gt;::value, "Must specialized");
   }
 
-  // General template for function with arguments.
   template &lt;typename T&gt;
   static typename T::ReturnType f(const FoundationStripImpl&amp;, const T&amp;)
   {
@@ -657,7 +668,6 @@ This struct must define an explicit <code>ReturnType</code>.</p>
   double b_ = std::numeric_limits&lt;double&gt;::quiet_NaN();
 };
 
-// Clone function
 template &lt;&gt;
 [[nodiscard]] std::shared_ptr&lt;FoundationStripImpl&gt;
 FoundationStripImpl::f&lt;FoundationStripImpl::Clone&gt;(
@@ -666,7 +676,6 @@ FoundationStripImpl::f&lt;FoundationStripImpl::Clone&gt;(
   return std::make_shared&lt;FoundationStripImpl&gt;(self);
 }
 
-// Getter function
 template &lt;&gt;
 [[nodiscard]] double FoundationStripImpl::f&lt;FoundationStripImpl::GetB&gt;(
     const FoundationStripImpl&amp; self)
@@ -674,15 +683,15 @@ template &lt;&gt;
   return self.b_;
 }
 
-// Setter function
 template &lt;&gt;
 [[nodiscard]] std::shared_ptr&lt;FoundationStripImpl&gt; FoundationStripImpl::f&lt;&gt;(
     const FoundationStripImpl&amp; self, const SetB&amp; b)
 {
-  auto retval = std::make_shared&lt;FoundationStripImpl&gt;(self);
+  auto retval = f&lt;FoundationStripImpl::Clone&gt;(self);
   retval-&gt;b_ = b.b;
   return retval;
-}</code></pre>
+}
+}  // namespace Jessica::Data::Geotechnical</code></pre>
 </div>
 </div>
 </div>
@@ -693,7 +702,7 @@ template &lt;&gt;
 </div>
 <div class="paragraph">
 <p>You have to implement two generalized template functions.
-One for <code>f</code> functions without argument and one for <code>f</code> functions with argument.</p>
+One for <code>f</code> functions without argument and one for <code>f</code> functions with arguments.</p>
 </div>
 <div class="paragraph">
 <p>If needed, you can specialize some functions.</p>
@@ -750,11 +759,219 @@ class JESSICA_DLL_PUBLIC LogCall
 </div>
 </div>
 <div class="paragraph">
-<p>After, use the instance just the way you like.</p>
+<p>After, use the instance just the standard way.</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">  const auto load2 = load-&gt;V(100000.);</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_data_inside_data">Data inside data</h3>
+<div class="paragraph">
+<p>Some class will need to store data from other class.
+In this case, you need to specific coding to allow decorator around the main class and if needed decorator around children class.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Interface</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The interface follows the same principle than previously described.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Adapter</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The adapter still have one template but the template will have inside the type of the data stored. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">  // Data 1 without decorator
+  using DecoratorFoundation = Jessica::Data::Geotechnical::FoundationStripImpl;
+  // Data 2 without decorator
+  using DecoratorLoad = Jessica::Data::Load::VerticalEccentricImpl;
+  // Main data with 2 data stored inside.
+  using DecoratorCalc =
+      Jessica::Util::Decorator::LogCall&lt;Jessica::Util::Decorator::LogDuration&lt;
+          Jessica::Calc::Geotechnical::MeyerhofShallowFoundationImpl&lt;
+              DecoratorLoad, DecoratorFoundation&gt;&gt;&gt;;
+
+  MeyerhofShallowFoundation&lt;DecoratorCalc&gt; calculator(...);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And the same with a decorator for every data:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">  // Data 1 with decorator
+  using DecoratorFoundation =
+      Jessica::Util::Decorator::LogCall&lt;Jessica::Util::Decorator::LogDuration&lt;
+          Jessica::Data::Geotechnical::FoundationStripImpl&gt;&gt;;
+  // Data 2 with decorator
+  using DecoratorLoad =
+      Jessica::Util::Decorator::LogCall&lt;Jessica::Util::Decorator::LogDuration&lt;
+          Jessica::Data::Load::VerticalEccentricImpl&gt;&gt;;
+  // Main data with 2 data stored inside.
+  using DecoratorCalc =
+      Jessica::Util::Decorator::LogCall&lt;Jessica::Util::Decorator::LogDuration&lt;
+          Jessica::Calc::Geotechnical::MeyerhofShallowFoundationImpl&lt;
+              DecoratorLoad, DecoratorFoundation&gt;&gt;&gt;;
+
+  MeyerhofShallowFoundation&lt;DecoratorCalc&gt; calculator(...);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For example, Meyerhof have two data stored.</p>
+</div>
+<div class="paragraph">
+<p>The class will be the following.</p>
+</div>
+<div class="paragraph">
+<p>Please note the two <code>using</code> <code>U</code> and <code>V</code>. They extract type from the main template.
+This is done to ease the usage of the class.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">template &lt;typename T&gt;
+class JESSICA_DLL_PUBLIC MeyerhofShallowFoundation final
+{
+ public:
+  using U = typename Jessica::Helper::ExtractRootTypeN&lt;0, T&gt;::Root;
+  using V = typename Jessica::Helper::ExtractRootTypeN&lt;1, T&gt;::Root;
+
+  MeyerhofShallowFoundation(
+      const std::shared_ptr&lt;Jessica::Data::Load::VerticalEccentric&lt;U&gt;&gt;&amp; load,
+      const std::shared_ptr&lt;Jessica::Data::Geotechnical::FoundationStrip&lt;V&gt;&gt;&amp;
+          foundation)
+      : impl_(std::make_shared&lt;MeyerhofShallowFoundationImpl&lt;U, V&gt;&gt;(load,
+                                                                    foundation))
+  {
+  }
+  MeyerhofShallowFoundation(const MeyerhofShallowFoundation&amp;) = default;
+  MeyerhofShallowFoundation(MeyerhofShallowFoundation&amp;&amp;) = delete;
+  MeyerhofShallowFoundation&amp; operator=(const MeyerhofShallowFoundation&amp;) =
+      delete;
+  MeyerhofShallowFoundation&amp; operator=(MeyerhofShallowFoundation&amp;&amp;) = delete;
+  ~MeyerhofShallowFoundation() = default;
+
+  [[nodiscard]] std::shared_ptr&lt;MeyerhofShallowFoundation&gt; Clone() const
+  {
+    return std::make_shared&lt;MeyerhofShallowFoundation&gt;(*this);
+  }
+
+  [[nodiscard]] double Qref() const
+  {
+    return T::template f&lt;typename MeyerhofShallowFoundationImpl&lt;U, V&gt;::GetQref&gt;(
+        *impl_);
+  }
+
+  [[nodiscard]] double B_() const
+  {
+    return T::template f&lt;typename MeyerhofShallowFoundationImpl&lt;U, V&gt;::GetB_&gt;(
+        *impl_);
+  }
+
+ private:
+  std::shared_ptr&lt;MeyerhofShallowFoundationImpl&lt;U, V&gt;&gt; impl_;
+};</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Implementation</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The implementation needs to have as template the type of data store (<code>U</code> and <code>V</code>).</p>
+</div>
+<div class="paragraph">
+<p>This will create a problem for the specialization of <code>f</code> functions. They must be specialized with <code>T</code> and without <code>U</code> and <code>V</code>.</p>
+</div>
+<div class="paragraph">
+<p>Standard says that only class may be partial specialized. Function must be fully specialized. Plus, to be able to specialized a function, the class must be specialized.</p>
+</div>
+<div class="paragraph">
+<p>Usage of <code>std::enable_if</code> will allow to specialized function with class non specialized.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">template &lt;typename U, typename V&gt;
+class JESSICA_DLL_PUBLIC MeyerhofShallowFoundationImpl
+{
+ public:
+  struct Clone
+  {
+    using ReturnType = std::shared_ptr&lt;MeyerhofShallowFoundationImpl&lt;U, V&gt;&gt;;
+  };
+
+  struct GetQref
+  {
+    using ReturnType = double;
+  };
+
+  struct GetB_
+  {
+    using ReturnType = double;
+  };
+
+  MeyerhofShallowFoundationImpl(
+      const std::shared_ptr&lt;Data::Load::VerticalEccentric&lt;U&gt;&gt;&amp; load,
+      const std::shared_ptr&lt;Data::Geotechnical::FoundationStrip&lt;V&gt;&gt;&amp; foundation)
+      : load_(load), foundation_(foundation)
+  {
+  }
+  MeyerhofShallowFoundationImpl(const MeyerhofShallowFoundationImpl&amp;) = default;
+  MeyerhofShallowFoundationImpl(MeyerhofShallowFoundationImpl&amp;&amp;) = delete;
+  MeyerhofShallowFoundationImpl&amp; operator=(
+      const MeyerhofShallowFoundationImpl&amp;) = delete;
+  MeyerhofShallowFoundationImpl&amp; operator=(MeyerhofShallowFoundationImpl&amp;&amp;) =
+      delete;
+
+  template &lt;typename T&gt;
+  [[nodiscard]] static std::enable_if_t&lt;
+      std::is_same_v&lt;MeyerhofShallowFoundationImpl&lt;U, V&gt;::Clone, T&gt;,
+      typename T::ReturnType&gt;
+  f(const MeyerhofShallowFoundationImpl&lt;U, V&gt;&amp; self)
+  {
+    return std::make_shared&lt;MeyerhofShallowFoundationImpl&lt;U, V&gt;&gt;(self);
+  }
+
+  template &lt;typename T&gt;
+  [[nodiscard]] static std::enable_if_t&lt;
+      std::is_same_v&lt;MeyerhofShallowFoundationImpl&lt;U, V&gt;::GetB_, T&gt;,
+      typename T::ReturnType&gt;
+  f(const MeyerhofShallowFoundationImpl&lt;U, V&gt;&amp; self)
+  {
+    return self.foundation_-&gt;B() - 2. * self.load_-&gt;E();
+  }
+
+  template &lt;typename T&gt;
+  [[nodiscard]] static std::enable_if_t&lt;
+      std::is_same_v&lt;MeyerhofShallowFoundationImpl&lt;U, V&gt;::GetQref, T&gt;,
+      typename T::ReturnType&gt;
+  f(const MeyerhofShallowFoundationImpl&lt;U, V&gt;&amp; self)
+  {
+    return self.load_-&gt;V() /
+           f&lt;MeyerhofShallowFoundationImpl&lt;U, V&gt;::GetB_&gt;(self);
+  }
+
+ private:
+  const std::shared_ptr&lt;Jessica::Data::Load::VerticalEccentric&lt;U&gt;&gt; load_;
+  const std::shared_ptr&lt;Jessica::Data::Geotechnical::FoundationStrip&lt;V&gt;&gt;
+      foundation_;
+};</code></pre>
 </div>
 </div>
 </div>
