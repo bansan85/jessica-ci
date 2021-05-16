@@ -478,72 +478,28 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Data are stored in class.</p>
 </div>
 <div class="paragraph">
-<p>Each of these class have an interface with concept.</p>
-</div>
-<div class="paragraph">
-<p>The implementation of the interface is just an adapter to the class that really store the data.</p>
-</div>
-<div class="paragraph">
-<p>Between each adapter and data, you may add decorators.</p>
+<p>Each of these class have two classes: an adapter and the implementation.
+Between adapter and implementation, you may add decorators.</p>
 </div>
 <div class="sect2">
-<h3 id="_interface">Interface</h3>
+<h3 id="_history">History</h3>
 <div class="paragraph">
-<p>Each public class should have an interface. This ease test (perfectly compatible with mock of gtest) and hide implementation and private fields.</p>
-</div>
-<div class="paragraph">
-<p>Ownership of a return value of a setter must be able to be shared. Use a <code>std::shared_ptr&lt;&gt;</code>. Pass them by reference and store them by copy.</p>
+<p>At first, each adapter inherited from a <a href="https://github.com/bansan85/jessica/blob/5860d813a852e68cf2cb9be009fce03d7b39dc39/include/jessica/data/load/vertical_eccentric.h">pure virtual class</a>.</p>
 </div>
 <div class="paragraph">
-<p>Exemple of interface:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#if !defined(JCONCEPTS) &amp;&amp; __has_include(&lt;concepts&gt;)
-  #define JCONCEPTS
-  #include &lt;concepts&gt;
-#endif
-
-#ifdef JCONCEPTS
-  #include &lt;memory&gt;
-
-namespace Jessica::Data::Geotechnical
-{
-template &lt;typename T&gt;
-concept FoundationStripConcept = requires(const T t)
-{
-  {
-    t.Clone()
-  }
-  -&gt;std::same_as&lt;std::shared_ptr&lt;T&gt;&gt;;
-  {
-    t.B()
-  }
-  -&gt;std::same_as&lt;double&gt;;
-  {
-    t.B(std::declval&lt;double&gt;())
-  }
-  -&gt;std::same_as&lt;std::shared_ptr&lt;T&gt;&gt;;
-};
-}  // namespace Jessica::Data::Geotechnical
-
-#endif</code></pre>
-</div>
+<p>Then adapter needed to be templated to support decorator, I decided to use <a href="https://github.com/bansan85/jessica/blob/4e7884bb98f24c3a1146a1ef0119f20ab84023c1/include/jessica/data/load/vertical_eccentric_concept.h">concept</a> with accessor.</p>
 </div>
 <div class="paragraph">
-<p>TODO: remove <code>JCONCEPTS</code> when emscripten will support concepts.</p>
+<p>Finally I needed to have a very generic getter and setter to manage multiple levels of data. There is only one fake primary template function <code>Get</code> and <code>Set</code> and specialization for each field. I removed concept because it can not force specialization of primary template.</p>
+</div>
+<div class="paragraph">
+<p>GoogleTest supports mocking with template.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_adapter_behind_the_interface">Adapter behind the interface</h3>
+<h3 id="_adapter">Adapter</h3>
 <div class="paragraph">
-<p>The interface use a standard paradigm of programmation.
-But internally, all functions are redirected to functions that all overload the same function <code>f</code>.
-The goal is to ease the use of template class to decorate all functions with a single template function.</p>
-</div>
-<div class="paragraph">
-<p>To deal with functions without argument or with same number of arguments of same type, I needed to add an explicit symbol.
-I don&#8217;t want to force this symbol (a <code>struct</code>) in argument to avoid empty parameter. So I also add this symbol in the name via <code>template</code>. This symbol will be explicit for function without argument and implicit for function with arguments:</p>
+<p>All accessors use the same template function. To deal with getter without argument, it needs to add an explicit symbol in the mangled name. This symbol will be explicit for function without argument and implicit for function with arguments.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -551,20 +507,32 @@ I don&#8217;t want to force this symbol (a <code>struct</code>) in argument to a
 T::template f(*retval-&gt;impl_, FoundationStripImpl::SetB{.b = b});</code></pre>
 </div>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>Coding style</p>
+</li>
+</ul>
+</div>
 <div class="paragraph">
 <p>Copy constructor must be public to use <code>std::make_shared</code>.</p>
 </div>
 <div class="paragraph">
-<p>Example of class that convert a class with classic functions <code>FoundationStrip</code> to a class with all the same functions <code>f</code> <code>FoundationStripImpl</code>.</p>
+<p>Ownership of a return value of a setter must be able to be shared. Use a <code>std::shared_ptr&lt;&gt;</code>. Pass them by const reference in function and store them by copy in class.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Example</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>You can noticed the class is template. This is to add decorator to the class (see after). If decorator is not needed, just use <code>FoundationStripImpl</code> as template;</p>
+<p>Adapter for a strip foundation. If you do not need decorator, just use <code>FoundationStripImpl</code> as template;</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;jessica/compat.h&gt;
-#include &lt;jessica/data/geotechnical/foundation_strip_concept.h&gt;
-#include &lt;jessica/helper/template.h&gt;
 
 namespace Jessica::Data::Geotechnical
 {
@@ -578,32 +546,29 @@ class JESSICA_DLL_PUBLIC FoundationStrip final
   FoundationStrip&amp; operator=(const FoundationStrip&amp;) = delete;
   FoundationStrip&amp; operator=(FoundationStrip&amp;&amp;) = delete;
 
+  template &lt;typename U&gt;
+  auto Get() const
+  {
+    return T::template f&lt;U&gt;(*impl_);
+  }
+
+  template &lt;typename U&gt;
+  auto Set(const U&amp;&amp; u) const
+  {
+    auto retval = Clone();
+    retval-&gt;impl_ = T::template f(*impl_, std::forward&lt;const U&gt;(u));
+    return retval;
+  }
+
   [[nodiscard]] std::shared_ptr&lt;FoundationStrip&lt;T&gt;&gt; Clone() const
   {
     return std::make_shared&lt;FoundationStrip&lt;T&gt;&gt;(*this);
-  }
-
-  [[nodiscard]] double B() const
-  {
-    return T::template f&lt;FoundationStripImpl::GetB&gt;(*impl_);
-  }
-
-  [[nodiscard]] std::shared_ptr&lt;FoundationStrip&lt;T&gt;&gt; B(double b) const
-  {
-    auto retval = std::make_shared&lt;FoundationStrip&lt;T&gt;&gt;(*this);
-    retval-&gt;impl_ =
-        T::template f(*retval-&gt;impl_, FoundationStripImpl::SetB{.b = b});
-    return retval;
   }
 
  private:
   std::shared_ptr&lt;FoundationStripImpl&gt; impl_ =
       std::make_shared&lt;FoundationStripImpl&gt;();
 };
-
-#ifdef JCONCEPTS
-static_assert(FoundationStripConcept&lt;FoundationStrip&lt;int&gt;&gt;);
-#endif
 }  // namespace Jessica::Data::Geotechnical</code></pre>
 </div>
 </div>
@@ -611,11 +576,11 @@ static_assert(FoundationStripConcept&lt;FoundationStrip&lt;int&gt;&gt;);
 <div class="sect2">
 <h3 id="_implementation_behind_the_adapter">Implementation behind the adapter</h3>
 <div class="paragraph">
-<p>Example of class <code>..Impl</code>:</p>
+<p>Example of class <code>FoundationStripImpl</code>:</p>
 </div>
 <div class="paragraph">
-<p>Inside the class, you must start to define the symbol that will be used to specialize <code>f</code> function.
-This struct must define an explicit <code>ReturnType</code>.</p>
+<p>Inside the class, you must start to define the symbol that will be used to specialize accessors.
+This struct must define an explicit <code>ReturnType</code> and arguments if needed.</p>
 </div>
 <div class="paragraph">
 <p>In this example, standard specialization is used.</p>
@@ -643,6 +608,7 @@ class JESSICA_DLL_PUBLIC FoundationStripImpl
   struct SetB
   {
     using ReturnType = std::shared_ptr&lt;FoundationStripImpl&gt;;
+    SetB(double value) : b(value) {}
     double b;
   };
 
