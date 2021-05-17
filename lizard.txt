@@ -39,12 +39,10 @@
        6      1     44      1       6 Jessica::Data::Load::JESSICA_DLL_PUBLICVerticalEccentric::f ./include/jessica/data/load/vertical_eccentric.h
        4      1     18      0       4 Jessica::Data::Load::JESSICA_DLL_PUBLICVerticalEccentric::Clone ./include/jessica/data/load/vertical_eccentric.h
        1      1     12      1       1 Jessica::Data::Geotechnical::JESSICA_DLL_PUBLICFoundationStripImpl::SetB::SetB ./include/jessica/data/geotechnical/foundation_strip.h
-       4      1     24      1       4 Jessica::Data::Geotechnical::JESSICA_DLL_PUBLICFoundationStripImpl::f ./include/jessica/data/geotechnical/foundation_strip.h
-       4      1     28      2       4 Jessica::Data::Geotechnical::JESSICA_DLL_PUBLICFoundationStripImpl::f ./include/jessica/data/geotechnical/foundation_strip.h
-       5      1     27      1       5 Jessica::Data::Geotechnical::FoundationStripImpl::f<FoundationStripImpl::Clone> ./include/jessica/data/geotechnical/foundation_strip.h
-       5      1     21      1       5 Jessica::Data::Geotechnical::FoundationStripImpl::f<FoundationStripImpl::GetB> ./include/jessica/data/geotechnical/foundation_strip.h
-       7      1     42      2       7 Jessica::Data::Geotechnical::FoundationStripImpl::f<> ./include/jessica/data/geotechnical/foundation_strip.h
-      26      4    157      1      26 Jessica::Data::Geotechnical::JESSICA_DLL_PUBLICFoundationStrip::f ./include/jessica/data/geotechnical/foundation_strip.h
+       4      1     20      1       4 Jessica::Data::Geotechnical::JESSICA_DLL_PUBLICFoundationStripImpl::f ./include/jessica/data/geotechnical/foundation_strip.h
+       5      1     14      1       5 Jessica::Data::Geotechnical::JESSICA_DLL_PUBLICFoundationStripImpl::f ./include/jessica/data/geotechnical/foundation_strip.h
+       6      1     38      2       6 Jessica::Data::Geotechnical::JESSICA_DLL_PUBLICFoundationStripImpl::f ./include/jessica/data/geotechnical/foundation_strip.h
+      16      2    125      1      16 Jessica::Data::Geotechnical::JESSICA_DLL_PUBLICFoundationStrip::f ./include/jessica/data/geotechnical/foundation_strip.h
        4      1     21      0       4 Jessica::Data::Geotechnical::JESSICA_DLL_PUBLICFoundationStrip::Clone ./include/jessica/data/geotechnical/foundation_strip.h
       17      1    173      2      18 JTEST_NAME.JTEST_NAME.JTEST_NAME.JTEST_NAME.JTEST_NAME.JTEST_NAME.JTEST_NAME.JTEST_NAME ./test/backend/calc/geotechnical/meyerhof.cc
       91      1    744      1      94 EMSCRIPTEN_BINDINGS ./src/javascript/wasm/bindings.cpp
@@ -54,12 +52,12 @@
 NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
 --------------------------------------------------------------
     231       6.1     1.0       39.1        21     ./include/jessica/calc/geotechnical/meyerhof.h
-     41       0.0     0.0        0.0         0     ./include/jessica/helper/template.h
+     52       0.0     0.0        0.0         0     ./include/jessica/helper/template.h
       1       0.0     0.0        0.0         0     ./include/jessica/test/test.h
      26       6.0     1.0       62.5         2     ./include/jessica/util/decorator/log_call.h
      35      10.0     1.0      105.5         2     ./include/jessica/util/decorator/log_duration.h
     117       4.4     1.0       25.5        12     ./include/jessica/data/load/vertical_eccentric.h
-    109       7.0     1.4       41.5         8     ./include/jessica/data/geotechnical/foundation_strip.h
+     90       6.0     1.2       38.3         6     ./include/jessica/data/geotechnical/foundation_strip.h
       0       0.0     0.0        0.0         0     ./include/jessica/compat.h
     174      17.0     1.0      173.0         1     ./test/backend/calc/geotechnical/meyerhof.cc
      59       0.0     0.0        0.0         0     ./test/backend/data/load/vertical_eccentric.cc
@@ -72,4 +70,4 @@ No thresholds exceeded (cyclomatic_complexity > 15 or length > 1000 or nloc > 10
 ==========================================================================================
 Total nloc   Avg.NLOC  AvgCCN  Avg.token   Fun Cnt  Warning cnt   Fun Rt   nloc Rt
 ------------------------------------------------------------------------------------------
-       940       7.9     1.1       56.6       48            0      0.00    0.00
+       932       7.8     1.0       56.8       46            0      0.00    0.00
