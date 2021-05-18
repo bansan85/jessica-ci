@@ -250,8 +250,8 @@
 <a name="172"><span class="lineNum">     172</span>                 :             : class JESSICA_DLL_PUBLIC MeyerhofShallowFoundation final</a>
 <a name="173"><span class="lineNum">     173</span>                 :             : {</a>
 <a name="174"><span class="lineNum">     174</span>                 :             :  public:</a>
-<a name="175"><span class="lineNum">     175</span>                 :             :   using U = typename Jessica::Helper::ExtractRootTypeN&lt;0, T&gt;::Root;</a>
-<a name="176"><span class="lineNum">     176</span>                 :             :   using V = typename Jessica::Helper::ExtractRootTypeN&lt;1, T&gt;::Root;</a>
+<a name="175"><span class="lineNum">     175</span>                 :             :   using U = typename Jessica::Helper::ExtractRootTypeN&lt;0, T&gt;::type;</a>
+<a name="176"><span class="lineNum">     176</span>                 :             :   using V = typename Jessica::Helper::ExtractRootTypeN&lt;1, T&gt;::type;</a>
 <a name="177"><span class="lineNum">     177</span>                 :             : </a>
 <a name="178"><span class="lineNum">     178</span>                 :<span class="tlaGNC">           1 :   MeyerhofShallowFoundation()</span></a>
 <a name="179"><span class="lineNum">     179</span>                 :             :       : impl_(std::make_shared&lt;MeyerhofShallowFoundationImpl&lt;U, V&gt;&gt;(</a>
