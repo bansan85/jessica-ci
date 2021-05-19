@@ -132,9 +132,9 @@
 <a name="54"><span class="lineNum">      54</span>                 :             :   template &lt;typename T&gt;</a>
 <a name="55"><span class="lineNum">      55</span>                 :             :   requires std::is_same_v&lt;SetB, T&gt; [[nodiscard]] static std::shared_ptr&lt;</a>
 <a name="56"><span class="lineNum">      56</span>                 :             :       FoundationStripImpl&gt;</a>
-<a name="57"><span class="lineNum">      57</span>                 :<span class="tlaGNC">           6 :   f(const FoundationStripImpl&amp; self, const T&amp; b)</span></a>
+<a name="57"><span class="lineNum">      57</span>                 :<span class="tlaGNC">           6 :   f(const FoundationStripImpl&amp; self, const T&amp;&amp; b)</span></a>
 <a name="58"><span class="lineNum">      58</span>                 :             :   {</a>
-<a name="59"><span class="lineNum">      59</span>                 :<span class="tlaGNC">           6 :     auto retval = f&lt;FoundationStripImpl::Clone&gt;(self);</span></a>
+<a name="59"><span class="lineNum">      59</span>                 :<span class="tlaGNC">           6 :     auto retval = f&lt;Clone&gt;(self);</span></a>
 <a name="60"><span class="lineNum">      60</span>                 :<span class="tlaGNC">           6 :     retval-&gt;b_ = b.b;</span></a>
 <a name="61"><span class="lineNum">      61</span>                 :<span class="tlaGNC">           6 :     return retval;</span></a>
 <a name="62"><span class="lineNum">      62</span>                 :             :   }</a>
