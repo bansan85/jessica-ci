@@ -196,7 +196,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  template &lt;typename Args&gt;</pre>
+          <pre>  template &lt;typename U = void, typename... Args&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -206,7 +206,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  static auto f(const Type& classe, const Args&amp;& args)</pre>
+          <pre>  [[nodiscard]] static auto f(const Type& classe, const Args&amp;&amp;... args)</pre>
         </td>
       </tr>
       <tr>
@@ -215,7 +215,7 @@
           <pre>19</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>11</pre>
+          <pre>70</pre>
         </td>
         <td class='code'>
           <pre>  {</pre>
@@ -227,10 +227,10 @@
           <pre>20</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>11</pre>
+          <pre>70</pre>
         </td>
         <td class='code'>
-          <pre>    const auto t_start = std::chrono::high_resolution_clock::now();</pre>
+          <pre>    using V0 = typename std::conditional_t&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -239,10 +239,10 @@
           <pre>21</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>11</pre>
+          <pre>70</pre>
         </td>
         <td class='code'>
-          <pre>    const auto retval = T::template f(classe, std::forward&lt;const Args&gt;(args));</pre>
+          <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
         </td>
       </tr>
       <tr>
@@ -251,10 +251,10 @@
           <pre>22</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>11</pre>
+          <pre>70</pre>
         </td>
         <td class='code'>
-          <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
+          <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
         </td>
       </tr>
       <tr>
@@ -263,10 +263,10 @@
           <pre>23</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>11</pre>
+          <pre>70</pre>
         </td>
         <td class='code'>
-          <pre>    const double elapsed_time_ms =</pre>
+          <pre>    const auto t_start = std::chrono::high_resolution_clock::now();</pre>
         </td>
       </tr>
       <tr>
@@ -275,10 +275,10 @@
           <pre>24</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>11</pre>
+          <pre>70</pre>
         </td>
         <td class='code'>
-          <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
+          <pre>    const auto retval =</pre>
         </td>
       </tr>
       <tr>
@@ -287,10 +287,10 @@
           <pre>25</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>11</pre>
+          <pre>70</pre>
         </td>
         <td class='code'>
-          <pre>    std::cout &lt;&lt; "duration " &lt;&lt; elapsed_time_ms &lt;&lt; " ms" &lt;&lt; std::endl;</pre>
+          <pre>        T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
         </td>
       </tr>
       <tr>
@@ -299,10 +299,10 @@
           <pre>26</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>11</pre>
+          <pre>70</pre>
         </td>
         <td class='code'>
-          <pre>    return retval;</pre>
+          <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
         </td>
       </tr>
       <tr>
@@ -311,778 +311,10 @@
           <pre>27</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>11</pre>
+          <pre>70</pre>
         </td>
         <td class='code'>
-          <pre>  }</pre>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7Jessica4Util9Decorator11LogDurationINS_4Data12Geotechnical19FoundationStripImplEE1fINS5_4SetBEEEDaRKS5_OKT_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L19' href='#L19' id="L19">
-                    <pre>19</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L20' href='#L20' id="L20">
-                    <pre>20</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto t_start = std::chrono::high_resolution_clock::now();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L21' href='#L21' id="L21">
-                    <pre>21</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto retval = T::template f(classe, std::forward&lt;const Args&gt;(args));</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L22' href='#L22' id="L22">
-                    <pre>22</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L23' href='#L23' id="L23">
-                    <pre>23</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const double elapsed_time_ms =</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L24' href='#L24' id="L24">
-                    <pre>24</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L25' href='#L25' id="L25">
-                    <pre>25</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    std::cout &lt;&lt; "duration " &lt;&lt; elapsed_time_ms &lt;&lt; " ms" &lt;&lt; std::endl;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L26' href='#L26' id="L26">
-                    <pre>26</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L27' href='#L27' id="L27">
-                    <pre>27</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEE1fINS5_4SetVEEEDaRKS5_OKT_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L19' href='#L19' id="L19">
-                    <pre>19</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L20' href='#L20' id="L20">
-                    <pre>20</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto t_start = std::chrono::high_resolution_clock::now();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L21' href='#L21' id="L21">
-                    <pre>21</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto retval = T::template f(classe, std::forward&lt;const Args&gt;(args));</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L22' href='#L22' id="L22">
-                    <pre>22</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L23' href='#L23' id="L23">
-                    <pre>23</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const double elapsed_time_ms =</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L24' href='#L24' id="L24">
-                    <pre>24</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L25' href='#L25' id="L25">
-                    <pre>25</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    std::cout &lt;&lt; "duration " &lt;&lt; elapsed_time_ms &lt;&lt; " ms" &lt;&lt; std::endl;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L26' href='#L26' id="L26">
-                    <pre>26</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L27' href='#L27' id="L27">
-                    <pre>27</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEE1fINS5_4SetEEEEDaRKS5_OKT_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L19' href='#L19' id="L19">
-                    <pre>19</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L20' href='#L20' id="L20">
-                    <pre>20</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto t_start = std::chrono::high_resolution_clock::now();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L21' href='#L21' id="L21">
-                    <pre>21</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto retval = T::template f(classe, std::forward&lt;const Args&gt;(args));</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L22' href='#L22' id="L22">
-                    <pre>22</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L23' href='#L23' id="L23">
-                    <pre>23</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const double elapsed_time_ms =</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L24' href='#L24' id="L24">
-                    <pre>24</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L25' href='#L25' id="L25">
-                    <pre>25</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    std::cout &lt;&lt; "duration " &lt;&lt; elapsed_time_ms &lt;&lt; " ms" &lt;&lt; std::endl;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L26' href='#L26' id="L26">
-                    <pre>26</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L27' href='#L27' id="L27">
-                    <pre>27</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7Jessica4Util9Decorator11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS_4Data4Load21VerticalEccentricImplENS6_12Geotechnical19FoundationStripImplEEEE1fINSB_8SetLoadEEEEDaRKSB_OKT_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L19' href='#L19' id="L19">
-                    <pre>19</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L20' href='#L20' id="L20">
-                    <pre>20</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto t_start = std::chrono::high_resolution_clock::now();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L21' href='#L21' id="L21">
-                    <pre>21</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto retval = T::template f(classe, std::forward&lt;const Args&gt;(args));</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L22' href='#L22' id="L22">
-                    <pre>22</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L23' href='#L23' id="L23">
-                    <pre>23</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const double elapsed_time_ms =</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L24' href='#L24' id="L24">
-                    <pre>24</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L25' href='#L25' id="L25">
-                    <pre>25</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    std::cout &lt;&lt; "duration " &lt;&lt; elapsed_time_ms &lt;&lt; " ms" &lt;&lt; std::endl;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L26' href='#L26' id="L26">
-                    <pre>26</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L27' href='#L27' id="L27">
-                    <pre>27</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7Jessica4Util9Decorator11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS_4Data4Load21VerticalEccentricImplENS6_12Geotechnical19FoundationStripImplEEEE1fINSB_8SetLoadVEEEDaRKSB_OKT_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L19' href='#L19' id="L19">
-                    <pre>19</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L20' href='#L20' id="L20">
-                    <pre>20</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto t_start = std::chrono::high_resolution_clock::now();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L21' href='#L21' id="L21">
-                    <pre>21</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto retval = T::template f(classe, std::forward&lt;const Args&gt;(args));</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L22' href='#L22' id="L22">
-                    <pre>22</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L23' href='#L23' id="L23">
-                    <pre>23</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const double elapsed_time_ms =</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L24' href='#L24' id="L24">
-                    <pre>24</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L25' href='#L25' id="L25">
-                    <pre>25</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    std::cout &lt;&lt; "duration " &lt;&lt; elapsed_time_ms &lt;&lt; " ms" &lt;&lt; std::endl;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L26' href='#L26' id="L26">
-                    <pre>26</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L27' href='#L27' id="L27">
-                    <pre>27</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7Jessica4Util9Decorator11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS_4Data4Load21VerticalEccentricImplENS6_12Geotechnical19FoundationStripImplEEEE1fINSB_14SetFoundationBEEEDaRKSB_OKT_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L19' href='#L19' id="L19">
-                    <pre>19</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L20' href='#L20' id="L20">
-                    <pre>20</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto t_start = std::chrono::high_resolution_clock::now();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L21' href='#L21' id="L21">
-                    <pre>21</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto retval = T::template f(classe, std::forward&lt;const Args&gt;(args));</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L22' href='#L22' id="L22">
-                    <pre>22</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L23' href='#L23' id="L23">
-                    <pre>23</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const double elapsed_time_ms =</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L24' href='#L24' id="L24">
-                    <pre>24</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L25' href='#L25' id="L25">
-                    <pre>25</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    std::cout &lt;&lt; "duration " &lt;&lt; elapsed_time_ms &lt;&lt; " ms" &lt;&lt; std::endl;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L26' href='#L26' id="L26">
-                    <pre>26</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L27' href='#L27' id="L27">
-                    <pre>27</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
+          <pre>    const double elapsed_time_ms =</pre>
         </td>
       </tr>
       <tr>
@@ -1090,9 +322,11 @@
           <a name='L28' href='#L28' id="L28">
           <pre>28</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>70</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
         </td>
       </tr>
       <tr>
@@ -1100,9 +334,11 @@
           <a name='L29' href='#L29' id="L29">
           <pre>29</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>70</pre>
+        </td>
         <td class='code'>
-          <pre>  template &lt;typename Args&gt;</pre>
+          <pre>    std::cout &lt;&lt; "duration " &lt;&lt; elapsed_time_ms &lt;&lt; " ms" &lt;&lt; std::endl;</pre>
         </td>
       </tr>
       <tr>
@@ -1110,9 +346,11 @@
           <a name='L30' href='#L30' id="L30">
           <pre>30</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>70</pre>
+        </td>
         <td class='code'>
-          <pre>  static auto f(const Type& classe)</pre>
+          <pre>    return retval;</pre>
         </td>
       </tr>
       <tr>
@@ -1121,110 +359,14 @@
           <pre>31</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>59</pre>
-        </td>
-        <td class='code'>
-          <pre>  {</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L32' href='#L32' id="L32">
-          <pre>32</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>59</pre>
-        </td>
-        <td class='code'>
-          <pre>    const auto t_start = std::chrono::high_resolution_clock::now();</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L33' href='#L33' id="L33">
-          <pre>33</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>59</pre>
-        </td>
-        <td class='code'>
-          <pre>    const auto retval = T::template f&lt;Args&gt;(classe);</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L34' href='#L34' id="L34">
-          <pre>34</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>59</pre>
-        </td>
-        <td class='code'>
-          <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L35' href='#L35' id="L35">
-          <pre>35</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>59</pre>
-        </td>
-        <td class='code'>
-          <pre>    const double elapsed_time_ms =</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L36' href='#L36' id="L36">
-          <pre>36</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>59</pre>
-        </td>
-        <td class='code'>
-          <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L37' href='#L37' id="L37">
-          <pre>37</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>59</pre>
-        </td>
-        <td class='code'>
-          <pre>    std::cout &lt;&lt; "duration " &lt;&lt; elapsed_time_ms &lt;&lt; " ms" &lt;&lt; std::endl;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L38' href='#L38' id="L38">
-          <pre>38</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>59</pre>
-        </td>
-        <td class='code'>
-          <pre>    return retval;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L39' href='#L39' id="L39">
-          <pre>39</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>59</pre>
+          <pre>70</pre>
         </td>
         <td class='code'>
           <pre>  }</pre>
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZN7Jessica4Util9Decorator11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS1_7LogCallINS2_INS_4Data4Load21VerticalEccentricImplEEEEENS6_INS2_INS7_12Geotechnical19FoundationStripImplEEEEEEEE1fINSG_5GetB_EEEDaRKSG_</pre>
+                <pre>_ZN7Jessica4Util9Decorator11LogDurationINS_4Data12Geotechnical19FoundationStripImplEE1fINS5_4SetBEJS8_EEEDaRKS5_DpOKT0_</pre>
               </div>
               <table>
                 <tr>
@@ -1240,904 +382,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>6</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>6</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto t_start = std::chrono::high_resolution_clock::now();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L33' href='#L33' id="L33">
-                    <pre>33</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>6</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto retval = T::template f&lt;Args&gt;(classe);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L34' href='#L34' id="L34">
-                    <pre>34</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>6</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L35' href='#L35' id="L35">
-                    <pre>35</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>6</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const double elapsed_time_ms =</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L36' href='#L36' id="L36">
-                    <pre>36</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>6</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L37' href='#L37' id="L37">
-                    <pre>37</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>6</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    std::cout &lt;&lt; "duration " &lt;&lt; elapsed_time_ms &lt;&lt; " ms" &lt;&lt; std::endl;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L38' href='#L38' id="L38">
-                    <pre>38</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>6</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L39' href='#L39' id="L39">
-                    <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>6</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7Jessica4Util9Decorator11LogDurationINS_4Data12Geotechnical19FoundationStripImplEE1fINS5_4GetBEEEDaRKS5_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto t_start = std::chrono::high_resolution_clock::now();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L33' href='#L33' id="L33">
-                    <pre>33</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto retval = T::template f&lt;Args&gt;(classe);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L34' href='#L34' id="L34">
-                    <pre>34</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L35' href='#L35' id="L35">
-                    <pre>35</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const double elapsed_time_ms =</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L36' href='#L36' id="L36">
-                    <pre>36</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L37' href='#L37' id="L37">
-                    <pre>37</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    std::cout &lt;&lt; "duration " &lt;&lt; elapsed_time_ms &lt;&lt; " ms" &lt;&lt; std::endl;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L38' href='#L38' id="L38">
-                    <pre>38</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L39' href='#L39' id="L39">
-                    <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEE1fINS5_4GetEEEEDaRKS5_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto t_start = std::chrono::high_resolution_clock::now();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L33' href='#L33' id="L33">
-                    <pre>33</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto retval = T::template f&lt;Args&gt;(classe);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L34' href='#L34' id="L34">
-                    <pre>34</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L35' href='#L35' id="L35">
-                    <pre>35</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const double elapsed_time_ms =</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L36' href='#L36' id="L36">
-                    <pre>36</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L37' href='#L37' id="L37">
-                    <pre>37</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    std::cout &lt;&lt; "duration " &lt;&lt; elapsed_time_ms &lt;&lt; " ms" &lt;&lt; std::endl;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L38' href='#L38' id="L38">
-                    <pre>38</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L39' href='#L39' id="L39">
-                    <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7Jessica4Util9Decorator11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS1_7LogCallINS2_INS_4Data4Load21VerticalEccentricImplEEEEENS6_INS2_INS7_12Geotechnical19FoundationStripImplEEEEEEEE1fINSG_7GetQrefEEEDaRKSG_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto t_start = std::chrono::high_resolution_clock::now();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L33' href='#L33' id="L33">
-                    <pre>33</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto retval = T::template f&lt;Args&gt;(classe);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L34' href='#L34' id="L34">
-                    <pre>34</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L35' href='#L35' id="L35">
-                    <pre>35</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const double elapsed_time_ms =</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L36' href='#L36' id="L36">
-                    <pre>36</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L37' href='#L37' id="L37">
-                    <pre>37</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    std::cout &lt;&lt; "duration " &lt;&lt; elapsed_time_ms &lt;&lt; " ms" &lt;&lt; std::endl;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L38' href='#L38' id="L38">
-                    <pre>38</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L39' href='#L39' id="L39">
-                    <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEE1fINS5_4GetVEEEDaRKS5_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto t_start = std::chrono::high_resolution_clock::now();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L33' href='#L33' id="L33">
-                    <pre>33</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto retval = T::template f&lt;Args&gt;(classe);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L34' href='#L34' id="L34">
-                    <pre>34</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L35' href='#L35' id="L35">
-                    <pre>35</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const double elapsed_time_ms =</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L36' href='#L36' id="L36">
-                    <pre>36</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L37' href='#L37' id="L37">
-                    <pre>37</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    std::cout &lt;&lt; "duration " &lt;&lt; elapsed_time_ms &lt;&lt; " ms" &lt;&lt; std::endl;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L38' href='#L38' id="L38">
-                    <pre>38</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L39' href='#L39' id="L39">
-                    <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7Jessica4Util9Decorator11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS_4Data4Load21VerticalEccentricImplENS6_12Geotechnical19FoundationStripImplEEEE1fINSB_5GetB_EEEDaRKSB_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto t_start = std::chrono::high_resolution_clock::now();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L33' href='#L33' id="L33">
-                    <pre>33</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto retval = T::template f&lt;Args&gt;(classe);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L34' href='#L34' id="L34">
-                    <pre>34</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L35' href='#L35' id="L35">
-                    <pre>35</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const double elapsed_time_ms =</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L36' href='#L36' id="L36">
-                    <pre>36</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L37' href='#L37' id="L37">
-                    <pre>37</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    std::cout &lt;&lt; "duration " &lt;&lt; elapsed_time_ms &lt;&lt; " ms" &lt;&lt; std::endl;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L38' href='#L38' id="L38">
-                    <pre>38</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L39' href='#L39' id="L39">
-                    <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7Jessica4Util9Decorator11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS_4Data4Load21VerticalEccentricImplENS6_12Geotechnical19FoundationStripImplEEEE1fINSB_7GetQrefEEEDaRKSB_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto t_start = std::chrono::high_resolution_clock::now();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L33' href='#L33' id="L33">
-                    <pre>33</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto retval = T::template f&lt;Args&gt;(classe);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L34' href='#L34' id="L34">
-                    <pre>34</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L35' href='#L35' id="L35">
-                    <pre>35</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    const double elapsed_time_ms =</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L36' href='#L36' id="L36">
-                    <pre>36</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L37' href='#L37' id="L37">
-                    <pre>37</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    std::cout &lt;&lt; "duration " &lt;&lt; elapsed_time_ms &lt;&lt; " ms" &lt;&lt; std::endl;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L38' href='#L38' id="L38">
-                    <pre>38</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L39' href='#L39' id="L39">
-                    <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7Jessica4Util9Decorator11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS_4Data4Load21VerticalEccentricImplENS6_12Geotechnical19FoundationStripImplEEEE1fINSB_8GetLoadEEEEDaRKSB_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -2148,8 +394,44 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    using V0 = typename std::conditional_t&lt;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -2160,20 +442,32 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L33' href='#L33' id="L33">
-                    <pre>33</pre></a>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto retval = T::template f&lt;Args&gt;(classe);</pre>
+                    <pre>    const auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L34' href='#L34' id="L34">
-                    <pre>34</pre></a>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L26' href='#L26' id="L26">
+                    <pre>26</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -2184,8 +478,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L35' href='#L35' id="L35">
-                    <pre>35</pre></a>
+                    <a name='L27' href='#L27' id="L27">
+                    <pre>27</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -2196,8 +490,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L36' href='#L36' id="L36">
-                    <pre>36</pre></a>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -2208,8 +502,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L37' href='#L37' id="L37">
-                    <pre>37</pre></a>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -2220,8 +514,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L38' href='#L38' id="L38">
-                    <pre>38</pre></a>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -2232,8 +526,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L39' href='#L39' id="L39">
-                    <pre>39</pre></a>
+                    <a name='L31' href='#L31' id="L31">
+                    <pre>31</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -2248,7 +542,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZN7Jessica4Util9Decorator11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS_4Data4Load21VerticalEccentricImplENS6_12Geotechnical19FoundationStripImplEEEE1fINSB_8GetLoadVEEEDaRKSB_</pre>
+                <pre>_ZN7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEE1fINS5_4SetVEJS8_EEEDaRKS5_DpOKT0_</pre>
               </div>
               <table>
                 <tr>
@@ -2264,8 +558,1592 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    using V0 = typename std::conditional_t&lt;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto t_start = std::chrono::high_resolution_clock::now();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto retval =</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L26' href='#L26' id="L26">
+                    <pre>26</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L27' href='#L27' id="L27">
+                    <pre>27</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const double elapsed_time_ms =</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    std::cout &lt;&lt; "duration " &lt;&lt; elapsed_time_ms &lt;&lt; " ms" &lt;&lt; std::endl;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return retval;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
                     <a name='L31' href='#L31' id="L31">
                     <pre>31</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEE1fINS5_4SetEEJS8_EEEDaRKS5_DpOKT0_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    using V0 = typename std::conditional_t&lt;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto t_start = std::chrono::high_resolution_clock::now();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto retval =</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L26' href='#L26' id="L26">
+                    <pre>26</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L27' href='#L27' id="L27">
+                    <pre>27</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const double elapsed_time_ms =</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    std::cout &lt;&lt; "duration " &lt;&lt; elapsed_time_ms &lt;&lt; " ms" &lt;&lt; std::endl;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return retval;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L31' href='#L31' id="L31">
+                    <pre>31</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN7Jessica4Util9Decorator11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS1_7LogCallINS2_INS_4Data4Load21VerticalEccentricImplEEEEENS6_INS2_INS7_12Geotechnical19FoundationStripImplEEEEEEEE1fINSG_5GetB_EJEEEDaRKSG_DpOKT0_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>6</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>6</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    using V0 = typename std::conditional_t&lt;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>6</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>6</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>6</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto t_start = std::chrono::high_resolution_clock::now();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>6</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto retval =</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>6</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L26' href='#L26' id="L26">
+                    <pre>26</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>6</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L27' href='#L27' id="L27">
+                    <pre>27</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>6</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const double elapsed_time_ms =</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>6</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>6</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    std::cout &lt;&lt; "duration " &lt;&lt; elapsed_time_ms &lt;&lt; " ms" &lt;&lt; std::endl;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>6</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return retval;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L31' href='#L31' id="L31">
+                    <pre>31</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>6</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN7Jessica4Util9Decorator11LogDurationINS_4Data12Geotechnical19FoundationStripImplEE1fINS5_4GetBEJEEEDaRKS5_DpOKT0_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>10</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>10</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    using V0 = typename std::conditional_t&lt;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>10</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>10</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>10</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto t_start = std::chrono::high_resolution_clock::now();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>10</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto retval =</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>10</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L26' href='#L26' id="L26">
+                    <pre>26</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>10</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L27' href='#L27' id="L27">
+                    <pre>27</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>10</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const double elapsed_time_ms =</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>10</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>10</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    std::cout &lt;&lt; "duration " &lt;&lt; elapsed_time_ms &lt;&lt; " ms" &lt;&lt; std::endl;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>10</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return retval;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L31' href='#L31' id="L31">
+                    <pre>31</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>10</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEE1fINS5_4GetEEJEEEDaRKS5_DpOKT0_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    using V0 = typename std::conditional_t&lt;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto t_start = std::chrono::high_resolution_clock::now();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto retval =</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L26' href='#L26' id="L26">
+                    <pre>26</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L27' href='#L27' id="L27">
+                    <pre>27</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const double elapsed_time_ms =</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    std::cout &lt;&lt; "duration " &lt;&lt; elapsed_time_ms &lt;&lt; " ms" &lt;&lt; std::endl;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return retval;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L31' href='#L31' id="L31">
+                    <pre>31</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN7Jessica4Util9Decorator11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS1_7LogCallINS2_INS_4Data4Load21VerticalEccentricImplEEEEENS6_INS2_INS7_12Geotechnical19FoundationStripImplEEEEEEEE1fINSG_7GetQrefEJEEEDaRKSG_DpOKT0_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    using V0 = typename std::conditional_t&lt;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto t_start = std::chrono::high_resolution_clock::now();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto retval =</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L26' href='#L26' id="L26">
+                    <pre>26</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L27' href='#L27' id="L27">
+                    <pre>27</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const double elapsed_time_ms =</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    std::cout &lt;&lt; "duration " &lt;&lt; elapsed_time_ms &lt;&lt; " ms" &lt;&lt; std::endl;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return retval;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L31' href='#L31' id="L31">
+                    <pre>31</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN7Jessica4Util9Decorator11LogDurationINS_4Data4Load21VerticalEccentricImplEE1fINS5_4GetVEJEEEDaRKS5_DpOKT0_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>9</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>9</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    using V0 = typename std::conditional_t&lt;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>9</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>9</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>9</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto t_start = std::chrono::high_resolution_clock::now();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>9</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto retval =</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>9</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L26' href='#L26' id="L26">
+                    <pre>26</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>9</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L27' href='#L27' id="L27">
+                    <pre>27</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>9</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const double elapsed_time_ms =</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>9</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>9</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    std::cout &lt;&lt; "duration " &lt;&lt; elapsed_time_ms &lt;&lt; " ms" &lt;&lt; std::endl;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>9</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return retval;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L31' href='#L31' id="L31">
+                    <pre>31</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>9</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN7Jessica4Util9Decorator11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS_4Data4Load21VerticalEccentricImplENS6_12Geotechnical19FoundationStripImplEEEE1fINSB_5GetB_EJEEEDaRKSB_DpOKT0_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>7</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>7</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    using V0 = typename std::conditional_t&lt;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>7</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>7</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>7</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto t_start = std::chrono::high_resolution_clock::now();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>7</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto retval =</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>7</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L26' href='#L26' id="L26">
+                    <pre>26</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>7</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L27' href='#L27' id="L27">
+                    <pre>27</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>7</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const double elapsed_time_ms =</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>7</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>7</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    std::cout &lt;&lt; "duration " &lt;&lt; elapsed_time_ms &lt;&lt; " ms" &lt;&lt; std::endl;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>7</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return retval;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L31' href='#L31' id="L31">
+                    <pre>31</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>7</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN7Jessica4Util9Decorator11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS_4Data4Load21VerticalEccentricImplENS6_12Geotechnical19FoundationStripImplEEEE1fINSB_7GetQrefEJEEEDaRKSB_DpOKT0_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    using V0 = typename std::conditional_t&lt;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto t_start = std::chrono::high_resolution_clock::now();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto retval =</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L26' href='#L26' id="L26">
+                    <pre>26</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L27' href='#L27' id="L27">
+                    <pre>27</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const double elapsed_time_ms =</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    std::cout &lt;&lt; "duration " &lt;&lt; elapsed_time_ms &lt;&lt; " ms" &lt;&lt; std::endl;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return retval;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L31' href='#L31' id="L31">
+                    <pre>31</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN7Jessica4Util9Decorator11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS_4Data4Load21VerticalEccentricImplENS6_12Geotechnical19FoundationStripImplEEEE1fINSB_8SetLoadEEJSE_EEEDaRKSB_DpOKT0_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -2276,8 +2154,44 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    using V0 = typename std::conditional_t&lt;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -2288,20 +2202,32 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L33' href='#L33' id="L33">
-                    <pre>33</pre></a>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto retval = T::template f&lt;Args&gt;(classe);</pre>
+                    <pre>    const auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L34' href='#L34' id="L34">
-                    <pre>34</pre></a>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L26' href='#L26' id="L26">
+                    <pre>26</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -2312,8 +2238,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L35' href='#L35' id="L35">
-                    <pre>35</pre></a>
+                    <a name='L27' href='#L27' id="L27">
+                    <pre>27</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -2324,8 +2250,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L36' href='#L36' id="L36">
-                    <pre>36</pre></a>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -2336,8 +2262,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L37' href='#L37' id="L37">
-                    <pre>37</pre></a>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -2348,8 +2274,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L38' href='#L38' id="L38">
-                    <pre>38</pre></a>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -2360,8 +2286,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L39' href='#L39' id="L39">
-                    <pre>39</pre></a>
+                    <a name='L31' href='#L31' id="L31">
+                    <pre>31</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -2376,7 +2302,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZN7Jessica4Util9Decorator11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS_4Data4Load21VerticalEccentricImplENS6_12Geotechnical19FoundationStripImplEEEE1fINSB_14GetFoundationBEEEDaRKSB_</pre>
+                <pre>_ZN7Jessica4Util9Decorator11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS_4Data4Load21VerticalEccentricImplENS6_12Geotechnical19FoundationStripImplEEEE1fINSB_8SetLoadVEJSE_EEEDaRKSB_DpOKT0_</pre>
               </div>
               <table>
                 <tr>
@@ -2392,8 +2318,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -2404,8 +2330,44 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    using V0 = typename std::conditional_t&lt;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -2416,20 +2378,32 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L33' href='#L33' id="L33">
-                    <pre>33</pre></a>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto retval = T::template f&lt;Args&gt;(classe);</pre>
+                    <pre>    const auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L34' href='#L34' id="L34">
-                    <pre>34</pre></a>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L26' href='#L26' id="L26">
+                    <pre>26</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -2440,8 +2414,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L35' href='#L35' id="L35">
-                    <pre>35</pre></a>
+                    <a name='L27' href='#L27' id="L27">
+                    <pre>27</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -2452,8 +2426,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L36' href='#L36' id="L36">
-                    <pre>36</pre></a>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -2464,8 +2438,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L37' href='#L37' id="L37">
-                    <pre>37</pre></a>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -2476,8 +2450,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L38' href='#L38' id="L38">
-                    <pre>38</pre></a>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -2488,8 +2462,712 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L39' href='#L39' id="L39">
-                    <pre>39</pre></a>
+                    <a name='L31' href='#L31' id="L31">
+                    <pre>31</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN7Jessica4Util9Decorator11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS_4Data4Load21VerticalEccentricImplENS6_12Geotechnical19FoundationStripImplEEEE1fINSB_14SetFoundationBEJSE_EEEDaRKSB_DpOKT0_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    using V0 = typename std::conditional_t&lt;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto t_start = std::chrono::high_resolution_clock::now();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto retval =</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L26' href='#L26' id="L26">
+                    <pre>26</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L27' href='#L27' id="L27">
+                    <pre>27</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const double elapsed_time_ms =</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    std::cout &lt;&lt; "duration " &lt;&lt; elapsed_time_ms &lt;&lt; " ms" &lt;&lt; std::endl;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return retval;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L31' href='#L31' id="L31">
+                    <pre>31</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN7Jessica4Util9Decorator11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS_4Data4Load21VerticalEccentricImplENS6_12Geotechnical19FoundationStripImplEEEE1fINSB_8GetLoadEEJEEEDaRKSB_DpOKT0_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    using V0 = typename std::conditional_t&lt;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto t_start = std::chrono::high_resolution_clock::now();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto retval =</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L26' href='#L26' id="L26">
+                    <pre>26</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L27' href='#L27' id="L27">
+                    <pre>27</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const double elapsed_time_ms =</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    std::cout &lt;&lt; "duration " &lt;&lt; elapsed_time_ms &lt;&lt; " ms" &lt;&lt; std::endl;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return retval;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L31' href='#L31' id="L31">
+                    <pre>31</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN7Jessica4Util9Decorator11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS_4Data4Load21VerticalEccentricImplENS6_12Geotechnical19FoundationStripImplEEEE1fINSB_8GetLoadVEJEEEDaRKSB_DpOKT0_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    using V0 = typename std::conditional_t&lt;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto t_start = std::chrono::high_resolution_clock::now();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto retval =</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L26' href='#L26' id="L26">
+                    <pre>26</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L27' href='#L27' id="L27">
+                    <pre>27</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const double elapsed_time_ms =</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    std::cout &lt;&lt; "duration " &lt;&lt; elapsed_time_ms &lt;&lt; " ms" &lt;&lt; std::endl;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return retval;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L31' href='#L31' id="L31">
+                    <pre>31</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN7Jessica4Util9Decorator11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS_4Data4Load21VerticalEccentricImplENS6_12Geotechnical19FoundationStripImplEEEE1fINSB_14GetFoundationBEJEEEDaRKSB_DpOKT0_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    using V0 = typename std::conditional_t&lt;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto t_start = std::chrono::high_resolution_clock::now();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto retval =</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L26' href='#L26' id="L26">
+                    <pre>26</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L27' href='#L27' id="L27">
+                    <pre>27</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    const double elapsed_time_ms =</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    std::cout &lt;&lt; "duration " &lt;&lt; elapsed_time_ms &lt;&lt; " ms" &lt;&lt; std::endl;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return retval;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L31' href='#L31' id="L31">
+                    <pre>31</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -2505,8 +3183,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L40' href='#L40' id="L40">
-          <pre>40</pre></a>
+          <a name='L32' href='#L32' id="L32">
+          <pre>32</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -2515,8 +3193,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L41' href='#L41' id="L41">
-          <pre>41</pre></a>
+          <a name='L33' href='#L33' id="L33">
+          <pre>33</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>

@@ -186,7 +186,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  template &lt;typename Args&gt;</pre>
+          <pre>  template &lt;typename U = void, typename... Args&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -196,7 +196,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  static auto f(const Type& classe, const Args&amp;& args)</pre>
+          <pre>  [[nodiscard]] static auto f(const Type& classe, const Args&amp;&amp;... args)</pre>
         </td>
       </tr>
       <tr>
@@ -205,7 +205,7 @@
           <pre>18</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>11</pre>
+          <pre>70</pre>
         </td>
         <td class='code'>
           <pre>  {</pre>
@@ -217,10 +217,10 @@
           <pre>19</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>11</pre>
+          <pre>70</pre>
         </td>
         <td class='code'>
-          <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; " "</pre>
+          <pre>    using V0 = typename std::conditional_t&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -229,10 +229,10 @@
           <pre>20</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>11</pre>
+          <pre>70</pre>
         </td>
         <td class='code'>
-          <pre>              &lt;&lt; typeid(Args).name() &lt;&lt; std::endl;</pre>
+          <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
         </td>
       </tr>
       <tr>
@@ -241,10 +241,10 @@
           <pre>21</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>11</pre>
+          <pre>70</pre>
         </td>
         <td class='code'>
-          <pre>    return T::template f(classe, std::forward&lt;const Args&gt;(args));</pre>
+          <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
         </td>
       </tr>
       <tr>
@@ -253,541 +253,7 @@
           <pre>22</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>11</pre>
-        </td>
-        <td class='code'>
-          <pre>  }</pre>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7Jessica4Util9Decorator7LogCallINS1_11LogDurationINS_4Data12Geotechnical19FoundationStripImplEEEE1fINS6_4SetBEEEDaRKS6_OKT_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L18' href='#L18' id="L18">
-                    <pre>18</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L19' href='#L19' id="L19">
-                    <pre>19</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; " "</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L20' href='#L20' id="L20">
-                    <pre>20</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>              &lt;&lt; typeid(Args).name() &lt;&lt; std::endl;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L21' href='#L21' id="L21">
-                    <pre>21</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return T::template f(classe, std::forward&lt;const Args&gt;(args));</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L22' href='#L22' id="L22">
-                    <pre>22</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7Jessica4Util9Decorator7LogCallINS1_11LogDurationINS_4Data4Load21VerticalEccentricImplEEEE1fINS6_4SetVEEEDaRKS6_OKT_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L18' href='#L18' id="L18">
-                    <pre>18</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L19' href='#L19' id="L19">
-                    <pre>19</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; " "</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L20' href='#L20' id="L20">
-                    <pre>20</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>              &lt;&lt; typeid(Args).name() &lt;&lt; std::endl;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L21' href='#L21' id="L21">
-                    <pre>21</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return T::template f(classe, std::forward&lt;const Args&gt;(args));</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L22' href='#L22' id="L22">
-                    <pre>22</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7Jessica4Util9Decorator7LogCallINS1_11LogDurationINS_4Data4Load21VerticalEccentricImplEEEE1fINS6_4SetEEEEDaRKS6_OKT_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L18' href='#L18' id="L18">
-                    <pre>18</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L19' href='#L19' id="L19">
-                    <pre>19</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; " "</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L20' href='#L20' id="L20">
-                    <pre>20</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>              &lt;&lt; typeid(Args).name() &lt;&lt; std::endl;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L21' href='#L21' id="L21">
-                    <pre>21</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return T::template f(classe, std::forward&lt;const Args&gt;(args));</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L22' href='#L22' id="L22">
-                    <pre>22</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7Jessica4Util9Decorator7LogCallINS1_11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS_4Data4Load21VerticalEccentricImplENS7_12Geotechnical19FoundationStripImplEEEEEE1fINSC_8SetLoadEEEEDaRKSC_OKT_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L18' href='#L18' id="L18">
-                    <pre>18</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L19' href='#L19' id="L19">
-                    <pre>19</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; " "</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L20' href='#L20' id="L20">
-                    <pre>20</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>              &lt;&lt; typeid(Args).name() &lt;&lt; std::endl;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L21' href='#L21' id="L21">
-                    <pre>21</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return T::template f(classe, std::forward&lt;const Args&gt;(args));</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L22' href='#L22' id="L22">
-                    <pre>22</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7Jessica4Util9Decorator7LogCallINS1_11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS_4Data4Load21VerticalEccentricImplENS7_12Geotechnical19FoundationStripImplEEEEEE1fINSC_8SetLoadVEEEDaRKSC_OKT_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L18' href='#L18' id="L18">
-                    <pre>18</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L19' href='#L19' id="L19">
-                    <pre>19</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; " "</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L20' href='#L20' id="L20">
-                    <pre>20</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>              &lt;&lt; typeid(Args).name() &lt;&lt; std::endl;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L21' href='#L21' id="L21">
-                    <pre>21</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return T::template f(classe, std::forward&lt;const Args&gt;(args));</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L22' href='#L22' id="L22">
-                    <pre>22</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7Jessica4Util9Decorator7LogCallINS1_11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS_4Data4Load21VerticalEccentricImplENS7_12Geotechnical19FoundationStripImplEEEEEE1fINSC_14SetFoundationBEEEDaRKSC_OKT_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L18' href='#L18' id="L18">
-                    <pre>18</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L19' href='#L19' id="L19">
-                    <pre>19</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; " "</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L20' href='#L20' id="L20">
-                    <pre>20</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>              &lt;&lt; typeid(Args).name() &lt;&lt; std::endl;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L21' href='#L21' id="L21">
-                    <pre>21</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return T::template f(classe, std::forward&lt;const Args&gt;(args));</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L22' href='#L22' id="L22">
-                    <pre>22</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L23' href='#L23' id="L23">
-          <pre>23</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L24' href='#L24' id="L24">
-          <pre>24</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  template &lt;typename Args&gt;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L25' href='#L25' id="L25">
-          <pre>25</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  static auto f(const Type& classe)</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L26' href='#L26' id="L26">
-          <pre>26</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>59</pre>
-        </td>
-        <td class='code'>
-          <pre>  {</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L27' href='#L27' id="L27">
-          <pre>27</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>59</pre>
+          <pre>70</pre>
         </td>
         <td class='code'>
           <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; " "</pre>
@@ -795,42 +261,42 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L28' href='#L28' id="L28">
-          <pre>28</pre></a>
+          <a name='L23' href='#L23' id="L23">
+          <pre>23</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>59</pre>
+          <pre>70</pre>
         </td>
         <td class='code'>
-          <pre>              &lt;&lt; typeid(Args).name() &lt;&lt; std::endl;</pre>
+          <pre>              &lt;&lt; typeid(V0).name() &lt;&lt; std::endl;</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L29' href='#L29' id="L29">
-          <pre>29</pre></a>
+          <a name='L24' href='#L24' id="L24">
+          <pre>24</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>59</pre>
+          <pre>70</pre>
         </td>
         <td class='code'>
-          <pre>    return T::template f&lt;Args&gt;(classe);</pre>
+          <pre>    return T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L30' href='#L30' id="L30">
-          <pre>30</pre></a>
+          <a name='L25' href='#L25' id="L25">
+          <pre>25</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>59</pre>
+          <pre>70</pre>
         </td>
         <td class='code'>
           <pre>  }</pre>
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZN7Jessica4Util9Decorator7LogCallINS1_11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS2_INS3_INS_4Data4Load21VerticalEccentricImplEEEEENS2_INS3_INS7_12Geotechnical19FoundationStripImplEEEEEEEEEE1fINSG_5GetB_EEEDaRKSG_</pre>
+                <pre>_ZN7Jessica4Util9Decorator7LogCallINS1_11LogDurationINS_4Data12Geotechnical19FoundationStripImplEEEE1fINS6_4SetBEJSA_EEEDaRKS6_DpOKT0_</pre>
               </div>
               <table>
                 <tr>
@@ -846,11 +312,11 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L26' href='#L26' id="L26">
-                    <pre>26</pre></a>
+                    <a name='L18' href='#L18' id="L18">
+                    <pre>18</pre></a>
                   </td>
                   <td class='covered-line'>
-                    <pre>6</pre>
+                    <pre>1</pre>
                   </td>
                   <td class='code'>
                     <pre>  {</pre>
@@ -858,11 +324,47 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L27' href='#L27' id="L27">
-                    <pre>27</pre></a>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
                   </td>
                   <td class='covered-line'>
-                    <pre>6</pre>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    using V0 = typename std::conditional_t&lt;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
                   </td>
                   <td class='code'>
                     <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; " "</pre>
@@ -870,35 +372,35 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L28' href='#L28' id="L28">
-                    <pre>28</pre></a>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
                   </td>
                   <td class='covered-line'>
-                    <pre>6</pre>
+                    <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>              &lt;&lt; typeid(Args).name() &lt;&lt; std::endl;</pre>
+                    <pre>              &lt;&lt; typeid(V0).name() &lt;&lt; std::endl;</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L29' href='#L29' id="L29">
-                    <pre>29</pre></a>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
                   </td>
                   <td class='covered-line'>
-                    <pre>6</pre>
+                    <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return T::template f&lt;Args&gt;(classe);</pre>
+                    <pre>    return T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
                   </td>
                   <td class='covered-line'>
-                    <pre>6</pre>
+                    <pre>1</pre>
                   </td>
                   <td class='code'>
                     <pre>  }</pre>
@@ -910,7 +412,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZN7Jessica4Util9Decorator7LogCallINS1_11LogDurationINS_4Data12Geotechnical19FoundationStripImplEEEE1fINS6_4GetBEEEDaRKS6_</pre>
+                <pre>_ZN7Jessica4Util9Decorator7LogCallINS1_11LogDurationINS_4Data4Load21VerticalEccentricImplEEEE1fINS6_4SetVEJSA_EEEDaRKS6_DpOKT0_</pre>
               </div>
               <table>
                 <tr>
@@ -926,11 +428,11 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L26' href='#L26' id="L26">
-                    <pre>26</pre></a>
+                    <a name='L18' href='#L18' id="L18">
+                    <pre>18</pre></a>
                   </td>
                   <td class='covered-line'>
-                    <pre>10</pre>
+                    <pre>2</pre>
                   </td>
                   <td class='code'>
                     <pre>  {</pre>
@@ -938,11 +440,47 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L27' href='#L27' id="L27">
-                    <pre>27</pre></a>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
                   </td>
                   <td class='covered-line'>
-                    <pre>10</pre>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    using V0 = typename std::conditional_t&lt;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
                   </td>
                   <td class='code'>
                     <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; " "</pre>
@@ -950,35 +488,35 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L28' href='#L28' id="L28">
-                    <pre>28</pre></a>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
                   </td>
                   <td class='covered-line'>
-                    <pre>10</pre>
+                    <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>              &lt;&lt; typeid(Args).name() &lt;&lt; std::endl;</pre>
+                    <pre>              &lt;&lt; typeid(V0).name() &lt;&lt; std::endl;</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L29' href='#L29' id="L29">
-                    <pre>29</pre></a>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
                   </td>
                   <td class='covered-line'>
-                    <pre>10</pre>
+                    <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return T::template f&lt;Args&gt;(classe);</pre>
+                    <pre>    return T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
                   </td>
                   <td class='covered-line'>
-                    <pre>10</pre>
+                    <pre>2</pre>
                   </td>
                   <td class='code'>
                     <pre>  }</pre>
@@ -990,7 +528,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZN7Jessica4Util9Decorator7LogCallINS1_11LogDurationINS_4Data4Load21VerticalEccentricImplEEEE1fINS6_4GetEEEEDaRKS6_</pre>
+                <pre>_ZN7Jessica4Util9Decorator7LogCallINS1_11LogDurationINS_4Data4Load21VerticalEccentricImplEEEE1fINS6_4SetEEJSA_EEEDaRKS6_DpOKT0_</pre>
               </div>
               <table>
                 <tr>
@@ -1006,328 +544,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L26' href='#L26' id="L26">
-                    <pre>26</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L27' href='#L27' id="L27">
-                    <pre>27</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; " "</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L28' href='#L28' id="L28">
-                    <pre>28</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>              &lt;&lt; typeid(Args).name() &lt;&lt; std::endl;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L29' href='#L29' id="L29">
-                    <pre>29</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return T::template f&lt;Args&gt;(classe);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7Jessica4Util9Decorator7LogCallINS1_11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS2_INS3_INS_4Data4Load21VerticalEccentricImplEEEEENS2_INS3_INS7_12Geotechnical19FoundationStripImplEEEEEEEEEE1fINSG_7GetQrefEEEDaRKSG_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L26' href='#L26' id="L26">
-                    <pre>26</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L27' href='#L27' id="L27">
-                    <pre>27</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; " "</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L28' href='#L28' id="L28">
-                    <pre>28</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>              &lt;&lt; typeid(Args).name() &lt;&lt; std::endl;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L29' href='#L29' id="L29">
-                    <pre>29</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return T::template f&lt;Args&gt;(classe);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7Jessica4Util9Decorator7LogCallINS1_11LogDurationINS_4Data4Load21VerticalEccentricImplEEEE1fINS6_4GetVEEEDaRKS6_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L26' href='#L26' id="L26">
-                    <pre>26</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L27' href='#L27' id="L27">
-                    <pre>27</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; " "</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L28' href='#L28' id="L28">
-                    <pre>28</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>              &lt;&lt; typeid(Args).name() &lt;&lt; std::endl;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L29' href='#L29' id="L29">
-                    <pre>29</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return T::template f&lt;Args&gt;(classe);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7Jessica4Util9Decorator7LogCallINS1_11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS_4Data4Load21VerticalEccentricImplENS7_12Geotechnical19FoundationStripImplEEEEEE1fINSC_5GetB_EEEDaRKSC_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L26' href='#L26' id="L26">
-                    <pre>26</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L27' href='#L27' id="L27">
-                    <pre>27</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; " "</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L28' href='#L28' id="L28">
-                    <pre>28</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>              &lt;&lt; typeid(Args).name() &lt;&lt; std::endl;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L29' href='#L29' id="L29">
-                    <pre>29</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return T::template f&lt;Args&gt;(classe);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7Jessica4Util9Decorator7LogCallINS1_11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS_4Data4Load21VerticalEccentricImplENS7_12Geotechnical19FoundationStripImplEEEEEE1fINSC_7GetQrefEEEDaRKSC_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L26' href='#L26' id="L26">
-                    <pre>26</pre></a>
+                    <a name='L18' href='#L18' id="L18">
+                    <pre>18</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>5</pre>
@@ -1338,8 +556,44 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L27' href='#L27' id="L27">
-                    <pre>27</pre></a>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    using V0 = typename std::conditional_t&lt;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>5</pre>
@@ -1350,32 +604,32 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L28' href='#L28' id="L28">
-                    <pre>28</pre></a>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>              &lt;&lt; typeid(Args).name() &lt;&lt; std::endl;</pre>
+                    <pre>              &lt;&lt; typeid(V0).name() &lt;&lt; std::endl;</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L29' href='#L29' id="L29">
-                    <pre>29</pre></a>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return T::template f&lt;Args&gt;(classe);</pre>
+                    <pre>    return T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>5</pre>
@@ -1390,7 +644,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZN7Jessica4Util9Decorator7LogCallINS1_11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS_4Data4Load21VerticalEccentricImplENS7_12Geotechnical19FoundationStripImplEEEEEE1fINSC_8GetLoadEEEEDaRKSC_</pre>
+                <pre>_ZN7Jessica4Util9Decorator7LogCallINS1_11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS2_INS3_INS_4Data4Load21VerticalEccentricImplEEEEENS2_INS3_INS7_12Geotechnical19FoundationStripImplEEEEEEEEEE1fINSG_5GetB_EJEEEDaRKSG_DpOKT0_</pre>
               </div>
               <table>
                 <tr>
@@ -1406,8 +660,820 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L26' href='#L26' id="L26">
-                    <pre>26</pre></a>
+                    <a name='L18' href='#L18' id="L18">
+                    <pre>18</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>6</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>6</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    using V0 = typename std::conditional_t&lt;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>6</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>6</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>6</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; " "</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>6</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>              &lt;&lt; typeid(V0).name() &lt;&lt; std::endl;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>6</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>6</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN7Jessica4Util9Decorator7LogCallINS1_11LogDurationINS_4Data12Geotechnical19FoundationStripImplEEEE1fINS6_4GetBEJEEEDaRKS6_DpOKT0_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L18' href='#L18' id="L18">
+                    <pre>18</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>10</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>10</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    using V0 = typename std::conditional_t&lt;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>10</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>10</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>10</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; " "</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>10</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>              &lt;&lt; typeid(V0).name() &lt;&lt; std::endl;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>10</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>10</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN7Jessica4Util9Decorator7LogCallINS1_11LogDurationINS_4Data4Load21VerticalEccentricImplEEEE1fINS6_4GetEEJEEEDaRKS6_DpOKT0_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L18' href='#L18' id="L18">
+                    <pre>18</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    using V0 = typename std::conditional_t&lt;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; " "</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>              &lt;&lt; typeid(V0).name() &lt;&lt; std::endl;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN7Jessica4Util9Decorator7LogCallINS1_11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS2_INS3_INS_4Data4Load21VerticalEccentricImplEEEEENS2_INS3_INS7_12Geotechnical19FoundationStripImplEEEEEEEEEE1fINSG_7GetQrefEJEEEDaRKSG_DpOKT0_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L18' href='#L18' id="L18">
+                    <pre>18</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    using V0 = typename std::conditional_t&lt;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; " "</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>              &lt;&lt; typeid(V0).name() &lt;&lt; std::endl;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN7Jessica4Util9Decorator7LogCallINS1_11LogDurationINS_4Data4Load21VerticalEccentricImplEEEE1fINS6_4GetVEJEEEDaRKS6_DpOKT0_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L18' href='#L18' id="L18">
+                    <pre>18</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>9</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>9</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    using V0 = typename std::conditional_t&lt;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>9</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>9</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>9</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; " "</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>9</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>              &lt;&lt; typeid(V0).name() &lt;&lt; std::endl;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>9</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>9</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN7Jessica4Util9Decorator7LogCallINS1_11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS_4Data4Load21VerticalEccentricImplENS7_12Geotechnical19FoundationStripImplEEEEEE1fINSC_5GetB_EJEEEDaRKSC_DpOKT0_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L18' href='#L18' id="L18">
+                    <pre>18</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>7</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>7</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    using V0 = typename std::conditional_t&lt;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>7</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>7</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>7</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; " "</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>7</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>              &lt;&lt; typeid(V0).name() &lt;&lt; std::endl;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>7</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>7</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN7Jessica4Util9Decorator7LogCallINS1_11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS_4Data4Load21VerticalEccentricImplENS7_12Geotechnical19FoundationStripImplEEEEEE1fINSC_7GetQrefEJEEEDaRKSC_DpOKT0_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L18' href='#L18' id="L18">
+                    <pre>18</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    using V0 = typename std::conditional_t&lt;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; " "</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>              &lt;&lt; typeid(V0).name() &lt;&lt; std::endl;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN7Jessica4Util9Decorator7LogCallINS1_11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS_4Data4Load21VerticalEccentricImplENS7_12Geotechnical19FoundationStripImplEEEEEE1fINSC_8SetLoadEEJSG_EEEDaRKSC_DpOKT0_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L18' href='#L18' id="L18">
+                    <pre>18</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1418,8 +1484,44 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L27' href='#L27' id="L27">
-                    <pre>27</pre></a>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    using V0 = typename std::conditional_t&lt;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1430,32 +1532,32 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L28' href='#L28' id="L28">
-                    <pre>28</pre></a>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>              &lt;&lt; typeid(Args).name() &lt;&lt; std::endl;</pre>
+                    <pre>              &lt;&lt; typeid(V0).name() &lt;&lt; std::endl;</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L29' href='#L29' id="L29">
-                    <pre>29</pre></a>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return T::template f&lt;Args&gt;(classe);</pre>
+                    <pre>    return T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1470,7 +1572,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZN7Jessica4Util9Decorator7LogCallINS1_11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS_4Data4Load21VerticalEccentricImplENS7_12Geotechnical19FoundationStripImplEEEEEE1fINSC_8GetLoadVEEEDaRKSC_</pre>
+                <pre>_ZN7Jessica4Util9Decorator7LogCallINS1_11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS_4Data4Load21VerticalEccentricImplENS7_12Geotechnical19FoundationStripImplEEEEEE1fINSC_8SetLoadVEJSG_EEEDaRKSC_DpOKT0_</pre>
               </div>
               <table>
                 <tr>
@@ -1486,8 +1588,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L26' href='#L26' id="L26">
-                    <pre>26</pre></a>
+                    <a name='L18' href='#L18' id="L18">
+                    <pre>18</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1498,8 +1600,44 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L27' href='#L27' id="L27">
-                    <pre>27</pre></a>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    using V0 = typename std::conditional_t&lt;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1510,32 +1648,32 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L28' href='#L28' id="L28">
-                    <pre>28</pre></a>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>              &lt;&lt; typeid(Args).name() &lt;&lt; std::endl;</pre>
+                    <pre>              &lt;&lt; typeid(V0).name() &lt;&lt; std::endl;</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L29' href='#L29' id="L29">
-                    <pre>29</pre></a>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return T::template f&lt;Args&gt;(classe);</pre>
+                    <pre>    return T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1550,7 +1688,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZN7Jessica4Util9Decorator7LogCallINS1_11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS_4Data4Load21VerticalEccentricImplENS7_12Geotechnical19FoundationStripImplEEEEEE1fINSC_14GetFoundationBEEEDaRKSC_</pre>
+                <pre>_ZN7Jessica4Util9Decorator7LogCallINS1_11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS_4Data4Load21VerticalEccentricImplENS7_12Geotechnical19FoundationStripImplEEEEEE1fINSC_14SetFoundationBEJSG_EEEDaRKSC_DpOKT0_</pre>
               </div>
               <table>
                 <tr>
@@ -1566,8 +1704,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L26' href='#L26' id="L26">
-                    <pre>26</pre></a>
+                    <a name='L18' href='#L18' id="L18">
+                    <pre>18</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1578,8 +1716,44 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L27' href='#L27' id="L27">
-                    <pre>27</pre></a>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    using V0 = typename std::conditional_t&lt;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1590,32 +1764,380 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L28' href='#L28' id="L28">
-                    <pre>28</pre></a>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>              &lt;&lt; typeid(Args).name() &lt;&lt; std::endl;</pre>
+                    <pre>              &lt;&lt; typeid(V0).name() &lt;&lt; std::endl;</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L29' href='#L29' id="L29">
-                    <pre>29</pre></a>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return T::template f&lt;Args&gt;(classe);</pre>
+                    <pre>    return T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN7Jessica4Util9Decorator7LogCallINS1_11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS_4Data4Load21VerticalEccentricImplENS7_12Geotechnical19FoundationStripImplEEEEEE1fINSC_8GetLoadEEJEEEDaRKSC_DpOKT0_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L18' href='#L18' id="L18">
+                    <pre>18</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    using V0 = typename std::conditional_t&lt;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; " "</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>              &lt;&lt; typeid(V0).name() &lt;&lt; std::endl;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN7Jessica4Util9Decorator7LogCallINS1_11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS_4Data4Load21VerticalEccentricImplENS7_12Geotechnical19FoundationStripImplEEEEEE1fINSC_8GetLoadVEJEEEDaRKSC_DpOKT0_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L18' href='#L18' id="L18">
+                    <pre>18</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    using V0 = typename std::conditional_t&lt;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; " "</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>              &lt;&lt; typeid(V0).name() &lt;&lt; std::endl;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN7Jessica4Util9Decorator7LogCallINS1_11LogDurationINS_4Calc12Geotechnical29MeyerhofShallowFoundationImplINS_4Data4Load21VerticalEccentricImplENS7_12Geotechnical19FoundationStripImplEEEEEE1fINSC_14GetFoundationBEJEEEDaRKSC_DpOKT0_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L18' href='#L18' id="L18">
+                    <pre>18</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    using V0 = typename std::conditional_t&lt;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; " "</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>              &lt;&lt; typeid(V0).name() &lt;&lt; std::endl;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1631,8 +2153,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L31' href='#L31' id="L31">
-          <pre>31</pre></a>
+          <a name='L26' href='#L26' id="L26">
+          <pre>26</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1641,8 +2163,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L32' href='#L32' id="L32">
-          <pre>32</pre></a>
+          <a name='L27' href='#L27' id="L27">
+          <pre>27</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
