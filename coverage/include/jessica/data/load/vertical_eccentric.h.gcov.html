@@ -181,7 +181,7 @@
 <a name="103"><span class="lineNum">     103</span>                 :             :   VerticalEccentric&amp; operator=(VerticalEccentric&amp;&amp;) = delete;</a>
 <a name="104"><span class="lineNum">     104</span>                 :             : </a>
 <a name="105"><span class="lineNum">     105</span>                 :             :   template &lt;typename U = void, typename... V&gt;</a>
-<a name="106"><span class="lineNum">     106</span>                 :<span class="tlaGNC">          88 :   auto f(const V&amp;&amp;... v) const</span></a>
+<a name="106"><span class="lineNum">     106</span>                 :<span class="tlaGNC">          88 :   [[nodiscard]] auto f(const V&amp;&amp;... v) const</span></a>
 <a name="107"><span class="lineNum">     107</span>                 :             :   {</a>
 <a name="108"><span class="lineNum">     108</span>                 :             :     using V0 = typename std::conditional_t&lt;</a>
 <a name="109"><span class="lineNum">     109</span>                 :             :         sizeof...(V) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</a>

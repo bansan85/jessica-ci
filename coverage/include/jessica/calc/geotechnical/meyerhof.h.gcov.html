@@ -273,7 +273,7 @@
 <a name="195"><span class="lineNum">     195</span>                 :<span class="tlaGNC">          19 :   ~MeyerhofShallowFoundation() = default;</span></a>
 <a name="196"><span class="lineNum">     196</span>                 :             : </a>
 <a name="197"><span class="lineNum">     197</span>                 :             :   template &lt;typename U = void, typename... V&gt;</a>
-<a name="198"><span class="lineNum">     198</span>                 :<span class="tlaGNC">          38 :   auto f(const V&amp;&amp;... v) const</span></a>
+<a name="198"><span class="lineNum">     198</span>                 :<span class="tlaGNC">          38 :   [[nodiscard]] auto f(const V&amp;&amp;... v) const</span></a>
 <a name="199"><span class="lineNum">     199</span>                 :             :   {</a>
 <a name="200"><span class="lineNum">     200</span>                 :             :     using V0 = typename std::conditional_t&lt;</a>
 <a name="201"><span class="lineNum">     201</span>                 :             :         sizeof...(V) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</a>
