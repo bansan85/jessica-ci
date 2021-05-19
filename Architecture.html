@@ -490,7 +490,7 @@ Between adapter and implementation, you may add decorators.</p>
 <p>Then adapter needed to be templated to support decorator, I decided to use <a href="https://github.com/bansan85/jessica/blob/4e7884bb98f24c3a1146a1ef0119f20ab84023c1/include/jessica/data/load/vertical_eccentric_concept.h">concept</a> with accessor.</p>
 </div>
 <div class="paragraph">
-<p>Finally I needed to have a very generic getter and setter to manage multiple levels of data. There is only one fake primary template function <code>Get</code> and <code>Set</code> and specialization for each field. I removed concept because it can not force specialization of primary template.</p>
+<p>Finally I needed to have a very generic getter and setter to reduce the need of boilerplate to access multiple levels of data. There is only one primary template function <code>f</code> for accessor. Specialization when needed is done with <code>requires</code> keyword instead of historic template specialization or use of <code>std::enable_if&lt;&gt;</code>. I removed concept interface because it can not force specialization of primary template.</p>
 </div>
 <div class="paragraph">
 <p>GoogleTest supports mocking with template.</p>
@@ -499,7 +499,7 @@ Between adapter and implementation, you may add decorators.</p>
 <div class="sect2">
 <h3 id="_adapter">Adapter</h3>
 <div class="paragraph">
-<p>All accessors use the same template function. To deal with getter without argument, it needs to add an explicit symbol in the mangled name. This symbol will be explicit for function without argument and implicit for function with arguments.</p>
+<p>All accessors use the same template function <code>f</code>. To deal with getter without argument, it needs to add an explicit symbol in the mangled name. This symbol will be explicit for function without argument and implicit for function with arguments.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -533,6 +533,7 @@ T::template f(*retval-&gt;impl_, FoundationStripImpl::SetB{.b = b});</code></pre
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;jessica/compat.h&gt;
+#include &lt;jessica/helper/template.h&gt;
 
 namespace Jessica::Data::Geotechnical
 {
@@ -546,18 +547,22 @@ class JESSICA_DLL_PUBLIC FoundationStrip final
   FoundationStrip&amp; operator=(const FoundationStrip&amp;) = delete;
   FoundationStrip&amp; operator=(FoundationStrip&amp;&amp;) = delete;
 
-  template &lt;typename U&gt;
-  auto Get() const
+  template &lt;typename U = void, typename... V&gt;
+  auto f(const V&amp;&amp;... v) const
   {
-    return T::template f&lt;U&gt;(*impl_);
-  }
-
-  template &lt;typename U&gt;
-  auto Set(const U&amp;&amp; u) const
-  {
-    auto retval = Clone();
-    retval-&gt;impl_ = T::template f(*impl_, std::forward&lt;const U&gt;(u));
-    return retval;
+    using V0 = std::conditional_t&lt;
+        sizeof...(V) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,
+        Jessica::Helper::LazyLoadExtractNthType&lt;0, V...&gt;&gt;::type;
+    if constexpr (V0::clone_)
+    {
+      auto retval = Clone();
+      retval-&gt;impl_ = T::template f&lt;V0&gt;(*impl_, std::forward&lt;const V&gt;(v)...);
+      return retval;
+    }
+    else
+    {
+      return T::template f&lt;V0&gt;(*impl_, std::forward&lt;const V&gt;(v)...);
+    }
   }
 
   [[nodiscard]] std::shared_ptr&lt;FoundationStrip&lt;T&gt;&gt; Clone() const
