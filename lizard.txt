@@ -23,7 +23,7 @@
        6      1     33      2       6 Jessica::Data::Load::JESSICA_DLL_PUBLICVerticalEccentricImpl::f ./include/jessica/data/load/vertical_eccentric.h
       15      2     90      1      15 Jessica::Data::Load::JESSICA_DLL_PUBLICVerticalEccentric::f ./include/jessica/data/load/vertical_eccentric.h
        4      1     21      0       4 Jessica::Data::Load::JESSICA_DLL_PUBLICVerticalEccentric::Clone ./include/jessica/data/load/vertical_eccentric.h
-      12      1    138      2      12 Jessica::Util::Decorator::JESSICA_DLL_PUBLICLogDuration::f ./include/jessica/util/decorator/log_duration.h
+      11      1    120      2      11 Jessica::Util::Decorator::JESSICA_DLL_PUBLICLogDuration::f ./include/jessica/util/decorator/log_duration.h
        8      1     95      2       8 Jessica::Util::Decorator::JESSICA_DLL_PUBLICLogCall::f ./include/jessica/util/decorator/log_call.h
        7      1     48      2       7 Jessica::Calc::Geotechnical::JESSICA_DLL_PUBLICMeyerhofShallowFoundationImpl::MeyerhofShallowFoundationImpl ./include/jessica/calc/geotechnical/meyerhof.h
        4      1     20      1       4 Jessica::Calc::Geotechnical::JESSICA_DLL_PUBLICMeyerhofShallowFoundationImpl::f ./include/jessica/calc/geotechnical/meyerhof.h
@@ -49,7 +49,7 @@ NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
       1       0.0     0.0        0.0         0     ./include/jessica/test/test.h
      82       6.6     1.2       35.6         5     ./include/jessica/data/geotechnical/foundation_strip.h
     106       6.1     1.1       32.1         7     ./include/jessica/data/load/vertical_eccentric.h
-     26      12.0     1.0      138.0         1     ./include/jessica/util/decorator/log_duration.h
+     25      11.0     1.0      120.0         1     ./include/jessica/util/decorator/log_duration.h
      21       8.0     1.0       95.0         1     ./include/jessica/util/decorator/log_call.h
      52       0.0     0.0        0.0         0     ./include/jessica/helper/template.h
     164       6.8     1.1       49.7        12     ./include/jessica/calc/geotechnical/meyerhof.h
@@ -60,4 +60,4 @@ No thresholds exceeded (cyclomatic_complexity > 15 or length > 1000 or nloc > 10
 ==========================================================================================
 Total nloc   Avg.NLOC  AvgCCN  Avg.token   Fun Cnt  Warning cnt   Fun Rt   nloc Rt
 ------------------------------------------------------------------------------------------
-       984      18.9     1.1      160.0       36            0      0.00    0.00
+       983      18.8     1.1      159.5       36            0      0.00    0.00
