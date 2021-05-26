@@ -92,24 +92,21 @@
 <a name="14"><span class="lineNum">      14</span>                 :             :  public:</a>
 <a name="15"><span class="lineNum">      15</span>                 :             :   using Type = typename Jessica::Helper::ExtractRootType&lt;T&gt;::type;</a>
 <a name="16"><span class="lineNum">      16</span>                 :             : </a>
-<a name="17"><span class="lineNum">      17</span>                 :             :   template &lt;typename U = void, typename... Args&gt;</a>
+<a name="17"><span class="lineNum">      17</span>                 :             :   template &lt;bool CloneT, typename... U, typename... Args&gt;</a>
 <a name="18"><span class="lineNum">      18</span>                 :<span class="tlaGNC">          76 :   [[nodiscard]] static auto f(const Type&amp; classe, const Args&amp;&amp;... args)</span></a>
 <a name="19"><span class="lineNum">      19</span>                 :             :   {</a>
-<a name="20"><span class="lineNum">      20</span>                 :             :     using V0 = typename std::conditional_t&lt;</a>
-<a name="21"><span class="lineNum">      21</span>                 :             :         sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,</a>
-<a name="22"><span class="lineNum">      22</span>                 :             :         Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;</a>
-<a name="23"><span class="lineNum">      23</span>                 :<span class="tlaGNC">          76 :     const auto t_start = std::chrono::high_resolution_clock::now();</span></a>
-<a name="24"><span class="lineNum">      24</span>         [<span class="tlaGBC" title="Branch 0 was taken 12 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span>]:<span class="tlaGNC">          12 :     const auto retval =</span></a>
-<a name="25"><span class="lineNum">      25</span>         [<span class="tlaGBC" title="Branch 0 was taken 25 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span>]:<span class="tlaGNC">          67 :         T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);</span></a>
-<a name="26"><span class="lineNum">      26</span>                 :<span class="tlaGNC">          76 :     const auto t_end = std::chrono::high_resolution_clock::now();</span></a>
-<a name="27"><span class="lineNum">      27</span>                 :             :     const double elapsed_time_ms =</a>
-<a name="28"><span class="lineNum">      28</span>   [<span class="tlaGBC" title="Branch 0 was taken 76 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span><span class="tlaGBC" title="Branch 2 was taken 76 times"> + </span><span class="tlaUNC" title="Branch 3 was not taken"> - </span>]:<span class="tlaGNC">          76 :         std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</span></a>
-<a name="29"><span class="lineNum">      29</span>   [<span class="tlaGBC" title="Branch 0 was taken 76 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span><span class="tlaGBC" title="Branch 2 was taken 76 times"> + </span><span class="tlaUNC" title="Branch 3 was not taken"> - </span> :<span class="tlaGNC">          76 :     std::cout &lt;&lt; &quot;duration &quot; &lt;&lt; elapsed_time_ms &lt;&lt; &quot; ms&quot; &lt;&lt; std::endl;</span></a>
+<a name="20"><span class="lineNum">      20</span>                 :<span class="tlaGNC">          76 :     const auto t_start = std::chrono::high_resolution_clock::now();</span></a>
+<a name="21"><span class="lineNum">      21</span>         [<span class="tlaGBC" title="Branch 0 was taken 12 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span>]:<span class="tlaGNC">          12 :     const auto retval =</span></a>
+<a name="22"><span class="lineNum">      22</span>         [<span class="tlaGBC" title="Branch 0 was taken 25 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span>]:<span class="tlaGNC">          73 :         T::template f&lt;CloneT, U...&gt;(classe, std::forward&lt;const Args&gt;(args)...);</span></a>
+<a name="23"><span class="lineNum">      23</span>                 :<span class="tlaGNC">          76 :     const auto t_end = std::chrono::high_resolution_clock::now();</span></a>
+<a name="24"><span class="lineNum">      24</span>                 :             :     const double elapsed_time_ms =</a>
+<a name="25"><span class="lineNum">      25</span>   [<span class="tlaGBC" title="Branch 0 was taken 76 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span><span class="tlaGBC" title="Branch 2 was taken 76 times"> + </span><span class="tlaUNC" title="Branch 3 was not taken"> - </span>]:<span class="tlaGNC">          76 :         std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</span></a>
+<a name="26"><span class="lineNum">      26</span>   [<span class="tlaGBC" title="Branch 0 was taken 76 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span><span class="tlaGBC" title="Branch 2 was taken 76 times"> + </span><span class="tlaUNC" title="Branch 3 was not taken"> - </span> :<span class="tlaGNC">          76 :     std::cout &lt;&lt; &quot;duration &quot; &lt;&lt; elapsed_time_ms &lt;&lt; &quot; ms&quot; &lt;&lt; std::endl;</span></a>
 <span class="lineNum">        </span>    <span class="tlaGBC" title="Branch 4 was taken 76 times"> + </span><span class="tlaUNC" title="Branch 5 was not taken"> - </span><span class="tlaGBC" title="Branch 6 was taken 76 times"> + </span><span class="tlaUNC" title="Branch 7 was not taken"> - </span>]
-<a name="30"><span class="lineNum">      30</span>                 :<span class="tlaGNC">          88 :     return retval;</span></a>
-<a name="31"><span class="lineNum">      31</span>                 :             :   }</a>
-<a name="32"><span class="lineNum">      32</span>                 :             : };</a>
-<a name="33"><span class="lineNum">      33</span>                 :             : }  // namespace Jessica::Util::Decorator</a>
+<a name="27"><span class="lineNum">      27</span>                 :<span class="tlaGNC">          88 :     return retval;</span></a>
+<a name="28"><span class="lineNum">      28</span>                 :             :   }</a>
+<a name="29"><span class="lineNum">      29</span>                 :             : };</a>
+<a name="30"><span class="lineNum">      30</span>                 :             : }  // namespace Jessica::Util::Decorator</a>
         </pre>
               </td>
             </tr>
