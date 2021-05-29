@@ -27,7 +27,7 @@
         </td>
         <td>
           <pre>Source (<a href=
-          '#L106'>jump to first uncovered line</a>)</pre>
+          '#L100'>jump to first uncovered line</a>)</pre>
         </td>
       </tr>
       <tr>
@@ -269,7 +269,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      std::integral_constant&lt;</pre>
+          <pre>      std::integral_constant&lt;Jessica::Helper::F, Jessica::Helper::F::Clone&gt;&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -279,7 +279,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>          Jessica::Helper::F,</pre>
+          <pre>  [[nodiscard]] static std::shared_ptr&lt;VerticalEccentricImpl&gt; f(</pre>
         </td>
       </tr>
       <tr>
@@ -289,7 +289,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>          Jessica::Helper::F::Clone&gt;&gt; [[nodiscard]] static std::</pre>
+          <pre>      const VerticalEccentricImpl& self)</pre>
         </td>
       </tr>
       <tr>
@@ -297,9 +297,11 @@
           <a name='L27' href='#L27' id="L27">
           <pre>27</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>21</pre>
+        </td>
         <td class='code'>
-          <pre>      shared_ptr&lt;VerticalEccentricImpl&gt;</pre>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -307,9 +309,11 @@
           <a name='L28' href='#L28' id="L28">
           <pre>28</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>21</pre>
+        </td>
         <td class='code'>
-          <pre>      f(const VerticalEccentricImpl& self)</pre>
+          <pre>    return std::make_shared&lt;VerticalEccentricImpl&gt;(self);</pre>
         </td>
       </tr>
       <tr>
@@ -321,7 +325,7 @@
           <pre>21</pre>
         </td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>  }</pre>
         </td>
       </tr>
       <tr>
@@ -329,11 +333,9 @@
           <a name='L30' href='#L30' id="L30">
           <pre>30</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>21</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    return std::make_shared&lt;VerticalEccentricImpl&gt;(self);</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -341,11 +343,9 @@
           <a name='L31' href='#L31' id="L31">
           <pre>31</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>21</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  }</pre>
+          <pre>  template &lt;bool CloneT, Jessica::Helper::F T&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -355,7 +355,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>  requires std::is_same_v&lt;std::integral_constant&lt;bool, CloneT&gt;,</pre>
         </td>
       </tr>
       <tr>
@@ -365,7 +365,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  template &lt;bool CloneT, Jessica::Helper::F T&gt;</pre>
+          <pre>                          std::false_type&gt; &amp;&</pre>
         </td>
       </tr>
       <tr>
@@ -375,7 +375,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  requires std::is_same_v&lt;std::integral_constant&lt;bool, CloneT&gt;,</pre>
+          <pre>      std::is_same_v&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -385,7 +385,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                          std::false_type&gt;&amp;&</pre>
+          <pre>          std::integral_constant&lt;Jessica::Helper::F, T&gt;,</pre>
         </td>
       </tr>
       <tr>
@@ -395,7 +395,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      std::is_same_v&lt;std::integral_constant&lt;Jessica::Helper::F, T&gt;,</pre>
+          <pre>          std::integral_constant&lt;Jessica::Helper::F, Jessica::Helper::F::V&gt;&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -405,43 +405,13 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                     std::integral_constant&lt;</pre>
+          <pre>  [[nodiscard]] static double f(const VerticalEccentricImpl& self)</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L38' href='#L38' id="L38">
           <pre>38</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>                         Jessica::Helper::F,</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L39' href='#L39' id="L39">
-          <pre>39</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>                         Jessica::Helper::F::V&gt;&gt; [[nodiscard]] static double</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L40' href='#L40' id="L40">
-          <pre>40</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>      f(const VerticalEccentricImpl& self)</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L41' href='#L41' id="L41">
-          <pre>41</pre></a>
         </td>
         <td class='covered-line'>
           <pre>24</pre>
@@ -452,8 +422,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L42' href='#L42' id="L42">
-          <pre>42</pre></a>
+          <a name='L39' href='#L39' id="L39">
+          <pre>39</pre></a>
         </td>
         <td class='covered-line'>
           <pre>24</pre>
@@ -464,8 +434,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L43' href='#L43' id="L43">
-          <pre>43</pre></a>
+          <a name='L40' href='#L40' id="L40">
+          <pre>40</pre></a>
         </td>
         <td class='covered-line'>
           <pre>24</pre>
@@ -476,12 +446,42 @@
       </tr>
       <tr>
         <td class='line-number'>
+          <a name='L41' href='#L41' id="L41">
+          <pre>41</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L42' href='#L42' id="L42">
+          <pre>42</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  template &lt;bool CloneT, Jessica::Helper::F T&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L43' href='#L43' id="L43">
+          <pre>43</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  requires std::is_same_v&lt;std::integral_constant&lt;bool, CloneT&gt;,</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
           <a name='L44' href='#L44' id="L44">
           <pre>44</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>                          std::true_type&gt; &amp;&</pre>
         </td>
       </tr>
       <tr>
@@ -491,7 +491,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  template &lt;bool CloneT, Jessica::Helper::F T&gt;</pre>
+          <pre>      std::is_same_v&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -501,7 +501,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  requires std::is_same_v&lt;std::integral_constant&lt;bool, CloneT&gt;,</pre>
+          <pre>          std::integral_constant&lt;Jessica::Helper::F, T&gt;,</pre>
         </td>
       </tr>
       <tr>
@@ -511,7 +511,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                          std::true_type&gt;&amp;&</pre>
+          <pre>          std::integral_constant&lt;Jessica::Helper::F, Jessica::Helper::F::V&gt;&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -521,7 +521,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      std::is_same_v&lt;std::integral_constant&lt;Jessica::Helper::F, T&gt;,</pre>
+          <pre>  [[nodiscard]] static std::shared_ptr&lt;VerticalEccentricImpl&gt; f(</pre>
         </td>
       </tr>
       <tr>
@@ -531,7 +531,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                     std::integral_constant&lt;</pre>
+          <pre>      const VerticalEccentricImpl& self, const double v)</pre>
         </td>
       </tr>
       <tr>
@@ -539,9 +539,11 @@
           <a name='L50' href='#L50' id="L50">
           <pre>50</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>6</pre>
+        </td>
         <td class='code'>
-          <pre>                         Jessica::Helper::F,</pre>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -549,9 +551,11 @@
           <a name='L51' href='#L51' id="L51">
           <pre>51</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>6</pre>
+        </td>
         <td class='code'>
-          <pre>                         Jessica::Helper::F::V&gt;&gt; [[nodiscard]] static std::</pre>
+          <pre>    auto retval = f&lt;Jessica::Helper::F::Clone&gt;(self);</pre>
         </td>
       </tr>
       <tr>
@@ -559,9 +563,11 @@
           <a name='L52' href='#L52' id="L52">
           <pre>52</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>6</pre>
+        </td>
         <td class='code'>
-          <pre>          shared_ptr&lt;VerticalEccentricImpl&gt;</pre>
+          <pre>    retval-&gt;v_ = v;</pre>
         </td>
       </tr>
       <tr>
@@ -569,9 +575,11 @@
           <a name='L53' href='#L53' id="L53">
           <pre>53</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>6</pre>
+        </td>
         <td class='code'>
-          <pre>          f(const VerticalEccentricImpl& self, const double v)</pre>
+          <pre>    return retval;</pre>
         </td>
       </tr>
       <tr>
@@ -583,7 +591,7 @@
           <pre>6</pre>
         </td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>  }</pre>
         </td>
       </tr>
       <tr>
@@ -591,11 +599,9 @@
           <a name='L55' href='#L55' id="L55">
           <pre>55</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>6</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    auto retval = f&lt;Jessica::Helper::F::Clone&gt;(self);</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -603,11 +609,9 @@
           <a name='L56' href='#L56' id="L56">
           <pre>56</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>6</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    retval-&gt;v_ = v;</pre>
+          <pre>  template &lt;bool CloneT, Jessica::Helper::F T&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -615,11 +619,9 @@
           <a name='L57' href='#L57' id="L57">
           <pre>57</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>6</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    return retval;</pre>
+          <pre>  requires std::is_same_v&lt;std::integral_constant&lt;bool, CloneT&gt;,</pre>
         </td>
       </tr>
       <tr>
@@ -627,11 +629,9 @@
           <a name='L58' href='#L58' id="L58">
           <pre>58</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>6</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  }</pre>
+          <pre>                          std::false_type&gt; &amp;&</pre>
         </td>
       </tr>
       <tr>
@@ -641,7 +641,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>      std::is_same_v&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -651,7 +651,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  template &lt;bool CloneT, Jessica::Helper::F T&gt;</pre>
+          <pre>          std::integral_constant&lt;Jessica::Helper::F, T&gt;,</pre>
         </td>
       </tr>
       <tr>
@@ -661,7 +661,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  requires std::is_same_v&lt;std::integral_constant&lt;bool, CloneT&gt;,</pre>
+          <pre>          std::integral_constant&lt;Jessica::Helper::F, Jessica::Helper::F::E&gt;&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -671,63 +671,13 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                          std::false_type&gt;&amp;&</pre>
+          <pre>  [[nodiscard]] static double f(const VerticalEccentricImpl& self)</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L63' href='#L63' id="L63">
           <pre>63</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>      std::is_same_v&lt;std::integral_constant&lt;Jessica::Helper::F, T&gt;,</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L64' href='#L64' id="L64">
-          <pre>64</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>                     std::integral_constant&lt;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L65' href='#L65' id="L65">
-          <pre>65</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>                         Jessica::Helper::F,</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L66' href='#L66' id="L66">
-          <pre>66</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>                         Jessica::Helper::F::E&gt;&gt; [[nodiscard]] static double</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L67' href='#L67' id="L67">
-          <pre>67</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>      f(const VerticalEccentricImpl& self)</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L68' href='#L68' id="L68">
-          <pre>68</pre></a>
         </td>
         <td class='covered-line'>
           <pre>43</pre>
@@ -738,8 +688,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L69' href='#L69' id="L69">
-          <pre>69</pre></a>
+          <a name='L64' href='#L64' id="L64">
+          <pre>64</pre></a>
         </td>
         <td class='covered-line'>
           <pre>43</pre>
@@ -750,8 +700,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L70' href='#L70' id="L70">
-          <pre>70</pre></a>
+          <a name='L65' href='#L65' id="L65">
+          <pre>65</pre></a>
         </td>
         <td class='covered-line'>
           <pre>43</pre>
@@ -762,12 +712,62 @@
       </tr>
       <tr>
         <td class='line-number'>
+          <a name='L66' href='#L66' id="L66">
+          <pre>66</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L67' href='#L67' id="L67">
+          <pre>67</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  template &lt;bool CloneT, Jessica::Helper::F T&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L68' href='#L68' id="L68">
+          <pre>68</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  requires std::is_same_v&lt;std::integral_constant&lt;bool, CloneT&gt;,</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L69' href='#L69' id="L69">
+          <pre>69</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>                          std::true_type&gt; &amp;&</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L70' href='#L70' id="L70">
+          <pre>70</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>      std::is_same_v&lt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
           <a name='L71' href='#L71' id="L71">
           <pre>71</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>          std::integral_constant&lt;Jessica::Helper::F, T&gt;,</pre>
         </td>
       </tr>
       <tr>
@@ -777,7 +777,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  template &lt;bool CloneT, Jessica::Helper::F T&gt;</pre>
+          <pre>          std::integral_constant&lt;Jessica::Helper::F, Jessica::Helper::F::E&gt;&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -787,7 +787,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  requires std::is_same_v&lt;std::integral_constant&lt;bool, CloneT&gt;,</pre>
+          <pre>  [[nodiscard]] static std::shared_ptr&lt;VerticalEccentricImpl&gt; f(</pre>
         </td>
       </tr>
       <tr>
@@ -797,73 +797,13 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                          std::true_type&gt;&amp;&</pre>
+          <pre>      const VerticalEccentricImpl& self, const double e)</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L75' href='#L75' id="L75">
           <pre>75</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>      std::is_same_v&lt;std::integral_constant&lt;Jessica::Helper::F, T&gt;,</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L76' href='#L76' id="L76">
-          <pre>76</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>                     std::integral_constant&lt;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L77' href='#L77' id="L77">
-          <pre>77</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>                         Jessica::Helper::F,</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L78' href='#L78' id="L78">
-          <pre>78</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>                         Jessica::Helper::F::E&gt;&gt; [[nodiscard]] static std::</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L79' href='#L79' id="L79">
-          <pre>79</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>          shared_ptr&lt;VerticalEccentricImpl&gt;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L80' href='#L80' id="L80">
-          <pre>80</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>          f(const VerticalEccentricImpl& self, const double e)</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L81' href='#L81' id="L81">
-          <pre>81</pre></a>
         </td>
         <td class='covered-line'>
           <pre>15</pre>
@@ -874,8 +814,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L82' href='#L82' id="L82">
-          <pre>82</pre></a>
+          <a name='L76' href='#L76' id="L76">
+          <pre>76</pre></a>
         </td>
         <td class='covered-line'>
           <pre>15</pre>
@@ -886,8 +826,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L83' href='#L83' id="L83">
-          <pre>83</pre></a>
+          <a name='L77' href='#L77' id="L77">
+          <pre>77</pre></a>
         </td>
         <td class='covered-line'>
           <pre>15</pre>
@@ -898,8 +838,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L84' href='#L84' id="L84">
-          <pre>84</pre></a>
+          <a name='L78' href='#L78' id="L78">
+          <pre>78</pre></a>
         </td>
         <td class='covered-line'>
           <pre>15</pre>
@@ -910,8 +850,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L85' href='#L85' id="L85">
-          <pre>85</pre></a>
+          <a name='L79' href='#L79' id="L79">
+          <pre>79</pre></a>
         </td>
         <td class='covered-line'>
           <pre>15</pre>
@@ -922,12 +862,72 @@
       </tr>
       <tr>
         <td class='line-number'>
+          <a name='L80' href='#L80' id="L80">
+          <pre>80</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L81' href='#L81' id="L81">
+          <pre>81</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre> private:</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L82' href='#L82' id="L82">
+          <pre>82</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  double v_ = std::numeric_limits&lt;double&gt;::quiet_NaN();</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L83' href='#L83' id="L83">
+          <pre>83</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  double e_ = std::numeric_limits&lt;double&gt;::quiet_NaN();</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L84' href='#L84' id="L84">
+          <pre>84</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>};</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L85' href='#L85' id="L85">
+          <pre>85</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
           <a name='L86' href='#L86' id="L86">
           <pre>86</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>template &lt;typename T&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -937,7 +937,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> private:</pre>
+          <pre>class JESSICA_DLL_PUBLIC VerticalEccentric final</pre>
         </td>
       </tr>
       <tr>
@@ -947,7 +947,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  double v_ = std::numeric_limits&lt;double&gt;::quiet_NaN();</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -957,73 +957,13 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  double e_ = std::numeric_limits&lt;double&gt;::quiet_NaN();</pre>
+          <pre> public:</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L90' href='#L90' id="L90">
           <pre>90</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>};</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L91' href='#L91' id="L91">
-          <pre>91</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L92' href='#L92' id="L92">
-          <pre>92</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>template &lt;typename T&gt;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L93' href='#L93' id="L93">
-          <pre>93</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>class JESSICA_DLL_PUBLIC VerticalEccentric final</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L94' href='#L94' id="L94">
-          <pre>94</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>{</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L95' href='#L95' id="L95">
-          <pre>95</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre> public:</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L96' href='#L96' id="L96">
-          <pre>96</pre></a>
         </td>
         <td class='covered-line'>
           <pre>6</pre>
@@ -1049,8 +989,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L96' href='#L96' id="L96">
-                    <pre>96</pre></a>
+                    <a name='L90' href='#L90' id="L90">
+                    <pre>90</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -1081,8 +1021,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L96' href='#L96' id="L96">
-                    <pre>96</pre></a>
+                    <a name='L90' href='#L90' id="L90">
+                    <pre>90</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>2</pre>
@@ -1098,8 +1038,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L97' href='#L97' id="L97">
-          <pre>97</pre></a>
+          <a name='L91' href='#L91' id="L91">
+          <pre>91</pre></a>
         </td>
         <td class='covered-line'>
           <pre>23</pre>
@@ -1125,8 +1065,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L97' href='#L97' id="L97">
-                    <pre>97</pre></a>
+                    <a name='L91' href='#L91' id="L91">
+                    <pre>91</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>15</pre>
@@ -1157,8 +1097,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L97' href='#L97' id="L97">
-                    <pre>97</pre></a>
+                    <a name='L91' href='#L91' id="L91">
+                    <pre>91</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>8</pre>
@@ -1174,8 +1114,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L98' href='#L98' id="L98">
-          <pre>98</pre></a>
+          <a name='L92' href='#L92' id="L92">
+          <pre>92</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1184,8 +1124,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L99' href='#L99' id="L99">
-          <pre>99</pre></a>
+          <a name='L93' href='#L93' id="L93">
+          <pre>93</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1194,8 +1134,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L100' href='#L100' id="L100">
-          <pre>100</pre></a>
+          <a name='L94' href='#L94' id="L94">
+          <pre>94</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1204,8 +1144,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L101' href='#L101' id="L101">
-          <pre>101</pre></a>
+          <a name='L95' href='#L95' id="L95">
+          <pre>95</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1214,8 +1154,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L102' href='#L102' id="L102">
-          <pre>102</pre></a>
+          <a name='L96' href='#L96' id="L96">
+          <pre>96</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1224,8 +1164,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L103' href='#L103' id="L103">
-          <pre>103</pre></a>
+          <a name='L97' href='#L97' id="L97">
+          <pre>97</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1234,8 +1174,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L104' href='#L104' id="L104">
-          <pre>104</pre></a>
+          <a name='L98' href='#L98' id="L98">
+          <pre>98</pre></a>
         </td>
         <td class='covered-line'>
           <pre>88</pre>
@@ -1246,8 +1186,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L105' href='#L105' id="L105">
-          <pre>105</pre></a>
+          <a name='L99' href='#L99' id="L99">
+          <pre>99</pre></a>
         </td>
         <td class='covered-line'>
           <pre>88</pre>
@@ -1258,14 +1198,86 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L106' href='#L106' id="L106">
-          <pre>106</pre></a>
+          <a name='L100' href='#L100' id="L100">
+          <pre>100</pre></a>
         </td>
         <td class='covered-line'>
           <pre>21</pre>
         </td>
         <td class='code'>
           <pre>    <span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L101' href='#L101' id="L101">
+          <pre>101</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>67</pre>
+        </td>
+        <td class='code'>
+          <pre>      auto retval = Clone();</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L102' href='#L102' id="L102">
+          <pre>102</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>67</pre>
+        </td>
+        <td class='code'>
+          <pre>      retval-&gt;impl_ = T::template f&lt;CloneT, U...&gt;(</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L103' href='#L103' id="L103">
+          <pre>103</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>67</pre>
+        </td>
+        <td class='code'>
+          <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L104' href='#L104' id="L104">
+          <pre>104</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>67</pre>
+        </td>
+        <td class='code'>
+          <pre>      return retval;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L105' href='#L105' id="L105">
+          <pre>105</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>67</pre>
+        </td>
+        <td class='code'>
+          <pre>    }</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L106' href='#L106' id="L106">
+          <pre>106</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>67</pre>
+        </td>
+        <td class='code'>
+          <pre>    else</pre>
         </td>
       </tr>
       <tr>
@@ -1277,7 +1289,7 @@
           <pre>67</pre>
         </td>
         <td class='code'>
-          <pre>      auto retval = Clone();</pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -1289,7 +1301,7 @@
           <pre>67</pre>
         </td>
         <td class='code'>
-          <pre>      retval-&gt;impl_ = T::template f&lt;CloneT, U...&gt;(</pre>
+          <pre>      return T::template f&lt;CloneT, U...&gt;(*impl_,</pre>
         </td>
       </tr>
       <tr>
@@ -1301,7 +1313,7 @@
           <pre>67</pre>
         </td>
         <td class='code'>
-          <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
+          <pre>                                         std::forward&lt;const Args&gt;(args)...);</pre>
         </td>
       </tr>
       <tr>
@@ -1313,85 +1325,13 @@
           <pre>67</pre>
         </td>
         <td class='code'>
-          <pre>      return retval;</pre>
+          <pre>    }</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L111' href='#L111' id="L111">
           <pre>111</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>67</pre>
-        </td>
-        <td class='code'>
-          <pre>    }</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L112' href='#L112' id="L112">
-          <pre>112</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>67</pre>
-        </td>
-        <td class='code'>
-          <pre>    else</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L113' href='#L113' id="L113">
-          <pre>113</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>67</pre>
-        </td>
-        <td class='code'>
-          <pre>    {</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L114' href='#L114' id="L114">
-          <pre>114</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>67</pre>
-        </td>
-        <td class='code'>
-          <pre>      return T::template f&lt;CloneT, U...&gt;(*impl_,</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L115' href='#L115' id="L115">
-          <pre>115</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>67</pre>
-        </td>
-        <td class='code'>
-          <pre>                                         std::forward&lt;const Args&gt;(args)...);</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L116' href='#L116' id="L116">
-          <pre>116</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>67</pre>
-        </td>
-        <td class='code'>
-          <pre>    }</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L117' href='#L117' id="L117">
-          <pre>117</pre></a>
         </td>
         <td class='covered-line'>
           <pre>88</pre>
@@ -1417,6 +1357,78 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
+                    <a name='L98' href='#L98' id="L98">
+                    <pre>98</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L99' href='#L99' id="L99">
+                    <pre>99</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    if constexpr (CloneT)</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L100' href='#L100' id="L100">
+                    <pre>100</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L101' href='#L101' id="L101">
+                    <pre>101</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>      auto retval = Clone();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L102' href='#L102' id="L102">
+                    <pre>102</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>      retval-&gt;impl_ = T::template f&lt;CloneT, U...&gt;(</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L103' href='#L103' id="L103">
+                    <pre>103</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
                     <a name='L104' href='#L104' id="L104">
                     <pre>104</pre></a>
                   </td>
@@ -1424,7 +1436,7 @@
                     <pre>4</pre>
                   </td>
                   <td class='code'>
-                    <pre>  {</pre>
+                    <pre>      return retval;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1436,7 +1448,7 @@
                     <pre>4</pre>
                   </td>
                   <td class='code'>
-                    <pre>    if constexpr (CloneT)</pre>
+                    <pre>    }</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1448,7 +1460,7 @@
                     <pre>4</pre>
                   </td>
                   <td class='code'>
-                    <pre>    {</pre>
+                    <pre>    else</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1460,7 +1472,7 @@
                     <pre>4</pre>
                   </td>
                   <td class='code'>
-                    <pre>      auto retval = Clone();</pre>
+                    <pre>    {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1472,7 +1484,7 @@
                     <pre>4</pre>
                   </td>
                   <td class='code'>
-                    <pre>      retval-&gt;impl_ = T::template f&lt;CloneT, U...&gt;(</pre>
+                    <pre>      return T::template f&lt;CloneT, U...&gt;(*impl_,</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1484,7 +1496,7 @@
                     <pre>4</pre>
                   </td>
                   <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
+                    <pre>                                         std::forward&lt;const Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1496,85 +1508,13 @@
                     <pre>4</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return retval;</pre>
+                    <pre>    }</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L111' href='#L111' id="L111">
                     <pre>111</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L112' href='#L112' id="L112">
-                    <pre>112</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    else</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L113' href='#L113' id="L113">
-                    <pre>113</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L114' href='#L114' id="L114">
-                    <pre>114</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return T::template f&lt;CloneT, U...&gt;(*impl_,</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L115' href='#L115' id="L115">
-                    <pre>115</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>                                         std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L116' href='#L116' id="L116">
-                    <pre>116</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L117' href='#L117' id="L117">
-                    <pre>117</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -1605,6 +1545,78 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
+                    <a name='L98' href='#L98' id="L98">
+                    <pre>98</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>10</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L99' href='#L99' id="L99">
+                    <pre>99</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>10</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    if constexpr (CloneT)</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L100' href='#L100' id="L100">
+                    <pre>100</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>10</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L101' href='#L101' id="L101">
+                    <pre>101</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>10</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>      auto retval = Clone();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L102' href='#L102' id="L102">
+                    <pre>102</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>10</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>      retval-&gt;impl_ = T::template f&lt;CloneT, U...&gt;(</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L103' href='#L103' id="L103">
+                    <pre>103</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>10</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
                     <a name='L104' href='#L104' id="L104">
                     <pre>104</pre></a>
                   </td>
@@ -1612,7 +1624,7 @@
                     <pre>10</pre>
                   </td>
                   <td class='code'>
-                    <pre>  {</pre>
+                    <pre>      return retval;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1624,7 +1636,7 @@
                     <pre>10</pre>
                   </td>
                   <td class='code'>
-                    <pre>    if constexpr (CloneT)</pre>
+                    <pre>    }</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1636,7 +1648,7 @@
                     <pre>10</pre>
                   </td>
                   <td class='code'>
-                    <pre>    {</pre>
+                    <pre>    else</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1648,7 +1660,7 @@
                     <pre>10</pre>
                   </td>
                   <td class='code'>
-                    <pre>      auto retval = Clone();</pre>
+                    <pre>    {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1660,7 +1672,7 @@
                     <pre>10</pre>
                   </td>
                   <td class='code'>
-                    <pre>      retval-&gt;impl_ = T::template f&lt;CloneT, U...&gt;(</pre>
+                    <pre>      return T::template f&lt;CloneT, U...&gt;(*impl_,</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1672,7 +1684,7 @@
                     <pre>10</pre>
                   </td>
                   <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
+                    <pre>                                         std::forward&lt;const Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1684,85 +1696,13 @@
                     <pre>10</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return retval;</pre>
+                    <pre>    }</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L111' href='#L111' id="L111">
                     <pre>111</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L112' href='#L112' id="L112">
-                    <pre>112</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    else</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L113' href='#L113' id="L113">
-                    <pre>113</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L114' href='#L114' id="L114">
-                    <pre>114</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return T::template f&lt;CloneT, U...&gt;(*impl_,</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L115' href='#L115' id="L115">
-                    <pre>115</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>                                         std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L116' href='#L116' id="L116">
-                    <pre>116</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L117' href='#L117' id="L117">
-                    <pre>117</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>10</pre>
@@ -1793,6 +1733,78 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
+                    <a name='L98' href='#L98' id="L98">
+                    <pre>98</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>28</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L99' href='#L99' id="L99">
+                    <pre>99</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>28</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    if constexpr (CloneT)</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L100' href='#L100' id="L100">
+                    <pre>100</pre></a>
+                  </td>
+                  <td class='uncovered-line'>
+                    <pre>0</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    <span class='red'>{</span></pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L101' href='#L101' id="L101">
+                    <pre>101</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>28</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>      auto retval = Clone();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L102' href='#L102' id="L102">
+                    <pre>102</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>28</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>      retval-&gt;impl_ = T::template f&lt;CloneT, U...&gt;(</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L103' href='#L103' id="L103">
+                    <pre>103</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>28</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
                     <a name='L104' href='#L104' id="L104">
                     <pre>104</pre></a>
                   </td>
@@ -1800,7 +1812,7 @@
                     <pre>28</pre>
                   </td>
                   <td class='code'>
-                    <pre>  {</pre>
+                    <pre>      return retval;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1812,7 +1824,7 @@
                     <pre>28</pre>
                   </td>
                   <td class='code'>
-                    <pre>    if constexpr (CloneT)</pre>
+                    <pre>    }</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1820,11 +1832,11 @@
                     <a name='L106' href='#L106' id="L106">
                     <pre>106</pre></a>
                   </td>
-                  <td class='uncovered-line'>
-                    <pre>0</pre>
+                  <td class='covered-line'>
+                    <pre>28</pre>
                   </td>
                   <td class='code'>
-                    <pre>    <span class='red'>{</span></pre>
+                    <pre>    else</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1836,7 +1848,7 @@
                     <pre>28</pre>
                   </td>
                   <td class='code'>
-                    <pre>      auto retval = Clone();</pre>
+                    <pre>    {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1848,7 +1860,7 @@
                     <pre>28</pre>
                   </td>
                   <td class='code'>
-                    <pre>      retval-&gt;impl_ = T::template f&lt;CloneT, U...&gt;(</pre>
+                    <pre>      return T::template f&lt;CloneT, U...&gt;(*impl_,</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1860,7 +1872,7 @@
                     <pre>28</pre>
                   </td>
                   <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
+                    <pre>                                         std::forward&lt;const Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1872,85 +1884,13 @@
                     <pre>28</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return retval;</pre>
+                    <pre>    }</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L111' href='#L111' id="L111">
                     <pre>111</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>28</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L112' href='#L112' id="L112">
-                    <pre>112</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>28</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    else</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L113' href='#L113' id="L113">
-                    <pre>113</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>28</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L114' href='#L114' id="L114">
-                    <pre>114</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>28</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return T::template f&lt;CloneT, U...&gt;(*impl_,</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L115' href='#L115' id="L115">
-                    <pre>115</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>28</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>                                         std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L116' href='#L116' id="L116">
-                    <pre>116</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>28</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L117' href='#L117' id="L117">
-                    <pre>117</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>28</pre>
@@ -1981,6 +1921,78 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
+                    <a name='L98' href='#L98' id="L98">
+                    <pre>98</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L99' href='#L99' id="L99">
+                    <pre>99</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    if constexpr (CloneT)</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L100' href='#L100' id="L100">
+                    <pre>100</pre></a>
+                  </td>
+                  <td class='uncovered-line'>
+                    <pre>0</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    <span class='red'>{</span></pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L101' href='#L101' id="L101">
+                    <pre>101</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>      auto retval = Clone();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L102' href='#L102' id="L102">
+                    <pre>102</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>      retval-&gt;impl_ = T::template f&lt;CloneT, U...&gt;(</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L103' href='#L103' id="L103">
+                    <pre>103</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
                     <a name='L104' href='#L104' id="L104">
                     <pre>104</pre></a>
                   </td>
@@ -1988,7 +2000,7 @@
                     <pre>15</pre>
                   </td>
                   <td class='code'>
-                    <pre>  {</pre>
+                    <pre>      return retval;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2000,7 +2012,7 @@
                     <pre>15</pre>
                   </td>
                   <td class='code'>
-                    <pre>    if constexpr (CloneT)</pre>
+                    <pre>    }</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2008,11 +2020,11 @@
                     <a name='L106' href='#L106' id="L106">
                     <pre>106</pre></a>
                   </td>
-                  <td class='uncovered-line'>
-                    <pre>0</pre>
+                  <td class='covered-line'>
+                    <pre>15</pre>
                   </td>
                   <td class='code'>
-                    <pre>    <span class='red'>{</span></pre>
+                    <pre>    else</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2024,7 +2036,7 @@
                     <pre>15</pre>
                   </td>
                   <td class='code'>
-                    <pre>      auto retval = Clone();</pre>
+                    <pre>    {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2036,7 +2048,7 @@
                     <pre>15</pre>
                   </td>
                   <td class='code'>
-                    <pre>      retval-&gt;impl_ = T::template f&lt;CloneT, U...&gt;(</pre>
+                    <pre>      return T::template f&lt;CloneT, U...&gt;(*impl_,</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2048,7 +2060,7 @@
                     <pre>15</pre>
                   </td>
                   <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
+                    <pre>                                         std::forward&lt;const Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2060,85 +2072,13 @@
                     <pre>15</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return retval;</pre>
+                    <pre>    }</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L111' href='#L111' id="L111">
                     <pre>111</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L112' href='#L112' id="L112">
-                    <pre>112</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    else</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L113' href='#L113' id="L113">
-                    <pre>113</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L114' href='#L114' id="L114">
-                    <pre>114</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return T::template f&lt;CloneT, U...&gt;(*impl_,</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L115' href='#L115' id="L115">
-                    <pre>115</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>                                         std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L116' href='#L116' id="L116">
-                    <pre>116</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L117' href='#L117' id="L117">
-                    <pre>117</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>15</pre>
@@ -2169,6 +2109,78 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
+                    <a name='L98' href='#L98' id="L98">
+                    <pre>98</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L99' href='#L99' id="L99">
+                    <pre>99</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    if constexpr (CloneT)</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L100' href='#L100' id="L100">
+                    <pre>100</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L101' href='#L101' id="L101">
+                    <pre>101</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>      auto retval = Clone();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L102' href='#L102' id="L102">
+                    <pre>102</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>      retval-&gt;impl_ = T::template f&lt;CloneT, U...&gt;(</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L103' href='#L103' id="L103">
+                    <pre>103</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
                     <a name='L104' href='#L104' id="L104">
                     <pre>104</pre></a>
                   </td>
@@ -2176,7 +2188,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>  {</pre>
+                    <pre>      return retval;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2188,7 +2200,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>    if constexpr (CloneT)</pre>
+                    <pre>    }</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2200,7 +2212,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>    {</pre>
+                    <pre>    else</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2212,7 +2224,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>      auto retval = Clone();</pre>
+                    <pre>    {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2224,7 +2236,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>      retval-&gt;impl_ = T::template f&lt;CloneT, U...&gt;(</pre>
+                    <pre>      return T::template f&lt;CloneT, U...&gt;(*impl_,</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2236,7 +2248,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
+                    <pre>                                         std::forward&lt;const Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2248,85 +2260,13 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return retval;</pre>
+                    <pre>    }</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L111' href='#L111' id="L111">
                     <pre>111</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L112' href='#L112' id="L112">
-                    <pre>112</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    else</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L113' href='#L113' id="L113">
-                    <pre>113</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L114' href='#L114' id="L114">
-                    <pre>114</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return T::template f&lt;CloneT, U...&gt;(*impl_,</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L115' href='#L115' id="L115">
-                    <pre>115</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>                                         std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L116' href='#L116' id="L116">
-                    <pre>116</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L117' href='#L117' id="L117">
-                    <pre>117</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>2</pre>
@@ -2357,6 +2297,78 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
+                    <a name='L98' href='#L98' id="L98">
+                    <pre>98</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L99' href='#L99' id="L99">
+                    <pre>99</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    if constexpr (CloneT)</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L100' href='#L100' id="L100">
+                    <pre>100</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L101' href='#L101' id="L101">
+                    <pre>101</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>      auto retval = Clone();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L102' href='#L102' id="L102">
+                    <pre>102</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>      retval-&gt;impl_ = T::template f&lt;CloneT, U...&gt;(</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L103' href='#L103' id="L103">
+                    <pre>103</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
                     <a name='L104' href='#L104' id="L104">
                     <pre>104</pre></a>
                   </td>
@@ -2364,7 +2376,7 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>  {</pre>
+                    <pre>      return retval;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2376,7 +2388,7 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>    if constexpr (CloneT)</pre>
+                    <pre>    }</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2388,7 +2400,7 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>    {</pre>
+                    <pre>    else</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2400,7 +2412,7 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>      auto retval = Clone();</pre>
+                    <pre>    {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2412,7 +2424,7 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>      retval-&gt;impl_ = T::template f&lt;CloneT, U...&gt;(</pre>
+                    <pre>      return T::template f&lt;CloneT, U...&gt;(*impl_,</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2424,7 +2436,7 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
+                    <pre>                                         std::forward&lt;const Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2436,85 +2448,13 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return retval;</pre>
+                    <pre>    }</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L111' href='#L111' id="L111">
                     <pre>111</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L112' href='#L112' id="L112">
-                    <pre>112</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    else</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L113' href='#L113' id="L113">
-                    <pre>113</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L114' href='#L114' id="L114">
-                    <pre>114</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return T::template f&lt;CloneT, U...&gt;(*impl_,</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L115' href='#L115' id="L115">
-                    <pre>115</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>                                         std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L116' href='#L116' id="L116">
-                    <pre>116</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L117' href='#L117' id="L117">
-                    <pre>117</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>5</pre>
@@ -2545,6 +2485,78 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
+                    <a name='L98' href='#L98' id="L98">
+                    <pre>98</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L99' href='#L99' id="L99">
+                    <pre>99</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    if constexpr (CloneT)</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L100' href='#L100' id="L100">
+                    <pre>100</pre></a>
+                  </td>
+                  <td class='uncovered-line'>
+                    <pre>0</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    <span class='red'>{</span></pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L101' href='#L101' id="L101">
+                    <pre>101</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>      auto retval = Clone();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L102' href='#L102' id="L102">
+                    <pre>102</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>      retval-&gt;impl_ = T::template f&lt;CloneT, U...&gt;(</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L103' href='#L103' id="L103">
+                    <pre>103</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
                     <a name='L104' href='#L104' id="L104">
                     <pre>104</pre></a>
                   </td>
@@ -2552,7 +2564,7 @@
                     <pre>15</pre>
                   </td>
                   <td class='code'>
-                    <pre>  {</pre>
+                    <pre>      return retval;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2564,7 +2576,7 @@
                     <pre>15</pre>
                   </td>
                   <td class='code'>
-                    <pre>    if constexpr (CloneT)</pre>
+                    <pre>    }</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2572,11 +2584,11 @@
                     <a name='L106' href='#L106' id="L106">
                     <pre>106</pre></a>
                   </td>
-                  <td class='uncovered-line'>
-                    <pre>0</pre>
+                  <td class='covered-line'>
+                    <pre>15</pre>
                   </td>
                   <td class='code'>
-                    <pre>    <span class='red'>{</span></pre>
+                    <pre>    else</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2588,7 +2600,7 @@
                     <pre>15</pre>
                   </td>
                   <td class='code'>
-                    <pre>      auto retval = Clone();</pre>
+                    <pre>    {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2600,7 +2612,7 @@
                     <pre>15</pre>
                   </td>
                   <td class='code'>
-                    <pre>      retval-&gt;impl_ = T::template f&lt;CloneT, U...&gt;(</pre>
+                    <pre>      return T::template f&lt;CloneT, U...&gt;(*impl_,</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2612,7 +2624,7 @@
                     <pre>15</pre>
                   </td>
                   <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
+                    <pre>                                         std::forward&lt;const Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2624,85 +2636,13 @@
                     <pre>15</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return retval;</pre>
+                    <pre>    }</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L111' href='#L111' id="L111">
                     <pre>111</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L112' href='#L112' id="L112">
-                    <pre>112</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    else</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L113' href='#L113' id="L113">
-                    <pre>113</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L114' href='#L114' id="L114">
-                    <pre>114</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return T::template f&lt;CloneT, U...&gt;(*impl_,</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L115' href='#L115' id="L115">
-                    <pre>115</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>                                         std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L116' href='#L116' id="L116">
-                    <pre>116</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L117' href='#L117' id="L117">
-                    <pre>117</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>15</pre>
@@ -2733,6 +2673,78 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
+                    <a name='L98' href='#L98' id="L98">
+                    <pre>98</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>9</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L99' href='#L99' id="L99">
+                    <pre>99</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>9</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    if constexpr (CloneT)</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L100' href='#L100' id="L100">
+                    <pre>100</pre></a>
+                  </td>
+                  <td class='uncovered-line'>
+                    <pre>0</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    <span class='red'>{</span></pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L101' href='#L101' id="L101">
+                    <pre>101</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>9</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>      auto retval = Clone();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L102' href='#L102' id="L102">
+                    <pre>102</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>9</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>      retval-&gt;impl_ = T::template f&lt;CloneT, U...&gt;(</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L103' href='#L103' id="L103">
+                    <pre>103</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>9</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
                     <a name='L104' href='#L104' id="L104">
                     <pre>104</pre></a>
                   </td>
@@ -2740,7 +2752,7 @@
                     <pre>9</pre>
                   </td>
                   <td class='code'>
-                    <pre>  {</pre>
+                    <pre>      return retval;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2752,7 +2764,7 @@
                     <pre>9</pre>
                   </td>
                   <td class='code'>
-                    <pre>    if constexpr (CloneT)</pre>
+                    <pre>    }</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2760,11 +2772,11 @@
                     <a name='L106' href='#L106' id="L106">
                     <pre>106</pre></a>
                   </td>
-                  <td class='uncovered-line'>
-                    <pre>0</pre>
+                  <td class='covered-line'>
+                    <pre>9</pre>
                   </td>
                   <td class='code'>
-                    <pre>    <span class='red'>{</span></pre>
+                    <pre>    else</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2776,7 +2788,7 @@
                     <pre>9</pre>
                   </td>
                   <td class='code'>
-                    <pre>      auto retval = Clone();</pre>
+                    <pre>    {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2788,7 +2800,7 @@
                     <pre>9</pre>
                   </td>
                   <td class='code'>
-                    <pre>      retval-&gt;impl_ = T::template f&lt;CloneT, U...&gt;(</pre>
+                    <pre>      return T::template f&lt;CloneT, U...&gt;(*impl_,</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2800,7 +2812,7 @@
                     <pre>9</pre>
                   </td>
                   <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
+                    <pre>                                         std::forward&lt;const Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2812,85 +2824,13 @@
                     <pre>9</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return retval;</pre>
+                    <pre>    }</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L111' href='#L111' id="L111">
                     <pre>111</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L112' href='#L112' id="L112">
-                    <pre>112</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    else</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L113' href='#L113' id="L113">
-                    <pre>113</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L114' href='#L114' id="L114">
-                    <pre>114</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return T::template f&lt;CloneT, U...&gt;(*impl_,</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L115' href='#L115' id="L115">
-                    <pre>115</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>                                         std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L116' href='#L116' id="L116">
-                    <pre>116</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L117' href='#L117' id="L117">
-                    <pre>117</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>9</pre>
@@ -2906,8 +2846,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L118' href='#L118' id="L118">
-          <pre>118</pre></a>
+          <a name='L112' href='#L112' id="L112">
+          <pre>112</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -2916,8 +2856,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L119' href='#L119' id="L119">
-          <pre>119</pre></a>
+          <a name='L113' href='#L113' id="L113">
+          <pre>113</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -2926,8 +2866,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L120' href='#L120' id="L120">
-          <pre>120</pre></a>
+          <a name='L114' href='#L114' id="L114">
+          <pre>114</pre></a>
         </td>
         <td class='covered-line'>
           <pre>23</pre>
@@ -2938,8 +2878,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L121' href='#L121' id="L121">
-          <pre>121</pre></a>
+          <a name='L115' href='#L115' id="L115">
+          <pre>115</pre></a>
         </td>
         <td class='covered-line'>
           <pre>23</pre>
@@ -2950,8 +2890,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L122' href='#L122' id="L122">
-          <pre>122</pre></a>
+          <a name='L116' href='#L116' id="L116">
+          <pre>116</pre></a>
         </td>
         <td class='covered-line'>
           <pre>23</pre>
@@ -2977,8 +2917,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L120' href='#L120' id="L120">
-                    <pre>120</pre></a>
+                    <a name='L114' href='#L114' id="L114">
+                    <pre>114</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>15</pre>
@@ -2989,8 +2929,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L121' href='#L121' id="L121">
-                    <pre>121</pre></a>
+                    <a name='L115' href='#L115' id="L115">
+                    <pre>115</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>15</pre>
@@ -3001,8 +2941,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L122' href='#L122' id="L122">
-                    <pre>122</pre></a>
+                    <a name='L116' href='#L116' id="L116">
+                    <pre>116</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>15</pre>
@@ -3033,8 +2973,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L120' href='#L120' id="L120">
-                    <pre>120</pre></a>
+                    <a name='L114' href='#L114' id="L114">
+                    <pre>114</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>8</pre>
@@ -3045,8 +2985,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L121' href='#L121' id="L121">
-                    <pre>121</pre></a>
+                    <a name='L115' href='#L115' id="L115">
+                    <pre>115</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>8</pre>
@@ -3057,8 +2997,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L122' href='#L122' id="L122">
-                    <pre>122</pre></a>
+                    <a name='L116' href='#L116' id="L116">
+                    <pre>116</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>8</pre>
@@ -3074,8 +3014,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L123' href='#L123' id="L123">
-          <pre>123</pre></a>
+          <a name='L117' href='#L117' id="L117">
+          <pre>117</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -3084,8 +3024,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L124' href='#L124' id="L124">
-          <pre>124</pre></a>
+          <a name='L118' href='#L118' id="L118">
+          <pre>118</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -3094,8 +3034,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L125' href='#L125' id="L125">
-          <pre>125</pre></a>
+          <a name='L119' href='#L119' id="L119">
+          <pre>119</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -3104,8 +3044,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L126' href='#L126' id="L126">
-          <pre>126</pre></a>
+          <a name='L120' href='#L120' id="L120">
+          <pre>120</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -3114,8 +3054,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L127' href='#L127' id="L127">
-          <pre>127</pre></a>
+          <a name='L121' href='#L121' id="L121">
+          <pre>121</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -3124,8 +3064,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L128' href='#L128' id="L128">
-          <pre>128</pre></a>
+          <a name='L122' href='#L122' id="L122">
+          <pre>122</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
