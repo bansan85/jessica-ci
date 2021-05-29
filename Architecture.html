@@ -501,6 +501,12 @@ Between adapter and implementation, you may add decorators.</p>
 <div class="paragraph">
 <p>All accessors use the same template function <code>f</code>. To deal with getter without argument, it needs to add a symbol in the mangled name. This symbol will be explicit for function without argument and implicit for function with arguments.</p>
 </div>
+<div class="paragraph">
+<p>If you want to get a value, the first explicit typename is <code>false</code>: <code>f&lt;false, GetData&gt;()</code>.</p>
+</div>
+<div class="paragraph">
+<p>If you want to set a value, the first explicit typename is <code>true</code>: <code>f&lt;true, GetData&gt;(value)</code>.</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -517,7 +523,7 @@ Between adapter and implementation, you may add decorators.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Example</p>
+<p>Example of declaration</p>
 </li>
 </ul>
 </div>
@@ -531,6 +537,7 @@ Between adapter and implementation, you may add decorators.</p>
 
 namespace Jessica::Data::Geotechnical
 {
+
 template &lt;typename T&gt;
 class JESSICA_DLL_PUBLIC FoundationStrip final
 {
@@ -541,21 +548,20 @@ class JESSICA_DLL_PUBLIC FoundationStrip final
   FoundationStrip&amp; operator=(const FoundationStrip&amp;) = delete;
   FoundationStrip&amp; operator=(FoundationStrip&amp;&amp;) = delete;
 
-  template &lt;typename U = void, typename... V&gt;
-  [[nodiscard]] auto f(const V&amp;&amp;... v) const
+  template &lt;bool CloneT, typename... U, typename... Args&gt;
+  [[nodiscard]] auto f(const Args&amp;&amp;... args) const
   {
-    using V0 = typename std::conditional_t&lt;
-        sizeof...(V) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,
-        Jessica::Helper::LazyLoadExtractNthType&lt;0, V...&gt;&gt;::type;
-    if constexpr (V0::clone_)
+    if constexpr (CloneT)
     {
       auto retval = Clone();
-      retval-&gt;impl_ = T::template f&lt;V0&gt;(*impl_, std::forward&lt;const V&gt;(v)...);
+      retval-&gt;impl_ = T::template f&lt;CloneT, U...&gt;(
+          *impl_, std::forward&lt;const Args&gt;(args)...);
       return retval;
     }
     else
     {
-      return T::template f&lt;V0&gt;(*impl_, std::forward&lt;const V&gt;(v)...);
+      return T::template f&lt;CloneT, U...&gt;(*impl_,
+                                         std::forward&lt;const Args&gt;(args)...);
     }
   }
 
@@ -592,6 +598,7 @@ If <code>clone_</code> is <code>true</code>, the function returns a <code>share_
 
 namespace Jessica::Data::Geotechnical
 {
+
 class JESSICA_DLL_PUBLIC FoundationStripImpl
 {
  public:
@@ -599,16 +606,8 @@ class JESSICA_DLL_PUBLIC FoundationStripImpl
   {
   };
 
-  struct GetB
+  struct B
   {
-    static constexpr bool clone_ = false;
-  };
-
-  struct SetB
-  {
-    SetB(double value) : b(value) {}
-    double b;
-    static constexpr bool clone_ = true;
   };
 
   FoundationStripImpl() = default;
@@ -625,20 +624,23 @@ class JESSICA_DLL_PUBLIC FoundationStripImpl
     return std::make_shared&lt;FoundationStripImpl&gt;(self);
   }
 
-  template &lt;typename T&gt;
-  requires std::is_same_v&lt;GetB, T&gt; [[nodiscard]] static double f(
-      const FoundationStripImpl&amp; self)
+  template &lt;bool CloneT, typename T&gt;
+  requires std::is_same_v&lt;std::integral_constant&lt;bool, CloneT&gt;,
+                          std::false_type&gt;&amp;&amp;
+      std::is_same_v&lt;B, T&gt; [[nodiscard]] static double
+      f(const FoundationStripImpl&amp; self)
   {
     return self.b_;
   }
 
-  template &lt;typename T&gt;
-  requires std::is_same_v&lt;SetB, T&gt; [[nodiscard]] static std::shared_ptr&lt;
-      FoundationStripImpl&gt;
-  f(const FoundationStripImpl&amp; self, const T&amp;&amp; b)
+  template &lt;bool CloneT, typename T&gt;
+  requires std::is_same_v&lt;std::integral_constant&lt;bool, CloneT&gt;,
+                          std::true_type&gt;&amp;&amp; std::
+      is_same_v&lt;B, T&gt; [[nodiscard]] static std::shared_ptr&lt;FoundationStripImpl&gt;
+      f(const FoundationStripImpl&amp; self, const double b)
   {
     auto retval = f&lt;Clone&gt;(self);
-    retval-&gt;b_ = b.b;
+    retval-&gt;b_ = b;
     return retval;
   }
 
@@ -666,15 +668,12 @@ class JESSICA_DLL_PUBLIC LogDuration
  public:
   using Type = typename Jessica::Helper::ExtractRootType&lt;T&gt;::type;
 
-  template &lt;typename U = void, typename... Args&gt;
+  template &lt;bool CloneT, typename... U, typename... Args&gt;
   [[nodiscard]] static auto f(const Type&amp; classe, const Args&amp;&amp;... args)
   {
-    using V0 = typename std::conditional_t&lt;
-        sizeof...(Args) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,
-        Jessica::Helper::LazyLoadExtractNthType&lt;0, Args...&gt;&gt;::type;
     const auto t_start = std::chrono::high_resolution_clock::now();
     const auto retval =
-        T::template f&lt;V0&gt;(classe, std::forward&lt;const Args&gt;(args)...);
+        T::template f&lt;CloneT, U...&gt;(classe, std::forward&lt;const Args&gt;(args)...);
     const auto t_end = std::chrono::high_resolution_clock::now();
     const double elapsed_time_ms =
         std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();
@@ -714,7 +713,11 @@ class JESSICA_DLL_PUBLIC LogDuration
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">  const auto load2 = load-&gt;f(Jessica::Data::Load::VerticalEccentricImpl::SetV{100000.});</code></pre>
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">  // Getter
+  load-&gt;f&lt;false, Jessica::Data::Load::VerticalEccentricImpl::V&gt;();
+  // Setter
+  const auto load2 =
+      load-&gt;f&lt;true, Jessica::Data::Load::VerticalEccentricImpl::V&gt;(100000.);</code></pre>
 </div>
 </div>
 </div>
@@ -778,11 +781,11 @@ In this case, you need to specific coding to allow decorator around the main cla
 <p>For example, Meyerhof have two data stored.</p>
 </div>
 <div class="paragraph">
-<p>There is two <code>using</code>: <code>U</code> and <code>V</code>. They extract types from the main template.
+<p>There is two <code>using</code>: <code>T0</code> and <code>T1</code>. They extract types from the main template.
 The goal is to reduce the length when declaring the template.</p>
 </div>
 <div class="paragraph">
-<p>Because this class has two data stored, you need to add boilerplates for all accessors from the main class. They are added in adapter with the generic templated <code>f</code> function.</p>
+<p>Because this class has two data stored, you need to add boilerplates to all accessors from the main class. They are added in adapter with the generic templated <code>f</code> function.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -790,22 +793,22 @@ The goal is to reduce the length when declaring the template.</p>
 class JESSICA_DLL_PUBLIC MeyerhofShallowFoundation final
 {
  public:
-  using U = typename Jessica::Helper::ExtractRootTypeN&lt;0, T&gt;::type;
-  using V = typename Jessica::Helper::ExtractRootTypeN&lt;1, T&gt;::type;
+  using T0 = typename Jessica::Helper::ExtractRootTypeN&lt;0, T&gt;::type;
+  using T1 = typename Jessica::Helper::ExtractRootTypeN&lt;1, T&gt;::type;
 
   MeyerhofShallowFoundation()
-      : impl_(std::make_shared&lt;MeyerhofShallowFoundationImpl&lt;U, V&gt;&gt;(
-            std::make_shared&lt;Jessica::Data::Load::VerticalEccentric&lt;U&gt;&gt;(),
+      : impl_(std::make_shared&lt;MeyerhofShallowFoundationImpl&lt;T0, T1&gt;&gt;(
+            std::make_shared&lt;Jessica::Data::Load::VerticalEccentric&lt;T0&gt;&gt;(),
             std::make_shared&lt;
-                Jessica::Data::Geotechnical::FoundationStrip&lt;V&gt;&gt;()))
+                Jessica::Data::Geotechnical::FoundationStrip&lt;T1&gt;&gt;()))
   {
   }
   MeyerhofShallowFoundation(
-      const std::shared_ptr&lt;Jessica::Data::Load::VerticalEccentric&lt;U&gt;&gt;&amp; load,
-      const std::shared_ptr&lt;Jessica::Data::Geotechnical::FoundationStrip&lt;V&gt;&gt;&amp;
+      const std::shared_ptr&lt;Jessica::Data::Load::VerticalEccentric&lt;T0&gt;&gt;&amp; load,
+      const std::shared_ptr&lt;Jessica::Data::Geotechnical::FoundationStrip&lt;T1&gt;&gt;&amp;
           foundation)
-      : impl_(std::make_shared&lt;MeyerhofShallowFoundationImpl&lt;U, V&gt;&gt;(load,
-                                                                    foundation))
+      : impl_(std::make_shared&lt;MeyerhofShallowFoundationImpl&lt;T0, T1&gt;&gt;(
+            load, foundation))
   {
   }
   MeyerhofShallowFoundation(const MeyerhofShallowFoundation&amp;) = default;
@@ -815,21 +818,20 @@ class JESSICA_DLL_PUBLIC MeyerhofShallowFoundation final
   MeyerhofShallowFoundation&amp; operator=(MeyerhofShallowFoundation&amp;&amp;) = delete;
   ~MeyerhofShallowFoundation() = default;
 
-  template &lt;typename U = void, typename... V&gt;
-  [[nodiscard]] auto f(const V&amp;&amp;... v) const
+  template &lt;bool CloneT, typename... U, typename... Args&gt;
+  [[nodiscard]] auto f(const Args&amp;&amp;... args) const
   {
-    using V0 = typename std::conditional_t&lt;
-        sizeof...(V) == 0, Jessica::Helper::LazyLoadIdentity&lt;U&gt;,
-        Jessica::Helper::LazyLoadExtractNthType&lt;0, V...&gt;&gt;::type;
-    if constexpr (V0::clone_)
+    if constexpr (CloneT)
     {
       auto retval = Clone();
-      retval-&gt;impl_ = T::template f&lt;V0&gt;(*impl_, std::forward&lt;const V&gt;(v)...);
+      retval-&gt;impl_ = T::template f&lt;CloneT, U...&gt;(
+          *impl_, std::forward&lt;const Args&gt;(args)...);
       return retval;
     }
     else
     {
-      return T::template f&lt;V0&gt;(*impl_, std::forward&lt;const V&gt;(v)...);
+      return T::template f&lt;CloneT, U...&gt;(*impl_,
+                                         std::forward&lt;const Args&gt;(args)...);
     }
   }
 
@@ -839,7 +841,7 @@ class JESSICA_DLL_PUBLIC MeyerhofShallowFoundation final
   }
 
  private:
-  std::shared_ptr&lt;MeyerhofShallowFoundationImpl&lt;U, V&gt;&gt; impl_;
+  std::shared_ptr&lt;MeyerhofShallowFoundationImpl&lt;T0, T1&gt;&gt; impl_;
 };</code></pre>
 </div>
 </div>
@@ -851,11 +853,11 @@ class JESSICA_DLL_PUBLIC MeyerhofShallowFoundation final
 </ul>
 </div>
 <div class="paragraph">
-<p>The implementation needs to have as template the type of data store (<code>U</code> and <code>V</code>).</p>
+<p>The implementation needs to have as template the type of data store (<code>T0</code> and <code>T1</code>).</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">template &lt;typename U, typename V&gt;
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">template &lt;typename T0, typename T1&gt;
 class JESSICA_DLL_PUBLIC MeyerhofShallowFoundationImpl
 {
  public:
@@ -863,55 +865,26 @@ class JESSICA_DLL_PUBLIC MeyerhofShallowFoundationImpl
   {
   };
 
-  struct GetQref
+  struct Qref
   {
-    static constexpr bool clone_ = false;
   };
 
-  struct GetB_
+  struct B_
   {
-    static constexpr bool clone_ = false;
   };
 
-  struct GetLoadV
+  struct Load
   {
-    static constexpr bool clone_ = false;
   };
 
-  struct SetLoadV
+  struct Foundation
   {
-    SetLoadV(double value) : v(value) {}
-    double v;
-    static constexpr bool clone_ = true;
-  };
-
-  struct GetLoadE
-  {
-    static constexpr bool clone_ = false;
-  };
-
-  struct SetLoadE
-  {
-    SetLoadE(double value) : e(value) {}
-    double e;
-    static constexpr bool clone_ = true;
-  };
-
-  struct GetFoundationB
-  {
-    static constexpr bool clone_ = false;
-  };
-
-  struct SetFoundationB
-  {
-    SetFoundationB(double value) : b(value) {}
-    double b;
-    static constexpr bool clone_ = true;
   };
 
   MeyerhofShallowFoundationImpl(
-      const std::shared_ptr&lt;Data::Load::VerticalEccentric&lt;U&gt;&gt;&amp; load,
-      const std::shared_ptr&lt;Data::Geotechnical::FoundationStrip&lt;V&gt;&gt;&amp; foundation)
+      const std::shared_ptr&lt;Data::Load::VerticalEccentric&lt;T0&gt;&gt;&amp; load,
+      const std::shared_ptr&lt;Data::Geotechnical::FoundationStrip&lt;T1&gt;&gt;&amp;
+          foundation)
       : load_(load), foundation_(foundation)
   {
   }
@@ -930,85 +903,78 @@ class JESSICA_DLL_PUBLIC MeyerhofShallowFoundationImpl
     return std::make_shared&lt;MeyerhofShallowFoundationImpl&gt;(self);
   }
 
-  template &lt;typename T&gt;
-  requires std::is_same_v&lt;GetB_, T&gt; [[nodiscard]] static double f(
-      const MeyerhofShallowFoundationImpl&amp; self)
+  template &lt;bool CloneT, typename T&gt;
+  requires std::is_same_v&lt;std::integral_constant&lt;bool, CloneT&gt;,
+                          std::false_type&gt;&amp;&amp;
+      std::is_same_v&lt;B_, T&gt; [[nodiscard]] static double
+      f(const MeyerhofShallowFoundationImpl&amp; self)
   {
     return self.foundation_-&gt;template f&lt;
-               Jessica::Data::Geotechnical::FoundationStripImpl::GetB&gt;() -
+               false, Jessica::Data::Geotechnical::FoundationStripImpl::B&gt;() -
            2. * self.load_-&gt;template f&lt;
-                    Jessica::Data::Load::VerticalEccentricImpl::GetE&gt;();
+                    false, Jessica::Data::Load::VerticalEccentricImpl::E&gt;();
   }
 
-  template &lt;typename T&gt;
-  requires std::is_same_v&lt;GetQref, T&gt; [[nodiscard]] static double f(
-      const MeyerhofShallowFoundationImpl&amp; self)
+  template &lt;bool CloneT, typename T&gt;
+  requires std::is_same_v&lt;std::integral_constant&lt;bool, CloneT&gt;,
+                          std::false_type&gt;&amp;&amp;
+      std::is_same_v&lt;Qref, T&gt; [[nodiscard]] static double
+      f(const MeyerhofShallowFoundationImpl&amp; self)
   {
     return self.load_-&gt;template f&lt;
-               Jessica::Data::Load::VerticalEccentricImpl::GetV&gt;() /
-           f&lt;GetB_&gt;(self);
+               false, Jessica::Data::Load::VerticalEccentricImpl::V&gt;() /
+           f&lt;false, B_&gt;(self);
   }
 
-  template &lt;typename T&gt;
-  requires std::is_same_v&lt;GetLoadV, T&gt; [[nodiscard]] static double f(
-      const MeyerhofShallowFoundationImpl&amp; self)
+  template &lt;bool CloneT, typename T, typename... U, typename... Args&gt;
+  requires std::is_same_v&lt;std::integral_constant&lt;bool, CloneT&gt;,
+                          std::false_type&gt;&amp;&amp;
+      std::is_same_v&lt;Load, T&gt; [[nodiscard]] static double
+      f(const MeyerhofShallowFoundationImpl&amp; self, const Args&amp;&amp;... args)
   {
-    return self.load_
-        -&gt;template f&lt;Jessica::Data::Load::VerticalEccentricImpl::GetV&gt;();
+    return self.load_-&gt;template f&lt;CloneT, U...&gt;(
+        std::forward&lt;const Args&gt;(args)...);
   }
 
-  template &lt;typename T&gt;
-  requires std::is_same_v&lt;SetLoadV, T&gt; [[nodiscard]] static std::shared_ptr&lt;
-      MeyerhofShallowFoundationImpl&gt;
-  f(const MeyerhofShallowFoundationImpl&amp; self, const T&amp; a)
+  template &lt;bool CloneT, typename T, typename... U, typename... Args&gt;
+  requires std::is_same_v&lt;std::integral_constant&lt;bool, CloneT&gt;,
+                          std::true_type&gt;&amp;&amp;
+      std::is_same_v&lt;Load, T&gt; [[nodiscard]] static std::shared_ptr&lt;
+          MeyerhofShallowFoundationImpl&gt;
+      f(const MeyerhofShallowFoundationImpl&amp; self, const Args&amp;&amp;... args)
   {
     auto retval = f&lt;Clone&gt;(self);
-    retval-&gt;load_ =
-        retval-&gt;load_-&gt;f(Jessica::Data::Load::VerticalEccentricImpl::SetV{a.v});
+    retval-&gt;load_ = retval-&gt;load_-&gt;template f&lt;CloneT, U...&gt;(
+        std::forward&lt;const Args&gt;(args)...);
     return retval;
   }
 
-  template &lt;typename T&gt;
-  requires std::is_same_v&lt;GetLoadE, T&gt; [[nodiscard]] static double f(
-      const MeyerhofShallowFoundationImpl&amp; self)
+  template &lt;bool CloneT, typename T, typename... U, typename... Args&gt;
+  requires std::is_same_v&lt;std::integral_constant&lt;bool, CloneT&gt;,
+                          std::false_type&gt;&amp;&amp;
+      std::is_same_v&lt;Foundation, T&gt; [[nodiscard]] static double
+      f(const MeyerhofShallowFoundationImpl&amp; self, const Args&amp;&amp;... args)
   {
-    return self.load_
-        -&gt;template f&lt;Jessica::Data::Load::VerticalEccentricImpl::GetE&gt;();
+    return self.foundation_-&gt;template f&lt;CloneT, U...&gt;(
+        std::forward&lt;const Args&gt;(args)...);
   }
 
-  template &lt;typename T&gt;
-  requires std::is_same_v&lt;SetLoadE, T&gt; [[nodiscard]] static std::shared_ptr&lt;
-      MeyerhofShallowFoundationImpl&gt;
-  f(const MeyerhofShallowFoundationImpl&amp; self, const T&amp; a)
+  template &lt;bool CloneT, typename T, typename... U, typename... Args&gt;
+  requires std::is_same_v&lt;std::integral_constant&lt;bool, CloneT&gt;,
+                          std::true_type&gt;&amp;&amp;
+      std::is_same_v&lt;Foundation, T&gt; [[nodiscard]] static std::shared_ptr&lt;
+          MeyerhofShallowFoundationImpl&gt;
+      f(const MeyerhofShallowFoundationImpl&amp; self, const Args&amp;&amp;... args)
   {
     auto retval = f&lt;Clone&gt;(self);
-    retval-&gt;load_ =
-        retval-&gt;load_-&gt;f(Jessica::Data::Load::VerticalEccentricImpl::SetE{a.e});
-    return retval;
-  }
-
-  template &lt;typename T&gt;
-  requires std::is_same_v&lt;GetFoundationB, T&gt; [[nodiscard]] static double f(
-      const MeyerhofShallowFoundationImpl&amp; self)
-  {
-    return self.foundation_
-        -&gt;template f&lt;Jessica::Data::Geotechnical::FoundationStripImpl::GetB&gt;();
-  }
-
-  template &lt;typename T&gt;
-  requires std::is_same_v&lt;SetFoundationB, T&gt; [[nodiscard]] static std::
-      shared_ptr&lt;MeyerhofShallowFoundationImpl&gt;
-      f(const MeyerhofShallowFoundationImpl&amp; self, const T&amp; a)
-  {
-    auto retval = f&lt;Clone&gt;(self);
-    retval-&gt;foundation_ = retval-&gt;foundation_-&gt;f(
-        Jessica::Data::Geotechnical::FoundationStripImpl::SetB{a.b});
+    retval-&gt;foundation_ = retval-&gt;foundation_-&gt;template f&lt;CloneT, U...&gt;(
+        std::forward&lt;const Args&gt;(args)...);
     return retval;
   }
 
  private:
-  std::shared_ptr&lt;Jessica::Data::Load::VerticalEccentric&lt;U&gt;&gt; load_;
-  std::shared_ptr&lt;Jessica::Data::Geotechnical::FoundationStrip&lt;V&gt;&gt; foundation_;
+  std::shared_ptr&lt;Jessica::Data::Load::VerticalEccentric&lt;T0&gt;&gt; load_;
+  std::shared_ptr&lt;Jessica::Data::Geotechnical::FoundationStrip&lt;T1&gt;&gt; foundation_;
 };</code></pre>
 </div>
 </div>
