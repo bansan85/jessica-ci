@@ -101,7 +101,7 @@
 <a name="23"><span class="lineNum">      23</span>                 :             :       std::integral_constant&lt;Jessica::Helper::F, T&gt;,</a>
 <a name="24"><span class="lineNum">      24</span>                 :             :       std::integral_constant&lt;Jessica::Helper::F, Jessica::Helper::F::Clone&gt;&gt;</a>
 <a name="25"><span class="lineNum">      25</span>                 :             :   [[nodiscard]] static std::shared_ptr&lt;FoundationStripImpl&gt;</a>
-<a name="26"><span class="lineNum">      26</span>                 :<span class="tlaGNC">           6 :   f(const FoundationStripImpl&amp; self)</span></a>
+<a name="26"><span class="lineNum">      26</span>                 :<span class="tlaGNC">           6 :       f(const FoundationStripImpl&amp; self)</span></a>
 <a name="27"><span class="lineNum">      27</span>                 :             :   {</a>
 <a name="28"><span class="lineNum">      28</span>                 :<span class="tlaGNC">           6 :     return std::make_shared&lt;FoundationStripImpl&gt;(self);</span></a>
 <a name="29"><span class="lineNum">      29</span>                 :             :   }</a>
@@ -124,7 +124,7 @@
 <a name="46"><span class="lineNum">      46</span>                 :             :           std::integral_constant&lt;Jessica::Helper::F, T&gt;,</a>
 <a name="47"><span class="lineNum">      47</span>                 :             :           std::integral_constant&lt;Jessica::Helper::F, Jessica::Helper::F::B&gt;&gt;</a>
 <a name="48"><span class="lineNum">      48</span>                 :             :   [[nodiscard]] static std::shared_ptr&lt;FoundationStripImpl&gt;</a>
-<a name="49"><span class="lineNum">      49</span>                 :<span class="tlaGNC">           6 :   f(const FoundationStripImpl&amp; self, const double b)</span></a>
+<a name="49"><span class="lineNum">      49</span>                 :<span class="tlaGNC">           6 :       f(const FoundationStripImpl&amp; self, const double b)</span></a>
 <a name="50"><span class="lineNum">      50</span>                 :             :   {</a>
 <a name="51"><span class="lineNum">      51</span>                 :<span class="tlaGNC">           6 :     auto retval = f&lt;Jessica::Helper::F::Clone&gt;(self);</span></a>
 <a name="52"><span class="lineNum">      52</span>                 :<span class="tlaGNC">           6 :     retval-&gt;b_ = b;</span></a>
