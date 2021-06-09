@@ -200,7 +200,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto load = std::make_shared&lt;VerticalEccentric&lt;VerticalEccentricImpl&gt;&gt;()</pre>
+          <pre>  const auto load = std::make_shared&lt;VerticalEccentric&gt;()</pre>
         </td>
       </tr>
       <tr>
@@ -248,7 +248,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>      std::make_shared&lt;FoundationStrip&lt;FoundationStripImpl&gt;&gt;()-&gt;f&lt;F::Set, F::B&gt;(</pre>
+          <pre>      std::make_shared&lt;FoundationStrip&gt;()-&gt;f&lt;F::Set, F::B&gt;(1.);</pre>
         </td>
       </tr>
       <tr>
@@ -260,7 +260,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>          1.);</pre>
+          <pre>  const auto calc = std::make_shared&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -272,7 +272,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto calc =</pre>
+          <pre>      MeyerhofShallowFoundation&lt;VerticalEccentric, FoundationStrip&gt;&gt;(</pre>
         </td>
       </tr>
       <tr>
@@ -284,7 +284,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>      std::make_shared&lt;MeyerhofShallowFoundation&lt;MeyerhofShallowFoundationImpl&lt;</pre>
+          <pre>      load, foundation);</pre>
         </td>
       </tr>
       <tr>
@@ -292,11 +292,9 @@
           <a name='L25' href='#L25' id="L25">
           <pre>25</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>1</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>          VerticalEccentricImpl, FoundationStripImpl&gt;&gt;&gt;(load, foundation);</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -304,9 +302,11 @@
           <a name='L26' href='#L26' id="L26">
           <pre>26</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre>  JTEST_EQ((calc-&gt;f&lt;F::Get, F::B_&gt;()), 0.5);</pre>
         </td>
       </tr>
       <tr>
@@ -318,7 +318,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ((calc-&gt;f&lt;F::Get, F::B_&gt;()), 0.5);</pre>
+          <pre>  JTEST_EQ((calc-&gt;f&lt;F::Get, F::Qref&gt;()), 200000.);</pre>
         </td>
       </tr>
       <tr>
@@ -330,7 +330,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ((calc-&gt;f&lt;F::Get, F::Qref&gt;()), 200000.);</pre>
+          <pre>  const auto load2 = load-&gt;f&lt;F::Set, F::E&gt;(0.5);</pre>
         </td>
       </tr>
       <tr>
@@ -342,7 +342,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto load2 = load-&gt;f&lt;F::Set, F::E&gt;(0.5);</pre>
+          <pre>  const auto calc2 = std::make_shared&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -354,7 +354,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto calc2 =</pre>
+          <pre>      MeyerhofShallowFoundation&lt;VerticalEccentric, FoundationStrip&gt;&gt;(</pre>
         </td>
       </tr>
       <tr>
@@ -366,7 +366,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>      std::make_shared&lt;MeyerhofShallowFoundation&lt;MeyerhofShallowFoundationImpl&lt;</pre>
+          <pre>      load2, foundation);</pre>
         </td>
       </tr>
       <tr>
@@ -378,7 +378,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>          VerticalEccentricImpl, FoundationStripImpl&gt;&gt;&gt;(load2, foundation);</pre>
+          <pre>  JTEST_EQ((calc2-&gt;f&lt;F::Get, F::B_&gt;()), 0.);</pre>
         </td>
       </tr>
       <tr>
@@ -390,7 +390,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ((calc2-&gt;f&lt;F::Get, F::B_&gt;()), 0.);</pre>
+          <pre>  JTEST_TRUE(std::isinf(calc2-&gt;f&lt;F::Get, F::Qref&gt;()));</pre>
         </td>
       </tr>
       <tr>
@@ -402,7 +402,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_TRUE(std::isinf(calc2-&gt;f&lt;F::Get, F::Qref&gt;()));</pre>
+          <pre>  const auto calc3 = calc2-&gt;f&lt;F::Set, F::Clone&gt;();</pre>
         </td>
       </tr>
       <tr>
@@ -414,7 +414,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto calc3 = calc2-&gt;Clone();</pre>
+          <pre>  JTEST_EQ((calc2-&gt;f&lt;F::Get, F::B_&gt;()), (calc3-&gt;f&lt;F::Get, F::B_&gt;()));</pre>
         </td>
       </tr>
       <tr>
@@ -426,7 +426,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ((calc2-&gt;f&lt;F::Get, F::B_&gt;()), (calc3-&gt;f&lt;F::Get, F::B_&gt;()));</pre>
+          <pre>  JTEST_EQ((calc2-&gt;f&lt;F::Get, F::Qref&gt;()), (calc3-&gt;f&lt;F::Get, F::Qref&gt;()));</pre>
         </td>
       </tr>
       <tr>
@@ -434,11 +434,9 @@
           <a name='L37' href='#L37' id="L37">
           <pre>37</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>1</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  JTEST_EQ((calc2-&gt;f&lt;F::Get, F::Qref&gt;()), (calc3-&gt;f&lt;F::Get, F::Qref&gt;()));</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -446,9 +444,11 @@
           <a name='L38' href='#L38' id="L38">
           <pre>38</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre>  const auto load_maxe = load-&gt;f&lt;F::Set, F::E&gt;(DBL_MAX);</pre>
         </td>
       </tr>
       <tr>
@@ -460,7 +460,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto load_maxe = load-&gt;f&lt;F::Set, F::E&gt;(DBL_MAX);</pre>
+          <pre>  const auto calc_maxe = std::make_shared&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -472,7 +472,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto calc_maxe =</pre>
+          <pre>      MeyerhofShallowFoundation&lt;VerticalEccentric, FoundationStrip&gt;&gt;(</pre>
         </td>
       </tr>
       <tr>
@@ -484,7 +484,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>      std::make_shared&lt;MeyerhofShallowFoundation&lt;MeyerhofShallowFoundationImpl&lt;</pre>
+          <pre>      load_maxe, foundation);</pre>
         </td>
       </tr>
       <tr>
@@ -496,7 +496,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>          VerticalEccentricImpl, FoundationStripImpl&gt;&gt;&gt;(load_maxe, foundation);</pre>
+          <pre>  JTEST_EQ((calc_maxe-&gt;f&lt;F::Get, F::B_&gt;()),</pre>
         </td>
       </tr>
       <tr>
@@ -508,7 +508,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ((calc_maxe-&gt;f&lt;F::Get, F::B_&gt;()),</pre>
+          <pre>           -std::numeric_limits&lt;double&gt;::infinity());</pre>
         </td>
       </tr>
       <tr>
@@ -516,11 +516,9 @@
           <a name='L44' href='#L44' id="L44">
           <pre>44</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>1</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>           -std::numeric_limits&lt;double&gt;::infinity());</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -528,9 +526,11 @@
           <a name='L45' href='#L45' id="L45">
           <pre>45</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre>  const auto load_mine = load-&gt;f&lt;F::Set, F::E&gt;(-DBL_MAX);</pre>
         </td>
       </tr>
       <tr>
@@ -542,7 +542,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto load_mine = load-&gt;f&lt;F::Set, F::E&gt;(-DBL_MAX);</pre>
+          <pre>  const auto calc_mine = std::make_shared&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -554,7 +554,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto calc_mine =</pre>
+          <pre>      MeyerhofShallowFoundation&lt;VerticalEccentric, FoundationStrip&gt;&gt;(</pre>
         </td>
       </tr>
       <tr>
@@ -566,7 +566,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>      std::make_shared&lt;MeyerhofShallowFoundation&lt;MeyerhofShallowFoundationImpl&lt;</pre>
+          <pre>      load_mine, foundation);</pre>
         </td>
       </tr>
       <tr>
@@ -578,7 +578,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>          VerticalEccentricImpl, FoundationStripImpl&gt;&gt;&gt;(load_mine, foundation);</pre>
+          <pre>  JTEST_EQ((calc_mine-&gt;f&lt;F::Get, F::B_&gt;()),</pre>
         </td>
       </tr>
       <tr>
@@ -590,7 +590,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ((calc_mine-&gt;f&lt;F::Get, F::B_&gt;()),</pre>
+          <pre>           std::numeric_limits&lt;double&gt;::infinity());</pre>
         </td>
       </tr>
       <tr>
@@ -602,7 +602,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>           std::numeric_limits&lt;double&gt;::infinity());</pre>
+          <pre>}</pre>
         </td>
       </tr>
       <tr>
@@ -610,11 +610,9 @@
           <a name='L52' href='#L52' id="L52">
           <pre>52</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>1</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>}</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -624,7 +622,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>JTEST_NAME(data, CalcMeyehofAllDecorator)  // NOLINT</pre>
         </td>
       </tr>
       <tr>
@@ -632,9 +630,11 @@
           <a name='L54' href='#L54' id="L54">
           <pre>54</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
         <td class='code'>
-          <pre>JTEST_NAME(data, CalcMeyehofAllDecorator)  // NOLINT</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -646,7 +646,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>  using DecoratorFoundation = FoundationStripDecorator&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -658,7 +658,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  using DecoratorFoundation = LogCall&lt;LogDuration&lt;FoundationStripImpl&gt;&gt;;</pre>
+          <pre>      LogCall&lt;LogDuration&lt;FoundationStrip, FoundationStrip&gt;, FoundationStrip&gt;&gt;;</pre>
         </td>
       </tr>
       <tr>
@@ -670,7 +670,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  using DecoratorLoad = LogCall&lt;LogDuration&lt;VerticalEccentricImpl&gt;&gt;;</pre>
+          <pre>  using DecoratorLoad = VerticalEccentricDecorator&lt;LogCall&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -682,7 +682,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  using DecoratorCalc = LogCall&lt;LogDuration&lt;</pre>
+          <pre>      LogDuration&lt;VerticalEccentric, VerticalEccentric&gt;, VerticalEccentric&gt;&gt;;</pre>
         </td>
       </tr>
       <tr>
@@ -694,7 +694,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>      MeyerhofShallowFoundationImpl&lt;DecoratorLoad, DecoratorFoundation&gt;&gt;&gt;;</pre>
+          <pre>  using DecoratorCalc = MeyerhofShallowFoundationDecorator&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -702,9 +702,11 @@
           <a name='L60' href='#L60' id="L60">
           <pre>60</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre>      LogCall&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -716,7 +718,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto foundation =</pre>
+          <pre>          LogDuration&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -728,7 +730,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>      std::make_shared&lt;FoundationStrip&lt;DecoratorFoundation&gt;&gt;();</pre>
+          <pre>              MeyerhofShallowFoundation&lt;DecoratorLoad, DecoratorFoundation&gt;,</pre>
         </td>
       </tr>
       <tr>
@@ -740,7 +742,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto foundation2 = foundation-&gt;f&lt;F::Set, F::B&gt;(1.);</pre>
+          <pre>              MeyerhofShallowFoundation&lt;DecoratorLoad, DecoratorFoundation&gt;&gt;,</pre>
         </td>
       </tr>
       <tr>
@@ -752,7 +754,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto load_1 = std::make_shared&lt;VerticalEccentric&lt;DecoratorLoad&gt;&gt;();</pre>
+          <pre>          MeyerhofShallowFoundation&lt;DecoratorLoad, DecoratorFoundation&gt;&gt;,</pre>
         </td>
       </tr>
       <tr>
@@ -764,7 +766,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto load_2 = load_1-&gt;f&lt;F::Set, F::V&gt;(100000.);</pre>
+          <pre>      DecoratorLoad, DecoratorFoundation&gt;;</pre>
         </td>
       </tr>
       <tr>
@@ -772,11 +774,9 @@
           <a name='L66' href='#L66' id="L66">
           <pre>66</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>1</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  const auto load = load_2-&gt;f&lt;F::Set, F::E&gt;(0.25);</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -788,7 +788,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto calc = std::make_shared&lt;MeyerhofShallowFoundation&lt;DecoratorCalc&gt;&gt;(</pre>
+          <pre>  const auto foundation = std::make_shared&lt;DecoratorFoundation&gt;();</pre>
         </td>
       </tr>
       <tr>
@@ -800,7 +800,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>      load, foundation2);</pre>
+          <pre>  const auto foundation2 = foundation-&gt;f&lt;F::Set, F::B&gt;(1.);</pre>
         </td>
       </tr>
       <tr>
@@ -812,7 +812,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ((calc-&gt;f&lt;F::Get, F::B_&gt;()), 0.5);</pre>
+          <pre>  const auto load_1 = std::make_shared&lt;DecoratorLoad&gt;();</pre>
         </td>
       </tr>
       <tr>
@@ -824,7 +824,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ((calc-&gt;f&lt;F::Get, F::Qref&gt;()), 200000.);</pre>
+          <pre>  const auto load_2 = load_1-&gt;f&lt;F::Set, F::V&gt;(100000.);</pre>
         </td>
       </tr>
       <tr>
@@ -836,7 +836,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto load2 = load-&gt;f&lt;F::Set, F::E&gt;(0.5);</pre>
+          <pre>  const auto load = load_2-&gt;f&lt;F::Set, F::E&gt;(0.25);</pre>
         </td>
       </tr>
       <tr>
@@ -848,7 +848,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto calc2 = std::make_shared&lt;MeyerhofShallowFoundation&lt;DecoratorCalc&gt;&gt;(</pre>
+          <pre>  const auto calc = std::make_shared&lt;DecoratorCalc&gt;(load, foundation2);</pre>
         </td>
       </tr>
       <tr>
@@ -860,7 +860,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>      load2, foundation2);</pre>
+          <pre>  JTEST_EQ((calc-&gt;f&lt;F::Get, F::B_&gt;()), 0.5);</pre>
         </td>
       </tr>
       <tr>
@@ -872,7 +872,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ((calc2-&gt;f&lt;F::Get, F::B_&gt;()), 0.);</pre>
+          <pre>  JTEST_EQ((calc-&gt;f&lt;F::Get, F::Qref&gt;()), 200000.);</pre>
         </td>
       </tr>
       <tr>
@@ -884,7 +884,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_TRUE(std::isinf(calc2-&gt;f&lt;F::Get, F::Qref&gt;()));</pre>
+          <pre>  const auto load2 = load-&gt;f&lt;F::Set, F::E&gt;(0.5);</pre>
         </td>
       </tr>
       <tr>
@@ -896,7 +896,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto calc3 = calc2-&gt;Clone();</pre>
+          <pre>  const auto calc2 = std::make_shared&lt;DecoratorCalc&gt;(load2, foundation2);</pre>
         </td>
       </tr>
       <tr>
@@ -908,7 +908,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ((calc2-&gt;f&lt;F::Get, F::B_&gt;()), (calc3-&gt;f&lt;F::Get, F::B_&gt;()));</pre>
+          <pre>  JTEST_EQ((calc2-&gt;f&lt;F::Get, F::B_&gt;()), 0.);</pre>
         </td>
       </tr>
       <tr>
@@ -920,7 +920,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ((calc2-&gt;f&lt;F::Get, F::Qref&gt;()), (calc3-&gt;f&lt;F::Get, F::Qref&gt;()));</pre>
+          <pre>  JTEST_TRUE(std::isinf(calc2-&gt;f&lt;F::Get, F::Qref&gt;()));</pre>
         </td>
       </tr>
       <tr>
@@ -928,9 +928,11 @@
           <a name='L79' href='#L79' id="L79">
           <pre>79</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre>  const auto calc3 = calc2-&gt;f&lt;F::Set, F::Clone&gt;();</pre>
         </td>
       </tr>
       <tr>
@@ -942,7 +944,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto load_maxe = load-&gt;f&lt;F::Set, F::E&gt;(DBL_MAX);</pre>
+          <pre>  JTEST_EQ((calc2-&gt;f&lt;F::Get, F::B_&gt;()), (calc3-&gt;f&lt;F::Get, F::B_&gt;()));</pre>
         </td>
       </tr>
       <tr>
@@ -954,7 +956,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto calc_maxe =</pre>
+          <pre>  JTEST_EQ((calc2-&gt;f&lt;F::Get, F::Qref&gt;()), (calc3-&gt;f&lt;F::Get, F::Qref&gt;()));</pre>
         </td>
       </tr>
       <tr>
@@ -962,11 +964,9 @@
           <a name='L82' href='#L82' id="L82">
           <pre>82</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>1</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      std::make_shared&lt;MeyerhofShallowFoundation&lt;DecoratorCalc&gt;&gt;(load_maxe,</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -978,7 +978,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>                                                                 foundation2);</pre>
+          <pre>  const auto load_maxe = load-&gt;f&lt;F::Set, F::E&gt;(DBL_MAX);</pre>
         </td>
       </tr>
       <tr>
@@ -990,7 +990,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ((calc_maxe-&gt;f&lt;F::Get, F::B_&gt;()),</pre>
+          <pre>  const auto calc_maxe =</pre>
         </td>
       </tr>
       <tr>
@@ -1002,7 +1002,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>           -std::numeric_limits&lt;double&gt;::infinity());</pre>
+          <pre>      std::make_shared&lt;DecoratorCalc&gt;(load_maxe, foundation2);</pre>
         </td>
       </tr>
       <tr>
@@ -1010,9 +1010,11 @@
           <a name='L86' href='#L86' id="L86">
           <pre>86</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre>  JTEST_EQ((calc_maxe-&gt;f&lt;F::Get, F::B_&gt;()),</pre>
         </td>
       </tr>
       <tr>
@@ -1024,7 +1026,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto load_mine = load-&gt;f&lt;F::Set, F::E&gt;(-DBL_MAX);</pre>
+          <pre>           -std::numeric_limits&lt;double&gt;::infinity());</pre>
         </td>
       </tr>
       <tr>
@@ -1032,11 +1034,9 @@
           <a name='L88' href='#L88' id="L88">
           <pre>88</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>1</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  const auto calc_mine =</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1048,7 +1048,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>      std::make_shared&lt;MeyerhofShallowFoundation&lt;DecoratorCalc&gt;&gt;(load_mine,</pre>
+          <pre>  const auto load_mine = load-&gt;f&lt;F::Set, F::E&gt;(-DBL_MAX);</pre>
         </td>
       </tr>
       <tr>
@@ -1060,7 +1060,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>                                                                 foundation2);</pre>
+          <pre>  const auto calc_mine =</pre>
         </td>
       </tr>
       <tr>
@@ -1072,7 +1072,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ((calc_mine-&gt;f&lt;F::Get, F::B_&gt;()),</pre>
+          <pre>      std::make_shared&lt;DecoratorCalc&gt;(load_mine, foundation2);</pre>
         </td>
       </tr>
       <tr>
@@ -1084,7 +1084,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>           std::numeric_limits&lt;double&gt;::infinity());</pre>
+          <pre>  JTEST_EQ((calc_mine-&gt;f&lt;F::Get, F::B_&gt;()),</pre>
         </td>
       </tr>
       <tr>
@@ -1096,7 +1096,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>}</pre>
+          <pre>           std::numeric_limits&lt;double&gt;::infinity());</pre>
         </td>
       </tr>
       <tr>
@@ -1104,9 +1104,11 @@
           <a name='L94' href='#L94' id="L94">
           <pre>94</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre>}</pre>
         </td>
       </tr>
       <tr>
@@ -1116,7 +1118,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>JTEST_NAME(data, CalcMeyehofMainDecorator)  // NOLINT</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1124,11 +1126,9 @@
           <a name='L96' href='#L96' id="L96">
           <pre>96</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>1</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>JTEST_NAME(data, CalcMeyehofMainDecorator)  // NOLINT</pre>
         </td>
       </tr>
       <tr>
@@ -1140,7 +1140,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  using DecoratorFoundation = FoundationStripImpl;</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -1152,7 +1152,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  using DecoratorLoad = VerticalEccentricImpl;</pre>
+          <pre>  using DecoratorCalc = MeyerhofShallowFoundationDecorator&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -1164,7 +1164,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  using DecoratorCalc = LogCall&lt;LogDuration&lt;</pre>
+          <pre>      LogCall&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -1176,7 +1176,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>      MeyerhofShallowFoundationImpl&lt;DecoratorLoad, DecoratorFoundation&gt;&gt;&gt;;</pre>
+          <pre>          LogDuration&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -1184,9 +1184,11 @@
           <a name='L101' href='#L101' id="L101">
           <pre>101</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre>              MeyerhofShallowFoundation&lt;VerticalEccentric, FoundationStrip&gt;,</pre>
         </td>
       </tr>
       <tr>
@@ -1198,7 +1200,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto foundation =</pre>
+          <pre>              MeyerhofShallowFoundation&lt;VerticalEccentric, FoundationStrip&gt;&gt;,</pre>
         </td>
       </tr>
       <tr>
@@ -1210,7 +1212,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>      std::make_shared&lt;FoundationStrip&lt;DecoratorFoundation&gt;&gt;();</pre>
+          <pre>          MeyerhofShallowFoundation&lt;VerticalEccentric, FoundationStrip&gt;&gt;,</pre>
         </td>
       </tr>
       <tr>
@@ -1222,7 +1224,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto foundation2 = foundation-&gt;f&lt;F::Set, F::B&gt;(1.);</pre>
+          <pre>      VerticalEccentric, FoundationStrip&gt;;</pre>
         </td>
       </tr>
       <tr>
@@ -1230,11 +1232,9 @@
           <a name='L105' href='#L105' id="L105">
           <pre>105</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>1</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  const auto load_1 = std::make_shared&lt;VerticalEccentric&lt;DecoratorLoad&gt;&gt;();</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1246,7 +1246,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto load_2 = load_1-&gt;f&lt;F::Set, F::V&gt;(100000.);</pre>
+          <pre>  const auto foundation = std::make_shared&lt;FoundationStrip&gt;();</pre>
         </td>
       </tr>
       <tr>
@@ -1258,7 +1258,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto load = load_2-&gt;f&lt;F::Set, F::E&gt;(0.25);</pre>
+          <pre>  const auto foundation2 = foundation-&gt;f&lt;F::Set, F::B&gt;(1.);</pre>
         </td>
       </tr>
       <tr>
@@ -1270,7 +1270,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto calc = std::make_shared&lt;MeyerhofShallowFoundation&lt;DecoratorCalc&gt;&gt;(</pre>
+          <pre>  const auto load_1 = std::make_shared&lt;VerticalEccentric&gt;();</pre>
         </td>
       </tr>
       <tr>
@@ -1282,7 +1282,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>      load, foundation2);</pre>
+          <pre>  const auto load_2 = load_1-&gt;f&lt;F::Set, F::V&gt;(100000.);</pre>
         </td>
       </tr>
       <tr>
@@ -1294,7 +1294,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ((calc-&gt;f&lt;F::Get, F::B_&gt;()), 0.5);</pre>
+          <pre>  const auto load = load_2-&gt;f&lt;F::Set, F::E&gt;(0.25);</pre>
         </td>
       </tr>
       <tr>
@@ -1306,7 +1306,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ((calc-&gt;f&lt;F::Get, F::Qref&gt;()), 200000.);</pre>
+          <pre>  const auto calc = std::make_shared&lt;DecoratorCalc&gt;(load, foundation2);</pre>
         </td>
       </tr>
       <tr>
@@ -1318,7 +1318,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto load2 = load-&gt;f&lt;F::Set, F::E&gt;(0.5);</pre>
+          <pre>  JTEST_EQ((calc-&gt;f&lt;F::Get, F::B_&gt;()), 0.5);</pre>
         </td>
       </tr>
       <tr>
@@ -1330,7 +1330,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto calc2 = std::make_shared&lt;MeyerhofShallowFoundation&lt;DecoratorCalc&gt;&gt;(</pre>
+          <pre>  JTEST_EQ((calc-&gt;f&lt;F::Get, F::Qref&gt;()), 200000.);</pre>
         </td>
       </tr>
       <tr>
@@ -1342,7 +1342,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>      load2, foundation2);</pre>
+          <pre>  const auto load2 = load-&gt;f&lt;F::Set, F::E&gt;(0.5);</pre>
         </td>
       </tr>
       <tr>
@@ -1354,7 +1354,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ((calc2-&gt;f&lt;F::Get, F::B_&gt;()), 0.);</pre>
+          <pre>  const auto calc2 = std::make_shared&lt;DecoratorCalc&gt;(load2, foundation2);</pre>
         </td>
       </tr>
       <tr>
@@ -1366,7 +1366,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_TRUE(std::isinf(calc2-&gt;f&lt;F::Get, F::Qref&gt;()));</pre>
+          <pre>  JTEST_EQ((calc2-&gt;f&lt;F::Get, F::B_&gt;()), 0.);</pre>
         </td>
       </tr>
       <tr>
@@ -1378,7 +1378,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto calc3 = calc2-&gt;Clone();</pre>
+          <pre>  JTEST_TRUE(std::isinf(calc2-&gt;f&lt;F::Get, F::Qref&gt;()));</pre>
         </td>
       </tr>
       <tr>
@@ -1390,7 +1390,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ((calc2-&gt;f&lt;F::Get, F::B_&gt;()), (calc3-&gt;f&lt;F::Get, F::B_&gt;()));</pre>
+          <pre>  const auto calc3 = calc2-&gt;f&lt;F::Set, F::Clone&gt;();</pre>
         </td>
       </tr>
       <tr>
@@ -1402,7 +1402,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ((calc2-&gt;f&lt;F::Get, F::Qref&gt;()), (calc3-&gt;f&lt;F::Get, F::Qref&gt;()));</pre>
+          <pre>  JTEST_EQ((calc2-&gt;f&lt;F::Get, F::B_&gt;()), (calc3-&gt;f&lt;F::Get, F::B_&gt;()));</pre>
         </td>
       </tr>
       <tr>
@@ -1410,9 +1410,11 @@
           <a name='L120' href='#L120' id="L120">
           <pre>120</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre>  JTEST_EQ((calc2-&gt;f&lt;F::Get, F::Qref&gt;()), (calc3-&gt;f&lt;F::Get, F::Qref&gt;()));</pre>
         </td>
       </tr>
       <tr>
@@ -1420,11 +1422,9 @@
           <a name='L121' href='#L121' id="L121">
           <pre>121</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>1</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  const auto load_maxe = load-&gt;f&lt;F::Set, F::E&gt;(DBL_MAX);</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1436,7 +1436,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto calc_maxe =</pre>
+          <pre>  const auto load_maxe = load-&gt;f&lt;F::Set, F::E&gt;(DBL_MAX);</pre>
         </td>
       </tr>
       <tr>
@@ -1448,7 +1448,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>      std::make_shared&lt;MeyerhofShallowFoundation&lt;DecoratorCalc&gt;&gt;(load_maxe,</pre>
+          <pre>  const auto calc_maxe =</pre>
         </td>
       </tr>
       <tr>
@@ -1460,7 +1460,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>                                                                 foundation2);</pre>
+          <pre>      std::make_shared&lt;DecoratorCalc&gt;(load_maxe, foundation2);</pre>
         </td>
       </tr>
       <tr>
@@ -1530,7 +1530,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>      std::make_shared&lt;MeyerhofShallowFoundation&lt;DecoratorCalc&gt;&gt;(load_mine,</pre>
+          <pre>      std::make_shared&lt;DecoratorCalc&gt;(load_mine, foundation2);</pre>
         </td>
       </tr>
       <tr>
@@ -1542,7 +1542,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>                                                                 foundation2);</pre>
+          <pre>  JTEST_EQ((calc_mine-&gt;f&lt;F::Get, F::B_&gt;()),</pre>
         </td>
       </tr>
       <tr>
@@ -1554,7 +1554,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ((calc_mine-&gt;f&lt;F::Get, F::B_&gt;()),</pre>
+          <pre>           std::numeric_limits&lt;double&gt;::infinity());</pre>
         </td>
       </tr>
       <tr>
@@ -1566,7 +1566,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>           std::numeric_limits&lt;double&gt;::infinity());</pre>
+          <pre>}</pre>
         </td>
       </tr>
       <tr>
@@ -1574,11 +1574,9 @@
           <a name='L134' href='#L134' id="L134">
           <pre>134</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>1</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>}</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1588,7 +1586,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>JTEST_NAME(data, CalcMeyehofOnly)  // NOLINT</pre>
         </td>
       </tr>
       <tr>
@@ -1596,9 +1594,11 @@
           <a name='L136' href='#L136' id="L136">
           <pre>136</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
         <td class='code'>
-          <pre>JTEST_NAME(data, CalcMeyehofOnly)  // NOLINT</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -1610,7 +1610,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>  using DecoratorCalc = MeyerhofShallowFoundationDecorator&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -1622,7 +1622,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  using DecoratorFoundation = FoundationStripImpl;</pre>
+          <pre>      LogCall&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -1634,7 +1634,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  using DecoratorLoad = VerticalEccentricImpl;</pre>
+          <pre>          LogDuration&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -1646,7 +1646,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  using DecoratorCalc = LogCall&lt;LogDuration&lt;</pre>
+          <pre>              MeyerhofShallowFoundation&lt;VerticalEccentric, FoundationStrip&gt;,</pre>
         </td>
       </tr>
       <tr>
@@ -1658,7 +1658,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>      MeyerhofShallowFoundationImpl&lt;DecoratorLoad, DecoratorFoundation&gt;&gt;&gt;;</pre>
+          <pre>              MeyerhofShallowFoundation&lt;VerticalEccentric, FoundationStrip&gt;&gt;,</pre>
         </td>
       </tr>
       <tr>
@@ -1666,9 +1666,11 @@
           <a name='L142' href='#L142' id="L142">
           <pre>142</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre>          MeyerhofShallowFoundation&lt;VerticalEccentric, FoundationStrip&gt;&gt;,</pre>
         </td>
       </tr>
       <tr>
@@ -1680,7 +1682,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto calc =</pre>
+          <pre>      VerticalEccentric, FoundationStrip&gt;;</pre>
         </td>
       </tr>
       <tr>
@@ -1688,11 +1690,9 @@
           <a name='L144' href='#L144' id="L144">
           <pre>144</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>1</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      std::make_shared&lt;MeyerhofShallowFoundation&lt;DecoratorCalc&gt;&gt;();</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1704,7 +1704,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  const auto calc2 = calc-&gt;f&lt;F::Set, F::Load, F::E&gt;(0.25)</pre>
+          <pre>  const auto calc = std::make_shared&lt;DecoratorCalc&gt;();</pre>
         </td>
       </tr>
       <tr>
@@ -1716,7 +1716,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>                         -&gt;f&lt;F::Set, F::Load, F::V&gt;(100000.)</pre>
+          <pre>  const auto calc2 = calc-&gt;f&lt;F::Set, F::Load, F::E&gt;(0.25)</pre>
         </td>
       </tr>
       <tr>
@@ -1728,7 +1728,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>                         -&gt;f&lt;F::Set, F::Foundation, F::B&gt;(1.);</pre>
+          <pre>                         -&gt;f&lt;F::Set, F::Load, F::V&gt;(100000.)</pre>
         </td>
       </tr>
       <tr>
@@ -1740,7 +1740,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ((calc2-&gt;f&lt;F::Get, F::Load, F::E&gt;()), 0.25);</pre>
+          <pre>                         -&gt;f&lt;F::Set, F::Foundation, F::B&gt;(1.);</pre>
         </td>
       </tr>
       <tr>
@@ -1752,7 +1752,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ((calc2-&gt;f&lt;F::Get, F::Load, F::V&gt;()), 100000.);</pre>
+          <pre>  JTEST_EQ((calc2-&gt;f&lt;F::Get, F::Load, F::E&gt;()), 0.25);</pre>
         </td>
       </tr>
       <tr>
@@ -1764,7 +1764,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ((calc2-&gt;f&lt;F::Get, F::Foundation, F::B&gt;()), 1.);</pre>
+          <pre>  JTEST_EQ((calc2-&gt;f&lt;F::Get, F::Load, F::V&gt;()), 100000.);</pre>
         </td>
       </tr>
       <tr>
@@ -1776,7 +1776,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ((calc2-&gt;f&lt;F::Get, F::B_&gt;()), 0.5);</pre>
+          <pre>  JTEST_EQ((calc2-&gt;f&lt;F::Get, F::Foundation, F::B&gt;()), 1.);</pre>
         </td>
       </tr>
       <tr>
@@ -1788,13 +1788,25 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  JTEST_EQ((calc2-&gt;f&lt;F::Get, F::Qref&gt;()), 200000.);</pre>
+          <pre>  JTEST_EQ((calc2-&gt;f&lt;F::Get, F::B_&gt;()), 0.5);</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L153' href='#L153' id="L153">
           <pre>153</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
+        <td class='code'>
+          <pre>  JTEST_EQ((calc2-&gt;f&lt;F::Get, F::Qref&gt;()), 200000.);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L154' href='#L154' id="L154">
+          <pre>154</pre></a>
         </td>
         <td class='covered-line'>
           <pre>1</pre>
