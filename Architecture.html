@@ -490,7 +490,7 @@ Between adapter and implementation, you may add decorators.</p>
 <p>Then adapter needed to be templated to support decorator, I decided to use <a href="https://github.com/bansan85/jessica/blob/4e7884bb98f24c3a1146a1ef0119f20ab84023c1/include/jessica/data/load/vertical_eccentric_concept.h">concept</a> with accessor.</p>
 </div>
 <div class="paragraph">
-<p>Finally I needed to have a very generic getter and setter to reduce the need of boilerplate to access multiple levels of data. There is only one primary template function <code>f</code> for accessor. Specialization when needed is done with <code>requires</code> keyword instead of historic template specialization or use of <code>std::enable_if&lt;&gt;</code>. I removed concept interface because it can not force specialization of primary template.</p>
+<p>Finally I needed to have a very generic getter and setter to reduce the need of boilerplate to access multiple levels of data. There is only one primary template function <code>f</code> for accessor. Specialization when needed is done with <code>requires</code> keyword instead of template specialization or use of <code>std::enable_if&lt;&gt;</code>. I removed concept interface because it can not force specialization of primary template.</p>
 </div>
 <div class="paragraph">
 <p>GoogleTest supports mocking with template.</p>
@@ -531,16 +531,69 @@ Between adapter and implementation, you may add decorators.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Adapter for a strip foundation. If you do not need decorator, just use <code>FoundationStripImpl</code> for <code>T</code>;</p>
+<p>Adapter for a strip foundation. If you do not need decorator, just use <code>FoundationStrip</code>;</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;jessica/compat.h&gt;
+#include &lt;jessica/helper/accessor.h&gt;
 #include &lt;jessica/helper/template.h&gt;
 
 namespace jessica
 {
 template &lt;typename T&gt;
+class JESSICA_DLL_PUBLIC FoundationStripDecorator final
+{
+ public:
+  FoundationStripDecorator() = default;
+  FoundationStripDecorator(const FoundationStripDecorator&amp;) = default;
+  FoundationStripDecorator(FoundationStripDecorator&amp;&amp;) = delete;
+  FoundationStripDecorator&amp; operator=(const FoundationStripDecorator&amp;) = delete;
+  FoundationStripDecorator&amp; operator=(FoundationStripDecorator&amp;&amp;) = delete;
+
+  template &lt;F Action, F... U, typename... Args&gt;
+  [[nodiscard]] auto f(const Args&amp;&amp;... args) const
+  {
+    if constexpr (Action == F::Set)
+    {
+      auto retval = f&lt;F::Set, F::Clone&gt;();
+      retval-&gt;impl_ =
+          impl_-&gt;template f&lt;Action, U...&gt;(std::forward&lt;const Args&gt;(args)...);
+      return retval;
+    }
+    else
+    {
+      return impl_-&gt;template f&lt;Action, U...&gt;(std::forward&lt;const Args&gt;(args)...);
+    }
+  }
+
+  template &lt;F Action, F U&gt;
+  requires Equals&lt;F, Action, F::Set&gt; &amp;&amp; Equals&lt;F, U, F::Clone&gt;
+  [[nodiscard]] std::shared_ptr&lt;FoundationStripDecorator&lt;T&gt;&gt; f() const
+  {
+    return std::make_shared&lt;FoundationStripDecorator&lt;T&gt;&gt;(*this);
+  }
+
+ private:
+  std::shared_ptr&lt;FoundationStrip&gt; impl_ = std::make_shared&lt;FoundationStrip&gt;();
+};
+}  // namespace jessica</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_implementation_behind_the_adapter">Implementation behind the adapter</h3>
+<div class="paragraph">
+<p>Example of class <code>FoundationStrip</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;jessica/compat.h&gt;
+#include &lt;jessica/helper/accessor.h&gt;
+#include &lt;jessica/helper/template.h&gt;
+
+namespace jessica
+{
 class JESSICA_DLL_PUBLIC FoundationStrip final
 {
  public:
@@ -550,81 +603,22 @@ class JESSICA_DLL_PUBLIC FoundationStrip final
   FoundationStrip&amp; operator=(const FoundationStrip&amp;) = delete;
   FoundationStrip&amp; operator=(FoundationStrip&amp;&amp;) = delete;
 
-  template &lt;F Action, F... U, typename... Args&gt;
-  [[nodiscard]] auto f(const Args&amp;&amp;... args) const
+  template &lt;F Action, F T&gt;
+  requires Equals&lt;F, Action, F::Set&gt; &amp;&amp; Equals&lt;F, T, F::Clone&gt;
+  [[nodiscard]] std::shared_ptr&lt;FoundationStrip&gt; f() const
   {
-    if constexpr (Action == F::Set)
-    {
-      auto retval = Clone();
-      retval-&gt;impl_ = T::template f&lt;Action, U...&gt;(
-          *impl_, std::forward&lt;const Args&gt;(args)...);
-      return retval;
-    }
-    else
-    {
-      return T::template f&lt;Action, U...&gt;(*impl_,
-                                         std::forward&lt;const Args&gt;(args)...);
-    }
-  }
-
-  [[nodiscard]] std::shared_ptr&lt;FoundationStrip&lt;T&gt;&gt; Clone() const
-  {
-    return std::make_shared&lt;FoundationStrip&lt;T&gt;&gt;(*this);
-  }
-
- private:
-  std::shared_ptr&lt;FoundationStripImpl&gt; impl_ =
-      std::make_shared&lt;FoundationStripImpl&gt;();
-};
-}  // namespace jessica</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_implementation_behind_the_adapter">Implementation behind the adapter</h3>
-<div class="paragraph">
-<p>Example of class <code>FoundationStripImpl</code>.</p>
-</div>
-<div class="paragraph">
-<p>You need to define specialization of the primary <code>f</code> function.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;jessica/compat.h&gt;
-#include &lt;jessica/helper/template.h&gt;
-
-namespace jessica
-{
-class JESSICA_DLL_PUBLIC FoundationStripImpl
-{
- public:
-  FoundationStripImpl() = default;
-  FoundationStripImpl(const FoundationStripImpl&amp;) = default;
-  FoundationStripImpl(FoundationStripImpl&amp;&amp;) = delete;
-  FoundationStripImpl&amp; operator=(const FoundationStripImpl&amp;) = delete;
-  FoundationStripImpl&amp; operator=(FoundationStripImpl&amp;&amp;) = delete;
-
-  template &lt;F T&gt;
-  requires Equals&lt;F, T, F::Clone&gt;
-  [[nodiscard]] static std::shared_ptr&lt;FoundationStripImpl&gt;
-      f(const FoundationStripImpl&amp; self)
-  {
-    return std::make_shared&lt;FoundationStripImpl&gt;(self);
+    return std::make_shared&lt;FoundationStrip&gt;(*this);
   }
 
   template &lt;F Action, F T&gt;
   requires Equals&lt;F, Action, F::Get&gt; &amp;&amp; Equals&lt;F, T, F::B&gt;
-  [[nodiscard]] static double f(const FoundationStripImpl&amp; self)
-  {
-    return self.b_;
-  }
+  [[nodiscard]] double f() const { return b_; }
 
   template &lt;F Action, F T&gt;
   requires Equals&lt;F, Action, F::Set&gt; &amp;&amp; Equals&lt;F, T, F::B&gt;
-  [[nodiscard]] static std::shared_ptr&lt;FoundationStripImpl&gt;
-      f(const FoundationStripImpl&amp; self, const double b)
+  [[nodiscard]] std::shared_ptr&lt;FoundationStrip&gt; f(const double b) const
   {
-    auto retval = f&lt;F::Clone&gt;(self);
+    auto retval = f&lt;F::Set, F::Clone&gt;();
     retval-&gt;b_ = b;
     return retval;
   }
@@ -646,25 +640,26 @@ class JESSICA_DLL_PUBLIC FoundationStripImpl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">template &lt;typename T&gt;
-class JESSICA_DLL_PUBLIC LogDuration
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">namespace jessica
+{
+template &lt;typename T, typename T0&gt;
+class JESSICA_DLL_PUBLIC LogDuration final
 {
  public:
-  using Type = typename ExtractRootType&lt;T&gt;::type;
-
   template &lt;F Action, F... U, typename... Args&gt;
-  [[nodiscard]] static auto f(const Type&amp; classe, const Args&amp;&amp;... args)
+  [[nodiscard]] auto f(const T0&amp; classe, const Args&amp;&amp;... args)
   {
     const auto t_start = std::chrono::high_resolution_clock::now();
     const auto retval =
-        T::template f&lt;Action, U...&gt;(classe, std::forward&lt;const Args&gt;(args)...);
+        classe-&gt;template f&lt;Action, U...&gt;(std::forward&lt;const Args&gt;(args)...);
     const auto t_end = std::chrono::high_resolution_clock::now();
     const double elapsed_time_ms =
         std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();
     std::cout &lt;&lt; "duration " &lt;&lt; elapsed_time_ms &lt;&lt; " ms" &lt;&lt; std::endl;
     return retval;
   }
-};</code></pre>
+};
+}  // namespace jessica</code></pre>
 </div>
 </div>
 </div>
@@ -676,7 +671,7 @@ class JESSICA_DLL_PUBLIC LogDuration
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">  const auto load =
-      std::make_shared&lt;VerticalEccentric&lt;VerticalEccentricImpl&gt;&gt;();</code></pre>
+      std::make_shared&lt;FoundationStrip&gt;();</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -684,9 +679,10 @@ class JESSICA_DLL_PUBLIC LogDuration
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">  using Decorator = LogCall&lt;LogDuration&lt;VerticalEccentricImpl&gt;&gt;;
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">  using Decorator = FoundationStripDecorator&lt;
+      LogCall&lt;LogDuration&lt;FoundationStrip, FoundationStrip&gt;, FoundationStrip&gt;&gt;;
 
-  const auto load = std::make_shared&lt;VerticalEccentric&lt;Decorator&gt;&gt;();</code></pre>
+  const auto foundation = std::make_shared&lt;Decorator&gt;();</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -695,9 +691,9 @@ class JESSICA_DLL_PUBLIC LogDuration
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">  // Getter
-  load-&gt;f&lt;F::Get, F::E&gt;();
+  foundation-&gt;f&lt;F::Get, F::B&gt;();
   // Setter
-  const auto load2 = load1-&gt;f&lt;F::Set, F::E&gt;(0.2);</code></pre>
+  const auto foundation2 = foundation-&gt;f&lt;F::Set, F::B&gt;(1.);</code></pre>
 </div>
 </div>
 </div>
@@ -718,19 +714,27 @@ In this case, you need to specific coding to allow decorator around the main cla
 <p>The adapter still have one template but the template will have inside the type of the data stored.</p>
 </div>
 <div class="paragraph">
+<p>For example, Meyerhof have two data stored.</p>
+</div>
+<div class="paragraph">
 <p>An example with only decorator to the main class:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">  // Data 1 without decorator
-  using DecoratorFoundation = FoundationStripImpl;
+  using DecoratorFoundation = FoundationStrip;
   // Data 2 without decorator
-  using DecoratorLoad = VerticalEccentricImpl;
+  using DecoratorLoad = VerticalEccentric;
   // Main data with 2 data stored inside.
-  using DecoratorCalc = LogCall&lt;LogDuration&lt;
-      MeyerhofShallowFoundationImpl&lt;DecoratorLoad, DecoratorFoundation&gt;&gt;&gt;;
+  using DecoratorCalc = MeyerhofShallowFoundationDecorator&lt;
+      LogCall&lt;
+          LogDuration&lt;
+              MeyerhofShallowFoundation&lt;DecoratorLoad, DecoratorFoundation&gt;,
+              MeyerhofShallowFoundation&lt;DecoratorLoad, DecoratorFoundation&gt;&gt;,
+          MeyerhofShallowFoundation&lt;DecoratorLoad, DecoratorFoundation&gt;&gt;,
+      DecoratorLoad, DecoratorFoundation&gt;;
 
-  MeyerhofShallowFoundation&lt;DecoratorCalc&gt; calculator(...);</code></pre>
+  const auto calc = std::make_shared&lt;DecoratorCalc&gt;(load, foundation);</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -739,79 +743,80 @@ In this case, you need to specific coding to allow decorator around the main cla
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">  // Data 1 with decorator
-  using DecoratorFoundation = LogCall&lt;LogDuration&lt;FoundationStripImpl&gt;&gt;;
+  using DecoratorFoundation = FoundationStripDecorator&lt;
+      LogCall&lt;LogDuration&lt;FoundationStrip, FoundationStrip&gt;, FoundationStrip&gt;&gt;;
   // Data 2 with decorator
-  using DecoratorLoad = LogCall&lt;LogDuration&lt;VerticalEccentricImpl&gt;&gt;;
+  using DecoratorLoad = VerticalEccentricDecorator&lt;LogCall&lt;
+      LogDuration&lt;VerticalEccentric, VerticalEccentric&gt;, VerticalEccentric&gt;&gt;;
   // Main data with 2 data stored inside.
-  using DecoratorCalc = LogCall&lt;LogDuration&lt;
-      MeyerhofShallowFoundationImpl&lt;DecoratorLoad, DecoratorFoundation&gt;&gt;&gt;;
+  using DecoratorCalc = MeyerhofShallowFoundationDecorator&lt;
+      LogCall&lt;
+          LogDuration&lt;
+              MeyerhofShallowFoundation&lt;DecoratorLoad, DecoratorFoundation&gt;,
+              MeyerhofShallowFoundation&lt;DecoratorLoad, DecoratorFoundation&gt;&gt;,
+          MeyerhofShallowFoundation&lt;DecoratorLoad, DecoratorFoundation&gt;&gt;,
+      DecoratorLoad, DecoratorFoundation&gt;;
 
-  MeyerhofShallowFoundation&lt;DecoratorCalc&gt; calculator(...);</code></pre>
+  const auto calc = std::make_shared&lt;DecoratorCalc&gt;(load, foundation);</code></pre>
 </div>
-</div>
-<div class="paragraph">
-<p>For example, Meyerhof have two data stored.</p>
-</div>
-<div class="paragraph">
-<p>There is two <code>using</code>: <code>T0</code> and <code>T1</code>. They extract types from the main template.
-The goal is to reduce the length when declaring the template.</p>
 </div>
 <div class="paragraph">
 <p>Because this class has two data stored, you need to add boilerplates to all accessors from the main class. They are added in adapter with the generic templated <code>f</code> function.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">template &lt;typename T&gt;
-class JESSICA_DLL_PUBLIC MeyerhofShallowFoundation final
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">template &lt;typename T, typename T0, typename T1&gt;
+class JESSICA_DLL_PUBLIC MeyerhofShallowFoundationDecorator final
 {
  public:
-  using T0 = typename ExtractRootTypeN&lt;0, T&gt;::type;
-  using T1 = typename ExtractRootTypeN&lt;1, T&gt;::type;
-
-  MeyerhofShallowFoundation()
-      : impl_(std::make_shared&lt;MeyerhofShallowFoundationImpl&lt;T0, T1&gt;&gt;(
-            std::make_shared&lt;VerticalEccentric&lt;T0&gt;&gt;(),
-            std::make_shared&lt;FoundationStrip&lt;T1&gt;&gt;()))
+  MeyerhofShallowFoundationDecorator()
+      : impl_(std::make_shared&lt;MeyerhofShallowFoundation&lt;T0, T1&gt;&gt;(
+            std::make_shared&lt;T0&gt;(), std::make_shared&lt;T1&gt;()))
   {
   }
-  MeyerhofShallowFoundation(
-      const std::shared_ptr&lt;VerticalEccentric&lt;T0&gt;&gt;&amp; load,
-      const std::shared_ptr&lt;FoundationStrip&lt;T1&gt;&gt;&amp; foundation)
-      : impl_(std::make_shared&lt;MeyerhofShallowFoundationImpl&lt;T0, T1&gt;&gt;(
-            load, foundation))
+  MeyerhofShallowFoundationDecorator(const std::shared_ptr&lt;T0&gt;&amp; load,
+                                     const std::shared_ptr&lt;T1&gt;&amp; foundation)
+      : impl_(std::make_shared&lt;MeyerhofShallowFoundation&lt;T0, T1&gt;&gt;(load,
+                                                                  foundation))
   {
   }
-  MeyerhofShallowFoundation(const MeyerhofShallowFoundation&amp;) = default;
-  MeyerhofShallowFoundation(MeyerhofShallowFoundation&amp;&amp;) = delete;
-  MeyerhofShallowFoundation&amp;
-      operator=(const MeyerhofShallowFoundation&amp;) = delete;
-  MeyerhofShallowFoundation&amp; operator=(MeyerhofShallowFoundation&amp;&amp;) = delete;
-  ~MeyerhofShallowFoundation() = default;
+  MeyerhofShallowFoundationDecorator(
+      const MeyerhofShallowFoundationDecorator&amp;) = default;
+  MeyerhofShallowFoundationDecorator(MeyerhofShallowFoundationDecorator&amp;&amp;) =
+      delete;
+  MeyerhofShallowFoundationDecorator&amp;
+      operator=(const MeyerhofShallowFoundationDecorator&amp;) = delete;
+  MeyerhofShallowFoundationDecorator&amp;
+      operator=(MeyerhofShallowFoundationDecorator&amp;&amp;) = delete;
+  ~MeyerhofShallowFoundationDecorator() = default;
 
   template &lt;F Action, F... U, typename... Args&gt;
   [[nodiscard]] auto f(const Args&amp;&amp;... args) const
   {
     if constexpr (Action == F::Set)
     {
-      auto retval = Clone();
-      retval-&gt;impl_ = T::template f&lt;Action, U...&gt;(
-          *impl_, std::forward&lt;const Args&gt;(args)...);
+      auto retval = f&lt;F::Set, F::Clone&gt;();
+      retval-&gt;impl_ =
+          impl_-&gt;template f&lt;Action, U...&gt;(std::forward&lt;const Args&gt;(args)...);
       return retval;
     }
     else
     {
-      return T::template f&lt;Action, U...&gt;(*impl_,
-                                         std::forward&lt;const Args&gt;(args)...);
+      return impl_-&gt;template f&lt;Action, U...&gt;(std::forward&lt;const Args&gt;(args)...);
     }
   }
 
-  [[nodiscard]] std::shared_ptr&lt;MeyerhofShallowFoundation&gt; Clone() const
+  template &lt;F Action, F U&gt;
+  requires Equals&lt;F, Action, F::Set&gt; &amp;&amp; Equals&lt;F, U, F::Clone&gt;
+  [[nodiscard]] std::shared_ptr&lt;MeyerhofShallowFoundationDecorator&lt;T, T0, T1&gt;&gt;
+      f() const
   {
-    return std::make_shared&lt;MeyerhofShallowFoundation&gt;(*this);
+    return std::make_shared&lt;MeyerhofShallowFoundationDecorator&lt;T, T0, T1&gt;&gt;(
+        *this);
   }
 
  private:
-  std::shared_ptr&lt;MeyerhofShallowFoundationImpl&lt;T0, T1&gt;&gt; impl_;
+  std::shared_ptr&lt;MeyerhofShallowFoundation&lt;T0, T1&gt;&gt; impl_;
 };</code></pre>
 </div>
 </div>
@@ -828,60 +833,55 @@ class JESSICA_DLL_PUBLIC MeyerhofShallowFoundation final
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">template &lt;typename T0, typename T1&gt;
-class JESSICA_DLL_PUBLIC MeyerhofShallowFoundationImpl
+class JESSICA_DLL_PUBLIC MeyerhofShallowFoundation final
 {
  public:
-  MeyerhofShallowFoundationImpl(
-      const std::shared_ptr&lt;VerticalEccentric&lt;T0&gt;&gt;&amp; load,
-      const std::shared_ptr&lt;FoundationStrip&lt;T1&gt;&gt;&amp; foundation)
+  MeyerhofShallowFoundation(const std::shared_ptr&lt;T0&gt;&amp; load,
+                            const std::shared_ptr&lt;T1&gt;&amp; foundation)
       : load_(load), foundation_(foundation)
   {
   }
-  MeyerhofShallowFoundationImpl(const MeyerhofShallowFoundationImpl&amp;) = default;
-  MeyerhofShallowFoundationImpl(MeyerhofShallowFoundationImpl&amp;&amp;) = delete;
-  MeyerhofShallowFoundationImpl&amp;
-      operator=(const MeyerhofShallowFoundationImpl&amp;) = delete;
-  MeyerhofShallowFoundationImpl&amp;
-      operator=(MeyerhofShallowFoundationImpl&amp;&amp;) = delete;
+  MeyerhofShallowFoundation(const MeyerhofShallowFoundation&amp;) = default;
+  MeyerhofShallowFoundation(MeyerhofShallowFoundation&amp;&amp;) = delete;
+  MeyerhofShallowFoundation&amp;
+      operator=(const MeyerhofShallowFoundation&amp;) = delete;
+  MeyerhofShallowFoundation&amp; operator=(MeyerhofShallowFoundation&amp;&amp;) = delete;
 
-  template &lt;F T&gt;
-  requires Equals&lt;F, T, F::Clone&gt;
-  [[nodiscard]] static std::shared_ptr&lt;MeyerhofShallowFoundationImpl&gt;
-      f(const MeyerhofShallowFoundationImpl&amp; self)
+  template &lt;F Action, F T&gt;
+  requires Equals&lt;F, Action, F::Set&gt; &amp;&amp; Equals&lt;F, T, F::Clone&gt;
+  [[nodiscard]] std::shared_ptr&lt;MeyerhofShallowFoundation&gt; f() const
   {
-    return std::make_shared&lt;MeyerhofShallowFoundationImpl&gt;(self);
+    return std::make_shared&lt;MeyerhofShallowFoundation&gt;(*this);
   }
 
   template &lt;F Action, F T&gt;
   requires Equals&lt;F, Action, F::Get&gt; &amp;&amp; Equals&lt;F, T, F::B_&gt;
-  [[nodiscard]] static double f(const MeyerhofShallowFoundationImpl&amp; self)
+  [[nodiscard]] double f() const
   {
-    return self.foundation_-&gt;template f&lt;F::Get, F::B&gt;() -
-           2. * self.load_-&gt;template f&lt;F::Get, F::E&gt;();
+    return foundation_-&gt;template f&lt;F::Get, F::B&gt;() -
+           2. * load_-&gt;template f&lt;F::Get, F::E&gt;();
   }
 
   template &lt;F Action, F T&gt;
   requires Equals&lt;F, Action, F::Get&gt; &amp;&amp; Equals&lt;F, T, F::Qref&gt;
-  [[nodiscard]] static double f(const MeyerhofShallowFoundationImpl&amp; self)
+  [[nodiscard]] double f() const
   {
-    return self.load_-&gt;template f&lt;F::Get, F::V&gt;() / f&lt;F::Get, F::B_&gt;(self);
+    return load_-&gt;template f&lt;F::Get, F::V&gt;() / f&lt;F::Get, F::B_&gt;();
   }
 
   template &lt;F Action, F T, F... U, typename... Args&gt;
   requires Equals&lt;F, Action, F::Get&gt; &amp;&amp; Equals&lt;F, T, F::Load&gt;
-  [[nodiscard]] static double f(const MeyerhofShallowFoundationImpl&amp; self,
-                                const Args&amp;&amp;... args)
+  [[nodiscard]] double f(const Args&amp;&amp;... args) const
   {
-    return self.load_-&gt;template f&lt;Action, U...&gt;(
-        std::forward&lt;const Args&gt;(args)...);
+    return load_-&gt;template f&lt;Action, U...&gt;(std::forward&lt;const Args&gt;(args)...);
   }
 
   template &lt;F Action, F T, F... U, typename... Args&gt;
   requires Equals&lt;F, Action, F::Set&gt; &amp;&amp; Equals&lt;F, T, F::Load&gt;
-  [[nodiscard]] static std::shared_ptr&lt;MeyerhofShallowFoundationImpl&gt;
-      f(const MeyerhofShallowFoundationImpl&amp; self, const Args&amp;&amp;... args)
+  [[nodiscard]] std::shared_ptr&lt;MeyerhofShallowFoundation&gt;
+      f(const Args&amp;&amp;... args) const
   {
-    auto retval = f&lt;F::Clone&gt;(self);
+    auto retval = f&lt;F::Set, F::Clone&gt;();
     retval-&gt;load_ = retval-&gt;load_-&gt;template f&lt;Action, U...&gt;(
         std::forward&lt;const Args&gt;(args)...);
     return retval;
@@ -889,27 +889,26 @@ class JESSICA_DLL_PUBLIC MeyerhofShallowFoundationImpl
 
   template &lt;F Action, F T, F... U, typename... Args&gt;
   requires Equals&lt;F, Action, F::Get&gt; &amp;&amp; Equals&lt;F, T, F::Foundation&gt;
-  [[nodiscard]] static double f(const MeyerhofShallowFoundationImpl&amp; self,
-                                const Args&amp;&amp;... args)
+  [[nodiscard]] double f(const Args&amp;&amp;... args) const
   {
-    return self.foundation_-&gt;template f&lt;Action, U...&gt;(
+    return foundation_-&gt;template f&lt;Action, U...&gt;(
         std::forward&lt;const Args&gt;(args)...);
   }
 
   template &lt;F Action, F T, F... U, typename... Args&gt;
   requires Equals&lt;F, Action, F::Set&gt; &amp;&amp; Equals&lt;F, T, F::Foundation&gt;
-  [[nodiscard]] static std::shared_ptr&lt;MeyerhofShallowFoundationImpl&gt;
-      f(const MeyerhofShallowFoundationImpl&amp; self, const Args&amp;&amp;... args)
+  [[nodiscard]] std::shared_ptr&lt;MeyerhofShallowFoundation&gt;
+      f(const Args&amp;&amp;... args) const
   {
-    auto retval = f&lt;F::Clone&gt;(self);
+    auto retval = f&lt;F::Set, F::Clone&gt;();
     retval-&gt;foundation_ = retval-&gt;foundation_-&gt;template f&lt;Action, U...&gt;(
         std::forward&lt;const Args&gt;(args)...);
     return retval;
   }
 
  private:
-  std::shared_ptr&lt;VerticalEccentric&lt;T0&gt;&gt; load_;
-  std::shared_ptr&lt;FoundationStrip&lt;T1&gt;&gt; foundation_;
+  std::shared_ptr&lt;T0&gt; load_;
+  std::shared_ptr&lt;T1&gt; foundation_;
 };</code></pre>
 </div>
 </div>

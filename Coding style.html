@@ -464,7 +464,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Function: camel case (i.e. <code>ExecuteRule</code>).</p>
 </li>
 <li>
-<p>Accessors (getter / setter) do not use prefix <code>Get</code> and <code>Set</code>. Getters should not have argument and Setter should have one.</p>
+<p>Accessors (getter / setter) do not use prefix <code>Get</code> and <code>Set</code>. Use the <code>f</code> function pattern described in Architecture file to use decorator.</p>
 </li>
 <li>
 <p>Extension:</p>
@@ -523,7 +523,7 @@ For the MIT licence, there is only a copy in the file LICENSE.md.</p>
 <div class="sect2">
 <h3 id="_functional_programming">Functional programming</h3>
 <div class="paragraph">
-<p>The software use functional programming when possible. Why ? Because I want to try it.</p>
+<p>The software use functional programming when possible. Why ? Because I want to try it but only in interesting part of the software.</p>
 </div>
 <div class="paragraph">
 <p>Getter and Setter are const. Setter return <code>std::shared_ptr</code>.</p>
