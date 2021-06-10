@@ -32,8 +32,8 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
-            <td class="headerCovTableEntry">23</td>
-            <td class="headerCovTableEntry">23</td>
+            <td class="headerCovTableEntry">24</td>
+            <td class="headerCovTableEntry">24</td>
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
@@ -150,11 +150,11 @@
 <a name="72"><span class="lineNum">      72</span>                 :             :   {</a>
 <a name="73"><span class="lineNum">      73</span>                 :             :     if constexpr (Action == F::Set)</a>
 <a name="74"><span class="lineNum">      74</span>                 :             :     {</a>
-<a name="75"><span class="lineNum">      75</span>         [<span class="tlaGBC" title="Branch 0 was taken 7 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span>]:<span class="tlaGNC">          14 :       auto retval = f&lt;F::Set, F::Clone&gt;();</span></a>
-<a name="76"><span class="lineNum">      76</span>                 :<span class="tlaGNC">           7 :       retval-&gt;impl_ =</span></a>
-<a name="77"><span class="lineNum">      77</span>         [<span class="tlaGBC" title="Branch 0 was taken 7 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span>]:<span class="tlaGNC">          14 :           impl_-&gt;template f&lt;Action, U...&gt;(std::forward&lt;const Args&gt;(args)...);</span></a>
+<a name="75"><span class="lineNum">      75</span>         [<span class="tlaGBC" title="Branch 0 was taken 7 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span>]:<span class="tlaGNC">           7 :       auto retval = f&lt;F::Set, F::Clone&gt;();</span></a>
+<a name="76"><span class="lineNum">      76</span>         [<span class="tlaGBC" title="Branch 0 was taken 7 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span>]:<span class="tlaGNC">           7 :       retval-&gt;impl_ =</span></a>
+<a name="77"><span class="lineNum">      77</span>                 :<span class="tlaGNC">           7 :           impl_-&gt;template f&lt;Action, U...&gt;(std::forward&lt;const Args&gt;(args)...);</span></a>
 <a name="78"><span class="lineNum">      78</span>                 :<span class="tlaGNC">          14 :       return retval;</span></a>
-<a name="79"><span class="lineNum">      79</span>                 :             :     }</a>
+<a name="79"><span class="lineNum">      79</span>                 :<span class="tlaGNC">           7 :     }</span></a>
 <a name="80"><span class="lineNum">      80</span>                 :             :     else</a>
 <a name="81"><span class="lineNum">      81</span>                 :             :     {</a>
 <a name="82"><span class="lineNum">      82</span>                 :<span class="tlaGNC">          24 :       return impl_-&gt;template f&lt;Action, U...&gt;(std::forward&lt;const Args&gt;(args)...);</span></a>
