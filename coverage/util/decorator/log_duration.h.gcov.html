@@ -86,25 +86,26 @@
 <a name="8"><span class="lineNum">       8</span>                 :             : </a>
 <a name="9"><span class="lineNum">       9</span>                 :             : namespace jessica</a>
 <a name="10"><span class="lineNum">      10</span>                 :             : {</a>
-<a name="11"><span class="lineNum">      11</span>                 :             : template &lt;typename T, typename T0&gt;</a>
+<a name="11"><span class="lineNum">      11</span>                 :             : template &lt;typename T&gt;</a>
 <a name="12"><span class="lineNum">      12</span>                 :             : class JESSICA_DLL_PUBLIC LogDuration : public T</a>
 <a name="13"><span class="lineNum">      13</span>                 :             : {</a>
 <a name="14"><span class="lineNum">      14</span>                 :             :  public:</a>
 <a name="15"><span class="lineNum">      15</span>                 :             :   template &lt;F Action, F... U, typename... Args&gt;</a>
-<a name="16"><span class="lineNum">      16</span>                 :<span class="tlaGNC">          76 :   [[nodiscard]] auto f(const T0&amp; classe, const Args&amp;&amp;... args) const</span></a>
-<a name="17"><span class="lineNum">      17</span>                 :             :   {</a>
-<a name="18"><span class="lineNum">      18</span>                 :<span class="tlaGNC">          76 :     const auto t_start = std::chrono::high_resolution_clock::now();</span></a>
-<a name="19"><span class="lineNum">      19</span>         [<span class="tlaGBC" title="Branch 0 was taken 12 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span>]:<span class="tlaGNC">          12 :     const auto retval =</span></a>
-<a name="20"><span class="lineNum">      20</span>         [<span class="tlaGBC" title="Branch 0 was taken 64 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span>]:<span class="tlaGNC">          64 :         T::template f&lt;Action, U...&gt;(classe, std::forward&lt;const Args&gt;(args)...);</span></a>
-<a name="21"><span class="lineNum">      21</span>                 :<span class="tlaGNC">          76 :     const auto t_end = std::chrono::high_resolution_clock::now();</span></a>
-<a name="22"><span class="lineNum">      22</span>                 :             :     const double elapsed_time_ms =</a>
-<a name="23"><span class="lineNum">      23</span>   [<span class="tlaGBC" title="Branch 0 was taken 76 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span><span class="tlaGBC" title="Branch 2 was taken 76 times"> + </span><span class="tlaUNC" title="Branch 3 was not taken"> - </span>]:<span class="tlaGNC">          76 :         std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</span></a>
-<a name="24"><span class="lineNum">      24</span>   [<span class="tlaGBC" title="Branch 0 was taken 76 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span><span class="tlaGBC" title="Branch 2 was taken 76 times"> + </span><span class="tlaUNC" title="Branch 3 was not taken"> - </span> :<span class="tlaGNC">          76 :     std::cout &lt;&lt; &quot;duration &quot; &lt;&lt; elapsed_time_ms &lt;&lt; &quot; ms&quot; &lt;&lt; std::endl;</span></a>
+<a name="16"><span class="lineNum">      16</span>                 :<span class="tlaGNC">          76 :   [[nodiscard]] auto f(const typename T::RootType&amp; classe,</span></a>
+<a name="17"><span class="lineNum">      17</span>                 :             :                        const Args&amp;&amp;... args) const</a>
+<a name="18"><span class="lineNum">      18</span>                 :             :   {</a>
+<a name="19"><span class="lineNum">      19</span>                 :<span class="tlaGNC">          76 :     const auto t_start = std::chrono::high_resolution_clock::now();</span></a>
+<a name="20"><span class="lineNum">      20</span>         [<span class="tlaGBC" title="Branch 0 was taken 12 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span>]:<span class="tlaGNC">          12 :     const auto retval =</span></a>
+<a name="21"><span class="lineNum">      21</span>         [<span class="tlaGBC" title="Branch 0 was taken 64 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span>]:<span class="tlaGNC">          64 :         T::template f&lt;Action, U...&gt;(classe, std::forward&lt;const Args&gt;(args)...);</span></a>
+<a name="22"><span class="lineNum">      22</span>                 :<span class="tlaGNC">          76 :     const auto t_end = std::chrono::high_resolution_clock::now();</span></a>
+<a name="23"><span class="lineNum">      23</span>                 :             :     const double elapsed_time_ms =</a>
+<a name="24"><span class="lineNum">      24</span>   [<span class="tlaGBC" title="Branch 0 was taken 76 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span><span class="tlaGBC" title="Branch 2 was taken 76 times"> + </span><span class="tlaUNC" title="Branch 3 was not taken"> - </span>]:<span class="tlaGNC">          76 :         std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</span></a>
+<a name="25"><span class="lineNum">      25</span>   [<span class="tlaGBC" title="Branch 0 was taken 76 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span><span class="tlaGBC" title="Branch 2 was taken 76 times"> + </span><span class="tlaUNC" title="Branch 3 was not taken"> - </span> :<span class="tlaGNC">          76 :     std::cout &lt;&lt; &quot;duration &quot; &lt;&lt; elapsed_time_ms &lt;&lt; &quot; ms&quot; &lt;&lt; std::endl;</span></a>
 <span class="lineNum">        </span>    <span class="tlaGBC" title="Branch 4 was taken 76 times"> + </span><span class="tlaUNC" title="Branch 5 was not taken"> - </span><span class="tlaGBC" title="Branch 6 was taken 76 times"> + </span><span class="tlaUNC" title="Branch 7 was not taken"> - </span>]
-<a name="25"><span class="lineNum">      25</span>                 :<span class="tlaGNC">          88 :     return retval;</span></a>
-<a name="26"><span class="lineNum">      26</span>                 :<span class="tlaUNC">           0 :   }</span></a>
-<a name="27"><span class="lineNum">      27</span>                 :             : };</a>
-<a name="28"><span class="lineNum">      28</span>                 :             : }  // namespace jessica</a>
+<a name="26"><span class="lineNum">      26</span>                 :<span class="tlaGNC">          88 :     return retval;</span></a>
+<a name="27"><span class="lineNum">      27</span>                 :<span class="tlaUNC">           0 :   }</span></a>
+<a name="28"><span class="lineNum">      28</span>                 :             : };</a>
+<a name="29"><span class="lineNum">      29</span>                 :             : }  // namespace jessica</a>
         </pre>
               </td>
             </tr>
