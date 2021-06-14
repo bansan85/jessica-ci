@@ -90,7 +90,7 @@
 <a name="12"><span class="lineNum">      12</span>                 :             : class JESSICA_DLL_PUBLIC LogDuration : public T</a>
 <a name="13"><span class="lineNum">      13</span>                 :             : {</a>
 <a name="14"><span class="lineNum">      14</span>                 :             :  public:</a>
-<a name="15"><span class="lineNum">      15</span>                 :<span class="tlaGNC">          29 :   virtual ~LogDuration() override = default;</span></a>
+<a name="15"><span class="lineNum">      15</span>                 :<span class="tlaGNC">          29 :   ~LogDuration() override = default;</span></a>
 <a name="16"><span class="lineNum">      16</span>                 :             : </a>
 <a name="17"><span class="lineNum">      17</span>                 :             :   template &lt;F Action, F... U, typename... Args&gt;</a>
 <a name="18"><span class="lineNum">      18</span>                 :<span class="tlaGNC">          76 :   [[nodiscard]] auto f(const typename T::RootType&amp; classe,</span></a>

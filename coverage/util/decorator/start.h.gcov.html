@@ -99,7 +99,7 @@
 <a name="21"><span class="lineNum">      21</span>                 :             :   DecoratorStart&amp; operator=(const DecoratorStart&amp;) = delete;</a>
 <a name="22"><span class="lineNum">      22</span>                 :             :   DecoratorStart&amp; operator=(DecoratorStart&amp;&amp;) = delete;</a>
 <a name="23"><span class="lineNum">      23</span>                 :             : </a>
-<a name="24"><span class="lineNum">      24</span>                 :<span class="tlaGNC">          29 :   virtual ~DecoratorStart() override = default;</span></a>
+<a name="24"><span class="lineNum">      24</span>                 :<span class="tlaGNC">          29 :   ~DecoratorStart() override = default;</span></a>
 <a name="25"><span class="lineNum">      25</span>                 :             : </a>
 <a name="26"><span class="lineNum">      26</span>                 :             :   template &lt;F Action, F... U, typename... Args&gt;</a>
 <a name="27"><span class="lineNum">      27</span>                 :<span class="tlaGNC">          76 :   [[nodiscard]] auto f(const Args&amp;&amp;... args) const</span></a>
