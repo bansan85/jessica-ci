@@ -126,7 +126,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>template &lt;typename T, typename T0&gt;</pre>
+          <pre>template &lt;typename T&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -176,7 +176,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] auto f(const T0& classe, const Args&amp;&amp;... args) const</pre>
+          <pre>  [[nodiscard]] auto f(const typename T::RootType& classe,</pre>
         </td>
       </tr>
       <tr>
@@ -184,11 +184,9 @@
           <a name='L16' href='#L16' id="L16">
           <pre>16</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>70</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>                       const Args&amp;&amp;... args) const</pre>
         </td>
       </tr>
       <tr>
@@ -200,7 +198,7 @@
           <pre>70</pre>
         </td>
         <td class='code'>
-          <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -212,7 +210,7 @@
           <pre>70</pre>
         </td>
         <td class='code'>
-          <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
+          <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
         </td>
       </tr>
       <tr>
@@ -224,7 +222,7 @@
           <pre>70</pre>
         </td>
         <td class='code'>
-          <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+          <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
         </td>
       </tr>
       <tr>
@@ -236,11 +234,23 @@
           <pre>70</pre>
         </td>
         <td class='code'>
+          <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L21' href='#L21' id="L21">
+          <pre>21</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>70</pre>
+        </td>
+        <td class='code'>
           <pre>  }</pre>
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZNK7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_15FoundationStripES3_EES3_EES3_E1fILNS_1FE8EJLS8_0EEJdEEEDaRKS3_DpOKT1_</pre>
+                <pre>_ZNK7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_15FoundationStripEEEEEE1fILNS_1FE8EJLS8_0EEJdEEEDaRKS3_DpOKT1_</pre>
               </div>
               <table>
                 <tr>
@@ -256,18 +266,6 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L16' href='#L16' id="L16">
-                    <pre>16</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
                     <a name='L17' href='#L17' id="L17">
                     <pre>17</pre></a>
                   </td>
@@ -275,7 +273,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+                    <pre>  {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -287,7 +285,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
+                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -299,13 +297,25 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+                    <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L20' href='#L20' id="L20">
                     <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -320,7 +330,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZNK7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_17VerticalEccentricES3_EES3_EES3_E1fILNS_1FE8EJLS8_9EEJdEEEDaRKS3_DpOKT1_</pre>
+                <pre>_ZNK7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_17VerticalEccentricEEEEEE1fILNS_1FE8EJLS8_9EEJdEEEDaRKS3_DpOKT1_</pre>
               </div>
               <table>
                 <tr>
@@ -332,18 +342,6 @@
                   </td>
                   <td>
                     <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L16' href='#L16' id="L16">
-                    <pre>16</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -355,7 +353,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+                    <pre>  {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -367,7 +365,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
+                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -379,13 +377,25 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+                    <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L20' href='#L20' id="L20">
                     <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>2</pre>
@@ -400,7 +410,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZNK7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_17VerticalEccentricES3_EES3_EES3_E1fILNS_1FE8EJLS8_3EEJdEEEDaRKS3_DpOKT1_</pre>
+                <pre>_ZNK7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_17VerticalEccentricEEEEEE1fILNS_1FE8EJLS8_3EEJdEEEDaRKS3_DpOKT1_</pre>
               </div>
               <table>
                 <tr>
@@ -416,18 +426,6 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L16' href='#L16' id="L16">
-                    <pre>16</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
                     <a name='L17' href='#L17' id="L17">
                     <pre>17</pre></a>
                   </td>
@@ -435,7 +433,7 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+                    <pre>  {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -447,7 +445,7 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
+                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -459,13 +457,25 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+                    <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L20' href='#L20' id="L20">
                     <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>5</pre>
@@ -480,7 +490,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZNK7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_14DecoratorStartINS0_INS1_INS2_INS_17VerticalEccentricES5_EES5_EES5_EES5_EENS4_INS0_INS1_INS2_INS_15FoundationStripESA_EESA_EESA_EESA_EEEESF_EESF_EESF_E1fILNS_1FE5EJLSK_1EEJEEEDaRKSF_DpOKT1_</pre>
+                <pre>_ZNK7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_14DecoratorStartINS0_INS1_INS2_INS_17VerticalEccentricEEEEEEEEENS4_INS0_INS1_INS2_INS_15FoundationStripEEEEEEEEEEEEEEEE1fILNS_1FE5EJLSK_1EEJEEEDaRKSF_DpOKT1_</pre>
               </div>
               <table>
                 <tr>
@@ -492,18 +502,6 @@
                   </td>
                   <td>
                     <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L16' href='#L16' id="L16">
-                    <pre>16</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>6</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -515,7 +513,7 @@
                     <pre>6</pre>
                   </td>
                   <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+                    <pre>  {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -527,7 +525,7 @@
                     <pre>6</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
+                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -539,13 +537,25 @@
                     <pre>6</pre>
                   </td>
                   <td class='code'>
-                    <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+                    <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L20' href='#L20' id="L20">
                     <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>6</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>6</pre>
@@ -560,7 +570,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZNK7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_15FoundationStripES3_EES3_EES3_E1fILNS_1FE5EJLS8_0EEJEEEDaRKS3_DpOKT1_</pre>
+                <pre>_ZNK7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_15FoundationStripEEEEEE1fILNS_1FE5EJLS8_0EEJEEEDaRKS3_DpOKT1_</pre>
               </div>
               <table>
                 <tr>
@@ -572,18 +582,6 @@
                   </td>
                   <td>
                     <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L16' href='#L16' id="L16">
-                    <pre>16</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -595,7 +593,7 @@
                     <pre>10</pre>
                   </td>
                   <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+                    <pre>  {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -607,7 +605,7 @@
                     <pre>10</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
+                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -619,13 +617,25 @@
                     <pre>10</pre>
                   </td>
                   <td class='code'>
-                    <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+                    <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L20' href='#L20' id="L20">
                     <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>10</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>10</pre>
@@ -640,7 +650,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZNK7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_17VerticalEccentricES3_EES3_EES3_E1fILNS_1FE5EJLS8_3EEJEEEDaRKS3_DpOKT1_</pre>
+                <pre>_ZNK7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_17VerticalEccentricEEEEEE1fILNS_1FE5EJLS8_3EEJEEEDaRKS3_DpOKT1_</pre>
               </div>
               <table>
                 <tr>
@@ -652,18 +662,6 @@
                   </td>
                   <td>
                     <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L16' href='#L16' id="L16">
-                    <pre>16</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -675,7 +673,7 @@
                     <pre>15</pre>
                   </td>
                   <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+                    <pre>  {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -687,7 +685,7 @@
                     <pre>15</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
+                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -699,13 +697,25 @@
                     <pre>15</pre>
                   </td>
                   <td class='code'>
-                    <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+                    <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L20' href='#L20' id="L20">
                     <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>15</pre>
@@ -720,7 +730,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZNK7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_14DecoratorStartINS0_INS1_INS2_INS_17VerticalEccentricES5_EES5_EES5_EES5_EENS4_INS0_INS1_INS2_INS_15FoundationStripESA_EESA_EESA_EESA_EEEESF_EESF_EESF_E1fILNS_1FE5EJLSK_7EEJEEEDaRKSF_DpOKT1_</pre>
+                <pre>_ZNK7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_14DecoratorStartINS0_INS1_INS2_INS_17VerticalEccentricEEEEEEEEENS4_INS0_INS1_INS2_INS_15FoundationStripEEEEEEEEEEEEEEEE1fILNS_1FE5EJLSK_7EEJEEEDaRKSF_DpOKT1_</pre>
               </div>
               <table>
                 <tr>
@@ -732,18 +742,6 @@
                   </td>
                   <td>
                     <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L16' href='#L16' id="L16">
-                    <pre>16</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -755,7 +753,7 @@
                     <pre>4</pre>
                   </td>
                   <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+                    <pre>  {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -767,7 +765,7 @@
                     <pre>4</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
+                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -779,13 +777,25 @@
                     <pre>4</pre>
                   </td>
                   <td class='code'>
-                    <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+                    <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L20' href='#L20' id="L20">
                     <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -800,7 +810,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZNK7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_17VerticalEccentricES3_EES3_EES3_E1fILNS_1FE5EJLS8_9EEJEEEDaRKS3_DpOKT1_</pre>
+                <pre>_ZNK7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_17VerticalEccentricEEEEEE1fILNS_1FE5EJLS8_9EEJEEEDaRKS3_DpOKT1_</pre>
               </div>
               <table>
                 <tr>
@@ -812,18 +822,6 @@
                   </td>
                   <td>
                     <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L16' href='#L16' id="L16">
-                    <pre>16</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -835,7 +833,7 @@
                     <pre>9</pre>
                   </td>
                   <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+                    <pre>  {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -847,7 +845,7 @@
                     <pre>9</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
+                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -859,13 +857,25 @@
                     <pre>9</pre>
                   </td>
                   <td class='code'>
-                    <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+                    <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L20' href='#L20' id="L20">
                     <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>9</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>9</pre>
@@ -880,7 +890,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZNK7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEES6_EES6_EES6_E1fILNS_1FE5EJLSB_1EEJEEEDaRKS6_DpOKT1_</pre>
+                <pre>_ZNK7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEE1fILNS_1FE5EJLSB_1EEJEEEDaRKS6_DpOKT1_</pre>
               </div>
               <table>
                 <tr>
@@ -892,18 +902,6 @@
                   </td>
                   <td>
                     <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L16' href='#L16' id="L16">
-                    <pre>16</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -915,7 +913,7 @@
                     <pre>7</pre>
                   </td>
                   <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+                    <pre>  {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -927,7 +925,7 @@
                     <pre>7</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
+                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -939,13 +937,25 @@
                     <pre>7</pre>
                   </td>
                   <td class='code'>
-                    <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+                    <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L20' href='#L20' id="L20">
                     <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>7</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>7</pre>
@@ -960,7 +970,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZNK7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEES6_EES6_EES6_E1fILNS_1FE5EJLSB_7EEJEEEDaRKS6_DpOKT1_</pre>
+                <pre>_ZNK7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEE1fILNS_1FE5EJLSB_7EEJEEEDaRKS6_DpOKT1_</pre>
               </div>
               <table>
                 <tr>
@@ -972,18 +982,6 @@
                   </td>
                   <td>
                     <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L16' href='#L16' id="L16">
-                    <pre>16</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -995,7 +993,7 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+                    <pre>  {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1007,7 +1005,7 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
+                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1019,13 +1017,25 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+                    <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L20' href='#L20' id="L20">
                     <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>5</pre>
@@ -1040,7 +1050,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZNK7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEES6_EES6_EES6_E1fILNS_1FE8EJLSB_6ELSB_3EEJdEEEDaRKS6_DpOKT1_</pre>
+                <pre>_ZNK7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEE1fILNS_1FE8EJLSB_6ELSB_3EEJdEEEDaRKS6_DpOKT1_</pre>
               </div>
               <table>
                 <tr>
@@ -1056,18 +1066,6 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L16' href='#L16' id="L16">
-                    <pre>16</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
                     <a name='L17' href='#L17' id="L17">
                     <pre>17</pre></a>
                   </td>
@@ -1075,7 +1073,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+                    <pre>  {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1087,7 +1085,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
+                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1099,13 +1097,25 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+                    <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L20' href='#L20' id="L20">
                     <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1120,7 +1130,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZNK7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEES6_EES6_EES6_E1fILNS_1FE8EJLSB_6ELSB_9EEJdEEEDaRKS6_DpOKT1_</pre>
+                <pre>_ZNK7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEE1fILNS_1FE8EJLSB_6ELSB_9EEJdEEEDaRKS6_DpOKT1_</pre>
               </div>
               <table>
                 <tr>
@@ -1136,18 +1146,6 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L16' href='#L16' id="L16">
-                    <pre>16</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
                     <a name='L17' href='#L17' id="L17">
                     <pre>17</pre></a>
                   </td>
@@ -1155,7 +1153,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+                    <pre>  {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1167,7 +1165,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
+                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1179,13 +1177,25 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+                    <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L20' href='#L20' id="L20">
                     <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1200,7 +1210,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZNK7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEES6_EES6_EES6_E1fILNS_1FE8EJLSB_4ELSB_0EEJdEEEDaRKS6_DpOKT1_</pre>
+                <pre>_ZNK7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEE1fILNS_1FE8EJLSB_4ELSB_0EEJdEEEDaRKS6_DpOKT1_</pre>
               </div>
               <table>
                 <tr>
@@ -1216,18 +1226,6 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L16' href='#L16' id="L16">
-                    <pre>16</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
                     <a name='L17' href='#L17' id="L17">
                     <pre>17</pre></a>
                   </td>
@@ -1235,7 +1233,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+                    <pre>  {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1247,7 +1245,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
+                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1259,13 +1257,25 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+                    <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L20' href='#L20' id="L20">
                     <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1280,7 +1290,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZNK7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEES6_EES6_EES6_E1fILNS_1FE5EJLSB_6ELSB_3EEJEEEDaRKS6_DpOKT1_</pre>
+                <pre>_ZNK7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEE1fILNS_1FE5EJLSB_6ELSB_3EEJEEEDaRKS6_DpOKT1_</pre>
               </div>
               <table>
                 <tr>
@@ -1296,18 +1306,6 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L16' href='#L16' id="L16">
-                    <pre>16</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
                     <a name='L17' href='#L17' id="L17">
                     <pre>17</pre></a>
                   </td>
@@ -1315,7 +1313,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+                    <pre>  {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1327,7 +1325,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
+                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1339,13 +1337,25 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+                    <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L20' href='#L20' id="L20">
                     <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1360,7 +1370,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZNK7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEES6_EES6_EES6_E1fILNS_1FE5EJLSB_6ELSB_9EEJEEEDaRKS6_DpOKT1_</pre>
+                <pre>_ZNK7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEE1fILNS_1FE5EJLSB_6ELSB_9EEJEEEDaRKS6_DpOKT1_</pre>
               </div>
               <table>
                 <tr>
@@ -1376,18 +1386,6 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L16' href='#L16' id="L16">
-                    <pre>16</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
                     <a name='L17' href='#L17' id="L17">
                     <pre>17</pre></a>
                   </td>
@@ -1395,7 +1393,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+                    <pre>  {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1407,7 +1405,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
+                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1419,13 +1417,25 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+                    <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L20' href='#L20' id="L20">
                     <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1440,7 +1450,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZNK7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEES6_EES6_EES6_E1fILNS_1FE5EJLSB_4ELSB_0EEJEEEDaRKS6_DpOKT1_</pre>
+                <pre>_ZNK7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEE1fILNS_1FE5EJLSB_4ELSB_0EEJEEEDaRKS6_DpOKT1_</pre>
               </div>
               <table>
                 <tr>
@@ -1456,18 +1466,6 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L16' href='#L16' id="L16">
-                    <pre>16</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
                     <a name='L17' href='#L17' id="L17">
                     <pre>17</pre></a>
                   </td>
@@ -1475,7 +1473,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+                    <pre>  {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1487,7 +1485,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
+                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1499,13 +1497,25 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+                    <pre>    return T::template f&lt;Action, U...&gt;(classe,</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L20' href='#L20' id="L20">
                     <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>                                       std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1521,8 +1531,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L21' href='#L21' id="L21">
-          <pre>21</pre></a>
+          <a name='L22' href='#L22' id="L22">
+          <pre>22</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1531,8 +1541,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L22' href='#L22' id="L22">
-          <pre>22</pre></a>
+          <a name='L23' href='#L23' id="L23">
+          <pre>23</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
