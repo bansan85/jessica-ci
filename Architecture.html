@@ -502,13 +502,13 @@ Between adapter and implementation, you may add decorators.</p>
 <p>All accessors use the same template function <code>f</code>.</p>
 </div>
 <div class="paragraph">
-<p>You will need two explicit symbol. The first tells if it&#8217;s a getter or a setter. The second tells which information do you want. This second part may be multiple if you need to go in nested accessor.</p>
+<p>You will need two explicit symbol. The first tells if it&#8217;s a getter or a setter. The second tells which information you want. This second part may be multiple if you need to go in nested accessor.</p>
 </div>
 <div class="paragraph">
 <p>If you want to get a value, the first explicit typename is <code>false</code>: <code>f&lt;F::Get, F::Data&gt;()</code>.</p>
 </div>
 <div class="paragraph">
-<p>If you want to set a value, the first explicit typename is <code>true</code>: <code>f&lt;F::Set, F::Data, F::Data2&gt;(value)</code>. The type of the value returned is a <code>std::shared_ptr&lt;&#8230;&#8203;&gt;</code> of the current object.</p>
+<p>If you want to set a value, the first explicit typename is <code>true</code>: <code>f&lt;F::Set, F::Data&gt;(value)</code>. The type of the value returned is a <code>std::shared_ptr&lt;&#8230;&#8203;&gt;</code> of the current object.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -531,54 +531,13 @@ Between adapter and implementation, you may add decorators.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Adapter for a strip foundation. If you do not need decorator, just use <code>FoundationStrip</code>;</p>
+<p>If you do not need decorator, just use <code>FoundationStrip</code>.</p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;jessica/compat.h&gt;
-#include &lt;jessica/helper/accessor.h&gt;
-#include &lt;jessica/helper/template.h&gt;
-
-namespace jessica
-{
-template &lt;typename T&gt;
-class JESSICA_DLL_PUBLIC FoundationStripDecorator final
-{
- public:
-  FoundationStripDecorator() = default;
-  FoundationStripDecorator(const FoundationStripDecorator&amp;) = default;
-  FoundationStripDecorator(FoundationStripDecorator&amp;&amp;) = delete;
-  FoundationStripDecorator&amp; operator=(const FoundationStripDecorator&amp;) = delete;
-  FoundationStripDecorator&amp; operator=(FoundationStripDecorator&amp;&amp;) = delete;
-
-  template &lt;F Action, F... U, typename... Args&gt;
-  [[nodiscard]] auto f(const Args&amp;&amp;... args) const
-  {
-    if constexpr (Action == F::Set)
-    {
-      auto retval = f&lt;F::Set, F::Clone&gt;();
-      retval-&gt;impl_ =
-          impl_-&gt;template f&lt;Action, U...&gt;(std::forward&lt;const Args&gt;(args)...);
-      return retval;
-    }
-    else
-    {
-      return impl_-&gt;template f&lt;Action, U...&gt;(std::forward&lt;const Args&gt;(args)...);
-    }
-  }
-
-  template &lt;F Action, F U&gt;
-  requires Equals&lt;F, Action, F::Set&gt; &amp;&amp; Equals&lt;F, U, F::Clone&gt;
-  [[nodiscard]] std::shared_ptr&lt;FoundationStripDecorator&lt;T&gt;&gt; f() const
-  {
-    return std::make_shared&lt;FoundationStripDecorator&lt;T&gt;&gt;(*this);
-  }
-
- private:
-  std::shared_ptr&lt;FoundationStrip&gt; impl_ = std::make_shared&lt;FoundationStrip&gt;();
-};
-}  // namespace jessica</code></pre>
+<div class="paragraph">
+<p>If you need decorator, you have to put <code>DecoratorStart</code> and <code>DecoratorEnd</code> around decorator(s).</p>
 </div>
+<div class="paragraph">
+<p>Use <code>DecoratorStart&lt;LogCall&lt;DecoratorEnd&lt;FoundationStrip&gt;&gt;&gt;</code>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -642,16 +601,19 @@ class JESSICA_DLL_PUBLIC FoundationStrip final
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">namespace jessica
 {
-template &lt;typename T, typename T0&gt;
-class JESSICA_DLL_PUBLIC LogDuration final
+template &lt;typename T&gt;
+class JESSICA_DLL_PUBLIC LogDuration : public T
 {
  public:
+  ~LogDuration() override = default;
+
   template &lt;F Action, F... U, typename... Args&gt;
-  [[nodiscard]] auto f(const T0&amp; classe, const Args&amp;&amp;... args)
+  [[nodiscard]] auto f(const typename T::RootType&amp; classe,
+                       const Args&amp;&amp;... args) const
   {
     const auto t_start = std::chrono::high_resolution_clock::now();
     const auto retval =
-        classe-&gt;template f&lt;Action, U...&gt;(std::forward&lt;const Args&gt;(args)...);
+        T::template f&lt;Action, U...&gt;(classe, std::forward&lt;const Args&gt;(args)...);
     const auto t_end = std::chrono::high_resolution_clock::now();
     const double elapsed_time_ms =
         std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();
@@ -670,8 +632,7 @@ class JESSICA_DLL_PUBLIC LogDuration final
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">  const auto load =
-      std::make_shared&lt;FoundationStrip&gt;();</code></pre>
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">  const auto foundation = std::make_shared&lt;FoundationStrip&gt;();</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -679,8 +640,8 @@ class JESSICA_DLL_PUBLIC LogDuration final
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">  using Decorator = FoundationStripDecorator&lt;
-      LogCall&lt;LogDuration&lt;FoundationStrip, FoundationStrip&gt;, FoundationStrip&gt;&gt;;
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">  using Decorator =
+      DecoratorStart&lt;LogCall&lt;LogDuration&lt;DecoratorEnd&lt;FoundationStrip&gt;&gt;&gt;&gt;;
 
   const auto foundation = std::make_shared&lt;Decorator&gt;();</code></pre>
 </div>
@@ -726,13 +687,8 @@ In this case, you need to specific coding to allow decorator around the main cla
   // Data 2 without decorator
   using DecoratorLoad = VerticalEccentric;
   // Main data with 2 data stored inside.
-  using DecoratorCalc = MeyerhofShallowFoundationDecorator&lt;
-      LogCall&lt;
-          LogDuration&lt;
-              MeyerhofShallowFoundation&lt;DecoratorLoad, DecoratorFoundation&gt;,
-              MeyerhofShallowFoundation&lt;DecoratorLoad, DecoratorFoundation&gt;&gt;,
-          MeyerhofShallowFoundation&lt;DecoratorLoad, DecoratorFoundation&gt;&gt;,
-      DecoratorLoad, DecoratorFoundation&gt;;
+  using DecoratorCalc = DecoratorStart&lt;LogCall&lt;LogDuration&lt;DecoratorEnd&lt;
+      MeyerhofShallowFoundation&lt;DecoratorLoad, DecoratorFoundation&gt;&gt;&gt;&gt;&gt;;
 
   const auto calc = std::make_shared&lt;DecoratorCalc&gt;(load, foundation);</code></pre>
 </div>
@@ -743,81 +699,16 @@ In this case, you need to specific coding to allow decorator around the main cla
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">  // Data 1 with decorator
-  using DecoratorFoundation = FoundationStripDecorator&lt;
-      LogCall&lt;LogDuration&lt;FoundationStrip, FoundationStrip&gt;, FoundationStrip&gt;&gt;;
+  using DecoratorFoundation =
+      DecoratorStart&lt;LogCall&lt;LogDuration&lt;DecoratorEnd&lt;FoundationStrip&gt;&gt;&gt;&gt;;
   // Data 2 with decorator
-  using DecoratorLoad = VerticalEccentricDecorator&lt;LogCall&lt;
-      LogDuration&lt;VerticalEccentric, VerticalEccentric&gt;, VerticalEccentric&gt;&gt;;
+  using DecoratorLoad =
+      DecoratorStart&lt;LogCall&lt;LogDuration&lt;DecoratorEnd&lt;VerticalEccentric&gt;&gt;&gt;&gt;;
   // Main data with 2 data stored inside.
-  using DecoratorCalc = MeyerhofShallowFoundationDecorator&lt;
-      LogCall&lt;
-          LogDuration&lt;
-              MeyerhofShallowFoundation&lt;DecoratorLoad, DecoratorFoundation&gt;,
-              MeyerhofShallowFoundation&lt;DecoratorLoad, DecoratorFoundation&gt;&gt;,
-          MeyerhofShallowFoundation&lt;DecoratorLoad, DecoratorFoundation&gt;&gt;,
-      DecoratorLoad, DecoratorFoundation&gt;;
+  using DecoratorCalc = DecoratorStart&lt;LogCall&lt;LogDuration&lt;DecoratorEnd&lt;
+      MeyerhofShallowFoundation&lt;DecoratorLoad, DecoratorFoundation&gt;&gt;&gt;&gt;&gt;;
 
   const auto calc = std::make_shared&lt;DecoratorCalc&gt;(load, foundation);</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Because this class has two data stored, you need to add boilerplates to all accessors from the main class. They are added in adapter with the generic templated <code>f</code> function.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">template &lt;typename T, typename T0, typename T1&gt;
-class JESSICA_DLL_PUBLIC MeyerhofShallowFoundationDecorator final
-{
- public:
-  MeyerhofShallowFoundationDecorator()
-      : impl_(std::make_shared&lt;MeyerhofShallowFoundation&lt;T0, T1&gt;&gt;(
-            std::make_shared&lt;T0&gt;(), std::make_shared&lt;T1&gt;()))
-  {
-  }
-  MeyerhofShallowFoundationDecorator(const std::shared_ptr&lt;T0&gt;&amp; load,
-                                     const std::shared_ptr&lt;T1&gt;&amp; foundation)
-      : impl_(std::make_shared&lt;MeyerhofShallowFoundation&lt;T0, T1&gt;&gt;(load,
-                                                                  foundation))
-  {
-  }
-  MeyerhofShallowFoundationDecorator(
-      const MeyerhofShallowFoundationDecorator&amp;) = default;
-  MeyerhofShallowFoundationDecorator(MeyerhofShallowFoundationDecorator&amp;&amp;) =
-      delete;
-  MeyerhofShallowFoundationDecorator&amp;
-      operator=(const MeyerhofShallowFoundationDecorator&amp;) = delete;
-  MeyerhofShallowFoundationDecorator&amp;
-      operator=(MeyerhofShallowFoundationDecorator&amp;&amp;) = delete;
-  ~MeyerhofShallowFoundationDecorator() = default;
-
-  template &lt;F Action, F... U, typename... Args&gt;
-  [[nodiscard]] auto f(const Args&amp;&amp;... args) const
-  {
-    if constexpr (Action == F::Set)
-    {
-      auto retval = f&lt;F::Set, F::Clone&gt;();
-      retval-&gt;impl_ =
-          impl_-&gt;template f&lt;Action, U...&gt;(std::forward&lt;const Args&gt;(args)...);
-      return retval;
-    }
-    else
-    {
-      return impl_-&gt;template f&lt;Action, U...&gt;(std::forward&lt;const Args&gt;(args)...);
-    }
-  }
-
-  template &lt;F Action, F U&gt;
-  requires Equals&lt;F, Action, F::Set&gt; &amp;&amp; Equals&lt;F, U, F::Clone&gt;
-  [[nodiscard]] std::shared_ptr&lt;MeyerhofShallowFoundationDecorator&lt;T, T0, T1&gt;&gt;
-      f() const
-  {
-    return std::make_shared&lt;MeyerhofShallowFoundationDecorator&lt;T, T0, T1&gt;&gt;(
-        *this);
-  }
-
- private:
-  std::shared_ptr&lt;MeyerhofShallowFoundation&lt;T0, T1&gt;&gt; impl_;
-};</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -832,7 +723,9 @@ class JESSICA_DLL_PUBLIC MeyerhofShallowFoundationDecorator final
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">template &lt;typename T0, typename T1&gt;
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">namespace jessica
+{
+template &lt;typename T0, typename T1&gt;
 class JESSICA_DLL_PUBLIC MeyerhofShallowFoundation final
 {
  public:
@@ -909,7 +802,8 @@ class JESSICA_DLL_PUBLIC MeyerhofShallowFoundation final
  private:
   std::shared_ptr&lt;T0&gt; load_;
   std::shared_ptr&lt;T1&gt; foundation_;
-};</code></pre>
+};
+}  // namespace jessica</code></pre>
 </div>
 </div>
 </div>
