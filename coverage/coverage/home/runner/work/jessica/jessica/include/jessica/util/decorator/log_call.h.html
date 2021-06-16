@@ -76,7 +76,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>#include &lt;string&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -86,7 +86,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/helper/accessor.h&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -96,7 +96,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>#include &lt;spdlog/spdlog.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -106,7 +106,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>namespace jessica</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -116,7 +116,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>#include &lt;jessica/helper/accessor.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -126,7 +126,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>template &lt;typename T&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -136,7 +136,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>class JESSICA_DLL_PUBLIC LogCall : public T</pre>
+          <pre>namespace jessica</pre>
         </td>
       </tr>
       <tr>
@@ -156,7 +156,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> public:</pre>
+          <pre>template &lt;typename T&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -164,8 +164,372 @@
           <a name='L14' href='#L14' id="L14">
           <pre>14</pre></a>
         </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>class JESSICA_DLL_PUBLIC LogCall : public T</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L15' href='#L15' id="L15">
+          <pre>15</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>{</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L16' href='#L16' id="L16">
+          <pre>16</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre> public:</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L17' href='#L17' id="L17">
+          <pre>17</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  template &lt;typename... Args&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L18' href='#L18' id="L18">
+          <pre>18</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  LogCall(std::shared_ptr&lt;typename T::RootType&gt;& impl,</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L19' href='#L19' id="L19">
+          <pre>19</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>          const std::shared_ptr&lt;spdlog::logger&gt;& log, Args&amp;&amp;... args)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L20' href='#L20' id="L20">
+          <pre>20</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>      : T(impl, std::forward&lt;Args&gt;(args)...), log_(log)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L21' href='#L21' id="L21">
+          <pre>21</pre></a>
+        </td>
         <td class='covered-line'>
-          <pre>26</pre>
+          <pre>12</pre>
+        </td>
+        <td class='code'>
+          <pre>  {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L22' href='#L22' id="L22">
+          <pre>22</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>12</pre>
+        </td>
+        <td class='code'>
+          <pre>  }</pre>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_15FoundationStripEEEEEEC2IJRSt10shared_ptrIN6spdlog6loggerEEEEERS8_IS3_ERKSB_DpOT_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_17VerticalEccentricEEEEEEC2IJRSt10shared_ptrIN6spdlog6loggerEEEEERS8_IS3_ERKSB_DpOT_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_14DecoratorStartINS0_INS1_INS2_INS_17VerticalEccentricEEEEEEEEENS4_INS0_INS1_INS2_INS_15FoundationStripEEEEEEEEEEEEEEEEC2IJRSt10shared_ptrIN6spdlog6loggerEERKSK_IS9_ERKSK_ISE_EEEERSK_ISF_ERKSN_DpOT_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEEC2IJRSt10shared_ptrIN6spdlog6loggerEERKSB_IS4_ERKSB_IS5_EEEERSB_IS6_ERKSE_DpOT_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEEC2IJRSt10shared_ptrIN6spdlog6loggerEESB_IS4_ESB_IS5_EEEERSB_IS6_ERKSE_DpOT_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L22' href='#L22' id="L22">
+                    <pre>22</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L23' href='#L23' id="L23">
+          <pre>23</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  LogCall(const LogCall&amp;) = default;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L24' href='#L24' id="L24">
+          <pre>24</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  LogCall(LogCall&amp;&amp;) = delete;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L25' href='#L25' id="L25">
+          <pre>25</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  LogCall& operator=(const LogCall&amp;) = delete;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L26' href='#L26' id="L26">
+          <pre>26</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  LogCall& operator=(LogCall&amp;&amp;) = delete;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L27' href='#L27' id="L27">
+          <pre>27</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L28' href='#L28' id="L28">
+          <pre>28</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>12</pre>
         </td>
         <td class='code'>
           <pre>  ~LogCall() override = default;</pre>
@@ -188,11 +552,11 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L14' href='#L14' id="L14">
-                    <pre>14</pre></a>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
                   </td>
                   <td class='covered-line'>
-                    <pre>2</pre>
+                    <pre>1</pre>
                   </td>
                   <td class='code'>
                     <pre>  ~LogCall() override = default;</pre>
@@ -220,11 +584,11 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L14' href='#L14' id="L14">
-                    <pre>14</pre></a>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
                   </td>
                   <td class='covered-line'>
-                    <pre>10</pre>
+                    <pre>2</pre>
                   </td>
                   <td class='code'>
                     <pre>  ~LogCall() override = default;</pre>
@@ -252,11 +616,11 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L14' href='#L14' id="L14">
-                    <pre>14</pre></a>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
                   </td>
                   <td class='covered-line'>
-                    <pre>5</pre>
+                    <pre>4</pre>
                   </td>
                   <td class='code'>
                     <pre>  ~LogCall() override = default;</pre>
@@ -284,11 +648,11 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L14' href='#L14' id="L14">
-                    <pre>14</pre></a>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
                   </td>
                   <td class='covered-line'>
-                    <pre>9</pre>
+                    <pre>5</pre>
                   </td>
                   <td class='code'>
                     <pre>  ~LogCall() override = default;</pre>
@@ -301,8 +665,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L15' href='#L15' id="L15">
-          <pre>15</pre></a>
+          <a name='L29' href='#L29' id="L29">
+          <pre>29</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -311,8 +675,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L16' href='#L16' id="L16">
-          <pre>16</pre></a>
+          <a name='L30' href='#L30' id="L30">
+          <pre>30</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -321,8 +685,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L17' href='#L17' id="L17">
-          <pre>17</pre></a>
+          <a name='L31' href='#L31' id="L31">
+          <pre>31</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -331,8 +695,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L18' href='#L18' id="L18">
-          <pre>18</pre></a>
+          <a name='L32' href='#L32' id="L32">
+          <pre>32</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -341,8 +705,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L19' href='#L19' id="L19">
-          <pre>19</pre></a>
+          <a name='L33' href='#L33' id="L33">
+          <pre>33</pre></a>
         </td>
         <td class='covered-line'>
           <pre>70</pre>
@@ -353,20 +717,20 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L20' href='#L20' id="L20">
-          <pre>20</pre></a>
+          <a name='L34' href='#L34' id="L34">
+          <pre>34</pre></a>
         </td>
         <td class='covered-line'>
           <pre>70</pre>
         </td>
         <td class='code'>
-          <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+          <pre>    log_-&gt;info("DecoratorLogger " + std::string{typeid(T).name()});</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L21' href='#L21' id="L21">
-          <pre>21</pre></a>
+          <a name='L35' href='#L35' id="L35">
+          <pre>35</pre></a>
         </td>
         <td class='covered-line'>
           <pre>70</pre>
@@ -377,8 +741,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L22' href='#L22' id="L22">
-          <pre>22</pre></a>
+          <a name='L36' href='#L36' id="L36">
+          <pre>36</pre></a>
         </td>
         <td class='covered-line'>
           <pre>70</pre>
@@ -389,8 +753,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L23' href='#L23' id="L23">
-          <pre>23</pre></a>
+          <a name='L37' href='#L37' id="L37">
+          <pre>37</pre></a>
         </td>
         <td class='covered-line'>
           <pre>70</pre>
@@ -416,8 +780,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L19' href='#L19' id="L19">
-                    <pre>19</pre></a>
+                    <a name='L33' href='#L33' id="L33">
+                    <pre>33</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -428,20 +792,20 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L20' href='#L20' id="L20">
-                    <pre>20</pre></a>
+                    <a name='L34' href='#L34' id="L34">
+                    <pre>34</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+                    <pre>    log_-&gt;info("DecoratorLogger " + std::string{typeid(T).name()});</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L21' href='#L21' id="L21">
-                    <pre>21</pre></a>
+                    <a name='L35' href='#L35' id="L35">
+                    <pre>35</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -452,8 +816,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L22' href='#L22' id="L22">
-                    <pre>22</pre></a>
+                    <a name='L36' href='#L36' id="L36">
+                    <pre>36</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -464,8 +828,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L23' href='#L23' id="L23">
-                    <pre>23</pre></a>
+                    <a name='L37' href='#L37' id="L37">
+                    <pre>37</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -496,8 +860,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L19' href='#L19' id="L19">
-                    <pre>19</pre></a>
+                    <a name='L33' href='#L33' id="L33">
+                    <pre>33</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>2</pre>
@@ -508,20 +872,20 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L20' href='#L20' id="L20">
-                    <pre>20</pre></a>
+                    <a name='L34' href='#L34' id="L34">
+                    <pre>34</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+                    <pre>    log_-&gt;info("DecoratorLogger " + std::string{typeid(T).name()});</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L21' href='#L21' id="L21">
-                    <pre>21</pre></a>
+                    <a name='L35' href='#L35' id="L35">
+                    <pre>35</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>2</pre>
@@ -532,8 +896,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L22' href='#L22' id="L22">
-                    <pre>22</pre></a>
+                    <a name='L36' href='#L36' id="L36">
+                    <pre>36</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>2</pre>
@@ -544,8 +908,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L23' href='#L23' id="L23">
-                    <pre>23</pre></a>
+                    <a name='L37' href='#L37' id="L37">
+                    <pre>37</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>2</pre>
@@ -576,8 +940,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L19' href='#L19' id="L19">
-                    <pre>19</pre></a>
+                    <a name='L33' href='#L33' id="L33">
+                    <pre>33</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>5</pre>
@@ -588,20 +952,20 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L20' href='#L20' id="L20">
-                    <pre>20</pre></a>
+                    <a name='L34' href='#L34' id="L34">
+                    <pre>34</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+                    <pre>    log_-&gt;info("DecoratorLogger " + std::string{typeid(T).name()});</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L21' href='#L21' id="L21">
-                    <pre>21</pre></a>
+                    <a name='L35' href='#L35' id="L35">
+                    <pre>35</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>5</pre>
@@ -612,8 +976,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L22' href='#L22' id="L22">
-                    <pre>22</pre></a>
+                    <a name='L36' href='#L36' id="L36">
+                    <pre>36</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>5</pre>
@@ -624,8 +988,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L23' href='#L23' id="L23">
-                    <pre>23</pre></a>
+                    <a name='L37' href='#L37' id="L37">
+                    <pre>37</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>5</pre>
@@ -656,8 +1020,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L19' href='#L19' id="L19">
-                    <pre>19</pre></a>
+                    <a name='L33' href='#L33' id="L33">
+                    <pre>33</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>6</pre>
@@ -668,20 +1032,20 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L20' href='#L20' id="L20">
-                    <pre>20</pre></a>
+                    <a name='L34' href='#L34' id="L34">
+                    <pre>34</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>6</pre>
                   </td>
                   <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+                    <pre>    log_-&gt;info("DecoratorLogger " + std::string{typeid(T).name()});</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L21' href='#L21' id="L21">
-                    <pre>21</pre></a>
+                    <a name='L35' href='#L35' id="L35">
+                    <pre>35</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>6</pre>
@@ -692,8 +1056,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L22' href='#L22' id="L22">
-                    <pre>22</pre></a>
+                    <a name='L36' href='#L36' id="L36">
+                    <pre>36</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>6</pre>
@@ -704,8 +1068,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L23' href='#L23' id="L23">
-                    <pre>23</pre></a>
+                    <a name='L37' href='#L37' id="L37">
+                    <pre>37</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>6</pre>
@@ -736,8 +1100,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L19' href='#L19' id="L19">
-                    <pre>19</pre></a>
+                    <a name='L33' href='#L33' id="L33">
+                    <pre>33</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>10</pre>
@@ -748,20 +1112,20 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L20' href='#L20' id="L20">
-                    <pre>20</pre></a>
+                    <a name='L34' href='#L34' id="L34">
+                    <pre>34</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>10</pre>
                   </td>
                   <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+                    <pre>    log_-&gt;info("DecoratorLogger " + std::string{typeid(T).name()});</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L21' href='#L21' id="L21">
-                    <pre>21</pre></a>
+                    <a name='L35' href='#L35' id="L35">
+                    <pre>35</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>10</pre>
@@ -772,8 +1136,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L22' href='#L22' id="L22">
-                    <pre>22</pre></a>
+                    <a name='L36' href='#L36' id="L36">
+                    <pre>36</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>10</pre>
@@ -784,8 +1148,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L23' href='#L23' id="L23">
-                    <pre>23</pre></a>
+                    <a name='L37' href='#L37' id="L37">
+                    <pre>37</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>10</pre>
@@ -816,8 +1180,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L19' href='#L19' id="L19">
-                    <pre>19</pre></a>
+                    <a name='L33' href='#L33' id="L33">
+                    <pre>33</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>15</pre>
@@ -828,20 +1192,20 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L20' href='#L20' id="L20">
-                    <pre>20</pre></a>
+                    <a name='L34' href='#L34' id="L34">
+                    <pre>34</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>15</pre>
                   </td>
                   <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+                    <pre>    log_-&gt;info("DecoratorLogger " + std::string{typeid(T).name()});</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L21' href='#L21' id="L21">
-                    <pre>21</pre></a>
+                    <a name='L35' href='#L35' id="L35">
+                    <pre>35</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>15</pre>
@@ -852,8 +1216,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L22' href='#L22' id="L22">
-                    <pre>22</pre></a>
+                    <a name='L36' href='#L36' id="L36">
+                    <pre>36</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>15</pre>
@@ -864,8 +1228,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L23' href='#L23' id="L23">
-                    <pre>23</pre></a>
+                    <a name='L37' href='#L37' id="L37">
+                    <pre>37</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>15</pre>
@@ -896,8 +1260,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L19' href='#L19' id="L19">
-                    <pre>19</pre></a>
+                    <a name='L33' href='#L33' id="L33">
+                    <pre>33</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -908,20 +1272,20 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L20' href='#L20' id="L20">
-                    <pre>20</pre></a>
+                    <a name='L34' href='#L34' id="L34">
+                    <pre>34</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
                   </td>
                   <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+                    <pre>    log_-&gt;info("DecoratorLogger " + std::string{typeid(T).name()});</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L21' href='#L21' id="L21">
-                    <pre>21</pre></a>
+                    <a name='L35' href='#L35' id="L35">
+                    <pre>35</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -932,8 +1296,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L22' href='#L22' id="L22">
-                    <pre>22</pre></a>
+                    <a name='L36' href='#L36' id="L36">
+                    <pre>36</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -944,8 +1308,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L23' href='#L23' id="L23">
-                    <pre>23</pre></a>
+                    <a name='L37' href='#L37' id="L37">
+                    <pre>37</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -976,8 +1340,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L19' href='#L19' id="L19">
-                    <pre>19</pre></a>
+                    <a name='L33' href='#L33' id="L33">
+                    <pre>33</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>9</pre>
@@ -988,20 +1352,20 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L20' href='#L20' id="L20">
-                    <pre>20</pre></a>
+                    <a name='L34' href='#L34' id="L34">
+                    <pre>34</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>9</pre>
                   </td>
                   <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+                    <pre>    log_-&gt;info("DecoratorLogger " + std::string{typeid(T).name()});</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L21' href='#L21' id="L21">
-                    <pre>21</pre></a>
+                    <a name='L35' href='#L35' id="L35">
+                    <pre>35</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>9</pre>
@@ -1012,8 +1376,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L22' href='#L22' id="L22">
-                    <pre>22</pre></a>
+                    <a name='L36' href='#L36' id="L36">
+                    <pre>36</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>9</pre>
@@ -1024,8 +1388,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L23' href='#L23' id="L23">
-                    <pre>23</pre></a>
+                    <a name='L37' href='#L37' id="L37">
+                    <pre>37</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>9</pre>
@@ -1056,8 +1420,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L19' href='#L19' id="L19">
-                    <pre>19</pre></a>
+                    <a name='L33' href='#L33' id="L33">
+                    <pre>33</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>7</pre>
@@ -1068,20 +1432,20 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L20' href='#L20' id="L20">
-                    <pre>20</pre></a>
+                    <a name='L34' href='#L34' id="L34">
+                    <pre>34</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>7</pre>
                   </td>
                   <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+                    <pre>    log_-&gt;info("DecoratorLogger " + std::string{typeid(T).name()});</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L21' href='#L21' id="L21">
-                    <pre>21</pre></a>
+                    <a name='L35' href='#L35' id="L35">
+                    <pre>35</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>7</pre>
@@ -1092,8 +1456,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L22' href='#L22' id="L22">
-                    <pre>22</pre></a>
+                    <a name='L36' href='#L36' id="L36">
+                    <pre>36</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>7</pre>
@@ -1104,8 +1468,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L23' href='#L23' id="L23">
-                    <pre>23</pre></a>
+                    <a name='L37' href='#L37' id="L37">
+                    <pre>37</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>7</pre>
@@ -1136,8 +1500,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L19' href='#L19' id="L19">
-                    <pre>19</pre></a>
+                    <a name='L33' href='#L33' id="L33">
+                    <pre>33</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>5</pre>
@@ -1148,20 +1512,20 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L20' href='#L20' id="L20">
-                    <pre>20</pre></a>
+                    <a name='L34' href='#L34' id="L34">
+                    <pre>34</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+                    <pre>    log_-&gt;info("DecoratorLogger " + std::string{typeid(T).name()});</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L21' href='#L21' id="L21">
-                    <pre>21</pre></a>
+                    <a name='L35' href='#L35' id="L35">
+                    <pre>35</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>5</pre>
@@ -1172,8 +1536,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L22' href='#L22' id="L22">
-                    <pre>22</pre></a>
+                    <a name='L36' href='#L36' id="L36">
+                    <pre>36</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>5</pre>
@@ -1184,8 +1548,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L23' href='#L23' id="L23">
-                    <pre>23</pre></a>
+                    <a name='L37' href='#L37' id="L37">
+                    <pre>37</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>5</pre>
@@ -1216,8 +1580,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L19' href='#L19' id="L19">
-                    <pre>19</pre></a>
+                    <a name='L33' href='#L33' id="L33">
+                    <pre>33</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1228,20 +1592,20 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L20' href='#L20' id="L20">
-                    <pre>20</pre></a>
+                    <a name='L34' href='#L34' id="L34">
+                    <pre>34</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+                    <pre>    log_-&gt;info("DecoratorLogger " + std::string{typeid(T).name()});</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L21' href='#L21' id="L21">
-                    <pre>21</pre></a>
+                    <a name='L35' href='#L35' id="L35">
+                    <pre>35</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1252,8 +1616,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L22' href='#L22' id="L22">
-                    <pre>22</pre></a>
+                    <a name='L36' href='#L36' id="L36">
+                    <pre>36</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1264,8 +1628,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L23' href='#L23' id="L23">
-                    <pre>23</pre></a>
+                    <a name='L37' href='#L37' id="L37">
+                    <pre>37</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1296,8 +1660,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L19' href='#L19' id="L19">
-                    <pre>19</pre></a>
+                    <a name='L33' href='#L33' id="L33">
+                    <pre>33</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1308,20 +1672,20 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L20' href='#L20' id="L20">
-                    <pre>20</pre></a>
+                    <a name='L34' href='#L34' id="L34">
+                    <pre>34</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+                    <pre>    log_-&gt;info("DecoratorLogger " + std::string{typeid(T).name()});</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L21' href='#L21' id="L21">
-                    <pre>21</pre></a>
+                    <a name='L35' href='#L35' id="L35">
+                    <pre>35</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1332,8 +1696,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L22' href='#L22' id="L22">
-                    <pre>22</pre></a>
+                    <a name='L36' href='#L36' id="L36">
+                    <pre>36</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1344,8 +1708,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L23' href='#L23' id="L23">
-                    <pre>23</pre></a>
+                    <a name='L37' href='#L37' id="L37">
+                    <pre>37</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1376,8 +1740,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L19' href='#L19' id="L19">
-                    <pre>19</pre></a>
+                    <a name='L33' href='#L33' id="L33">
+                    <pre>33</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1388,20 +1752,20 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L20' href='#L20' id="L20">
-                    <pre>20</pre></a>
+                    <a name='L34' href='#L34' id="L34">
+                    <pre>34</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+                    <pre>    log_-&gt;info("DecoratorLogger " + std::string{typeid(T).name()});</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L21' href='#L21' id="L21">
-                    <pre>21</pre></a>
+                    <a name='L35' href='#L35' id="L35">
+                    <pre>35</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1412,8 +1776,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L22' href='#L22' id="L22">
-                    <pre>22</pre></a>
+                    <a name='L36' href='#L36' id="L36">
+                    <pre>36</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1424,8 +1788,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L23' href='#L23' id="L23">
-                    <pre>23</pre></a>
+                    <a name='L37' href='#L37' id="L37">
+                    <pre>37</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1456,8 +1820,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L19' href='#L19' id="L19">
-                    <pre>19</pre></a>
+                    <a name='L33' href='#L33' id="L33">
+                    <pre>33</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1468,20 +1832,20 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L20' href='#L20' id="L20">
-                    <pre>20</pre></a>
+                    <a name='L34' href='#L34' id="L34">
+                    <pre>34</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+                    <pre>    log_-&gt;info("DecoratorLogger " + std::string{typeid(T).name()});</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L21' href='#L21' id="L21">
-                    <pre>21</pre></a>
+                    <a name='L35' href='#L35' id="L35">
+                    <pre>35</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1492,8 +1856,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L22' href='#L22' id="L22">
-                    <pre>22</pre></a>
+                    <a name='L36' href='#L36' id="L36">
+                    <pre>36</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1504,8 +1868,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L23' href='#L23' id="L23">
-                    <pre>23</pre></a>
+                    <a name='L37' href='#L37' id="L37">
+                    <pre>37</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1536,8 +1900,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L19' href='#L19' id="L19">
-                    <pre>19</pre></a>
+                    <a name='L33' href='#L33' id="L33">
+                    <pre>33</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1548,20 +1912,20 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L20' href='#L20' id="L20">
-                    <pre>20</pre></a>
+                    <a name='L34' href='#L34' id="L34">
+                    <pre>34</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+                    <pre>    log_-&gt;info("DecoratorLogger " + std::string{typeid(T).name()});</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L21' href='#L21' id="L21">
-                    <pre>21</pre></a>
+                    <a name='L35' href='#L35' id="L35">
+                    <pre>35</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1572,8 +1936,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L22' href='#L22' id="L22">
-                    <pre>22</pre></a>
+                    <a name='L36' href='#L36' id="L36">
+                    <pre>36</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1584,8 +1948,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L23' href='#L23' id="L23">
-                    <pre>23</pre></a>
+                    <a name='L37' href='#L37' id="L37">
+                    <pre>37</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1616,8 +1980,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L19' href='#L19' id="L19">
-                    <pre>19</pre></a>
+                    <a name='L33' href='#L33' id="L33">
+                    <pre>33</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1628,20 +1992,20 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L20' href='#L20' id="L20">
-                    <pre>20</pre></a>
+                    <a name='L34' href='#L34' id="L34">
+                    <pre>34</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    std::cout &lt;&lt; "DecoratorLogger " &lt;&lt; typeid(T).name() &lt;&lt; std::endl;</pre>
+                    <pre>    log_-&gt;info("DecoratorLogger " + std::string{typeid(T).name()});</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L21' href='#L21' id="L21">
-                    <pre>21</pre></a>
+                    <a name='L35' href='#L35' id="L35">
+                    <pre>35</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1652,8 +2016,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L22' href='#L22' id="L22">
-                    <pre>22</pre></a>
+                    <a name='L36' href='#L36' id="L36">
+                    <pre>36</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1664,8 +2028,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L23' href='#L23' id="L23">
-                    <pre>23</pre></a>
+                    <a name='L37' href='#L37' id="L37">
+                    <pre>37</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1681,8 +2045,38 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L24' href='#L24' id="L24">
-          <pre>24</pre></a>
+          <a name='L38' href='#L38' id="L38">
+          <pre>38</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L39' href='#L39' id="L39">
+          <pre>39</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre> private:</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L40' href='#L40' id="L40">
+          <pre>40</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  std::shared_ptr&lt;spdlog::logger&gt; log_;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L41' href='#L41' id="L41">
+          <pre>41</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1691,8 +2085,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L25' href='#L25' id="L25">
-          <pre>25</pre></a>
+          <a name='L42' href='#L42' id="L42">
+          <pre>42</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
