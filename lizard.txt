@@ -11,15 +11,15 @@
        7      1     60      1       7 jessica::JESSICA_DLL_PUBLICMeyerhofShallowFoundation::f ./include/jessica/calc/geotechnical/meyerhof.h
        4      1     39      2       4 jessica::JESSICA_DLL_PUBLICDecoratorEnd::DecoratorEnd ./include/jessica/util/decorator/end.h
        4      1     41      2       4 jessica::JESSICA_DLL_PUBLICDecoratorEnd::f ./include/jessica/util/decorator/end.h
-       5      1     54      3       5 jessica::JESSICA_DLL_PUBLICLogDuration::LogDuration ./include/jessica/util/decorator/log_duration.h
+       5      1     51      3       5 jessica::JESSICA_DLL_PUBLICLogDuration::LogDuration ./include/jessica/util/decorator/log_duration.h
        1      1      5      0       1 jessica::JESSICA_DLL_PUBLICLogDuration::~LogDuration ./include/jessica/util/decorator/log_duration.h
-      12      1    120      2      12 jessica::JESSICA_DLL_PUBLICLogDuration::f ./include/jessica/util/decorator/log_duration.h
+      11      1    116      2      11 jessica::JESSICA_DLL_PUBLICLogDuration::f ./include/jessica/util/decorator/log_duration.h
        4      1     33      1       4 jessica::JESSICA_DLL_PUBLICDecoratorStart::DecoratorStart ./include/jessica/util/decorator/start.h
        1      1      5      0       1 jessica::JESSICA_DLL_PUBLICDecoratorStart::~DecoratorStart ./include/jessica/util/decorator/start.h
       15      2    103      1      15 jessica::JESSICA_DLL_PUBLICDecoratorStart::f ./include/jessica/util/decorator/start.h
        4      1     21      0       4 jessica::JESSICA_DLL_PUBLICDecoratorStart::f ./include/jessica/util/decorator/start.h
-       5      1     54      3       5 jessica::JESSICA_DLL_PUBLICLogCall::LogCall ./include/jessica/util/decorator/log_call.h
-       7      1     67      2       7 jessica::JESSICA_DLL_PUBLICLogCall::f ./include/jessica/util/decorator/log_call.h
+       5      1     51      3       5 jessica::JESSICA_DLL_PUBLICLogCall::LogCall ./include/jessica/util/decorator/log_call.h
+       5      1     63      2       5 jessica::JESSICA_DLL_PUBLICLogCall::f ./include/jessica/util/decorator/log_call.h
        4      1     18      0       4 jessica::JESSICA_DLL_PUBLICVerticalEccentric::f ./include/jessica/data/load/vertical_eccentric.h
        1      1      9      0       1 jessica::JESSICA_DLL_PUBLICVerticalEccentric::f ./include/jessica/data/load/vertical_eccentric.h
        6      1     34      1       6 jessica::JESSICA_DLL_PUBLICVerticalEccentric::f ./include/jessica/data/load/vertical_eccentric.h
@@ -40,9 +40,9 @@
        4      1     18      0       4 DecoratorTest::f ./test/backend/util/decorator.cc
        1      1      9      0       1 DecoratorTest::f ./test/backend/util/decorator.cc
        6      1     34      1       6 DecoratorTest::f ./test/backend/util/decorator.cc
-       5      1     37      2       5 DecoratorMiddle::DecoratorMiddle ./test/backend/util/decorator.cc
-       7      1     68      2       7 DecoratorMiddle::f ./test/backend/util/decorator.cc
-       6      1     63      2       6 DecoratorMiddle::f ./test/backend/util/decorator.cc
+       4      1     34      2       4 DecoratorMiddle::DecoratorMiddle ./test/backend/util/decorator.cc
+       5      1     64      2       5 DecoratorMiddle::f ./test/backend/util/decorator.cc
+       7      1     59      2       7 DecoratorMiddle::f ./test/backend/util/decorator.cc
        8      1     79      2       9 JTEST_NAME ./test/backend/util/decorator.cc
       15      1    296      2      15 JTEST_NAME ./test/backend/data/load/vertical_eccentric.cc
       18      1    326      2      20 JTEST_NAME ./test/backend/data/load/vertical_eccentric.cc
@@ -56,9 +56,9 @@ NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
 --------------------------------------------------------------
      79       5.1     1.0       40.2         8     ./include/jessica/calc/geotechnical/meyerhof.h
      28       4.0     1.0       40.0         2     ./include/jessica/util/decorator/end.h
-     39       6.0     1.0       59.7         3     ./include/jessica/util/decorator/log_duration.h
+     40       5.7     1.0       57.3         3     ./include/jessica/util/decorator/log_duration.h
      45       6.0     1.2       40.5         4     ./include/jessica/util/decorator/start.h
-     34       6.0     1.0       60.5         2     ./include/jessica/util/decorator/log_call.h
+     34       5.0     1.0       57.0         2     ./include/jessica/util/decorator/log_call.h
      48       3.6     1.0       20.8         5     ./include/jessica/data/load/vertical_eccentric.h
      36       3.7     1.0       20.3         3     ./include/jessica/data/geotechnical/foundation_strip.h
      18       3.0     1.0       21.0         1     ./include/jessica/helper/adapter/spdlog.h
@@ -71,7 +71,7 @@ NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
       1       1.0     1.0        5.0         1     ./src/main/main1.cc
       0       0.0     0.0        0.0         0     ./src/backend/dummy.cpp
     142      25.4     1.0      372.6         5     ./test/backend/calc/geotechnical/meyerhof.cc
-     79       5.3     1.0       44.0         7     ./test/backend/util/decorator.cc
+     79       5.0     1.0       42.4         7     ./test/backend/util/decorator.cc
      50      13.0     1.0      219.3         3     ./test/backend/data/load/vertical_eccentric.cc
      40       9.7     1.0      133.3         3     ./test/backend/data/geotechnical/foundation_strip.cc
 
@@ -80,4 +80,4 @@ No thresholds exceeded (cyclomatic_complexity > 15 or length > 1000 or nloc > 10
 ==========================================================================================
 Total nloc   Avg.NLOC  AvgCCN  Avg.token   Fun Cnt  Warning cnt   Fun Rt   nloc Rt
 ------------------------------------------------------------------------------------------
-       794       8.8     1.0       99.5       49            0      0.00    0.00
+       795       8.7     1.0       99.0       49            0      0.00    0.00
