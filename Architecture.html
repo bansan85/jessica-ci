@@ -605,7 +605,7 @@ template &lt;typename T&gt;
 class JESSICA_DLL_PUBLIC LogDuration
 {
  public:
-  using RootType = T::RootType;
+  using RootType = typename T::RootType;
 
   template &lt;typename... Args&gt;
   LogDuration(std::shared_ptr&lt;RootType&gt;&amp; impl,
@@ -625,7 +625,7 @@ class JESSICA_DLL_PUBLIC LogDuration
   {
     const auto t_start = std::chrono::high_resolution_clock::now();
     const auto retval =
-        t.f&lt;Action, U...&gt;(classe, std::forward&lt;const Args&gt;(args)...);
+        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;const Args&gt;(args)...);
     const auto t_end = std::chrono::high_resolution_clock::now();
     const double elapsed_time_ms =
         std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();
