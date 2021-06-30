@@ -105,7 +105,7 @@
 <a name="27"><span class="lineNum">      27</span>                 :             :   LogDuration&amp; operator=(const LogDuration&amp;) = delete;</a>
 <a name="28"><span class="lineNum">      28</span>                 :             :   LogDuration&amp; operator=(LogDuration&amp;&amp;) = delete;</a>
 <a name="29"><span class="lineNum">      29</span>                 :             : </a>
-<a name="30"><span class="lineNum">      30</span>                 :<span class="tlaGNC">          13 :   ~LogDuration() {}</span></a>
+<a name="30"><span class="lineNum">      30</span>                 :<span class="tlaGNC">          13 :   ~LogDuration() = default;</span></a>
 <a name="31"><span class="lineNum">      31</span>                 :             : </a>
 <a name="32"><span class="lineNum">      32</span>                 :             :   template &lt;F Action, F... U, typename... Args&gt;</a>
 <a name="33"><span class="lineNum">      33</span>                 :<span class="tlaGNC">          76 :   [[nodiscard]] auto f(const RootType&amp; classe, const Args&amp;&amp;... args) const</span></a>

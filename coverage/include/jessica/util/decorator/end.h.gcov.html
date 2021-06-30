@@ -93,7 +93,7 @@
 <a name="15"><span class="lineNum">      15</span>                 :             :   using RootType = T;</a>
 <a name="16"><span class="lineNum">      16</span>                 :             : </a>
 <a name="17"><span class="lineNum">      17</span>                 :             :   template &lt;typename... Args&gt;</a>
-<a name="18"><span class="lineNum">      18</span>                 :<span class="tlaGNC">          14 :   DecoratorEnd(std::shared_ptr&lt;T&gt;&amp; impl, Args&amp;&amp;... args)</span></a>
+<a name="18"><span class="lineNum">      18</span>                 :<span class="tlaGNC">          14 :   explicit DecoratorEnd(std::shared_ptr&lt;T&gt;&amp; impl, Args&amp;&amp;... args)</span></a>
 <a name="19"><span class="lineNum">      19</span>                 :             :   {</a>
 <a name="20"><span class="lineNum">      20</span>                 :<span class="tlaGNC">          14 :     impl = std::make_shared&lt;T&gt;(std::forward&lt;Args&gt;(args)...);</span></a>
 <a name="21"><span class="lineNum">      21</span>                 :<span class="tlaGNC">          14 :   }</span></a>
