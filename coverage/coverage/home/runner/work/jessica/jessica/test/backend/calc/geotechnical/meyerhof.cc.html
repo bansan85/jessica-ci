@@ -1840,7 +1840,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>int main(int argc, char* argv[])</pre>
+          <pre>// NOLINTNEXTLINE(bugprone-exception-escape)</pre>
         </td>
       </tr>
       <tr>
@@ -1848,11 +1848,9 @@
           <a name='L159' href='#L159' id="L159">
           <pre>159</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>2</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>int main(int argc, char* argv[])</pre>
         </td>
       </tr>
       <tr>
@@ -1864,7 +1862,7 @@
           <pre>2</pre>
         </td>
         <td class='code'>
-          <pre>  ::testing::InitGoogleTest(&amp;argc, argv);</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -1876,7 +1874,7 @@
           <pre>2</pre>
         </td>
         <td class='code'>
-          <pre>  spdlog::stdout_logger_mt("log");</pre>
+          <pre>  ::testing::InitGoogleTest(&amp;argc, argv);</pre>
         </td>
       </tr>
       <tr>
@@ -1888,13 +1886,25 @@
           <pre>2</pre>
         </td>
         <td class='code'>
-          <pre>  return RUN_ALL_TESTS();</pre>
+          <pre>  spdlog::stdout_logger_mt("log");</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L163' href='#L163' id="L163">
           <pre>163</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>2</pre>
+        </td>
+        <td class='code'>
+          <pre>  return RUN_ALL_TESTS();</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L164' href='#L164' id="L164">
+          <pre>164</pre></a>
         </td>
         <td class='covered-line'>
           <pre>2</pre>

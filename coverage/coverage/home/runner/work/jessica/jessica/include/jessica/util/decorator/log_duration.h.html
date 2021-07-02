@@ -236,7 +236,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>              const std::shared_ptr&lt;spdlog::logger&gt;& log, Args&amp;&amp;... args)</pre>
+          <pre>              std::shared_ptr&lt;spdlog::logger&gt; log, Args&amp;&amp;... args)</pre>
         </td>
       </tr>
       <tr>
@@ -246,7 +246,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      : t(impl, std::forward&lt;Args&gt;(args)...), log_(log)</pre>
+          <pre>      : t(impl, std::forward&lt;Args&gt;(args)...), log_(std::move(log))</pre>
         </td>
       </tr>
       <tr>
@@ -274,7 +274,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZN7jessica11LogDurationINS_12DecoratorEndINS_15FoundationStripEEEEC2IJEEERSt10shared_ptrIS2_ERKS6_IN6spdlog6loggerEEDpOT_</pre>
+                <pre>_ZN7jessica11LogDurationINS_12DecoratorEndINS_15FoundationStripEEEEC2IJEEERSt10shared_ptrIS2_ES6_IN6spdlog6loggerEEDpOT_</pre>
               </div>
               <table>
                 <tr>
@@ -318,7 +318,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZN7jessica11LogDurationINS_12DecoratorEndINS_17VerticalEccentricEEEEC2IJEEERSt10shared_ptrIS2_ERKS6_IN6spdlog6loggerEEDpOT_</pre>
+                <pre>_ZN7jessica11LogDurationINS_12DecoratorEndINS_17VerticalEccentricEEEEC2IJEEERSt10shared_ptrIS2_ES6_IN6spdlog6loggerEEDpOT_</pre>
               </div>
               <table>
                 <tr>
@@ -362,7 +362,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZN7jessica11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_14DecoratorStartINS_7LogCallINS0_INS1_INS_17VerticalEccentricEEEEEEEEENS3_INS4_INS0_INS1_INS_15FoundationStripEEEEEEEEEEEEEEC2IJRKSt10shared_ptrIS9_ERKSJ_ISE_EEEERSJ_ISF_ERKSJ_IN6spdlog6loggerEEDpOT_</pre>
+                <pre>_ZN7jessica11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_14DecoratorStartINS_7LogCallINS0_INS1_INS_17VerticalEccentricEEEEEEEEENS3_INS4_INS0_INS1_INS_15FoundationStripEEEEEEEEEEEEEEC2IJRKSt10shared_ptrIS9_ERKSJ_ISE_EEEERSJ_ISF_ESJ_IN6spdlog6loggerEEDpOT_</pre>
               </div>
               <table>
                 <tr>
@@ -406,7 +406,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZN7jessica11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEC2IJRKSt10shared_ptrIS3_ERKS9_IS4_EEEERS9_IS5_ERKS9_IN6spdlog6loggerEEDpOT_</pre>
+                <pre>_ZN7jessica11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEC2IJRKSt10shared_ptrIS3_ERKS9_IS4_EEEERS9_IS5_ES9_IN6spdlog6loggerEEDpOT_</pre>
               </div>
               <table>
                 <tr>
@@ -450,7 +450,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZN7jessica11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEC2IJSt10shared_ptrIS3_ES9_IS4_EEEERS9_IS5_ERKS9_IN6spdlog6loggerEEDpOT_</pre>
+                <pre>_ZN7jessica11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEC2IJSt10shared_ptrIS3_ES9_IS4_EEEERS9_IS5_ES9_IN6spdlog6loggerEEDpOT_</pre>
               </div>
               <table>
                 <tr>
@@ -746,7 +746,7 @@
           <pre>70</pre>
         </td>
         <td class='code'>
-          <pre>    const auto retval =</pre>
+          <pre>    auto retval =</pre>
         </td>
       </tr>
       <tr>
@@ -818,7 +818,7 @@
           <pre>70</pre>
         </td>
         <td class='code'>
-          <pre>    return retval;</pre>
+          <pre>    return std::move(retval);</pre>
         </td>
       </tr>
       <tr>
@@ -881,7 +881,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto retval =</pre>
+                    <pre>    auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -953,7 +953,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return retval;</pre>
+                    <pre>    return std::move(retval);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1021,7 +1021,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto retval =</pre>
+                    <pre>    auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1093,7 +1093,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return retval;</pre>
+                    <pre>    return std::move(retval);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1161,7 +1161,7 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto retval =</pre>
+                    <pre>    auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1233,7 +1233,7 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return retval;</pre>
+                    <pre>    return std::move(retval);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1301,7 +1301,7 @@
                     <pre>6</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto retval =</pre>
+                    <pre>    auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1373,7 +1373,7 @@
                     <pre>6</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return retval;</pre>
+                    <pre>    return std::move(retval);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1441,7 +1441,7 @@
                     <pre>10</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto retval =</pre>
+                    <pre>    auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1513,7 +1513,7 @@
                     <pre>10</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return retval;</pre>
+                    <pre>    return std::move(retval);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1581,7 +1581,7 @@
                     <pre>15</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto retval =</pre>
+                    <pre>    auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1653,7 +1653,7 @@
                     <pre>15</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return retval;</pre>
+                    <pre>    return std::move(retval);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1721,7 +1721,7 @@
                     <pre>4</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto retval =</pre>
+                    <pre>    auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1793,7 +1793,7 @@
                     <pre>4</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return retval;</pre>
+                    <pre>    return std::move(retval);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1861,7 +1861,7 @@
                     <pre>9</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto retval =</pre>
+                    <pre>    auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1933,7 +1933,7 @@
                     <pre>9</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return retval;</pre>
+                    <pre>    return std::move(retval);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2001,7 +2001,7 @@
                     <pre>7</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto retval =</pre>
+                    <pre>    auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2073,7 +2073,7 @@
                     <pre>7</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return retval;</pre>
+                    <pre>    return std::move(retval);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2141,7 +2141,7 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto retval =</pre>
+                    <pre>    auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2213,7 +2213,7 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return retval;</pre>
+                    <pre>    return std::move(retval);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2281,7 +2281,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto retval =</pre>
+                    <pre>    auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2353,7 +2353,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return retval;</pre>
+                    <pre>    return std::move(retval);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2421,7 +2421,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto retval =</pre>
+                    <pre>    auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2493,7 +2493,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return retval;</pre>
+                    <pre>    return std::move(retval);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2561,7 +2561,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto retval =</pre>
+                    <pre>    auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2633,7 +2633,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return retval;</pre>
+                    <pre>    return std::move(retval);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2701,7 +2701,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto retval =</pre>
+                    <pre>    auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2773,7 +2773,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return retval;</pre>
+                    <pre>    return std::move(retval);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2841,7 +2841,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto retval =</pre>
+                    <pre>    auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2913,7 +2913,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return retval;</pre>
+                    <pre>    return std::move(retval);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2981,7 +2981,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto retval =</pre>
+                    <pre>    auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -3053,7 +3053,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return retval;</pre>
+                    <pre>    return std::move(retval);</pre>
                   </td>
                 </tr>
                 <tr>

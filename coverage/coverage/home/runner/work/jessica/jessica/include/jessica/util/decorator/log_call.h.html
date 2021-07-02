@@ -226,7 +226,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  LogCall(std::shared_ptr&lt;RootType&gt;& impl,</pre>
+          <pre>  LogCall(std::shared_ptr&lt;RootType&gt;& impl, std::shared_ptr&lt;spdlog::logger&gt; log,</pre>
         </td>
       </tr>
       <tr>
@@ -236,7 +236,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>          const std::shared_ptr&lt;spdlog::logger&gt;& log, Args&amp;&amp;... args)</pre>
+          <pre>          Args&amp;&amp;... args)</pre>
         </td>
       </tr>
       <tr>
@@ -246,7 +246,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      : t(impl, std::forward&lt;Args&gt;(args)...), log_(log)</pre>
+          <pre>      : t(impl, std::forward&lt;Args&gt;(args)...), log_(std::move(log))</pre>
         </td>
       </tr>
       <tr>
@@ -274,7 +274,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZN7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_15FoundationStripEEEEEEC2IJRSt10shared_ptrIN6spdlog6loggerEEEEERS8_IS3_ERKSB_DpOT_</pre>
+                <pre>_ZN7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_15FoundationStripEEEEEEC2IJRSt10shared_ptrIN6spdlog6loggerEEEEERS8_IS3_ESB_DpOT_</pre>
               </div>
               <table>
                 <tr>
@@ -318,7 +318,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZN7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_17VerticalEccentricEEEEEEC2IJRSt10shared_ptrIN6spdlog6loggerEEEEERS8_IS3_ERKSB_DpOT_</pre>
+                <pre>_ZN7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_17VerticalEccentricEEEEEEC2IJRSt10shared_ptrIN6spdlog6loggerEEEEERS8_IS3_ESB_DpOT_</pre>
               </div>
               <table>
                 <tr>
@@ -362,7 +362,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZN7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_14DecoratorStartINS0_INS1_INS2_INS_17VerticalEccentricEEEEEEEEENS4_INS0_INS1_INS2_INS_15FoundationStripEEEEEEEEEEEEEEEEC2IJRSt10shared_ptrIN6spdlog6loggerEERKSK_IS9_ERKSK_ISE_EEEERSK_ISF_ERKSN_DpOT_</pre>
+                <pre>_ZN7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_14DecoratorStartINS0_INS1_INS2_INS_17VerticalEccentricEEEEEEEEENS4_INS0_INS1_INS2_INS_15FoundationStripEEEEEEEEEEEEEEEEC2IJRSt10shared_ptrIN6spdlog6loggerEERKSK_IS9_ERKSK_ISE_EEEERSK_ISF_ESN_DpOT_</pre>
               </div>
               <table>
                 <tr>
@@ -406,7 +406,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZN7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEEC2IJRSt10shared_ptrIN6spdlog6loggerEERKSB_IS4_ERKSB_IS5_EEEERSB_IS6_ERKSE_DpOT_</pre>
+                <pre>_ZN7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEEC2IJRSt10shared_ptrIN6spdlog6loggerEERKSB_IS4_ERKSB_IS5_EEEERSB_IS6_ESE_DpOT_</pre>
               </div>
               <table>
                 <tr>
@@ -450,7 +450,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZN7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEEC2IJRSt10shared_ptrIN6spdlog6loggerEESB_IS4_ESB_IS5_EEEERSB_IS6_ERKSE_DpOT_</pre>
+                <pre>_ZN7jessica7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEEC2IJRSt10shared_ptrIN6spdlog6loggerEESB_IS4_ESB_IS5_EEEERSB_IS6_ESE_DpOT_</pre>
               </div>
               <table>
                 <tr>

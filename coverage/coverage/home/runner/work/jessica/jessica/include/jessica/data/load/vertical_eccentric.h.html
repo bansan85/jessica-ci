@@ -238,7 +238,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  template &lt;F Action, F T&gt;</pre>
+          <pre>  ~VerticalEccentric() = default;</pre>
         </td>
       </tr>
       <tr>
@@ -248,7 +248,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  requires Equals&lt;F, Action, F::Set&gt; &amp;& Equals&lt;F, T, F::Clone&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -258,7 +258,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] std::shared_ptr&lt;VerticalEccentric&gt; f() const</pre>
+          <pre>  template &lt;F Action, F T&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -266,11 +266,9 @@
           <a name='L24' href='#L24' id="L24">
           <pre>24</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>22</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>  requires Equals&lt;F, Action, F::Set&gt; &amp;& Equals&lt;F, T, F::Clone&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -278,11 +276,9 @@
           <a name='L25' href='#L25' id="L25">
           <pre>25</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>22</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    return std::make_shared&lt;VerticalEccentric&gt;(*this);</pre>
+          <pre>  [[nodiscard]] std::shared_ptr&lt;VerticalEccentric&gt; f() const</pre>
         </td>
       </tr>
       <tr>
@@ -294,7 +290,7 @@
           <pre>22</pre>
         </td>
         <td class='code'>
-          <pre>  }</pre>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -302,9 +298,11 @@
           <a name='L27' href='#L27' id="L27">
           <pre>27</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>22</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre>    return std::make_shared&lt;VerticalEccentric&gt;(*this);</pre>
         </td>
       </tr>
       <tr>
@@ -312,9 +310,11 @@
           <a name='L28' href='#L28' id="L28">
           <pre>28</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>22</pre>
+        </td>
         <td class='code'>
-          <pre>  template &lt;F Action, F T&gt;</pre>
+          <pre>  }</pre>
         </td>
       </tr>
       <tr>
@@ -324,13 +324,33 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  requires Equals&lt;F, Action, F::Get&gt; &amp;& Equals&lt;F, T, F::V&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L30' href='#L30' id="L30">
           <pre>30</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  template &lt;F Action, F T&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L31' href='#L31' id="L31">
+          <pre>31</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  requires Equals&lt;F, Action, F::Get&gt; &amp;& Equals&lt;F, T, F::V&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L32' href='#L32' id="L32">
+          <pre>32</pre></a>
         </td>
         <td class='covered-line'>
           <pre>24</pre>
@@ -341,32 +361,12 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L31' href='#L31' id="L31">
-          <pre>31</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L32' href='#L32' id="L32">
-          <pre>32</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  template &lt;F Action, F T&gt;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
           <a name='L33' href='#L33' id="L33">
           <pre>33</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  requires Equals&lt;F, Action, F::Set&gt; &amp;& Equals&lt;F, T, F::V&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -376,7 +376,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] std::shared_ptr&lt;VerticalEccentric&gt; f(const double v) const</pre>
+          <pre>  template &lt;F Action, F T&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -384,11 +384,9 @@
           <a name='L35' href='#L35' id="L35">
           <pre>35</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>6</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>  requires Equals&lt;F, Action, F::Set&gt; &amp;& Equals&lt;F, T, F::V&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -396,11 +394,9 @@
           <a name='L36' href='#L36' id="L36">
           <pre>36</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>6</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    auto retval = f&lt;F::Set, F::Clone&gt;();</pre>
+          <pre>  [[nodiscard]] std::shared_ptr&lt;VerticalEccentric&gt; f(const double v) const</pre>
         </td>
       </tr>
       <tr>
@@ -412,7 +408,7 @@
           <pre>6</pre>
         </td>
         <td class='code'>
-          <pre>    retval-&gt;v_ = v;</pre>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -424,7 +420,7 @@
           <pre>6</pre>
         </td>
         <td class='code'>
-          <pre>    return retval;</pre>
+          <pre>    auto retval = f&lt;F::Set, F::Clone&gt;();</pre>
         </td>
       </tr>
       <tr>
@@ -436,7 +432,7 @@
           <pre>6</pre>
         </td>
         <td class='code'>
-          <pre>  }</pre>
+          <pre>    retval-&gt;v_ = v;</pre>
         </td>
       </tr>
       <tr>
@@ -444,9 +440,11 @@
           <a name='L40' href='#L40' id="L40">
           <pre>40</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>6</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre>    return retval;</pre>
         </td>
       </tr>
       <tr>
@@ -454,9 +452,11 @@
           <a name='L41' href='#L41' id="L41">
           <pre>41</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>6</pre>
+        </td>
         <td class='code'>
-          <pre>  template &lt;F Action, F T&gt;</pre>
+          <pre>  }</pre>
         </td>
       </tr>
       <tr>
@@ -466,13 +466,33 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  requires Equals&lt;F, Action, F::Get&gt; &amp;& Equals&lt;F, T, F::E&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L43' href='#L43' id="L43">
           <pre>43</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  template &lt;F Action, F T&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L44' href='#L44' id="L44">
+          <pre>44</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  requires Equals&lt;F, Action, F::Get&gt; &amp;& Equals&lt;F, T, F::E&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L45' href='#L45' id="L45">
+          <pre>45</pre></a>
         </td>
         <td class='covered-line'>
           <pre>43</pre>
@@ -483,32 +503,12 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L44' href='#L44' id="L44">
-          <pre>44</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L45' href='#L45' id="L45">
-          <pre>45</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  template &lt;F Action, F T&gt;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
           <a name='L46' href='#L46' id="L46">
           <pre>46</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  requires Equals&lt;F, Action, F::Set&gt; &amp;& Equals&lt;F, T, F::E&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -518,7 +518,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] std::shared_ptr&lt;VerticalEccentric&gt; f(const double e) const</pre>
+          <pre>  template &lt;F Action, F T&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -526,11 +526,9 @@
           <a name='L48' href='#L48' id="L48">
           <pre>48</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>15</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>  requires Equals&lt;F, Action, F::Set&gt; &amp;& Equals&lt;F, T, F::E&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -538,11 +536,9 @@
           <a name='L49' href='#L49' id="L49">
           <pre>49</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>15</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    auto retval = f&lt;F::Set, F::Clone&gt;();</pre>
+          <pre>  [[nodiscard]] std::shared_ptr&lt;VerticalEccentric&gt; f(const double e) const</pre>
         </td>
       </tr>
       <tr>
@@ -554,7 +550,7 @@
           <pre>15</pre>
         </td>
         <td class='code'>
-          <pre>    retval-&gt;e_ = e;</pre>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -566,7 +562,7 @@
           <pre>15</pre>
         </td>
         <td class='code'>
-          <pre>    return retval;</pre>
+          <pre>    auto retval = f&lt;F::Set, F::Clone&gt;();</pre>
         </td>
       </tr>
       <tr>
@@ -578,7 +574,7 @@
           <pre>15</pre>
         </td>
         <td class='code'>
-          <pre>  }</pre>
+          <pre>    retval-&gt;e_ = e;</pre>
         </td>
       </tr>
       <tr>
@@ -586,9 +582,11 @@
           <a name='L53' href='#L53' id="L53">
           <pre>53</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>15</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre>    return retval;</pre>
         </td>
       </tr>
       <tr>
@@ -596,9 +594,11 @@
           <a name='L54' href='#L54' id="L54">
           <pre>54</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>15</pre>
+        </td>
         <td class='code'>
-          <pre> private:</pre>
+          <pre>  }</pre>
         </td>
       </tr>
       <tr>
@@ -608,7 +608,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  double v_ = std::numeric_limits&lt;double&gt;::quiet_NaN();</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -618,7 +618,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  double e_ = std::numeric_limits&lt;double&gt;::quiet_NaN();</pre>
+          <pre> private:</pre>
         </td>
       </tr>
       <tr>
@@ -628,13 +628,33 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>};</pre>
+          <pre>  double v_ = std::numeric_limits&lt;double&gt;::quiet_NaN();</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L58' href='#L58' id="L58">
           <pre>58</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  double e_ = std::numeric_limits&lt;double&gt;::quiet_NaN();</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L59' href='#L59' id="L59">
+          <pre>59</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>};</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L60' href='#L60' id="L60">
+          <pre>60</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>

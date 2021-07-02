@@ -196,7 +196,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  MeyerhofShallowFoundation(const std::shared_ptr&lt;T0&gt;& load,</pre>
+          <pre>  MeyerhofShallowFoundation(std::shared_ptr&lt;T0&gt; load,</pre>
         </td>
       </tr>
       <tr>
@@ -206,7 +206,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                            const std::shared_ptr&lt;T1&gt;& foundation)</pre>
+          <pre>                            std::shared_ptr&lt;T1&gt; foundation)</pre>
         </td>
       </tr>
       <tr>
@@ -216,7 +216,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      : load_(load), foundation_(foundation)</pre>
+          <pre>      : load_(std::move(load)), foundation_(std::move(foundation))</pre>
         </td>
       </tr>
       <tr>
@@ -244,7 +244,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZN7jessica25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEC2ERKSt10shared_ptrIS1_ERKS4_IS2_E</pre>
+                <pre>_ZN7jessica25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEC2ESt10shared_ptrIS1_ES4_IS2_E</pre>
               </div>
               <table>
                 <tr>
@@ -288,7 +288,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZN7jessica25MeyerhofShallowFoundationINS_14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_17VerticalEccentricEEEEEEEEENS1_INS2_INS3_INS4_INS_15FoundationStripEEEEEEEEEEC2ERKSt10shared_ptrIS9_ERKSG_ISE_E</pre>
+                <pre>_ZN7jessica25MeyerhofShallowFoundationINS_14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_17VerticalEccentricEEEEEEEEENS1_INS2_INS3_INS4_INS_15FoundationStripEEEEEEEEEEC2ESt10shared_ptrIS9_ESG_ISE_E</pre>
               </div>
               <table>
                 <tr>
@@ -398,9 +398,75 @@
           <a name='L28' href='#L28' id="L28">
           <pre>28</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>17</pre>
+        </td>
         <td class='code'>
-          <pre>  template &lt;F Action, F T&gt;</pre>
+          <pre>  ~MeyerhofShallowFoundation() = default;</pre>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN7jessica25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEED2Ev</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>13</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  ~MeyerhofShallowFoundation() = default;</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN7jessica25MeyerhofShallowFoundationINS_14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_17VerticalEccentricEEEEEEEEENS1_INS2_INS3_INS4_INS_15FoundationStripEEEEEEEEEED2Ev</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  ~MeyerhofShallowFoundation() = default;</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
         </td>
       </tr>
       <tr>
@@ -410,7 +476,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  requires Equals&lt;F, Action, F::Set&gt; &amp;& Equals&lt;F, T, F::Clone&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -420,7 +486,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] std::shared_ptr&lt;MeyerhofShallowFoundation&gt; f() const</pre>
+          <pre>  template &lt;F Action, F T&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -428,11 +494,9 @@
           <a name='L31' href='#L31' id="L31">
           <pre>31</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>  requires Equals&lt;F, Action, F::Set&gt; &amp;& Equals&lt;F, T, F::Clone&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -440,11 +504,9 @@
           <a name='L32' href='#L32' id="L32">
           <pre>32</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    return std::make_shared&lt;MeyerhofShallowFoundation&gt;(*this);</pre>
+          <pre>  [[nodiscard]] std::shared_ptr&lt;MeyerhofShallowFoundation&gt; f() const</pre>
         </td>
       </tr>
       <tr>
@@ -456,7 +518,7 @@
           <pre>4</pre>
         </td>
         <td class='code'>
-          <pre>  }</pre>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -464,9 +526,11 @@
           <a name='L34' href='#L34' id="L34">
           <pre>34</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>4</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre>    return std::make_shared&lt;MeyerhofShallowFoundation&gt;(*this);</pre>
         </td>
       </tr>
       <tr>
@@ -474,9 +538,11 @@
           <a name='L35' href='#L35' id="L35">
           <pre>35</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>4</pre>
+        </td>
         <td class='code'>
-          <pre>  template &lt;F Action, F T&gt;</pre>
+          <pre>  }</pre>
         </td>
       </tr>
       <tr>
@@ -486,7 +552,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  requires Equals&lt;F, Action, F::Get&gt; &amp;& Equals&lt;F, T, F::B_&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -496,7 +562,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] double f() const</pre>
+          <pre>  template &lt;F Action, F T&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -504,11 +570,9 @@
           <a name='L38' href='#L38' id="L38">
           <pre>38</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>32</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>  requires Equals&lt;F, Action, F::Get&gt; &amp;& Equals&lt;F, T, F::B_&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -516,11 +580,9 @@
           <a name='L39' href='#L39' id="L39">
           <pre>39</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>32</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    return foundation_-&gt;template f&lt;F::Get, F::B&gt;() -</pre>
+          <pre>  [[nodiscard]] double f() const</pre>
         </td>
       </tr>
       <tr>
@@ -532,13 +594,37 @@
           <pre>32</pre>
         </td>
         <td class='code'>
-          <pre>           2. * load_-&gt;template f&lt;F::Get, F::E&gt;();</pre>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L41' href='#L41' id="L41">
           <pre>41</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>32</pre>
+        </td>
+        <td class='code'>
+          <pre>    return foundation_-&gt;template f&lt;F::Get, F::B&gt;() -</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L42' href='#L42' id="L42">
+          <pre>42</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>32</pre>
+        </td>
+        <td class='code'>
+          <pre>           2. * load_-&gt;template f&lt;F::Get, F::E&gt;();</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L43' href='#L43' id="L43">
+          <pre>43</pre></a>
         </td>
         <td class='covered-line'>
           <pre>32</pre>
@@ -564,8 +650,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L38' href='#L38' id="L38">
-                    <pre>38</pre></a>
+                    <a name='L40' href='#L40' id="L40">
+                    <pre>40</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>10</pre>
@@ -576,8 +662,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L39' href='#L39' id="L39">
-                    <pre>39</pre></a>
+                    <a name='L41' href='#L41' id="L41">
+                    <pre>41</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>10</pre>
@@ -588,8 +674,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
+                    <a name='L42' href='#L42' id="L42">
+                    <pre>42</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>10</pre>
@@ -600,8 +686,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L41' href='#L41' id="L41">
-                    <pre>41</pre></a>
+                    <a name='L43' href='#L43' id="L43">
+                    <pre>43</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>10</pre>
@@ -632,8 +718,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L38' href='#L38' id="L38">
-                    <pre>38</pre></a>
+                    <a name='L40' href='#L40' id="L40">
+                    <pre>40</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>22</pre>
@@ -644,8 +730,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L39' href='#L39' id="L39">
-                    <pre>39</pre></a>
+                    <a name='L41' href='#L41' id="L41">
+                    <pre>41</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>22</pre>
@@ -656,8 +742,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
+                    <a name='L42' href='#L42' id="L42">
+                    <pre>42</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>22</pre>
@@ -668,8 +754,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L41' href='#L41' id="L41">
-                    <pre>41</pre></a>
+                    <a name='L43' href='#L43' id="L43">
+                    <pre>43</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>22</pre>
@@ -685,32 +771,12 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L42' href='#L42' id="L42">
-          <pre>42</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L43' href='#L43' id="L43">
-          <pre>43</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  template &lt;F Action, F T&gt;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
           <a name='L44' href='#L44' id="L44">
           <pre>44</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  requires Equals&lt;F, Action, F::Get&gt; &amp;& Equals&lt;F, T, F::Qref&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -720,13 +786,33 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] double f() const</pre>
+          <pre>  template &lt;F Action, F T&gt;</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L46' href='#L46' id="L46">
           <pre>46</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  requires Equals&lt;F, Action, F::Get&gt; &amp;& Equals&lt;F, T, F::Qref&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L47' href='#L47' id="L47">
+          <pre>47</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  [[nodiscard]] double f() const</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L48' href='#L48' id="L48">
+          <pre>48</pre></a>
         </td>
         <td class='covered-line'>
           <pre>13</pre>
@@ -737,8 +823,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L47' href='#L47' id="L47">
-          <pre>47</pre></a>
+          <a name='L49' href='#L49' id="L49">
+          <pre>49</pre></a>
         </td>
         <td class='covered-line'>
           <pre>13</pre>
@@ -749,8 +835,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L48' href='#L48' id="L48">
-          <pre>48</pre></a>
+          <a name='L50' href='#L50' id="L50">
+          <pre>50</pre></a>
         </td>
         <td class='covered-line'>
           <pre>13</pre>
@@ -776,8 +862,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L46' href='#L46' id="L46">
-                    <pre>46</pre></a>
+                    <a name='L48' href='#L48' id="L48">
+                    <pre>48</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -788,8 +874,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L47' href='#L47' id="L47">
-                    <pre>47</pre></a>
+                    <a name='L49' href='#L49' id="L49">
+                    <pre>49</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -800,8 +886,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L48' href='#L48' id="L48">
-                    <pre>48</pre></a>
+                    <a name='L50' href='#L50' id="L50">
+                    <pre>50</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -832,8 +918,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L46' href='#L46' id="L46">
-                    <pre>46</pre></a>
+                    <a name='L48' href='#L48' id="L48">
+                    <pre>48</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>9</pre>
@@ -844,8 +930,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L47' href='#L47' id="L47">
-                    <pre>47</pre></a>
+                    <a name='L49' href='#L49' id="L49">
+                    <pre>49</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>9</pre>
@@ -856,8 +942,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L48' href='#L48' id="L48">
-                    <pre>48</pre></a>
+                    <a name='L50' href='#L50' id="L50">
+                    <pre>50</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>9</pre>
@@ -873,32 +959,12 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L49' href='#L49' id="L49">
-          <pre>49</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L50' href='#L50' id="L50">
-          <pre>50</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  template &lt;F Action, F T, F... U, typename... Args&gt;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
           <a name='L51' href='#L51' id="L51">
           <pre>51</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  requires Equals&lt;F, Action, F::Get&gt; &amp;& Equals&lt;F, T, F::Load&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -908,13 +974,33 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] double f(const Args&amp;&amp;... args) const</pre>
+          <pre>  template &lt;F Action, F T, F... U, typename... Args&gt;</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L53' href='#L53' id="L53">
           <pre>53</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  requires Equals&lt;F, Action, F::Get&gt; &amp;& Equals&lt;F, T, F::Load&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L54' href='#L54' id="L54">
+          <pre>54</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  [[nodiscard]] double f(const Args&amp;&amp;... args) const</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L55' href='#L55' id="L55">
+          <pre>55</pre></a>
         </td>
         <td class='covered-line'>
           <pre>2</pre>
@@ -925,8 +1011,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L54' href='#L54' id="L54">
-          <pre>54</pre></a>
+          <a name='L56' href='#L56' id="L56">
+          <pre>56</pre></a>
         </td>
         <td class='covered-line'>
           <pre>2</pre>
@@ -937,8 +1023,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L55' href='#L55' id="L55">
-          <pre>55</pre></a>
+          <a name='L57' href='#L57' id="L57">
+          <pre>57</pre></a>
         </td>
         <td class='covered-line'>
           <pre>2</pre>
@@ -964,8 +1050,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L53' href='#L53' id="L53">
-                    <pre>53</pre></a>
+                    <a name='L55' href='#L55' id="L55">
+                    <pre>55</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -976,8 +1062,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L54' href='#L54' id="L54">
-                    <pre>54</pre></a>
+                    <a name='L56' href='#L56' id="L56">
+                    <pre>56</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -988,8 +1074,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L55' href='#L55' id="L55">
-                    <pre>55</pre></a>
+                    <a name='L57' href='#L57' id="L57">
+                    <pre>57</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1020,8 +1106,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L53' href='#L53' id="L53">
-                    <pre>53</pre></a>
+                    <a name='L55' href='#L55' id="L55">
+                    <pre>55</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1032,8 +1118,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L54' href='#L54' id="L54">
-                    <pre>54</pre></a>
+                    <a name='L56' href='#L56' id="L56">
+                    <pre>56</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1044,8 +1130,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L55' href='#L55' id="L55">
-                    <pre>55</pre></a>
+                    <a name='L57' href='#L57' id="L57">
+                    <pre>57</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1061,32 +1147,12 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L56' href='#L56' id="L56">
-          <pre>56</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L57' href='#L57' id="L57">
-          <pre>57</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  template &lt;F Action, F T, F... U, typename... Args&gt;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
           <a name='L58' href='#L58' id="L58">
           <pre>58</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  requires Equals&lt;F, Action, F::Set&gt; &amp;& Equals&lt;F, T, F::Load&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1096,7 +1162,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] std::shared_ptr&lt;MeyerhofShallowFoundation&gt;</pre>
+          <pre>  template &lt;F Action, F T, F... U, typename... Args&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -1106,7 +1172,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      f(const Args&amp;&amp;... args) const</pre>
+          <pre>  requires Equals&lt;F, Action, F::Set&gt; &amp;& Equals&lt;F, T, F::Load&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -1114,11 +1180,9 @@
           <a name='L61' href='#L61' id="L61">
           <pre>61</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>2</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>  [[nodiscard]] std::shared_ptr&lt;MeyerhofShallowFoundation&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -1126,11 +1190,9 @@
           <a name='L62' href='#L62' id="L62">
           <pre>62</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>2</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    auto retval = f&lt;F::Set, F::Clone&gt;();</pre>
+          <pre>      f(const Args&amp;&amp;... args) const</pre>
         </td>
       </tr>
       <tr>
@@ -1142,7 +1204,7 @@
           <pre>2</pre>
         </td>
         <td class='code'>
-          <pre>    retval-&gt;load_ = retval-&gt;load_-&gt;template f&lt;Action, U...&gt;(</pre>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -1154,7 +1216,7 @@
           <pre>2</pre>
         </td>
         <td class='code'>
-          <pre>        std::forward&lt;const Args&gt;(args)...);</pre>
+          <pre>    auto retval = f&lt;F::Set, F::Clone&gt;();</pre>
         </td>
       </tr>
       <tr>
@@ -1166,13 +1228,37 @@
           <pre>2</pre>
         </td>
         <td class='code'>
-          <pre>    return retval;</pre>
+          <pre>    retval-&gt;load_ = retval-&gt;load_-&gt;template f&lt;Action, U...&gt;(</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L66' href='#L66' id="L66">
           <pre>66</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>2</pre>
+        </td>
+        <td class='code'>
+          <pre>        std::forward&lt;const Args&gt;(args)...);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L67' href='#L67' id="L67">
+          <pre>67</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>2</pre>
+        </td>
+        <td class='code'>
+          <pre>    return retval;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L68' href='#L68' id="L68">
+          <pre>68</pre></a>
         </td>
         <td class='covered-line'>
           <pre>2</pre>
@@ -1198,30 +1284,6 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L61' href='#L61' id="L61">
-                    <pre>61</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L62' href='#L62' id="L62">
-                    <pre>62</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    auto retval = f&lt;F::Set, F::Clone&gt;();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
                     <a name='L63' href='#L63' id="L63">
                     <pre>63</pre></a>
                   </td>
@@ -1229,7 +1291,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    retval-&gt;load_ = retval-&gt;load_-&gt;template f&lt;Action, U...&gt;(</pre>
+                    <pre>  {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1241,7 +1303,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>        std::forward&lt;const Args&gt;(args)...);</pre>
+                    <pre>    auto retval = f&lt;F::Set, F::Clone&gt;();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1253,13 +1315,37 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return retval;</pre>
+                    <pre>    retval-&gt;load_ = retval-&gt;load_-&gt;template f&lt;Action, U...&gt;(</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L66' href='#L66' id="L66">
                     <pre>66</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L67' href='#L67' id="L67">
+                    <pre>67</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return retval;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L68' href='#L68' id="L68">
+                    <pre>68</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1290,30 +1376,6 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L61' href='#L61' id="L61">
-                    <pre>61</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L62' href='#L62' id="L62">
-                    <pre>62</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    auto retval = f&lt;F::Set, F::Clone&gt;();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
                     <a name='L63' href='#L63' id="L63">
                     <pre>63</pre></a>
                   </td>
@@ -1321,7 +1383,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    retval-&gt;load_ = retval-&gt;load_-&gt;template f&lt;Action, U...&gt;(</pre>
+                    <pre>  {</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1333,7 +1395,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>        std::forward&lt;const Args&gt;(args)...);</pre>
+                    <pre>    auto retval = f&lt;F::Set, F::Clone&gt;();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1345,13 +1407,37 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    return retval;</pre>
+                    <pre>    retval-&gt;load_ = retval-&gt;load_-&gt;template f&lt;Action, U...&gt;(</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L66' href='#L66' id="L66">
                     <pre>66</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        std::forward&lt;const Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L67' href='#L67' id="L67">
+                    <pre>67</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return retval;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L68' href='#L68' id="L68">
+                    <pre>68</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -1367,32 +1453,12 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L67' href='#L67' id="L67">
-          <pre>67</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L68' href='#L68' id="L68">
-          <pre>68</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  template &lt;F Action, F T, F... U, typename... Args&gt;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
           <a name='L69' href='#L69' id="L69">
           <pre>69</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  requires Equals&lt;F, Action, F::Get&gt; &amp;& Equals&lt;F, T, F::Foundation&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1402,7 +1468,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] double f(const Args&amp;&amp;... args) const</pre>
+          <pre>  template &lt;F Action, F T, F... U, typename... Args&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -1410,11 +1476,9 @@
           <a name='L71' href='#L71' id="L71">
           <pre>71</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>1</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>  requires Equals&lt;F, Action, F::Get&gt; &amp;& Equals&lt;F, T, F::Foundation&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -1422,11 +1486,9 @@
           <a name='L72' href='#L72' id="L72">
           <pre>72</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>1</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    return foundation_-&gt;template f&lt;Action, U...&gt;(</pre>
+          <pre>  [[nodiscard]] double f(const Args&amp;&amp;... args) const</pre>
         </td>
       </tr>
       <tr>
@@ -1438,7 +1500,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>        std::forward&lt;const Args&gt;(args)...);</pre>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -1450,7 +1512,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  }</pre>
+          <pre>    return foundation_-&gt;template f&lt;Action, U...&gt;(</pre>
         </td>
       </tr>
       <tr>
@@ -1458,9 +1520,11 @@
           <a name='L75' href='#L75' id="L75">
           <pre>75</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre>        std::forward&lt;const Args&gt;(args)...);</pre>
         </td>
       </tr>
       <tr>
@@ -1468,9 +1532,11 @@
           <a name='L76' href='#L76' id="L76">
           <pre>76</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
         <td class='code'>
-          <pre>  template &lt;F Action, F T, F... U, typename... Args&gt;</pre>
+          <pre>  }</pre>
         </td>
       </tr>
       <tr>
@@ -1480,7 +1546,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  requires Equals&lt;F, Action, F::Set&gt; &amp;& Equals&lt;F, T, F::Foundation&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1490,7 +1556,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] std::shared_ptr&lt;MeyerhofShallowFoundation&gt;</pre>
+          <pre>  template &lt;F Action, F T, F... U, typename... Args&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -1500,7 +1566,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      f(const Args&amp;&amp;... args) const</pre>
+          <pre>  requires Equals&lt;F, Action, F::Set&gt; &amp;& Equals&lt;F, T, F::Foundation&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -1508,11 +1574,9 @@
           <a name='L80' href='#L80' id="L80">
           <pre>80</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>1</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>  [[nodiscard]] std::shared_ptr&lt;MeyerhofShallowFoundation&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -1520,11 +1584,9 @@
           <a name='L81' href='#L81' id="L81">
           <pre>81</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>1</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    auto retval = f&lt;F::Set, F::Clone&gt;();</pre>
+          <pre>      f(const Args&amp;&amp;... args) const</pre>
         </td>
       </tr>
       <tr>
@@ -1536,7 +1598,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>    retval-&gt;foundation_ = retval-&gt;foundation_-&gt;template f&lt;Action, U...&gt;(</pre>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -1548,7 +1610,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>        std::forward&lt;const Args&gt;(args)...);</pre>
+          <pre>    auto retval = f&lt;F::Set, F::Clone&gt;();</pre>
         </td>
       </tr>
       <tr>
@@ -1560,7 +1622,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>    return retval;</pre>
+          <pre>    retval-&gt;foundation_ = retval-&gt;foundation_-&gt;template f&lt;Action, U...&gt;(</pre>
         </td>
       </tr>
       <tr>
@@ -1572,7 +1634,7 @@
           <pre>1</pre>
         </td>
         <td class='code'>
-          <pre>  }</pre>
+          <pre>        std::forward&lt;const Args&gt;(args)...);</pre>
         </td>
       </tr>
       <tr>
@@ -1580,9 +1642,11 @@
           <a name='L86' href='#L86' id="L86">
           <pre>86</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre>    return retval;</pre>
         </td>
       </tr>
       <tr>
@@ -1590,9 +1654,11 @@
           <a name='L87' href='#L87' id="L87">
           <pre>87</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>1</pre>
+        </td>
         <td class='code'>
-          <pre> private:</pre>
+          <pre>  }</pre>
         </td>
       </tr>
       <tr>
@@ -1602,7 +1668,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  std::shared_ptr&lt;T0&gt; load_;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1612,7 +1678,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  std::shared_ptr&lt;T1&gt; foundation_;</pre>
+          <pre> private:</pre>
         </td>
       </tr>
       <tr>
@@ -1622,13 +1688,33 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>};</pre>
+          <pre>  std::shared_ptr&lt;T0&gt; load_;</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L91' href='#L91' id="L91">
           <pre>91</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  std::shared_ptr&lt;T1&gt; foundation_;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L92' href='#L92' id="L92">
+          <pre>92</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>};</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L93' href='#L93' id="L93">
+          <pre>93</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
