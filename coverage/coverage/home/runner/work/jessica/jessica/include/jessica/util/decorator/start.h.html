@@ -855,7 +855,7 @@
           <pre>59</pre>
         </td>
         <td class='code'>
-          <pre>      return std::move(retval);</pre>
+          <pre>      return retval;</pre>
         </td>
       </tr>
       <tr>
@@ -903,7 +903,7 @@
           <pre>59</pre>
         </td>
         <td class='code'>
-          <pre>      return std::move(deco_-&gt;template f&lt;Action, U...&gt;(</pre>
+          <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
         </td>
       </tr>
       <tr>
@@ -915,7 +915,7 @@
           <pre>59</pre>
         </td>
         <td class='code'>
-          <pre>          *impl_, std::forward&lt;const Args&gt;(args)...));</pre>
+          <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
         </td>
       </tr>
       <tr>
@@ -1038,7 +1038,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return std::move(retval);</pre>
+                    <pre>      return retval;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1086,7 +1086,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return std::move(deco_-&gt;template f&lt;Action, U...&gt;(</pre>
+                    <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1098,7 +1098,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...));</pre>
+                    <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1226,7 +1226,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return std::move(retval);</pre>
+                    <pre>      return retval;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1274,7 +1274,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return std::move(deco_-&gt;template f&lt;Action, U...&gt;(</pre>
+                    <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1286,7 +1286,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...));</pre>
+                    <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1414,7 +1414,7 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return std::move(retval);</pre>
+                    <pre>      return retval;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1462,7 +1462,7 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return std::move(deco_-&gt;template f&lt;Action, U...&gt;(</pre>
+                    <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1474,7 +1474,7 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...));</pre>
+                    <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1602,7 +1602,7 @@
                     <pre>6</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return std::move(retval);</pre>
+                    <pre>      return retval;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1650,7 +1650,7 @@
                     <pre>6</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return std::move(deco_-&gt;template f&lt;Action, U...&gt;(</pre>
+                    <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1662,7 +1662,7 @@
                     <pre>6</pre>
                   </td>
                   <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...));</pre>
+                    <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1790,7 +1790,7 @@
                     <pre>10</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return std::move(retval);</pre>
+                    <pre>      return retval;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1838,7 +1838,7 @@
                     <pre>10</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return std::move(deco_-&gt;template f&lt;Action, U...&gt;(</pre>
+                    <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1850,7 +1850,7 @@
                     <pre>10</pre>
                   </td>
                   <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...));</pre>
+                    <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1978,7 +1978,7 @@
                     <pre>15</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return std::move(retval);</pre>
+                    <pre>      return retval;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2026,7 +2026,7 @@
                     <pre>15</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return std::move(deco_-&gt;template f&lt;Action, U...&gt;(</pre>
+                    <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2038,7 +2038,7 @@
                     <pre>15</pre>
                   </td>
                   <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...));</pre>
+                    <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2166,7 +2166,7 @@
                     <pre>4</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return std::move(retval);</pre>
+                    <pre>      return retval;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2214,7 +2214,7 @@
                     <pre>4</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return std::move(deco_-&gt;template f&lt;Action, U...&gt;(</pre>
+                    <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2226,7 +2226,7 @@
                     <pre>4</pre>
                   </td>
                   <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...));</pre>
+                    <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2354,7 +2354,7 @@
                     <pre>9</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return std::move(retval);</pre>
+                    <pre>      return retval;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2402,7 +2402,7 @@
                     <pre>9</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return std::move(deco_-&gt;template f&lt;Action, U...&gt;(</pre>
+                    <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2414,7 +2414,7 @@
                     <pre>9</pre>
                   </td>
                   <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...));</pre>
+                    <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2542,7 +2542,7 @@
                     <pre>7</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return std::move(retval);</pre>
+                    <pre>      return retval;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2590,7 +2590,7 @@
                     <pre>7</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return std::move(deco_-&gt;template f&lt;Action, U...&gt;(</pre>
+                    <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2602,7 +2602,7 @@
                     <pre>7</pre>
                   </td>
                   <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...));</pre>
+                    <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2730,7 +2730,7 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return std::move(retval);</pre>
+                    <pre>      return retval;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2778,7 +2778,7 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return std::move(deco_-&gt;template f&lt;Action, U...&gt;(</pre>
+                    <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2790,7 +2790,7 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...));</pre>
+                    <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2918,7 +2918,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return std::move(retval);</pre>
+                    <pre>      return retval;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2966,7 +2966,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return std::move(deco_-&gt;template f&lt;Action, U...&gt;(</pre>
+                    <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2978,7 +2978,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...));</pre>
+                    <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -3106,7 +3106,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return std::move(retval);</pre>
+                    <pre>      return retval;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -3154,7 +3154,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return std::move(deco_-&gt;template f&lt;Action, U...&gt;(</pre>
+                    <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
                   </td>
                 </tr>
                 <tr>
@@ -3166,7 +3166,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...));</pre>
+                    <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -3294,7 +3294,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return std::move(retval);</pre>
+                    <pre>      return retval;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -3342,7 +3342,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return std::move(deco_-&gt;template f&lt;Action, U...&gt;(</pre>
+                    <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
                   </td>
                 </tr>
                 <tr>
@@ -3354,7 +3354,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...));</pre>
+                    <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -3482,7 +3482,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return std::move(retval);</pre>
+                    <pre>      return retval;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -3530,7 +3530,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return std::move(deco_-&gt;template f&lt;Action, U...&gt;(</pre>
+                    <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
                   </td>
                 </tr>
                 <tr>
@@ -3542,7 +3542,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...));</pre>
+                    <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -3670,7 +3670,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return std::move(retval);</pre>
+                    <pre>      return retval;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -3718,7 +3718,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return std::move(deco_-&gt;template f&lt;Action, U...&gt;(</pre>
+                    <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
                   </td>
                 </tr>
                 <tr>
@@ -3730,7 +3730,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...));</pre>
+                    <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -3858,7 +3858,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return std::move(retval);</pre>
+                    <pre>      return retval;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -3906,7 +3906,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>      return std::move(deco_-&gt;template f&lt;Action, U...&gt;(</pre>
+                    <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
                   </td>
                 </tr>
                 <tr>
@@ -3918,7 +3918,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...));</pre>
+                    <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
