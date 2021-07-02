@@ -531,6 +531,38 @@ For the MIT licence, there is only a copy in the file LICENSE.md.</p>
 <div class="paragraph">
 <p>Functional programming makes all data const, so delete or make private / protected move constructor and move assignment.</p>
 </div>
+<div class="paragraph">
+<p>But use functional programming with C++ features. For example, don&#8217;t write:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">  LogDuration(const std::shared_ptr&lt;spdlog::logger&gt;&amp; log)
+      : log_(log) {}
+
+  auto function() const
+  {
+    const auto retval =
+        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;const Args&gt;(args)...);
+    return retval;
+  }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>clang-tidy</code> will tell you to write:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">  LogDuration(std::shared_ptr&lt;spdlog::logger&gt; log)
+      : log_(std::move(log)) {}
+
+  auto function() const
+  {
+    auto retval =
+        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;const Args&gt;(args)...);
+    return std::move(retval);
+  }</code></pre>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_dependencies">Dependencies</h3>
