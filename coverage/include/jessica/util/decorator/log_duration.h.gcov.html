@@ -96,8 +96,8 @@
 <a name="18"><span class="lineNum">      18</span>                 :             : </a>
 <a name="19"><span class="lineNum">      19</span>                 :             :   template &lt;typename... Args&gt;</a>
 <a name="20"><span class="lineNum">      20</span>                 :<span class="tlaGNC">          13 :   LogDuration(std::shared_ptr&lt;RootType&gt;&amp; impl,</span></a>
-<a name="21"><span class="lineNum">      21</span>                 :             :               const std::shared_ptr&lt;spdlog::logger&gt;&amp; log, Args&amp;&amp;... args)</a>
-<a name="22"><span class="lineNum">      22</span>                 :<span class="tlaGNC">          13 :       : t(impl, std::forward&lt;Args&gt;(args)...), log_(log)</span></a>
+<a name="21"><span class="lineNum">      21</span>                 :             :               std::shared_ptr&lt;spdlog::logger&gt; log, Args&amp;&amp;... args)</a>
+<a name="22"><span class="lineNum">      22</span>                 :<span class="tlaGNC">          13 :       : t(impl, std::forward&lt;Args&gt;(args)...), log_(std::move(log))</span></a>
 <a name="23"><span class="lineNum">      23</span>                 :             :   {</a>
 <a name="24"><span class="lineNum">      24</span>                 :<span class="tlaGNC">          13 :   }</span></a>
 <a name="25"><span class="lineNum">      25</span>                 :             :   LogDuration(const LogDuration&amp;) = default;</a>
@@ -111,7 +111,7 @@
 <a name="33"><span class="lineNum">      33</span>                 :<span class="tlaGNC">          76 :   [[nodiscard]] auto f(const RootType&amp; classe, const Args&amp;&amp;... args) const</span></a>
 <a name="34"><span class="lineNum">      34</span>                 :             :   {</a>
 <a name="35"><span class="lineNum">      35</span>                 :<span class="tlaGNC">          76 :     const auto t_start = std::chrono::high_resolution_clock::now();</span></a>
-<a name="36"><span class="lineNum">      36</span>         [<span class="tlaGBC" title="Branch 0 was taken 12 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span>]:<span class="tlaGNC">          12 :     const auto retval =</span></a>
+<a name="36"><span class="lineNum">      36</span>         [<span class="tlaGBC" title="Branch 0 was taken 12 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span>]:<span class="tlaGNC">          12 :     auto retval =</span></a>
 <a name="37"><span class="lineNum">      37</span>         [<span class="tlaGBC" title="Branch 0 was taken 64 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span>]:<span class="tlaGNC">          64 :         t.template f&lt;Action, U...&gt;(classe, std::forward&lt;const Args&gt;(args)...);</span></a>
 <a name="38"><span class="lineNum">      38</span>                 :<span class="tlaGNC">          76 :     const auto t_end = std::chrono::high_resolution_clock::now();</span></a>
 <a name="39"><span class="lineNum">      39</span>                 :             :     const double elapsed_time_ms =</a>

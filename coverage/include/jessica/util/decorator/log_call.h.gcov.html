@@ -57,8 +57,8 @@
             <td></td>
             <td class="headerItem">Branches:</td>
             <td class="headerCovTableEntryLo">50.0&nbsp;%</td>
-            <td class="headerCovTableEntry">6</td>
-            <td class="headerCovTableEntry">3</td>
+            <td class="headerCovTableEntry">8</td>
+            <td class="headerCovTableEntry">4</td>
           </tr>
                   <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
                 </table>
@@ -95,9 +95,9 @@
 <a name="17"><span class="lineNum">      17</span>                 :             :   using RootType = typename T::RootType;</a>
 <a name="18"><span class="lineNum">      18</span>                 :             : </a>
 <a name="19"><span class="lineNum">      19</span>                 :             :   template &lt;typename... Args&gt;</a>
-<a name="20"><span class="lineNum">      20</span>                 :<span class="tlaGNC">          13 :   LogCall(std::shared_ptr&lt;RootType&gt;&amp; impl,</span></a>
-<a name="21"><span class="lineNum">      21</span>                 :             :           const std::shared_ptr&lt;spdlog::logger&gt;&amp; log, Args&amp;&amp;... args)</a>
-<a name="22"><span class="lineNum">      22</span>                 :<span class="tlaGNC">          13 :       : t(impl, std::forward&lt;Args&gt;(args)...), log_(log)</span></a>
+<a name="20"><span class="lineNum">      20</span>                 :<span class="tlaGNC">          13 :   LogCall(std::shared_ptr&lt;RootType&gt;&amp; impl, std::shared_ptr&lt;spdlog::logger&gt; log,</span></a>
+<a name="21"><span class="lineNum">      21</span>                 :             :           Args&amp;&amp;... args)</a>
+<a name="22"><span class="lineNum">      22</span>         [<span class="tlaGBC" title="Branch 0 was taken 13 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span>]:<span class="tlaGNC">          13 :       : t(impl, std::forward&lt;Args&gt;(args)...), log_(std::move(log))</span></a>
 <a name="23"><span class="lineNum">      23</span>                 :             :   {</a>
 <a name="24"><span class="lineNum">      24</span>                 :<span class="tlaGNC">          13 :   }</span></a>
 <a name="25"><span class="lineNum">      25</span>                 :             :   LogCall(const LogCall&amp;) = default;</a>
