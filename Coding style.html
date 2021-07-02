@@ -559,7 +559,7 @@ For the MIT licence, there is only a copy in the file LICENSE.md.</p>
   {
     auto retval =
         t.template f&lt;Action, U...&gt;(classe, std::forward&lt;const Args&gt;(args)...);
-    return std::move(retval);
+    return retval;  // implicit move
   }</code></pre>
 </div>
 </div>
