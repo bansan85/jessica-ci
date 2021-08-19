@@ -9,15 +9,15 @@
        3      1     29      0       3 forkJoin ./src/angular/projects/app-main/src/app/util/translate/multi-translate-http-loader.ts
        3      1     12      0       3 (anonymous) ./src/angular/projects/app-main/src/app/util/translate/multi-translate-http-loader.ts
        3      1     16      0       5 (anonymous) ./src/angular/projects/app-main/src/app/util/translate/multi-translate-http-loader.ts
-       5      1     22      0       5 (anonymous) ./src/angular/projects/app-main/src/app/ui/main/main.component.spec.ts
+       9      1     24      0       9 (anonymous) ./src/angular/projects/app-main/src/app/ui/main/main.component.spec.ts
        5      1     23      0       5 (anonymous) ./src/angular/projects/app-main/src/app/ui/main/main.component.spec.ts
        3      1     11      0       3 (anonymous) ./src/angular/projects/app-main/src/app/ui/main/main.component.spec.ts
-       7      1     42      0      20 (anonymous) ./src/angular/projects/app-main/src/app/ui/main/main.component.spec.ts
+       7      1     42      0      24 (anonymous) ./src/angular/projects/app-main/src/app/ui/main/main.component.spec.ts
        6      1     38      1       6 createTranslateLoader ./src/angular/projects/app-main/src/app/app.module.ts
-       6      1     26      0       6 (anonymous) ./src/angular/projects/app-main/src/app/app.component.spec.ts
+      10      1     30      2      10 TranslateModule.forRoot ./src/angular/projects/app-main/src/app/app.component.spec.ts
        5      1     28      0       5 (anonymous) ./src/angular/projects/app-main/src/app/app.component.spec.ts
        5      1     31      0       5 (anonymous) ./src/angular/projects/app-main/src/app/app.component.spec.ts
-       5      1     37      0      20 (anonymous) ./src/angular/projects/app-main/src/app/app.component.spec.ts
+       8      1     45      0      27 (anonymous) ./src/angular/projects/app-main/src/app/app.component.spec.ts
        4      1     26      1       4 constructor ./src/angular/projects/app-main/src/app/app.component.ts
        1      1      7      0       1 (anonymous) ./src/angular/projects/app-main/src/main.ts
       14      1     70      2      14 require.join ./src/angular/projects/app-main/karma.conf.js
@@ -38,7 +38,7 @@
        4      1     19      0       4 (anonymous) ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.service.spec.ts
        3      1     11      0       3 (anonymous) ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.service.spec.ts
        5      1     25      0      12 (anonymous) ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.service.spec.ts
-       6      1     26      0       6 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/foundation-strip/foundation-strip-form.component.spec.ts
+       6      1     28      0       6 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/foundation-strip/foundation-strip-form.component.spec.ts
        5      1     23      0       5 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/foundation-strip/foundation-strip-form.component.spec.ts
        3      1     11      0       3 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/foundation-strip/foundation-strip-form.component.spec.ts
        7      1     42      0      21 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/foundation-strip/foundation-strip-form.component.spec.ts
@@ -58,7 +58,7 @@
        5      1     23      0       5 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/meyerhof/meyerhof-form.component.spec.ts
        3      1     11      0       3 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/meyerhof/meyerhof-form.component.spec.ts
        7      1     42      0      21 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/meyerhof/meyerhof-form.component.spec.ts
-       6      1     26      0       6 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric-form.component.spec.ts
+       6      1     28      0       6 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric-form.component.spec.ts
        5      1     23      0       5 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric-form.component.spec.ts
        3      1     11      0       3 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric-form.component.spec.ts
        7      1     42      0      21 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric-form.component.spec.ts
@@ -117,7 +117,7 @@
        6      1     34      1       6 jessica::JESSICA_DLL_PUBLICVerticalEccentric::f ./include/jessica/data/load/vertical_eccentric.h
        1      1      9      0       1 jessica::JESSICA_DLL_PUBLICVerticalEccentric::f ./include/jessica/data/load/vertical_eccentric.h
        6      1     34      1       6 jessica::JESSICA_DLL_PUBLICVerticalEccentric::f ./include/jessica/data/load/vertical_eccentric.h
-59 file analyzed.
+60 file analyzed.
 ==============================================================
 NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
 --------------------------------------------------------------
@@ -127,9 +127,9 @@ NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
      14       7.5     1.0       49.5         2     ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
      28       4.5     1.0       23.0         4     ./src/angular/projects/app-main/src/app/util/translate/multi-translate-http-loader.ts
       7       0.0     0.0        0.0         0     ./src/angular/projects/app-main/src/app/ui/main/main.component.ts
-     22       5.0     1.0       24.5         4     ./src/angular/projects/app-main/src/app/ui/main/main.component.spec.ts
+     27       6.0     1.0       25.0         4     ./src/angular/projects/app-main/src/app/ui/main/main.component.spec.ts
      35       6.0     1.0       38.0         1     ./src/angular/projects/app-main/src/app/app.module.ts
-     21       5.2     1.0       30.5         4     ./src/angular/projects/app-main/src/app/app.component.spec.ts
+     32       7.0     1.0       33.5         4     ./src/angular/projects/app-main/src/app/app.component.spec.ts
       9       0.0     0.0        0.0         0     ./src/angular/projects/app-main/src/app/app-routing.module.ts
      14       4.0     1.0       26.0         1     ./src/angular/projects/app-main/src/app/app.component.ts
       3       0.0     0.0        0.0         0     ./src/angular/projects/app-main/src/environments/environment.ts
@@ -138,6 +138,7 @@ NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
      10       1.0     1.0        7.0         1     ./src/angular/projects/app-main/src/main.ts
       1       0.0     0.0        0.0         0     ./src/angular/projects/app-main/src/polyfills.ts
      34      14.0     1.0       70.0         1     ./src/angular/projects/app-main/karma.conf.js
+     10       0.0     0.0        0.0         0     ./src/angular/projects/lib-jessica/src/lib/util/translation/translate-mock.pipe.ts
      12      11.0     2.0       36.0         1     ./src/angular/projects/lib-jessica/src/lib/util/validator/valid-number.validator.ts
      12       4.0     1.0       18.3         3     ./src/angular/projects/lib-jessica/src/lib/web/wasm/jessica-wasm.service.spec.ts
      16       3.0     1.0       15.0         2     ./src/angular/projects/lib-jessica/src/lib/web/wasm/jessica-wasm.service.ts
@@ -147,19 +148,19 @@ NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
       4       0.0     0.0        0.0         0     ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.ts
      21       5.2     1.0       25.5         4     ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.component.spec.ts
      12       4.0     1.0       18.3         3     ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.service.spec.ts
-     21       5.2     1.0       25.5         4     ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/foundation-strip/foundation-strip-form.component.spec.ts
+     22       5.2     1.0       26.0         4     ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/foundation-strip/foundation-strip-form.component.spec.ts
       3       0.0     0.0        0.0         0     ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/foundation-strip/foundation-strip.ts
      66       1.8     1.0        8.6         5     ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/foundation-strip/foundation-strip-form.component.ts
      80       2.0     1.0        8.0         7     ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/meyerhof/meyerhof-form.component.ts
      21       5.2     1.0       25.5         4     ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/meyerhof/meyerhof-form.component.spec.ts
       6       0.0     0.0        0.0         0     ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/meyerhof/meyerhof-form.ts
       4       0.0     0.0        0.0         0     ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric.ts
-     21       5.2     1.0       25.5         4     ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric-form.component.spec.ts
+     22       5.2     1.0       26.0         4     ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric-form.component.spec.ts
      67       2.0     1.0       11.4         5     ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric-form.component.ts
      12       4.0     1.0       18.3         3     ./src/angular/projects/lib-jessica/src/lib/lib-jessica.service.spec.ts
-     25       0.0     0.0        0.0         0     ./src/angular/projects/lib-jessica/src/lib/lib-jessica.module.ts
+     28       0.0     0.0        0.0         0     ./src/angular/projects/lib-jessica/src/lib/lib-jessica.module.ts
       5       0.0     0.0        0.0         0     ./src/angular/projects/lib-jessica/src/lib/lib-jessica.service.ts
-      7       0.0     0.0        0.0         0     ./src/angular/projects/lib-jessica/src/public-api.ts
+      8       0.0     0.0        0.0         0     ./src/angular/projects/lib-jessica/src/public-api.ts
      23       0.0     0.0        0.0         0     ./src/angular/projects/lib-jessica/src/test.ts
      46      14.0     1.0       70.0         1     ./src/angular/projects/lib-jessica/karma.conf.js
       1       1.0     1.0        5.0         1     ./src/main/main1.cc
@@ -186,4 +187,4 @@ No thresholds exceeded (cyclomatic_complexity > 15 or length > 1000 or nloc > 10
 ==========================================================================================
 Total nloc   Avg.NLOC  AvgCCN  Avg.token   Fun Cnt  Warning cnt   Fun Rt   nloc Rt
 ------------------------------------------------------------------------------------------
-      1624       6.6     1.0       58.4      116            0      0.00    0.00
+      1656       6.7     1.0       58.5      116            0      0.00    0.00
