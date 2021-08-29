@@ -3,8 +3,12 @@
 ------------------------------------------------
       59      1    568      1      64 EMSCRIPTEN_BINDINGS ./src/javascript/wasm/bindings-test.cpp
       43      1    441      1      46 EMSCRIPTEN_BINDINGS ./src/javascript/wasm/bindings-web.cpp
-      14      1    120      0      18 (anonymous) ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
-       3      1     12      0      20 (anonymous) ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
+       5      1     19      0       5 onBeforeLoad ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
+      17      1    139      1      26 onBeforeLoad ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
+       4      1     14      0      29 (anonymous) ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
+       5      1     19      0       5 onBeforeLoad ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
+      17      1    139      1      26 onBeforeLoad ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
+       4      1     14      0      29 (anonymous) ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
        9      1     35      3       9 constructor ./src/angular/projects/app-main/src/app/util/translate/multi-translate-http-loader.ts
        3      1     29      0       3 forkJoin ./src/angular/projects/app-main/src/app/util/translate/multi-translate-http-loader.ts
        3      1     12      0       3 (anonymous) ./src/angular/projects/app-main/src/app/util/translate/multi-translate-http-loader.ts
@@ -124,7 +128,7 @@ NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
       0       0.0     0.0        0.0         0     ./src/backend/dummy.cpp
      72      59.0     1.0      568.0         1     ./src/javascript/wasm/bindings-test.cpp
      50      43.0     1.0      441.0         1     ./src/javascript/wasm/bindings-web.cpp
-     16       8.5     1.0       66.0         2     ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
+     50       8.7     1.0       57.3         6     ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
      28       4.5     1.0       23.0         4     ./src/angular/projects/app-main/src/app/util/translate/multi-translate-http-loader.ts
       7       0.0     0.0        0.0         0     ./src/angular/projects/app-main/src/app/ui/main/main.component.ts
      27       6.0     1.0       25.0         4     ./src/angular/projects/app-main/src/app/ui/main/main.component.spec.ts
@@ -187,4 +191,4 @@ No thresholds exceeded (cyclomatic_complexity > 15 or length > 1000 or nloc > 10
 ==========================================================================================
 Total nloc   Avg.NLOC  AvgCCN  Avg.token   Fun Cnt  Warning cnt   Fun Rt   nloc Rt
 ------------------------------------------------------------------------------------------
-      1659       6.7     1.0       58.9      116            0      0.00    0.00
+      1693       6.8     1.0       58.7      120            0      0.00    0.00
