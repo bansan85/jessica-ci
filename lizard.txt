@@ -1,47 +1,36 @@
 ================================================
   NLOC    CCN   token  PARAM  length  location  
 ------------------------------------------------
+      15      1    296      2      15 JTEST_NAME ./test/backend/data/load/vertical_eccentric.cc
+      18      1    326      2      20 JTEST_NAME ./test/backend/data/load/vertical_eccentric.cc
+       6      1     36      2       6 main ./test/backend/data/load/vertical_eccentric.cc
+      10      1    167      2      10 JTEST_NAME ./test/backend/data/geotechnical/foundation_strip.cc
+      13      1    197      2      15 JTEST_NAME ./test/backend/data/geotechnical/foundation_strip.cc
+       6      1     36      2       6 main ./test/backend/data/geotechnical/foundation_strip.cc
+      34      1    476      2      37 JTEST_NAME ./test/backend/calc/geotechnical/meyerhof.cc
+      37      1    562      2      41 JTEST_NAME ./test/backend/calc/geotechnical/meyerhof.cc
+      33      1    522      2      37 JTEST_NAME ./test/backend/calc/geotechnical/meyerhof.cc
+      17      1    267      2      19 JTEST_NAME ./test/backend/calc/geotechnical/meyerhof.cc
+       6      1     36      2       6 main ./test/backend/calc/geotechnical/meyerhof.cc
+       4      1     18      0       4 DecoratorTest::f ./test/backend/util/decorator.cc
+       1      1      9      0       1 DecoratorTest::f ./test/backend/util/decorator.cc
+       6      1     34      1       6 DecoratorTest::f ./test/backend/util/decorator.cc
+       4      1     34      2       4 DecoratorMiddle::DecoratorMiddle ./test/backend/util/decorator.cc
+       6      1     65      2       6 DecoratorMiddle::f ./test/backend/util/decorator.cc
+       7      1     60      2       7 DecoratorMiddle::f ./test/backend/util/decorator.cc
+       8      1     79      2       9 JTEST_NAME ./test/backend/util/decorator.cc
+       1      1      5      0       1 main ./src/main/main1.cc
       59      1    568      1      64 EMSCRIPTEN_BINDINGS ./src/javascript/wasm/bindings-test.cpp
       43      1    441      1      46 EMSCRIPTEN_BINDINGS ./src/javascript/wasm/bindings-web.cpp
-       5      1     19      0       5 onBeforeLoad ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
-      17      1    139      1      26 onBeforeLoad ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
-       4      1     14      0      29 (anonymous) ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
-       5      1     19      0       5 onBeforeLoad ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
-      17      1    139      1      26 onBeforeLoad ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
-       4      1     14      0      29 (anonymous) ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
-       9      1     35      3       9 constructor ./src/angular/projects/app-main/src/app/util/translate/multi-translate-http-loader.ts
-       3      1     29      0       3 forkJoin ./src/angular/projects/app-main/src/app/util/translate/multi-translate-http-loader.ts
-       3      1     12      0       3 (anonymous) ./src/angular/projects/app-main/src/app/util/translate/multi-translate-http-loader.ts
-       3      1     16      0       5 (anonymous) ./src/angular/projects/app-main/src/app/util/translate/multi-translate-http-loader.ts
-       9      1     24      0       9 (anonymous) ./src/angular/projects/app-main/src/app/ui/main/main.component.spec.ts
-       5      1     23      0       5 (anonymous) ./src/angular/projects/app-main/src/app/ui/main/main.component.spec.ts
-       3      1     11      0       3 (anonymous) ./src/angular/projects/app-main/src/app/ui/main/main.component.spec.ts
-       7      1     42      0      24 (anonymous) ./src/angular/projects/app-main/src/app/ui/main/main.component.spec.ts
-       6      1     38      1       6 createTranslateLoader ./src/angular/projects/app-main/src/app/app.module.ts
-      10      1     30      2      10 TranslateModule.forRoot ./src/angular/projects/app-main/src/app/app.component.spec.ts
-       5      1     28      0       5 (anonymous) ./src/angular/projects/app-main/src/app/app.component.spec.ts
-       5      1     31      0       5 (anonymous) ./src/angular/projects/app-main/src/app/app.component.spec.ts
-       8      1     45      0      27 (anonymous) ./src/angular/projects/app-main/src/app/app.component.spec.ts
-       5      1     35      1       5 constructor ./src/angular/projects/app-main/src/app/app.component.ts
-       1      1      7      0       1 (anonymous) ./src/angular/projects/app-main/src/main.ts
-      14      1     70      2      14 require.join ./src/angular/projects/app-main/karma.conf.js
-      11      2     36      0      13 ValidatorFn ./src/angular/projects/lib-jessica/src/lib/util/validator/valid-number.validator.ts
-       4      1     19      0       4 (anonymous) ./src/angular/projects/lib-jessica/src/lib/web/wasm/jessica-wasm.service.spec.ts
-       3      1     11      0       3 (anonymous) ./src/angular/projects/lib-jessica/src/lib/web/wasm/jessica-wasm.service.spec.ts
-       5      1     25      0      12 (anonymous) ./src/angular/projects/lib-jessica/src/lib/web/wasm/jessica-wasm.service.spec.ts
-       3      1      8      0       3 (anonymous) ./src/angular/projects/lib-jessica/src/lib/web/wasm/jessica-wasm.service.ts
-       3      1     22      0       5 constructor ./src/angular/projects/lib-jessica/src/lib/web/wasm/jessica-wasm.service.ts
-       8      1     32      2       8 constructor ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.component.ts
-       1      1      6      0       1 this.form.valueChanges.pipe ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.component.ts
-       3      1     11      0       3 (anonymous) ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.component.ts
-       1      1      8      1       1 constructor ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.service.ts
-       6      1     28      0       6 (anonymous) ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.component.spec.ts
-       5      1     23      0       5 (anonymous) ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.component.spec.ts
-       3      1     11      0       3 (anonymous) ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.component.spec.ts
-       7      1     42      0      21 (anonymous) ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.component.spec.ts
-       4      1     19      0       4 (anonymous) ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.service.spec.ts
-       3      1     11      0       3 (anonymous) ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.service.spec.ts
-       5      1     25      0      12 (anonymous) ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.service.spec.ts
+       1      1      2      0       1 forwardRef ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric-form.component.ts
+       1      1      2      0       1 forwardRef ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric-form.component.ts
+       6      1     49      1       6 constructor ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric-form.component.ts
+       1      1      2      0       1 ! ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric-form.component.ts
+       1      1      2      0       1 registerOnTouched ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric-form.component.ts
+       6      1     28      0       6 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric-form.component.spec.ts
+       5      1     23      0       5 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric-form.component.spec.ts
+       3      1     11      0       3 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric-form.component.spec.ts
+       7      1     42      0      21 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric-form.component.spec.ts
        6      1     28      0       6 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/foundation-strip/foundation-strip-form.component.spec.ts
        5      1     23      0       5 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/foundation-strip/foundation-strip-form.component.spec.ts
        3      1     11      0       3 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/foundation-strip/foundation-strip-form.component.spec.ts
@@ -51,6 +40,10 @@
        5      1     35      1       5 constructor ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/foundation-strip/foundation-strip-form.component.ts
        1      1      2      0       1 ! ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/foundation-strip/foundation-strip-form.component.ts
        1      1      2      0       1 registerOnTouched ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/foundation-strip/foundation-strip-form.component.ts
+       6      1     26      0       6 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/meyerhof/meyerhof-form.component.spec.ts
+       5      1     23      0       5 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/meyerhof/meyerhof-form.component.spec.ts
+       3      1     11      0       3 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/meyerhof/meyerhof-form.component.spec.ts
+       7      1     42      0      21 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/meyerhof/meyerhof-form.component.spec.ts
        1      1      2      0       1 forwardRef ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/meyerhof/meyerhof-form.component.ts
        1      1      2      0       1 forwardRef ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/meyerhof/meyerhof-form.component.ts
        6      1     33      1       6 constructor ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/meyerhof/meyerhof-form.component.ts
@@ -58,51 +51,60 @@
        3      1      9      0       3 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/meyerhof/meyerhof-form.component.ts
        1      1      2      0       1 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/meyerhof/meyerhof-form.component.ts
        1      1      2      0       1 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/meyerhof/meyerhof-form.component.ts
-       6      1     26      0       6 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/meyerhof/meyerhof-form.component.spec.ts
-       5      1     23      0       5 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/meyerhof/meyerhof-form.component.spec.ts
-       3      1     11      0       3 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/meyerhof/meyerhof-form.component.spec.ts
-       7      1     42      0      21 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/meyerhof/meyerhof-form.component.spec.ts
-       6      1     28      0       6 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric-form.component.spec.ts
-       5      1     23      0       5 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric-form.component.spec.ts
-       3      1     11      0       3 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric-form.component.spec.ts
-       7      1     42      0      21 (anonymous) ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric-form.component.spec.ts
-       1      1      2      0       1 forwardRef ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric-form.component.ts
-       1      1      2      0       1 forwardRef ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric-form.component.ts
-       6      1     49      1       6 constructor ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric-form.component.ts
-       1      1      2      0       1 ! ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric-form.component.ts
-       1      1      2      0       1 registerOnTouched ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric-form.component.ts
+       4      1     19      0       4 (anonymous) ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.service.spec.ts
+       3      1     11      0       3 (anonymous) ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.service.spec.ts
+       5      1     25      0      12 (anonymous) ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.service.spec.ts
+       6      1     28      0       6 (anonymous) ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.component.spec.ts
+       5      1     23      0       5 (anonymous) ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.component.spec.ts
+       3      1     11      0       3 (anonymous) ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.component.spec.ts
+       7      1     42      0      21 (anonymous) ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.component.spec.ts
+       8      1     32      2       8 constructor ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.component.ts
+       1      1      6      0       1 this.form.valueChanges.pipe ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.component.ts
+       3      1     11      0       3 (anonymous) ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.component.ts
+       1      1      8      1       1 constructor ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.service.ts
+       4      1     19      0       4 (anonymous) ./src/angular/projects/lib-jessica/src/lib/web/wasm/jessica-wasm.service.spec.ts
+       3      1     11      0       3 (anonymous) ./src/angular/projects/lib-jessica/src/lib/web/wasm/jessica-wasm.service.spec.ts
+       5      1     25      0      12 (anonymous) ./src/angular/projects/lib-jessica/src/lib/web/wasm/jessica-wasm.service.spec.ts
+       3      1      8      0       3 (anonymous) ./src/angular/projects/lib-jessica/src/lib/web/wasm/jessica-wasm.service.ts
+       3      1     22      0       5 constructor ./src/angular/projects/lib-jessica/src/lib/web/wasm/jessica-wasm.service.ts
+      11      2     36      0      13 ValidatorFn ./src/angular/projects/lib-jessica/src/lib/util/validator/valid-number.validator.ts
        4      1     19      0       4 (anonymous) ./src/angular/projects/lib-jessica/src/lib/lib-jessica.service.spec.ts
        3      1     11      0       3 (anonymous) ./src/angular/projects/lib-jessica/src/lib/lib-jessica.service.spec.ts
        5      1     25      0      12 (anonymous) ./src/angular/projects/lib-jessica/src/lib/lib-jessica.service.spec.ts
       14      1     70      2      14 require.join ./src/angular/projects/lib-jessica/karma.conf.js
-       1      1      5      0       1 main ./src/main/main1.cc
-       4      1     18      0       4 DecoratorTest::f ./test/backend/util/decorator.cc
-       1      1      9      0       1 DecoratorTest::f ./test/backend/util/decorator.cc
-       6      1     34      1       6 DecoratorTest::f ./test/backend/util/decorator.cc
-       4      1     34      2       4 DecoratorMiddle::DecoratorMiddle ./test/backend/util/decorator.cc
-       6      1     65      2       6 DecoratorMiddle::f ./test/backend/util/decorator.cc
-       7      1     60      2       7 DecoratorMiddle::f ./test/backend/util/decorator.cc
-       8      1     79      2       9 JTEST_NAME ./test/backend/util/decorator.cc
-      34      1    476      2      37 JTEST_NAME ./test/backend/calc/geotechnical/meyerhof.cc
-      37      1    562      2      41 JTEST_NAME ./test/backend/calc/geotechnical/meyerhof.cc
-      33      1    522      2      37 JTEST_NAME ./test/backend/calc/geotechnical/meyerhof.cc
-      17      1    267      2      19 JTEST_NAME ./test/backend/calc/geotechnical/meyerhof.cc
-       6      1     36      2       6 main ./test/backend/calc/geotechnical/meyerhof.cc
-      10      1    167      2      10 JTEST_NAME ./test/backend/data/geotechnical/foundation_strip.cc
-      13      1    197      2      15 JTEST_NAME ./test/backend/data/geotechnical/foundation_strip.cc
-       6      1     36      2       6 main ./test/backend/data/geotechnical/foundation_strip.cc
-      15      1    296      2      15 JTEST_NAME ./test/backend/data/load/vertical_eccentric.cc
-      18      1    326      2      20 JTEST_NAME ./test/backend/data/load/vertical_eccentric.cc
-       6      1     36      2       6 main ./test/backend/data/load/vertical_eccentric.cc
-       5      1     54      3       5 jessica::JESSICA_DLL_PUBLICLogCall::LogCall ./include/jessica/util/decorator/log_call.h
-       6      1     64      2       6 jessica::JESSICA_DLL_PUBLICLogCall::f ./include/jessica/util/decorator/log_call.h
-       4      1     39      2       4 jessica::JESSICA_DLL_PUBLICDecoratorEnd::DecoratorEnd ./include/jessica/util/decorator/end.h
-       4      1     41      2       4 jessica::JESSICA_DLL_PUBLICDecoratorEnd::f ./include/jessica/util/decorator/end.h
-       5      1     54      3       5 jessica::JESSICA_DLL_PUBLICLogDuration::LogDuration ./include/jessica/util/decorator/log_duration.h
-      11      1    116      2      11 jessica::JESSICA_DLL_PUBLICLogDuration::f ./include/jessica/util/decorator/log_duration.h
-       4      1     33      1       4 jessica::JESSICA_DLL_PUBLICDecoratorStart::DecoratorStart ./include/jessica/util/decorator/start.h
-      15      2    103      1      15 jessica::JESSICA_DLL_PUBLICDecoratorStart::f ./include/jessica/util/decorator/start.h
-       4      1     21      0       4 jessica::JESSICA_DLL_PUBLICDecoratorStart::f ./include/jessica/util/decorator/start.h
+      19      1     70      0      19 find_translations ./src/angular/projects/preprocess/preprocess.py
+       8      5     67      3       8 find_translation ./src/angular/projects/preprocess/translation.py
+       9      1     35      3       9 constructor ./src/angular/projects/app-main/src/app/util/translate/multi-translate-http-loader.ts
+       3      1     29      0       3 forkJoin ./src/angular/projects/app-main/src/app/util/translate/multi-translate-http-loader.ts
+       3      1     12      0       3 (anonymous) ./src/angular/projects/app-main/src/app/util/translate/multi-translate-http-loader.ts
+       3      1     16      0       5 (anonymous) ./src/angular/projects/app-main/src/app/util/translate/multi-translate-http-loader.ts
+       9      1     24      0       9 (anonymous) ./src/angular/projects/app-main/src/app/ui/main/main.component.spec.ts
+       5      1     23      0       5 (anonymous) ./src/angular/projects/app-main/src/app/ui/main/main.component.spec.ts
+       3      1     11      0       3 (anonymous) ./src/angular/projects/app-main/src/app/ui/main/main.component.spec.ts
+       7      1     42      0      24 (anonymous) ./src/angular/projects/app-main/src/app/ui/main/main.component.spec.ts
+       5      1     36      1       5 constructor ./src/angular/projects/app-main/src/app/app.component.ts
+      14      4    100      1      17 extractLanguage ./src/angular/projects/app-main/src/app/app.component.ts
+       6      1     38      1       6 createTranslateLoader ./src/angular/projects/app-main/src/app/app.module.ts
+      10      1     30      2      10 TranslateModule.forRoot ./src/angular/projects/app-main/src/app/app.component.spec.ts
+       5      1     28      0       5 (anonymous) ./src/angular/projects/app-main/src/app/app.component.spec.ts
+       5      1     31      0       5 (anonymous) ./src/angular/projects/app-main/src/app/app.component.spec.ts
+       8      1     45      0      27 (anonymous) ./src/angular/projects/app-main/src/app/app.component.spec.ts
+       1      1      7      0       1 (anonymous) ./src/angular/projects/app-main/src/main.ts
+      14      1     70      2      14 require.join ./src/angular/projects/app-main/karma.conf.js
+       5      1     19      0       5 onBeforeLoad ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
+      17      1    139      1      26 onBeforeLoad ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
+       4      1     14      0      29 (anonymous) ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
+       5      1     19      0       5 onBeforeLoad ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
+      17      1    139      1      26 onBeforeLoad ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
+       4      1     14      0      29 (anonymous) ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
+       4      1     18      0       4 jessica::JESSICA_DLL_PUBLICVerticalEccentric::f ./include/jessica/data/load/vertical_eccentric.h
+       1      1      9      0       1 jessica::JESSICA_DLL_PUBLICVerticalEccentric::f ./include/jessica/data/load/vertical_eccentric.h
+       6      1     34      1       6 jessica::JESSICA_DLL_PUBLICVerticalEccentric::f ./include/jessica/data/load/vertical_eccentric.h
+       1      1      9      0       1 jessica::JESSICA_DLL_PUBLICVerticalEccentric::f ./include/jessica/data/load/vertical_eccentric.h
+       6      1     34      1       6 jessica::JESSICA_DLL_PUBLICVerticalEccentric::f ./include/jessica/data/load/vertical_eccentric.h
+       4      1     18      0       4 jessica::JESSICA_DLL_PUBLICFoundationStrip::f ./include/jessica/data/geotechnical/foundation_strip.h
+       1      1      9      0       1 jessica::JESSICA_DLL_PUBLICFoundationStrip::f ./include/jessica/data/geotechnical/foundation_strip.h
+       6      1     34      1       6 jessica::JESSICA_DLL_PUBLICFoundationStrip::f ./include/jessica/data/geotechnical/foundation_strip.h
        5      1     40      2       5 jessica::JESSICA_DLL_PUBLICMeyerhofShallowFoundation::MeyerhofShallowFoundation ./include/jessica/calc/geotechnical/meyerhof.h
        4      1     18      0       4 jessica::JESSICA_DLL_PUBLICMeyerhofShallowFoundation::f ./include/jessica/calc/geotechnical/meyerhof.h
        5      1     42      0       5 jessica::JESSICA_DLL_PUBLICMeyerhofShallowFoundation::f ./include/jessica/calc/geotechnical/meyerhof.h
@@ -113,77 +115,80 @@
        7      1     60      1       7 jessica::JESSICA_DLL_PUBLICMeyerhofShallowFoundation::f ./include/jessica/calc/geotechnical/meyerhof.h
        3      1     21      1       3 jessica::LoggerSpdlog::LoggerSpdlog ./include/jessica/helper/adapter/spdlog.h
        6      1     24      1       6 jessica::cfi_to_string ./include/jessica/helper/cfi.h
-       4      1     18      0       4 jessica::JESSICA_DLL_PUBLICFoundationStrip::f ./include/jessica/data/geotechnical/foundation_strip.h
-       1      1      9      0       1 jessica::JESSICA_DLL_PUBLICFoundationStrip::f ./include/jessica/data/geotechnical/foundation_strip.h
-       6      1     34      1       6 jessica::JESSICA_DLL_PUBLICFoundationStrip::f ./include/jessica/data/geotechnical/foundation_strip.h
-       4      1     18      0       4 jessica::JESSICA_DLL_PUBLICVerticalEccentric::f ./include/jessica/data/load/vertical_eccentric.h
-       1      1      9      0       1 jessica::JESSICA_DLL_PUBLICVerticalEccentric::f ./include/jessica/data/load/vertical_eccentric.h
-       6      1     34      1       6 jessica::JESSICA_DLL_PUBLICVerticalEccentric::f ./include/jessica/data/load/vertical_eccentric.h
-       1      1      9      0       1 jessica::JESSICA_DLL_PUBLICVerticalEccentric::f ./include/jessica/data/load/vertical_eccentric.h
-       6      1     34      1       6 jessica::JESSICA_DLL_PUBLICVerticalEccentric::f ./include/jessica/data/load/vertical_eccentric.h
-60 file analyzed.
+       5      1     54      3       5 jessica::JESSICA_DLL_PUBLICLogDuration::LogDuration ./include/jessica/util/decorator/log_duration.h
+      11      1    116      2      11 jessica::JESSICA_DLL_PUBLICLogDuration::f ./include/jessica/util/decorator/log_duration.h
+       4      1     33      1       4 jessica::JESSICA_DLL_PUBLICDecoratorStart::DecoratorStart ./include/jessica/util/decorator/start.h
+      15      2    103      1      15 jessica::JESSICA_DLL_PUBLICDecoratorStart::f ./include/jessica/util/decorator/start.h
+       4      1     21      0       4 jessica::JESSICA_DLL_PUBLICDecoratorStart::f ./include/jessica/util/decorator/start.h
+       4      1     39      2       4 jessica::JESSICA_DLL_PUBLICDecoratorEnd::DecoratorEnd ./include/jessica/util/decorator/end.h
+       4      1     41      2       4 jessica::JESSICA_DLL_PUBLICDecoratorEnd::f ./include/jessica/util/decorator/end.h
+       5      1     54      3       5 jessica::JESSICA_DLL_PUBLICLogCall::LogCall ./include/jessica/util/decorator/log_call.h
+       6      1     64      2       6 jessica::JESSICA_DLL_PUBLICLogCall::f ./include/jessica/util/decorator/log_call.h
+62 file analyzed.
 ==============================================================
 NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
 --------------------------------------------------------------
+     50      13.0     1.0      219.3         3     ./test/backend/data/load/vertical_eccentric.cc
+     40       9.7     1.0      133.3         3     ./test/backend/data/geotechnical/foundation_strip.cc
+    142      25.4     1.0      372.6         5     ./test/backend/calc/geotechnical/meyerhof.cc
+     80       5.1     1.0       42.7         7     ./test/backend/util/decorator.cc
+      1       1.0     1.0        5.0         1     ./src/main/main1.cc
       0       0.0     0.0        0.0         0     ./src/backend/dummy.cpp
      72      59.0     1.0      568.0         1     ./src/javascript/wasm/bindings-test.cpp
      50      43.0     1.0      441.0         1     ./src/javascript/wasm/bindings-web.cpp
-     50       8.7     1.0       57.3         6     ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
-     28       4.5     1.0       23.0         4     ./src/angular/projects/app-main/src/app/util/translate/multi-translate-http-loader.ts
-      7       0.0     0.0        0.0         0     ./src/angular/projects/app-main/src/app/ui/main/main.component.ts
-     27       6.0     1.0       25.0         4     ./src/angular/projects/app-main/src/app/ui/main/main.component.spec.ts
-     35       6.0     1.0       38.0         1     ./src/angular/projects/app-main/src/app/app.module.ts
-     34       7.0     1.0       33.5         4     ./src/angular/projects/app-main/src/app/app.component.spec.ts
-      9       0.0     0.0        0.0         0     ./src/angular/projects/app-main/src/app/app-routing.module.ts
-     15       5.0     1.0       35.0         1     ./src/angular/projects/app-main/src/app/app.component.ts
-      3       0.0     0.0        0.0         0     ./src/angular/projects/app-main/src/environments/environment.ts
-      3       0.0     0.0        0.0         0     ./src/angular/projects/app-main/src/environments/environment.prod.ts
-     22       0.0     0.0        0.0         0     ./src/angular/projects/app-main/src/test.ts
-     10       1.0     1.0        7.0         1     ./src/angular/projects/app-main/src/main.ts
-      1       0.0     0.0        0.0         0     ./src/angular/projects/app-main/src/polyfills.ts
-     34      14.0     1.0       70.0         1     ./src/angular/projects/app-main/karma.conf.js
-     10       0.0     0.0        0.0         0     ./src/angular/projects/lib-jessica/src/lib/util/translation/translate-mock.pipe.ts
-     12      11.0     2.0       36.0         1     ./src/angular/projects/lib-jessica/src/lib/util/validator/valid-number.validator.ts
-     12       4.0     1.0       18.3         3     ./src/angular/projects/lib-jessica/src/lib/web/wasm/jessica-wasm.service.spec.ts
-     16       3.0     1.0       15.0         2     ./src/angular/projects/lib-jessica/src/lib/web/wasm/jessica-wasm.service.ts
+      4       0.0     0.0        0.0         0     ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric.ts
+     67       2.0     1.0       11.4         5     ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric-form.component.ts
+     22       5.2     1.0       26.0         4     ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric-form.component.spec.ts
+      3       0.0     0.0        0.0         0     ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/foundation-strip/foundation-strip.ts
+     22       5.2     1.0       26.0         4     ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/foundation-strip/foundation-strip-form.component.spec.ts
+     66       1.8     1.0        8.6         5     ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/foundation-strip/foundation-strip-form.component.ts
+     21       5.2     1.0       25.5         4     ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/meyerhof/meyerhof-form.component.spec.ts
+      6       0.0     0.0        0.0         0     ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/meyerhof/meyerhof-form.ts
+     80       2.0     1.0        8.0         7     ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/meyerhof/meyerhof-form.component.ts
+      4       0.0     0.0        0.0         0     ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.ts
+     12       4.0     1.0       18.3         3     ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.service.spec.ts
+     22       5.2     1.0       26.0         4     ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.component.spec.ts
      42       4.0     1.0       16.3         3     ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.component.ts
      21       1.0     1.0        8.0         1     ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.service.ts
       4       0.0     0.0        0.0         0     ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-result.ts
-      4       0.0     0.0        0.0         0     ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.ts
-     22       5.2     1.0       26.0         4     ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.component.spec.ts
-     12       4.0     1.0       18.3         3     ./src/angular/projects/lib-jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.service.spec.ts
-     22       5.2     1.0       26.0         4     ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/foundation-strip/foundation-strip-form.component.spec.ts
-      3       0.0     0.0        0.0         0     ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/foundation-strip/foundation-strip.ts
-     66       1.8     1.0        8.6         5     ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/foundation-strip/foundation-strip-form.component.ts
-     80       2.0     1.0        8.0         7     ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/meyerhof/meyerhof-form.component.ts
-     21       5.2     1.0       25.5         4     ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/meyerhof/meyerhof-form.component.spec.ts
-      6       0.0     0.0        0.0         0     ./src/angular/projects/lib-jessica/src/lib/data/geotechnical/meyerhof/meyerhof-form.ts
-      4       0.0     0.0        0.0         0     ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric.ts
-     22       5.2     1.0       26.0         4     ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric-form.component.spec.ts
-     67       2.0     1.0       11.4         5     ./src/angular/projects/lib-jessica/src/lib/data/load/vertical-eccentric/vertical-eccentric-form.component.ts
+     12       4.0     1.0       18.3         3     ./src/angular/projects/lib-jessica/src/lib/web/wasm/jessica-wasm.service.spec.ts
+     16       3.0     1.0       15.0         2     ./src/angular/projects/lib-jessica/src/lib/web/wasm/jessica-wasm.service.ts
+     10       0.0     0.0        0.0         0     ./src/angular/projects/lib-jessica/src/lib/util/translation/translate-mock.pipe.ts
+     12      11.0     2.0       36.0         1     ./src/angular/projects/lib-jessica/src/lib/util/validator/valid-number.validator.ts
      12       4.0     1.0       18.3         3     ./src/angular/projects/lib-jessica/src/lib/lib-jessica.service.spec.ts
      25       0.0     0.0        0.0         0     ./src/angular/projects/lib-jessica/src/lib/lib-jessica.module.ts
       5       0.0     0.0        0.0         0     ./src/angular/projects/lib-jessica/src/lib/lib-jessica.service.ts
-      8       0.0     0.0        0.0         0     ./src/angular/projects/lib-jessica/src/public-api.ts
      23       0.0     0.0        0.0         0     ./src/angular/projects/lib-jessica/src/test.ts
+      8       0.0     0.0        0.0         0     ./src/angular/projects/lib-jessica/src/public-api.ts
      46      14.0     1.0       70.0         1     ./src/angular/projects/lib-jessica/karma.conf.js
-      1       1.0     1.0        5.0         1     ./src/main/main1.cc
-     80       5.1     1.0       42.7         7     ./test/backend/util/decorator.cc
-    142      25.4     1.0      372.6         5     ./test/backend/calc/geotechnical/meyerhof.cc
-     40       9.7     1.0      133.3         3     ./test/backend/data/geotechnical/foundation_strip.cc
-     50      13.0     1.0      219.3         3     ./test/backend/data/load/vertical_eccentric.cc
-     35       5.5     1.0       59.0         2     ./include/jessica/util/decorator/log_call.h
-     28       4.0     1.0       40.0         2     ./include/jessica/util/decorator/end.h
-     40       8.0     1.0       85.0         2     ./include/jessica/util/decorator/log_duration.h
-     45       7.7     1.3       52.3         3     ./include/jessica/util/decorator/start.h
+     25      19.0     1.0       70.0         1     ./src/angular/projects/preprocess/preprocess.py
+     11       8.0     5.0       67.0         1     ./src/angular/projects/preprocess/translation.py
+      3       0.0     0.0        0.0         0     ./src/angular/projects/app-main/src/environments/environment.prod.ts
+      3       0.0     0.0        0.0         0     ./src/angular/projects/app-main/src/environments/environment.ts
+     28       4.5     1.0       23.0         4     ./src/angular/projects/app-main/src/app/util/translate/multi-translate-http-loader.ts
+     27       6.0     1.0       25.0         4     ./src/angular/projects/app-main/src/app/ui/main/main.component.spec.ts
+      7       0.0     0.0        0.0         0     ./src/angular/projects/app-main/src/app/ui/main/main.component.ts
+     30       9.5     2.5       68.0         2     ./src/angular/projects/app-main/src/app/app.component.ts
+     35       6.0     1.0       38.0         1     ./src/angular/projects/app-main/src/app/app.module.ts
+      9       0.0     0.0        0.0         0     ./src/angular/projects/app-main/src/app/app-routing.module.ts
+     34       7.0     1.0       33.5         4     ./src/angular/projects/app-main/src/app/app.component.spec.ts
+     22       0.0     0.0        0.0         0     ./src/angular/projects/app-main/src/test.ts
+      1       0.0     0.0        0.0         0     ./src/angular/projects/app-main/src/polyfills.ts
+     10       1.0     1.0        7.0         1     ./src/angular/projects/app-main/src/main.ts
+     34      14.0     1.0       70.0         1     ./src/angular/projects/app-main/karma.conf.js
+     50       8.7     1.0       57.3         6     ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
+     49       3.6     1.0       20.8         5     ./include/jessica/data/load/vertical_eccentric.h
+     37       3.7     1.0       20.3         3     ./include/jessica/data/geotechnical/foundation_strip.h
      80       5.1     1.0       41.0         8     ./include/jessica/calc/geotechnical/meyerhof.h
       1       0.0     0.0        0.0         0     ./include/jessica/test/test.h
      18       3.0     1.0       21.0         1     ./include/jessica/helper/adapter/spdlog.h
-     16       0.0     0.0        0.0         0     ./include/jessica/helper/accessor.h
-     12       6.0     1.0       24.0         1     ./include/jessica/helper/cfi.h
      54       0.0     0.0        0.0         0     ./include/jessica/helper/template.h
-     37       3.7     1.0       20.3         3     ./include/jessica/data/geotechnical/foundation_strip.h
-     49       3.6     1.0       20.8         5     ./include/jessica/data/load/vertical_eccentric.h
+     12       6.0     1.0       24.0         1     ./include/jessica/helper/cfi.h
+     16       0.0     0.0        0.0         0     ./include/jessica/helper/accessor.h
+     40       8.0     1.0       85.0         2     ./include/jessica/util/decorator/log_duration.h
+     45       7.7     1.3       52.3         3     ./include/jessica/util/decorator/start.h
+     28       4.0     1.0       40.0         2     ./include/jessica/util/decorator/end.h
+     35       5.5     1.0       59.0         2     ./include/jessica/util/decorator/log_call.h
       0       0.0     0.0        0.0         0     ./include/jessica/compat.h
 
 ===============================================================================================================
@@ -191,4 +196,4 @@ No thresholds exceeded (cyclomatic_complexity > 15 or length > 1000 or nloc > 10
 ==========================================================================================
 Total nloc   Avg.NLOC  AvgCCN  Avg.token   Fun Cnt  Warning cnt   Fun Rt   nloc Rt
 ------------------------------------------------------------------------------------------
-      1693       6.8     1.0       58.7      120            0      0.00    0.00
+      1744       7.0     1.1       59.2      123            0      0.00    0.00
