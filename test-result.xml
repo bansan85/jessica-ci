@@ -34,29 +34,29 @@ test 1
 1: npm info using npm@7.22.0
 1: npm info using node@v14.17.6
 1: npm timing npm:load:whichnode Completed in 0ms
-1: npm timing config:load:defaults Completed in 3ms
-1: npm timing config:load:file:/opt/hostedtoolcache/node/14.17.6/x64/lib/node_modules/npm/npmrc Completed in 14ms
-1: npm timing config:load:builtin Completed in 14ms
+1: npm timing config:load:defaults Completed in 1ms
+1: npm timing config:load:file:/opt/hostedtoolcache/node/14.17.6/x64/lib/node_modules/npm/npmrc Completed in 8ms
+1: npm timing config:load:builtin Completed in 8ms
 1: npm timing config:load:cli Completed in 2ms
 1: npm timing config:load:env Completed in 0ms
-1: npm timing config:load:file:/home/runner/work/jessica/jessica/src/angular/.npmrc Completed in 0ms
-1: npm timing config:load:project Completed in 1ms
+1: npm timing config:load:file:/home/runner/work/jessica/jessica/src/angular/.npmrc Completed in 2ms
+1: npm timing config:load:project Completed in 3ms
 1: npm timing config:load:file:/home/runner/.npmrc Completed in 0ms
 1: npm timing config:load:user Completed in 0ms
-1: npm timing config:load:file:/opt/hostedtoolcache/node/14.17.6/x64/etc/npmrc Completed in 0ms
-1: npm timing config:load:global Completed in 0ms
+1: npm timing config:load:file:/opt/hostedtoolcache/node/14.17.6/x64/etc/npmrc Completed in 2ms
+1: npm timing config:load:global Completed in 2ms
 1: npm timing config:load:validate Completed in 0ms
 1: npm timing config:load:credentials Completed in 1ms
-1: npm timing config:load:setEnvs Completed in 1ms
-1: npm timing config:load Completed in 22ms
-1: npm timing npm:load:configload Completed in 22ms
+1: npm timing config:load:setEnvs Completed in 0ms
+1: npm timing config:load Completed in 17ms
+1: npm timing npm:load:configload Completed in 17ms
 1: npm timing npm:load:setTitle Completed in 0ms
 1: npm timing npm:load:setupLog Completed in 0ms
 1: npm timing config:load:flatten Completed in 2ms
 1: npm timing npm:load:cleanupLog Completed in 2ms
 1: npm timing npm:load:configScope Completed in 0ms
 1: npm timing npm:load:projectScope Completed in 1ms
-1: npm timing npm:load Completed in 33ms
+1: npm timing npm:load Completed in 26ms
 1: 
 1: > angular@0.0.0 test
 1: > ng test --no-watch --no-progress --browsers=ChromeHeadless
@@ -65,45 +65,45 @@ test 1
 1: Compiling @angular/platform-browser/testing : es2015 as esm2015
 1: Compiling @angular/compiler/testing : es2015 as esm2015
 1: Compiling @angular/platform-browser-dynamic/testing : es2015 as esm2015
-1: 03 09 2021 05:59:40.597:INFO [karma-server]: Karma v6.3.4 server started at http://localhost:9876/
-1: 03 09 2021 05:59:40.599:INFO [launcher]: Launching browsers ChromeHeadless with concurrency unlimited
-1: 03 09 2021 05:59:40.601:INFO [launcher]: Starting browser ChromeHeadless
-1: 03 09 2021 05:59:49.238:INFO [Chrome Headless 92.0.4515.159 (Linux x86_64)]: Connected on socket 2N9720ZaLtl-d5t5AAAB with id 65377447
+1: 04 09 2021 16:54:03.317:INFO [karma-server]: Karma v6.3.4 server started at http://localhost:9876/
+1: 04 09 2021 16:54:03.319:INFO [launcher]: Launching browsers ChromeHeadless with concurrency unlimited
+1: 04 09 2021 16:54:03.322:INFO [launcher]: Starting browser ChromeHeadless
+1: 04 09 2021 16:54:11.077:INFO [Chrome Headless 92.0.4515.159 (Linux x86_64)]: Connected on socket z7xcGJiC3dYW_AYuAAAB with id 85197483
 1: Chrome Headless 92.0.4515.159 (Linux x86_64): Executed 0 of 7 SUCCESS (0 secs / 0 secs)
-1: [1A[2KChrome Headless 92.0.4515.159 (Linux x86_64): Executed 1 of 7 SUCCESS (0 secs / 0.05 secs)
-1: [1A[2KChrome Headless 92.0.4515.159 (Linux x86_64): Executed 2 of 7 SUCCESS (0 secs / 0.065 secs)
-1: [1A[2KChrome Headless 92.0.4515.159 (Linux x86_64): Executed 3 of 7 SUCCESS (0 secs / 0.076 secs)
-1: [1A[2KChrome Headless 92.0.4515.159 (Linux x86_64): Executed 4 of 7 SUCCESS (0 secs / 0.081 secs)
-1: [1A[2KChrome Headless 92.0.4515.159 (Linux x86_64): Executed 5 of 7 SUCCESS (0 secs / 0.089 secs)
-1: [1A[2KChrome Headless 92.0.4515.159 (Linux x86_64): Executed 6 of 7 SUCCESS (0 secs / 0.091 secs)
-1: [1A[2KChrome Headless 92.0.4515.159 (Linux x86_64): Executed 7 of 7 SUCCESS (0 secs / 0.097 secs)
-1: [1A[2KChrome Headless 92.0.4515.159 (Linux x86_64): Executed 7 of 7 SUCCESS (0.199 secs / 0.097 secs)
+1: [1A[2KChrome Headless 92.0.4515.159 (Linux x86_64): Executed 1 of 7 SUCCESS (0 secs / 0.069 secs)
+1: [1A[2KChrome Headless 92.0.4515.159 (Linux x86_64): Executed 2 of 7 SUCCESS (0 secs / 0.096 secs)
+1: [1A[2KChrome Headless 92.0.4515.159 (Linux x86_64): Executed 3 of 7 SUCCESS (0 secs / 0.1 secs)
+1: [1A[2KChrome Headless 92.0.4515.159 (Linux x86_64): Executed 4 of 7 SUCCESS (0 secs / 0.104 secs)
+1: [1A[2KChrome Headless 92.0.4515.159 (Linux x86_64): Executed 5 of 7 SUCCESS (0 secs / 0.125 secs)
+1: [1A[2KChrome Headless 92.0.4515.159 (Linux x86_64): Executed 6 of 7 SUCCESS (0 secs / 0.145 secs)
+1: [1A[2KChrome Headless 92.0.4515.159 (Linux x86_64): Executed 7 of 7 SUCCESS (0 secs / 0.154 secs)
+1: [1A[2KChrome Headless 92.0.4515.159 (Linux x86_64): Executed 7 of 7 SUCCESS (0.334 secs / 0.154 secs)
 1: TOTAL: 7 SUCCESS
 1: Compiling @angular/common/testing : es2015 as esm2015
 1: Compiling @angular/router/testing : es2015 as esm2015
-1: 03 09 2021 05:59:56.178:INFO [karma-server]: Karma v6.3.4 server started at http://localhost:9876/
-1: 03 09 2021 05:59:56.179:INFO [launcher]: Launching browsers ChromeHeadless with concurrency unlimited
-1: 03 09 2021 05:59:56.180:INFO [launcher]: Starting browser ChromeHeadless
-1: 03 09 2021 05:59:59.374:INFO [Chrome Headless 92.0.4515.159 (Linux x86_64)]: Connected on socket hp7NYHO3KkkewJKUAAAD with id 61730999
+1: 04 09 2021 16:54:20.301:INFO [karma-server]: Karma v6.3.4 server started at http://localhost:9876/
+1: 04 09 2021 16:54:20.302:INFO [launcher]: Launching browsers ChromeHeadless with concurrency unlimited
+1: 04 09 2021 16:54:20.303:INFO [launcher]: Starting browser ChromeHeadless
+1: 04 09 2021 16:54:24.444:INFO [Chrome Headless 92.0.4515.159 (Linux x86_64)]: Connected on socket mAnzLKm4vWRu17jvAAAD with id 68740933
 1: Chrome Headless 92.0.4515.159 (Linux x86_64): Executed 0 of 3 SUCCESS (0 secs / 0 secs)
+1: [1A[2KChrome Headless 92.0.4515.159 (Linux x86_64): Executed 1 of 3 SUCCESS (0 secs / 0.034 secs)
 1: [1A[2KLOG: 'LANGen'
-1: Chrome Headless 92.0.4515.159 (Linux x86_64): Executed 0 of 3 SUCCESS (0 secs / 0 secs)
+1: Chrome Headless 92.0.4515.159 (Linux x86_64): Executed 1 of 3 SUCCESS (0 secs / 0.034 secs)
 1: LOG: 'LANGen'
-1: [1A[2KChrome Headless 92.0.4515.159 (Linux x86_64): Executed 1 of 3 SUCCESS (0 secs / 0.045 secs)
+1: [1A[2KChrome Headless 92.0.4515.159 (Linux x86_64): Executed 2 of 3 SUCCESS (0 secs / 0.056 secs)
 1: [1A[2KLOG: 'LANGen'
-1: Chrome Headless 92.0.4515.159 (Linux x86_64): Executed 1 of 3 SUCCESS (0 secs / 0.045 secs)
+1: Chrome Headless 92.0.4515.159 (Linux x86_64): Executed 2 of 3 SUCCESS (0 secs / 0.056 secs)
 1: LOG: 'LANGen'
-1: [1A[2KChrome Headless 92.0.4515.159 (Linux x86_64): Executed 2 of 3 SUCCESS (0 secs / 0.051 secs)
-1: [1A[2KChrome Headless 92.0.4515.159 (Linux x86_64): Executed 3 of 3 SUCCESS (0 secs / 0.059 secs)
-1: [1A[2KChrome Headless 92.0.4515.159 (Linux x86_64): Executed 3 of 3 SUCCESS (0.073 secs / 0.059 secs)
+1: [1A[2KChrome Headless 92.0.4515.159 (Linux x86_64): Executed 3 of 3 SUCCESS (0 secs / 0.063 secs)
+1: [1A[2KChrome Headless 92.0.4515.159 (Linux x86_64): Executed 3 of 3 SUCCESS (0.095 secs / 0.063 secs)
 1: TOTAL: 3 SUCCESS
-1: npm timing command:run-script Completed in 32134ms
+1: npm timing command:run-script Completed in 33935ms
 1: npm verb exit 0
-1: npm timing npm Completed in 32282ms
+1: npm timing npm Completed in 34076ms
 1: npm info ok 
 [HANDLER_OUTPUT] 
 1/2 Test #1: NpmAngular .......................
-   Passed   32.40 sec
+   Passed   34.20 sec
 [HANDLER_VERBOSE_OUTPUT] 
 test 2
 
@@ -124,13 +124,13 @@ test 2
 2: npm verb cli ]
 2: npm info using npm@7.22.0
 2: npm info using node@v14.17.6
-2: npm timing npm:load:whichnode Completed in 1ms
-2: npm timing config:load:defaults Completed in 1ms
-2: npm timing config:load:file:/opt/hostedtoolcache/node/14.17.6/x64/lib/node_modules/npm/npmrc Completed in 10ms
-2: npm timing config:load:builtin Completed in 10ms
-2: npm timing config:load:cli Completed in 1ms
+2: npm timing npm:load:whichnode Completed in 0ms
+2: npm timing config:load:defaults Completed in 2ms
+2: npm timing config:load:file:/opt/hostedtoolcache/node/14.17.6/x64/lib/node_modules/npm/npmrc Completed in 13ms
+2: npm timing config:load:builtin Completed in 13ms
+2: npm timing config:load:cli Completed in 2ms
 2: npm timing config:load:env Completed in 0ms
-2: npm timing config:load:file:/home/runner/work/jessica/jessica/build/test/javascript/.npmrc Completed in 1ms
+2: npm timing config:load:file:/home/runner/work/jessica/jessica/build/test/javascript/.npmrc Completed in 0ms
 2: npm timing config:load:project Completed in 1ms
 2: npm timing config:load:file:/home/runner/.npmrc Completed in 0ms
 2: npm timing config:load:user Completed in 0ms
@@ -138,59 +138,59 @@ test 2
 2: npm timing config:load:global Completed in 0ms
 2: npm timing config:load:validate Completed in 0ms
 2: npm timing config:load:credentials Completed in 1ms
-2: npm timing config:load:setEnvs Completed in 0ms
-2: npm timing config:load Completed in 15ms
-2: npm timing npm:load:configload Completed in 15ms
+2: npm timing config:load:setEnvs Completed in 1ms
+2: npm timing config:load Completed in 20ms
+2: npm timing npm:load:configload Completed in 21ms
 2: npm timing npm:load:setTitle Completed in 0ms
-2: npm timing npm:load:setupLog Completed in 1ms
+2: npm timing npm:load:setupLog Completed in 0ms
 2: npm timing config:load:flatten Completed in 2ms
-2: npm timing npm:load:cleanupLog Completed in 2ms
+2: npm timing npm:load:cleanupLog Completed in 1ms
 2: npm timing npm:load:configScope Completed in 0ms
-2: npm timing npm:load:projectScope Completed in 1ms
-2: npm timing npm:load Completed in 30ms
+2: npm timing npm:load:projectScope Completed in 0ms
+2: npm timing npm:load Completed in 27ms
 2: 
 2: > test
 2: > node --trace-warnings --unhandled-rejections=strict node_modules/.bin/jest
 2: 
 2: PASS ./jessica.test.js
-2:   ✓ WarmUpJessica (199 ms)
-2:   ✓ VerticalEccentric (41 ms)
-2:   ✓ FoundationStrip (30 ms)
-2:   ✓ CalcMeyehof (441 ms)
+2:   ✓ WarmUpJessica (229 ms)
+2:   ✓ VerticalEccentric (119 ms)
+2:   ✓ FoundationStrip (63 ms)
+2:   ✓ CalcMeyehof (462 ms)
 2: 
 2:   console.log
-2:     [2021-09-03 06:00:03.839] [log] [info] DecoratorLogger N7jessica11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
+2:     [2021-09-04 16:54:29.719] [log] [info] DecoratorLogger N7jessica11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
 2: 
 2:       at console.<anonymous> (node_modules/jest-mock/build/index.js:850:25)
 2: 
 2:   console.log
-2:     [2021-09-03 06:00:04.233] [log] [info] duration 0.0107 ms
+2:     [2021-09-04 16:54:30.100] [log] [info] duration 0.0133 ms
 2: 
 2:       at console.<anonymous> (node_modules/jest-mock/build/index.js:850:25)
 2: 
 2:   console.log
-2:     [2021-09-03 06:00:04.235] [log] [info] DecoratorLogger N7jessica11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
+2:     [2021-09-04 16:54:30.101] [log] [info] DecoratorLogger N7jessica11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
 2: 
 2:       at console.<anonymous> (node_modules/jest-mock/build/index.js:850:25)
 2: 
 2:   console.log
-2:     [2021-09-03 06:00:04.236] [log] [info] duration 0.0053 ms
+2:     [2021-09-04 16:54:30.103] [log] [info] duration 0.006301 ms
 2: 
 2:       at console.<anonymous> (node_modules/jest-mock/build/index.js:850:25)
 2: 
 2: Test Suites: 1 passed, 1 total
 2: Tests:       4 passed, 4 total
 2: Snapshots:   0 total
-2: Time:        1.943 s
+2: Time:        2.493 s
 2: Ran all test suites.
-2: npm timing command:run-script Completed in 2545ms
+2: npm timing command:run-script Completed in 3171ms
 2: npm verb exit 0
-2: npm timing npm Completed in 2688ms
+2: npm timing npm Completed in 3323ms
 2: npm info ok 
 [HANDLER_OUTPUT] 
 2/2 Test #2: NpmTest ..........................
-   Passed    2.80 sec
+   Passed    3.46 sec
 
 100% tests passed, 0 tests failed out of 2
 
-Total Test time (real) =  35.21 sec
+Total Test time (real) =  37.71 sec
