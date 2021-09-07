@@ -38,13 +38,13 @@
        3      1     11      0       3 (anonymous) ./src/angular/projects/toolbox/src/lib/toolbox.service.spec.ts
        5      1     25      0      12 (anonymous) ./src/angular/projects/toolbox/src/lib/toolbox.service.spec.ts
       14      1     70      2      14 require.join ./src/angular/projects/toolbox/karma.conf.js
-      22      1     87      0      22 find_translations ./src/angular/projects/preprocess/preprocess.py
+      27      2    147      0      27 find_translations ./src/angular/projects/preprocess/preprocess.py
        8      5     67      3       8 find_translation ./src/angular/projects/preprocess/translation.py
        9      1     24      0       9 (anonymous) ./src/angular/projects/app-main/src/app/ui/main/main.component.spec.ts
        5      1     23      0       5 (anonymous) ./src/angular/projects/app-main/src/app/ui/main/main.component.spec.ts
        3      1     11      0       3 (anonymous) ./src/angular/projects/app-main/src/app/ui/main/main.component.spec.ts
        7      1     42      0      24 (anonymous) ./src/angular/projects/app-main/src/app/ui/main/main.component.spec.ts
-       8      1     43      2       8 constructor ./src/angular/projects/app-main/src/app/app.component.ts
+       8      1     36      2       8 constructor ./src/angular/projects/app-main/src/app/app.component.ts
        6      1     38      1       6 createTranslateLoader ./src/angular/projects/app-main/src/app/app.module.ts
       10      1     30      2      10 TranslateModule.forRoot ./src/angular/projects/app-main/src/app/app.component.spec.ts
        5      1     28      0       5 (anonymous) ./src/angular/projects/app-main/src/app/app.component.spec.ts
@@ -88,7 +88,7 @@
        5      1     23      0       5 (anonymous) ./src/angular/projects/jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.component.spec.ts
        3      1     11      0       3 (anonymous) ./src/angular/projects/jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.component.spec.ts
        7      1     42      0      21 (anonymous) ./src/angular/projects/jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.component.spec.ts
-       8      1     32      2       8 constructor ./src/angular/projects/jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.component.ts
+       9      1     37      3       9 constructor ./src/angular/projects/jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.component.ts
        1      1      6      0       1 this.form.valueChanges.pipe ./src/angular/projects/jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.component.ts
        3      1     11      0       3 (anonymous) ./src/angular/projects/jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.component.ts
        1      1      8      1       1 constructor ./src/angular/projects/jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.service.ts
@@ -146,7 +146,7 @@ NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
       0       0.0     0.0        0.0         0     ./src/backend/dummy.cpp
      72      59.0     1.0      568.0         1     ./src/javascript/wasm/bindings-test.cpp
      50      43.0     1.0      441.0         1     ./src/javascript/wasm/bindings-web.cpp
-     18       0.0     0.0        0.0         0     ./src/angular/projects/toolbox/src/lib/translate/translate-ex/translate-ex.service.ts
+     27       0.0     0.0        0.0         0     ./src/angular/projects/toolbox/src/lib/translate/translate-ex/translate-ex.service.ts
      22       7.3     1.0       64.7         3     ./src/angular/projects/toolbox/src/lib/translate/translate-ex/translate-ex.service.spec.ts
      28       4.5     1.0       23.0         4     ./src/angular/projects/toolbox/src/lib/translate/multi-translate-http-loader.ts
      10       0.0     0.0        0.0         0     ./src/angular/projects/toolbox/src/lib/translate/translate-mock.pipe.ts
@@ -159,13 +159,13 @@ NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
      23       0.0     0.0        0.0         0     ./src/angular/projects/toolbox/src/test.ts
       7       0.0     0.0        0.0         0     ./src/angular/projects/toolbox/src/public-api.ts
      34      14.0     1.0       70.0         1     ./src/angular/projects/toolbox/karma.conf.js
-     29      22.0     1.0       87.0         1     ./src/angular/projects/preprocess/preprocess.py
+     36      27.0     2.0      147.0         1     ./src/angular/projects/preprocess/preprocess.py
      11       8.0     5.0       67.0         1     ./src/angular/projects/preprocess/translation.py
       3       0.0     0.0        0.0         0     ./src/angular/projects/app-main/src/environments/environment.prod.ts
       3       0.0     0.0        0.0         0     ./src/angular/projects/app-main/src/environments/environment.ts
      27       6.0     1.0       25.0         4     ./src/angular/projects/app-main/src/app/ui/main/main.component.spec.ts
       7       0.0     0.0        0.0         0     ./src/angular/projects/app-main/src/app/ui/main/main.component.ts
-     21       8.0     1.0       43.0         1     ./src/angular/projects/app-main/src/app/app.component.ts
+     31       8.0     1.0       36.0         1     ./src/angular/projects/app-main/src/app/app.component.ts
      35       6.0     1.0       38.0         1     ./src/angular/projects/app-main/src/app/app.module.ts
       9       0.0     0.0        0.0         0     ./src/angular/projects/app-main/src/app/app-routing.module.ts
      34       7.0     1.0       33.5         4     ./src/angular/projects/app-main/src/app/app.component.spec.ts
@@ -185,7 +185,7 @@ NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
       4       0.0     0.0        0.0         0     ./src/angular/projects/jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.ts
      12       4.0     1.0       18.3         3     ./src/angular/projects/jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.service.spec.ts
      22       5.2     1.0       26.0         4     ./src/angular/projects/jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.component.spec.ts
-     42       4.0     1.0       16.3         3     ./src/angular/projects/jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.component.ts
+     44       4.3     1.0       18.0         3     ./src/angular/projects/jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.component.ts
      21       1.0     1.0        8.0         1     ./src/angular/projects/jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-calc.service.ts
       4       0.0     0.0        0.0         0     ./src/angular/projects/jessica/src/lib/calc/geotechnical/meyerhof-calc/meyerhof-result.ts
      12       4.0     1.0       18.3         3     ./src/angular/projects/jessica/src/lib/web/wasm/jessica-wasm.service.spec.ts
@@ -217,4 +217,4 @@ No thresholds exceeded (cyclomatic_complexity > 15 or length > 1000 or nloc > 10
 ==========================================================================================
 Total nloc   Avg.NLOC  AvgCCN  Avg.token   Fun Cnt  Warning cnt   Fun Rt   nloc Rt
 ------------------------------------------------------------------------------------------
-      1900       6.9     1.0       57.3      133            0      0.00    0.00
+      1928       6.9     1.1       57.7      133            0      0.00    0.00
