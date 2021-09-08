@@ -45,6 +45,7 @@
        3      1     11      0       3 (anonymous) ./src/angular/projects/app-main/src/app/ui/main/main.component.spec.ts
        7      1     42      0      24 (anonymous) ./src/angular/projects/app-main/src/app/ui/main/main.component.spec.ts
        8      1     36      2       8 constructor ./src/angular/projects/app-main/src/app/app.component.ts
+       5      1     28      0       5 import.then ./src/angular/projects/app-main/src/app/app.component.ts
        6      1     38      1       6 createTranslateLoader ./src/angular/projects/app-main/src/app/app.module.ts
       10      1     30      2      10 TranslateModule.forRoot ./src/angular/projects/app-main/src/app/app.component.spec.ts
        5      1     28      0       5 (anonymous) ./src/angular/projects/app-main/src/app/app.component.spec.ts
@@ -103,10 +104,10 @@
        5      1     25      0      12 (anonymous) ./src/angular/projects/jessica/src/lib/jessica.service.spec.ts
       14      1     70      2      14 require.join ./src/angular/projects/jessica/karma.conf.js
        5      1     19      0       5 onBeforeLoad ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
-      17      1    139      1      26 onBeforeLoad ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
-       4      1     14      0      29 (anonymous) ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
+      19      1    160      1      29 onBeforeLoad ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
+       4      1     14      0      32 (anonymous) ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
        5      1     19      0       5 onBeforeLoad ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
-      19      1    153      1      29 onBeforeLoad ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
+      19      1    160      1      29 onBeforeLoad ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
        4      1     14      0      32 (anonymous) ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
        4      1     18      0       4 jessica::JESSICA_DLL_PUBLICVerticalEccentric::f ./include/jessica/data/load/vertical_eccentric.h
        1      1      9      0       1 jessica::JESSICA_DLL_PUBLICVerticalEccentric::f ./include/jessica/data/load/vertical_eccentric.h
@@ -166,7 +167,7 @@ NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
       3       0.0     0.0        0.0         0     ./src/angular/projects/app-main/src/environments/environment.ts
      27       6.0     1.0       25.0         4     ./src/angular/projects/app-main/src/app/ui/main/main.component.spec.ts
       7       0.0     0.0        0.0         0     ./src/angular/projects/app-main/src/app/ui/main/main.component.ts
-     30       8.0     1.0       36.0         1     ./src/angular/projects/app-main/src/app/app.component.ts
+     32       6.5     1.0       32.0         2     ./src/angular/projects/app-main/src/app/app.component.ts
      35       6.0     1.0       38.0         1     ./src/angular/projects/app-main/src/app/app.module.ts
       9       0.0     0.0        0.0         0     ./src/angular/projects/app-main/src/app/app-routing.module.ts
      39       6.8     1.0       34.8         5     ./src/angular/projects/app-main/src/app/app.component.spec.ts
@@ -197,7 +198,7 @@ NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
      23       0.0     0.0        0.0         0     ./src/angular/projects/jessica/src/test.ts
       7       0.0     0.0        0.0         0     ./src/angular/projects/jessica/src/public-api.ts
      46      14.0     1.0       70.0         1     ./src/angular/projects/jessica/karma.conf.js
-     52       9.0     1.0       59.7         6     ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
+     54       9.3     1.0       64.3         6     ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
       7       0.0     0.0        0.0         0     ./src/angular/lighthouserc.js
      49       3.6     1.0       20.8         5     ./include/jessica/data/load/vertical_eccentric.h
      37       3.7     1.0       20.3         3     ./include/jessica/data/geotechnical/foundation_strip.h
@@ -218,4 +219,4 @@ No thresholds exceeded (cyclomatic_complexity > 15 or length > 1000 or nloc > 10
 ==========================================================================================
 Total nloc   Avg.NLOC  AvgCCN  Avg.token   Fun Cnt  Warning cnt   Fun Rt   nloc Rt
 ------------------------------------------------------------------------------------------
-      1945       7.0     1.1       58.1      134            0      0.00    0.00
+      1949       7.0     1.1       58.0      135            0      0.00    0.00
