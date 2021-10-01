@@ -13,21 +13,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "LibJessicaModule": () => (/* binding */ LibJessicaModule),
 /* harmony export */   "LibJessicaService": () => (/* binding */ LibJessicaService),
 /* harmony export */   "MeyerhofCalcComponent": () => (/* binding */ MeyerhofCalcComponent),
+/* harmony export */   "MeyerhofCalcI18n": () => (/* binding */ MeyerhofCalcI18n),
 /* harmony export */   "MeyerhofCalcService": () => (/* binding */ MeyerhofCalcService),
 /* harmony export */   "MeyerhofFormComponent": () => (/* binding */ MeyerhofFormComponent),
 /* harmony export */   "VerticalEccentricFormComponent": () => (/* binding */ VerticalEccentricFormComponent)
 /* harmony export */ });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 7716);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common */ 8583);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ 8583);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ 3679);
-/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ 9790);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ 5435);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ 4395);
-/* harmony import */ var toolbox__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! toolbox */ 6570);
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ngx-translate/core */ 9790);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ 5435);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ 4395);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! tslib */ 4762);
-
-
-
 
 
 
@@ -55,7 +52,7 @@ class FoundationStripFormComponent {
     constructor(fromBuilder) {
         this.fromBuilder = fromBuilder;
         this.foundation = this.fromBuilder.group({
-            width: [null, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__.Validators.required, toolbox__WEBPACK_IMPORTED_MODULE_2__.validNumber]]
+            width: [null, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__.Validators.required]]
         });
     }
     writeValue(val) {
@@ -105,7 +102,7 @@ FoundationStripFormComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORT
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("formGroup", ctx.foundation);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](3, 2, "JESSICA.FONDATION-STRIP.WIDTH"));
-    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.FormGroupDirective, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.FormControlName], pipes: [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__.TranslatePipe], styles: [""] });
+    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.FormGroupDirective, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.FormControlName], pipes: [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__.TranslatePipe], styles: [""] });
 (function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](FoundationStripFormComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Component,
         args: [{
@@ -133,8 +130,8 @@ class VerticalEccentricFormComponent {
     constructor(fromBuilder) {
         this.fromBuilder = fromBuilder;
         this.load = this.fromBuilder.group({
-            load: [null, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__.Validators.required, toolbox__WEBPACK_IMPORTED_MODULE_2__.validNumber]],
-            eccentric: [null, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__.Validators.required, toolbox__WEBPACK_IMPORTED_MODULE_2__.validNumber]]
+            load: [null, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__.Validators.required]],
+            eccentric: [null, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__.Validators.required]]
         });
     }
     writeValue(val) {
@@ -192,7 +189,7 @@ VerticalEccentricFormComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPO
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](3, 3, "JESSICA.VERTICAL-ECCENTRIC.LOAD"));
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](8, 5, "JESSICA.VERTICAL-ECCENTRIC.ECCENTRIC"));
-    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.FormGroupDirective, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.FormControlName], pipes: [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__.TranslatePipe], styles: [""] });
+    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.FormGroupDirective, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.FormControlName], pipes: [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__.TranslatePipe], styles: [""] });
 (function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](VerticalEccentricFormComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Component,
         args: [{
@@ -224,8 +221,8 @@ class MeyerhofFormComponent {
     }
     ngOnInit() {
         this.obs$ = this.form.valueChanges
-            .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_4__.filter)(() => this.form.valid))
-            .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.debounceTime)(200))
+            .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_3__.filter)(() => this.form.valid))
+            .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_4__.debounceTime)(200))
             .subscribe((a) => {
             this.writeValue(a);
         });
@@ -300,6 +297,140 @@ MeyerhofFormComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODU
                 ]
             }]
     }], function () { return [{ type: _angular_forms__WEBPACK_IMPORTED_MODULE_1__.FormBuilder }]; }, null); })();
+
+/* eslint-disable max-len */
+/* eslint-enable max-len */
+class MeyerhofCalcComponent {
+    constructor(fromBuilder) {
+        this.fromBuilder = fromBuilder;
+        this.changeEvent = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.EventEmitter();
+        this.form = this.fromBuilder.group({
+            meyerhof: ['']
+        });
+    }
+    ngOnInit() {
+        this.obs$ = this.form.valueChanges
+            .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_3__.filter)(() => this.form.valid))
+            .subscribe((a) => {
+            this.changeEvent.emit(a);
+        });
+    }
+    ngOnDestroy() {
+        var _a;
+        (_a = this.obs$) === null || _a === void 0 ? void 0 : _a.unsubscribe();
+    }
+    writeValue(val) {
+        val && this.form.setValue(val, { emitEvent: false });
+    }
+    registerOnChange(fn) {
+        this.form.valueChanges.subscribe(fn);
+    }
+    registerOnTouched(fn) {
+        this.onTouched = fn;
+    }
+    setDisabledState(isDisabled) {
+        isDisabled ? this.form.disable() : this.form.enable();
+    }
+}
+MeyerhofCalcComponent.ɵfac = function MeyerhofCalcComponent_Factory(t) { return new (t || MeyerhofCalcComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_1__.FormBuilder)); };
+MeyerhofCalcComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: MeyerhofCalcComponent, selectors: [["lib-meyerhof-calc"]], outputs: { changeEvent: "changeEvent" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([
+            {
+                provide: _angular_forms__WEBPACK_IMPORTED_MODULE_1__.NG_VALUE_ACCESSOR,
+                useExisting: (0,_angular_core__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(() => MeyerhofCalcComponent),
+                multi: true
+            }
+        ])], decls: 5, vars: 4, consts: [[3, "formGroup"], ["ngDefaultControl", "", "formControlName", "meyerhof"]], template: function MeyerhofCalcComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "h1");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](3, "translate");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](4, "lib-meyerhof-form", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    } if (rf & 2) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("formGroup", ctx.form);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](3, 2, "JESSICA.MEYERHOF-CALC-FORM.TITLE"));
+    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.FormGroupDirective, MeyerhofFormComponent, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.FormControlName], pipes: [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__.TranslatePipe], styles: [""] });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MeyerhofCalcComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Component,
+        args: [{
+                selector: 'lib-meyerhof-calc',
+                templateUrl: './meyerhof-calc.component.html',
+                styleUrls: ['./meyerhof-calc.component.css'],
+                providers: [
+                    {
+                        provide: _angular_forms__WEBPACK_IMPORTED_MODULE_1__.NG_VALUE_ACCESSOR,
+                        useExisting: (0,_angular_core__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(() => MeyerhofCalcComponent),
+                        multi: true
+                    }
+                ]
+            }]
+    }], function () { return [{ type: _angular_forms__WEBPACK_IMPORTED_MODULE_1__.FormBuilder }]; }, { changeEvent: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Output
+        }] }); })();
+
+/* eslint-disable max-len */
+/* eslint-enable max-len */
+class LibJessicaModule {
+}
+LibJessicaModule.ɵfac = function LibJessicaModule_Factory(t) { return new (t || LibJessicaModule)(); };
+LibJessicaModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: LibJessicaModule });
+LibJessicaModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_5__.CommonModule, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.FormsModule, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.ReactiveFormsModule, _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__.TranslateModule], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__.TranslateModule] });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](LibJessicaModule, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.NgModule,
+        args: [{
+                declarations: [
+                    MeyerhofFormComponent,
+                    FoundationStripFormComponent,
+                    VerticalEccentricFormComponent,
+                    MeyerhofCalcComponent
+                ],
+                imports: [_angular_common__WEBPACK_IMPORTED_MODULE_5__.CommonModule, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.FormsModule, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.ReactiveFormsModule, _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__.TranslateModule],
+                exports: [
+                    MeyerhofFormComponent,
+                    FoundationStripFormComponent,
+                    VerticalEccentricFormComponent,
+                    MeyerhofCalcComponent,
+                    _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__.TranslateModule
+                ]
+            }]
+    }], null, null); })();
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](LibJessicaModule, { declarations: [MeyerhofFormComponent,
+        FoundationStripFormComponent,
+        VerticalEccentricFormComponent,
+        MeyerhofCalcComponent], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_5__.CommonModule, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.FormsModule, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.ReactiveFormsModule, _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__.TranslateModule], exports: [MeyerhofFormComponent,
+        FoundationStripFormComponent,
+        VerticalEccentricFormComponent,
+        MeyerhofCalcComponent,
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__.TranslateModule] }); })();
+
+class FoundationStripI18n {
+    constructor() {
+        this.number = ['width'];
+    }
+}
+
+class VerticalEccentricI18n {
+    constructor() {
+        this.number = ['load', 'eccentric'];
+    }
+}
+
+class MeyerhofFormI18n {
+    constructor() {
+        this.foundation = new FoundationStripI18n();
+        this.load = new VerticalEccentricI18n();
+        this.child = ['foundation', 'load'];
+    }
+}
+
+class MeyerhofCalcI18n {
+    constructor() {
+        this.meyerhof = new MeyerhofFormI18n();
+        this.child = ['meyerhof'];
+    }
+}
 
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
@@ -1184,8 +1315,8 @@ var jessica = (function () {
                 else {
                     if (outIdx + 3 >= endIdx)
                         break;
-                    if (u >= 0x200000)
-                        warnOnce('Invalid Unicode code point 0x' + u.toString(16) + ' encountered when serializing a JS string to a UTF-8 string in wasm memory! (Valid unicode code points should be in range 0-0x1FFFFF).');
+                    if (u > 0x10FFFF)
+                        warnOnce('Invalid Unicode code point 0x' + u.toString(16) + ' encountered when serializing a JS string to a UTF-8 string in wasm memory! (Valid unicode code points should be in range 0-0x10FFFF).');
                     heap[outIdx++] = 0xF0 | (u >> 18);
                     heap[outIdx++] = 0x80 | ((u >> 12) & 63);
                     heap[outIdx++] = 0x80 | ((u >> 6) & 63);
@@ -3597,9 +3728,9 @@ var jessica = (function () {
         /** @type {function(...*):?} */
         var ___embind_register_native_and_builtin_types = Module["___embind_register_native_and_builtin_types"] = createExportWrapper("__embind_register_native_and_builtin_types");
         /** @type {function(...*):?} */
-        var _malloc = Module["_malloc"] = createExportWrapper("malloc");
-        /** @type {function(...*):?} */
         var ___errno_location = Module["___errno_location"] = createExportWrapper("__errno_location");
+        /** @type {function(...*):?} */
+        var _malloc = Module["_malloc"] = createExportWrapper("malloc");
         /** @type {function(...*):?} */
         var _fflush = Module["_fflush"] = createExportWrapper("fflush");
         /** @type {function(...*):?} */
@@ -4435,10 +4566,10 @@ class MeyerhofCalcService {
     }
     compute(newItem) {
         const ttt = this.wasm.wasm();
-        const foundation = new ttt.FoundationStrip().setB(Number(newItem.foundation.width));
+        const foundation = new ttt.FoundationStrip().setB(newItem.foundation.width);
         const load = new ttt.VerticalEccentric()
-            .setV(Number(newItem.load.load))
-            .setE(Number(newItem.load.eccentric));
+            .setV(newItem.load.load)
+            .setE(newItem.load.eccentric);
         const calc = new ttt.MeyerhofShallowFoundation(load, foundation);
         return { qref: calc.getQref(), b_: calc.getB_() };
     }
@@ -4451,100 +4582,6 @@ MeyerhofCalcService.ɵprov = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODUL
                 providedIn: 'root'
             }]
     }], function () { return [{ type: JessicaWasmService }]; }, null); })();
-
-/* eslint-disable max-len */
-/* eslint-enable max-len */
-class MeyerhofCalcComponent {
-    constructor(calc, fromBuilder, translateEx) {
-        this.calc = calc;
-        this.fromBuilder = fromBuilder;
-        this.translateEx = translateEx;
-        this.form = this.fromBuilder.group({
-            meyerhof: ['']
-        });
-    }
-    compute(newItem) {
-        this.result = this.calc.compute(newItem);
-    }
-    ngOnInit() {
-        this.obs$ = this.form.valueChanges
-            .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_4__.filter)(() => this.form.valid))
-            .subscribe((a) => {
-            this.compute(a.meyerhof);
-        });
-    }
-    ngOnDestroy() {
-        var _a;
-        (_a = this.obs$) === null || _a === void 0 ? void 0 : _a.unsubscribe();
-    }
-    setDisabledState(isDisabled) {
-        isDisabled ? this.form.disable() : this.form.enable();
-    }
-}
-MeyerhofCalcComponent.ɵfac = function MeyerhofCalcComponent_Factory(t) { return new (t || MeyerhofCalcComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](MeyerhofCalcService), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_1__.FormBuilder), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](toolbox__WEBPACK_IMPORTED_MODULE_2__.TranslateExService)); };
-MeyerhofCalcComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: MeyerhofCalcComponent, selectors: [["lib-meyerhof-calc"]], decls: 9, vars: 14, consts: [[3, "formGroup"], ["ngDefaultControl", "", "formControlName", "meyerhof"]], template: function MeyerhofCalcComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "h1");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](3, "translate");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](4, "lib-meyerhof-form", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "div");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](7, "number");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](8, "number");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    } if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("formGroup", ctx.form);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](3, 4, "JESSICA.MEYERHOF-CALC-FORM.TITLE"));
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"](" Form Values: qref: ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind3"](7, 6, ctx.result == null ? null : ctx.result.qref, undefined, ctx.translateEx.language), ", b': ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind3"](8, 10, ctx.result == null ? null : ctx.result.b_, undefined, ctx.translateEx.language), "\n");
-    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.FormGroupDirective, MeyerhofFormComponent, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.FormControlName], pipes: [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__.TranslatePipe, _angular_common__WEBPACK_IMPORTED_MODULE_7__.DecimalPipe], styles: [""] });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MeyerhofCalcComponent, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Component,
-        args: [{
-                selector: 'lib-meyerhof-calc',
-                templateUrl: './meyerhof-calc.component.html',
-                styleUrls: ['./meyerhof-calc.component.css']
-            }]
-    }], function () { return [{ type: MeyerhofCalcService }, { type: _angular_forms__WEBPACK_IMPORTED_MODULE_1__.FormBuilder }, { type: toolbox__WEBPACK_IMPORTED_MODULE_2__.TranslateExService }]; }, null); })();
-
-/* eslint-disable max-len */
-/* eslint-enable max-len */
-class LibJessicaModule {
-}
-LibJessicaModule.ɵfac = function LibJessicaModule_Factory(t) { return new (t || LibJessicaModule)(); };
-LibJessicaModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: LibJessicaModule });
-LibJessicaModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_7__.CommonModule, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.FormsModule, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.ReactiveFormsModule, _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__.TranslateModule], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__.TranslateModule] });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](LibJessicaModule, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.NgModule,
-        args: [{
-                declarations: [
-                    MeyerhofFormComponent,
-                    FoundationStripFormComponent,
-                    VerticalEccentricFormComponent,
-                    MeyerhofCalcComponent
-                ],
-                imports: [_angular_common__WEBPACK_IMPORTED_MODULE_7__.CommonModule, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.FormsModule, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.ReactiveFormsModule, _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__.TranslateModule],
-                exports: [
-                    MeyerhofFormComponent,
-                    FoundationStripFormComponent,
-                    VerticalEccentricFormComponent,
-                    MeyerhofCalcComponent,
-                    _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__.TranslateModule
-                ]
-            }]
-    }], null, null); })();
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](LibJessicaModule, { declarations: [MeyerhofFormComponent,
-        FoundationStripFormComponent,
-        VerticalEccentricFormComponent,
-        MeyerhofCalcComponent], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_7__.CommonModule, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.FormsModule, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.ReactiveFormsModule, _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__.TranslateModule], exports: [MeyerhofFormComponent,
-        FoundationStripFormComponent,
-        VerticalEccentricFormComponent,
-        MeyerhofCalcComponent,
-        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__.TranslateModule] }); })();
 
 /*
  * Public API Surface of jessica
@@ -4574,12 +4611,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ToolboxModule": () => (/* binding */ ToolboxModule),
 /* harmony export */   "ToolboxService": () => (/* binding */ ToolboxService),
 /* harmony export */   "TranslateExService": () => (/* binding */ TranslateExService),
-/* harmony export */   "TranslateMockPipe": () => (/* binding */ TranslateMockPipe),
-/* harmony export */   "validNumber": () => (/* binding */ validNumber)
+/* harmony export */   "TranslateMockPipe": () => (/* binding */ TranslateMockPipe)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 7716);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ 5758);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ 8002);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ 5758);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/operators */ 8002);
+/* harmony import */ var cldr_data_supplemental_likelySubtags_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! cldr-data/supplemental/likelySubtags.json */ 4560);
+/* harmony import */ var cldr_data_supplemental_numberingSystems_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! cldr-data/supplemental/numberingSystems.json */ 3956);
+/* harmony import */ var globalize__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! globalize */ 4167);
+/* harmony import */ var globalize__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(globalize__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var globalize_number__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! globalize/number */ 8691);
+/* harmony import */ var globalize_number__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(globalize_number__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
 
 
 
@@ -4588,9 +4634,9 @@ __webpack_require__.r(__webpack_exports__);
 class ToolboxService {
 }
 ToolboxService.ɵfac = function ToolboxService_Factory(t) { return new (t || ToolboxService)(); };
-ToolboxService.ɵprov = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: ToolboxService, factory: ToolboxService.ɵfac, providedIn: 'root' });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ToolboxService, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Injectable,
+ToolboxService.ɵprov = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineInjectable"]({ token: ToolboxService, factory: ToolboxService.ɵfac, providedIn: 'root' });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵsetClassMetadata"](ToolboxService, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_4__.Injectable,
         args: [{
                 providedIn: 'root'
             }]
@@ -4599,13 +4645,13 @@ ToolboxService.ɵprov = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__
 class ToolboxComponent {
 }
 ToolboxComponent.ɵfac = function ToolboxComponent_Factory(t) { return new (t || ToolboxComponent)(); };
-ToolboxComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ToolboxComponent, selectors: [["lib-toolbox"]], decls: 2, vars: 0, template: function ToolboxComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "toolbox works!");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+ToolboxComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineComponent"]({ type: ToolboxComponent, selectors: [["lib-toolbox"]], decls: 2, vars: 0, template: function ToolboxComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, "toolbox works!");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
     } }, encapsulation: 2 });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ToolboxComponent, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Component,
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵsetClassMetadata"](ToolboxComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_4__.Component,
         args: [{
                 selector: 'lib-toolbox',
                 template: ` <p>toolbox works!</p> `,
@@ -4616,17 +4662,17 @@ ToolboxComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0_
 class ToolboxModule {
 }
 ToolboxModule.ɵfac = function ToolboxModule_Factory(t) { return new (t || ToolboxModule)(); };
-ToolboxModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: ToolboxModule });
-ToolboxModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ imports: [[]] });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ToolboxModule, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.NgModule,
+ToolboxModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineNgModule"]({ type: ToolboxModule });
+ToolboxModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineInjector"]({ imports: [[]] });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵsetClassMetadata"](ToolboxModule, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_4__.NgModule,
         args: [{
                 declarations: [ToolboxComponent],
                 imports: [],
                 exports: [ToolboxComponent]
             }]
     }], null, null); })();
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](ToolboxModule, { declarations: [ToolboxComponent], exports: [ToolboxComponent] }); })();
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵsetNgModuleScope"](ToolboxModule, { declarations: [ToolboxComponent], exports: [ToolboxComponent] }); })();
 
 class MultiTranslateHttpLoader {
     constructor(http, resources = [
@@ -4639,9 +4685,9 @@ class MultiTranslateHttpLoader {
         this.resources = resources;
     }
     getTranslation(lang) {
-        return (0,rxjs__WEBPACK_IMPORTED_MODULE_1__.forkJoin)(this.resources.map((config) => {
+        return (0,rxjs__WEBPACK_IMPORTED_MODULE_5__.forkJoin)(this.resources.map((config) => {
             return this.http.get(`${config.prefix}${lang}${config.suffix}`);
-        })).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.map)((response) => {
+        })).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.map)((response) => {
             return response.reduce((a, b) => {
                 return Object.assign(a, b);
             });
@@ -4653,6 +4699,8 @@ class TranslateExService {
     constructor(languages) {
         this.languages = languages;
         this._language = 'en';
+        this.Globalize = (globalize__WEBPACK_IMPORTED_MODULE_2___default());
+        this.Globalize.load([cldr_data_supplemental_likelySubtags_json__WEBPACK_IMPORTED_MODULE_0__, cldr_data_supplemental_numberingSystems_json__WEBPACK_IMPORTED_MODULE_1__]);
     }
     extractLanguage(language) {
         if (this.languages.indexOf(language) != -1) {
@@ -4670,17 +4718,68 @@ class TranslateExService {
     }
     set language(language) {
         this._language = language;
+        this.Globalize.locale(language);
+        this._numberParser = this.Globalize.numberParser();
+    }
+    get numberParser() {
+        return this._numberParser;
+    }
+    validNumber() {
+        return (control) => {
+            // Before calling isNan, be sure value can't be empty or null.
+            if (isNaN(this._numberParser(control.value))) {
+                return {
+                    validNumber: {
+                        reason: 'invalid number',
+                        value: control.value
+                    }
+                };
+            }
+            return null;
+        };
+    }
+    i18nStringToNumber(obj, i18n, nbParse) {
+        var _a, _b;
+        /* eslint-disable security/detect-object-injection */
+        (_a = i18n.child) === null || _a === void 0 ? void 0 : _a.map((ch) => this.i18nStringToNumber(obj[ch], i18n[ch], nbParse));
+        (_b = i18n.number) === null || _b === void 0 ? void 0 : _b.map((nb) => (obj[nb] = nbParse(obj[nb])));
+        /* eslint-enable security/detect-object-injection */
+    }
+    i18nStringChangeLocale(obj, i18n, from, to) {
+        var _a, _b;
+        let parserFrom;
+        if (typeof from === 'string') {
+            this.Globalize.locale(from);
+            parserFrom = this.Globalize.numberParser();
+        }
+        else {
+            parserFrom = from;
+        }
+        let parserTo;
+        if (typeof to === 'string') {
+            this.Globalize.locale(to);
+            parserTo = this.Globalize.numberFormatter();
+        }
+        else {
+            parserTo = to;
+        }
+        /* eslint-disable security/detect-object-injection */
+        (_a = i18n.child) === null || _a === void 0 ? void 0 : _a.filter((ch) => obj[ch] !== '').map((ch) => this.i18nStringChangeLocale(obj[ch], i18n[ch], parserFrom, parserTo));
+        (_b = i18n.number) === null || _b === void 0 ? void 0 : _b.filter((nb) => obj[nb] !== null &&
+            obj[nb] !== '' &&
+            !Number.isNaN(parserFrom(obj[nb]))).map((nb) => (obj[nb] = parserTo(parserFrom(obj[nb]))));
+        /* eslint-enable security/detect-object-injection */
     }
 }
-TranslateExService.ɵfac = function TranslateExService_Factory(t) { return new (t || TranslateExService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"]('languages')); };
-TranslateExService.ɵprov = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: TranslateExService, factory: TranslateExService.ɵfac, providedIn: 'root' });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](TranslateExService, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Injectable,
+TranslateExService.ɵfac = function TranslateExService_Factory(t) { return new (t || TranslateExService)(_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵinject"]('languages')); };
+TranslateExService.ɵprov = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineInjectable"]({ token: TranslateExService, factory: TranslateExService.ɵfac, providedIn: 'root' });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵsetClassMetadata"](TranslateExService, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_4__.Injectable,
         args: [{
                 providedIn: 'root'
             }]
     }], function () { return [{ type: undefined, decorators: [{
-                type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Inject,
+                type: _angular_core__WEBPACK_IMPORTED_MODULE_4__.Inject,
                 args: ['languages']
             }] }]; }, null); })();
 
@@ -4693,26 +4792,13 @@ class TranslateMockPipe {
     }
 }
 TranslateMockPipe.ɵfac = function TranslateMockPipe_Factory(t) { return new (t || TranslateMockPipe)(); };
-TranslateMockPipe.ɵpipe = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefinePipe"]({ name: "translate", type: TranslateMockPipe, pure: true });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](TranslateMockPipe, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Pipe,
+TranslateMockPipe.ɵpipe = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefinePipe"]({ name: "translate", type: TranslateMockPipe, pure: true });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵsetClassMetadata"](TranslateMockPipe, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_4__.Pipe,
         args: [{
                 name: 'translate'
             }]
     }], null, null); })();
-
-const validNumber = (control) => {
-    // Before calling isNan, be sure value can't be empty or null.
-    if (isNaN(Number(control.value))) {
-        return {
-            validNumber: {
-                reason: 'invalid number',
-                value: control.value
-            }
-        };
-    }
-    return null;
-};
 
 /*
  * Public API Surface of toolbox
@@ -4767,12 +4853,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AppComponent": () => (/* binding */ AppComponent)
 /* harmony export */ });
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 8583);
-/* harmony import */ var toolbox__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! toolbox */ 6570);
-/* harmony import */ var _util_translate_all_lang_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./util/translate/all-lang.json */ 2529);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 7716);
-/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ 9790);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ 9895);
+/* harmony import */ var _home_runner_work_jessica_jessica_src_angular_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ 6304);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ 8583);
+/* harmony import */ var toolbox__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! toolbox */ 6570);
+/* harmony import */ var _util_translate_all_lang_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./util/translate/all-lang.json */ 2529);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngx-translate/core */ 9790);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ 9895);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ 3679);
 
 
 
@@ -4781,58 +4869,106 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function AppComponent_option_7_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "option", 4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-} if (rf & 2) {
+
+
+
+function AppComponent_option_7_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "option", 4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+  }
+
+  if (rf & 2) {
     const lang_r2 = ctx.$implicit;
-    const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("value", lang_r2)("selected", lang_r2 == ctx_r1.translate.currentLang);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" ", lang_r2, " ");
-} }
-class AppComponent {
-    translate;
-    translateEx;
-    title = 'app-main';
-    constructor(translate, translateEx) {
-        this.translate = translate;
-        this.translateEx = translateEx;
-        translate.addLangs(_util_translate_all_lang_json__WEBPACK_IMPORTED_MODULE_0__);
-        translate.setDefaultLang('en');
-        this.changeLanguage(navigator.language);
-    }
-    changeLanguage(language) {
-        const selectedLang = this.translateEx.extractLanguage(language);
-        __webpack_require__(1187)("./" + selectedLang).then((locale) => {
-            (0,_angular_common__WEBPACK_IMPORTED_MODULE_2__.registerLocaleData)(locale.default, selectedLang);
-            this.translate.use(selectedLang);
-            this.translateEx.language = selectedLang;
-        });
-    }
-    static ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__.TranslateService), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](toolbox__WEBPACK_IMPORTED_MODULE_4__.TranslateExService)); };
-    static ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵProvidersFeature"]([toolbox__WEBPACK_IMPORTED_MODULE_4__.TranslateExService, { provide: 'languages', useValue: _util_translate_all_lang_json__WEBPACK_IMPORTED_MODULE_0__ }])], decls: 8, vars: 4, consts: [["for", "language"], ["id", "language", 3, "change"], ["langSelect", ""], [3, "value", "selected", 4, "ngFor", "ngForOf"], [3, "value", "selected"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
-            const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "main");
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](1, "router-outlet");
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "label", 0);
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](3);
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpipe"](4, "translate");
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](5, "select", 1, 2);
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("change", function AppComponent_Template_select_change_5_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r3); const _r0 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵreference"](6); return ctx.changeLanguage(_r0.value); });
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](7, AppComponent_option_7_Template, 2, 3, "option", 3);
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        } if (rf & 2) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpipeBind1"](4, 2, "ROOT.LANGUAGE"));
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](4);
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngForOf", ctx.translate.getLangs());
-        } }, directives: [_angular_router__WEBPACK_IMPORTED_MODULE_5__.RouterOutlet, _angular_common__WEBPACK_IMPORTED_MODULE_2__.NgForOf], pipes: [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__.TranslatePipe], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhcHAuY29tcG9uZW50LmNzcyJ9 */"] });
+    const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("value", lang_r2)("selected", lang_r2 == ctx_r1.translate.currentLang);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"](" ", lang_r2, " ");
+  }
 }
 
+class AppComponent {
+  translate;
+  translateEx;
+  title = 'app-main';
+
+  constructor(translate, translateEx) {
+    this.translate = translate;
+    this.translateEx = translateEx;
+    translate.addLangs(_util_translate_all_lang_json__WEBPACK_IMPORTED_MODULE_1__);
+    translate.setDefaultLang('en');
+    this.changeLanguage(navigator.language);
+  }
+
+  changeLanguage(language) {
+    var _this = this;
+
+    return (0,_home_runner_work_jessica_jessica_src_angular_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)(function* () {
+      const selectedLang = _this.translateEx.extractLanguage(language);
+
+      const locale = yield __webpack_require__(1187)("./" + selectedLang);
+      (0,_angular_common__WEBPACK_IMPORTED_MODULE_3__.registerLocaleData)(locale.default, selectedLang);
+      const cldrLocale = yield __webpack_require__(2691)("./" + selectedLang + "/numbers.json");
+
+      _this.translateEx.Globalize.load(cldrLocale.default);
+
+      _this.translate.use(selectedLang); // Subscribers to onLangChange may be called before or after the next
+      // line.
+
+
+      _this.translateEx.language = selectedLang;
+    })();
+  }
+
+  static ɵfac = function AppComponent_Factory(t) {
+    return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__.TranslateService), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](toolbox__WEBPACK_IMPORTED_MODULE_5__.TranslateExService));
+  };
+  static ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({
+    type: AppComponent,
+    selectors: [["app-root"]],
+    features: [_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵProvidersFeature"]([toolbox__WEBPACK_IMPORTED_MODULE_5__.TranslateExService, {
+      provide: 'languages',
+      useValue: _util_translate_all_lang_json__WEBPACK_IMPORTED_MODULE_1__
+    }])],
+    decls: 8,
+    vars: 4,
+    consts: [["for", "language"], ["id", "language", 3, "change"], ["langSelect", ""], [3, "value", "selected", 4, "ngFor", "ngForOf"], [3, "value", "selected"]],
+    template: function AppComponent_Template(rf, ctx) {
+      if (rf & 1) {
+        const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵgetCurrentView"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "main");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](1, "router-outlet");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](2, "label", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpipe"](4, "translate");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](5, "select", 1, 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("change", function AppComponent_Template_select_change_5_listener() {
+          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵrestoreView"](_r3);
+
+          const _r0 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵreference"](6);
+
+          return ctx.changeLanguage(_r0.value);
+        });
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](7, AppComponent_option_7_Template, 2, 3, "option", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpipeBind1"](4, 2, "ROOT.LANGUAGE"));
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngForOf", ctx.translate.getLangs());
+      }
+    },
+    directives: [_angular_router__WEBPACK_IMPORTED_MODULE_6__.RouterOutlet, _angular_common__WEBPACK_IMPORTED_MODULE_3__.NgForOf, _angular_forms__WEBPACK_IMPORTED_MODULE_7__.NgSelectOption, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["ɵNgSelectMultipleOption"]],
+    pipes: [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__.TranslatePipe],
+    styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhcHAuY29tcG9uZW50LmNzcyJ9 */"]
+  });
+}
 
 /***/ }),
 
@@ -4849,6 +4985,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "AppModule": () => (/* binding */ AppModule)
 /* harmony export */ });
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common/http */ 1841);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/forms */ 3679);
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser */ 9075);
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ngx-translate/core */ 9790);
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app-routing.module */ 6331);
@@ -4858,6 +4995,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var toolbox__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! toolbox */ 6570);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 7716);
 /* eslint-disable max-len */
+
 
 
 
@@ -4890,13 +5028,14 @@ class AppModule {
                         deps: [_angular_common_http__WEBPACK_IMPORTED_MODULE_6__.HttpClient]
                     },
                     defaultLanguage: 'en'
-                })
+                }),
+                _angular_forms__WEBPACK_IMPORTED_MODULE_9__.ReactiveFormsModule
             ]] });
 }
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_1__.AppComponent, _ui_main_main_component__WEBPACK_IMPORTED_MODULE_2__.MainComponent], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__.BrowserModule,
         _angular_common_http__WEBPACK_IMPORTED_MODULE_6__.HttpClientModule,
         _app_routing_module__WEBPACK_IMPORTED_MODULE_0__.AppRoutingModule,
-        jessica__WEBPACK_IMPORTED_MODULE_7__.LibJessicaModule, _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__.TranslateModule] }); })();
+        jessica__WEBPACK_IMPORTED_MODULE_7__.LibJessicaModule, _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__.TranslateModule, _angular_forms__WEBPACK_IMPORTED_MODULE_9__.ReactiveFormsModule] }); })();
 
 
 /***/ }),
@@ -4912,21 +5051,81 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "MainComponent": () => (/* binding */ MainComponent)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var lodash_es__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash-es */ 1074);
 /* harmony import */ var jessica__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jessica */ 2466);
-/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ngx-translate/core */ 9790);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ 9790);
+/* harmony import */ var toolbox__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! toolbox */ 6570);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ 3679);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ 8583);
+
+
+
+
+
 
 
 
 class MainComponent {
-    static ɵfac = function MainComponent_Factory(t) { return new (t || MainComponent)(); };
-    static ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: MainComponent, selectors: [["app-main"]], decls: 3, vars: 3, template: function MainComponent_Template(rf, ctx) { if (rf & 1) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](0);
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](1, "translate");
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "lib-meyerhof-calc");
+    calc;
+    translate;
+    translateEx;
+    fromBuilder;
+    result;
+    form;
+    _lang;
+    constructor(calc, translate, translateEx, fromBuilder) {
+        this.calc = calc;
+        this.translate = translate;
+        this.translateEx = translateEx;
+        this.fromBuilder = fromBuilder;
+        this.form = this.fromBuilder.group({
+            child: ['']
+        });
+        this.translate.onLangChange
+            // Convert from this.translateEx.language to event.lang
+            .subscribe((event) => {
+            if (this._lang === undefined) {
+                this._lang = event.lang;
+                return;
+            }
+            if (this.form.controls.child.value === '') {
+                return;
+            }
+            const formCalcStr = (0,lodash_es__WEBPACK_IMPORTED_MODULE_0__.default)(this.form.controls.child.value);
+            this.translateEx.i18nStringChangeLocale(formCalcStr, new jessica__WEBPACK_IMPORTED_MODULE_1__.MeyerhofCalcI18n(), this._lang, event.lang);
+            const formCalcNum = formCalcStr;
+            this.form.controls.child.setValue(formCalcNum);
+            this._lang = event.lang;
+        });
+    }
+    compute(newItem) {
+        const formCalcStr = (0,lodash_es__WEBPACK_IMPORTED_MODULE_0__.default)(newItem);
+        this.translateEx.i18nStringToNumber(formCalcStr, new jessica__WEBPACK_IMPORTED_MODULE_1__.MeyerhofCalcI18n(), this.translateEx.numberParser);
+        const formCalcNum = formCalcStr;
+        this.result = this.calc.compute(formCalcNum.meyerhof);
+    }
+    static ɵfac = function MainComponent_Factory(t) { return new (t || MainComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](jessica__WEBPACK_IMPORTED_MODULE_1__.MeyerhofCalcService), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__.TranslateService), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](toolbox__WEBPACK_IMPORTED_MODULE_4__.TranslateExService), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_5__.FormBuilder)); };
+    static ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: MainComponent, selectors: [["app-main"]], decls: 8, vars: 14, consts: [[3, "formGroup"], ["ngDefaultControl", "", "formControlName", "child", 3, "changeEvent"]], template: function MainComponent_Template(rf, ctx) { if (rf & 1) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](0);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpipe"](1, "translate");
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](2, "form", 0);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](3, "lib-meyerhof-calc", 1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("changeEvent", function MainComponent_Template_lib_meyerhof_calc_changeEvent_3_listener($event) { return ctx.compute($event); });
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](4, "div");
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](5);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpipe"](6, "number");
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpipe"](7, "number");
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         } if (rf & 2) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](1, 1, "HOME.TITLE"), "\n");
-        } }, directives: [jessica__WEBPACK_IMPORTED_MODULE_1__.MeyerhofCalcComponent], pipes: [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__.TranslatePipe], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJtYWluLmNvbXBvbmVudC5jc3MifQ== */"] });
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"]("", _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpipeBind1"](1, 4, "HOME.TITLE"), "\n");
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](2);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("formGroup", ctx.form);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](3);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate2"](" Form Values: qref: ", _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpipeBind3"](6, 6, ctx.result == null ? null : ctx.result.qref, undefined, ctx.translateEx.language), ", b': ", _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpipeBind3"](7, 10, ctx.result == null ? null : ctx.result.b_, undefined, ctx.translateEx.language), "\n");
+        } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.FormGroupDirective, jessica__WEBPACK_IMPORTED_MODULE_1__.MeyerhofCalcComponent, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.FormControlName], pipes: [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__.TranslatePipe, _angular_common__WEBPACK_IMPORTED_MODULE_6__.DecimalPipe], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJtYWluLmNvbXBvbmVudC5jc3MifQ== */"] });
 }
 
 
@@ -5048,6 +5247,42 @@ function webpackAsyncContext(req) {
 }
 webpackAsyncContext.keys = () => (Object.keys(map));
 webpackAsyncContext.id = 1187;
+module.exports = webpackAsyncContext;
+
+/***/ }),
+
+/***/ 2691:
+/*!***********************************************************************************************************************!*\
+  !*** ./node_modules/cldr-data/main/ lazy ^\.\/.*\/numbers\.json$ include: main.(en|fr).numbers.json namespace object ***!
+  \***********************************************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var map = {
+	"./en/numbers.json": [
+		3492,
+		"node_modules_cldr-data_main_en_numbers_json"
+	],
+	"./fr/numbers.json": [
+		663,
+		"node_modules_cldr-data_main_fr_numbers_json"
+	]
+};
+function webpackAsyncContext(req) {
+	if(!__webpack_require__.o(map, req)) {
+		return Promise.resolve().then(() => {
+			var e = new Error("Cannot find module '" + req + "'");
+			e.code = 'MODULE_NOT_FOUND';
+			throw e;
+		});
+	}
+
+	var ids = map[req], id = ids[0];
+	return __webpack_require__.e(ids[1]).then(() => {
+		return __webpack_require__.t(id, 3 | 16);
+	});
+}
+webpackAsyncContext.keys = () => (Object.keys(map));
+webpackAsyncContext.id = 2691;
 module.exports = webpackAsyncContext;
 
 /***/ }),
