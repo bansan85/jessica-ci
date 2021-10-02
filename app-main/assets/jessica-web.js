@@ -173,6 +173,22 @@ var read_,
     readBinary,
     setWindowTitle;
 
+// Normally we don't log exceptions but instead let them bubble out the top
+// level where the embedding environment (e.g. the browser) can handle
+// them.
+// However under v8 and node we sometimes exit the process direcly in which case
+// its up to use us to log the exception before exiting.
+// If we fix https://github.com/emscripten-core/emscripten/issues/15080
+// this may no longer be needed under node.
+function logExceptionOnExit(e) {
+  if (e instanceof ExitStatus) return;
+  var toLog = e;
+  if (e && typeof e === 'object' && e.stack) {
+    toLog = [e, e.stack];
+  }
+  err('exiting due to exception: ' + toLog);
+}
+
 if (ENVIRONMENT_IS_SHELL) {
 
   if ((typeof process === 'object' && typeof require === 'function') || typeof window === 'object' || typeof importScripts === 'function') throw new Error('not compiled for this environment (did you build to HTML and try to run it not on the web, or set ENVIRONMENT to something - like node - and run it someplace else - like on the web?)');
@@ -204,7 +220,8 @@ if (ENVIRONMENT_IS_SHELL) {
   }
 
   if (typeof quit === 'function') {
-    quit_ = function(status) {
+    quit_ = function(status, toThrow) {
+      logExceptionOnExit(toThrow);
       quit(status);
     };
   }
@@ -236,8 +253,10 @@ if (ENVIRONMENT_IS_WEB || ENVIRONMENT_IS_WORKER) {
   // otherwise, slice off the final part of the url to find the script directory.
   // if scriptDirectory does not contain a slash, lastIndexOf will return -1,
   // and scriptDirectory will correctly be replaced with an empty string.
+  // If scriptDirectory contains a query (starting with ?) or a fragment (starting with #),
+  // they are removed because they could contain a slash.
   if (scriptDirectory.indexOf('blob:') !== 0) {
-    scriptDirectory = scriptDirectory.substr(0, scriptDirectory.lastIndexOf('/')+1);
+    scriptDirectory = scriptDirectory.substr(0, scriptDirectory.replace(/[?#].*/, "").lastIndexOf('/')+1);
   } else {
     scriptDirectory = '';
   }
@@ -1492,14 +1511,13 @@ function abort(what) {
     }
   }
 
-  what += '';
+  what = 'Aborted(' + what + ')';
+  // TODO(sbc): Should we remove printing and leave it up to whoever
+  // catches the exception?
   err(what);
 
   ABORT = true;
   EXITSTATUS = 1;
-
-  var output = 'abort(' + what + ') at ' + stackTrace();
-  what = output;
 
   // Use a wasm runtime error, because a JS error might be seen as a foreign
   // exception, which means we'd run destructors on it. We need the error to
@@ -1811,12 +1829,6 @@ var ASM_CONSTS = {
       if (e instanceof ExitStatus || e == 'unwind') {
         return EXITSTATUS;
       }
-      // Anything else is an unexpected exception and we treat it as hard error.
-      var toLog = e;
-      if (e && typeof e === 'object' && e.stack) {
-        toLog = [e, e.stack];
-      }
-      err('exception thrown: ' + toLog);
       quit_(1, e);
     }
 
@@ -3630,7 +3642,7 @@ var ASM_CONSTS = {
     }
 
   function _abort() {
-      abort();
+      abort('native code called abort()');
     }
 
   function _emscripten_memcpy_big(dest, src, num) {
@@ -3832,7 +3844,6 @@ if (!Object.getOwnPropertyDescriptor(Module, "Sockets")) Module["Sockets"] = fun
 if (!Object.getOwnPropertyDescriptor(Module, "getRandomDevice")) Module["getRandomDevice"] = function() { abort("'getRandomDevice' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)") };
 if (!Object.getOwnPropertyDescriptor(Module, "traverseStack")) Module["traverseStack"] = function() { abort("'traverseStack' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)") };
 if (!Object.getOwnPropertyDescriptor(Module, "UNWIND_CACHE")) Module["UNWIND_CACHE"] = function() { abort("'UNWIND_CACHE' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)") };
-if (!Object.getOwnPropertyDescriptor(Module, "withBuiltinMalloc")) Module["withBuiltinMalloc"] = function() { abort("'withBuiltinMalloc' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)") };
 if (!Object.getOwnPropertyDescriptor(Module, "readAsmConstArgsArray")) Module["readAsmConstArgsArray"] = function() { abort("'readAsmConstArgsArray' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)") };
 if (!Object.getOwnPropertyDescriptor(Module, "readAsmConstArgs")) Module["readAsmConstArgs"] = function() { abort("'readAsmConstArgs' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)") };
 if (!Object.getOwnPropertyDescriptor(Module, "mainThreadEM_ASM")) Module["mainThreadEM_ASM"] = function() { abort("'mainThreadEM_ASM' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)") };
@@ -3910,6 +3921,8 @@ if (!Object.getOwnPropertyDescriptor(Module, "battery")) Module["battery"] = fun
 if (!Object.getOwnPropertyDescriptor(Module, "registerBatteryEventCallback")) Module["registerBatteryEventCallback"] = function() { abort("'registerBatteryEventCallback' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)") };
 if (!Object.getOwnPropertyDescriptor(Module, "setCanvasElementSize")) Module["setCanvasElementSize"] = function() { abort("'setCanvasElementSize' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)") };
 if (!Object.getOwnPropertyDescriptor(Module, "getCanvasElementSize")) Module["getCanvasElementSize"] = function() { abort("'getCanvasElementSize' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)") };
+if (!Object.getOwnPropertyDescriptor(Module, "setImmediateWrapped")) Module["setImmediateWrapped"] = function() { abort("'setImmediateWrapped' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)") };
+if (!Object.getOwnPropertyDescriptor(Module, "clearImmediateWrapped")) Module["clearImmediateWrapped"] = function() { abort("'clearImmediateWrapped' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)") };
 if (!Object.getOwnPropertyDescriptor(Module, "polyfillSetImmediate")) Module["polyfillSetImmediate"] = function() { abort("'polyfillSetImmediate' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)") };
 if (!Object.getOwnPropertyDescriptor(Module, "demangle")) Module["demangle"] = function() { abort("'demangle' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)") };
 if (!Object.getOwnPropertyDescriptor(Module, "demangleAll")) Module["demangleAll"] = function() { abort("'demangleAll' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)") };

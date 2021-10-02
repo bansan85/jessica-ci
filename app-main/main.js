@@ -595,6 +595,22 @@ var jessica = (function () {
         }
         // Hooks that are implemented differently in different runtime environments.
         var read_, readAsync, readBinary, setWindowTitle;
+        // Normally we don't log exceptions but instead let them bubble out the top
+        // level where the embedding environment (e.g. the browser) can handle
+        // them.
+        // However under v8 and node we sometimes exit the process direcly in which case
+        // its up to use us to log the exception before exiting.
+        // If we fix https://github.com/emscripten-core/emscripten/issues/15080
+        // this may no longer be needed under node.
+        function logExceptionOnExit(e) {
+            if (e instanceof ExitStatus)
+                return;
+            var toLog = e;
+            if (e && typeof e === 'object' && e.stack) {
+                toLog = [e, e.stack];
+            }
+            err('exiting due to exception: ' + toLog);
+        }
         if (ENVIRONMENT_IS_SHELL) {
             if ((typeof process === 'object' && typeof commonjsRequire === 'function') || typeof window === 'object' || typeof importScripts === 'function')
                 throw new Error('not compiled for this environment (did you build to HTML and try to run it not on the web, or set ENVIRONMENT to something - like node - and run it someplace else - like on the web?)');
@@ -622,7 +638,8 @@ var jessica = (function () {
                 arguments_ = arguments;
             }
             if (typeof quit === 'function') {
-                quit_ = function (status) {
+                quit_ = function (status, toThrow) {
+                    logExceptionOnExit(toThrow);
                     quit(status);
                 };
             }
@@ -654,8 +671,10 @@ var jessica = (function () {
             // otherwise, slice off the final part of the url to find the script directory.
             // if scriptDirectory does not contain a slash, lastIndexOf will return -1,
             // and scriptDirectory will correctly be replaced with an empty string.
+            // If scriptDirectory contains a query (starting with ?) or a fragment (starting with #),
+            // they are removed because they could contain a slash.
             if (scriptDirectory.indexOf('blob:') !== 0) {
-                scriptDirectory = scriptDirectory.substr(0, scriptDirectory.lastIndexOf('/') + 1);
+                scriptDirectory = scriptDirectory.substr(0, scriptDirectory.replace(/[?#].*/, "").lastIndexOf('/') + 1);
             }
             else {
                 scriptDirectory = '';
@@ -1811,12 +1830,12 @@ var jessica = (function () {
                     Module['onAbort'](what);
                 }
             }
-            what += '';
+            what = 'Aborted(' + what + ')';
+            // TODO(sbc): Should we remove printing and leave it up to whoever
+            // catches the exception?
             err(what);
             ABORT = true;
             EXITSTATUS = 1;
-            var output = 'abort(' + what + ') at ' + stackTrace();
-            what = output;
             // Use a wasm runtime error, because a JS error might be seen as a foreign
             // exception, which means we'd run destructors on it. We need the error to
             // simply make the program stop.
@@ -2088,12 +2107,6 @@ var jessica = (function () {
             if (e instanceof ExitStatus || e == 'unwind') {
                 return EXITSTATUS;
             }
-            // Anything else is an unexpected exception and we treat it as hard error.
-            var toLog = e;
-            if (e && typeof e === 'object' && e.stack) {
-                toLog = [e, e.stack];
-            }
-            err('exception thrown: ' + toLog);
             quit_(1, e);
         }
         function jsStackTrace() {
@@ -3646,7 +3659,7 @@ var jessica = (function () {
             return __emval_register(v);
         }
         function _abort() {
-            abort();
+            abort('native code called abort()');
         }
         function _emscripten_memcpy_big(dest, src, num) {
             HEAPU8.copyWithin(dest, src, src + num);
@@ -3898,8 +3911,6 @@ var jessica = (function () {
             Module["traverseStack"] = function () { abort("'traverseStack' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
         if (!Object.getOwnPropertyDescriptor(Module, "UNWIND_CACHE"))
             Module["UNWIND_CACHE"] = function () { abort("'UNWIND_CACHE' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
-        if (!Object.getOwnPropertyDescriptor(Module, "withBuiltinMalloc"))
-            Module["withBuiltinMalloc"] = function () { abort("'withBuiltinMalloc' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
         if (!Object.getOwnPropertyDescriptor(Module, "readAsmConstArgsArray"))
             Module["readAsmConstArgsArray"] = function () { abort("'readAsmConstArgsArray' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
         if (!Object.getOwnPropertyDescriptor(Module, "readAsmConstArgs"))
@@ -4054,6 +4065,10 @@ var jessica = (function () {
             Module["setCanvasElementSize"] = function () { abort("'setCanvasElementSize' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
         if (!Object.getOwnPropertyDescriptor(Module, "getCanvasElementSize"))
             Module["getCanvasElementSize"] = function () { abort("'getCanvasElementSize' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
+        if (!Object.getOwnPropertyDescriptor(Module, "setImmediateWrapped"))
+            Module["setImmediateWrapped"] = function () { abort("'setImmediateWrapped' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
+        if (!Object.getOwnPropertyDescriptor(Module, "clearImmediateWrapped"))
+            Module["clearImmediateWrapped"] = function () { abort("'clearImmediateWrapped' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
         if (!Object.getOwnPropertyDescriptor(Module, "polyfillSetImmediate"))
             Module["polyfillSetImmediate"] = function () { abort("'polyfillSetImmediate' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
         if (!Object.getOwnPropertyDescriptor(Module, "demangle"))
