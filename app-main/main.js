@@ -1,9 +1,9 @@
 (self["webpackChunkangular"] = self["webpackChunkangular"] || []).push([["main"],{
 
-/***/ 6664:
-/*!******************************************!*\
-  !*** ./dist/jessica/fesm2015/jessica.js ***!
-  \******************************************/
+/***/ 4102:
+/*!***************************************************!*\
+  !*** ./projects/jessica/dist/fesm2015/jessica.js ***!
+  \***************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -18,13 +18,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "MeyerhofFormComponent": () => (/* binding */ MeyerhofFormComponent),
 /* harmony export */   "VerticalEccentricFormComponent": () => (/* binding */ VerticalEccentricFormComponent)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 2316);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ 4364);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ 1707);
-/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ngx-translate/core */ 325);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ 6477);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ 1775);
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! tslib */ 3786);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 8449);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ 3750);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ 5031);
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ngx-translate/core */ 293);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ 680);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ 6129);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! tslib */ 6085);
 
 
 
@@ -4612,10 +4612,10 @@ MeyerhofCalcService.ɵprov = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODUL
 
 /***/ }),
 
-/***/ 9634:
-/*!******************************************!*\
-  !*** ./dist/toolbox/fesm2015/toolbox.js ***!
-  \******************************************/
+/***/ 560:
+/*!***************************************************!*\
+  !*** ./projects/toolbox/dist/fesm2015/toolbox.js ***!
+  \***************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4628,14 +4628,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "TranslateExService": () => (/* binding */ TranslateExService),
 /* harmony export */   "TranslateMockPipe": () => (/* binding */ TranslateMockPipe)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 2316);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ 2185);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/operators */ 9005);
-/* harmony import */ var cldr_data_supplemental_likelySubtags_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! cldr-data/supplemental/likelySubtags.json */ 6933);
-/* harmony import */ var cldr_data_supplemental_numberingSystems_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! cldr-data/supplemental/numberingSystems.json */ 5360);
-/* harmony import */ var globalize__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! globalize */ 9743);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 8449);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ 7033);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/operators */ 7415);
+/* harmony import */ var cldr_data_supplemental_likelySubtags_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! cldr-data/supplemental/likelySubtags.json */ 6956);
+/* harmony import */ var cldr_data_supplemental_numberingSystems_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! cldr-data/supplemental/numberingSystems.json */ 6111);
+/* harmony import */ var globalize__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! globalize */ 397);
 /* harmony import */ var globalize__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(globalize__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var globalize_number__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! globalize/number */ 185);
+/* harmony import */ var globalize_number__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! globalize/number */ 1169);
 /* harmony import */ var globalize_number__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(globalize_number__WEBPACK_IMPORTED_MODULE_3__);
 
 
@@ -4714,7 +4714,7 @@ class TranslateExService {
     constructor(languages) {
         this.languages = languages;
         this._language = 'en';
-        this.Globalize = (globalize__WEBPACK_IMPORTED_MODULE_2___default());
+        this.Globalize = globalize__WEBPACK_IMPORTED_MODULE_2__;
         this.Globalize.load([cldr_data_supplemental_likelySubtags_json__WEBPACK_IMPORTED_MODULE_0__, cldr_data_supplemental_numberingSystems_json__WEBPACK_IMPORTED_MODULE_1__]);
     }
     extractLanguage(language) {
@@ -4839,9 +4839,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AppRoutingModule": () => (/* binding */ AppRoutingModule)
 /* harmony export */ });
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ 1258);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ 7458);
 /* harmony import */ var _ui_main_main_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ui/main/main.component */ 114);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 2316);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 8449);
 
 
 
@@ -4869,13 +4869,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "AppComponent": () => (/* binding */ AppComponent)
 /* harmony export */ });
 /* harmony import */ var _home_runner_work_jessica_jessica_src_angular_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator */ 9369);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ 4364);
-/* harmony import */ var toolbox__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! toolbox */ 9634);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ 3750);
+/* harmony import */ var toolbox__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! toolbox */ 560);
 /* harmony import */ var _util_translate_all_lang_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./util/translate/all-lang.json */ 4074);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 2316);
-/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngx-translate/core */ 325);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ 1258);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ 1707);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 8449);
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngx-translate/core */ 293);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ 7458);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ 5031);
 
 
 
@@ -4922,9 +4922,9 @@ class AppComponent {
     return (0,_home_runner_work_jessica_jessica_src_angular_node_modules_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)(function* () {
       const selectedLang = _this.translateEx.extractLanguage(language);
 
-      const locale = yield __webpack_require__(1187)("./" + selectedLang);
+      const locale = yield __webpack_require__(2216)("./" + selectedLang);
       (0,_angular_common__WEBPACK_IMPORTED_MODULE_3__.registerLocaleData)(locale.default, selectedLang);
-      const cldrLocale = yield __webpack_require__(2691)("./" + selectedLang + "/numbers.json");
+      const cldrLocale = yield __webpack_require__(1944)("./" + selectedLang + "/numbers.json");
 
       _this.translateEx.Globalize.load(cldrLocale.default);
 
@@ -4999,16 +4999,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "createTranslateLoader": () => (/* binding */ createTranslateLoader),
 /* harmony export */   "AppModule": () => (/* binding */ AppModule)
 /* harmony export */ });
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common/http */ 1037);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/forms */ 1707);
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser */ 1570);
-/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ngx-translate/core */ 325);
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common/http */ 2317);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/forms */ 5031);
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser */ 3956);
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ngx-translate/core */ 293);
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app-routing.module */ 6331);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app.component */ 5840);
 /* harmony import */ var _ui_main_main_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ui/main/main.component */ 114);
-/* harmony import */ var jessica__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! jessica */ 6664);
-/* harmony import */ var toolbox__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! toolbox */ 9634);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 2316);
+/* harmony import */ var jessica__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! jessica */ 4102);
+/* harmony import */ var toolbox__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! toolbox */ 560);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 8449);
 /* eslint-disable max-len */
 
 
@@ -5066,13 +5066,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "MainComponent": () => (/* binding */ MainComponent)
 /* harmony export */ });
-/* harmony import */ var lodash_es__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash-es */ 6250);
-/* harmony import */ var jessica__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jessica */ 6664);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 2316);
-/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ 325);
-/* harmony import */ var toolbox__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! toolbox */ 9634);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ 1707);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ 4364);
+/* harmony import */ var lodash_es__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash-es */ 8348);
+/* harmony import */ var jessica__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jessica */ 4102);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 8449);
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ 293);
+/* harmony import */ var toolbox__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! toolbox */ 560);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ 5031);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ 3750);
 
 
 
@@ -5172,8 +5172,8 @@ const environment = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser */ 1570);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 2316);
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser */ 3956);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 8449);
 /* harmony import */ var _app_app_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app/app.module */ 4815);
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./environments/environment */ 1783);
 
@@ -5187,118 +5187,6 @@ _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__.platformBrowser()
     .bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_0__.AppModule)
     .catch((err) => console.error(err));
 
-
-/***/ }),
-
-/***/ 1187:
-/*!****************************************************************************************************!*\
-  !*** ./node_modules/@angular/common/locales/ lazy ^\.\/.*$ include: (en|fr)\.js$ namespace object ***!
-  \****************************************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var map = {
-	"./en": [
-		4289,
-		"node_modules_angular_common_locales_en_js"
-	],
-	"./en.js": [
-		4289,
-		"node_modules_angular_common_locales_en_js"
-	],
-	"./extra/en": [
-		2904,
-		"node_modules_angular_common_locales_extra_en_js"
-	],
-	"./extra/en.js": [
-		2904,
-		"node_modules_angular_common_locales_extra_en_js"
-	],
-	"./extra/fr": [
-		3634,
-		"node_modules_angular_common_locales_extra_fr_js"
-	],
-	"./extra/fr.js": [
-		3634,
-		"node_modules_angular_common_locales_extra_fr_js"
-	],
-	"./fr": [
-		4062,
-		"node_modules_angular_common_locales_fr_js"
-	],
-	"./fr.js": [
-		4062,
-		"node_modules_angular_common_locales_fr_js"
-	],
-	"./global/en": [
-		4510,
-		"node_modules_angular_common_locales_global_en_js"
-	],
-	"./global/en.js": [
-		4510,
-		"node_modules_angular_common_locales_global_en_js"
-	],
-	"./global/fr": [
-		7402,
-		"node_modules_angular_common_locales_global_fr_js"
-	],
-	"./global/fr.js": [
-		7402,
-		"node_modules_angular_common_locales_global_fr_js"
-	]
-};
-function webpackAsyncContext(req) {
-	if(!__webpack_require__.o(map, req)) {
-		return Promise.resolve().then(() => {
-			var e = new Error("Cannot find module '" + req + "'");
-			e.code = 'MODULE_NOT_FOUND';
-			throw e;
-		});
-	}
-
-	var ids = map[req], id = ids[0];
-	return __webpack_require__.e(ids[1]).then(() => {
-		return __webpack_require__.t(id, 7 | 16);
-	});
-}
-webpackAsyncContext.keys = () => (Object.keys(map));
-webpackAsyncContext.id = 1187;
-module.exports = webpackAsyncContext;
-
-/***/ }),
-
-/***/ 2691:
-/*!***********************************************************************************************************************!*\
-  !*** ./node_modules/cldr-data/main/ lazy ^\.\/.*\/numbers\.json$ include: main.(en|fr).numbers.json namespace object ***!
-  \***********************************************************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var map = {
-	"./en/numbers.json": [
-		4869,
-		"node_modules_cldr-data_main_en_numbers_json"
-	],
-	"./fr/numbers.json": [
-		8915,
-		"node_modules_cldr-data_main_fr_numbers_json"
-	]
-};
-function webpackAsyncContext(req) {
-	if(!__webpack_require__.o(map, req)) {
-		return Promise.resolve().then(() => {
-			var e = new Error("Cannot find module '" + req + "'");
-			e.code = 'MODULE_NOT_FOUND';
-			throw e;
-		});
-	}
-
-	var ids = map[req], id = ids[0];
-	return __webpack_require__.e(ids[1]).then(() => {
-		return __webpack_require__.t(id, 3 | 16);
-	});
-}
-webpackAsyncContext.keys = () => (Object.keys(map));
-webpackAsyncContext.id = 2691;
-module.exports = webpackAsyncContext;
 
 /***/ }),
 
@@ -5321,6 +5209,118 @@ webpackEmptyAsyncContext.keys = () => ([]);
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 webpackEmptyAsyncContext.id = 6865;
 module.exports = webpackEmptyAsyncContext;
+
+/***/ }),
+
+/***/ 2216:
+/*!**********************************************************************************************************************!*\
+  !*** ./projects/app-main/node_modules/@angular/common/locales/ lazy ^\.\/.*$ include: (en|fr)\.js$ namespace object ***!
+  \**********************************************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var map = {
+	"./en": [
+		7484,
+		"projects_app-main_node_modules_angular_common_locales_en_js"
+	],
+	"./en.js": [
+		7484,
+		"projects_app-main_node_modules_angular_common_locales_en_js"
+	],
+	"./extra/en": [
+		5809,
+		"projects_app-main_node_modules_angular_common_locales_extra_en_js"
+	],
+	"./extra/en.js": [
+		5809,
+		"projects_app-main_node_modules_angular_common_locales_extra_en_js"
+	],
+	"./extra/fr": [
+		8885,
+		"projects_app-main_node_modules_angular_common_locales_extra_fr_js"
+	],
+	"./extra/fr.js": [
+		8885,
+		"projects_app-main_node_modules_angular_common_locales_extra_fr_js"
+	],
+	"./fr": [
+		2730,
+		"projects_app-main_node_modules_angular_common_locales_fr_js"
+	],
+	"./fr.js": [
+		2730,
+		"projects_app-main_node_modules_angular_common_locales_fr_js"
+	],
+	"./global/en": [
+		9997,
+		"projects_app-main_node_modules_angular_common_locales_global_en_js"
+	],
+	"./global/en.js": [
+		9997,
+		"projects_app-main_node_modules_angular_common_locales_global_en_js"
+	],
+	"./global/fr": [
+		5741,
+		"projects_app-main_node_modules_angular_common_locales_global_fr_js"
+	],
+	"./global/fr.js": [
+		5741,
+		"projects_app-main_node_modules_angular_common_locales_global_fr_js"
+	]
+};
+function webpackAsyncContext(req) {
+	if(!__webpack_require__.o(map, req)) {
+		return Promise.resolve().then(() => {
+			var e = new Error("Cannot find module '" + req + "'");
+			e.code = 'MODULE_NOT_FOUND';
+			throw e;
+		});
+	}
+
+	var ids = map[req], id = ids[0];
+	return __webpack_require__.e(ids[1]).then(() => {
+		return __webpack_require__.t(id, 7 | 16);
+	});
+}
+webpackAsyncContext.keys = () => (Object.keys(map));
+webpackAsyncContext.id = 2216;
+module.exports = webpackAsyncContext;
+
+/***/ }),
+
+/***/ 1944:
+/*!*****************************************************************************************************************************************!*\
+  !*** ./projects/app-main/node_modules/cldr-data/main/ lazy ^\.\/.*\/numbers\.json$ include: main.(en|fr).numbers.json namespace object ***!
+  \*****************************************************************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var map = {
+	"./en/numbers.json": [
+		5210,
+		"projects_app-main_node_modules_cldr-data_main_en_numbers_json"
+	],
+	"./fr/numbers.json": [
+		1404,
+		"projects_app-main_node_modules_cldr-data_main_fr_numbers_json"
+	]
+};
+function webpackAsyncContext(req) {
+	if(!__webpack_require__.o(map, req)) {
+		return Promise.resolve().then(() => {
+			var e = new Error("Cannot find module '" + req + "'");
+			e.code = 'MODULE_NOT_FOUND';
+			throw e;
+		});
+	}
+
+	var ids = map[req], id = ids[0];
+	return __webpack_require__.e(ids[1]).then(() => {
+		return __webpack_require__.t(id, 3 | 16);
+	});
+}
+webpackAsyncContext.keys = () => (Object.keys(map));
+webpackAsyncContext.id = 1944;
+module.exports = webpackAsyncContext;
 
 /***/ }),
 
