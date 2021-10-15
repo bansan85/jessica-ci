@@ -31,10 +31,10 @@ test 1
 1: npm verb cli   'test',
 1: npm verb cli   '--verbose'
 1: npm verb cli ]
-1: npm info using npm@7.24.1
+1: npm info using npm@8.1.0
 1: npm info using node@v14.18.0
 1: npm timing npm:load:whichnode Completed in 0ms
-1: npm timing config:load:defaults Completed in 2ms
+1: npm timing config:load:defaults Completed in 3ms
 1: npm timing config:load:file:/opt/hostedtoolcache/node/14.18.0/x64/lib/node_modules/npm/npmrc Completed in 10ms
 1: npm timing config:load:builtin Completed in 10ms
 1: npm timing config:load:cli Completed in 2ms
@@ -48,15 +48,15 @@ test 1
 1: npm timing config:load:validate Completed in 0ms
 1: npm timing config:load:credentials Completed in 1ms
 1: npm timing config:load:setEnvs Completed in 1ms
-1: npm timing config:load Completed in 17ms
-1: npm timing npm:load:configload Completed in 17ms
+1: npm timing config:load Completed in 18ms
+1: npm timing npm:load:configload Completed in 18ms
 1: npm timing npm:load:setTitle Completed in 0ms
-1: npm timing npm:load:setupLog Completed in 1ms
-1: npm timing config:load:flatten Completed in 2ms
+1: npm timing npm:load:setupLog Completed in 0ms
+1: npm timing config:load:flatten Completed in 3ms
 1: npm timing npm:load:cleanupLog Completed in 1ms
 1: npm timing npm:load:configScope Completed in 0ms
 1: npm timing npm:load:projectScope Completed in 1ms
-1: npm timing npm:load Completed in 24ms
+1: npm timing npm:load Completed in 25ms
 1: 
 1: > angular@0.0.0 test
 1: > ng test --no-watch --no-progress --browsers=ChromeHeadless
@@ -83,16 +83,16 @@ test 1
 1: Compiling @angular/common/http : es2015 as esm2015
 1: 
 1: Compiling @ngx-translate/core : es2015 as esm2015
-1: 03 10 2021 09:10:49.556:INFO [karma-server]: Karma v6.3.4 server started at http://localhost:9876/
-1: 03 10 2021 09:10:49.560:INFO [launcher]: Launching browsers ChromeHeadless with concurrency unlimited
-1: 03 10 2021 09:10:49.563:INFO [launcher]: Starting browser ChromeHeadless
-1: 03 10 2021 09:10:54.310:INFO [Chrome Headless 94.0.4606.61 (Linux x86_64)]: Connected on socket K8MvmzVUV6CiXBYSAAAB with id 38979377
-1: Chrome Headless 94.0.4606.61 (Linux x86_64): Executed 0 of 4 SUCCESS (0 secs / 0 secs)
-1: [1A[2KChrome Headless 94.0.4606.61 (Linux x86_64): Executed 1 of 4 SUCCESS (0 secs / 0.012 secs)
-1: [1A[2KChrome Headless 94.0.4606.61 (Linux x86_64): Executed 2 of 4 SUCCESS (0 secs / 0.031 secs)
-1: [1A[2KChrome Headless 94.0.4606.61 (Linux x86_64): Executed 3 of 4 SUCCESS (0 secs / 0.036 secs)
-1: [1A[2KChrome Headless 94.0.4606.61 (Linux x86_64): Executed 4 of 4 SUCCESS (0 secs / 0.04 secs)
-1: [1A[2KChrome Headless 94.0.4606.61 (Linux x86_64): Executed 4 of 4 SUCCESS (0.058 secs / 0.04 secs)
+1: 15 10 2021 20:16:15.979:INFO [karma-server]: Karma v6.3.4 server started at http://localhost:9876/
+1: 15 10 2021 20:16:15.981:INFO [launcher]: Launching browsers ChromeHeadless with concurrency unlimited
+1: 15 10 2021 20:16:15.984:INFO [launcher]: Starting browser ChromeHeadless
+1: 15 10 2021 20:16:21.217:INFO [Chrome Headless 94.0.4606.81 (Linux x86_64)]: Connected on socket ufa2qOqDpJcHHjdLAAAB with id 5557349
+1: Chrome Headless 94.0.4606.81 (Linux x86_64): Executed 0 of 4 SUCCESS (0 secs / 0 secs)
+1: [1A[2KChrome Headless 94.0.4606.81 (Linux x86_64): Executed 1 of 4 SUCCESS (0 secs / 0.013 secs)
+1: [1A[2KChrome Headless 94.0.4606.81 (Linux x86_64): Executed 2 of 4 SUCCESS (0 secs / 0.018 secs)
+1: [1A[2KChrome Headless 94.0.4606.81 (Linux x86_64): Executed 3 of 4 SUCCESS (0 secs / 0.022 secs)
+1: [1A[2KChrome Headless 94.0.4606.81 (Linux x86_64): Executed 4 of 4 SUCCESS (0 secs / 0.04 secs)
+1: [1A[2KChrome Headless 94.0.4606.81 (Linux x86_64): Executed 4 of 4 SUCCESS (0.069 secs / 0.04 secs)
 1: TOTAL: 4 SUCCESS
 1: 
 1: Compiling @angular/core : es2015 as esm2015
@@ -114,19 +114,19 @@ test 1
 1: Compiling @angular/forms : es2015 as esm2015
 1: 
 1: Compiling @ngx-translate/core : es2015 as esm2015
-1: 03 10 2021 09:11:06.057:INFO [karma-server]: Karma v6.3.4 server started at http://localhost:9876/
-1: 03 10 2021 09:11:06.057:INFO [launcher]: Launching browsers ChromeHeadless with concurrency unlimited
-1: 03 10 2021 09:11:06.058:INFO [launcher]: Starting browser ChromeHeadless
-1: 03 10 2021 09:11:10.987:INFO [Chrome Headless 94.0.4606.61 (Linux x86_64)]: Connected on socket PlnZy1w5dSKqsv9zAAAD with id 12169037
-1: Chrome Headless 94.0.4606.61 (Linux x86_64): Executed 0 of 7 SUCCESS (0 secs / 0 secs)
-1: [1A[2KChrome Headless 94.0.4606.61 (Linux x86_64): Executed 1 of 7 SUCCESS (0 secs / 0.044 secs)
-1: [1A[2KChrome Headless 94.0.4606.61 (Linux x86_64): Executed 2 of 7 SUCCESS (0 secs / 0.051 secs)
-1: [1A[2KChrome Headless 94.0.4606.61 (Linux x86_64): Executed 3 of 7 SUCCESS (0 secs / 0.062 secs)
-1: [1A[2KChrome Headless 94.0.4606.61 (Linux x86_64): Executed 4 of 7 SUCCESS (0 secs / 0.066 secs)
-1: [1A[2KChrome Headless 94.0.4606.61 (Linux x86_64): Executed 5 of 7 SUCCESS (0 secs / 0.078 secs)
-1: [1A[2KChrome Headless 94.0.4606.61 (Linux x86_64): Executed 6 of 7 SUCCESS (0 secs / 0.08 secs)
-1: [1A[2KChrome Headless 94.0.4606.61 (Linux x86_64): Executed 7 of 7 SUCCESS (0 secs / 0.087 secs)
-1: [1A[2KChrome Headless 94.0.4606.61 (Linux x86_64): Executed 7 of 7 SUCCESS (0.136 secs / 0.087 secs)
+1: 15 10 2021 20:16:33.718:INFO [karma-server]: Karma v6.3.4 server started at http://localhost:9876/
+1: 15 10 2021 20:16:33.719:INFO [launcher]: Launching browsers ChromeHeadless with concurrency unlimited
+1: 15 10 2021 20:16:33.720:INFO [launcher]: Starting browser ChromeHeadless
+1: 15 10 2021 20:16:39.124:INFO [Chrome Headless 94.0.4606.81 (Linux x86_64)]: Connected on socket i1VkDiOo_epb5PR2AAAD with id 24310687
+1: Chrome Headless 94.0.4606.81 (Linux x86_64): Executed 0 of 7 SUCCESS (0 secs / 0 secs)
+1: [1A[2KChrome Headless 94.0.4606.81 (Linux x86_64): Executed 1 of 7 SUCCESS (0 secs / 0.045 secs)
+1: [1A[2KChrome Headless 94.0.4606.81 (Linux x86_64): Executed 2 of 7 SUCCESS (0 secs / 0.059 secs)
+1: [1A[2KChrome Headless 94.0.4606.81 (Linux x86_64): Executed 3 of 7 SUCCESS (0 secs / 0.064 secs)
+1: [1A[2KChrome Headless 94.0.4606.81 (Linux x86_64): Executed 4 of 7 SUCCESS (0 secs / 0.075 secs)
+1: [1A[2KChrome Headless 94.0.4606.81 (Linux x86_64): Executed 5 of 7 SUCCESS (0 secs / 0.078 secs)
+1: [1A[2KChrome Headless 94.0.4606.81 (Linux x86_64): Executed 6 of 7 SUCCESS (0 secs / 0.096 secs)
+1: [1A[2KChrome Headless 94.0.4606.81 (Linux x86_64): Executed 7 of 7 SUCCESS (0 secs / 0.105 secs)
+1: [1A[2KChrome Headless 94.0.4606.81 (Linux x86_64): Executed 7 of 7 SUCCESS (0.147 secs / 0.105 secs)
 1: TOTAL: 7 SUCCESS
 1: Compiling @angular/core/testing : es2015 as esm2015
 1: Compiling @angular/platform-browser/testing : es2015 as esm2015
@@ -134,23 +134,23 @@ test 1
 1: Compiling @angular/platform-browser-dynamic/testing : es2015 as esm2015
 1: Compiling @angular/common/testing : es2015 as esm2015
 1: Compiling @angular/router/testing : es2015 as esm2015
-1: 03 10 2021 09:11:21.468:INFO [karma-server]: Karma v6.3.4 server started at http://localhost:9876/
-1: 03 10 2021 09:11:21.469:INFO [launcher]: Launching browsers ChromeHeadless with concurrency unlimited
-1: 03 10 2021 09:11:21.471:INFO [launcher]: Starting browser ChromeHeadless
-1: 03 10 2021 09:11:26.953:INFO [Chrome Headless 94.0.4606.61 (Linux x86_64)]: Connected on socket q0M0FNxjIEYJGt00AAAF with id 84050000
-1: Chrome Headless 94.0.4606.61 (Linux x86_64): Executed 0 of 3 SUCCESS (0 secs / 0 secs)
-1: [1A[2KChrome Headless 94.0.4606.61 (Linux x86_64): Executed 1 of 3 SUCCESS (0 secs / 0.081 secs)
-1: [1A[2KChrome Headless 94.0.4606.61 (Linux x86_64): Executed 2 of 3 SUCCESS (0 secs / 0.089 secs)
-1: [1A[2KChrome Headless 94.0.4606.61 (Linux x86_64): Executed 3 of 3 SUCCESS (0 secs / 0.109 secs)
-1: [1A[2KChrome Headless 94.0.4606.61 (Linux x86_64): Executed 3 of 3 SUCCESS (0.117 secs / 0.109 secs)
+1: 15 10 2021 20:16:50.143:INFO [karma-server]: Karma v6.3.4 server started at http://localhost:9876/
+1: 15 10 2021 20:16:50.144:INFO [launcher]: Launching browsers ChromeHeadless with concurrency unlimited
+1: 15 10 2021 20:16:50.145:INFO [launcher]: Starting browser ChromeHeadless
+1: 15 10 2021 20:16:56.182:INFO [Chrome Headless 94.0.4606.81 (Linux x86_64)]: Connected on socket s1WJFVvmFjqLVVnIAAAF with id 6638614
+1: Chrome Headless 94.0.4606.81 (Linux x86_64): Executed 0 of 3 SUCCESS (0 secs / 0 secs)
+1: [1A[2KChrome Headless 94.0.4606.81 (Linux x86_64): Executed 1 of 3 SUCCESS (0 secs / 0.088 secs)
+1: [1A[2KChrome Headless 94.0.4606.81 (Linux x86_64): Executed 2 of 3 SUCCESS (0 secs / 0.097 secs)
+1: [1A[2KChrome Headless 94.0.4606.81 (Linux x86_64): Executed 3 of 3 SUCCESS (0 secs / 0.117 secs)
+1: [1A[2KChrome Headless 94.0.4606.81 (Linux x86_64): Executed 3 of 3 SUCCESS (0.125 secs / 0.117 secs)
 1: TOTAL: 3 SUCCESS
-1: npm timing command:run-script Completed in 57639ms
+1: npm timing command:run-script Completed in 61398ms
 1: npm verb exit 0
-1: npm timing npm Completed in 57787ms
+1: npm timing npm Completed in 61566ms
 1: npm info ok 
 [HANDLER_OUTPUT] 
 1/2 Test #1: NpmAngular .......................
-   Passed   57.91 sec
+   Passed   61.71 sec
 [HANDLER_VERBOSE_OUTPUT] 
 test 2
 
@@ -169,12 +169,12 @@ test 2
 2: npm verb cli   'test',
 2: npm verb cli   '--verbose'
 2: npm verb cli ]
-2: npm info using npm@7.24.1
+2: npm info using npm@8.1.0
 2: npm info using node@v14.18.0
 2: npm timing npm:load:whichnode Completed in 0ms
-2: npm timing config:load:defaults Completed in 2ms
-2: npm timing config:load:file:/opt/hostedtoolcache/node/14.18.0/x64/lib/node_modules/npm/npmrc Completed in 9ms
-2: npm timing config:load:builtin Completed in 9ms
+2: npm timing config:load:defaults Completed in 3ms
+2: npm timing config:load:file:/opt/hostedtoolcache/node/14.18.0/x64/lib/node_modules/npm/npmrc Completed in 10ms
+2: npm timing config:load:builtin Completed in 10ms
 2: npm timing config:load:cli Completed in 2ms
 2: npm timing config:load:env Completed in 0ms
 2: npm timing config:load:file:/home/runner/work/jessica/jessica/build/test/javascript/.npmrc Completed in 0ms
@@ -183,61 +183,61 @@ test 2
 2: npm timing config:load:user Completed in 0ms
 2: npm timing config:load:file:/opt/hostedtoolcache/node/14.18.0/x64/etc/npmrc Completed in 0ms
 2: npm timing config:load:global Completed in 0ms
-2: npm timing config:load:validate Completed in 1ms
-2: npm timing config:load:credentials Completed in 0ms
+2: npm timing config:load:validate Completed in 0ms
+2: npm timing config:load:credentials Completed in 1ms
 2: npm timing config:load:setEnvs Completed in 1ms
-2: npm timing config:load Completed in 16ms
-2: npm timing npm:load:configload Completed in 16ms
+2: npm timing config:load Completed in 18ms
+2: npm timing npm:load:configload Completed in 18ms
 2: npm timing npm:load:setTitle Completed in 0ms
-2: npm timing npm:load:setupLog Completed in 1ms
-2: npm timing config:load:flatten Completed in 2ms
-2: npm timing npm:load:cleanupLog Completed in 2ms
+2: npm timing npm:load:setupLog Completed in 0ms
+2: npm timing config:load:flatten Completed in 3ms
+2: npm timing npm:load:cleanupLog Completed in 1ms
 2: npm timing npm:load:configScope Completed in 0ms
-2: npm timing npm:load:projectScope Completed in 1ms
-2: npm timing npm:load Completed in 23ms
+2: npm timing npm:load:projectScope Completed in 0ms
+2: npm timing npm:load Completed in 32ms
 2: 
 2: > test
 2: > node --trace-warnings --unhandled-rejections=strict node_modules/.bin/jest
 2: 
+2:   console.log
+2:     [2021-10-15 20:17:00.759] [log] [info] DecoratorLogger N7jessica11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
+2: 
+2:       at console.<anonymous> (node_modules/jest-mock/build/index.js:850:25)
+2: 
+2:   console.log
+2:     [2021-10-15 20:17:00.875] [log] [info] duration 0.015399 ms
+2: 
+2:       at console.<anonymous> (node_modules/jest-mock/build/index.js:850:25)
+2: 
+2:   console.log
+2:     [2021-10-15 20:17:00.878] [log] [info] DecoratorLogger N7jessica11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
+2: 
+2:       at console.<anonymous> (node_modules/jest-mock/build/index.js:850:25)
+2: 
+2:   console.log
+2:     [2021-10-15 20:17:00.879] [log] [info] duration 0.007801 ms
+2: 
+2:       at console.<anonymous> (node_modules/jest-mock/build/index.js:850:25)
+2: 
 2: PASS ./jessica.test.js
-2:   ✓ WarmUpJessica (57 ms)
-2:   ✓ VerticalEccentric (50 ms)
-2:   ✓ FoundationStrip (52 ms)
-2:   ✓ CalcMeyehof (173 ms)
-2: 
-2:   console.log
-2:     [2021-10-03 09:11:31.328] [log] [info] DecoratorLogger N7jessica11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
-2: 
-2:       at console.<anonymous> (node_modules/jest-mock/build/index.js:850:25)
-2: 
-2:   console.log
-2:     [2021-10-03 09:11:31.473] [log] [info] duration 0.008999 ms
-2: 
-2:       at console.<anonymous> (node_modules/jest-mock/build/index.js:850:25)
-2: 
-2:   console.log
-2:     [2021-10-03 09:11:31.475] [log] [info] DecoratorLogger N7jessica11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
-2: 
-2:       at console.<anonymous> (node_modules/jest-mock/build/index.js:850:25)
-2: 
-2:   console.log
-2:     [2021-10-03 09:11:31.476] [log] [info] duration 0.0057 ms
-2: 
-2:       at console.<anonymous> (node_modules/jest-mock/build/index.js:850:25)
+2:   ✓ WarmUpJessica (55 ms)
+2:   ✓ VerticalEccentric (69 ms)
+2:   ✓ FoundationStrip (58 ms)
+2:   ✓ CalcMeyehof (193 ms)
 2: 
 2: Test Suites: 1 passed, 1 total
 2: Tests:       4 passed, 4 total
 2: Snapshots:   0 total
-2: Time:        1.14 s
+2: Time:        1.213 s
 2: Ran all test suites.
-2: npm timing command:run-script Completed in 1745ms
+2: npm timing command:run-script Completed in 1781ms
 2: npm verb exit 0
-2: npm timing npm Completed in 1883ms
+2: npm timing npm Completed in 1935ms
 2: npm info ok 
 [HANDLER_OUTPUT] 
 2/2 Test #2: NpmTest ..........................
-   Passed    2.01 sec
+   Passed    2.07 sec
 
 100% tests passed, 0 tests failed out of 2
 
-Total Test time (real) =  59.92 sec
+Total Test time (real) =  63.88 sec
