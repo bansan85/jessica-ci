@@ -444,70 +444,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_how_to">How to</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_linux">Linux</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">mkdir build
-cmake -S . -B build
-cmake --build build/ --target all
-cd build
-ctest --output-on-failure
-cd ..</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_windows">Windows</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">.\vcpkg\bootstrap-vcpkg.bat
-.\vcpkg\vcpkg install "@.\config\cmake\vcpkg_x64-windows.txt"
-mkdir build
-cmake -S . -B build -G "Visual Studio 16 2019" -A x64 -DCMAKE_TOOLCHAIN_FILE=./vcpkg/scripts/buildsystems/vcpkg.cmake
-cmake --build build --target ALL_BUILD --config Debug
-cd build
-ctest -C Debug --output-on-failure
-cd ..</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_web_assembly">Web Assembly</h3>
-<div class="paragraph">
-<p>You need to install <a href="https://emscripten.org/docs/getting_started/downloads.html">Emscripten</a>.</p>
-</div>
-<div class="paragraph">
-<p>Run once:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">git clone --depth=1 https://github.com/emscripten-core/emsdk.git
-cd emsdk
-./emsdk install latest
-./emsdk activate latest</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Run everytime:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">source ./emsdk/emsdk_env.sh
-mkdir build
-emcmake cmake -S . -B build
-emcmake cmake --build build/ --target all
-cd build
-ctest --output-on-failure
-cd ..</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
 <h2 id="_dependencies">Dependencies</h2>
 <div class="sectionbody">
 <div class="sect2">
@@ -560,6 +496,125 @@ cd ..</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">node tools/build.js -t browser bash cpp xml javascript yaml typescript</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_to">How to</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_requirements">Requirements</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>cmake</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To custom C++ flags, add to the first call of cmake ''-DCMAKE_CXX_FLAGS=&#8230;&#8203;''.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_linux">Linux</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">mkdir -p build/gcc
+cmake -S . -B build/gcc
+cmake --build build/gcc --target all -j9
+cd build/gcc
+ctest --output-on-failure
+cd ..</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To build for a specific version of GCC:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">cmake -S . -B build/gcc -DCMAKE_C_COMPILER="/usr/bin/gcc-11" -DCMAKE_CXX_COMPILER="/usr/bin/g++-11" -DCMAKE_AR="/usr/bin/ar" -DCMAKE_RANLIB="/usr/bin/ranlib"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and for Clang:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">cmake -S . -B build/clang -DCMAKE_C_COMPILER="/usr/bin/clang-12" -DCMAKE_CXX_COMPILER="/usr/bin/clang++-12" -DCMAKE_AR="/usr/bin/llvm-ar-12" -DCMAKE_RANLIB="/usr/bin/llvm-ranlib-12"</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_windows">Windows</h3>
+<div class="paragraph">
+<p>From PowerShell:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">.\vcpkg\bootstrap-vcpkg.bat
+.\vcpkg\vcpkg.exe install "@.\config\cmake\vcpkg_windows.txt" --triplet=x64-windows
+.\vcpkg\vcpkg.exe integrate install
+mkdir -p build\windows
+cmake -S . -B build\windows -G "Visual Studio 16 2019" -A x64 -DCMAKE_TOOLCHAIN_FILE=.\vcpkg\scripts\buildsystems\vcpkg.cmake
+cmake --build build\windows --target ALL_BUILD --config Debug -j9
+cd build\windows
+ctest -C Debug --output-on-failure
+cd ..</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_web_assembly">Web Assembly</h3>
+<div class="paragraph">
+<p>You need to install <a href="https://emscripten.org/docs/getting_started/downloads.html">Emscripten</a>.</p>
+</div>
+<div class="paragraph">
+<p>Run once:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">git clone --depth=1 https://github.com/emscripten-core/emsdk.git
+cd emsdk
+./emsdk install latest
+./emsdk activate latest</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To update emsdk, run:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">cd emsdk
+git pull
+./emsdk install latest
+./emsdk activate latest</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Run everytime to build the project:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">source ./emsdk/emsdk_env.sh
+./vcpkg/bootstrap-vcpkg.sh
+./vcpkg/vcpkg install "@./config/cmake/vcpkg_emscripten.txt" --triplet=wasm32-emscripten
+./vcpkg/vcpkg integrate install
+
+mkdir build/angular_debug
+emcmake cmake -S . -B build/angular_debug/ -DCMAKE_BUILD_TYPE=Debug -DVCPKG_CHAINLOAD_TOOLCHAIN_FILE=/root/prog/emscripten/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake -DVCPKG_TARGET_TRIPLET=wasm32-emscripten -DCMAKE_TOOLCHAIN_FILE=/mnt/c/j/vcpkg/scripts/buildsystems/vcpkg.cmake
+cmake --build build/angular_debug/ --target all --config Debug -j9
+cd build
+ctest --output-on-failure
+cd ..
+
+mkdir build/angular_release
+emcmake cmake -S . -B build/angular_release/ -DCMAKE_BUILD_TYPE=Release -DVCPKG_CHAINLOAD_TOOLCHAIN_FILE=/root/prog/emscripten/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake -DVCPKG_TARGET_TRIPLET=wasm32-emscripten -DCMAKE_TOOLCHAIN_FILE=/mnt/c/j/vcpkg/scripts/buildsystems/vcpkg.cmake
+cmake --build build/angular_release/ --target all --config Release -j9
+cd build
+ctest --output-on-failure
+cd ..</code></pre>
 </div>
 </div>
 </div>
