@@ -721,8 +721,6 @@ var jessica = (function () {
         else {
             throw new Error('environment detection error');
         }
-        // Set up the out() and err() hooks, which are how we can print to stdout or
-        // stderr, respectively.
         var out = Module['print'] || console.log.bind(console);
         var err = Module['printErr'] || console.warn.bind(console);
         // Merge back in the overrides
@@ -819,6 +817,9 @@ var jessica = (function () {
         assert(!ENVIRONMENT_IS_NODE, "node environment detected but not enabled at build time.  Add 'node' to `-s ENVIRONMENT` to enable.");
         assert(!ENVIRONMENT_IS_SHELL, "shell environment detected but not enabled at build time.  Add 'shell' to `-s ENVIRONMENT` to enable.");
         var STACK_ALIGN = 16;
+        function getPointerSize() {
+            return 4;
+        }
         function getNativeTypeSize(type) {
             switch (type) {
                 case 'i1':
@@ -830,7 +831,7 @@ var jessica = (function () {
                 case 'double': return 8;
                 default: {
                     if (type[type.length - 1] === '*') {
-                        return 4; // A pointer
+                        return getPointerSize();
                     }
                     else if (type[0] === 'i') {
                         var bits = Number(type.substr(1));
@@ -956,7 +957,7 @@ var jessica = (function () {
             if (!functionsInTableMap) {
                 functionsInTableMap = new WeakMap();
                 for (var i = 0; i < wasmTable.length; i++) {
-                    var item = wasmTable.get(i);
+                    var item = getWasmTableEntry(i);
                     // Ignore null values.
                     if (item) {
                         functionsInTableMap.set(item, i);
@@ -971,7 +972,7 @@ var jessica = (function () {
             // Set the new value.
             try {
                 // Attempting to call this with JS function will cause of table.set() to fail
-                wasmTable.set(ret, func);
+                setWasmTableEntry(ret, func);
             }
             catch (err) {
                 if (!(err instanceof TypeError)) {
@@ -979,13 +980,13 @@ var jessica = (function () {
                 }
                 assert(typeof sig !== 'undefined', 'Missing signature argument to addFunction: ' + func);
                 var wrapped = convertJsFunctionToWasm(func, sig);
-                wasmTable.set(ret, wrapped);
+                setWasmTableEntry(ret, wrapped);
             }
             functionsInTableMap.set(func, ret);
             return ret;
         }
         function removeFunction(index) {
-            functionsInTableMap.delete(wasmTable.get(index));
+            functionsInTableMap.delete(getWasmTableEntry(index));
             freeTableIndexes.push(index);
         }
         // 'sig' parameter is required for the llvm backend but only when func is not
@@ -1045,7 +1046,7 @@ var jessica = (function () {
         function setValue(ptr, value, type, noSafe) {
             type = type || 'i8';
             if (type.charAt(type.length - 1) === '*')
-                type = 'i32'; // pointers are 32-bit
+                type = 'i32';
             switch (type) {
                 case 'i1':
                     HEAP8[((ptr) >> 0)] = value;
@@ -1077,7 +1078,7 @@ var jessica = (function () {
         function getValue(ptr, type, noSafe) {
             type = type || 'i8';
             if (type.charAt(type.length - 1) === '*')
-                type = 'i32'; // pointers are 32-bit
+                type = 'i32';
             switch (type) {
                 case 'i1': return HEAP8[((ptr) >> 0)];
                 case 'i8': return HEAP8[((ptr) >> 0)];
@@ -1085,7 +1086,7 @@ var jessica = (function () {
                 case 'i32': return HEAP32[((ptr) >> 2)];
                 case 'i64': return HEAP32[((ptr) >> 2)];
                 case 'float': return HEAPF32[((ptr) >> 2)];
-                case 'double': return HEAPF64[((ptr) >> 3)];
+                case 'double': return Number(HEAPF64[((ptr) >> 3)]);
                 default: abort('invalid type for getValue: ' + type);
             }
             return null;
@@ -1285,6 +1286,7 @@ var jessica = (function () {
          * @return {string}
          */
         function UTF8ToString(ptr, maxBytesToRead) {
+            ;
             return ptr ? UTF8ArrayToString(HEAPU8, ptr, maxBytesToRead) : '';
         }
         // Copies the given Javascript String object 'str' to the given byte array at address 'outIdx',
@@ -2046,16 +2048,22 @@ var jessica = (function () {
                 var func = callback.func;
                 if (typeof func === 'number') {
                     if (callback.arg === undefined) {
-                        wasmTable.get(func)();
+                        getWasmTableEntry(func)();
                     }
                     else {
-                        wasmTable.get(func)(callback.arg);
+                        getWasmTableEntry(func)(callback.arg);
                     }
                 }
                 else {
                     func(callback.arg === undefined ? null : callback.arg);
                 }
             }
+        }
+        function withStackSave(f) {
+            var stack = stackSave();
+            var ret = f();
+            stackRestore(stack);
+            return ret;
         }
         function demangle(func) {
             // If demangle has failed before, stop demangling any further function names
@@ -2065,31 +2073,31 @@ var jessica = (function () {
                 return func;
             var __cxa_demangle_func = Module['___cxa_demangle'] || Module['__cxa_demangle'];
             assert(__cxa_demangle_func);
-            var stackTop = stackSave();
-            try {
-                var s = func;
-                if (s.startsWith('__Z'))
-                    s = s.substr(1);
-                var len = lengthBytesUTF8(s) + 1;
-                var buf = stackAlloc(len);
-                stringToUTF8(s, buf, len);
-                var status = stackAlloc(4);
-                var ret = __cxa_demangle_func(buf, 0, 0, status);
-                if (HEAP32[((status) >> 2)] === 0 && ret) {
-                    return UTF8ToString(ret);
+            return withStackSave(function () {
+                try {
+                    var s = func;
+                    if (s.startsWith('__Z'))
+                        s = s.substr(1);
+                    var len = lengthBytesUTF8(s) + 1;
+                    var buf = stackAlloc(len);
+                    stringToUTF8(s, buf, len);
+                    var status = stackAlloc(4);
+                    var ret = __cxa_demangle_func(buf, 0, 0, status);
+                    if (HEAP32[((status) >> 2)] === 0 && ret) {
+                        return UTF8ToString(ret);
+                    }
+                    // otherwise, libcxxabi failed
                 }
-                // otherwise, libcxxabi failed
-            }
-            catch (e) {
-            }
-            finally {
-                _free(ret);
-                stackRestore(stackTop);
-                if (demangle.recursionGuard < 2)
-                    --demangle.recursionGuard;
-            }
-            // failure when using libcxxabi, don't demangle
-            return func;
+                catch (e) {
+                }
+                finally {
+                    _free(ret);
+                    if (demangle.recursionGuard < 2)
+                        --demangle.recursionGuard;
+                }
+                // failure when using libcxxabi, don't demangle
+                return func;
+            });
         }
         function demangleAll(text) {
             var regex = /\b_Z[\w\d_]+/g;
@@ -2097,6 +2105,17 @@ var jessica = (function () {
                 var y = demangle(x);
                 return x === y ? x : (y + ' [' + x + ']');
             });
+        }
+        var wasmTableMirror = [];
+        function getWasmTableEntry(funcPtr) {
+            var func = wasmTableMirror[funcPtr];
+            if (!func) {
+                if (funcPtr >= wasmTableMirror.length)
+                    wasmTableMirror.length = funcPtr + 1;
+                wasmTableMirror[funcPtr] = func = wasmTable.get(funcPtr);
+            }
+            assert(wasmTable.get(funcPtr) == func, "JavaScript-side Wasm function table mirror is out of date!");
+            return func;
         }
         function handleException(e) {
             // Certain exception types we do not treat as errors since they are used for
@@ -2125,6 +2144,10 @@ var jessica = (function () {
                 }
             }
             return error.stack.toString();
+        }
+        function setWasmTableEntry(idx, func) {
+            wasmTable.set(idx, func);
+            wasmTableMirror[idx] = func;
         }
         function stackTrace() {
             var js = jsStackTrace();
@@ -2665,7 +2688,7 @@ var jessica = (function () {
                         }
                         else {
                             var clonedHandle = handle['clone']();
-                            ptr = this.rawShare(ptr, __emval_register(function () {
+                            ptr = this.rawShare(ptr, Emval.toHandle(function () {
                                 clonedHandle['delete']();
                             }));
                             if (destructors !== null) {
@@ -2939,8 +2962,8 @@ var jessica = (function () {
             if (sig.includes('j')) {
                 return dynCallLegacy(sig, ptr, args);
             }
-            assert(wasmTable.get(ptr), 'missing table entry in dynCall: ' + ptr);
-            return wasmTable.get(ptr).apply(null, args);
+            assert(getWasmTableEntry(ptr), 'missing table entry in dynCall: ' + ptr);
+            return getWasmTableEntry(ptr).apply(null, args);
         }
         function getDynCaller(sig, ptr) {
             assert(sig.includes('j'), 'getDynCaller should only be called with i64 sigs');
@@ -2959,7 +2982,7 @@ var jessica = (function () {
                 if (signature.includes('j')) {
                     return getDynCaller(signature, rawFunction);
                 }
-                return wasmTable.get(rawFunction);
+                return getWasmTableEntry(rawFunction);
             }
             var fp = makeDynCaller();
             if (typeof fp !== "function") {
@@ -3269,40 +3292,45 @@ var jessica = (function () {
             Module['count_emval_handles'] = count_emval_handles;
             Module['get_first_emval'] = get_first_emval;
         }
-        function __emval_register(value) {
-            switch (value) {
-                case undefined: {
-                    return 1;
+        var Emval = { toValue: function (handle) {
+                if (!handle) {
+                    throwBindingError('Cannot use deleted val. handle = ' + handle);
                 }
-                case null: {
-                    return 2;
+                return emval_handle_array[handle].value;
+            }, toHandle: function (value) {
+                switch (value) {
+                    case undefined: {
+                        return 1;
+                    }
+                    case null: {
+                        return 2;
+                    }
+                    case true: {
+                        return 3;
+                    }
+                    case false: {
+                        return 4;
+                    }
+                    default: {
+                        var handle = emval_free_list.length ?
+                            emval_free_list.pop() :
+                            emval_handle_array.length;
+                        emval_handle_array[handle] = { refcount: 1, value: value };
+                        return handle;
+                    }
                 }
-                case true: {
-                    return 3;
-                }
-                case false: {
-                    return 4;
-                }
-                default: {
-                    var handle = emval_free_list.length ?
-                        emval_free_list.pop() :
-                        emval_handle_array.length;
-                    emval_handle_array[handle] = { refcount: 1, value: value };
-                    return handle;
-                }
-            }
-        }
+            } };
         function __embind_register_emval(rawType, name) {
             name = readLatin1String(name);
             registerType(rawType, {
                 name: name,
                 'fromWireType': function (handle) {
-                    var rv = emval_handle_array[handle].value;
+                    var rv = Emval.toValue(handle);
                     __emval_decref(handle);
                     return rv;
                 },
                 'toWireType': function (destructors, value) {
-                    return __emval_register(value);
+                    return Emval.toHandle(value);
                 },
                 'argPackAdvance': 8,
                 'readValueFromPointer': simpleReadValueFromPointer,
@@ -3630,14 +3658,8 @@ var jessica = (function () {
             }
             return a;
         }
-        function requireHandle(handle) {
-            if (!handle) {
-                throwBindingError('Cannot use deleted val. handle = ' + handle);
-            }
-            return emval_handle_array[handle].value;
-        }
         function __emval_call(handle, argCount, argTypes, argv) {
-            handle = requireHandle(handle);
+            handle = Emval.toValue(handle);
             var types = __emval_lookupTypes(argCount, argTypes);
             var args = new Array(argCount);
             for (var i = 0; i < argCount; ++i) {
@@ -3646,7 +3668,7 @@ var jessica = (function () {
                 argv += type['argPackAdvance'];
             }
             var rv = handle.apply(undefined, args);
-            return __emval_register(rv);
+            return Emval.toHandle(rv);
         }
         function __emval_incref(handle) {
             if (handle > 4) {
@@ -3656,7 +3678,7 @@ var jessica = (function () {
         function __emval_take_value(type, argv) {
             type = requireRegisteredType(type, '_emval_take_value');
             var v = type['readValueFromPointer'](argv);
-            return __emval_register(v);
+            return Emval.toHandle(v);
         }
         function _abort() {
             abort('native code called abort()');
@@ -3877,6 +3899,8 @@ var jessica = (function () {
             Module["emscripten_realloc_buffer"] = function () { abort("'emscripten_realloc_buffer' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
         if (!Object.getOwnPropertyDescriptor(Module, "ENV"))
             Module["ENV"] = function () { abort("'ENV' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
+        if (!Object.getOwnPropertyDescriptor(Module, "withStackSave"))
+            Module["withStackSave"] = function () { abort("'withStackSave' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
         if (!Object.getOwnPropertyDescriptor(Module, "ERRNO_CODES"))
             Module["ERRNO_CODES"] = function () { abort("'ERRNO_CODES' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
         if (!Object.getOwnPropertyDescriptor(Module, "ERRNO_MESSAGES"))
@@ -3935,6 +3959,12 @@ var jessica = (function () {
             Module["dynCall"] = function () { abort("'dynCall' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
         if (!Object.getOwnPropertyDescriptor(Module, "callRuntimeCallbacks"))
             Module["callRuntimeCallbacks"] = function () { abort("'callRuntimeCallbacks' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
+        if (!Object.getOwnPropertyDescriptor(Module, "wasmTableMirror"))
+            Module["wasmTableMirror"] = function () { abort("'wasmTableMirror' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
+        if (!Object.getOwnPropertyDescriptor(Module, "setWasmTableEntry"))
+            Module["setWasmTableEntry"] = function () { abort("'setWasmTableEntry' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
+        if (!Object.getOwnPropertyDescriptor(Module, "getWasmTableEntry"))
+            Module["getWasmTableEntry"] = function () { abort("'getWasmTableEntry' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
         if (!Object.getOwnPropertyDescriptor(Module, "handleException"))
             Module["handleException"] = function () { abort("'handleException' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
         if (!Object.getOwnPropertyDescriptor(Module, "runtimeKeepalivePush"))
@@ -4065,12 +4095,6 @@ var jessica = (function () {
             Module["setCanvasElementSize"] = function () { abort("'setCanvasElementSize' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
         if (!Object.getOwnPropertyDescriptor(Module, "getCanvasElementSize"))
             Module["getCanvasElementSize"] = function () { abort("'getCanvasElementSize' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
-        if (!Object.getOwnPropertyDescriptor(Module, "setImmediateWrapped"))
-            Module["setImmediateWrapped"] = function () { abort("'setImmediateWrapped' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
-        if (!Object.getOwnPropertyDescriptor(Module, "clearImmediateWrapped"))
-            Module["clearImmediateWrapped"] = function () { abort("'clearImmediateWrapped' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
-        if (!Object.getOwnPropertyDescriptor(Module, "polyfillSetImmediate"))
-            Module["polyfillSetImmediate"] = function () { abort("'polyfillSetImmediate' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
         if (!Object.getOwnPropertyDescriptor(Module, "demangle"))
             Module["demangle"] = function () { abort("'demangle' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
         if (!Object.getOwnPropertyDescriptor(Module, "demangleAll"))
@@ -4103,6 +4127,12 @@ var jessica = (function () {
             Module["convertI32PairToI53"] = function () { abort("'convertI32PairToI53' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
         if (!Object.getOwnPropertyDescriptor(Module, "convertU32PairToI53"))
             Module["convertU32PairToI53"] = function () { abort("'convertU32PairToI53' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
+        if (!Object.getOwnPropertyDescriptor(Module, "setImmediateWrapped"))
+            Module["setImmediateWrapped"] = function () { abort("'setImmediateWrapped' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
+        if (!Object.getOwnPropertyDescriptor(Module, "clearImmediateWrapped"))
+            Module["clearImmediateWrapped"] = function () { abort("'clearImmediateWrapped' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
+        if (!Object.getOwnPropertyDescriptor(Module, "polyfillSetImmediate"))
+            Module["polyfillSetImmediate"] = function () { abort("'polyfillSetImmediate' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
         if (!Object.getOwnPropertyDescriptor(Module, "uncaughtExceptionCount"))
             Module["uncaughtExceptionCount"] = function () { abort("'uncaughtExceptionCount' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
         if (!Object.getOwnPropertyDescriptor(Module, "exceptionLast"))
@@ -4207,8 +4237,8 @@ var jessica = (function () {
             Module["get_first_emval"] = function () { abort("'get_first_emval' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
         if (!Object.getOwnPropertyDescriptor(Module, "getStringOrSymbol"))
             Module["getStringOrSymbol"] = function () { abort("'getStringOrSymbol' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
-        if (!Object.getOwnPropertyDescriptor(Module, "requireHandle"))
-            Module["requireHandle"] = function () { abort("'requireHandle' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
+        if (!Object.getOwnPropertyDescriptor(Module, "Emval"))
+            Module["Emval"] = function () { abort("'Emval' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
         if (!Object.getOwnPropertyDescriptor(Module, "emval_newers"))
             Module["emval_newers"] = function () { abort("'emval_newers' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
         if (!Object.getOwnPropertyDescriptor(Module, "craftEmvalAllocator"))
