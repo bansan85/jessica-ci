@@ -4616,7 +4616,7 @@ class MeyerhofCalcService {
             .setV(newItem.load.load)
             .setE(newItem.load.eccentric);
         const calc = new ttt.MeyerhofShallowFoundation(load, foundation);
-        return { qref: calc.getQref(), b_: calc.getB_() };
+        return { qref: calc.qref(), b_: calc.b_() };
     }
 }
 MeyerhofCalcService.ɵfac = function MeyerhofCalcService_Factory(t) { return new (t || MeyerhofCalcService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](JessicaWasmService)); };
