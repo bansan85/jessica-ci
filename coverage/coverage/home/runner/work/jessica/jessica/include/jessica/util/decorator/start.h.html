@@ -26,8 +26,7 @@
           <pre>Count</pre>
         </td>
         <td>
-          <pre>Source (<a href=
-          '#L29'>jump to first uncovered line</a>)</pre>
+          <pre>Source</pre>
         </td>
       </tr>
       <tr>
@@ -57,7 +56,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;memory&gt;</pre>
+          <pre>#include &lt;cstdint&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -67,7 +66,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>#include &lt;memory&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -77,7 +76,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/helper/accessor.h&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -87,7 +86,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>#include &lt;jessica/compat.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -97,7 +96,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>namespace jessica</pre>
+          <pre>#include &lt;jessica/helper/accessor.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -107,7 +106,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>#include &lt;jessica/helper/poo.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -117,7 +116,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>template &lt;typename T&gt;</pre>
+          <pre>#include &lt;jessica/helper/template.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -127,7 +126,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>class JESSICA_DLL_PUBLIC DecoratorStart final</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -137,7 +136,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>namespace jessica</pre>
         </td>
       </tr>
       <tr>
@@ -147,7 +146,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> public:</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -157,7 +156,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  template &lt;typename... Args&gt;</pre>
+          <pre>template &lt;typename T, typename ShrT&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -167,7 +166,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  explicit DecoratorStart(Args&amp;&amp;... args)</pre>
+          <pre>class JESSICA_DLL_PUBLIC DecoratorStart</pre>
         </td>
       </tr>
       <tr>
@@ -177,13 +176,53 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      : deco_(std::make_shared&lt;T&gt;(impl_, std::forward&lt;Args&gt;(args)...))</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L16' href='#L16' id="L16">
           <pre>16</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre> public:</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L17' href='#L17' id="L17">
+          <pre>17</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  template &lt;typename... Args&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L18' href='#L18' id="L18">
+          <pre>18</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  explicit DecoratorStart(Args&amp;&amp;... args)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L19' href='#L19' id="L19">
+          <pre>19</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>      : deco_(std::make_shared&lt;T&gt;(impl_, std::forward&lt;Args&gt;(args)...))</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L20' href='#L20' id="L20">
+          <pre>20</pre></a>
         </td>
         <td class='covered-line'>
           <pre>12</pre>
@@ -194,8 +233,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L17' href='#L17' id="L17">
-          <pre>17</pre></a>
+          <a name='L21' href='#L21' id="L21">
+          <pre>21</pre></a>
         </td>
         <td class='covered-line'>
           <pre>12</pre>
@@ -205,7 +244,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZN7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_15FoundationStripEEEEEEEEC2IJRSt10shared_ptrIN6spdlog6loggerEESE_EEEDpOT_</pre>
+                <pre>_ZN7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEEEENS_29DecoratorStartFoundationStripIS7_EEEC2IJRSt10shared_ptrIN6spdlog6loggerEESG_EEEDpOT_</pre>
               </div>
               <table>
                 <tr>
@@ -221,8 +260,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L16' href='#L16' id="L16">
-                    <pre>16</pre></a>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -233,8 +272,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L17' href='#L17' id="L17">
-                    <pre>17</pre></a>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -249,7 +288,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZN7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_17VerticalEccentricEEEEEEEEC2IJRSt10shared_ptrIN6spdlog6loggerEESE_EEEDpOT_</pre>
+                <pre>_ZN7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEEEENS_31DecoratorStartVerticalEccentricIS7_EEEC2IJRSt10shared_ptrIN6spdlog6loggerEESG_EEEDpOT_</pre>
               </div>
               <table>
                 <tr>
@@ -265,8 +304,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L16' href='#L16' id="L16">
-                    <pre>16</pre></a>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>2</pre>
@@ -277,8 +316,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L17' href='#L17' id="L17">
-                    <pre>17</pre></a>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>2</pre>
@@ -293,7 +332,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZN7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS0_INS1_INS2_INS3_INS_17VerticalEccentricEEEEEEEEENS0_INS1_INS2_INS3_INS_15FoundationStripEEEEEEEEEEEEEEEEEEC2IJRSt10shared_ptrIN6spdlog6loggerEESP_RKSL_IS9_ERKSL_ISE_EEEEDpOT_</pre>
+                <pre>_ZN7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_31DecoratorStartVerticalEccentricINS1_INS2_INS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEEEEEENS_29DecoratorStartFoundationStripINS1_INS2_INS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEEEEEEEEEEEEEENS_22DecoratorStartMeyerhofISM_EEEC2IJRSt10shared_ptrIN6spdlog6loggerEESV_RKSR_ISB_ERKSR_ISI_EEEEDpOT_</pre>
               </div>
               <table>
                 <tr>
@@ -309,8 +348,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L16' href='#L16' id="L16">
-                    <pre>16</pre></a>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -321,8 +360,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L17' href='#L17' id="L17">
-                    <pre>17</pre></a>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -337,7 +376,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZN7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEEEEC2IJRSt10shared_ptrIN6spdlog6loggerEESH_RKSD_IS5_ERKSD_IS6_EEEEDpOT_</pre>
+                <pre>_ZN7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEEENS_22DecoratorStartMeyerhofISA_EEEC2IJRSt10shared_ptrIN6spdlog6loggerEESJ_RKSF_IS5_ERKSF_IS6_EEEEDpOT_</pre>
               </div>
               <table>
                 <tr>
@@ -353,8 +392,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L16' href='#L16' id="L16">
-                    <pre>16</pre></a>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -365,8 +404,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L17' href='#L17' id="L17">
-                    <pre>17</pre></a>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -381,7 +420,7 @@
           <div class='expansion-view'>
             <div class='centered'>
               <div class='source-name-title'>
-                <pre>_ZN7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEEEEC2IJRSt10shared_ptrIN6spdlog6loggerEESH_SD_IS5_ESD_IS6_EEEEDpOT_</pre>
+                <pre>_ZN7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEEENS_22DecoratorStartMeyerhofISA_EEEC2IJRSt10shared_ptrIN6spdlog6loggerEESJ_SF_IS5_ESF_IS6_EEEEDpOT_</pre>
               </div>
               <table>
                 <tr>
@@ -397,8 +436,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L16' href='#L16' id="L16">
-                    <pre>16</pre></a>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -409,8 +448,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L17' href='#L17' id="L17">
-                    <pre>17</pre></a>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -422,176 +461,6 @@
               </table>
             </div>
           </div>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L18' href='#L18' id="L18">
-          <pre>18</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>14</pre>
-        </td>
-        <td class='code'>
-          <pre>  DecoratorStart(const DecoratorStart&amp;) = default;</pre>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_15FoundationStripEEEEEEEEC2ERKS8_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L18' href='#L18' id="L18">
-                    <pre>18</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  DecoratorStart(const DecoratorStart&amp;) = default;</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_17VerticalEccentricEEEEEEEEC2ERKS8_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L18' href='#L18' id="L18">
-                    <pre>18</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>8</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  DecoratorStart(const DecoratorStart&amp;) = default;</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS0_INS1_INS2_INS3_INS_17VerticalEccentricEEEEEEEEENS0_INS1_INS2_INS3_INS_15FoundationStripEEEEEEEEEEEEEEEEEEC2ERKSJ_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L18' href='#L18' id="L18">
-                    <pre>18</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  DecoratorStart(const DecoratorStart&amp;) = default;</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEEEEC2ERKSB_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L18' href='#L18' id="L18">
-                    <pre>18</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  DecoratorStart(const DecoratorStart&amp;) = default;</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L19' href='#L19' id="L19">
-          <pre>19</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  DecoratorStart(DecoratorStart&amp;&amp;) = delete;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L20' href='#L20' id="L20">
-          <pre>20</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  DecoratorStart& operator=(const DecoratorStart&amp;) = delete;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L21' href='#L21' id="L21">
-          <pre>21</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  DecoratorStart& operator=(DecoratorStart&amp;&amp;) = delete;</pre>
         </td>
       </tr>
       <tr>
@@ -601,7 +470,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>  RULE_OF_FIVE_COPY_VIRTUAL(DecoratorStart)</pre>
         </td>
       </tr>
       <tr>
@@ -609,139 +478,9 @@
           <a name='L23' href='#L23' id="L23">
           <pre>23</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>26</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  ~DecoratorStart() = default;</pre>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_15FoundationStripEEEEEEEED2Ev</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L23' href='#L23' id="L23">
-                    <pre>23</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  ~DecoratorStart() = default;</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_17VerticalEccentricEEEEEEEED2Ev</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L23' href='#L23' id="L23">
-                    <pre>23</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  ~DecoratorStart() = default;</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS0_INS1_INS2_INS3_INS_17VerticalEccentricEEEEEEEEENS0_INS1_INS2_INS3_INS_15FoundationStripEEEEEEEEEEEEEEEEEED2Ev</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L23' href='#L23' id="L23">
-                    <pre>23</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  ~DecoratorStart() = default;</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEEEED2Ev</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L23' href='#L23' id="L23">
-                    <pre>23</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  ~DecoratorStart() = default;</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -751,7 +490,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>  template &lt;uint64_t Action, uint64_t... U, typename... Args&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -761,7 +500,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  template &lt;F Action, F... U, typename... Args&gt;</pre>
+          <pre>  requires EqualUL&lt;Action, "Get"_f&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -771,7 +510,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] auto f(const Args&amp;&amp;... args) const</pre>
+          <pre>  [[nodiscard]] auto f(Args&amp;&amp;... args) const</pre>
         </td>
       </tr>
       <tr>
@@ -780,7 +519,7 @@
           <pre>27</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>70</pre>
+          <pre>59</pre>
         </td>
         <td class='code'>
           <pre>  {</pre>
@@ -792,10 +531,10 @@
           <pre>28</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>70</pre>
+          <pre>59</pre>
         </td>
         <td class='code'>
-          <pre>    if constexpr (Action == F::Set)</pre>
+          <pre>    return deco_-&gt;template f&lt;Action, U...&gt;(*impl_, std::forward&lt;Args&gt;(args)...);</pre>
         </td>
       </tr>
       <tr>
@@ -804,10 +543,514 @@
           <pre>29</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>11</pre>
+          <pre>59</pre>
         </td>
         <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
+          <pre>  }</pre>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_31DecoratorStartVerticalEccentricINS1_INS2_INS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEEEEEENS_29DecoratorStartFoundationStripINS1_INS2_INS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEEEEEEEEEEEEEENS_22DecoratorStartMeyerhofISM_EEE1fILm193457765EJLm5862182EEJEEEDaDpOT1_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L27' href='#L27' id="L27">
+                    <pre>27</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>6</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>6</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return deco_-&gt;template f&lt;Action, U...&gt;(*impl_, std::forward&lt;Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>6</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEEEENS_29DecoratorStartFoundationStripIS7_EEE1fILm193457765EJLm177639EEJEEEDaDpOT1_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L27' href='#L27' id="L27">
+                    <pre>27</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>10</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>10</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return deco_-&gt;template f&lt;Action, U...&gt;(*impl_, std::forward&lt;Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>10</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEEEENS_31DecoratorStartVerticalEccentricIS7_EEE1fILm193457765EJLm177642EEJEEEDaDpOT1_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L27' href='#L27' id="L27">
+                    <pre>27</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return deco_-&gt;template f&lt;Action, U...&gt;(*impl_, std::forward&lt;Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>15</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_31DecoratorStartVerticalEccentricINS1_INS2_INS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEEEEEENS_29DecoratorStartFoundationStripINS1_INS2_INS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEEEEEEEEEEEEEENS_22DecoratorStartMeyerhofISM_EEE1fILm193457765EJLm6384479379EEJEEEDaDpOT1_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L27' href='#L27' id="L27">
+                    <pre>27</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return deco_-&gt;template f&lt;Action, U...&gt;(*impl_, std::forward&lt;Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEEEENS_31DecoratorStartVerticalEccentricIS7_EEE1fILm193457765EJLm177659EEJEEEDaDpOT1_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L27' href='#L27' id="L27">
+                    <pre>27</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>9</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>9</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return deco_-&gt;template f&lt;Action, U...&gt;(*impl_, std::forward&lt;Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>9</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEEENS_22DecoratorStartMeyerhofISA_EEE1fILm193457765EJLm5862182EEJEEEDaDpOT1_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L27' href='#L27' id="L27">
+                    <pre>27</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>7</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>7</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return deco_-&gt;template f&lt;Action, U...&gt;(*impl_, std::forward&lt;Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>7</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEEENS_22DecoratorStartMeyerhofISA_EEE1fILm193457765EJLm6384479379EEJEEEDaDpOT1_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L27' href='#L27' id="L27">
+                    <pre>27</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return deco_-&gt;template f&lt;Action, U...&gt;(*impl_, std::forward&lt;Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEEENS_22DecoratorStartMeyerhofISA_EEE1fILm193457765EJLm6384296293EEJMS5_KFdvEEEEDaDpOT1_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L27' href='#L27' id="L27">
+                    <pre>27</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return deco_-&gt;template f&lt;Action, U...&gt;(*impl_, std::forward&lt;Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEEENS_22DecoratorStartMeyerhofISA_EEE1fILm193457765EJLm8244836567424926876EEJMS6_KFdvEEEEDaDpOT1_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L27' href='#L27' id="L27">
+                    <pre>27</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return deco_-&gt;template f&lt;Action, U...&gt;(*impl_, std::forward&lt;Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
         </td>
       </tr>
       <tr>
@@ -815,11 +1058,9 @@
           <a name='L30' href='#L30' id="L30">
           <pre>30</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>59</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      auto retval = f&lt;F::Set, F::Clone&gt;();</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -827,11 +1068,9 @@
           <a name='L31' href='#L31' id="L31">
           <pre>31</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>59</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      retval-&gt;impl_ = deco_-&gt;template f&lt;Action, U...&gt;(</pre>
+          <pre>  template &lt;uint64_t Action, uint64_t... U, typename... Args&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -839,11 +1078,9 @@
           <a name='L32' href='#L32' id="L32">
           <pre>32</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>59</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
+          <pre>  requires EqualUL&lt;Action, "Set"_f&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -851,11 +1088,9 @@
           <a name='L33' href='#L33' id="L33">
           <pre>33</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>59</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      return retval;</pre>
+          <pre>  [[nodiscard]] auto f(Args&amp;&amp;... args) const</pre>
         </td>
       </tr>
       <tr>
@@ -864,10 +1099,10 @@
           <pre>34</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>59</pre>
+          <pre>11</pre>
         </td>
         <td class='code'>
-          <pre>    }</pre>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -876,10 +1111,10 @@
           <pre>35</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>59</pre>
+          <pre>11</pre>
         </td>
         <td class='code'>
-          <pre>    else</pre>
+          <pre>    auto retval = Clone();</pre>
         </td>
       </tr>
       <tr>
@@ -888,10 +1123,10 @@
           <pre>36</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>59</pre>
+          <pre>11</pre>
         </td>
         <td class='code'>
-          <pre>    {</pre>
+          <pre>    retval-&gt;impl_ =</pre>
         </td>
       </tr>
       <tr>
@@ -900,10 +1135,10 @@
           <pre>37</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>59</pre>
+          <pre>11</pre>
         </td>
         <td class='code'>
-          <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
+          <pre>        deco_-&gt;template f&lt;Action, U...&gt;(*impl_, std::forward&lt;Args&gt;(args)...);</pre>
         </td>
       </tr>
       <tr>
@@ -912,10 +1147,10 @@
           <pre>38</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>59</pre>
+          <pre>11</pre>
         </td>
         <td class='code'>
-          <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
+          <pre>    return retval;</pre>
         </td>
       </tr>
       <tr>
@@ -924,10 +1159,470 @@
           <pre>39</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>59</pre>
+          <pre>11</pre>
         </td>
         <td class='code'>
-          <pre>    }</pre>
+          <pre>  }</pre>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEEEENS_29DecoratorStartFoundationStripIS7_EEE1fILm193470833EJLm177639EEJdEEEDaDpOT1_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L34' href='#L34' id="L34">
+                    <pre>34</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L35' href='#L35' id="L35">
+                    <pre>35</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    auto retval = Clone();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L36' href='#L36' id="L36">
+                    <pre>36</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    retval-&gt;impl_ =</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L37' href='#L37' id="L37">
+                    <pre>37</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        deco_-&gt;template f&lt;Action, U...&gt;(*impl_, std::forward&lt;Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L38' href='#L38' id="L38">
+                    <pre>38</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return retval;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L39' href='#L39' id="L39">
+                    <pre>39</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEEEENS_31DecoratorStartVerticalEccentricIS7_EEE1fILm193470833EJLm177659EEJdEEEDaDpOT1_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L34' href='#L34' id="L34">
+                    <pre>34</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L35' href='#L35' id="L35">
+                    <pre>35</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    auto retval = Clone();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L36' href='#L36' id="L36">
+                    <pre>36</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    retval-&gt;impl_ =</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L37' href='#L37' id="L37">
+                    <pre>37</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        deco_-&gt;template f&lt;Action, U...&gt;(*impl_, std::forward&lt;Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L38' href='#L38' id="L38">
+                    <pre>38</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return retval;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L39' href='#L39' id="L39">
+                    <pre>39</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEEEENS_31DecoratorStartVerticalEccentricIS7_EEE1fILm193470833EJLm177642EEJdEEEDaDpOT1_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L34' href='#L34' id="L34">
+                    <pre>34</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L35' href='#L35' id="L35">
+                    <pre>35</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    auto retval = Clone();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L36' href='#L36' id="L36">
+                    <pre>36</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    retval-&gt;impl_ =</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L37' href='#L37' id="L37">
+                    <pre>37</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        deco_-&gt;template f&lt;Action, U...&gt;(*impl_, std::forward&lt;Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L38' href='#L38' id="L38">
+                    <pre>38</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return retval;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L39' href='#L39' id="L39">
+                    <pre>39</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEEENS_22DecoratorStartMeyerhofISA_EEE1fILm193470833EJLm6384296293EEJMS5_KFSt10shared_ptrIS5_EdEdEEEDaDpOT1_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L34' href='#L34' id="L34">
+                    <pre>34</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L35' href='#L35' id="L35">
+                    <pre>35</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    auto retval = Clone();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L36' href='#L36' id="L36">
+                    <pre>36</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    retval-&gt;impl_ =</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L37' href='#L37' id="L37">
+                    <pre>37</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        deco_-&gt;template f&lt;Action, U...&gt;(*impl_, std::forward&lt;Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L38' href='#L38' id="L38">
+                    <pre>38</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return retval;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L39' href='#L39' id="L39">
+                    <pre>39</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEEENS_22DecoratorStartMeyerhofISA_EEE1fILm193470833EJLm8244836567424926876EEJMS6_KFSt10shared_ptrIS6_EdEdEEEDaDpOT1_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L34' href='#L34' id="L34">
+                    <pre>34</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L35' href='#L35' id="L35">
+                    <pre>35</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    auto retval = Clone();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L36' href='#L36' id="L36">
+                    <pre>36</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    retval-&gt;impl_ =</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L37' href='#L37' id="L37">
+                    <pre>37</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>        deco_-&gt;template f&lt;Action, U...&gt;(*impl_, std::forward&lt;Args&gt;(args)...);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L38' href='#L38' id="L38">
+                    <pre>38</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    return retval;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L39' href='#L39' id="L39">
+                    <pre>39</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
         </td>
       </tr>
       <tr>
@@ -935,3019 +1630,9 @@
           <a name='L40' href='#L40' id="L40">
           <pre>40</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>70</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  }</pre>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_15FoundationStripEEEEEEEE1fILNS_1FE8EJLSA_0EEJdEEEDaDpOKT1_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L27' href='#L27' id="L27">
-                    <pre>27</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L28' href='#L28' id="L28">
-                    <pre>28</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    if constexpr (Action == F::Set)</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L29' href='#L29' id="L29">
-                    <pre>29</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      auto retval = f&lt;F::Set, F::Clone&gt;();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      retval-&gt;impl_ = deco_-&gt;template f&lt;Action, U...&gt;(</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L33' href='#L33' id="L33">
-                    <pre>33</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L34' href='#L34' id="L34">
-                    <pre>34</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L35' href='#L35' id="L35">
-                    <pre>35</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    else</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L36' href='#L36' id="L36">
-                    <pre>36</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L37' href='#L37' id="L37">
-                    <pre>37</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L38' href='#L38' id="L38">
-                    <pre>38</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L39' href='#L39' id="L39">
-                    <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_17VerticalEccentricEEEEEEEE1fILNS_1FE8EJLSA_9EEJdEEEDaDpOKT1_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L27' href='#L27' id="L27">
-                    <pre>27</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L28' href='#L28' id="L28">
-                    <pre>28</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    if constexpr (Action == F::Set)</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L29' href='#L29' id="L29">
-                    <pre>29</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      auto retval = f&lt;F::Set, F::Clone&gt;();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      retval-&gt;impl_ = deco_-&gt;template f&lt;Action, U...&gt;(</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L33' href='#L33' id="L33">
-                    <pre>33</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L34' href='#L34' id="L34">
-                    <pre>34</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L35' href='#L35' id="L35">
-                    <pre>35</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    else</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L36' href='#L36' id="L36">
-                    <pre>36</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L37' href='#L37' id="L37">
-                    <pre>37</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L38' href='#L38' id="L38">
-                    <pre>38</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L39' href='#L39' id="L39">
-                    <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_17VerticalEccentricEEEEEEEE1fILNS_1FE8EJLSA_3EEJdEEEDaDpOKT1_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L27' href='#L27' id="L27">
-                    <pre>27</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L28' href='#L28' id="L28">
-                    <pre>28</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    if constexpr (Action == F::Set)</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L29' href='#L29' id="L29">
-                    <pre>29</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      auto retval = f&lt;F::Set, F::Clone&gt;();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      retval-&gt;impl_ = deco_-&gt;template f&lt;Action, U...&gt;(</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L33' href='#L33' id="L33">
-                    <pre>33</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L34' href='#L34' id="L34">
-                    <pre>34</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L35' href='#L35' id="L35">
-                    <pre>35</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    else</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L36' href='#L36' id="L36">
-                    <pre>36</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L37' href='#L37' id="L37">
-                    <pre>37</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L38' href='#L38' id="L38">
-                    <pre>38</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L39' href='#L39' id="L39">
-                    <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS0_INS1_INS2_INS3_INS_17VerticalEccentricEEEEEEEEENS0_INS1_INS2_INS3_INS_15FoundationStripEEEEEEEEEEEEEEEEEE1fILNS_1FE5EJLSL_1EEJEEEDaDpOKT1_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L27' href='#L27' id="L27">
-                    <pre>27</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>6</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L28' href='#L28' id="L28">
-                    <pre>28</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>6</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    if constexpr (Action == F::Set)</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L29' href='#L29' id="L29">
-                    <pre>29</pre></a>
-                  </td>
-                  <td class='uncovered-line'>
-                    <pre>0</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    <span class='red'>{</span></pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>6</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      auto retval = f&lt;F::Set, F::Clone&gt;();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>6</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      retval-&gt;impl_ = deco_-&gt;template f&lt;Action, U...&gt;(</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>6</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L33' href='#L33' id="L33">
-                    <pre>33</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>6</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L34' href='#L34' id="L34">
-                    <pre>34</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>6</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L35' href='#L35' id="L35">
-                    <pre>35</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>6</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    else</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L36' href='#L36' id="L36">
-                    <pre>36</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>6</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L37' href='#L37' id="L37">
-                    <pre>37</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>6</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L38' href='#L38' id="L38">
-                    <pre>38</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>6</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L39' href='#L39' id="L39">
-                    <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>6</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>6</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_15FoundationStripEEEEEEEE1fILNS_1FE5EJLSA_0EEJEEEDaDpOKT1_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L27' href='#L27' id="L27">
-                    <pre>27</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L28' href='#L28' id="L28">
-                    <pre>28</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    if constexpr (Action == F::Set)</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L29' href='#L29' id="L29">
-                    <pre>29</pre></a>
-                  </td>
-                  <td class='uncovered-line'>
-                    <pre>0</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    <span class='red'>{</span></pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      auto retval = f&lt;F::Set, F::Clone&gt;();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      retval-&gt;impl_ = deco_-&gt;template f&lt;Action, U...&gt;(</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L33' href='#L33' id="L33">
-                    <pre>33</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L34' href='#L34' id="L34">
-                    <pre>34</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L35' href='#L35' id="L35">
-                    <pre>35</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    else</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L36' href='#L36' id="L36">
-                    <pre>36</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L37' href='#L37' id="L37">
-                    <pre>37</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L38' href='#L38' id="L38">
-                    <pre>38</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L39' href='#L39' id="L39">
-                    <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_17VerticalEccentricEEEEEEEE1fILNS_1FE5EJLSA_3EEJEEEDaDpOKT1_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L27' href='#L27' id="L27">
-                    <pre>27</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L28' href='#L28' id="L28">
-                    <pre>28</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    if constexpr (Action == F::Set)</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L29' href='#L29' id="L29">
-                    <pre>29</pre></a>
-                  </td>
-                  <td class='uncovered-line'>
-                    <pre>0</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    <span class='red'>{</span></pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      auto retval = f&lt;F::Set, F::Clone&gt;();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      retval-&gt;impl_ = deco_-&gt;template f&lt;Action, U...&gt;(</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L33' href='#L33' id="L33">
-                    <pre>33</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L34' href='#L34' id="L34">
-                    <pre>34</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L35' href='#L35' id="L35">
-                    <pre>35</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    else</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L36' href='#L36' id="L36">
-                    <pre>36</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L37' href='#L37' id="L37">
-                    <pre>37</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L38' href='#L38' id="L38">
-                    <pre>38</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L39' href='#L39' id="L39">
-                    <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>15</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS0_INS1_INS2_INS3_INS_17VerticalEccentricEEEEEEEEENS0_INS1_INS2_INS3_INS_15FoundationStripEEEEEEEEEEEEEEEEEE1fILNS_1FE5EJLSL_7EEJEEEDaDpOKT1_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L27' href='#L27' id="L27">
-                    <pre>27</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L28' href='#L28' id="L28">
-                    <pre>28</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    if constexpr (Action == F::Set)</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L29' href='#L29' id="L29">
-                    <pre>29</pre></a>
-                  </td>
-                  <td class='uncovered-line'>
-                    <pre>0</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    <span class='red'>{</span></pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      auto retval = f&lt;F::Set, F::Clone&gt;();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      retval-&gt;impl_ = deco_-&gt;template f&lt;Action, U...&gt;(</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L33' href='#L33' id="L33">
-                    <pre>33</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L34' href='#L34' id="L34">
-                    <pre>34</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L35' href='#L35' id="L35">
-                    <pre>35</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    else</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L36' href='#L36' id="L36">
-                    <pre>36</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L37' href='#L37' id="L37">
-                    <pre>37</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L38' href='#L38' id="L38">
-                    <pre>38</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L39' href='#L39' id="L39">
-                    <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_17VerticalEccentricEEEEEEEE1fILNS_1FE5EJLSA_9EEJEEEDaDpOKT1_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L27' href='#L27' id="L27">
-                    <pre>27</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L28' href='#L28' id="L28">
-                    <pre>28</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    if constexpr (Action == F::Set)</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L29' href='#L29' id="L29">
-                    <pre>29</pre></a>
-                  </td>
-                  <td class='uncovered-line'>
-                    <pre>0</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    <span class='red'>{</span></pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      auto retval = f&lt;F::Set, F::Clone&gt;();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      retval-&gt;impl_ = deco_-&gt;template f&lt;Action, U...&gt;(</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L33' href='#L33' id="L33">
-                    <pre>33</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L34' href='#L34' id="L34">
-                    <pre>34</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L35' href='#L35' id="L35">
-                    <pre>35</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    else</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L36' href='#L36' id="L36">
-                    <pre>36</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L37' href='#L37' id="L37">
-                    <pre>37</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L38' href='#L38' id="L38">
-                    <pre>38</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L39' href='#L39' id="L39">
-                    <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEEEE1fILNS_1FE5EJLSD_1EEJEEEDaDpOKT1_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L27' href='#L27' id="L27">
-                    <pre>27</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L28' href='#L28' id="L28">
-                    <pre>28</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    if constexpr (Action == F::Set)</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L29' href='#L29' id="L29">
-                    <pre>29</pre></a>
-                  </td>
-                  <td class='uncovered-line'>
-                    <pre>0</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    <span class='red'>{</span></pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      auto retval = f&lt;F::Set, F::Clone&gt;();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      retval-&gt;impl_ = deco_-&gt;template f&lt;Action, U...&gt;(</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L33' href='#L33' id="L33">
-                    <pre>33</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L34' href='#L34' id="L34">
-                    <pre>34</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L35' href='#L35' id="L35">
-                    <pre>35</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    else</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L36' href='#L36' id="L36">
-                    <pre>36</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L37' href='#L37' id="L37">
-                    <pre>37</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L38' href='#L38' id="L38">
-                    <pre>38</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L39' href='#L39' id="L39">
-                    <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEEEE1fILNS_1FE5EJLSD_7EEJEEEDaDpOKT1_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L27' href='#L27' id="L27">
-                    <pre>27</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L28' href='#L28' id="L28">
-                    <pre>28</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    if constexpr (Action == F::Set)</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L29' href='#L29' id="L29">
-                    <pre>29</pre></a>
-                  </td>
-                  <td class='uncovered-line'>
-                    <pre>0</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    <span class='red'>{</span></pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      auto retval = f&lt;F::Set, F::Clone&gt;();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      retval-&gt;impl_ = deco_-&gt;template f&lt;Action, U...&gt;(</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L33' href='#L33' id="L33">
-                    <pre>33</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L34' href='#L34' id="L34">
-                    <pre>34</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L35' href='#L35' id="L35">
-                    <pre>35</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    else</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L36' href='#L36' id="L36">
-                    <pre>36</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L37' href='#L37' id="L37">
-                    <pre>37</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L38' href='#L38' id="L38">
-                    <pre>38</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L39' href='#L39' id="L39">
-                    <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEEEE1fILNS_1FE8EJLSD_6ELSD_3EEJdEEEDaDpOKT1_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L27' href='#L27' id="L27">
-                    <pre>27</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L28' href='#L28' id="L28">
-                    <pre>28</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    if constexpr (Action == F::Set)</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L29' href='#L29' id="L29">
-                    <pre>29</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      auto retval = f&lt;F::Set, F::Clone&gt;();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      retval-&gt;impl_ = deco_-&gt;template f&lt;Action, U...&gt;(</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L33' href='#L33' id="L33">
-                    <pre>33</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L34' href='#L34' id="L34">
-                    <pre>34</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L35' href='#L35' id="L35">
-                    <pre>35</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    else</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L36' href='#L36' id="L36">
-                    <pre>36</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L37' href='#L37' id="L37">
-                    <pre>37</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L38' href='#L38' id="L38">
-                    <pre>38</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L39' href='#L39' id="L39">
-                    <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEEEE1fILNS_1FE8EJLSD_6ELSD_9EEJdEEEDaDpOKT1_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L27' href='#L27' id="L27">
-                    <pre>27</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L28' href='#L28' id="L28">
-                    <pre>28</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    if constexpr (Action == F::Set)</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L29' href='#L29' id="L29">
-                    <pre>29</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      auto retval = f&lt;F::Set, F::Clone&gt;();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      retval-&gt;impl_ = deco_-&gt;template f&lt;Action, U...&gt;(</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L33' href='#L33' id="L33">
-                    <pre>33</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L34' href='#L34' id="L34">
-                    <pre>34</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L35' href='#L35' id="L35">
-                    <pre>35</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    else</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L36' href='#L36' id="L36">
-                    <pre>36</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L37' href='#L37' id="L37">
-                    <pre>37</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L38' href='#L38' id="L38">
-                    <pre>38</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L39' href='#L39' id="L39">
-                    <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEEEE1fILNS_1FE8EJLSD_4ELSD_0EEJdEEEDaDpOKT1_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L27' href='#L27' id="L27">
-                    <pre>27</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L28' href='#L28' id="L28">
-                    <pre>28</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    if constexpr (Action == F::Set)</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L29' href='#L29' id="L29">
-                    <pre>29</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      auto retval = f&lt;F::Set, F::Clone&gt;();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      retval-&gt;impl_ = deco_-&gt;template f&lt;Action, U...&gt;(</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L33' href='#L33' id="L33">
-                    <pre>33</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L34' href='#L34' id="L34">
-                    <pre>34</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L35' href='#L35' id="L35">
-                    <pre>35</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    else</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L36' href='#L36' id="L36">
-                    <pre>36</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L37' href='#L37' id="L37">
-                    <pre>37</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L38' href='#L38' id="L38">
-                    <pre>38</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L39' href='#L39' id="L39">
-                    <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEEEE1fILNS_1FE5EJLSD_6ELSD_3EEJEEEDaDpOKT1_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L27' href='#L27' id="L27">
-                    <pre>27</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L28' href='#L28' id="L28">
-                    <pre>28</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    if constexpr (Action == F::Set)</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L29' href='#L29' id="L29">
-                    <pre>29</pre></a>
-                  </td>
-                  <td class='uncovered-line'>
-                    <pre>0</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    <span class='red'>{</span></pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      auto retval = f&lt;F::Set, F::Clone&gt;();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      retval-&gt;impl_ = deco_-&gt;template f&lt;Action, U...&gt;(</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L33' href='#L33' id="L33">
-                    <pre>33</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L34' href='#L34' id="L34">
-                    <pre>34</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L35' href='#L35' id="L35">
-                    <pre>35</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    else</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L36' href='#L36' id="L36">
-                    <pre>36</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L37' href='#L37' id="L37">
-                    <pre>37</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L38' href='#L38' id="L38">
-                    <pre>38</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L39' href='#L39' id="L39">
-                    <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEEEE1fILNS_1FE5EJLSD_6ELSD_9EEJEEEDaDpOKT1_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L27' href='#L27' id="L27">
-                    <pre>27</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L28' href='#L28' id="L28">
-                    <pre>28</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    if constexpr (Action == F::Set)</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L29' href='#L29' id="L29">
-                    <pre>29</pre></a>
-                  </td>
-                  <td class='uncovered-line'>
-                    <pre>0</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    <span class='red'>{</span></pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      auto retval = f&lt;F::Set, F::Clone&gt;();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      retval-&gt;impl_ = deco_-&gt;template f&lt;Action, U...&gt;(</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L33' href='#L33' id="L33">
-                    <pre>33</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L34' href='#L34' id="L34">
-                    <pre>34</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L35' href='#L35' id="L35">
-                    <pre>35</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    else</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L36' href='#L36' id="L36">
-                    <pre>36</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L37' href='#L37' id="L37">
-                    <pre>37</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L38' href='#L38' id="L38">
-                    <pre>38</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L39' href='#L39' id="L39">
-                    <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEEEE1fILNS_1FE5EJLSD_4ELSD_0EEJEEEDaDpOKT1_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L27' href='#L27' id="L27">
-                    <pre>27</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L28' href='#L28' id="L28">
-                    <pre>28</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    if constexpr (Action == F::Set)</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L29' href='#L29' id="L29">
-                    <pre>29</pre></a>
-                  </td>
-                  <td class='uncovered-line'>
-                    <pre>0</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    <span class='red'>{</span></pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      auto retval = f&lt;F::Set, F::Clone&gt;();</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      retval-&gt;impl_ = deco_-&gt;template f&lt;Action, U...&gt;(</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>          *impl_, std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L33' href='#L33' id="L33">
-                    <pre>33</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L34' href='#L34' id="L34">
-                    <pre>34</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L35' href='#L35' id="L35">
-                    <pre>35</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    else</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L36' href='#L36' id="L36">
-                    <pre>36</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L37' href='#L37' id="L37">
-                    <pre>37</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>      return deco_-&gt;template f&lt;Action, U...&gt;(*impl_,</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L38' href='#L38' id="L38">
-                    <pre>38</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>                                             std::forward&lt;const Args&gt;(args)...);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L39' href='#L39' id="L39">
-                    <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    }</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -3957,7 +1642,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>  [[nodiscard]] virtual std::shared_ptr&lt;ShrT&gt; Clone() const = 0;</pre>
         </td>
       </tr>
       <tr>
@@ -3967,7 +1652,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  template &lt;F Action, F U&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -3977,7 +1662,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  requires Equals&lt;F, Action, F::Set&gt; &amp;& Equals&lt;F, U, F::Clone&gt;</pre>
+          <pre> private:</pre>
         </td>
       </tr>
       <tr>
@@ -3987,303 +1672,13 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] std::shared_ptr&lt;DecoratorStart&lt;T&gt;&gt; f() const</pre>
+          <pre>  std::shared_ptr&lt;typename T::RootType&gt; impl_;</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L45' href='#L45' id="L45">
           <pre>45</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>14</pre>
-        </td>
-        <td class='code'>
-          <pre>  {</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L46' href='#L46' id="L46">
-          <pre>46</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>14</pre>
-        </td>
-        <td class='code'>
-          <pre>    return std::make_shared&lt;DecoratorStart&lt;T&gt;&gt;(*this);</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L47' href='#L47' id="L47">
-          <pre>47</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>14</pre>
-        </td>
-        <td class='code'>
-          <pre>  }</pre>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_15FoundationStripEEEEEEEE1fILNS_1FE8ELSA_2EEESt10shared_ptrIS8_Ev</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L45' href='#L45' id="L45">
-                    <pre>45</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L46' href='#L46' id="L46">
-                    <pre>46</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return std::make_shared&lt;DecoratorStart&lt;T&gt;&gt;(*this);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L47' href='#L47' id="L47">
-                    <pre>47</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_17VerticalEccentricEEEEEEEE1fILNS_1FE8ELSA_2EEESt10shared_ptrIS8_Ev</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L45' href='#L45' id="L45">
-                    <pre>45</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>8</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L46' href='#L46' id="L46">
-                    <pre>46</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>8</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return std::make_shared&lt;DecoratorStart&lt;T&gt;&gt;(*this);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L47' href='#L47' id="L47">
-                    <pre>47</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>8</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS0_INS1_INS2_INS3_INS_17VerticalEccentricEEEEEEEEENS0_INS1_INS2_INS3_INS_15FoundationStripEEEEEEEEEEEEEEEEEE1fILNS_1FE8ELSL_2EEESt10shared_ptrISJ_Ev</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L45' href='#L45' id="L45">
-                    <pre>45</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L46' href='#L46' id="L46">
-                    <pre>46</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return std::make_shared&lt;DecoratorStart&lt;T&gt;&gt;(*this);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L47' href='#L47' id="L47">
-                    <pre>47</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZNK7jessica14DecoratorStartINS_7LogCallINS_11LogDurationINS_12DecoratorEndINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEEEEE1fILNS_1FE8ELSD_2EEESt10shared_ptrISB_Ev</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L45' href='#L45' id="L45">
-                    <pre>45</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L46' href='#L46' id="L46">
-                    <pre>46</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return std::make_shared&lt;DecoratorStart&lt;T&gt;&gt;(*this);</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L47' href='#L47' id="L47">
-                    <pre>47</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L48' href='#L48' id="L48">
-          <pre>48</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L49' href='#L49' id="L49">
-          <pre>49</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre> private:</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L50' href='#L50' id="L50">
-          <pre>50</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  std::shared_ptr&lt;typename T::RootType&gt; impl_;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L51' href='#L51' id="L51">
-          <pre>51</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -4292,8 +1687,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L52' href='#L52' id="L52">
-          <pre>52</pre></a>
+          <a name='L46' href='#L46' id="L46">
+          <pre>46</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -4302,8 +1697,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L53' href='#L53' id="L53">
-          <pre>53</pre></a>
+          <a name='L47' href='#L47' id="L47">
+          <pre>47</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
