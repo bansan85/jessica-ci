@@ -159,7 +159,7 @@
        5      1     25      0      12 (anonymous) ./src/angular/projects/jessica/src/lib/jessica.service.spec.ts
       14      1     70      2      14 require.join ./src/angular/projects/jessica/karma.conf.js
        1      1      5      0       1 main ./src/main/main1.cc
-      28      1    208      1      31 EMSCRIPTEN_BINDINGS ./src/javascript/wasm/bindings-web.cpp
+      32      1    208      1      35 EMSCRIPTEN_BINDINGS ./src/javascript/wasm/bindings-web.cpp
       38      1    315      1      43 EMSCRIPTEN_BINDINGS ./src/javascript/wasm/bindings-test.cpp
 79 file analyzed.
 ==============================================================
@@ -242,7 +242,7 @@ NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
       7       0.0     0.0        0.0         0     ./src/angular/lighthouserc.js
       0       0.0     0.0        0.0         0     ./src/backend/dummy.cpp
       1       1.0     1.0        5.0         1     ./src/main/main1.cc
-     36      28.0     1.0      208.0         1     ./src/javascript/wasm/bindings-web.cpp
+     40      32.0     1.0      208.0         1     ./src/javascript/wasm/bindings-web.cpp
      53      38.0     1.0      315.0         1     ./src/javascript/wasm/bindings-test.cpp
 
 ===============================================================================================================
@@ -250,4 +250,4 @@ No thresholds exceeded (cyclomatic_complexity > 15 or length > 1000 or nloc > 10
 ==========================================================================================
 Total nloc   Avg.NLOC  AvgCCN  Avg.token   Fun Cnt  Warning cnt   Fun Rt   nloc Rt
 ------------------------------------------------------------------------------------------
-      2245       6.7     1.1       44.8      160            0      0.00    0.00
+      2249       6.7     1.1       44.8      160            0      0.00    0.00
