@@ -41,8 +41,8 @@
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
-            <td class="headerCovTableEntry">11</td>
-            <td class="headerCovTableEntry">11</td>
+            <td class="headerCovTableEntry">12</td>
+            <td class="headerCovTableEntry">12</td>
           </tr>
           <tr>
             <td class="headerItem">Legend:</td>
@@ -96,11 +96,11 @@
 <a name="18"><span class="lineNum">      18</span>                 :             : </a>
 <a name="19"><span class="lineNum">      19</span>                 :             :   template &lt;typename... Args&gt;</a>
 <a name="20"><span class="lineNum">      20</span>                 :             :   // cppcheck-suppress constParameter</a>
-<a name="21"><span class="lineNum">      21</span>                 :<span class="tlaGNC">          14 :   explicit DecoratorEnd(std::shared_ptr&lt;T&gt;&amp; impl, Args&amp;&amp;... args)</span></a>
-<a name="22"><span class="lineNum">      22</span>                 :<span class="tlaGNC">          14 :   {</span></a>
-<a name="23"><span class="lineNum">      23</span>                 :<span class="tlaGNC">          14 :     impl = std::make_shared&lt;T&gt;(std::forward&lt;Args&gt;(args)...);</span></a>
-<a name="24"><span class="lineNum">      24</span>                 :<span class="tlaGNC">          14 :   }</span></a>
-<a name="25"><span class="lineNum">      25</span>                 :<span class="tlaGNC">          14 :   RULE_OF_FIVE_COPY_VIRTUAL(DecoratorEnd)</span></a>
+<a name="21"><span class="lineNum">      21</span>                 :<span class="tlaGNC">          18 :   explicit DecoratorEnd(std::shared_ptr&lt;T&gt;&amp; impl, Args&amp;&amp;... args)</span></a>
+<a name="22"><span class="lineNum">      22</span>                 :<span class="tlaGNC">          18 :   {</span></a>
+<a name="23"><span class="lineNum">      23</span>                 :<span class="tlaGNC">          18 :     impl = std::make_shared&lt;T&gt;(std::forward&lt;Args&gt;(args)...);</span></a>
+<a name="24"><span class="lineNum">      24</span>                 :<span class="tlaGNC">          18 :   }</span></a>
+<a name="25"><span class="lineNum">      25</span>                 :<span class="tlaGNC">          18 :   RULE_OF_FIVE_COPY_VIRTUAL(DecoratorEnd)</span></a>
 <a name="26"><span class="lineNum">      26</span>                 :             : </a>
 <a name="27"><span class="lineNum">      27</span>                 :             :   template &lt;uint64_t Action, uint64_t... U, typename... Args&gt;</a>
 <a name="28"><span class="lineNum">      28</span>                 :             :   [[nodiscard]] auto f(const T&amp; classe, Args&amp;&amp;... args) const</a>
