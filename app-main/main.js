@@ -2159,6 +2159,11 @@ var jessica = (function () {
             // Thrown object is prepended by exception metadata block
             return _malloc(size + 16) + 16;
         }
+        function _atexit(func, arg) {
+        }
+        function ___cxa_atexit(a0, a1) {
+            return _atexit(a0, a1);
+        }
         function ExceptionInfo(excPtr) {
             this.excPtr = excPtr;
             this.ptr = excPtr - 16;
@@ -3733,6 +3738,7 @@ var jessica = (function () {
         }
         var asmLibraryArg = {
             "__cxa_allocate_exception": ___cxa_allocate_exception,
+            "__cxa_atexit": ___cxa_atexit,
             "__cxa_throw": ___cxa_throw,
             "_embind_register_bigint": __embind_register_bigint,
             "_embind_register_bool": __embind_register_bool,
