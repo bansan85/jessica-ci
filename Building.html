@@ -469,6 +469,22 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li>
 <p>logger: <a href="https://github.com/gabime/spdlog">spdlog</a></p>
 </li>
+<li>
+<p>serialization (data storage / send data to web services): <a href="https://uscilab.github.io/cereal/">cereal</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_frontend">Frontend</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://nodejs.org/en/">Node.js</a> 14</p>
+</li>
+<li>
+<p><a href="https://angular.io/">Angular</a> 12</p>
+</li>
 </ul>
 </div>
 </div>
@@ -514,7 +530,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 <div class="paragraph">
-<p>To custom C++ flags, add to the first call of cmake ''-DCMAKE_CXX_FLAGS=&#8230;&#8203;''.</p>
+<p>To custom C++ flags, add to the first call of cmake <code>-DCMAKE_CXX_FLAGS=&#8230;&#8203;</code>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -534,7 +550,7 @@ cd ..</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">cmake -S . -B build/gcc -DCMAKE_C_COMPILER="/usr/bin/gcc-11" -DCMAKE_CXX_COMPILER="/usr/bin/g++-11" -DCMAKE_AR="/usr/bin/ar" -DCMAKE_RANLIB="/usr/bin/ranlib"</code></pre>
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">cmake -S . -B build/gcc -DCMAKE_C_COMPILER="/usr/bin/gcc-11" -DCMAKE_CXX_COMPILER="/usr/bin/g++-11" -DCMAKE_AR="/usr/bin/ar" -DCMAKE_RANLIB="/usr/bin/ranlib" -DCMAKE_CXX_FLAGS="-DSPDLOG_FMT_EXTERNAL -DFMT_HEADER_ONLY"</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -542,7 +558,7 @@ cd ..</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">cmake -S . -B build/clang -DCMAKE_C_COMPILER="/usr/bin/clang-12" -DCMAKE_CXX_COMPILER="/usr/bin/clang++-12" -DCMAKE_AR="/usr/bin/llvm-ar-12" -DCMAKE_RANLIB="/usr/bin/llvm-ranlib-12"</code></pre>
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">cmake -S . -B build/clang -DCMAKE_C_COMPILER="/usr/bin/clang-12" -DCMAKE_CXX_COMPILER="/usr/bin/clang++-12" -DCMAKE_AR="/usr/bin/llvm-ar-12" -DCMAKE_RANLIB="/usr/bin/llvm-ranlib-12" -DCMAKE_CXX_FLAGS="-DSPDLOG_FMT_EXTERNAL -DFMT_HEADER_ONLY"</code></pre>
 </div>
 </div>
 </div>
@@ -557,7 +573,7 @@ cd ..</code></pre>
 .\vcpkg\vcpkg.exe install "@.\config\cmake\vcpkg_windows.txt" --triplet=x64-windows
 .\vcpkg\vcpkg.exe integrate install
 mkdir -p build\windows
-cmake -S . -B build\windows -G "Visual Studio 16 2019" -A x64 -DCMAKE_TOOLCHAIN_FILE=.\vcpkg\scripts\buildsystems\vcpkg.cmake
+cmake -S . -B build\windows -G "Visual Studio 16 2019" -A x64 -DCMAKE_TOOLCHAIN_FILE=.\vcpkg\scripts\buildsystems\vcpkg.cmake -DCMAKE_CXX_FLAGS="-DSPDLOG_FMT_EXTERNAL -DFMT_HEADER_ONLY"
 cmake --build build\windows --target ALL_BUILD --config Debug -j9
 cd build\windows
 ctest -C Debug --output-on-failure
@@ -639,7 +655,7 @@ cd ..</code></pre>
 <p>Compilers tested: gcc-11 and clang-12.</p>
 </div>
 <div class="paragraph">
-<p>Packages are installed with ''apt-get''.</p>
+<p>Packages are installed with <code>apt-get</code>.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -649,19 +665,29 @@ cd ..</code></pre>
 </ul>
 </div>
 <div class="paragraph">
-<p>Compilers tested: ''Visual Studio 2019'' with ''Desktop development with C++''.</p>
+<p>Compilers tested: <code>Visual Studio 2019</code> with <code>Desktop development with C++</code>.</p>
 </div>
 <div class="paragraph">
-<p>Packages are installed with ''vcpkg''.</p>
+<p>Packages are installed with <code>vcpkg</code>.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_auto_formatting">Auto formatting</h3>
 <div class="paragraph">
-<p>Don&#8217;t spend to much time about formatting. Continuous integration will automatically create commit to fix them with <a href="https://github.com/cheshirekow/cmake_format">cmake-format</a> and <a href="https://clang.llvm.org/docs/ClangFormat.html">clang-format</a>.</p>
+<p>This is done in the <code>format</code> workflow. If a file needs to be formatted, an artifact is added with a fix and the current build and next workflows will fail.</p>
 </div>
 <div class="paragraph">
-<p>This is done in the <code>format</code> workflow. If a file need to be formatted, a new commit is added with a fix and the current build and next workflows will fail.</p>
+<p>Formatters use:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>backend: <a href="https://github.com/cheshirekow/cmake_format">cmake-format</a>, <a href="https://clang.llvm.org/docs/ClangFormat.html">clang-format</a>,</p>
+</li>
+<li>
+<p>frontend: <a href="https://prettier.io/">prettier</a>, <a href="https://eslint.org/">eslint</a></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>GitHub does not support two things:</p>
@@ -710,7 +736,10 @@ cd ..</code></pre>
 <p>css: <a href="https://stylelint.io/">stylelint</a>,</p>
 </li>
 <li>
-<p>html: <a href="https://prettier.io">prettier</a></p>
+<p>html: <a href="https://prettier.io">prettier</a>,</p>
+</li>
+<li>
+<p>python: <a href="https://pylint.org/">pylint</a>, <a href="https://flake8.pycqa.org/en/latest/">flake8</a>, <a href="http://prospector.landscape.io/en/master/">prospector</a>, <a href="http://mypy-lang.org/">mypy</a></p>
 </li>
 </ul>
 </div>
