@@ -195,7 +195,7 @@
           <pre>17</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>6</pre>
+          <pre>12</pre>
         </td>
         <td class='code'>
           <pre>  VerticalEccentric() = default;</pre>
@@ -227,7 +227,7 @@
           <pre>20</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>24</pre>
+          <pre>34</pre>
         </td>
         <td class='code'>
           <pre>  [[nodiscard]] double V() const { return v_; }</pre>
@@ -329,7 +329,7 @@
           <pre>29</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>43</pre>
+          <pre>59</pre>
         </td>
         <td class='code'>
           <pre>  [[nodiscard]] double E() const { return e_; }</pre>
@@ -432,7 +432,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> private:</pre>
+          <pre>  template &lt;class Archive&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -442,13 +442,191 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  double v_ = std::numeric_limits&lt;double&gt;::quiet_NaN();</pre>
+          <pre>  void serialize(Archive& ar)</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L40' href='#L40' id="L40">
           <pre>40</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>11</pre>
+        </td>
+        <td class='code'>
+          <pre>  {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L41' href='#L41' id="L41">
+          <pre>41</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>11</pre>
+        </td>
+        <td class='code'>
+          <pre>    ar(cereal::make_nvp("v", v_), cereal::make_nvp("e", e_));</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L42' href='#L42' id="L42">
+          <pre>42</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>11</pre>
+        </td>
+        <td class='code'>
+          <pre>  }</pre>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN7jessica17VerticalEccentric9serializeIN6cereal17JSONOutputArchiveEEEvRT_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L40' href='#L40' id="L40">
+                    <pre>40</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>6</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L41' href='#L41' id="L41">
+                    <pre>41</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>6</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    ar(cereal::make_nvp("v", v_), cereal::make_nvp("e", e_));</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L42' href='#L42' id="L42">
+                    <pre>42</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>6</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN7jessica17VerticalEccentric9serializeIN6cereal16JSONInputArchiveEEEvRT_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L40' href='#L40' id="L40">
+                    <pre>40</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L41' href='#L41' id="L41">
+                    <pre>41</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    ar(cereal::make_nvp("v", v_), cereal::make_nvp("e", e_));</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L42' href='#L42' id="L42">
+                    <pre>42</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L43' href='#L43' id="L43">
+          <pre>43</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L44' href='#L44' id="L44">
+          <pre>44</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre> private:</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L45' href='#L45' id="L45">
+          <pre>45</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  double v_ = std::numeric_limits&lt;double&gt;::quiet_NaN();</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L46' href='#L46' id="L46">
+          <pre>46</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -457,8 +635,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L41' href='#L41' id="L41">
-          <pre>41</pre></a>
+          <a name='L47' href='#L47' id="L47">
+          <pre>47</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -467,8 +645,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L42' href='#L42' id="L42">
-          <pre>42</pre></a>
+          <a name='L48' href='#L48' id="L48">
+          <pre>48</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
