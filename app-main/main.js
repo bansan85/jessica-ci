@@ -950,19 +950,24 @@ var jessica = (function () {
             }
             return wasmTable.length - 1;
         }
-        // Add a wasm function to the table.
-        function addFunctionWasm(func, sig) {
+        function updateTableMap(offset, count) {
+            for (var i = offset; i < offset + count; i++) {
+                var item = getWasmTableEntry(i);
+                // Ignore null values.
+                if (item) {
+                    functionsInTableMap.set(item, i);
+                }
+            }
+        }
+        // Add a function to the table.
+        // 'sig' parameter is required if the function being added is a JS function.
+        function addFunction(func, sig) {
+            assert(typeof func !== 'undefined');
             // Check if the function is already in the table, to ensure each function
             // gets a unique index. First, create the map if this is the first use.
             if (!functionsInTableMap) {
                 functionsInTableMap = new WeakMap();
-                for (var i = 0; i < wasmTable.length; i++) {
-                    var item = getWasmTableEntry(i);
-                    // Ignore null values.
-                    if (item) {
-                        functionsInTableMap.set(item, i);
-                    }
-                }
+                updateTableMap(0, wasmTable.length);
             }
             if (functionsInTableMap.has(func)) {
                 return functionsInTableMap.get(func);
@@ -988,12 +993,6 @@ var jessica = (function () {
         function removeFunction(index) {
             functionsInTableMap.delete(getWasmTableEntry(index));
             freeTableIndexes.push(index);
-        }
-        // 'sig' parameter is required for the llvm backend but only when func is not
-        // already a WebAssembly function.
-        function addFunction(func, sig) {
-            assert(typeof func !== 'undefined');
-            return addFunctionWasm(func, sig);
         }
         // end include: runtime_functions.js
         // include: runtime_debug.js
@@ -1580,7 +1579,7 @@ var jessica = (function () {
         /** @param {boolean=} dontAddNull */
         function writeAsciiToMemory(str, buffer, dontAddNull) {
             for (var i = 0; i < str.length; ++i) {
-                assert(str.charCodeAt(i) === str.charCodeAt(i) & 0xff);
+                assert(str.charCodeAt(i) === (str.charCodeAt(i) & 0xff));
                 HEAP8[((buffer++) >> 0)] = str.charCodeAt(i);
             }
             // Null-terminate the pointer to the HEAP.
@@ -1655,8 +1654,8 @@ var jessica = (function () {
             var max = _emscripten_stack_get_end();
             assert((max & 3) == 0);
             // The stack grows downwards
-            HEAPU32[(max >> 2) + 1] = 0x2135467;
-            HEAPU32[(max >> 2) + 2] = 0x89BACDFE;
+            HEAP32[((max + 4) >> 2)] = 0x2135467;
+            HEAP32[((max + 8) >> 2)] = 0x89BACDFE;
             // Also test the global address 0 for integrity.
             HEAP32[0] = 0x63736d65; /* 'emsc' */
         }
@@ -1664,8 +1663,8 @@ var jessica = (function () {
             if (ABORT)
                 return;
             var max = _emscripten_stack_get_end();
-            var cookie1 = HEAPU32[(max >> 2) + 1];
-            var cookie2 = HEAPU32[(max >> 2) + 2];
+            var cookie1 = HEAPU32[((max + 4) >> 2)];
+            var cookie2 = HEAPU32[((max + 8) >> 2)];
             if (cookie1 != 0x2135467 || cookie2 != 0x89BACDFE) {
                 abort('Stack overflow! Stack cookie has been overwritten, expected hex dwords 0x89BACDFE and 0x2135467, but received 0x' + cookie2.toString(16) + ' ' + cookie1.toString(16));
             }
@@ -2447,7 +2446,7 @@ var jessica = (function () {
             }
             throwBindingError(getInstanceTypeName(obj) + ' instance already deleted');
         }
-        var finalizationGroup = false;
+        var finalizationRegistry = false;
         function detachFinalizer(handle) { }
         function runDestructor($$) {
             if ($$.smartPtr) {
@@ -2465,31 +2464,38 @@ var jessica = (function () {
             }
         }
         function attachFinalizer(handle) {
-            if ('undefined' === typeof FinalizationGroup) {
+            if ('undefined' === typeof FinalizationRegistry) {
                 attachFinalizer = function (handle) { return handle; };
                 return handle;
             }
-            // If the running environment has a FinalizationGroup (see
+            // If the running environment has a FinalizationRegistry (see
             // https://github.com/tc39/proposal-weakrefs), then attach finalizers
-            // for class handles.  We check for the presence of FinalizationGroup
+            // for class handles.  We check for the presence of FinalizationRegistry
             // at run-time, not build-time.
-            finalizationGroup = new FinalizationGroup(function (iter) {
-                for (var result = iter.next(); !result.done; result = iter.next()) {
-                    var $$ = result.value;
-                    if (!$$.ptr) {
-                        console.warn('object already deleted: ' + $$.ptr);
-                    }
-                    else {
-                        releaseClassHandle($$);
-                    }
-                }
+            finalizationRegistry = new FinalizationRegistry(function (info) {
+                console.warn(info.leakWarning.stack.replace(/^Error: /, ''));
+                releaseClassHandle(info.$$);
             });
             attachFinalizer = function (handle) {
-                finalizationGroup.register(handle, handle.$$, handle.$$);
+                var $$ = handle.$$;
+                var info = { $$: $$ };
+                // Create a warning as an Error instance in advance so that we can store
+                // the current stacktrace and point to it when / if a leak is detected.
+                // This is more useful than the empty stacktrace of `FinalizationRegistry`
+                // callback.
+                var cls = $$.ptrType.registeredClass;
+                info.leakWarning = new Error("Embind found a leaked C++ instance " + cls.name + " <0x" + $$.ptr.toString(16) + ">.\n" +
+                    "We'll free it automatically in this case, but this functionality is not reliable across various environments.\n" +
+                    "Make sure to invoke .delete() manually once you're done with the instance instead.\n" +
+                    "Originally allocated"); // `.stack` will add "at ..." after this sentence
+                if ('captureStackTrace' in Error) {
+                    Error.captureStackTrace(info.leakWarning, cls.constructor);
+                }
+                finalizationRegistry.register(handle, info, handle);
                 return handle;
             };
             detachFinalizer = function (handle) {
-                finalizationGroup.unregister(handle.$$);
+                finalizationRegistry.unregister(handle);
             };
             return attachFinalizer(handle);
         }
@@ -3771,9 +3777,9 @@ var jessica = (function () {
         /** @type {function(...*):?} */
         var _malloc = Module["_malloc"] = createExportWrapper("malloc");
         /** @type {function(...*):?} */
-        var _fflush = Module["_fflush"] = createExportWrapper("fflush");
-        /** @type {function(...*):?} */
         var ___errno_location = Module["___errno_location"] = createExportWrapper("__errno_location");
+        /** @type {function(...*):?} */
+        var _fflush = Module["_fflush"] = createExportWrapper("fflush");
         /** @type {function(...*):?} */
         var stackSave = Module["stackSave"] = createExportWrapper("stackSave");
         /** @type {function(...*):?} */
@@ -4361,8 +4367,8 @@ var jessica = (function () {
             Module["runDestructor"] = function () { abort("'runDestructor' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
         if (!Object.getOwnPropertyDescriptor(Module, "releaseClassHandle"))
             Module["releaseClassHandle"] = function () { abort("'releaseClassHandle' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
-        if (!Object.getOwnPropertyDescriptor(Module, "finalizationGroup"))
-            Module["finalizationGroup"] = function () { abort("'finalizationGroup' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
+        if (!Object.getOwnPropertyDescriptor(Module, "finalizationRegistry"))
+            Module["finalizationRegistry"] = function () { abort("'finalizationRegistry' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
         if (!Object.getOwnPropertyDescriptor(Module, "detachFinalizer_deps"))
             Module["detachFinalizer_deps"] = function () { abort("'detachFinalizer_deps' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)"); };
         if (!Object.getOwnPropertyDescriptor(Module, "detachFinalizer"))
