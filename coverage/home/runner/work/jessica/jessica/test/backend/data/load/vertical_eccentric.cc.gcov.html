@@ -41,8 +41,8 @@
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
-            <td class="headerCovTableEntry">5</td>
-            <td class="headerCovTableEntry">5</td>
+            <td class="headerCovTableEntry">7</td>
+            <td class="headerCovTableEntry">7</td>
           </tr>
           <tr>
             <td class="headerItem">Legend:</td>
@@ -95,7 +95,7 @@
 <a name="17"><span class="lineNum">      17</span>                 :             : </a>
 <a name="18"><span class="lineNum">      18</span>                 :             : using namespace jessica;</a>
 <a name="19"><span class="lineNum">      19</span>                 :             : </a>
-<a name="20"><span class="lineNum">      20</span>                 :<span class="tlaGNC">           2 : JTEST_NAME(data, VerticalEccentric)  // NOLINT</span></a>
+<a name="20"><span class="lineNum">      20</span>                 :<span class="tlaGNC">           4 : JTEST_NAME(data, VerticalEccentric)  // NOLINT</span></a>
 <a name="21"><span class="lineNum">      21</span>                 :             : {</a>
 <a name="22"><span class="lineNum">      22</span>         [<span class="tlaGBC" title="Branch 0 was taken 1 time"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span>]:<span class="tlaGNC">           1 :   const auto load = std::make_shared&lt;VerticalEccentric&gt;();</span></a>
 <a name="23"><span class="lineNum">      23</span>   [<span class="tlaUNC" title="Branch 0 was not taken"> - </span><span class="tlaGBC" title="Branch 1 was taken 1 time"> + </span><span class="tlaUNC" title="Branch 2 was not taken"> - </span><span class="tlaUNC" title="Branch 3 was not taken"> - </span> :<span class="tlaGNC">           1 :   JTEST_TRUE(std::isnan(load-&gt;E()));</span></a>
@@ -146,7 +146,7 @@
 <a name="48"><span class="lineNum">      48</span>                 :<span class="tlaGNC">           1 :   }</span></a>
 <a name="49"><span class="lineNum">      49</span>                 :<span class="tlaGNC">           1 : }</span></a>
 <a name="50"><span class="lineNum">      50</span>                 :             : </a>
-<a name="51"><span class="lineNum">      51</span>                 :<span class="tlaGNC">           2 : JTEST_NAME(data, VerticalEccentricDecorator)  // NOLINT</span></a>
+<a name="51"><span class="lineNum">      51</span>                 :<span class="tlaGNC">           4 : JTEST_NAME(data, VerticalEccentricDecorator)  // NOLINT</span></a>
 <a name="52"><span class="lineNum">      52</span>                 :             : {</a>
 <a name="53"><span class="lineNum">      53</span>                 :             :   using Decorator = DecoratorStartVerticalEccentric&lt;</a>
 <a name="54"><span class="lineNum">      54</span>                 :             :       LogCall&lt;LogDuration&lt;DecoratorEndVerticalEccentric&lt;VerticalEccentric&gt;&gt;&gt;&gt;;</a>
