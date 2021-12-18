@@ -1,0 +1,2207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0">
+  <meta name='viewport' content=
+  'width=device-width,initial-scale=1'>
+  <meta charset='UTF-8'>
+  <link rel='stylesheet' type='text/css' href=
+  '../../../../../../../../../../../../../style.css'>
+  <title></title>
+</head>
+<body>
+  <h2>Coverage Report</h2>
+  <h4></h4>
+  <div class='centered'>
+    <div class='source-name-title'>
+      <pre>/home/runner/work/jessica/jessica/build/_deps/simdjson-src/include/simdjson/generic/ondemand/object.h</pre>
+    </div>
+    <table>
+      <tr>
+        <td>
+          <pre>Line</pre>
+        </td>
+        <td>
+          <pre>Count</pre>
+        </td>
+        <td>
+          <pre>Source</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L1' href='#L1' id="L1">
+          <pre>1</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>#include "simdjson/error.h"</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L2' href='#L2' id="L2">
+          <pre>2</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L3' href='#L3' id="L3">
+          <pre>3</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>namespace simdjson {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L4' href='#L4' id="L4">
+          <pre>4</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>namespace SIMDJSON_IMPLEMENTATION {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L5' href='#L5' id="L5">
+          <pre>5</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>namespace ondemand {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L6' href='#L6' id="L6">
+          <pre>6</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L7' href='#L7' id="L7">
+          <pre>7</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>/**</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L8' href='#L8' id="L8">
+          <pre>8</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre> * A forward-only JSON object field iterator.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L9' href='#L9' id="L9">
+          <pre>9</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre> */</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L10' href='#L10' id="L10">
+          <pre>10</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>class object {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L11' href='#L11' id="L11">
+          <pre>11</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>public:</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L12' href='#L12' id="L12">
+          <pre>12</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  /**</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L13' href='#L13' id="L13">
+          <pre>13</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * Create a new invalid object.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L14' href='#L14' id="L14">
+          <pre>14</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L15' href='#L15' id="L15">
+          <pre>15</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * Exists so you can declare a variable and later assign to it before use.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L16' href='#L16' id="L16">
+          <pre>16</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   */</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L17' href='#L17' id="L17">
+          <pre>17</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>26</pre>
+        </td>
+        <td class='code'>
+          <pre>  simdjson_really_inline object() noexcept = default;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L18' href='#L18' id="L18">
+          <pre>18</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L19' href='#L19' id="L19">
+          <pre>19</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  simdjson_really_inline simdjson_result&lt;object_iterator&gt; begin() noexcept;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L20' href='#L20' id="L20">
+          <pre>20</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  simdjson_really_inline simdjson_result&lt;object_iterator&gt; end() noexcept;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L21' href='#L21' id="L21">
+          <pre>21</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  /**</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L22' href='#L22' id="L22">
+          <pre>22</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * Look up a field by name on an object (order-sensitive).</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L23' href='#L23' id="L23">
+          <pre>23</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L24' href='#L24' id="L24">
+          <pre>24</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * The following code reads z, then y, then x, and thus will not retrieve x or y if fed the</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L25' href='#L25' id="L25">
+          <pre>25</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * JSON `{ "x": 1, "y": 2, "z": 3 }`:</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L26' href='#L26' id="L26">
+          <pre>26</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L27' href='#L27' id="L27">
+          <pre>27</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * ```c++</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L28' href='#L28' id="L28">
+          <pre>28</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * simdjson::ondemand::parser parser;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L29' href='#L29' id="L29">
+          <pre>29</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * auto obj = parser.parse(R"( { "x": 1, "y": 2, "z": 3 } )"_padded);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L30' href='#L30' id="L30">
+          <pre>30</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * double z = obj.find_field("z");</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L31' href='#L31' id="L31">
+          <pre>31</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * double y = obj.find_field("y");</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L32' href='#L32' id="L32">
+          <pre>32</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * double x = obj.find_field("x");</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L33' href='#L33' id="L33">
+          <pre>33</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * ```</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L34' href='#L34' id="L34">
+          <pre>34</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * If you have multiple fields with a matching key ({"x": 1,  "x": 1}) be mindful</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L35' href='#L35' id="L35">
+          <pre>35</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * that only one field is returned.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L36' href='#L36' id="L36">
+          <pre>36</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L37' href='#L37' id="L37">
+          <pre>37</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * **Raw Keys:** The lookup will be done against the *raw* key, and will not unescape keys.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L38' href='#L38' id="L38">
+          <pre>38</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * e.g. `object["a"]` will match `{ "a": 1 }`, but will *not* match `{ "\u0061": 1 }`.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L39' href='#L39' id="L39">
+          <pre>39</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L40' href='#L40' id="L40">
+          <pre>40</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * You must consume the fields on an object one at a time. A request for a new key</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L41' href='#L41' id="L41">
+          <pre>41</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * invalidates previous field values: it makes them unsafe. E.g., the array</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L42' href='#L42' id="L42">
+          <pre>42</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * given by content["bids"].get_array() should not be accessed after you have called</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L43' href='#L43' id="L43">
+          <pre>43</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * content["asks"].get_array(). You can detect such mistakes by first compiling and running</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L44' href='#L44' id="L44">
+          <pre>44</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * the code in Debug mode (or with the macro `SIMDJSON_DEVELOPMENT_CHECKS` set to 1): an</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L45' href='#L45' id="L45">
+          <pre>45</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * OUT_OF_ORDER_ITERATION error is generated.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L46' href='#L46' id="L46">
+          <pre>46</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L47' href='#L47' id="L47">
+          <pre>47</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * @param key The key to look up.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L48' href='#L48' id="L48">
+          <pre>48</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * @returns The value of the field, or NO_SUCH_FIELD if the field is not in the object.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L49' href='#L49' id="L49">
+          <pre>49</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   */</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L50' href='#L50' id="L50">
+          <pre>50</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  simdjson_really_inline simdjson_result&lt;value&gt; find_field(std::string_view key) & noexcept;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L51' href='#L51' id="L51">
+          <pre>51</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  /** @overload simdjson_really_inline simdjson_result&lt;value&gt; find_field(std::string_view key) & noexcept; */</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L52' href='#L52' id="L52">
+          <pre>52</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  simdjson_really_inline simdjson_result&lt;value&gt; find_field(std::string_view key) &amp;& noexcept;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L53' href='#L53' id="L53">
+          <pre>53</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L54' href='#L54' id="L54">
+          <pre>54</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  /**</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L55' href='#L55' id="L55">
+          <pre>55</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * Look up a field by name on an object, without regard to key order.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L56' href='#L56' id="L56">
+          <pre>56</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L57' href='#L57' id="L57">
+          <pre>57</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * **Performance Notes:** This is a bit less performant than find_field(), though its effect varies</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L58' href='#L58' id="L58">
+          <pre>58</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * and often appears negligible. It starts out normally, starting out at the last field; but if</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L59' href='#L59' id="L59">
+          <pre>59</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * the field is not found, it scans from the beginning of the object to see if it missed it. That</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L60' href='#L60' id="L60">
+          <pre>60</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * missing case has a non-cache-friendly bump and lots of extra scanning, especially if the object</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L61' href='#L61' id="L61">
+          <pre>61</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * in question is large. The fact that the extra code is there also bumps the executable size.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L62' href='#L62' id="L62">
+          <pre>62</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L63' href='#L63' id="L63">
+          <pre>63</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * It is the default, however, because it would be highly surprising (and hard to debug) if the</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L64' href='#L64' id="L64">
+          <pre>64</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * default behavior failed to look up a field just because it was in the wrong order--and many</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L65' href='#L65' id="L65">
+          <pre>65</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * APIs assume this. Therefore, you must be explicit if you want to treat objects as out of order.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L66' href='#L66' id="L66">
+          <pre>66</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L67' href='#L67' id="L67">
+          <pre>67</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * Use find_field() if you are sure fields will be in order (or are willing to treat it as if the</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L68' href='#L68' id="L68">
+          <pre>68</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * field wasn't there when they aren't).</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L69' href='#L69' id="L69">
+          <pre>69</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L70' href='#L70' id="L70">
+          <pre>70</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * If you have multiple fields with a matching key ({"x": 1,  "x": 1}) be mindful</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L71' href='#L71' id="L71">
+          <pre>71</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * that only one field is returned.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L72' href='#L72' id="L72">
+          <pre>72</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L73' href='#L73' id="L73">
+          <pre>73</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * You must consume the fields on an object one at a time. A request for a new key</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L74' href='#L74' id="L74">
+          <pre>74</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * invalidates previous field values: it makes them unsafe. E.g., the array</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L75' href='#L75' id="L75">
+          <pre>75</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * given by content["bids"].get_array() should not be accessed after you have called</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L76' href='#L76' id="L76">
+          <pre>76</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * content["asks"].get_array(). You can detect such mistakes by first compiling and running</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L77' href='#L77' id="L77">
+          <pre>77</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * the code in Debug mode (or with the macro `SIMDJSON_DEVELOPMENT_CHECKS` set to 1): an</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L78' href='#L78' id="L78">
+          <pre>78</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * OUT_OF_ORDER_ITERATION error is generated.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L79' href='#L79' id="L79">
+          <pre>79</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L80' href='#L80' id="L80">
+          <pre>80</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * @param key The key to look up.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L81' href='#L81' id="L81">
+          <pre>81</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * @returns The value of the field, or NO_SUCH_FIELD if the field is not in the object.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L82' href='#L82' id="L82">
+          <pre>82</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   */</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L83' href='#L83' id="L83">
+          <pre>83</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  simdjson_really_inline simdjson_result&lt;value&gt; find_field_unordered(std::string_view key) & noexcept;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L84' href='#L84' id="L84">
+          <pre>84</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  /** @overload simdjson_really_inline simdjson_result&lt;value&gt; find_field_unordered(std::string_view key) & noexcept; */</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L85' href='#L85' id="L85">
+          <pre>85</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  simdjson_really_inline simdjson_result&lt;value&gt; find_field_unordered(std::string_view key) &amp;& noexcept;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L86' href='#L86' id="L86">
+          <pre>86</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  /** @overload simdjson_really_inline simdjson_result&lt;value&gt; find_field_unordered(std::string_view key) & noexcept; */</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L87' href='#L87' id="L87">
+          <pre>87</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  simdjson_really_inline simdjson_result&lt;value&gt; operator[](std::string_view key) & noexcept;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L88' href='#L88' id="L88">
+          <pre>88</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  /** @overload simdjson_really_inline simdjson_result&lt;value&gt; find_field_unordered(std::string_view key) & noexcept; */</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L89' href='#L89' id="L89">
+          <pre>89</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  simdjson_really_inline simdjson_result&lt;value&gt; operator[](std::string_view key) &amp;& noexcept;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L90' href='#L90' id="L90">
+          <pre>90</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L91' href='#L91' id="L91">
+          <pre>91</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  /**</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L92' href='#L92' id="L92">
+          <pre>92</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * Get the value associated with the given JSON pointer. We use the RFC 6901</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L93' href='#L93' id="L93">
+          <pre>93</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * https://tools.ietf.org/html/rfc6901 standard, interpreting the current node</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L94' href='#L94' id="L94">
+          <pre>94</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * as the root of its own JSON document.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L95' href='#L95' id="L95">
+          <pre>95</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L96' href='#L96' id="L96">
+          <pre>96</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *   ondemand::parser parser;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L97' href='#L97' id="L97">
+          <pre>97</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *   auto json = R"({ "foo": { "a": [ 10, 20, 30 ] }})"_padded;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L98' href='#L98' id="L98">
+          <pre>98</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *   auto doc = parser.iterate(json);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L99' href='#L99' id="L99">
+          <pre>99</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *   doc.at_pointer("/foo/a/1") == 20</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L100' href='#L100' id="L100">
+          <pre>100</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L101' href='#L101' id="L101">
+          <pre>101</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * It is allowed for a key to be the empty string:</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L102' href='#L102' id="L102">
+          <pre>102</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L103' href='#L103' id="L103">
+          <pre>103</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *   ondemand::parser parser;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L104' href='#L104' id="L104">
+          <pre>104</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *   auto json = R"({ "": { "a": [ 10, 20, 30 ] }})"_padded;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L105' href='#L105' id="L105">
+          <pre>105</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *   auto doc = parser.iterate(json);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L106' href='#L106' id="L106">
+          <pre>106</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *   doc.at_pointer("//a/1") == 20</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L107' href='#L107' id="L107">
+          <pre>107</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L108' href='#L108' id="L108">
+          <pre>108</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * Note that at_pointer() called on the document automatically calls the document's rewind</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L109' href='#L109' id="L109">
+          <pre>109</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * method between each call. It invalidates all previously accessed arrays, objects and values</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L110' href='#L110' id="L110">
+          <pre>110</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * that have not been consumed. Yet it is not the case when calling at_pointer on an object</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L111' href='#L111' id="L111">
+          <pre>111</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * instance: there is no rewind and no invalidation.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L112' href='#L112' id="L112">
+          <pre>112</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L113' href='#L113' id="L113">
+          <pre>113</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * You may call at_pointer more than once on an object, but each time the pointer is advanced</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L114' href='#L114' id="L114">
+          <pre>114</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * to be within the value matched by the key indicated by the JSON pointer query. Thus any preceeding</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L115' href='#L115' id="L115">
+          <pre>115</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * key (as well as the current key) can no longer be used with following JSON pointer calls.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L116' href='#L116' id="L116">
+          <pre>116</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L117' href='#L117' id="L117">
+          <pre>117</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * Also note that at_pointer() relies on find_field() which implies that we do not unescape keys when matching.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L118' href='#L118' id="L118">
+          <pre>118</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L119' href='#L119' id="L119">
+          <pre>119</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * @return The value associated with the given JSON pointer, or:</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L120' href='#L120' id="L120">
+          <pre>120</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *         - NO_SUCH_FIELD if a field does not exist in an object</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L121' href='#L121' id="L121">
+          <pre>121</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *         - INDEX_OUT_OF_BOUNDS if an array index is larger than an array length</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L122' href='#L122' id="L122">
+          <pre>122</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *         - INCORRECT_TYPE if a non-integer is used to access an array</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L123' href='#L123' id="L123">
+          <pre>123</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *         - INVALID_JSON_POINTER if the JSON pointer is invalid and cannot be parsed</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L124' href='#L124' id="L124">
+          <pre>124</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   */</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L125' href='#L125' id="L125">
+          <pre>125</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  inline simdjson_result&lt;value&gt; at_pointer(std::string_view json_pointer) noexcept;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L126' href='#L126' id="L126">
+          <pre>126</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L127' href='#L127' id="L127">
+          <pre>127</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  /**</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L128' href='#L128' id="L128">
+          <pre>128</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * Reset the iterator so that we are pointing back at the</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L129' href='#L129' id="L129">
+          <pre>129</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * beginning of the object. You should still consume values only once even if you</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L130' href='#L130' id="L130">
+          <pre>130</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * can iterate through the object more than once. If you unescape a string within</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L131' href='#L131' id="L131">
+          <pre>131</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * the object more than once, you have unsafe code. Note that rewinding an object</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L132' href='#L132' id="L132">
+          <pre>132</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * means that you may need to reparse it anew: it is not a free operation.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L133' href='#L133' id="L133">
+          <pre>133</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L134' href='#L134' id="L134">
+          <pre>134</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * @returns true if the object contains some elements (not empty)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L135' href='#L135' id="L135">
+          <pre>135</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   */</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L136' href='#L136' id="L136">
+          <pre>136</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  inline simdjson_result&lt;bool&gt; reset() & noexcept;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L137' href='#L137' id="L137">
+          <pre>137</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  /**</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L138' href='#L138' id="L138">
+          <pre>138</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * This method scans the beginning of the object and checks whether the</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L139' href='#L139' id="L139">
+          <pre>139</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * object is empty.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L140' href='#L140' id="L140">
+          <pre>140</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * The runtime complexity is constant time. After</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L141' href='#L141' id="L141">
+          <pre>141</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * calling this function, if successful, the object is 'rewinded' at its</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L142' href='#L142' id="L142">
+          <pre>142</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * beginning as if it had never been accessed. If the JSON is malformed (e.g.,</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L143' href='#L143' id="L143">
+          <pre>143</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * there is a missing comma), then an error is returned and it is no longer</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L144' href='#L144' id="L144">
+          <pre>144</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * safe to continue.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L145' href='#L145' id="L145">
+          <pre>145</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   */</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L146' href='#L146' id="L146">
+          <pre>146</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  inline simdjson_result&lt;bool&gt; is_empty() & noexcept;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L147' href='#L147' id="L147">
+          <pre>147</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  /**</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L148' href='#L148' id="L148">
+          <pre>148</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * This method scans the object and counts the number of key-value pairs.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L149' href='#L149' id="L149">
+          <pre>149</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * The count_fields method should always be called before you have begun</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L150' href='#L150' id="L150">
+          <pre>150</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * iterating through the object: it is expected that you are pointing at</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L151' href='#L151' id="L151">
+          <pre>151</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * the beginning of the object.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L152' href='#L152' id="L152">
+          <pre>152</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * The runtime complexity is linear in the size of the object. After</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L153' href='#L153' id="L153">
+          <pre>153</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * calling this function, if successful, the object is 'rewinded' at its</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L154' href='#L154' id="L154">
+          <pre>154</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * beginning as if it had never been accessed. If the JSON is malformed (e.g.,</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L155' href='#L155' id="L155">
+          <pre>155</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * there is a missing comma), then an error is returned and it is no longer</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L156' href='#L156' id="L156">
+          <pre>156</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * safe to continue.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L157' href='#L157' id="L157">
+          <pre>157</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   *</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L158' href='#L158' id="L158">
+          <pre>158</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * To check that an object is empty, it is more performant to use</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L159' href='#L159' id="L159">
+          <pre>159</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * the is_empty() method.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L160' href='#L160' id="L160">
+          <pre>160</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   */</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L161' href='#L161' id="L161">
+          <pre>161</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  simdjson_really_inline simdjson_result&lt;size_t&gt; count_fields() & noexcept;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L162' href='#L162' id="L162">
+          <pre>162</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  /**</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L163' href='#L163' id="L163">
+          <pre>163</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * Consumes the object and returns a string_view instance corresponding to the</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L164' href='#L164' id="L164">
+          <pre>164</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * object as represented in JSON. It points inside the original byte array containg</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L165' href='#L165' id="L165">
+          <pre>165</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * the JSON document.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L166' href='#L166' id="L166">
+          <pre>166</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   */</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L167' href='#L167' id="L167">
+          <pre>167</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  simdjson_really_inline simdjson_result&lt;std::string_view&gt; raw_json() noexcept;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L168' href='#L168' id="L168">
+          <pre>168</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L169' href='#L169' id="L169">
+          <pre>169</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>protected:</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L170' href='#L170' id="L170">
+          <pre>170</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  /**</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L171' href='#L171' id="L171">
+          <pre>171</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   * Go to the end of the object, no matter where you are right now.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L172' href='#L172' id="L172">
+          <pre>172</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>   */</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L173' href='#L173' id="L173">
+          <pre>173</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  simdjson_really_inline error_code consume() noexcept;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L174' href='#L174' id="L174">
+          <pre>174</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  static simdjson_really_inline simdjson_result&lt;object&gt; start(value_iterator &amp;iter) noexcept;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L175' href='#L175' id="L175">
+          <pre>175</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  static simdjson_really_inline simdjson_result&lt;object&gt; start_root(value_iterator &amp;iter) noexcept;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L176' href='#L176' id="L176">
+          <pre>176</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  static simdjson_really_inline simdjson_result&lt;object&gt; started(value_iterator &amp;iter) noexcept;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L177' href='#L177' id="L177">
+          <pre>177</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  static simdjson_really_inline object resume(const value_iterator &amp;iter) noexcept;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L178' href='#L178' id="L178">
+          <pre>178</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  simdjson_really_inline object(const value_iterator &amp;iter) noexcept;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L179' href='#L179' id="L179">
+          <pre>179</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L180' href='#L180' id="L180">
+          <pre>180</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  simdjson_warn_unused simdjson_really_inline error_code find_field_raw(const std::string_view key) noexcept;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L181' href='#L181' id="L181">
+          <pre>181</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L182' href='#L182' id="L182">
+          <pre>182</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  value_iterator iter{};</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L183' href='#L183' id="L183">
+          <pre>183</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L184' href='#L184' id="L184">
+          <pre>184</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  friend class value;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L185' href='#L185' id="L185">
+          <pre>185</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  friend class document;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L186' href='#L186' id="L186">
+          <pre>186</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  friend struct simdjson_result&lt;object&gt;;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L187' href='#L187' id="L187">
+          <pre>187</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>};</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L188' href='#L188' id="L188">
+          <pre>188</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L189' href='#L189' id="L189">
+          <pre>189</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>} // namespace ondemand</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L190' href='#L190' id="L190">
+          <pre>190</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>} // namespace SIMDJSON_IMPLEMENTATION</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L191' href='#L191' id="L191">
+          <pre>191</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>} // namespace simdjson</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L192' href='#L192' id="L192">
+          <pre>192</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L193' href='#L193' id="L193">
+          <pre>193</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>namespace simdjson {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L194' href='#L194' id="L194">
+          <pre>194</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L195' href='#L195' id="L195">
+          <pre>195</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>template&lt;&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L196' href='#L196' id="L196">
+          <pre>196</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>struct simdjson_result&lt;SIMDJSON_IMPLEMENTATION::ondemand::object&gt; : public SIMDJSON_IMPLEMENTATION::implementation_simdjson_result_base&lt;SIMDJSON_IMPLEMENTATION::ondemand::object&gt; {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L197' href='#L197' id="L197">
+          <pre>197</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>public:</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L198' href='#L198' id="L198">
+          <pre>198</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  simdjson_really_inline simdjson_result(SIMDJSON_IMPLEMENTATION::ondemand::object &amp;&amp;value) noexcept; ///&lt; @private</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L199' href='#L199' id="L199">
+          <pre>199</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  simdjson_really_inline simdjson_result(error_code error) noexcept; ///&lt; @private</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L200' href='#L200' id="L200">
+          <pre>200</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  simdjson_really_inline simdjson_result() noexcept = default;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L201' href='#L201' id="L201">
+          <pre>201</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L202' href='#L202' id="L202">
+          <pre>202</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  simdjson_really_inline simdjson_result&lt;SIMDJSON_IMPLEMENTATION::ondemand::object_iterator&gt; begin() noexcept;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L203' href='#L203' id="L203">
+          <pre>203</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  simdjson_really_inline simdjson_result&lt;SIMDJSON_IMPLEMENTATION::ondemand::object_iterator&gt; end() noexcept;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L204' href='#L204' id="L204">
+          <pre>204</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  simdjson_really_inline simdjson_result&lt;SIMDJSON_IMPLEMENTATION::ondemand::value&gt; find_field(std::string_view key) & noexcept;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L205' href='#L205' id="L205">
+          <pre>205</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  simdjson_really_inline simdjson_result&lt;SIMDJSON_IMPLEMENTATION::ondemand::value&gt; find_field(std::string_view key) &amp;& noexcept;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L206' href='#L206' id="L206">
+          <pre>206</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  simdjson_really_inline simdjson_result&lt;SIMDJSON_IMPLEMENTATION::ondemand::value&gt; find_field_unordered(std::string_view key) & noexcept;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L207' href='#L207' id="L207">
+          <pre>207</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  simdjson_really_inline simdjson_result&lt;SIMDJSON_IMPLEMENTATION::ondemand::value&gt; find_field_unordered(std::string_view key) &amp;& noexcept;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L208' href='#L208' id="L208">
+          <pre>208</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  simdjson_really_inline simdjson_result&lt;SIMDJSON_IMPLEMENTATION::ondemand::value&gt; operator[](std::string_view key) & noexcept;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L209' href='#L209' id="L209">
+          <pre>209</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  simdjson_really_inline simdjson_result&lt;SIMDJSON_IMPLEMENTATION::ondemand::value&gt; operator[](std::string_view key) &amp;& noexcept;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L210' href='#L210' id="L210">
+          <pre>210</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  simdjson_really_inline simdjson_result&lt;SIMDJSON_IMPLEMENTATION::ondemand::value&gt; at_pointer(std::string_view json_pointer) noexcept;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L211' href='#L211' id="L211">
+          <pre>211</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  inline simdjson_result&lt;bool&gt; reset() noexcept;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L212' href='#L212' id="L212">
+          <pre>212</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  inline simdjson_result&lt;bool&gt; is_empty() noexcept;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L213' href='#L213' id="L213">
+          <pre>213</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  inline simdjson_result&lt;size_t&gt; count_fields() & noexcept;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L214' href='#L214' id="L214">
+          <pre>214</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L215' href='#L215' id="L215">
+          <pre>215</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>};</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L216' href='#L216' id="L216">
+          <pre>216</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L217' href='#L217' id="L217">
+          <pre>217</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>} // namespace simdjson</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>

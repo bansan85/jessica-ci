@@ -7,7 +7,7 @@
   'width=device-width,initial-scale=1'>
   <meta charset='UTF-8'>
   <link rel='stylesheet' type='text/css' href=
-  '../../../../../../../../../../style.css'>
+  '../../../../../../../../../../../../style.css'>
   <title></title>
 </head>
 <body>
@@ -15,7 +15,7 @@
   <h4></h4>
   <div class='centered'>
     <div class='source-name-title'>
-      <pre>/home/runner/work/jessica/jessica/include/jessica/data/load/vertical_eccentric.h</pre>
+      <pre>/home/runner/work/jessica/jessica/build/_deps/simdjson-src/include/simdjson/fallback/bitmanipulation.h</pre>
     </div>
     <table>
       <tr>
@@ -26,7 +26,8 @@
           <pre>Count</pre>
         </td>
         <td>
-          <pre>Source</pre>
+          <pre>Source (<a href=
+          '#L29'>jump to first uncovered line</a>)</pre>
         </td>
       </tr>
       <tr>
@@ -36,7 +37,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#pragma once</pre>
+          <pre>#ifndef SIMDJSON_FALLBACK_BITMANIPULATION_H</pre>
         </td>
       </tr>
       <tr>
@@ -46,7 +47,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>#define SIMDJSON_FALLBACK_BITMANIPULATION_H</pre>
         </td>
       </tr>
       <tr>
@@ -56,7 +57,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;cstdint&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -66,7 +67,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;limits&gt;</pre>
+          <pre>#include "simdjson/base.h"</pre>
         </td>
       </tr>
       <tr>
@@ -76,7 +77,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;memory&gt;</pre>
+          <pre>#include &lt;limits&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -96,7 +97,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/compat.h&gt;</pre>
+          <pre>namespace simdjson {</pre>
         </td>
       </tr>
       <tr>
@@ -106,7 +107,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/helper/accessor.h&gt;</pre>
+          <pre>namespace SIMDJSON_IMPLEMENTATION {</pre>
         </td>
       </tr>
       <tr>
@@ -116,7 +117,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/helper/template.h&gt;</pre>
+          <pre>namespace {</pre>
         </td>
       </tr>
       <tr>
@@ -126,7 +127,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/util/decorator/macro.h&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -136,7 +137,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>#if defined(_MSC_VER) &amp;& !defined(_M_ARM64) &amp;& !defined(_M_X64)</pre>
         </td>
       </tr>
       <tr>
@@ -146,7 +147,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>namespace jessica</pre>
+          <pre>static inline unsigned char _BitScanForward64(unsigned long* ret, uint64_t x) {</pre>
         </td>
       </tr>
       <tr>
@@ -156,7 +157,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>  unsigned long x0 = (unsigned long)x, top, bottom;</pre>
         </td>
       </tr>
       <tr>
@@ -166,7 +167,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>class JESSICA_DLL_PUBLIC VerticalEccentric final</pre>
+          <pre>  _BitScanForward(&amp;top, (unsigned long)(x &gt;&gt; 32));</pre>
         </td>
       </tr>
       <tr>
@@ -176,7 +177,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>  _BitScanForward(&amp;bottom, x0);</pre>
         </td>
       </tr>
       <tr>
@@ -186,7 +187,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> public:</pre>
+          <pre>  *ret = x0 ? bottom : 32 + top;</pre>
         </td>
       </tr>
       <tr>
@@ -194,11 +195,9 @@
           <a name='L17' href='#L17' id="L17">
           <pre>17</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>16</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  VerticalEccentric() = default;</pre>
+          <pre>  return x != 0;</pre>
         </td>
       </tr>
       <tr>
@@ -208,7 +207,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  RULE_OF_FIVE_COPY_AND_CLONE(VerticalEccentric)</pre>
+          <pre>}</pre>
         </td>
       </tr>
       <tr>
@@ -218,7 +217,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>static unsigned char _BitScanReverse64(unsigned long* ret, uint64_t x) {</pre>
         </td>
       </tr>
       <tr>
@@ -226,11 +225,9 @@
           <a name='L20' href='#L20' id="L20">
           <pre>20</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>36</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] double V() const { return v_; }</pre>
+          <pre>  unsigned long x1 = (unsigned long)(x &gt;&gt; 32), top, bottom;</pre>
         </td>
       </tr>
       <tr>
@@ -240,7 +237,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>  _BitScanReverse(&amp;top, x1);</pre>
         </td>
       </tr>
       <tr>
@@ -250,7 +247,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] std::shared_ptr&lt;VerticalEccentric&gt; SetV(const double v) const</pre>
+          <pre>  _BitScanReverse(&amp;bottom, (unsigned long)x);</pre>
         </td>
       </tr>
       <tr>
@@ -258,11 +255,9 @@
           <a name='L23' href='#L23' id="L23">
           <pre>23</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>8</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>  *ret = x1 ? top + 32 : bottom;</pre>
         </td>
       </tr>
       <tr>
@@ -270,11 +265,9 @@
           <a name='L24' href='#L24' id="L24">
           <pre>24</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>8</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    auto retval = Clone();</pre>
+          <pre>  return x != 0;</pre>
         </td>
       </tr>
       <tr>
@@ -282,11 +275,9 @@
           <a name='L25' href='#L25' id="L25">
           <pre>25</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>8</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    retval-&gt;v_ = v;</pre>
+          <pre>}</pre>
         </td>
       </tr>
       <tr>
@@ -294,11 +285,9 @@
           <a name='L26' href='#L26' id="L26">
           <pre>26</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>8</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    return retval;</pre>
+          <pre>#endif</pre>
         </td>
       </tr>
       <tr>
@@ -306,11 +295,9 @@
           <a name='L27' href='#L27' id="L27">
           <pre>27</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>8</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  }</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -320,7 +307,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>/* result might be undefined when input_num is zero */</pre>
         </td>
       </tr>
       <tr>
@@ -328,11 +315,11 @@
           <a name='L29' href='#L29' id="L29">
           <pre>29</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>62</pre>
+        <td class='uncovered-line'>
+          <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>  [[nodiscard]] double E() const { return e_; }</pre>
+          <pre>simdjson_really_inline int leading_zeroes(uint64_t input_num) <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -340,9 +327,11 @@
           <a name='L30' href='#L30' id="L30">
           <pre>30</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre><span class='red'>#ifdef _MSC_VER</span></pre>
         </td>
       </tr>
       <tr>
@@ -350,9 +339,12 @@
           <a name='L31' href='#L31' id="L31">
           <pre>31</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>  [[nodiscard]] std::shared_ptr&lt;VerticalEccentric&gt; SetE(const double e) const</pre>
+          <pre><span class=
+          'red'>  unsigned long leading_zero = 0;</span></pre>
         </td>
       </tr>
       <tr>
@@ -360,11 +352,12 @@
           <a name='L32' href='#L32' id="L32">
           <pre>32</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>17</pre>
+        <td class='uncovered-line'>
+          <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre><span class=
+          'red'>  // Search the mask data from most significant bit (MSB)</span></pre>
         </td>
       </tr>
       <tr>
@@ -372,11 +365,12 @@
           <a name='L33' href='#L33' id="L33">
           <pre>33</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>17</pre>
+        <td class='uncovered-line'>
+          <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>    auto retval = Clone();</pre>
+          <pre><span class=
+          'red'>  // to least significant bit (LSB) for a set bit (1).</span></pre>
         </td>
       </tr>
       <tr>
@@ -384,11 +378,12 @@
           <a name='L34' href='#L34' id="L34">
           <pre>34</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>17</pre>
+        <td class='uncovered-line'>
+          <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>    retval-&gt;e_ = e;</pre>
+          <pre><span class=
+          'red'>  if (_BitScanReverse64(&amp;leading_zero, input_num))</span></pre>
         </td>
       </tr>
       <tr>
@@ -396,11 +391,12 @@
           <a name='L35' href='#L35' id="L35">
           <pre>35</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>17</pre>
+        <td class='uncovered-line'>
+          <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>    return retval;</pre>
+          <pre><span class=
+          'red'>    return (int)(63 - leading_zero);</span></pre>
         </td>
       </tr>
       <tr>
@@ -408,11 +404,11 @@
           <a name='L36' href='#L36' id="L36">
           <pre>36</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>17</pre>
+        <td class='uncovered-line'>
+          <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>  }</pre>
+          <pre><span class='red'>  else</span></pre>
         </td>
       </tr>
       <tr>
@@ -420,9 +416,11 @@
           <a name='L37' href='#L37' id="L37">
           <pre>37</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre><span class='red'>    return 64;</span></pre>
         </td>
       </tr>
       <tr>
@@ -430,9 +428,11 @@
           <a name='L38' href='#L38' id="L38">
           <pre>38</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>  template &lt;class Archive&gt;</pre>
+          <pre><span class='red'>#else</span></pre>
         </td>
       </tr>
       <tr>
@@ -440,9 +440,12 @@
           <a name='L39' href='#L39' id="L39">
           <pre>39</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>  void serialize(Archive& ar)</pre>
+          <pre><span class=
+          'red'>  return __builtin_clzll(input_num);</span></pre>
         </td>
       </tr>
       <tr>
@@ -450,11 +453,11 @@
           <a name='L40' href='#L40' id="L40">
           <pre>40</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>15</pre>
+        <td class='uncovered-line'>
+          <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre><span class='red'>#endif// _MSC_VER</span></pre>
         </td>
       </tr>
       <tr>
@@ -462,11 +465,11 @@
           <a name='L41' href='#L41' id="L41">
           <pre>41</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>15</pre>
+        <td class='uncovered-line'>
+          <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>    ar(cereal::make_nvp("v", v_), cereal::make_nvp("e", e_));</pre>
+          <pre><span class='red'>}</span></pre>
         </td>
       </tr>
       <tr>
@@ -474,123 +477,9 @@
           <a name='L42' href='#L42' id="L42">
           <pre>42</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>15</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  }</pre>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7jessica17VerticalEccentric9serializeIN6cereal17JSONOutputArchiveEEEvRT_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>8</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L41' href='#L41' id="L41">
-                    <pre>41</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>8</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    ar(cereal::make_nvp("v", v_), cereal::make_nvp("e", e_));</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L42' href='#L42' id="L42">
-                    <pre>42</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>8</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7jessica17VerticalEccentric9serializeIN6cereal16JSONInputArchiveEEEvRT_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L41' href='#L41' id="L41">
-                    <pre>41</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    ar(cereal::make_nvp("v", v_), cereal::make_nvp("e", e_));</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L42' href='#L42' id="L42">
-                    <pre>42</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -600,7 +489,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>} // unnamed namespace</pre>
         </td>
       </tr>
       <tr>
@@ -610,7 +499,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> private:</pre>
+          <pre>} // namespace SIMDJSON_IMPLEMENTATION</pre>
         </td>
       </tr>
       <tr>
@@ -620,7 +509,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  double v_ = std::numeric_limits&lt;double&gt;::quiet_NaN();</pre>
+          <pre>} // namespace simdjson</pre>
         </td>
       </tr>
       <tr>
@@ -630,7 +519,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  double e_ = std::numeric_limits&lt;double&gt;::quiet_NaN();</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -640,17 +529,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>};</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L48' href='#L48' id="L48">
-          <pre>48</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>}  // namespace jessica</pre>
+          <pre>#endif // SIMDJSON_FALLBACK_BITMANIPULATION_H</pre>
         </td>
       </tr>
     </table>

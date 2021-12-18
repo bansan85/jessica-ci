@@ -7,7 +7,7 @@
   'width=device-width,initial-scale=1'>
   <meta charset='UTF-8'>
   <link rel='stylesheet' type='text/css' href=
-  '../../../../../../../../../../style.css'>
+  '../../../../../../../../../../../../style.css'>
   <title></title>
 </head>
 <body>
@@ -15,7 +15,7 @@
   <h4></h4>
   <div class='centered'>
     <div class='source-name-title'>
-      <pre>/home/runner/work/jessica/jessica/include/jessica/data/load/vertical_eccentric.h</pre>
+      <pre>/home/runner/work/jessica/jessica/build/_deps/simdjson-src/include/simdjson/haswell/bitmanipulation.h</pre>
     </div>
     <table>
       <tr>
@@ -26,7 +26,8 @@
           <pre>Count</pre>
         </td>
         <td>
-          <pre>Source</pre>
+          <pre>Source (<a href=
+          '#L12'>jump to first uncovered line</a>)</pre>
         </td>
       </tr>
       <tr>
@@ -36,7 +37,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#pragma once</pre>
+          <pre>#ifndef SIMDJSON_HASWELL_BITMANIPULATION_H</pre>
         </td>
       </tr>
       <tr>
@@ -46,7 +47,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>#define SIMDJSON_HASWELL_BITMANIPULATION_H</pre>
         </td>
       </tr>
       <tr>
@@ -56,7 +57,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;cstdint&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -66,7 +67,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;limits&gt;</pre>
+          <pre>namespace simdjson {</pre>
         </td>
       </tr>
       <tr>
@@ -76,7 +77,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;memory&gt;</pre>
+          <pre>namespace SIMDJSON_IMPLEMENTATION {</pre>
         </td>
       </tr>
       <tr>
@@ -86,7 +87,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>namespace {</pre>
         </td>
       </tr>
       <tr>
@@ -96,7 +97,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/compat.h&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -106,7 +107,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/helper/accessor.h&gt;</pre>
+          <pre>// We sometimes call trailing_zero on inputs that are zero,</pre>
         </td>
       </tr>
       <tr>
@@ -116,7 +117,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/helper/template.h&gt;</pre>
+          <pre>// but the algorithms do not end up using the returned value.</pre>
         </td>
       </tr>
       <tr>
@@ -126,7 +127,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/util/decorator/macro.h&gt;</pre>
+          <pre>// Sadly, sanitizers are not smart enough to figure it out.</pre>
         </td>
       </tr>
       <tr>
@@ -136,7 +137,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>NO_SANITIZE_UNDEFINED</pre>
         </td>
       </tr>
       <tr>
@@ -144,9 +145,11 @@
           <a name='L12' href='#L12' id="L12">
           <pre>12</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>namespace jessica</pre>
+          <pre>simdjson_really_inline int trailing_zeroes(uint64_t input_num) <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -154,9 +157,12 @@
           <a name='L13' href='#L13' id="L13">
           <pre>13</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>{</pre>
+          <pre><span class=
+          'red'>#ifdef SIMDJSON_REGULAR_VISUAL_STUDIO</span></pre>
         </td>
       </tr>
       <tr>
@@ -164,9 +170,12 @@
           <a name='L14' href='#L14' id="L14">
           <pre>14</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>class JESSICA_DLL_PUBLIC VerticalEccentric final</pre>
+          <pre><span class=
+          'red'>  return (int)_tzcnt_u64(input_num);</span></pre>
         </td>
       </tr>
       <tr>
@@ -174,9 +183,12 @@
           <a name='L15' href='#L15' id="L15">
           <pre>15</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>{</pre>
+          <pre><span class=
+          'red'>#else // SIMDJSON_REGULAR_VISUAL_STUDIO</span></pre>
         </td>
       </tr>
       <tr>
@@ -184,9 +196,11 @@
           <a name='L16' href='#L16' id="L16">
           <pre>16</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre> public:</pre>
+          <pre><span class='red'>  ////////</span></pre>
         </td>
       </tr>
       <tr>
@@ -194,11 +208,12 @@
           <a name='L17' href='#L17' id="L17">
           <pre>17</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>16</pre>
+        <td class='uncovered-line'>
+          <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>  VerticalEccentric() = default;</pre>
+          <pre><span class=
+          'red'>  // You might expect the next line to be equivalent to</span></pre>
         </td>
       </tr>
       <tr>
@@ -206,9 +221,12 @@
           <a name='L18' href='#L18' id="L18">
           <pre>18</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>  RULE_OF_FIVE_COPY_AND_CLONE(VerticalEccentric)</pre>
+          <pre><span class=
+          'red'>  // return (int)_tzcnt_u64(input_num);</span></pre>
         </td>
       </tr>
       <tr>
@@ -216,9 +234,12 @@
           <a name='L19' href='#L19' id="L19">
           <pre>19</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre><span class=
+          'red'>  // but the generated code differs and might be less efficient?</span></pre>
         </td>
       </tr>
       <tr>
@@ -226,11 +247,11 @@
           <a name='L20' href='#L20' id="L20">
           <pre>20</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>36</pre>
+        <td class='uncovered-line'>
+          <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>  [[nodiscard]] double V() const { return v_; }</pre>
+          <pre><span class='red'>  ////////</span></pre>
         </td>
       </tr>
       <tr>
@@ -238,9 +259,12 @@
           <a name='L21' href='#L21' id="L21">
           <pre>21</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre><span class=
+          'red'>  return __builtin_ctzll(input_num);</span></pre>
         </td>
       </tr>
       <tr>
@@ -248,9 +272,12 @@
           <a name='L22' href='#L22' id="L22">
           <pre>22</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>  [[nodiscard]] std::shared_ptr&lt;VerticalEccentric&gt; SetV(const double v) const</pre>
+          <pre><span class=
+          'red'>#endif // SIMDJSON_REGULAR_VISUAL_STUDIO</span></pre>
         </td>
       </tr>
       <tr>
@@ -258,65 +285,17 @@
           <a name='L23' href='#L23' id="L23">
           <pre>23</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>8</pre>
+        <td class='uncovered-line'>
+          <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre><span class='red'>}</span></pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L24' href='#L24' id="L24">
           <pre>24</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>8</pre>
-        </td>
-        <td class='code'>
-          <pre>    auto retval = Clone();</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L25' href='#L25' id="L25">
-          <pre>25</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>8</pre>
-        </td>
-        <td class='code'>
-          <pre>    retval-&gt;v_ = v;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L26' href='#L26' id="L26">
-          <pre>26</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>8</pre>
-        </td>
-        <td class='code'>
-          <pre>    return retval;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L27' href='#L27' id="L27">
-          <pre>27</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>8</pre>
-        </td>
-        <td class='code'>
-          <pre>  }</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L28' href='#L28' id="L28">
-          <pre>28</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -325,14 +304,59 @@
       </tr>
       <tr>
         <td class='line-number'>
+          <a name='L25' href='#L25' id="L25">
+          <pre>25</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>/* result might be undefined when input_num is zero */</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L26' href='#L26' id="L26">
+          <pre>26</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre>simdjson_really_inline uint64_t clear_lowest_bit(uint64_t input_num) <span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L27' href='#L27' id="L27">
+          <pre>27</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>  return _blsr_u64(input_num);</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L28' href='#L28' id="L28">
+          <pre>28</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>}</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
           <a name='L29' href='#L29' id="L29">
           <pre>29</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>62</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] double E() const { return e_; }</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -342,7 +366,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>/* result might be undefined when input_num is zero */</pre>
         </td>
       </tr>
       <tr>
@@ -350,9 +374,11 @@
           <a name='L31' href='#L31' id="L31">
           <pre>31</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>  [[nodiscard]] std::shared_ptr&lt;VerticalEccentric&gt; SetE(const double e) const</pre>
+          <pre>simdjson_really_inline int leading_zeroes(uint64_t input_num) <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -360,11 +386,12 @@
           <a name='L32' href='#L32' id="L32">
           <pre>32</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>17</pre>
+        <td class='uncovered-line'>
+          <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre><span class=
+          'red'>  return int(_lzcnt_u64(input_num));</span></pre>
         </td>
       </tr>
       <tr>
@@ -372,11 +399,11 @@
           <a name='L33' href='#L33' id="L33">
           <pre>33</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>17</pre>
+        <td class='uncovered-line'>
+          <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>    auto retval = Clone();</pre>
+          <pre><span class='red'>}</span></pre>
         </td>
       </tr>
       <tr>
@@ -384,11 +411,9 @@
           <a name='L34' href='#L34' id="L34">
           <pre>34</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>17</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    retval-&gt;e_ = e;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -396,11 +421,9 @@
           <a name='L35' href='#L35' id="L35">
           <pre>35</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>17</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    return retval;</pre>
+          <pre>#ifdef SIMDJSON_REGULAR_VISUAL_STUDIO</pre>
         </td>
       </tr>
       <tr>
@@ -408,11 +431,9 @@
           <a name='L36' href='#L36' id="L36">
           <pre>36</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>17</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  }</pre>
+          <pre>simdjson_really_inline unsigned __int64 count_ones(uint64_t input_num) {</pre>
         </td>
       </tr>
       <tr>
@@ -422,7 +443,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>  // note: we do not support legacy 32-bit Windows</pre>
         </td>
       </tr>
       <tr>
@@ -432,7 +453,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  template &lt;class Archive&gt;</pre>
+          <pre>  return __popcnt64(input_num);// Visual Studio wants two underscores</pre>
         </td>
       </tr>
       <tr>
@@ -442,7 +463,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  void serialize(Archive& ar)</pre>
+          <pre>}</pre>
         </td>
       </tr>
       <tr>
@@ -450,11 +471,9 @@
           <a name='L40' href='#L40' id="L40">
           <pre>40</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>15</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>#else</pre>
         </td>
       </tr>
       <tr>
@@ -462,11 +481,11 @@
           <a name='L41' href='#L41' id="L41">
           <pre>41</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>15</pre>
+        <td class='uncovered-line'>
+          <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>    ar(cereal::make_nvp("v", v_), cereal::make_nvp("e", e_));</pre>
+          <pre>simdjson_really_inline long long int count_ones(uint64_t input_num) <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -474,123 +493,12 @@
           <a name='L42' href='#L42' id="L42">
           <pre>42</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>15</pre>
+        <td class='uncovered-line'>
+          <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>  }</pre>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7jessica17VerticalEccentric9serializeIN6cereal17JSONOutputArchiveEEEvRT_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>8</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L41' href='#L41' id="L41">
-                    <pre>41</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>8</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    ar(cereal::make_nvp("v", v_), cereal::make_nvp("e", e_));</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L42' href='#L42' id="L42">
-                    <pre>42</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>8</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7jessica17VerticalEccentric9serializeIN6cereal16JSONInputArchiveEEEvRT_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L41' href='#L41' id="L41">
-                    <pre>41</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    ar(cereal::make_nvp("v", v_), cereal::make_nvp("e", e_));</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L42' href='#L42' id="L42">
-                    <pre>42</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
+          <pre><span class=
+          'red'>  return _popcnt64(input_num);</span></pre>
         </td>
       </tr>
       <tr>
@@ -598,9 +506,11 @@
           <a name='L43' href='#L43' id="L43">
           <pre>43</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre><span class='red'>}</span></pre>
         </td>
       </tr>
       <tr>
@@ -610,7 +520,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> private:</pre>
+          <pre>#endif</pre>
         </td>
       </tr>
       <tr>
@@ -620,7 +530,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  double v_ = std::numeric_limits&lt;double&gt;::quiet_NaN();</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -630,7 +540,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  double e_ = std::numeric_limits&lt;double&gt;::quiet_NaN();</pre>
+          <pre>simdjson_really_inline bool add_overflow(uint64_t value1, uint64_t value2,</pre>
         </td>
       </tr>
       <tr>
@@ -638,9 +548,12 @@
           <a name='L47' href='#L47' id="L47">
           <pre>47</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>};</pre>
+          <pre>                                uint64_t *result) <span class=
+          'red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -648,9 +561,160 @@
           <a name='L48' href='#L48' id="L48">
           <pre>48</pre></a>
         </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>#ifdef SIMDJSON_REGULAR_VISUAL_STUDIO</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L49' href='#L49' id="L49">
+          <pre>49</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>  return _addcarry_u64(0, value1, value2,</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L50' href='#L50' id="L50">
+          <pre>50</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>                       reinterpret_cast&lt;unsigned __int64 *&gt;(result));</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L51' href='#L51' id="L51">
+          <pre>51</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>#else</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L52' href='#L52' id="L52">
+          <pre>52</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>  return __builtin_uaddll_overflow(value1, value2,</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L53' href='#L53' id="L53">
+          <pre>53</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>                                   reinterpret_cast&lt;unsigned long long *&gt;(result));</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L54' href='#L54' id="L54">
+          <pre>54</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>#endif</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L55' href='#L55' id="L55">
+          <pre>55</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>}</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L56' href='#L56' id="L56">
+          <pre>56</pre></a>
+        </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>}  // namespace jessica</pre>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L57' href='#L57' id="L57">
+          <pre>57</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>} // unnamed namespace</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L58' href='#L58' id="L58">
+          <pre>58</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>} // namespace SIMDJSON_IMPLEMENTATION</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L59' href='#L59' id="L59">
+          <pre>59</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>} // namespace simdjson</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L60' href='#L60' id="L60">
+          <pre>60</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L61' href='#L61' id="L61">
+          <pre>61</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>#endif // SIMDJSON_HASWELL_BITMANIPULATION_H</pre>
         </td>
       </tr>
     </table>

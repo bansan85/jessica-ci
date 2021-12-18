@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0">
+  <meta name='viewport' content=
+  'width=device-width,initial-scale=1'>
+  <meta charset='UTF-8'>
+  <link rel='stylesheet' type='text/css' href=
+  '../../../../../../../../../../../../style.css'>
+  <title></title>
+</head>
+<body>
+  <h2>Coverage Report</h2>
+  <h4></h4>
+  <div class='centered'>
+    <div class='source-name-title'>
+      <pre>/home/runner/work/jessica/jessica/build/_deps/simdjson-src/include/simdjson/generic/jsoncharutils.h</pre>
+    </div>
+    <table>
+      <tr>
+        <td>
+          <pre>Line</pre>
+        </td>
+        <td>
+          <pre>Count</pre>
+        </td>
+        <td>
+          <pre>Source (<a href=
+          '#L11'>jump to first uncovered line</a>)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L1' href='#L1' id="L1">
+          <pre>1</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>#include "simdjson/internal/jsoncharutils_tables.h"</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L2' href='#L2' id="L2">
+          <pre>2</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>#include "simdjson/internal/numberparsing_tables.h"</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L3' href='#L3' id="L3">
+          <pre>3</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L4' href='#L4' id="L4">
+          <pre>4</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>namespace simdjson {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L5' href='#L5' id="L5">
+          <pre>5</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>namespace SIMDJSON_IMPLEMENTATION {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L6' href='#L6' id="L6">
+          <pre>6</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>namespace {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L7' href='#L7' id="L7">
+          <pre>7</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>namespace jsoncharutils {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L8' href='#L8' id="L8">
+          <pre>8</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L9' href='#L9' id="L9">
+          <pre>9</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>// return non-zero if not a structural or whitespace char</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L10' href='#L10' id="L10">
+          <pre>10</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>// zero otherwise</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L11' href='#L11' id="L11">
+          <pre>11</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre>simdjson_really_inline uint32_t is_not_structural_or_whitespace(uint8_t c) <span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L12' href='#L12' id="L12">
+          <pre>12</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>  return internal::structural_or_whitespace_negated[c];</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L13' href='#L13' id="L13">
+          <pre>13</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>}</span></pre>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: meyerhof.cc:_ZN8simdjson8fallback12_GLOBAL__N_113jsoncharutils31is_not_structural_or_whitespaceEh</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: meyerhof.cc:_ZN8simdjson7haswell12_GLOBAL__N_113jsoncharutils31is_not_structural_or_whitespaceEh</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: meyerhof.cc:_ZN8simdjson8westmere12_GLOBAL__N_113jsoncharutils31is_not_structural_or_whitespaceEh</pre>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L14' href='#L14' id="L14">
+          <pre>14</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L15' href='#L15' id="L15">
+          <pre>15</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre>simdjson_really_inline uint32_t is_structural_or_whitespace(uint8_t c) <span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L16' href='#L16' id="L16">
+          <pre>16</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>  return internal::structural_or_whitespace[c];</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L17' href='#L17' id="L17">
+          <pre>17</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>}</span></pre>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: meyerhof.cc:_ZN8simdjson8fallback12_GLOBAL__N_113jsoncharutils27is_structural_or_whitespaceEh</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: meyerhof.cc:_ZN8simdjson7haswell12_GLOBAL__N_113jsoncharutils27is_structural_or_whitespaceEh</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: meyerhof.cc:_ZN8simdjson8westmere12_GLOBAL__N_113jsoncharutils27is_structural_or_whitespaceEh</pre>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L18' href='#L18' id="L18">
+          <pre>18</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L19' href='#L19' id="L19">
+          <pre>19</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>// returns a value with the high 16 bits set if not valid</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L20' href='#L20' id="L20">
+          <pre>20</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>// otherwise returns the conversion of the 4 hex digits at src into the bottom</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L21' href='#L21' id="L21">
+          <pre>21</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>// 16 bits of the 32-bit return register</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L22' href='#L22' id="L22">
+          <pre>22</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>//</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L23' href='#L23' id="L23">
+          <pre>23</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>// see</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L24' href='#L24' id="L24">
+          <pre>24</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>// https://lemire.me/blog/2019/04/17/parsing-short-hexadecimal-strings-efficiently/</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L25' href='#L25' id="L25">
+          <pre>25</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>static inline uint32_t hex_to_u32_nocheck(</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L26' href='#L26' id="L26">
+          <pre>26</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre>    const uint8_t *src) <span class=
+          'red'>{ // strictly speaking, static inline is a C-ism</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L27' href='#L27' id="L27">
+          <pre>27</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>  uint32_t v1 = internal::digit_to_val32[630 + src[0]];</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L28' href='#L28' id="L28">
+          <pre>28</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>  uint32_t v2 = internal::digit_to_val32[420 + src[1]];</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L29' href='#L29' id="L29">
+          <pre>29</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>  uint32_t v3 = internal::digit_to_val32[210 + src[2]];</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L30' href='#L30' id="L30">
+          <pre>30</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>  uint32_t v4 = internal::digit_to_val32[0 + src[3]];</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L31' href='#L31' id="L31">
+          <pre>31</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>  return v1 | v2 | v3 | v4;</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L32' href='#L32' id="L32">
+          <pre>32</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>}</span></pre>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: meyerhof.cc:_ZN8simdjson8fallback12_GLOBAL__N_113jsoncharutils18hex_to_u32_nocheckEPKh</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: meyerhof.cc:_ZN8simdjson7haswell12_GLOBAL__N_113jsoncharutils18hex_to_u32_nocheckEPKh</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: meyerhof.cc:_ZN8simdjson8westmere12_GLOBAL__N_113jsoncharutils18hex_to_u32_nocheckEPKh</pre>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L33' href='#L33' id="L33">
+          <pre>33</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L34' href='#L34' id="L34">
+          <pre>34</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>// given a code point cp, writes to c</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L35' href='#L35' id="L35">
+          <pre>35</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>// the utf-8 code, outputting the length in</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L36' href='#L36' id="L36">
+          <pre>36</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>// bytes, if the length is zero, the code point</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L37' href='#L37' id="L37">
+          <pre>37</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>// is invalid</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L38' href='#L38' id="L38">
+          <pre>38</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>//</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L39' href='#L39' id="L39">
+          <pre>39</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>// This can possibly be made faster using pdep</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L40' href='#L40' id="L40">
+          <pre>40</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>// and clz and table lookups, but JSON documents</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L41' href='#L41' id="L41">
+          <pre>41</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>// have few escaped code points, and the following</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L42' href='#L42' id="L42">
+          <pre>42</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>// function looks cheap.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L43' href='#L43' id="L43">
+          <pre>43</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>//</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L44' href='#L44' id="L44">
+          <pre>44</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>// Note: we assume that surrogates are treated separately</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L45' href='#L45' id="L45">
+          <pre>45</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>//</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L46' href='#L46' id="L46">
+          <pre>46</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre>simdjson_really_inline size_t codepoint_to_utf8(uint32_t cp, uint8_t *c) <span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L47' href='#L47' id="L47">
+          <pre>47</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>  if (cp &lt;= 0x7F) {</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L48' href='#L48' id="L48">
+          <pre>48</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>    c[0] = uint8_t(cp);</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L49' href='#L49' id="L49">
+          <pre>49</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>    return 1; // ascii</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L50' href='#L50' id="L50">
+          <pre>50</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>  }</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L51' href='#L51' id="L51">
+          <pre>51</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>  if (cp &lt;= 0x7FF) {</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L52' href='#L52' id="L52">
+          <pre>52</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>    c[0] = uint8_t((cp &gt;&gt; 6) + 192);</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L53' href='#L53' id="L53">
+          <pre>53</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>    c[1] = uint8_t((cp & 63) + 128);</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L54' href='#L54' id="L54">
+          <pre>54</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>    return 2; // universal plane</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L55' href='#L55' id="L55">
+          <pre>55</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>    //  Surrogates are treated elsewhere...</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L56' href='#L56' id="L56">
+          <pre>56</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>    //} //else if (0xd800 &lt;= cp &amp;& cp &lt;= 0xdfff) {</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L57' href='#L57' id="L57">
+          <pre>57</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>    //  return 0; // surrogates // could put assert here</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L58' href='#L58' id="L58">
+          <pre>58</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>  } else if (cp &lt;= 0xFFFF) {</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L59' href='#L59' id="L59">
+          <pre>59</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>    c[0] = uint8_t((cp &gt;&gt; 12) + 224);</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L60' href='#L60' id="L60">
+          <pre>60</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>    c[1] = uint8_t(((cp &gt;&gt; 6) & 63) + 128);</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L61' href='#L61' id="L61">
+          <pre>61</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>    c[2] = uint8_t((cp & 63) + 128);</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L62' href='#L62' id="L62">
+          <pre>62</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>    return 3;</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L63' href='#L63' id="L63">
+          <pre>63</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>  } else if (cp &lt;= 0x10FFFF) { // if you know you have a valid code point, this</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L64' href='#L64' id="L64">
+          <pre>64</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>                               // is not needed</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L65' href='#L65' id="L65">
+          <pre>65</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>    c[0] = uint8_t((cp &gt;&gt; 18) + 240);</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L66' href='#L66' id="L66">
+          <pre>66</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>    c[1] = uint8_t(((cp &gt;&gt; 12) & 63) + 128);</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L67' href='#L67' id="L67">
+          <pre>67</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>    c[2] = uint8_t(((cp &gt;&gt; 6) & 63) + 128);</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L68' href='#L68' id="L68">
+          <pre>68</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>    c[3] = uint8_t((cp & 63) + 128);</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L69' href='#L69' id="L69">
+          <pre>69</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>    return 4;</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L70' href='#L70' id="L70">
+          <pre>70</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>  }</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L71' href='#L71' id="L71">
+          <pre>71</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>  // will return 0 when the code point was too large.</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L72' href='#L72' id="L72">
+          <pre>72</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>  return 0; // bad r</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L73' href='#L73' id="L73">
+          <pre>73</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>}</span></pre>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: meyerhof.cc:_ZN8simdjson8fallback12_GLOBAL__N_113jsoncharutils17codepoint_to_utf8EjPh</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: meyerhof.cc:_ZN8simdjson7haswell12_GLOBAL__N_113jsoncharutils17codepoint_to_utf8EjPh</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: meyerhof.cc:_ZN8simdjson8westmere12_GLOBAL__N_113jsoncharutils17codepoint_to_utf8EjPh</pre>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L74' href='#L74' id="L74">
+          <pre>74</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L75' href='#L75' id="L75">
+          <pre>75</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>#ifdef SIMDJSON_IS_32BITS // _umul128 for x86, arm</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L76' href='#L76' id="L76">
+          <pre>76</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>// this is a slow emulation routine for 32-bit</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L77' href='#L77' id="L77">
+          <pre>77</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>//</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L78' href='#L78' id="L78">
+          <pre>78</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>static simdjson_really_inline uint64_t __emulu(uint32_t x, uint32_t y) {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L79' href='#L79' id="L79">
+          <pre>79</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  return x * (uint64_t)y;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L80' href='#L80' id="L80">
+          <pre>80</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>}</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L81' href='#L81' id="L81">
+          <pre>81</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>static simdjson_really_inline uint64_t _umul128(uint64_t ab, uint64_t cd, uint64_t *hi) {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L82' href='#L82' id="L82">
+          <pre>82</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  uint64_t ad = __emulu((uint32_t)(ab &gt;&gt; 32), (uint32_t)cd);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L83' href='#L83' id="L83">
+          <pre>83</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  uint64_t bd = __emulu((uint32_t)ab, (uint32_t)cd);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L84' href='#L84' id="L84">
+          <pre>84</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  uint64_t adbc = ad + __emulu((uint32_t)ab, (uint32_t)(cd &gt;&gt; 32));</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L85' href='#L85' id="L85">
+          <pre>85</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  uint64_t adbc_carry = !!(adbc &lt; ad);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L86' href='#L86' id="L86">
+          <pre>86</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  uint64_t lo = bd + (adbc &lt;&lt; 32);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L87' href='#L87' id="L87">
+          <pre>87</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  *hi = __emulu((uint32_t)(ab &gt;&gt; 32), (uint32_t)(cd &gt;&gt; 32)) + (adbc &gt;&gt; 32) +</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L88' href='#L88' id="L88">
+          <pre>88</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        (adbc_carry &lt;&lt; 32) + !!(lo &lt; bd);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L89' href='#L89' id="L89">
+          <pre>89</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  return lo;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L90' href='#L90' id="L90">
+          <pre>90</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>}</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L91' href='#L91' id="L91">
+          <pre>91</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>#endif</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L92' href='#L92' id="L92">
+          <pre>92</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L93' href='#L93' id="L93">
+          <pre>93</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>using internal::value128;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L94' href='#L94' id="L94">
+          <pre>94</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L95' href='#L95' id="L95">
+          <pre>95</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre>simdjson_really_inline value128 full_multiplication(uint64_t value1, uint64_t value2) <span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L96' href='#L96' id="L96">
+          <pre>96</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>  value128 answer;</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L97' href='#L97' id="L97">
+          <pre>97</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>#if defined(SIMDJSON_REGULAR_VISUAL_STUDIO) || defined(SIMDJSON_IS_32BITS)</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L98' href='#L98' id="L98">
+          <pre>98</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>#ifdef _M_ARM64</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L99' href='#L99' id="L99">
+          <pre>99</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>  // ARM64 has native support for 64-bit multiplications, no need to emultate</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L100' href='#L100' id="L100">
+          <pre>100</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>  answer.high = __umulh(value1, value2);</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L101' href='#L101' id="L101">
+          <pre>101</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>  answer.low = value1 * value2;</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L102' href='#L102' id="L102">
+          <pre>102</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>#else</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L103' href='#L103' id="L103">
+          <pre>103</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>  answer.low = _umul128(value1, value2, &amp;answer.high); // _umul128 not available on ARM64</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L104' href='#L104' id="L104">
+          <pre>104</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>#endif // _M_ARM64</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L105' href='#L105' id="L105">
+          <pre>105</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>#else // defined(SIMDJSON_REGULAR_VISUAL_STUDIO) || defined(SIMDJSON_IS_32BITS)</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L106' href='#L106' id="L106">
+          <pre>106</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>  __uint128_t r = (static_cast&lt;__uint128_t&gt;(value1)) * value2;</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L107' href='#L107' id="L107">
+          <pre>107</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>  answer.low = uint64_t(r);</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L108' href='#L108' id="L108">
+          <pre>108</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>  answer.high = uint64_t(r &gt;&gt; 64);</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L109' href='#L109' id="L109">
+          <pre>109</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>#endif</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L110' href='#L110' id="L110">
+          <pre>110</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>  return answer;</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L111' href='#L111' id="L111">
+          <pre>111</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>}</span></pre>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: meyerhof.cc:_ZN8simdjson8fallback12_GLOBAL__N_113jsoncharutils19full_multiplicationEmm</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: meyerhof.cc:_ZN8simdjson7haswell12_GLOBAL__N_113jsoncharutils19full_multiplicationEmm</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: meyerhof.cc:_ZN8simdjson8westmere12_GLOBAL__N_113jsoncharutils19full_multiplicationEmm</pre>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L112' href='#L112' id="L112">
+          <pre>112</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L113' href='#L113' id="L113">
+          <pre>113</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>} // namespace jsoncharutils</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L114' href='#L114' id="L114">
+          <pre>114</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>} // unnamed namespace</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L115' href='#L115' id="L115">
+          <pre>115</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>} // namespace SIMDJSON_IMPLEMENTATION</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L116' href='#L116' id="L116">
+          <pre>116</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>} // namespace simdjson</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>

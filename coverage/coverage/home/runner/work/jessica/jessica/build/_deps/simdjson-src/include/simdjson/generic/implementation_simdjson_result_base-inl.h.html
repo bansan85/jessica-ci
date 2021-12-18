@@ -1,0 +1,2153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0">
+  <meta name='viewport' content=
+  'width=device-width,initial-scale=1'>
+  <meta charset='UTF-8'>
+  <link rel='stylesheet' type='text/css' href=
+  '../../../../../../../../../../../../style.css'>
+  <title></title>
+</head>
+<body>
+  <h2>Coverage Report</h2>
+  <h4></h4>
+  <div class='centered'>
+    <div class='source-name-title'>
+      <pre>/home/runner/work/jessica/jessica/build/_deps/simdjson-src/include/simdjson/generic/implementation_simdjson_result_base-inl.h</pre>
+    </div>
+    <table>
+      <tr>
+        <td>
+          <pre>Line</pre>
+        </td>
+        <td>
+          <pre>Count</pre>
+        </td>
+        <td>
+          <pre>Source (<a href=
+          '#L31'>jump to first uncovered line</a>)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L1' href='#L1' id="L1">
+          <pre>1</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>namespace simdjson {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L2' href='#L2' id="L2">
+          <pre>2</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>namespace SIMDJSON_IMPLEMENTATION {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L3' href='#L3' id="L3">
+          <pre>3</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L4' href='#L4' id="L4">
+          <pre>4</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>//</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L5' href='#L5' id="L5">
+          <pre>5</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>// internal::implementation_simdjson_result_base&lt;T&gt; inline implementation</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L6' href='#L6' id="L6">
+          <pre>6</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>//</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L7' href='#L7' id="L7">
+          <pre>7</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L8' href='#L8' id="L8">
+          <pre>8</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>template&lt;typename T&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L9' href='#L9' id="L9">
+          <pre>9</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>161</pre>
+        </td>
+        <td class='code'>
+          <pre>simdjson_really_inline void implementation_simdjson_result_base&lt;T&gt;::tie(T &amp;value, error_code &amp;error) &amp;& noexcept {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L10' href='#L10' id="L10">
+          <pre>10</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>161</pre>
+        </td>
+        <td class='code'>
+          <pre>  error = this-&gt;second;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L11' href='#L11' id="L11">
+          <pre>11</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>161</pre>
+        </td>
+        <td class='code'>
+          <pre>  if (!error) {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L12' href='#L12' id="L12">
+          <pre>12</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>161</pre>
+        </td>
+        <td class='code'>
+          <pre>    value = std::forward&lt;implementation_simdjson_result_base&lt;T&gt;&gt;(*this).first;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L13' href='#L13' id="L13">
+          <pre>13</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>161</pre>
+        </td>
+        <td class='code'>
+          <pre>  }</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L14' href='#L14' id="L14">
+          <pre>14</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>161</pre>
+        </td>
+        <td class='code'>
+          <pre>}</pre>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZNO8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand9json_typeEE3tieERS3_RNS_10error_codeE</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L9' href='#L9' id="L9">
+                    <pre>9</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>13</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>simdjson_really_inline void implementation_simdjson_result_base&lt;T&gt;::tie(T &amp;value, error_code &amp;error) &amp;& noexcept {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L10' href='#L10' id="L10">
+                    <pre>10</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>13</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  error = this-&gt;second;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L11' href='#L11' id="L11">
+                    <pre>11</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>13</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  if (!error) {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L12' href='#L12' id="L12">
+                    <pre>12</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>13</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    value = std::forward&lt;implementation_simdjson_result_base&lt;T&gt;&gt;(*this).first;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L13' href='#L13' id="L13">
+                    <pre>13</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>13</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L14' href='#L14' id="L14">
+                    <pre>14</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>13</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>}</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZNO8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand5arrayEE3tieERS3_RNS_10error_codeE</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZNO8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand6objectEE3tieERS3_RNS_10error_codeE</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZNO8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand15raw_json_stringEE3tieERS3_RNS_10error_codeE</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L9' href='#L9' id="L9">
+                    <pre>9</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>148</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>simdjson_really_inline void implementation_simdjson_result_base&lt;T&gt;::tie(T &amp;value, error_code &amp;error) &amp;& noexcept {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L10' href='#L10' id="L10">
+                    <pre>10</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>148</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  error = this-&gt;second;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L11' href='#L11' id="L11">
+                    <pre>11</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>148</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  if (!error) {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L12' href='#L12' id="L12">
+                    <pre>12</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>148</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    value = std::forward&lt;implementation_simdjson_result_base&lt;T&gt;&gt;(*this).first;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L13' href='#L13' id="L13">
+                    <pre>13</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>148</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  }</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L14' href='#L14' id="L14">
+                    <pre>14</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>148</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>}</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L15' href='#L15' id="L15">
+          <pre>15</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L16' href='#L16' id="L16">
+          <pre>16</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>template&lt;typename T&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L17' href='#L17' id="L17">
+          <pre>17</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>161</pre>
+        </td>
+        <td class='code'>
+          <pre>simdjson_warn_unused simdjson_really_inline error_code implementation_simdjson_result_base&lt;T&gt;::get(T &amp;value) &amp;& noexcept {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L18' href='#L18' id="L18">
+          <pre>18</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>161</pre>
+        </td>
+        <td class='code'>
+          <pre>  error_code error;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L19' href='#L19' id="L19">
+          <pre>19</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>161</pre>
+        </td>
+        <td class='code'>
+          <pre>  std::forward&lt;implementation_simdjson_result_base&lt;T&gt;&gt;(*this).tie(value, error);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L20' href='#L20' id="L20">
+          <pre>20</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>161</pre>
+        </td>
+        <td class='code'>
+          <pre>  return error;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L21' href='#L21' id="L21">
+          <pre>21</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>161</pre>
+        </td>
+        <td class='code'>
+          <pre>}</pre>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZNO8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand9json_typeEE3getERS3_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L17' href='#L17' id="L17">
+                    <pre>17</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>13</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>simdjson_warn_unused simdjson_really_inline error_code implementation_simdjson_result_base&lt;T&gt;::get(T &amp;value) &amp;& noexcept {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L18' href='#L18' id="L18">
+                    <pre>18</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>13</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  error_code error;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>13</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  std::forward&lt;implementation_simdjson_result_base&lt;T&gt;&gt;(*this).tie(value, error);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>13</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  return error;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>13</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>}</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZNO8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand5arrayEE3getERS3_</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZNO8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand6objectEE3getERS3_</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZNO8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand15raw_json_stringEE3getERS3_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L17' href='#L17' id="L17">
+                    <pre>17</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>148</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>simdjson_warn_unused simdjson_really_inline error_code implementation_simdjson_result_base&lt;T&gt;::get(T &amp;value) &amp;& noexcept {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L18' href='#L18' id="L18">
+                    <pre>18</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>148</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  error_code error;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L19' href='#L19' id="L19">
+                    <pre>19</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>148</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  std::forward&lt;implementation_simdjson_result_base&lt;T&gt;&gt;(*this).tie(value, error);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L20' href='#L20' id="L20">
+                    <pre>20</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>148</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  return error;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L21' href='#L21' id="L21">
+                    <pre>21</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>148</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>}</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L22' href='#L22' id="L22">
+          <pre>22</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L23' href='#L23' id="L23">
+          <pre>23</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>template&lt;typename T&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L24' href='#L24' id="L24">
+          <pre>24</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>384</pre>
+        </td>
+        <td class='code'>
+          <pre>simdjson_really_inline error_code implementation_simdjson_result_base&lt;T&gt;::error() const noexcept {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L25' href='#L25' id="L25">
+          <pre>25</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>384</pre>
+        </td>
+        <td class='code'>
+          <pre>  return this-&gt;second;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L26' href='#L26' id="L26">
+          <pre>26</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>384</pre>
+        </td>
+        <td class='code'>
+          <pre>}</pre>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZNK8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand8documentEE5errorEv</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>simdjson_really_inline error_code implementation_simdjson_result_base&lt;T&gt;::error() const noexcept {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  return this-&gt;second;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L26' href='#L26' id="L26">
+                    <pre>26</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>}</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZNK8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand5valueEE5errorEv</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>214</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>simdjson_really_inline error_code implementation_simdjson_result_base&lt;T&gt;::error() const noexcept {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>214</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  return this-&gt;second;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L26' href='#L26' id="L26">
+                    <pre>26</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>214</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>}</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZNK8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand6objectEE5errorEv</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>165</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>simdjson_really_inline error_code implementation_simdjson_result_base&lt;T&gt;::error() const noexcept {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>165</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  return this-&gt;second;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L26' href='#L26' id="L26">
+                    <pre>26</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>165</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>}</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZNK8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand9json_typeEE5errorEv</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZNK8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand15raw_json_stringEE5errorEv</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZNK8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand14array_iteratorEE5errorEv</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZNK8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand5fieldEE5errorEv</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZNK8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand15object_iteratorEE5errorEv</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZNK8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand5arrayEE5errorEv</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZNK8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand18document_referenceEE5errorEv</pre>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L27' href='#L27' id="L27">
+          <pre>27</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L28' href='#L28' id="L28">
+          <pre>28</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>#if SIMDJSON_EXCEPTIONS</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L29' href='#L29' id="L29">
+          <pre>29</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L30' href='#L30' id="L30">
+          <pre>30</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>template&lt;typename T&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L31' href='#L31' id="L31">
+          <pre>31</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre>simdjson_really_inline T& implementation_simdjson_result_base&lt;T&gt;::value() & noexcept(false) <span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L32' href='#L32' id="L32">
+          <pre>32</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>  if (error()) { throw simdjson_error(error()); }</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L33' href='#L33' id="L33">
+          <pre>33</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>  return this-&gt;first;</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L34' href='#L34' id="L34">
+          <pre>34</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>}</span></pre>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZNR8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand9json_typeEE5valueEv</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZNR8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand5valueEE5valueEv</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZNR8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand5arrayEE5valueEv</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZNR8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand8documentEE5valueEv</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZNR8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand18document_referenceEE5valueEv</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZNR8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand6objectEE5valueEv</pre>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L35' href='#L35' id="L35">
+          <pre>35</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L36' href='#L36' id="L36">
+          <pre>36</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>template&lt;typename T&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L37' href='#L37' id="L37">
+          <pre>37</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>simdjson_really_inline T&amp;& implementation_simdjson_result_base&lt;T&gt;::value() &amp;& noexcept(false) {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L38' href='#L38' id="L38">
+          <pre>38</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  return std::forward&lt;implementation_simdjson_result_base&lt;T&gt;&gt;(*this).take_value();</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L39' href='#L39' id="L39">
+          <pre>39</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>}</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L40' href='#L40' id="L40">
+          <pre>40</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L41' href='#L41' id="L41">
+          <pre>41</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>template&lt;typename T&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L42' href='#L42' id="L42">
+          <pre>42</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>5</pre>
+        </td>
+        <td class='code'>
+          <pre>simdjson_really_inline T&amp;& implementation_simdjson_result_base&lt;T&gt;::take_value() &amp;& noexcept(false) {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L43' href='#L43' id="L43">
+          <pre>43</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>5</pre>
+        </td>
+        <td class='code'>
+          <pre>  if (error()) <span class=
+          'red'>{ throw simdjson_error(error()); }</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L44' href='#L44' id="L44">
+          <pre>44</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>5</pre>
+        </td>
+        <td class='code'>
+          <pre>  return std::forward&lt;T&gt;(this-&gt;first);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L45' href='#L45' id="L45">
+          <pre>45</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>5</pre>
+        </td>
+        <td class='code'>
+          <pre>}</pre>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZNO8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand8documentEE10take_valueEv</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L42' href='#L42' id="L42">
+                    <pre>42</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>simdjson_really_inline T&amp;& implementation_simdjson_result_base&lt;T&gt;::take_value() &amp;& noexcept(false) {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L43' href='#L43' id="L43">
+                    <pre>43</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  if (error()) <span class=
+                    'red'>{ throw simdjson_error(error()); }</span></pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L44' href='#L44' id="L44">
+                    <pre>44</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  return std::forward&lt;T&gt;(this-&gt;first);</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L45' href='#L45' id="L45">
+                    <pre>45</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>}</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZNO8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand5arrayEE10take_valueEv</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZNO8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand6objectEE10take_valueEv</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZNO8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand15raw_json_stringEE10take_valueEv</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZNO8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand5valueEE10take_valueEv</pre>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L46' href='#L46' id="L46">
+          <pre>46</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L47' href='#L47' id="L47">
+          <pre>47</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>template&lt;typename T&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L48' href='#L48' id="L48">
+          <pre>48</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>5</pre>
+        </td>
+        <td class='code'>
+          <pre>simdjson_really_inline implementation_simdjson_result_base&lt;T&gt;::operator T&amp;&amp;() &amp;& noexcept(false) {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L49' href='#L49' id="L49">
+          <pre>49</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>5</pre>
+        </td>
+        <td class='code'>
+          <pre>  return std::forward&lt;implementation_simdjson_result_base&lt;T&gt;&gt;(*this).take_value();</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L50' href='#L50' id="L50">
+          <pre>50</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>5</pre>
+        </td>
+        <td class='code'>
+          <pre>}</pre>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZNO8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand8documentEEcvOS3_Ev</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L48' href='#L48' id="L48">
+                    <pre>48</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>simdjson_really_inline implementation_simdjson_result_base&lt;T&gt;::operator T&amp;&amp;() &amp;& noexcept(false) {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L49' href='#L49' id="L49">
+                    <pre>49</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  return std::forward&lt;implementation_simdjson_result_base&lt;T&gt;&gt;(*this).take_value();</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L50' href='#L50' id="L50">
+                    <pre>50</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>}</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZNO8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand5arrayEEcvOS3_Ev</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZNO8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand6objectEEcvOS3_Ev</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZNO8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand15raw_json_stringEEcvOS3_Ev</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZNO8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand5valueEEcvOS3_Ev</pre>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L51' href='#L51' id="L51">
+          <pre>51</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L52' href='#L52' id="L52">
+          <pre>52</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>#endif // SIMDJSON_EXCEPTIONS</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L53' href='#L53' id="L53">
+          <pre>53</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L54' href='#L54' id="L54">
+          <pre>54</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>template&lt;typename T&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L55' href='#L55' id="L55">
+          <pre>55</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>simdjson_really_inline const T& implementation_simdjson_result_base&lt;T&gt;::value_unsafe() const& noexcept {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L56' href='#L56' id="L56">
+          <pre>56</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  return this-&gt;first;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L57' href='#L57' id="L57">
+          <pre>57</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>}</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L58' href='#L58' id="L58">
+          <pre>58</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L59' href='#L59' id="L59">
+          <pre>59</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>template&lt;typename T&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L60' href='#L60' id="L60">
+          <pre>60</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>13</pre>
+        </td>
+        <td class='code'>
+          <pre>simdjson_really_inline T& implementation_simdjson_result_base&lt;T&gt;::value_unsafe() & noexcept {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L61' href='#L61' id="L61">
+          <pre>61</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>13</pre>
+        </td>
+        <td class='code'>
+          <pre>  return this-&gt;first;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L62' href='#L62' id="L62">
+          <pre>62</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>13</pre>
+        </td>
+        <td class='code'>
+          <pre>}</pre>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZNR8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand5valueEE12value_unsafeEv</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L60' href='#L60' id="L60">
+                    <pre>60</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>13</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>simdjson_really_inline T& implementation_simdjson_result_base&lt;T&gt;::value_unsafe() & noexcept {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L61' href='#L61' id="L61">
+                    <pre>61</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>13</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  return this-&gt;first;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L62' href='#L62' id="L62">
+                    <pre>62</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>13</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>}</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZNR8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand8documentEE12value_unsafeEv</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZNR8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand18document_referenceEE12value_unsafeEv</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZNR8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand6objectEE12value_unsafeEv</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZNR8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand5arrayEE12value_unsafeEv</pre>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L63' href='#L63' id="L63">
+          <pre>63</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L64' href='#L64' id="L64">
+          <pre>64</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>template&lt;typename T&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L65' href='#L65' id="L65">
+          <pre>65</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>simdjson_really_inline T&amp;& implementation_simdjson_result_base&lt;T&gt;::value_unsafe() &amp;& noexcept {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L66' href='#L66' id="L66">
+          <pre>66</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  return std::forward&lt;T&gt;(this-&gt;first);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L67' href='#L67' id="L67">
+          <pre>67</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>}</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L68' href='#L68' id="L68">
+          <pre>68</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L69' href='#L69' id="L69">
+          <pre>69</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>template&lt;typename T&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L70' href='#L70' id="L70">
+          <pre>70</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>simdjson_really_inline implementation_simdjson_result_base&lt;T&gt;::implementation_simdjson_result_base(T &amp;&amp;value, error_code error) noexcept</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L71' href='#L71' id="L71">
+          <pre>71</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>457</pre>
+        </td>
+        <td class='code'>
+          <pre>    : first{std::forward&lt;T&gt;(value)}, second{error} {}</pre>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand8documentEEC2EOS3_NS_10error_codeE</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L71' href='#L71' id="L71">
+                    <pre>71</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    : first{std::forward&lt;T&gt;(value)}, second{error} {}</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand9json_typeEEC2EOS3_NS_10error_codeE</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L71' href='#L71' id="L71">
+                    <pre>71</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>13</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    : first{std::forward&lt;T&gt;(value)}, second{error} {}</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZN8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand5arrayEEC2EOS3_NS_10error_codeE</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand6objectEEC2EOS3_NS_10error_codeE</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L71' href='#L71' id="L71">
+                    <pre>71</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>139</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    : first{std::forward&lt;T&gt;(value)}, second{error} {}</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand15raw_json_stringEEC2EOS3_NS_10error_codeE</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L71' href='#L71' id="L71">
+                    <pre>71</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>148</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    : first{std::forward&lt;T&gt;(value)}, second{error} {}</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand5valueEEC2EOS3_NS_10error_codeE</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L71' href='#L71' id="L71">
+                    <pre>71</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>152</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    : first{std::forward&lt;T&gt;(value)}, second{error} {}</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L72' href='#L72' id="L72">
+          <pre>72</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>template&lt;typename T&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L73' href='#L73' id="L73">
+          <pre>73</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>simdjson_really_inline implementation_simdjson_result_base&lt;T&gt;::implementation_simdjson_result_base(error_code error) noexcept</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L74' href='#L74' id="L74">
+          <pre>74</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>71</pre>
+        </td>
+        <td class='code'>
+          <pre>    : implementation_simdjson_result_base(T{}, error) {}</pre>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZN8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand8documentEEC2ENS_10error_codeE</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZN8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand9json_typeEEC2ENS_10error_codeE</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZN8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand5arrayEEC2ENS_10error_codeE</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand6objectEEC2ENS_10error_codeE</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L74' href='#L74' id="L74">
+                    <pre>74</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>26</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    : implementation_simdjson_result_base(T{}, error) {}</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZN8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand15raw_json_stringEEC2ENS_10error_codeE</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand5valueEEC2ENS_10error_codeE</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L74' href='#L74' id="L74">
+                    <pre>74</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>45</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    : implementation_simdjson_result_base(T{}, error) {}</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L75' href='#L75' id="L75">
+          <pre>75</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>template&lt;typename T&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L76' href='#L76' id="L76">
+          <pre>76</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>simdjson_really_inline implementation_simdjson_result_base&lt;T&gt;::implementation_simdjson_result_base(T &amp;&amp;value) noexcept</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L77' href='#L77' id="L77">
+          <pre>77</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>386</pre>
+        </td>
+        <td class='code'>
+          <pre>    : implementation_simdjson_result_base(std::forward&lt;T&gt;(value), SUCCESS) {}</pre>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand8documentEEC2EOS3_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L77' href='#L77' id="L77">
+                    <pre>77</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    : implementation_simdjson_result_base(std::forward&lt;T&gt;(value), SUCCESS) {}</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand9json_typeEEC2EOS3_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L77' href='#L77' id="L77">
+                    <pre>77</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>13</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    : implementation_simdjson_result_base(std::forward&lt;T&gt;(value), SUCCESS) {}</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='source-name-title'>
+              <pre>Unexecuted instantiation: _ZN8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand5arrayEEC2EOS3_</pre>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand6objectEEC2EOS3_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L77' href='#L77' id="L77">
+                    <pre>77</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>113</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    : implementation_simdjson_result_base(std::forward&lt;T&gt;(value), SUCCESS) {}</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand15raw_json_stringEEC2EOS3_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L77' href='#L77' id="L77">
+                    <pre>77</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>148</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    : implementation_simdjson_result_base(std::forward&lt;T&gt;(value), SUCCESS) {}</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class='expansion-view'>
+            <div class='centered'>
+              <div class='source-name-title'>
+                <pre>_ZN8simdjson8fallback35implementation_simdjson_result_baseINS0_8ondemand5valueEEC2EOS3_</pre>
+              </div>
+              <table>
+                <tr>
+                  <td>
+                    <pre>Line</pre>
+                  </td>
+                  <td>
+                    <pre>Count</pre>
+                  </td>
+                  <td>
+                    <pre>Source</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L77' href='#L77' id="L77">
+                    <pre>77</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>107</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    : implementation_simdjson_result_base(std::forward&lt;T&gt;(value), SUCCESS) {}</pre>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L78' href='#L78' id="L78">
+          <pre>78</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L79' href='#L79' id="L79">
+          <pre>79</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>} // namespace SIMDJSON_IMPLEMENTATION</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L80' href='#L80' id="L80">
+          <pre>80</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>} // namespace simdjson</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>

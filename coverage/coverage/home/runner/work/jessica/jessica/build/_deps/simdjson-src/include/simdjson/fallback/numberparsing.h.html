@@ -7,7 +7,7 @@
   'width=device-width,initial-scale=1'>
   <meta charset='UTF-8'>
   <link rel='stylesheet' type='text/css' href=
-  '../../../../../../../../../../style.css'>
+  '../../../../../../../../../../../../style.css'>
   <title></title>
 </head>
 <body>
@@ -15,7 +15,7 @@
   <h4></h4>
   <div class='centered'>
     <div class='source-name-title'>
-      <pre>/home/runner/work/jessica/jessica/include/jessica/data/geotechnical/foundation_strip.h</pre>
+      <pre>/home/runner/work/jessica/jessica/build/_deps/simdjson-src/include/simdjson/fallback/numberparsing.h</pre>
     </div>
     <table>
       <tr>
@@ -26,7 +26,8 @@
           <pre>Count</pre>
         </td>
         <td>
-          <pre>Source</pre>
+          <pre>Source (<a href=
+          '#L15'>jump to first uncovered line</a>)</pre>
         </td>
       </tr>
       <tr>
@@ -36,7 +37,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#pragma once</pre>
+          <pre>#ifndef SIMDJSON_FALLBACK_NUMBERPARSING_H</pre>
         </td>
       </tr>
       <tr>
@@ -46,7 +47,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>#define SIMDJSON_FALLBACK_NUMBERPARSING_H</pre>
         </td>
       </tr>
       <tr>
@@ -56,7 +57,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;cstdint&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -66,7 +67,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;limits&gt;</pre>
+          <pre>#ifdef JSON_TEST_NUMBERS // for unit testing</pre>
         </td>
       </tr>
       <tr>
@@ -76,7 +77,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;memory&gt;</pre>
+          <pre>void found_invalid_number(const uint8_t *buf);</pre>
         </td>
       </tr>
       <tr>
@@ -86,7 +87,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>void found_integer(int64_t result, const uint8_t *buf);</pre>
         </td>
       </tr>
       <tr>
@@ -96,7 +97,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/compat.h&gt;</pre>
+          <pre>void found_unsigned_integer(uint64_t result, const uint8_t *buf);</pre>
         </td>
       </tr>
       <tr>
@@ -106,7 +107,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/helper/accessor.h&gt;</pre>
+          <pre>void found_float(double result, const uint8_t *buf);</pre>
         </td>
       </tr>
       <tr>
@@ -116,7 +117,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/helper/template.h&gt;</pre>
+          <pre>#endif</pre>
         </td>
       </tr>
       <tr>
@@ -126,7 +127,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/util/decorator/macro.h&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -136,7 +137,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>namespace simdjson {</pre>
         </td>
       </tr>
       <tr>
@@ -146,7 +147,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>namespace jessica</pre>
+          <pre>namespace SIMDJSON_IMPLEMENTATION {</pre>
         </td>
       </tr>
       <tr>
@@ -156,7 +157,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>namespace {</pre>
         </td>
       </tr>
       <tr>
@@ -166,7 +167,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>class JESSICA_DLL_PUBLIC FoundationStrip final</pre>
+          <pre>// credit: https://johnnylee-sde.github.io/Fast-numeric-string-to-int/</pre>
         </td>
       </tr>
       <tr>
@@ -174,9 +175,11 @@
           <a name='L15' href='#L15' id="L15">
           <pre>15</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>static simdjson_really_inline uint32_t parse_eight_digits_unrolled(const char *chars) <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -184,9 +187,11 @@
           <a name='L16' href='#L16' id="L16">
           <pre>16</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre> public:</pre>
+          <pre><span class='red'>  uint64_t val;</span></pre>
         </td>
       </tr>
       <tr>
@@ -194,11 +199,12 @@
           <a name='L17' href='#L17' id="L17">
           <pre>17</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>9</pre>
+        <td class='uncovered-line'>
+          <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>  FoundationStrip() = default;</pre>
+          <pre><span class=
+          'red'>  memcpy(&amp;val, chars, sizeof(uint64_t));</span></pre>
         </td>
       </tr>
       <tr>
@@ -206,9 +212,12 @@
           <a name='L18' href='#L18' id="L18">
           <pre>18</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>  RULE_OF_FIVE_COPY_AND_CLONE(FoundationStrip)</pre>
+          <pre><span class=
+          'red'>  val = (val & 0x0F0F0F0F0F0F0F0F) * 2561 &gt;&gt; 8;</span></pre>
         </td>
       </tr>
       <tr>
@@ -216,9 +225,12 @@
           <a name='L19' href='#L19' id="L19">
           <pre>19</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre><span class=
+          'red'>  val = (val & 0x00FF00FF00FF00FF) * 6553601 &gt;&gt; 16;</span></pre>
         </td>
       </tr>
       <tr>
@@ -226,17 +238,67 @@
           <a name='L20' href='#L20' id="L20">
           <pre>20</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>47</pre>
+        <td class='uncovered-line'>
+          <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>  [[nodiscard]] double B() const { return b_; }</pre>
+          <pre><span class=
+          'red'>  return uint32_t((val & 0x0000FFFF0000FFFF) * 42949672960001 &gt;&gt; 32);</span></pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L21' href='#L21' id="L21">
           <pre>21</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>}</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L22' href='#L22' id="L22">
+          <pre>22</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre>static simdjson_really_inline uint32_t parse_eight_digits_unrolled(const uint8_t *chars) <span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L23' href='#L23' id="L23">
+          <pre>23</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>  return parse_eight_digits_unrolled(reinterpret_cast&lt;const char *&gt;(chars));</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L24' href='#L24' id="L24">
+          <pre>24</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>}</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L25' href='#L25' id="L25">
+          <pre>25</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -245,60 +307,12 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L22' href='#L22' id="L22">
-          <pre>22</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  [[nodiscard]] std::shared_ptr&lt;FoundationStrip&gt; SetB(const double b) const</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L23' href='#L23' id="L23">
-          <pre>23</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>5</pre>
-        </td>
-        <td class='code'>
-          <pre>  {</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L24' href='#L24' id="L24">
-          <pre>24</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>5</pre>
-        </td>
-        <td class='code'>
-          <pre>    auto retval = Clone();</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L25' href='#L25' id="L25">
-          <pre>25</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>5</pre>
-        </td>
-        <td class='code'>
-          <pre>    retval-&gt;b_ = b;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
           <a name='L26' href='#L26' id="L26">
           <pre>26</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>5</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    return retval;</pre>
+          <pre>} // unnamed namespace</pre>
         </td>
       </tr>
       <tr>
@@ -306,11 +320,9 @@
           <a name='L27' href='#L27' id="L27">
           <pre>27</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>5</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  }</pre>
+          <pre>} // namespace SIMDJSON_IMPLEMENTATION</pre>
         </td>
       </tr>
       <tr>
@@ -320,7 +332,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>} // namespace simdjson</pre>
         </td>
       </tr>
       <tr>
@@ -330,7 +342,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  template &lt;class Archive&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -340,7 +352,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  void serialize(Archive& ar)</pre>
+          <pre>#define SIMDJSON_SWAR_NUMBER_PARSING 1</pre>
         </td>
       </tr>
       <tr>
@@ -348,11 +360,9 @@
           <a name='L31' href='#L31' id="L31">
           <pre>31</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>9</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -360,11 +370,9 @@
           <a name='L32' href='#L32' id="L32">
           <pre>32</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>9</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    ar(cereal::make_nvp("b", b_));</pre>
+          <pre>#include "simdjson/generic/numberparsing.h"</pre>
         </td>
       </tr>
       <tr>
@@ -372,123 +380,9 @@
           <a name='L33' href='#L33' id="L33">
           <pre>33</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>9</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  }</pre>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7jessica15FoundationStrip9serializeIN6cereal17JSONOutputArchiveEEEvRT_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    ar(cereal::make_nvp("b", b_));</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L33' href='#L33' id="L33">
-                    <pre>33</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7jessica15FoundationStrip9serializeIN6cereal16JSONInputArchiveEEEvRT_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    ar(cereal::make_nvp("b", b_));</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L33' href='#L33' id="L33">
-                    <pre>33</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -498,47 +392,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L35' href='#L35' id="L35">
-          <pre>35</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre> private:</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L36' href='#L36' id="L36">
-          <pre>36</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  double b_ = std::numeric_limits&lt;double&gt;::quiet_NaN();</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L37' href='#L37' id="L37">
-          <pre>37</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>};</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L38' href='#L38' id="L38">
-          <pre>38</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>}  // namespace jessica</pre>
+          <pre>#endif // SIMDJSON_FALLBACK_NUMBERPARSING_H</pre>
         </td>
       </tr>
     </table>

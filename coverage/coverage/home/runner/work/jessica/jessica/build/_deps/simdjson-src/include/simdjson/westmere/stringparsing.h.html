@@ -7,7 +7,7 @@
   'width=device-width,initial-scale=1'>
   <meta charset='UTF-8'>
   <link rel='stylesheet' type='text/css' href=
-  '../../../../../../../../../../style.css'>
+  '../../../../../../../../../../../../style.css'>
   <title></title>
 </head>
 <body>
@@ -15,7 +15,7 @@
   <h4></h4>
   <div class='centered'>
     <div class='source-name-title'>
-      <pre>/home/runner/work/jessica/jessica/include/jessica/data/load/vertical_eccentric.h</pre>
+      <pre>/home/runner/work/jessica/jessica/build/_deps/simdjson-src/include/simdjson/westmere/stringparsing.h</pre>
     </div>
     <table>
       <tr>
@@ -26,7 +26,8 @@
           <pre>Count</pre>
         </td>
         <td>
-          <pre>Source</pre>
+          <pre>Source (<a href=
+          '#L16'>jump to first uncovered line</a>)</pre>
         </td>
       </tr>
       <tr>
@@ -36,7 +37,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#pragma once</pre>
+          <pre>#ifndef SIMDJSON_WESTMERE_STRINGPARSING_H</pre>
         </td>
       </tr>
       <tr>
@@ -46,7 +47,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>#define SIMDJSON_WESTMERE_STRINGPARSING_H</pre>
         </td>
       </tr>
       <tr>
@@ -56,7 +57,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;cstdint&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -66,7 +67,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;limits&gt;</pre>
+          <pre>namespace simdjson {</pre>
         </td>
       </tr>
       <tr>
@@ -76,7 +77,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;memory&gt;</pre>
+          <pre>namespace SIMDJSON_IMPLEMENTATION {</pre>
         </td>
       </tr>
       <tr>
@@ -86,7 +87,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>namespace {</pre>
         </td>
       </tr>
       <tr>
@@ -96,7 +97,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/compat.h&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -106,7 +107,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/helper/accessor.h&gt;</pre>
+          <pre>using namespace simd;</pre>
         </td>
       </tr>
       <tr>
@@ -116,7 +117,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/helper/template.h&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -126,7 +127,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/util/decorator/macro.h&gt;</pre>
+          <pre>// Holds backslashes and quotes locations.</pre>
         </td>
       </tr>
       <tr>
@@ -136,7 +137,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>struct backslash_and_quote {</pre>
         </td>
       </tr>
       <tr>
@@ -146,7 +147,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>namespace jessica</pre>
+          <pre>public:</pre>
         </td>
       </tr>
       <tr>
@@ -156,7 +157,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>  static constexpr uint32_t BYTES_PROCESSED = 32;</pre>
         </td>
       </tr>
       <tr>
@@ -166,7 +167,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>class JESSICA_DLL_PUBLIC VerticalEccentric final</pre>
+          <pre>  simdjson_really_inline static backslash_and_quote copy_and_find(const uint8_t *src, uint8_t *dst);</pre>
         </td>
       </tr>
       <tr>
@@ -176,7 +177,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -184,9 +185,12 @@
           <a name='L16' href='#L16' id="L16">
           <pre>16</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre> public:</pre>
+          <pre>  simdjson_really_inline bool has_quote_first() <span class=
+          'red'>{ return ((bs_bits - 1) & quote_bits) != 0; }</span></pre>
         </td>
       </tr>
       <tr>
@@ -194,11 +198,12 @@
           <a name='L17' href='#L17' id="L17">
           <pre>17</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>16</pre>
+        <td class='uncovered-line'>
+          <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>  VerticalEccentric() = default;</pre>
+          <pre>  simdjson_really_inline bool has_backslash() <span class=
+          'red'>{ return bs_bits != 0; }</span></pre>
         </td>
       </tr>
       <tr>
@@ -206,9 +211,12 @@
           <a name='L18' href='#L18' id="L18">
           <pre>18</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>  RULE_OF_FIVE_COPY_AND_CLONE(VerticalEccentric)</pre>
+          <pre>  simdjson_really_inline int quote_index() <span class=
+          'red'>{ return trailing_zeroes(quote_bits); }</span></pre>
         </td>
       </tr>
       <tr>
@@ -216,9 +224,12 @@
           <a name='L19' href='#L19' id="L19">
           <pre>19</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre>  simdjson_really_inline int backslash_index() <span class=
+          'red'>{ return trailing_zeroes(bs_bits); }</span></pre>
         </td>
       </tr>
       <tr>
@@ -226,11 +237,9 @@
           <a name='L20' href='#L20' id="L20">
           <pre>20</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>36</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] double V() const { return v_; }</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -240,7 +249,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>  uint32_t bs_bits;</pre>
         </td>
       </tr>
       <tr>
@@ -250,7 +259,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] std::shared_ptr&lt;VerticalEccentric&gt; SetV(const double v) const</pre>
+          <pre>  uint32_t quote_bits;</pre>
         </td>
       </tr>
       <tr>
@@ -258,11 +267,9 @@
           <a name='L23' href='#L23' id="L23">
           <pre>23</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>8</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>}; // struct backslash_and_quote</pre>
         </td>
       </tr>
       <tr>
@@ -270,11 +277,9 @@
           <a name='L24' href='#L24' id="L24">
           <pre>24</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>8</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    auto retval = Clone();</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -282,11 +287,11 @@
           <a name='L25' href='#L25' id="L25">
           <pre>25</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>8</pre>
+        <td class='uncovered-line'>
+          <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>    retval-&gt;v_ = v;</pre>
+          <pre>simdjson_really_inline backslash_and_quote backslash_and_quote::copy_and_find(const uint8_t *src, uint8_t *dst) <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -294,11 +299,12 @@
           <a name='L26' href='#L26' id="L26">
           <pre>26</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>8</pre>
+        <td class='uncovered-line'>
+          <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>    return retval;</pre>
+          <pre><span class=
+          'red'>  // this can read up to 31 bytes beyond the buffer size, but we require</span></pre>
         </td>
       </tr>
       <tr>
@@ -306,11 +312,12 @@
           <a name='L27' href='#L27' id="L27">
           <pre>27</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>8</pre>
+        <td class='uncovered-line'>
+          <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>  }</pre>
+          <pre><span class=
+          'red'>  // SIMDJSON_PADDING of padding</span></pre>
         </td>
       </tr>
       <tr>
@@ -318,9 +325,12 @@
           <a name='L28' href='#L28' id="L28">
           <pre>28</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre><span class=
+          'red'>  static_assert(SIMDJSON_PADDING &gt;= (BYTES_PROCESSED - 1), "backslash and quote finder must process fewer than SIMDJSON_PADDING bytes");</span></pre>
         </td>
       </tr>
       <tr>
@@ -328,11 +338,12 @@
           <a name='L29' href='#L29' id="L29">
           <pre>29</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>62</pre>
+        <td class='uncovered-line'>
+          <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>  [[nodiscard]] double E() const { return e_; }</pre>
+          <pre><span class=
+          'red'>  simd8&lt;uint8_t&gt; v0(src);</span></pre>
         </td>
       </tr>
       <tr>
@@ -340,9 +351,12 @@
           <a name='L30' href='#L30' id="L30">
           <pre>30</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre><span class=
+          'red'>  simd8&lt;uint8_t&gt; v1(src + 16);</span></pre>
         </td>
       </tr>
       <tr>
@@ -350,9 +364,11 @@
           <a name='L31' href='#L31' id="L31">
           <pre>31</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>  [[nodiscard]] std::shared_ptr&lt;VerticalEccentric&gt; SetE(const double e) const</pre>
+          <pre><span class='red'>  v0.store(dst);</span></pre>
         </td>
       </tr>
       <tr>
@@ -360,11 +376,11 @@
           <a name='L32' href='#L32' id="L32">
           <pre>32</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>17</pre>
+        <td class='uncovered-line'>
+          <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre><span class='red'>  v1.store(dst + 16);</span></pre>
         </td>
       </tr>
       <tr>
@@ -372,11 +388,12 @@
           <a name='L33' href='#L33' id="L33">
           <pre>33</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>17</pre>
+        <td class='uncovered-line'>
+          <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>    auto retval = Clone();</pre>
+          <pre><span class=
+          'red'>  uint64_t bs_and_quote = simd8x64&lt;bool&gt;(v0 == '\\', v1 == '\\', v0 == '"', v1 == '"').to_bitmask();</span></pre>
         </td>
       </tr>
       <tr>
@@ -384,11 +401,11 @@
           <a name='L34' href='#L34' id="L34">
           <pre>34</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>17</pre>
+        <td class='uncovered-line'>
+          <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>    retval-&gt;e_ = e;</pre>
+          <pre><span class='red'>  return {</span></pre>
         </td>
       </tr>
       <tr>
@@ -396,11 +413,12 @@
           <a name='L35' href='#L35' id="L35">
           <pre>35</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>17</pre>
+        <td class='uncovered-line'>
+          <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>    return retval;</pre>
+          <pre><span class=
+          'red'>    uint32_t(bs_and_quote),      // bs_bits</span></pre>
         </td>
       </tr>
       <tr>
@@ -408,11 +426,12 @@
           <a name='L36' href='#L36' id="L36">
           <pre>36</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>17</pre>
+        <td class='uncovered-line'>
+          <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>  }</pre>
+          <pre><span class=
+          'red'>    uint32_t(bs_and_quote &gt;&gt; 32) // quote_bits</span></pre>
         </td>
       </tr>
       <tr>
@@ -420,9 +439,11 @@
           <a name='L37' href='#L37' id="L37">
           <pre>37</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre><span class='red'>  };</span></pre>
         </td>
       </tr>
       <tr>
@@ -430,9 +451,11 @@
           <a name='L38' href='#L38' id="L38">
           <pre>38</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>  template &lt;class Archive&gt;</pre>
+          <pre><span class='red'>}</span></pre>
         </td>
       </tr>
       <tr>
@@ -442,7 +465,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  void serialize(Archive& ar)</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -450,11 +473,9 @@
           <a name='L40' href='#L40' id="L40">
           <pre>40</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>15</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>} // unnamed namespace</pre>
         </td>
       </tr>
       <tr>
@@ -462,11 +483,9 @@
           <a name='L41' href='#L41' id="L41">
           <pre>41</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>15</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    ar(cereal::make_nvp("v", v_), cereal::make_nvp("e", e_));</pre>
+          <pre>} // namespace SIMDJSON_IMPLEMENTATION</pre>
         </td>
       </tr>
       <tr>
@@ -474,123 +493,9 @@
           <a name='L42' href='#L42' id="L42">
           <pre>42</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>15</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  }</pre>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7jessica17VerticalEccentric9serializeIN6cereal17JSONOutputArchiveEEEvRT_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>8</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L41' href='#L41' id="L41">
-                    <pre>41</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>8</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    ar(cereal::make_nvp("v", v_), cereal::make_nvp("e", e_));</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L42' href='#L42' id="L42">
-                    <pre>42</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>8</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7jessica17VerticalEccentric9serializeIN6cereal16JSONInputArchiveEEEvRT_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L41' href='#L41' id="L41">
-                    <pre>41</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    ar(cereal::make_nvp("v", v_), cereal::make_nvp("e", e_));</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L42' href='#L42' id="L42">
-                    <pre>42</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>7</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
+          <pre>} // namespace simdjson</pre>
         </td>
       </tr>
       <tr>
@@ -610,7 +515,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> private:</pre>
+          <pre>#include "simdjson/generic/stringparsing.h"</pre>
         </td>
       </tr>
       <tr>
@@ -620,7 +525,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  double v_ = std::numeric_limits&lt;double&gt;::quiet_NaN();</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -630,27 +535,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  double e_ = std::numeric_limits&lt;double&gt;::quiet_NaN();</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L47' href='#L47' id="L47">
-          <pre>47</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>};</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L48' href='#L48' id="L48">
-          <pre>48</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>}  // namespace jessica</pre>
+          <pre>#endif // SIMDJSON_WESTMERE_STRINGPARSING_H</pre>
         </td>
       </tr>
     </table>
