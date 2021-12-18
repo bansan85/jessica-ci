@@ -1,0 +1,520 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - coverage2.info - simdjson/dom/serialization-inl.h</title>
+  <link rel="stylesheet" type="text/css" href="../../gcov.css">
+</head>
+
+<body>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="title">LCOV - code coverage report</td></tr>
+            <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+
+            <tr>
+              <td width="100%">
+                <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="10%" class="headerValue"><a href="../../index.html">top level</a> - <a href="index.html">simdjson/dom</a> - serialization-inl.h<span style="font-size: 80%;"> (source / <a href="serialization-inl.h.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="5%"></td>
+            <td width="5%" class="headerCovTableHead">Coverage</td>
+            <td width="5%" class="headerCovTableHead" title=" Covered + Uncovered code"">Total</td>
+            <td width="5%" class="headerCovTableHead" title=" Exercised code only"">Hit</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">coverage2.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntryLo">0.0&nbsp;%</td>
+            <td class="headerCovTableEntry">25</td>
+            <td class="headerCovTableEntry">0</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test Date:</td>
+            <td class="headerValue></td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntryLo">0.0&nbsp;%</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntry">0</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Legend:</td>
+            <td class="headerValueLeg">            Lines:
+            <span class="coverLegendCov">hit</span>
+            <span class="coverLegendNoCov">not hit</span>
+            | Branches:
+            <span class="coverLegendCov">+</span> taken
+            <span class="coverLegendNoCov">-</span> not taken
+            <span class="coverLegendNoCov">#</span> not executed
+</td>
+            <td></td>
+            <td class="headerItem">Branches:</td>
+            <td class="headerCovTableEntryLo">0.0&nbsp;%</td>
+            <td class="headerCovTableEntry">6</td>
+            <td class="headerCovTableEntry">0</td>
+          </tr>
+                  <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+          </table>
+
+          <table cellpadding=0 cellspacing=0 border=0>
+            <tr>
+              <td><br></td>
+            </tr>
+            <tr>
+              <td>
+<pre class="sourceHeading">             Branch data     Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1</span>                 :             : </a>
+<a name="2"><span class="lineNum">       2</span>                 :             : #ifndef SIMDJSON_SERIALIZATION_INL_H</a>
+<a name="3"><span class="lineNum">       3</span>                 :             : #define SIMDJSON_SERIALIZATION_INL_H</a>
+<a name="4"><span class="lineNum">       4</span>                 :             : </a>
+<a name="5"><span class="lineNum">       5</span>                 :             : #include &quot;simdjson/dom/serialization.h&quot;</a>
+<a name="6"><span class="lineNum">       6</span>                 :             : </a>
+<a name="7"><span class="lineNum">       7</span>                 :             : #include &lt;cinttypes&gt;</a>
+<a name="8"><span class="lineNum">       8</span>                 :             : #include &lt;type_traits&gt;</a>
+<a name="9"><span class="lineNum">       9</span>                 :             : </a>
+<a name="10"><span class="lineNum">      10</span>                 :             : namespace simdjson {</a>
+<a name="11"><span class="lineNum">      11</span>                 :             : namespace dom {</a>
+<a name="12"><span class="lineNum">      12</span>                 :             : inline bool parser::print_json(std::ostream &amp;os) const noexcept {</a>
+<a name="13"><span class="lineNum">      13</span>                 :             :   if (!valid) { return false; }</a>
+<a name="14"><span class="lineNum">      14</span>                 :             :   simdjson::internal::string_builder&lt;&gt; sb;</a>
+<a name="15"><span class="lineNum">      15</span>                 :             :   sb.append(doc.root());</a>
+<a name="16"><span class="lineNum">      16</span>                 :             :   std::string_view answer = sb.str();</a>
+<a name="17"><span class="lineNum">      17</span>                 :             :   os &lt;&lt; answer;</a>
+<a name="18"><span class="lineNum">      18</span>                 :             :   return true;</a>
+<a name="19"><span class="lineNum">      19</span>                 :             : }</a>
+<a name="20"><span class="lineNum">      20</span>                 :             : }</a>
+<a name="21"><span class="lineNum">      21</span>                 :             : /***</a>
+<a name="22"><span class="lineNum">      22</span>                 :             :  * Number utility functions</a>
+<a name="23"><span class="lineNum">      23</span>                 :             :  **/</a>
+<a name="24"><span class="lineNum">      24</span>                 :             : </a>
+<a name="25"><span class="lineNum">      25</span>                 :             : </a>
+<a name="26"><span class="lineNum">      26</span>                 :             : namespace {</a>
+<a name="27"><span class="lineNum">      27</span>                 :             : /**@private</a>
+<a name="28"><span class="lineNum">      28</span>                 :             :  * Escape sequence like \b or \u0001</a>
+<a name="29"><span class="lineNum">      29</span>                 :             :  * We expect that most compilers will use 8 bytes for this data structure.</a>
+<a name="30"><span class="lineNum">      30</span>                 :             :  **/</a>
+<a name="31"><span class="lineNum">      31</span>                 :             : struct escape_sequence {</a>
+<a name="32"><span class="lineNum">      32</span>                 :             :     uint8_t length;</a>
+<a name="33"><span class="lineNum">      33</span>                 :             :     const char string[7]; // technically, we only ever need 6 characters, we pad to 8</a>
+<a name="34"><span class="lineNum">      34</span>                 :             : };</a>
+<a name="35"><span class="lineNum">      35</span>                 :             : /**@private</a>
+<a name="36"><span class="lineNum">      36</span>                 :             :  * This converts a signed integer into a character sequence.</a>
+<a name="37"><span class="lineNum">      37</span>                 :             :  * The caller is responsible for providing enough memory (at least</a>
+<a name="38"><span class="lineNum">      38</span>                 :             :  * 20 characters.)</a>
+<a name="39"><span class="lineNum">      39</span>                 :             :  * Though various runtime libraries provide itoa functions,</a>
+<a name="40"><span class="lineNum">      40</span>                 :             :  * it is not part of the C++ standard. The C++17 standard</a>
+<a name="41"><span class="lineNum">      41</span>                 :             :  * adds the to_chars functions which would do as well, but</a>
+<a name="42"><span class="lineNum">      42</span>                 :             :  * we want to support C++11.</a>
+<a name="43"><span class="lineNum">      43</span>                 :             :  */</a>
+<a name="44"><span class="lineNum">      44</span>                 :<span class="tlaUNC">           0 : char *fast_itoa(char *output, int64_t value) noexcept {</span></a>
+<a name="45"><span class="lineNum">      45</span>                 :             :   // This is a standard implementation of itoa.</a>
+<a name="46"><span class="lineNum">      46</span>                 :             :   char buffer[20];</a>
+<a name="47"><span class="lineNum">      47</span>                 :             :   uint64_t value_positive;</a>
+<a name="48"><span class="lineNum">      48</span>                 :             :   // In general, negating a signed integer is unsafe.</a>
+<a name="49"><span class="lineNum">      49</span>         [<span class="tlaUNC" title="Branch 0 was not executed"> # </span><span class="tlaUNC" title="Branch 1 was not executed"> # </span>]:<span class="tlaUNC">           0 :   if(value &lt; 0) {</span></a>
+<a name="50"><span class="lineNum">      50</span>                 :<span class="tlaUNC">           0 :     *output++ = '-';</span></a>
+<a name="51"><span class="lineNum">      51</span>                 :             :     // Doing value_positive = -value; while avoiding</a>
+<a name="52"><span class="lineNum">      52</span>                 :             :     // undefined behavior warnings.</a>
+<a name="53"><span class="lineNum">      53</span>                 :             :     // It assumes two complement's which is universal at this</a>
+<a name="54"><span class="lineNum">      54</span>                 :             :     // point in time.</a>
+<a name="55"><span class="lineNum">      55</span>                 :<span class="tlaUNC">           0 :     std::memcpy(&amp;value_positive, &amp;value, sizeof(value));</span></a>
+<a name="56"><span class="lineNum">      56</span>                 :<span class="tlaUNC">           0 :     value_positive = (~value_positive) + 1; // this is a negation</span></a>
+<a name="57"><span class="lineNum">      57</span>                 :             :   } else {</a>
+<a name="58"><span class="lineNum">      58</span>                 :<span class="tlaUNC">           0 :     value_positive = value;</span></a>
+<a name="59"><span class="lineNum">      59</span>                 :             :   }</a>
+<a name="60"><span class="lineNum">      60</span>                 :             :   // We work solely with value_positive. It *might* be easier</a>
+<a name="61"><span class="lineNum">      61</span>                 :             :   // for an optimizing compiler to deal with an unsigned variable</a>
+<a name="62"><span class="lineNum">      62</span>                 :             :   // as far as performance goes.</a>
+<a name="63"><span class="lineNum">      63</span>                 :<span class="tlaUNC">           0 :   const char *const end_buffer = buffer + 20;</span></a>
+<a name="64"><span class="lineNum">      64</span>                 :<span class="tlaUNC">           0 :   char *write_pointer = buffer + 19;</span></a>
+<a name="65"><span class="lineNum">      65</span>                 :             :   // A faster approach is possible if we expect large integers:</a>
+<a name="66"><span class="lineNum">      66</span>                 :             :   // unroll the loop (work in 100s, 1000s) and use some kind of</a>
+<a name="67"><span class="lineNum">      67</span>                 :             :   // memoization.</a>
+<a name="68"><span class="lineNum">      68</span>         [<span class="tlaUNC" title="Branch 0 was not executed"> # </span><span class="tlaUNC" title="Branch 1 was not executed"> # </span>]:<span class="tlaUNC">           0 :   while(value_positive &gt;= 10) {</span></a>
+<a name="69"><span class="lineNum">      69</span>                 :<span class="tlaUNC">           0 :     *write_pointer-- = char('0' + (value_positive % 10));</span></a>
+<a name="70"><span class="lineNum">      70</span>                 :<span class="tlaUNC">           0 :     value_positive /= 10;</span></a>
+<a name="71"><span class="lineNum">      71</span>                 :             :   }</a>
+<a name="72"><span class="lineNum">      72</span>                 :<span class="tlaUNC">           0 :   *write_pointer = char('0' + value_positive);</span></a>
+<a name="73"><span class="lineNum">      73</span>                 :<span class="tlaUNC">           0 :   size_t len = end_buffer - write_pointer;</span></a>
+<a name="74"><span class="lineNum">      74</span>                 :<span class="tlaUNC">           0 :   std::memcpy(output, write_pointer, len);</span></a>
+<a name="75"><span class="lineNum">      75</span>                 :<span class="tlaUNC">           0 :   return output + len;</span></a>
+<a name="76"><span class="lineNum">      76</span>                 :             : }</a>
+<a name="77"><span class="lineNum">      77</span>                 :             : /**@private</a>
+<a name="78"><span class="lineNum">      78</span>                 :             :  * This converts an unsigned integer into a character sequence.</a>
+<a name="79"><span class="lineNum">      79</span>                 :             :  * The caller is responsible for providing enough memory (at least</a>
+<a name="80"><span class="lineNum">      80</span>                 :             :  * 19 characters.)</a>
+<a name="81"><span class="lineNum">      81</span>                 :             :  * Though various runtime libraries provide itoa functions,</a>
+<a name="82"><span class="lineNum">      82</span>                 :             :  * it is not part of the C++ standard. The C++17 standard</a>
+<a name="83"><span class="lineNum">      83</span>                 :             :  * adds the to_chars functions which would do as well, but</a>
+<a name="84"><span class="lineNum">      84</span>                 :             :  * we want to support C++11.</a>
+<a name="85"><span class="lineNum">      85</span>                 :             :  */</a>
+<a name="86"><span class="lineNum">      86</span>                 :<span class="tlaUNC">           0 : char *fast_itoa(char *output, uint64_t value) noexcept {</span></a>
+<a name="87"><span class="lineNum">      87</span>                 :             :   // This is a standard implementation of itoa.</a>
+<a name="88"><span class="lineNum">      88</span>                 :             :   char buffer[20];</a>
+<a name="89"><span class="lineNum">      89</span>                 :<span class="tlaUNC">           0 :   const char *const end_buffer = buffer + 20;</span></a>
+<a name="90"><span class="lineNum">      90</span>                 :<span class="tlaUNC">           0 :   char *write_pointer = buffer + 19;</span></a>
+<a name="91"><span class="lineNum">      91</span>                 :             :   // A faster approach is possible if we expect large integers:</a>
+<a name="92"><span class="lineNum">      92</span>                 :             :   // unroll the loop (work in 100s, 1000s) and use some kind of</a>
+<a name="93"><span class="lineNum">      93</span>                 :             :   // memoization.</a>
+<a name="94"><span class="lineNum">      94</span>         [<span class="tlaUNC" title="Branch 0 was not executed"> # </span><span class="tlaUNC" title="Branch 1 was not executed"> # </span>]:<span class="tlaUNC">           0 :   while(value &gt;= 10) {</span></a>
+<a name="95"><span class="lineNum">      95</span>                 :<span class="tlaUNC">           0 :     *write_pointer-- = char('0' + (value % 10));</span></a>
+<a name="96"><span class="lineNum">      96</span>                 :<span class="tlaUNC">           0 :     value /= 10;</span></a>
+<a name="97"><span class="lineNum">      97</span>                 :             :   };</a>
+<a name="98"><span class="lineNum">      98</span>                 :<span class="tlaUNC">           0 :   *write_pointer = char('0' + value);</span></a>
+<a name="99"><span class="lineNum">      99</span>                 :<span class="tlaUNC">           0 :   size_t len = end_buffer - write_pointer;</span></a>
+<a name="100"><span class="lineNum">     100</span>                 :<span class="tlaUNC">           0 :   std::memcpy(output, write_pointer, len);</span></a>
+<a name="101"><span class="lineNum">     101</span>                 :<span class="tlaUNC">           0 :   return output + len;</span></a>
+<a name="102"><span class="lineNum">     102</span>                 :             : }</a>
+<a name="103"><span class="lineNum">     103</span>                 :             : } // anonymous namespace</a>
+<a name="104"><span class="lineNum">     104</span>                 :             : namespace internal {</a>
+<a name="105"><span class="lineNum">     105</span>                 :             : </a>
+<a name="106"><span class="lineNum">     106</span>                 :             : /***</a>
+<a name="107"><span class="lineNum">     107</span>                 :             :  * Minifier/formatter code.</a>
+<a name="108"><span class="lineNum">     108</span>                 :             :  **/</a>
+<a name="109"><span class="lineNum">     109</span>                 :             : </a>
+<a name="110"><span class="lineNum">     110</span>                 :             : simdjson_really_inline void mini_formatter::number(uint64_t x) {</a>
+<a name="111"><span class="lineNum">     111</span>                 :             :   char number_buffer[24];</a>
+<a name="112"><span class="lineNum">     112</span>                 :             :   char *newp = fast_itoa(number_buffer, x);</a>
+<a name="113"><span class="lineNum">     113</span>                 :             :   buffer.insert(buffer.end(), number_buffer, newp);</a>
+<a name="114"><span class="lineNum">     114</span>                 :             : }</a>
+<a name="115"><span class="lineNum">     115</span>                 :             : </a>
+<a name="116"><span class="lineNum">     116</span>                 :             : simdjson_really_inline void mini_formatter::number(int64_t x) {</a>
+<a name="117"><span class="lineNum">     117</span>                 :             :   char number_buffer[24];</a>
+<a name="118"><span class="lineNum">     118</span>                 :             :   char *newp = fast_itoa(number_buffer, x);</a>
+<a name="119"><span class="lineNum">     119</span>                 :             :   buffer.insert(buffer.end(), number_buffer, newp);</a>
+<a name="120"><span class="lineNum">     120</span>                 :             : }</a>
+<a name="121"><span class="lineNum">     121</span>                 :             : </a>
+<a name="122"><span class="lineNum">     122</span>                 :             : simdjson_really_inline void mini_formatter::number(double x) {</a>
+<a name="123"><span class="lineNum">     123</span>                 :             :   char number_buffer[24];</a>
+<a name="124"><span class="lineNum">     124</span>                 :             :   // Currently, passing the nullptr to the second argument is</a>
+<a name="125"><span class="lineNum">     125</span>                 :             :   // safe because our implementation does not check the second</a>
+<a name="126"><span class="lineNum">     126</span>                 :             :   // argument.</a>
+<a name="127"><span class="lineNum">     127</span>                 :             :   char *newp = internal::to_chars(number_buffer, nullptr, x);</a>
+<a name="128"><span class="lineNum">     128</span>                 :             :   buffer.insert(buffer.end(), number_buffer, newp);</a>
+<a name="129"><span class="lineNum">     129</span>                 :             : }</a>
+<a name="130"><span class="lineNum">     130</span>                 :             : </a>
+<a name="131"><span class="lineNum">     131</span>                 :             : simdjson_really_inline void mini_formatter::start_array() { one_char('['); }</a>
+<a name="132"><span class="lineNum">     132</span>                 :             : simdjson_really_inline void mini_formatter::end_array() { one_char(']'); }</a>
+<a name="133"><span class="lineNum">     133</span>                 :             : simdjson_really_inline void mini_formatter::start_object() { one_char('{'); }</a>
+<a name="134"><span class="lineNum">     134</span>                 :             : simdjson_really_inline void mini_formatter::end_object() { one_char('}'); }</a>
+<a name="135"><span class="lineNum">     135</span>                 :             : simdjson_really_inline void mini_formatter::comma() { one_char(','); }</a>
+<a name="136"><span class="lineNum">     136</span>                 :             : </a>
+<a name="137"><span class="lineNum">     137</span>                 :             : </a>
+<a name="138"><span class="lineNum">     138</span>                 :             : simdjson_really_inline void mini_formatter::true_atom() {</a>
+<a name="139"><span class="lineNum">     139</span>                 :             :   const char * s = &quot;true&quot;;</a>
+<a name="140"><span class="lineNum">     140</span>                 :             :   buffer.insert(buffer.end(), s, s + 4);</a>
+<a name="141"><span class="lineNum">     141</span>                 :             : }</a>
+<a name="142"><span class="lineNum">     142</span>                 :             : simdjson_really_inline void mini_formatter::false_atom() {</a>
+<a name="143"><span class="lineNum">     143</span>                 :             :   const char * s = &quot;false&quot;;</a>
+<a name="144"><span class="lineNum">     144</span>                 :             :   buffer.insert(buffer.end(), s, s + 5);</a>
+<a name="145"><span class="lineNum">     145</span>                 :             : }</a>
+<a name="146"><span class="lineNum">     146</span>                 :             : simdjson_really_inline void mini_formatter::null_atom() {</a>
+<a name="147"><span class="lineNum">     147</span>                 :             :   const char * s = &quot;null&quot;;</a>
+<a name="148"><span class="lineNum">     148</span>                 :             :   buffer.insert(buffer.end(), s, s + 4);</a>
+<a name="149"><span class="lineNum">     149</span>                 :             : }</a>
+<a name="150"><span class="lineNum">     150</span>                 :             : simdjson_really_inline void mini_formatter::one_char(char c) { buffer.push_back(c); }</a>
+<a name="151"><span class="lineNum">     151</span>                 :             : simdjson_really_inline void mini_formatter::key(std::string_view unescaped) {</a>
+<a name="152"><span class="lineNum">     152</span>                 :             :   string(unescaped);</a>
+<a name="153"><span class="lineNum">     153</span>                 :             :   one_char(':');</a>
+<a name="154"><span class="lineNum">     154</span>                 :             : }</a>
+<a name="155"><span class="lineNum">     155</span>                 :             : simdjson_really_inline void mini_formatter::string(std::string_view unescaped) {</a>
+<a name="156"><span class="lineNum">     156</span>                 :             :   one_char('\&quot;');</a>
+<a name="157"><span class="lineNum">     157</span>                 :             :   size_t i = 0;</a>
+<a name="158"><span class="lineNum">     158</span>                 :             :   // Fast path for the case where we have no control character, no &quot;, and no backslash.</a>
+<a name="159"><span class="lineNum">     159</span>                 :             :   // This should include most keys.</a>
+<a name="160"><span class="lineNum">     160</span>                 :             :   //</a>
+<a name="161"><span class="lineNum">     161</span>                 :             :   // We would like to use 'bool' but some compilers take offense to bitwise operation</a>
+<a name="162"><span class="lineNum">     162</span>                 :             :   // with bool types.</a>
+<a name="163"><span class="lineNum">     163</span>                 :             :   constexpr static char needs_escaping[] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,</a>
+<a name="164"><span class="lineNum">     164</span>                 :             :     1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,</a>
+<a name="165"><span class="lineNum">     165</span>                 :             :     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,</a>
+<a name="166"><span class="lineNum">     166</span>                 :             :     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0,</a>
+<a name="167"><span class="lineNum">     167</span>                 :             :     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,</a>
+<a name="168"><span class="lineNum">     168</span>                 :             :     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,</a>
+<a name="169"><span class="lineNum">     169</span>                 :             :     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,</a>
+<a name="170"><span class="lineNum">     170</span>                 :             :     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,</a>
+<a name="171"><span class="lineNum">     171</span>                 :             :     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,</a>
+<a name="172"><span class="lineNum">     172</span>                 :             :     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};</a>
+<a name="173"><span class="lineNum">     173</span>                 :             :   for(;i + 8 &lt;= unescaped.length(); i += 8) {</a>
+<a name="174"><span class="lineNum">     174</span>                 :             :     // Poor's man vectorization. This could get much faster if we used SIMD.</a>
+<a name="175"><span class="lineNum">     175</span>                 :             :     //</a>
+<a name="176"><span class="lineNum">     176</span>                 :             :     // It is not the case that replacing '|' with '||' would be neutral performance-wise.</a>
+<a name="177"><span class="lineNum">     177</span>                 :             :     if(needs_escaping[uint8_t(unescaped[i])] | needs_escaping[uint8_t(unescaped[i+1])]</a>
+<a name="178"><span class="lineNum">     178</span>                 :             :       | needs_escaping[uint8_t(unescaped[i+2])] | needs_escaping[uint8_t(unescaped[i+3])]</a>
+<a name="179"><span class="lineNum">     179</span>                 :             :       | needs_escaping[uint8_t(unescaped[i+4])] | needs_escaping[uint8_t(unescaped[i+5])]</a>
+<a name="180"><span class="lineNum">     180</span>                 :             :       | needs_escaping[uint8_t(unescaped[i+6])] | needs_escaping[uint8_t(unescaped[i+7])]</a>
+<a name="181"><span class="lineNum">     181</span>                 :             :       ) { break; }</a>
+<a name="182"><span class="lineNum">     182</span>                 :             :   }</a>
+<a name="183"><span class="lineNum">     183</span>                 :             :   for(;i &lt; unescaped.length(); i++) {</a>
+<a name="184"><span class="lineNum">     184</span>                 :             :     if(needs_escaping[uint8_t(unescaped[i])]) { break; }</a>
+<a name="185"><span class="lineNum">     185</span>                 :             :   }</a>
+<a name="186"><span class="lineNum">     186</span>                 :             :   // The following is also possible and omits a 256-byte table, but it is slower:</a>
+<a name="187"><span class="lineNum">     187</span>                 :             :   // for (; (i &lt; unescaped.length()) &amp;&amp; (uint8_t(unescaped[i]) &gt; 0x1F)</a>
+<a name="188"><span class="lineNum">     188</span>                 :             :   //      &amp;&amp; (unescaped[i] != '\&quot;') &amp;&amp; (unescaped[i] != '\\'); i++) {}</a>
+<a name="189"><span class="lineNum">     189</span>                 :             : </a>
+<a name="190"><span class="lineNum">     190</span>                 :             :   // At least for long strings, the following should be fast. We could</a>
+<a name="191"><span class="lineNum">     191</span>                 :             :   // do better by integrating the checks and the insertion.</a>
+<a name="192"><span class="lineNum">     192</span>                 :             :   buffer.insert(buffer.end(), unescaped.data(), unescaped.data() + i);</a>
+<a name="193"><span class="lineNum">     193</span>                 :             :   // We caught a control character if we enter this loop (slow).</a>
+<a name="194"><span class="lineNum">     194</span>                 :             :   // Note that we are do not restart from the beginning, but rather we continue</a>
+<a name="195"><span class="lineNum">     195</span>                 :             :   // from the point where we encountered something that requires escaping.</a>
+<a name="196"><span class="lineNum">     196</span>                 :             :   for (; i &lt; unescaped.length(); i++) {</a>
+<a name="197"><span class="lineNum">     197</span>                 :             :     switch (unescaped[i]) {</a>
+<a name="198"><span class="lineNum">     198</span>                 :             :     case '\&quot;':</a>
+<a name="199"><span class="lineNum">     199</span>                 :             :       {</a>
+<a name="200"><span class="lineNum">     200</span>                 :             :         const char * s = &quot;\\\&quot;&quot;;</a>
+<a name="201"><span class="lineNum">     201</span>                 :             :         buffer.insert(buffer.end(), s, s + 2);</a>
+<a name="202"><span class="lineNum">     202</span>                 :             :       }</a>
+<a name="203"><span class="lineNum">     203</span>                 :             :       break;</a>
+<a name="204"><span class="lineNum">     204</span>                 :             :     case '\\':</a>
+<a name="205"><span class="lineNum">     205</span>                 :             :       {</a>
+<a name="206"><span class="lineNum">     206</span>                 :             :         const char * s = &quot;\\\\&quot;;</a>
+<a name="207"><span class="lineNum">     207</span>                 :             :         buffer.insert(buffer.end(), s, s + 2);</a>
+<a name="208"><span class="lineNum">     208</span>                 :             :       }</a>
+<a name="209"><span class="lineNum">     209</span>                 :             :       break;</a>
+<a name="210"><span class="lineNum">     210</span>                 :             :     default:</a>
+<a name="211"><span class="lineNum">     211</span>                 :             :       if (uint8_t(unescaped[i]) &lt;= 0x1F) {</a>
+<a name="212"><span class="lineNum">     212</span>                 :             :         // If packed, this uses 8 * 32 bytes.</a>
+<a name="213"><span class="lineNum">     213</span>                 :             :         // Note that we expect most compilers to embed this code in the data</a>
+<a name="214"><span class="lineNum">     214</span>                 :             :         // section.</a>
+<a name="215"><span class="lineNum">     215</span>                 :             :         constexpr static escape_sequence escaped[32] = {</a>
+<a name="216"><span class="lineNum">     216</span>                 :             :           {6, &quot;\\u0000&quot;}, {6, &quot;\\u0001&quot;}, {6, &quot;\\u0002&quot;}, {6, &quot;\\u0003&quot;},</a>
+<a name="217"><span class="lineNum">     217</span>                 :             :           {6, &quot;\\u0004&quot;}, {6, &quot;\\u0005&quot;}, {6, &quot;\\u0006&quot;}, {6, &quot;\\u0007&quot;},</a>
+<a name="218"><span class="lineNum">     218</span>                 :             :           {2, &quot;\\b&quot;},     {2, &quot;\\t&quot;},     {2, &quot;\\n&quot;},     {6, &quot;\\u000b&quot;},</a>
+<a name="219"><span class="lineNum">     219</span>                 :             :           {2, &quot;\\f&quot;},     {2, &quot;\\r&quot;},     {6, &quot;\\u000e&quot;}, {6, &quot;\\u000f&quot;},</a>
+<a name="220"><span class="lineNum">     220</span>                 :             :           {6, &quot;\\u0010&quot;}, {6, &quot;\\u0011&quot;}, {6, &quot;\\u0012&quot;}, {6, &quot;\\u0013&quot;},</a>
+<a name="221"><span class="lineNum">     221</span>                 :             :           {6, &quot;\\u0014&quot;}, {6, &quot;\\u0015&quot;}, {6, &quot;\\u0016&quot;}, {6, &quot;\\u0017&quot;},</a>
+<a name="222"><span class="lineNum">     222</span>                 :             :           {6, &quot;\\u0018&quot;}, {6, &quot;\\u0019&quot;}, {6, &quot;\\u001a&quot;}, {6, &quot;\\u001b&quot;},</a>
+<a name="223"><span class="lineNum">     223</span>                 :             :           {6, &quot;\\u001c&quot;}, {6, &quot;\\u001d&quot;}, {6, &quot;\\u001e&quot;}, {6, &quot;\\u001f&quot;}};</a>
+<a name="224"><span class="lineNum">     224</span>                 :             :         auto u = escaped[uint8_t(unescaped[i])];</a>
+<a name="225"><span class="lineNum">     225</span>                 :             :         buffer.insert(buffer.end(), u.string, u.string + u.length);</a>
+<a name="226"><span class="lineNum">     226</span>                 :             :       } else {</a>
+<a name="227"><span class="lineNum">     227</span>                 :             :         one_char(unescaped[i]);</a>
+<a name="228"><span class="lineNum">     228</span>                 :             :       }</a>
+<a name="229"><span class="lineNum">     229</span>                 :             :     } // switch</a>
+<a name="230"><span class="lineNum">     230</span>                 :             :   }   // for</a>
+<a name="231"><span class="lineNum">     231</span>                 :             :   one_char('\&quot;');</a>
+<a name="232"><span class="lineNum">     232</span>                 :             : }</a>
+<a name="233"><span class="lineNum">     233</span>                 :             : </a>
+<a name="234"><span class="lineNum">     234</span>                 :             : inline void mini_formatter::clear() {</a>
+<a name="235"><span class="lineNum">     235</span>                 :             :   buffer.clear();</a>
+<a name="236"><span class="lineNum">     236</span>                 :             : }</a>
+<a name="237"><span class="lineNum">     237</span>                 :             : </a>
+<a name="238"><span class="lineNum">     238</span>                 :             : simdjson_really_inline std::string_view mini_formatter::str() const {</a>
+<a name="239"><span class="lineNum">     239</span>                 :             :   return std::string_view(buffer.data(), buffer.size());</a>
+<a name="240"><span class="lineNum">     240</span>                 :             : }</a>
+<a name="241"><span class="lineNum">     241</span>                 :             : </a>
+<a name="242"><span class="lineNum">     242</span>                 :             : </a>
+<a name="243"><span class="lineNum">     243</span>                 :             : /***</a>
+<a name="244"><span class="lineNum">     244</span>                 :             :  * String building code.</a>
+<a name="245"><span class="lineNum">     245</span>                 :             :  **/</a>
+<a name="246"><span class="lineNum">     246</span>                 :             : </a>
+<a name="247"><span class="lineNum">     247</span>                 :             : template &lt;class serializer&gt;</a>
+<a name="248"><span class="lineNum">     248</span>                 :             : inline void string_builder&lt;serializer&gt;::append(simdjson::dom::element value) {</a>
+<a name="249"><span class="lineNum">     249</span>                 :             :   // using tape_type = simdjson::internal::tape_type;</a>
+<a name="250"><span class="lineNum">     250</span>                 :             :   size_t depth = 0;</a>
+<a name="251"><span class="lineNum">     251</span>                 :             :   constexpr size_t MAX_DEPTH = 16;</a>
+<a name="252"><span class="lineNum">     252</span>                 :             :   bool is_object[MAX_DEPTH];</a>
+<a name="253"><span class="lineNum">     253</span>                 :             :   is_object[0] = false;</a>
+<a name="254"><span class="lineNum">     254</span>                 :             :   bool after_value = false;</a>
+<a name="255"><span class="lineNum">     255</span>                 :             : </a>
+<a name="256"><span class="lineNum">     256</span>                 :             :   internal::tape_ref iter(value.tape);</a>
+<a name="257"><span class="lineNum">     257</span>                 :             :   do {</a>
+<a name="258"><span class="lineNum">     258</span>                 :             :     // print commas after each value</a>
+<a name="259"><span class="lineNum">     259</span>                 :             :     if (after_value) {</a>
+<a name="260"><span class="lineNum">     260</span>                 :             :       format.comma();</a>
+<a name="261"><span class="lineNum">     261</span>                 :             :     }</a>
+<a name="262"><span class="lineNum">     262</span>                 :             :     // If we are in an object, print the next key and :, and skip to the next</a>
+<a name="263"><span class="lineNum">     263</span>                 :             :     // value.</a>
+<a name="264"><span class="lineNum">     264</span>                 :             :     if (is_object[depth]) {</a>
+<a name="265"><span class="lineNum">     265</span>                 :             :       format.key(iter.get_string_view());</a>
+<a name="266"><span class="lineNum">     266</span>                 :             :       iter.json_index++;</a>
+<a name="267"><span class="lineNum">     267</span>                 :             :     }</a>
+<a name="268"><span class="lineNum">     268</span>                 :             :     switch (iter.tape_ref_type()) {</a>
+<a name="269"><span class="lineNum">     269</span>                 :             : </a>
+<a name="270"><span class="lineNum">     270</span>                 :             :     // Arrays</a>
+<a name="271"><span class="lineNum">     271</span>                 :             :     case tape_type::START_ARRAY: {</a>
+<a name="272"><span class="lineNum">     272</span>                 :             :       // If we're too deep, we need to recurse to go deeper.</a>
+<a name="273"><span class="lineNum">     273</span>                 :             :       depth++;</a>
+<a name="274"><span class="lineNum">     274</span>                 :             :       if (simdjson_unlikely(depth &gt;= MAX_DEPTH)) {</a>
+<a name="275"><span class="lineNum">     275</span>                 :             :         append(simdjson::dom::array(iter));</a>
+<a name="276"><span class="lineNum">     276</span>                 :             :         iter.json_index = iter.matching_brace_index() - 1; // Jump to the ]</a>
+<a name="277"><span class="lineNum">     277</span>                 :             :         depth--;</a>
+<a name="278"><span class="lineNum">     278</span>                 :             :         break;</a>
+<a name="279"><span class="lineNum">     279</span>                 :             :       }</a>
+<a name="280"><span class="lineNum">     280</span>                 :             : </a>
+<a name="281"><span class="lineNum">     281</span>                 :             :       // Output start [</a>
+<a name="282"><span class="lineNum">     282</span>                 :             :       format.start_array();</a>
+<a name="283"><span class="lineNum">     283</span>                 :             :       iter.json_index++;</a>
+<a name="284"><span class="lineNum">     284</span>                 :             : </a>
+<a name="285"><span class="lineNum">     285</span>                 :             :       // Handle empty [] (we don't want to come back around and print commas)</a>
+<a name="286"><span class="lineNum">     286</span>                 :             :       if (iter.tape_ref_type() == tape_type::END_ARRAY) {</a>
+<a name="287"><span class="lineNum">     287</span>                 :             :         format.end_array();</a>
+<a name="288"><span class="lineNum">     288</span>                 :             :         depth--;</a>
+<a name="289"><span class="lineNum">     289</span>                 :             :         break;</a>
+<a name="290"><span class="lineNum">     290</span>                 :             :       }</a>
+<a name="291"><span class="lineNum">     291</span>                 :             : </a>
+<a name="292"><span class="lineNum">     292</span>                 :             :       is_object[depth] = false;</a>
+<a name="293"><span class="lineNum">     293</span>                 :             :       after_value = false;</a>
+<a name="294"><span class="lineNum">     294</span>                 :             :       continue;</a>
+<a name="295"><span class="lineNum">     295</span>                 :             :     }</a>
+<a name="296"><span class="lineNum">     296</span>                 :             : </a>
+<a name="297"><span class="lineNum">     297</span>                 :             :     // Objects</a>
+<a name="298"><span class="lineNum">     298</span>                 :             :     case tape_type::START_OBJECT: {</a>
+<a name="299"><span class="lineNum">     299</span>                 :             :       // If we're too deep, we need to recurse to go deeper.</a>
+<a name="300"><span class="lineNum">     300</span>                 :             :       depth++;</a>
+<a name="301"><span class="lineNum">     301</span>                 :             :       if (simdjson_unlikely(depth &gt;= MAX_DEPTH)) {</a>
+<a name="302"><span class="lineNum">     302</span>                 :             :         append(simdjson::dom::object(iter));</a>
+<a name="303"><span class="lineNum">     303</span>                 :             :         iter.json_index = iter.matching_brace_index() - 1; // Jump to the }</a>
+<a name="304"><span class="lineNum">     304</span>                 :             :         depth--;</a>
+<a name="305"><span class="lineNum">     305</span>                 :             :         break;</a>
+<a name="306"><span class="lineNum">     306</span>                 :             :       }</a>
+<a name="307"><span class="lineNum">     307</span>                 :             : </a>
+<a name="308"><span class="lineNum">     308</span>                 :             :       // Output start {</a>
+<a name="309"><span class="lineNum">     309</span>                 :             :       format.start_object();</a>
+<a name="310"><span class="lineNum">     310</span>                 :             :       iter.json_index++;</a>
+<a name="311"><span class="lineNum">     311</span>                 :             : </a>
+<a name="312"><span class="lineNum">     312</span>                 :             :       // Handle empty {} (we don't want to come back around and print commas)</a>
+<a name="313"><span class="lineNum">     313</span>                 :             :       if (iter.tape_ref_type() == tape_type::END_OBJECT) {</a>
+<a name="314"><span class="lineNum">     314</span>                 :             :         format.end_object();</a>
+<a name="315"><span class="lineNum">     315</span>                 :             :         depth--;</a>
+<a name="316"><span class="lineNum">     316</span>                 :             :         break;</a>
+<a name="317"><span class="lineNum">     317</span>                 :             :       }</a>
+<a name="318"><span class="lineNum">     318</span>                 :             : </a>
+<a name="319"><span class="lineNum">     319</span>                 :             :       is_object[depth] = true;</a>
+<a name="320"><span class="lineNum">     320</span>                 :             :       after_value = false;</a>
+<a name="321"><span class="lineNum">     321</span>                 :             :       continue;</a>
+<a name="322"><span class="lineNum">     322</span>                 :             :     }</a>
+<a name="323"><span class="lineNum">     323</span>                 :             : </a>
+<a name="324"><span class="lineNum">     324</span>                 :             :     // Scalars</a>
+<a name="325"><span class="lineNum">     325</span>                 :             :     case tape_type::STRING:</a>
+<a name="326"><span class="lineNum">     326</span>                 :             :       format.string(iter.get_string_view());</a>
+<a name="327"><span class="lineNum">     327</span>                 :             :       break;</a>
+<a name="328"><span class="lineNum">     328</span>                 :             :     case tape_type::INT64:</a>
+<a name="329"><span class="lineNum">     329</span>                 :             :       format.number(iter.next_tape_value&lt;int64_t&gt;());</a>
+<a name="330"><span class="lineNum">     330</span>                 :             :       iter.json_index++; // numbers take up 2 spots, so we need to increment</a>
+<a name="331"><span class="lineNum">     331</span>                 :             :                          // extra</a>
+<a name="332"><span class="lineNum">     332</span>                 :             :       break;</a>
+<a name="333"><span class="lineNum">     333</span>                 :             :     case tape_type::UINT64:</a>
+<a name="334"><span class="lineNum">     334</span>                 :             :       format.number(iter.next_tape_value&lt;uint64_t&gt;());</a>
+<a name="335"><span class="lineNum">     335</span>                 :             :       iter.json_index++; // numbers take up 2 spots, so we need to increment</a>
+<a name="336"><span class="lineNum">     336</span>                 :             :                          // extra</a>
+<a name="337"><span class="lineNum">     337</span>                 :             :       break;</a>
+<a name="338"><span class="lineNum">     338</span>                 :             :     case tape_type::DOUBLE:</a>
+<a name="339"><span class="lineNum">     339</span>                 :             :       format.number(iter.next_tape_value&lt;double&gt;());</a>
+<a name="340"><span class="lineNum">     340</span>                 :             :       iter.json_index++; // numbers take up 2 spots, so we need to increment</a>
+<a name="341"><span class="lineNum">     341</span>                 :             :                          // extra</a>
+<a name="342"><span class="lineNum">     342</span>                 :             :       break;</a>
+<a name="343"><span class="lineNum">     343</span>                 :             :     case tape_type::TRUE_VALUE:</a>
+<a name="344"><span class="lineNum">     344</span>                 :             :       format.true_atom();</a>
+<a name="345"><span class="lineNum">     345</span>                 :             :       break;</a>
+<a name="346"><span class="lineNum">     346</span>                 :             :     case tape_type::FALSE_VALUE:</a>
+<a name="347"><span class="lineNum">     347</span>                 :             :       format.false_atom();</a>
+<a name="348"><span class="lineNum">     348</span>                 :             :       break;</a>
+<a name="349"><span class="lineNum">     349</span>                 :             :     case tape_type::NULL_VALUE:</a>
+<a name="350"><span class="lineNum">     350</span>                 :             :       format.null_atom();</a>
+<a name="351"><span class="lineNum">     351</span>                 :             :       break;</a>
+<a name="352"><span class="lineNum">     352</span>                 :             : </a>
+<a name="353"><span class="lineNum">     353</span>                 :             :     // These are impossible</a>
+<a name="354"><span class="lineNum">     354</span>                 :             :     case tape_type::END_ARRAY:</a>
+<a name="355"><span class="lineNum">     355</span>                 :             :     case tape_type::END_OBJECT:</a>
+<a name="356"><span class="lineNum">     356</span>                 :             :     case tape_type::ROOT:</a>
+<a name="357"><span class="lineNum">     357</span>                 :             :       SIMDJSON_UNREACHABLE();</a>
+<a name="358"><span class="lineNum">     358</span>                 :             :     }</a>
+<a name="359"><span class="lineNum">     359</span>                 :             :     iter.json_index++;</a>
+<a name="360"><span class="lineNum">     360</span>                 :             :     after_value = true;</a>
+<a name="361"><span class="lineNum">     361</span>                 :             : </a>
+<a name="362"><span class="lineNum">     362</span>                 :             :     // Handle multiple ends in a row</a>
+<a name="363"><span class="lineNum">     363</span>                 :             :     while (depth != 0 &amp;&amp; (iter.tape_ref_type() == tape_type::END_ARRAY ||</a>
+<a name="364"><span class="lineNum">     364</span>                 :             :                           iter.tape_ref_type() == tape_type::END_OBJECT)) {</a>
+<a name="365"><span class="lineNum">     365</span>                 :             :       if (iter.tape_ref_type() == tape_type::END_ARRAY) {</a>
+<a name="366"><span class="lineNum">     366</span>                 :             :         format.end_array();</a>
+<a name="367"><span class="lineNum">     367</span>                 :             :       } else {</a>
+<a name="368"><span class="lineNum">     368</span>                 :             :         format.end_object();</a>
+<a name="369"><span class="lineNum">     369</span>                 :             :       }</a>
+<a name="370"><span class="lineNum">     370</span>                 :             :       depth--;</a>
+<a name="371"><span class="lineNum">     371</span>                 :             :       iter.json_index++;</a>
+<a name="372"><span class="lineNum">     372</span>                 :             :     }</a>
+<a name="373"><span class="lineNum">     373</span>                 :             : </a>
+<a name="374"><span class="lineNum">     374</span>                 :             :     // Stop when we're at depth 0</a>
+<a name="375"><span class="lineNum">     375</span>                 :             :   } while (depth != 0);</a>
+<a name="376"><span class="lineNum">     376</span>                 :             : }</a>
+<a name="377"><span class="lineNum">     377</span>                 :             : </a>
+<a name="378"><span class="lineNum">     378</span>                 :             : template &lt;class serializer&gt;</a>
+<a name="379"><span class="lineNum">     379</span>                 :             : inline void string_builder&lt;serializer&gt;::append(simdjson::dom::object value) {</a>
+<a name="380"><span class="lineNum">     380</span>                 :             :   format.start_object();</a>
+<a name="381"><span class="lineNum">     381</span>                 :             :   auto pair = value.begin();</a>
+<a name="382"><span class="lineNum">     382</span>                 :             :   auto end = value.end();</a>
+<a name="383"><span class="lineNum">     383</span>                 :             :   if (pair != end) {</a>
+<a name="384"><span class="lineNum">     384</span>                 :             :     append(*pair);</a>
+<a name="385"><span class="lineNum">     385</span>                 :             :     for (++pair; pair != end; ++pair) {</a>
+<a name="386"><span class="lineNum">     386</span>                 :             :       format.comma();</a>
+<a name="387"><span class="lineNum">     387</span>                 :             :       append(*pair);</a>
+<a name="388"><span class="lineNum">     388</span>                 :             :     }</a>
+<a name="389"><span class="lineNum">     389</span>                 :             :   }</a>
+<a name="390"><span class="lineNum">     390</span>                 :             :   format.end_object();</a>
+<a name="391"><span class="lineNum">     391</span>                 :             : }</a>
+<a name="392"><span class="lineNum">     392</span>                 :             : </a>
+<a name="393"><span class="lineNum">     393</span>                 :             : template &lt;class serializer&gt;</a>
+<a name="394"><span class="lineNum">     394</span>                 :             : inline void string_builder&lt;serializer&gt;::append(simdjson::dom::array value) {</a>
+<a name="395"><span class="lineNum">     395</span>                 :             :   format.start_array();</a>
+<a name="396"><span class="lineNum">     396</span>                 :             :   auto iter = value.begin();</a>
+<a name="397"><span class="lineNum">     397</span>                 :             :   auto end = value.end();</a>
+<a name="398"><span class="lineNum">     398</span>                 :             :   if (iter != end) {</a>
+<a name="399"><span class="lineNum">     399</span>                 :             :     append(*iter);</a>
+<a name="400"><span class="lineNum">     400</span>                 :             :     for (++iter; iter != end; ++iter) {</a>
+<a name="401"><span class="lineNum">     401</span>                 :             :       format.comma();</a>
+<a name="402"><span class="lineNum">     402</span>                 :             :       append(*iter);</a>
+<a name="403"><span class="lineNum">     403</span>                 :             :     }</a>
+<a name="404"><span class="lineNum">     404</span>                 :             :   }</a>
+<a name="405"><span class="lineNum">     405</span>                 :             :   format.end_array();</a>
+<a name="406"><span class="lineNum">     406</span>                 :             : }</a>
+<a name="407"><span class="lineNum">     407</span>                 :             : </a>
+<a name="408"><span class="lineNum">     408</span>                 :             : template &lt;class serializer&gt;</a>
+<a name="409"><span class="lineNum">     409</span>                 :             : simdjson_really_inline void string_builder&lt;serializer&gt;::append(simdjson::dom::key_value_pair kv) {</a>
+<a name="410"><span class="lineNum">     410</span>                 :             :   format.key(kv.key);</a>
+<a name="411"><span class="lineNum">     411</span>                 :             :   append(kv.value);</a>
+<a name="412"><span class="lineNum">     412</span>                 :             : }</a>
+<a name="413"><span class="lineNum">     413</span>                 :             : </a>
+<a name="414"><span class="lineNum">     414</span>                 :             : template &lt;class serializer&gt;</a>
+<a name="415"><span class="lineNum">     415</span>                 :             : simdjson_really_inline void string_builder&lt;serializer&gt;::clear() {</a>
+<a name="416"><span class="lineNum">     416</span>                 :             :   format.clear();</a>
+<a name="417"><span class="lineNum">     417</span>                 :             : }</a>
+<a name="418"><span class="lineNum">     418</span>                 :             : </a>
+<a name="419"><span class="lineNum">     419</span>                 :             : template &lt;class serializer&gt;</a>
+<a name="420"><span class="lineNum">     420</span>                 :             : simdjson_really_inline std::string_view string_builder&lt;serializer&gt;::str() const {</a>
+<a name="421"><span class="lineNum">     421</span>                 :             :   return format.str();</a>
+<a name="422"><span class="lineNum">     422</span>                 :             : }</a>
+<a name="423"><span class="lineNum">     423</span>                 :             : </a>
+<a name="424"><span class="lineNum">     424</span>                 :             : </a>
+<a name="425"><span class="lineNum">     425</span>                 :             : } // namespace internal</a>
+<a name="426"><span class="lineNum">     426</span>                 :             : } // namespace simdjson</a>
+<a name="427"><span class="lineNum">     427</span>                 :             : </a>
+<a name="428"><span class="lineNum">     428</span>                 :             : #endif</a>
+        </pre>
+              </td>
+            </tr>
+          </table>
+          <br>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+            <tr><td class="versionInfo">Generated by: <a href="https://github.com/henry2cox/lcov/tree/diffcov_initial" target="_parent">LCOV version 1.0</a></td></tr>
+          </table>
+          <br>
+
+</body>
+</html>
