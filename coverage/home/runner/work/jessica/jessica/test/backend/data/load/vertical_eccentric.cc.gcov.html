@@ -385,7 +385,7 @@
 <a name="213"><span class="lineNum">     213</span>                 :             : </a>
 <a name="214"><span class="lineNum">     214</span>         [<span class="tlaGBC" title="Branch 0 was taken 2 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span>]:<span class="tlaGNC">           2 :   std::thread server([&amp;service, &amp;settings]() { service.start(settings); });</span></a>
 <a name="215"><span class="lineNum">     215</span>                 :             : </a>
-<a name="216"><span class="lineNum">     216</span>   [<span class="tlaGBC" title="Branch 0 was taken 81089 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span><span class="tlaGBC" title="Branch 2 was taken 81088 times"> + </span><span class="tlaGBC" title="Branch 3 was taken 1 time"> + </span>]:<span class="tlaGNC">       81089 :   while (!service.is_up())</span></a>
+<a name="216"><span class="lineNum">     216</span>   [<span class="tlaGBC" title="Branch 0 was taken 231310 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span><span class="tlaGBC" title="Branch 2 was taken 231309 times"> + </span><span class="tlaGBC" title="Branch 3 was taken 1 time"> + </span>]:<span class="tlaGNC">      231310 :   while (!service.is_up())</span></a>
 <a name="217"><span class="lineNum">     217</span>                 :             :   {</a>
 <a name="218"><span class="lineNum">     218</span>                 :             :   }</a>
 <a name="219"><span class="lineNum">     219</span>                 :             :   {</a>
