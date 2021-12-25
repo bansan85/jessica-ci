@@ -825,6 +825,148 @@
           </div>
         </td>
       </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L16' href='#L16' id="L16">
+          <pre>16</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L17' href='#L17' id="L17">
+          <pre>17</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>#define RULE_OF_FIVE_NO_COPY(CLASS)        \</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L18' href='#L18' id="L18">
+          <pre>18</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  CLASS(const CLASS&amp;) = delete;            \</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L19' href='#L19' id="L19">
+          <pre>19</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  CLASS(CLASS&amp;&amp;) = delete;                 \</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L20' href='#L20' id="L20">
+          <pre>20</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  CLASS& operator=(const CLASS&amp;) = delete; \</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L21' href='#L21' id="L21">
+          <pre>21</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  CLASS& operator=(CLASS&amp;&amp;) = delete;      \</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L22' href='#L22' id="L22">
+          <pre>22</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>2</pre>
+        </td>
+        <td class='code'>
+          <pre>  ~CLASS() = default;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L23' href='#L23' id="L23">
+          <pre>23</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L24' href='#L24' id="L24">
+          <pre>24</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>#define RULE_OF_FIVE_NO_COPY_VIRTUAL(CLASS) \</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L25' href='#L25' id="L25">
+          <pre>25</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  CLASS(const CLASS&amp;) = delete;             \</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L26' href='#L26' id="L26">
+          <pre>26</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  CLASS(CLASS&amp;&amp;) = delete;                  \</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L27' href='#L27' id="L27">
+          <pre>27</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  CLASS& operator=(const CLASS&amp;) = delete;  \</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L28' href='#L28' id="L28">
+          <pre>28</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  CLASS& operator=(CLASS&amp;&amp;) = delete;       \</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L29' href='#L29' id="L29">
+          <pre>29</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  virtual ~CLASS() = default;</pre>
+        </td>
+      </tr>
     </table>
   </div>
 </body>
