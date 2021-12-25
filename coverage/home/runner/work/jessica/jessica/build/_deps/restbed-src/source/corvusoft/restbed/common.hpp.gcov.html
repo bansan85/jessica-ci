@@ -115,20 +115,20 @@
 <a name="37"><span class="lineNum">      37</span>                 :             :             </a>
 <a name="38"><span class="lineNum">      38</span>                 :             :             //Functionality</a>
 <a name="39"><span class="lineNum">      39</span>                 :             :             template&lt; typename Type &gt;</a>
-<a name="40"><span class="lineNum">      40</span>                 :<span class="tlaGNC">           3 :             static Type parse_parameter( const std::string&amp; value, const Type default_value )</span></a>
+<a name="40"><span class="lineNum">      40</span>                 :<span class="tlaGNC">           6 :             static Type parse_parameter( const std::string&amp; value, const Type default_value )</span></a>
 <a name="41"><span class="lineNum">      41</span>                 :             :             {</a>
-<a name="42"><span class="lineNum">      42</span>         [<span class="tlaGBC" title="Branch 0 was taken 3 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span>]:<span class="tlaGNC">           3 :                 std::istringstream stream( value );</span></a>
+<a name="42"><span class="lineNum">      42</span>         [<span class="tlaGBC" title="Branch 0 was taken 6 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span>]:<span class="tlaGNC">           6 :                 std::istringstream stream( value );</span></a>
 <a name="43"><span class="lineNum">      43</span>                 :             :                 </a>
 <a name="44"><span class="lineNum">      44</span>                 :             :                 Type parameter;</a>
-<a name="45"><span class="lineNum">      45</span>         [<span class="tlaGBC" title="Branch 0 was taken 3 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span>]:<span class="tlaGNC">           3 :                 stream &gt;&gt; parameter;</span></a>
+<a name="45"><span class="lineNum">      45</span>         [<span class="tlaGBC" title="Branch 0 was taken 6 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span>]:<span class="tlaGNC">           6 :                 stream &gt;&gt; parameter;</span></a>
 <a name="46"><span class="lineNum">      46</span>                 :             :                 </a>
-<a name="47"><span class="lineNum">      47</span>   [<span class="tlaGBC" title="Branch 0 was taken 3 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span><span class="tlaUNC" title="Branch 2 was not taken"> - </span><span class="tlaGBC" title="Branch 3 was taken 3 times"> + </span>]:<span class="tlaGNC">           3 :                 if ( stream.fail( ) )</span></a>
+<a name="47"><span class="lineNum">      47</span>   [<span class="tlaGBC" title="Branch 0 was taken 6 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span><span class="tlaUNC" title="Branch 2 was not taken"> - </span><span class="tlaGBC" title="Branch 3 was taken 6 times"> + </span>]:<span class="tlaGNC">           6 :                 if ( stream.fail( ) )</span></a>
 <a name="48"><span class="lineNum">      48</span>                 :             :                 {</a>
 <a name="49"><span class="lineNum">      49</span>                 :<span class="tlaUNC">           0 :                     return default_value;</span></a>
 <a name="50"><span class="lineNum">      50</span>                 :             :                 }</a>
 <a name="51"><span class="lineNum">      51</span>                 :             :                 </a>
-<a name="52"><span class="lineNum">      52</span>                 :<span class="tlaGNC">           3 :                 return parameter;</span></a>
-<a name="53"><span class="lineNum">      53</span>                 :<span class="tlaGNC">           3 :             }</span></a>
+<a name="52"><span class="lineNum">      52</span>                 :<span class="tlaGNC">           6 :                 return parameter;</span></a>
+<a name="53"><span class="lineNum">      53</span>                 :<span class="tlaGNC">           6 :             }</span></a>
 <a name="54"><span class="lineNum">      54</span>                 :             :             </a>
 <a name="55"><span class="lineNum">      55</span>                 :             :             template&lt; typename Type &gt;</a>
 <a name="56"><span class="lineNum">      56</span>                 :             :             static bool has_parameter( const std::string&amp; name, const Type&amp; parameters )</a>
