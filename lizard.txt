@@ -112,21 +112,26 @@
        5      1     21      1       9 onBeforeLoad ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
       17      1    155      0      22 (anonymous) ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
        5      1     24      0      35 (anonymous) ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
+      27      1    222      3      35 jessica::RestbedWs::AddPath ./src/backend/jessica/helper/adapter/webservice/restbed.cc
+       7      1     47      1       8 jessica::RestbedWs::Start ./src/backend/jessica/helper/adapter/webservice/restbed.cc
+       1      1     13      0       1 jessica::RestbedWs::Stop ./src/backend/jessica/helper/adapter/webservice/restbed.cc
+       6      2     18      0       6 jessica::RestbedWs::WaitStarted ./src/backend/jessica/helper/adapter/webservice/restbed.cc
+      28      2    209      5      35 jessica::RestbedRequest::Sync ./src/backend/jessica/helper/adapter/webservice/restbed.cc
       38      1    315      1      43 EMSCRIPTEN_BINDINGS ./src/javascript/wasm/bindings-test.cc
       28      1    208      1      31 EMSCRIPTEN_BINDINGS ./src/javascript/wasm/bindings-web.cc
       59      1    533      2      62 JTEST_NAME ./test/backend/data/load/vertical_eccentric.cc
       62      1    568      2      67 JTEST_NAME ./test/backend/data/load/vertical_eccentric.cc
-      77      2    619      2     100 JTEST_NAME ./test/backend/data/load/vertical_eccentric.cc
+      39      1    305      2      52 JTEST_NAME ./test/backend/data/load/vertical_eccentric.cc
        6      1     36      2       6 main ./test/backend/data/load/vertical_eccentric.cc
       42      1    326      2      45 JTEST_NAME ./test/backend/data/geotechnical/foundation_strip.cc
       45      1    361      2      50 JTEST_NAME ./test/backend/data/geotechnical/foundation_strip.cc
-      75      2    608      2      98 JTEST_NAME ./test/backend/data/geotechnical/foundation_strip.cc
+      37      1    294      2      50 JTEST_NAME ./test/backend/data/geotechnical/foundation_strip.cc
        6      1     36      2       6 main ./test/backend/data/geotechnical/foundation_strip.cc
       95      1    810      2     102 JTEST_NAME ./test/backend/calc/geotechnical/meyerhof.cc
       42      1    421      2      50 JTEST_NAME ./test/backend/calc/geotechnical/meyerhof.cc
      104      1    871      2     111 JTEST_NAME ./test/backend/calc/geotechnical/meyerhof.cc
       90      1    708      2      95 JTEST_NAME ./test/backend/calc/geotechnical/meyerhof.cc
-      80      2    664      2     104 JTEST_NAME ./test/backend/calc/geotechnical/meyerhof.cc
+      42      1    350      2      56 JTEST_NAME ./test/backend/calc/geotechnical/meyerhof.cc
        6      1     36      2       6 main ./test/backend/calc/geotechnical/meyerhof.cc
        1      1      8      0       1 DecoratorTest::B ./test/backend/util/decorator.cc
        6      1     25      1       6 DecoratorTest::SetB ./test/backend/util/decorator.cc
@@ -181,7 +186,7 @@
        5      1     61      2       5 jessica::JESSICA_DLL_PUBLICLogCall::f ./include/jessica/util/decorator/log_call.h
        4      1     39      2       4 jessica::JESSICA_DLL_PUBLICDecoratorEnd::DecoratorEnd ./include/jessica/util/decorator/end.h
        4      1     38      2       4 jessica::JESSICA_DLL_PUBLICDecoratorEnd::f ./include/jessica/util/decorator/end.h
-85 file analyzed.
+87 file analyzed.
 ==============================================================
 NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
 --------------------------------------------------------------
@@ -238,12 +243,13 @@ NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
      34      14.0     1.0       70.0         1     ./src/angular/projects/toolbox/karma.conf.js
      78       9.2     1.0       70.9         9     ./src/angular/cypress/integration/app-main/calc/geotechnical/meyerhof.spec.js
       7       0.0     0.0        0.0         0     ./src/angular/lighthouserc.js
+     82      13.8     1.4      101.8         5     ./src/backend/jessica/helper/adapter/webservice/restbed.cc
       0       0.0     0.0        0.0         0     ./src/backend/dummy.cc
      53      38.0     1.0      315.0         1     ./src/javascript/wasm/bindings-test.cc
      36      28.0     1.0      208.0         1     ./src/javascript/wasm/bindings-web.cc
-    225      51.0     1.2      439.0         4     ./test/backend/data/load/vertical_eccentric.cc
-    189      42.0     1.2      332.8         4     ./test/backend/data/geotechnical/foundation_strip.cc
-    444      69.5     1.2      585.0         6     ./test/backend/calc/geotechnical/meyerhof.cc
+    189      41.5     1.0      360.5         4     ./test/backend/data/load/vertical_eccentric.cc
+    153      32.5     1.0      254.2         4     ./test/backend/data/geotechnical/foundation_strip.cc
+    408      63.2     1.0      532.7         6     ./test/backend/calc/geotechnical/meyerhof.cc
      82       6.0     1.0       37.9         8     ./test/backend/util/decorator.cc
      38       3.6     1.0       19.2         5     ./include/jessica/data/load/vertical_eccentric.h
      33      10.0     1.0       35.5         2     ./include/jessica/data/load/decorator_vertical_eccentric.h
@@ -252,6 +258,7 @@ NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
       1       0.0     0.0        0.0         0     ./include/jessica/test/test.h
       1       0.0     0.0        0.0         0     ./include/jessica/helper/cereal/memory.h
       1       0.0     0.0        0.0         0     ./include/jessica/helper/cereal/json.h
+     31       0.0     0.0        0.0         0     ./include/jessica/helper/adapter/webservice/restbed.h
      71       8.2     1.5       60.5         6     ./include/jessica/helper/adapter/json_parser/json_nlohmann.h
      30      10.0     1.0       58.0         2     ./include/jessica/helper/adapter/json_parser/json_parser.h
      69      11.2     2.0       77.0         4     ./include/jessica/helper/adapter/json_parser/json_simdjson.h
@@ -276,4 +283,4 @@ No thresholds exceeded (cyclomatic_complexity > 15 or length > 1000 or nloc > 10
 ==========================================================================================
 Total nloc   Avg.NLOC  AvgCCN  Avg.token   Fun Cnt  Warning cnt   Fun Rt   nloc Rt
 ------------------------------------------------------------------------------------------
-      3091      10.1     1.1       71.0      180            0      0.00    0.00
+      3096       9.6     1.1       66.7      185            0      0.00    0.00
