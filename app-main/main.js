@@ -469,7 +469,7 @@ var jessicaWeb$1 = {exports: {}};
 
 (function (module, exports) {
 "use strict";
-var jessica = (function () {
+var jessica = (() => {
     var _scriptDir = typeof document !== 'undefined' && document.currentScript ? document.currentScript.src : undefined;
     return (function (jessica) {
         jessica = jessica || {};
@@ -522,7 +522,7 @@ var jessica = (function () {
         var moduleOverrides = objAssign({}, Module);
         var arguments_ = [];
         var thisProgram = './this.program';
-        var quit_ = function (status, toThrow) {
+        var quit_ = (status, toThrow) => {
             throw toThrow;
         };
         // Determine the runtime environment we are in. You can customize this by
@@ -557,7 +557,7 @@ var jessica = (function () {
         function logExceptionOnExit(e) {
             if (e instanceof ExitStatus)
                 return;
-            var toLog = e;
+            let toLog = e;
             if (e && typeof e === 'object' && e.stack) {
                 toLog = [e, e.stack];
             }
@@ -572,7 +572,7 @@ var jessica = (function () {
                 };
             }
             readBinary = function readBinary(f) {
-                var data;
+                let data;
                 if (typeof readbuffer === 'function') {
                     return new Uint8Array(readbuffer(f));
                 }
@@ -581,7 +581,7 @@ var jessica = (function () {
                 return data;
             };
             readAsync = function readAsync(f, onload, onerror) {
-                setTimeout(function () { onload(readBinary(f)); }, 0);
+                setTimeout(() => onload(readBinary(f)), 0);
             };
             if (typeof scriptArgs != 'undefined') {
                 arguments_ = scriptArgs;
@@ -590,7 +590,7 @@ var jessica = (function () {
                 arguments_ = arguments;
             }
             if (typeof quit === 'function') {
-                quit_ = function (status, toThrow) {
+                quit_ = (status, toThrow) => {
                     logExceptionOnExit(toThrow);
                     quit(status);
                 };
@@ -668,7 +668,7 @@ var jessica = (function () {
                 };
                 // end include: web_or_worker_shell_read.js
             }
-            setWindowTitle = function (title) { document.title = title; };
+            setWindowTitle = (title) => document.title = title;
         }
         else {
             throw new Error('environment detection error');
@@ -3795,6 +3795,14 @@ var jessica = (function () {
         var ___errno_location = Module["___errno_location"] = createExportWrapper("__errno_location");
         /** @type {function(...*):?} */
         var _fflush = Module["_fflush"] = createExportWrapper("fflush");
+        /** @type {function(...*):?} */
+        var _htonl = Module["_htonl"] = createExportWrapper("htonl");
+        /** @type {function(...*):?} */
+        var _htons = Module["_htons"] = createExportWrapper("htons");
+        /** @type {function(...*):?} */
+        var _emscripten_main_thread_process_queued_calls = Module["_emscripten_main_thread_process_queued_calls"] = createExportWrapper("emscripten_main_thread_process_queued_calls");
+        /** @type {function(...*):?} */
+        var _ntohs = Module["_ntohs"] = createExportWrapper("ntohs");
         /** @type {function(...*):?} */
         var _malloc = Module["_malloc"] = createExportWrapper("malloc");
         /** @type {function(...*):?} */

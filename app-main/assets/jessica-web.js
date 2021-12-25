@@ -1,5 +1,5 @@
 
-var jessica = (function() {
+var jessica = (() => {
   var _scriptDir = typeof document !== 'undefined' && document.currentScript ? document.currentScript.src : undefined;
   
   return (
@@ -70,7 +70,7 @@ var moduleOverrides = objAssign({}, Module);
 
 var arguments_ = [];
 var thisProgram = './this.program';
-var quit_ = function(status, toThrow) {
+var quit_ = (status, toThrow) => {
   throw toThrow;
 };
 
@@ -113,7 +113,7 @@ var read_,
 // this may no longer be needed under node.
 function logExceptionOnExit(e) {
   if (e instanceof ExitStatus) return;
-  var toLog = e;
+  let toLog = e;
   if (e && typeof e === 'object' && e.stack) {
     toLog = [e, e.stack];
   }
@@ -131,7 +131,7 @@ if (ENVIRONMENT_IS_SHELL) {
   }
 
   readBinary = function readBinary(f) {
-    var data;
+    let data;
     if (typeof readbuffer === 'function') {
       return new Uint8Array(readbuffer(f));
     }
@@ -141,7 +141,7 @@ if (ENVIRONMENT_IS_SHELL) {
   };
 
   readAsync = function readAsync(f, onload, onerror) {
-    setTimeout(function() { onload(readBinary(f)); }, 0);
+    setTimeout(() => onload(readBinary(f)), 0);
   };
 
   if (typeof scriptArgs != 'undefined') {
@@ -151,7 +151,7 @@ if (ENVIRONMENT_IS_SHELL) {
   }
 
   if (typeof quit === 'function') {
-    quit_ = function(status, toThrow) {
+    quit_ = (status, toThrow) => {
       logExceptionOnExit(toThrow);
       quit(status);
     };
@@ -236,7 +236,7 @@ if (ENVIRONMENT_IS_WEB || ENVIRONMENT_IS_WORKER) {
 // end include: web_or_worker_shell_read.js
   }
 
-  setWindowTitle = function(title) { document.title = title };
+  setWindowTitle = (title) => document.title = title;
 } else
 {
   throw new Error('environment detection error');
@@ -3763,6 +3763,18 @@ var ___errno_location = Module["___errno_location"] = createExportWrapper("__err
 
 /** @type {function(...*):?} */
 var _fflush = Module["_fflush"] = createExportWrapper("fflush");
+
+/** @type {function(...*):?} */
+var _htonl = Module["_htonl"] = createExportWrapper("htonl");
+
+/** @type {function(...*):?} */
+var _htons = Module["_htons"] = createExportWrapper("htons");
+
+/** @type {function(...*):?} */
+var _emscripten_main_thread_process_queued_calls = Module["_emscripten_main_thread_process_queued_calls"] = createExportWrapper("emscripten_main_thread_process_queued_calls");
+
+/** @type {function(...*):?} */
+var _ntohs = Module["_ntohs"] = createExportWrapper("ntohs");
 
 /** @type {function(...*):?} */
 var _malloc = Module["_malloc"] = createExportWrapper("malloc");
