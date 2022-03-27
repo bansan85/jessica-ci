@@ -94,7 +94,7 @@
        3      1     11      0       3 (anonymous) ./src/angular/projects/jessica/src/lib/data/geotechnical/foundation-strip/foundation-strip-form.component.spec.ts
        7      1     42      0      21 (anonymous) ./src/angular/projects/jessica/src/lib/data/geotechnical/foundation-strip/foundation-strip-form.component.spec.ts
        3      1      8      0       3 (anonymous) ./src/angular/projects/jessica/src/lib/web/wasm/jessica-wasm.service.ts
-       3      1     22      0       5 constructor ./src/angular/projects/jessica/src/lib/web/wasm/jessica-wasm.service.ts
+       3      1     20      0       5 constructor ./src/angular/projects/jessica/src/lib/web/wasm/jessica-wasm.service.ts
        4      1     19      0       4 (anonymous) ./src/angular/projects/jessica/src/lib/web/wasm/jessica-wasm.service.spec.ts
        3      1     11      0       3 (anonymous) ./src/angular/projects/jessica/src/lib/web/wasm/jessica-wasm.service.spec.ts
        5      1     25      0      12 (anonymous) ./src/angular/projects/jessica/src/lib/web/wasm/jessica-wasm.service.spec.ts
@@ -186,7 +186,7 @@
        4      1     20      1       4 jessica::JESSICA_DLL_PUBLICFoundationStrip::serialize ./include/jessica/data/geotechnical/foundation_strip.h
        8      1     27      1      10 jessica::DECORATOR_START_HEADER ./include/jessica/data/geotechnical/decorator_foundation_strip.h
        8      1     26      1      10 jessica::DECORATOR_END_HEADER ./include/jessica/data/geotechnical/decorator_foundation_strip.h
-87 file analyzed.
+90 file analyzed.
 ==============================================================
 NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
 --------------------------------------------------------------
@@ -232,7 +232,7 @@ NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
      65       1.8     1.0        8.2         5     ./src/angular/projects/jessica/src/lib/data/geotechnical/foundation-strip/foundation-strip-form.component.ts
      22       5.2     1.0       26.0         4     ./src/angular/projects/jessica/src/lib/data/geotechnical/foundation-strip/foundation-strip-form.component.spec.ts
       7       0.0     0.0        0.0         0     ./src/angular/projects/jessica/src/lib/data/geotechnical/foundation-strip/foundation-strip.ts
-     16       3.0     1.0       15.0         2     ./src/angular/projects/jessica/src/lib/web/wasm/jessica-wasm.service.ts
+     16       3.0     1.0       14.0         2     ./src/angular/projects/jessica/src/lib/web/wasm/jessica-wasm.service.ts
      12       4.0     1.0       18.3         3     ./src/angular/projects/jessica/src/lib/web/wasm/jessica-wasm.service.spec.ts
      12       4.0     1.0       18.3         3     ./src/angular/projects/jessica/src/lib/jessica.service.spec.ts
       5       0.0     0.0        0.0         0     ./src/angular/projects/jessica/src/lib/jessica.service.ts
@@ -262,8 +262,11 @@ NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
      71       8.2     1.5       60.5         6     ./include/jessica/helper/adapter/json_parser/json_nlohmann.h
      69      11.2     2.0       77.0         4     ./include/jessica/helper/adapter/json_parser/json_simdjson.h
      18       3.0     1.0       21.0         1     ./include/jessica/helper/adapter/spdlog.h
-      1       0.0     0.0        0.0         0     ./include/jessica/helper/cereal/json.h
-      1       0.0     0.0        0.0         0     ./include/jessica/helper/cereal/memory.h
+      1       0.0     0.0        0.0         0     ./include/jessica/helper/clean/cereal/json.h
+      1       0.0     0.0        0.0         0     ./include/jessica/helper/clean/cereal/memory.h
+      1       0.0     0.0        0.0         0     ./include/jessica/helper/clean/cereal/cereal.h
+      1       0.0     0.0        0.0         0     ./include/jessica/helper/clean/spdlog/spdlog.h
+      1       0.0     0.0        0.0         0     ./include/jessica/helper/clean/spdlog/stdout_sinks.h
      56       0.0     0.0        0.0         0     ./include/jessica/helper/template.h
       0       0.0     0.0        0.0         0     ./include/jessica/helper/poo.h
      22      13.0     3.0       62.0         1     ./include/jessica/helper/string.h
@@ -273,8 +276,8 @@ NLOC    Avg.NLOC  AvgCCN  Avg.token  function_cnt    file
      39       3.0     1.0       26.5         4     ./include/jessica/calc/geotechnical/meyerhof.h
      37      12.0     1.0       43.5         2     ./include/jessica/calc/geotechnical/decorator_meyerhof.h
      33      10.0     1.0       35.5         2     ./include/jessica/data/load/decorator_vertical_eccentric.h
-     38       3.6     1.0       19.2         5     ./include/jessica/data/load/vertical_eccentric.h
-     30       3.7     1.0       17.7         3     ./include/jessica/data/geotechnical/foundation_strip.h
+     39       3.6     1.0       19.2         5     ./include/jessica/data/load/vertical_eccentric.h
+     31       3.7     1.0       17.7         3     ./include/jessica/data/geotechnical/foundation_strip.h
      29       8.0     1.0       26.5         2     ./include/jessica/data/geotechnical/decorator_foundation_strip.h
       0       0.0     0.0        0.0         0     ./include/jessica/compat.h
 
@@ -283,4 +286,4 @@ No thresholds exceeded (cyclomatic_complexity > 15 or length > 1000 or nloc > 10
 ==========================================================================================
 Total nloc   Avg.NLOC  AvgCCN  Avg.token   Fun Cnt  Warning cnt   Fun Rt   nloc Rt
 ------------------------------------------------------------------------------------------
-      3096       9.6     1.1       66.7      185            0      0.00    0.00
+      3101       9.6     1.1       66.7      185            0      0.00    0.00
