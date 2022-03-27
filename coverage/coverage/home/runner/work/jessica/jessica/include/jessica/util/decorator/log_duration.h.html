@@ -96,7 +96,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;spdlog/spdlog.h&gt;</pre>
+          <pre>#include &lt;jessica/helper/cfi.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -106,7 +106,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>#include &lt;jessica/helper/clean/spdlog/spdlog.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -116,7 +116,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/helper/cfi.h&gt;</pre>
+          <pre>#include &lt;jessica/helper/poo.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -126,7 +126,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/helper/poo.h&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -136,7 +136,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>namespace jessica</pre>
         </td>
       </tr>
       <tr>
@@ -146,7 +146,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>namespace jessica</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -156,7 +156,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>template &lt;typename T&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -166,7 +166,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>template &lt;typename T&gt;</pre>
+          <pre>class JESSICA_DLL_PUBLIC LogDuration</pre>
         </td>
       </tr>
       <tr>
@@ -176,7 +176,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>class JESSICA_DLL_PUBLIC LogDuration</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -186,7 +186,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre> public:</pre>
         </td>
       </tr>
       <tr>
@@ -196,7 +196,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> public:</pre>
+          <pre>  using RootType = typename T::RootType;</pre>
         </td>
       </tr>
       <tr>
@@ -206,7 +206,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  using RootType = typename T::RootType;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -216,7 +216,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>  template &lt;typename... Args&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -226,7 +226,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  template &lt;typename... Args&gt;</pre>
+          <pre>  LogDuration(std::shared_ptr&lt;RootType&gt;& impl,</pre>
         </td>
       </tr>
       <tr>
@@ -236,7 +236,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  LogDuration(std::shared_ptr&lt;RootType&gt;& impl,</pre>
+          <pre>              std::shared_ptr&lt;spdlog::logger&gt; log, Args&amp;&amp;... args)</pre>
         </td>
       </tr>
       <tr>
@@ -246,23 +246,13 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>              std::shared_ptr&lt;spdlog::logger&gt; log, Args&amp;&amp;... args)</pre>
+          <pre>      : t(impl, std::forward&lt;Args&gt;(args)...), log_(std::move(log))</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L23' href='#L23' id="L23">
           <pre>23</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>      : t(impl, std::forward&lt;Args&gt;(args)...), log_(std::move(log))</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L24' href='#L24' id="L24">
-          <pre>24</pre></a>
         </td>
         <td class='covered-line'>
           <pre>15</pre>
@@ -273,8 +263,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L25' href='#L25' id="L25">
-          <pre>25</pre></a>
+          <a name='L24' href='#L24' id="L24">
+          <pre>24</pre></a>
         </td>
         <td class='covered-line'>
           <pre>15</pre>
@@ -300,8 +290,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L24' href='#L24' id="L24">
-                    <pre>24</pre></a>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -312,8 +302,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L25' href='#L25' id="L25">
-                    <pre>25</pre></a>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -344,8 +334,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L24' href='#L24' id="L24">
-                    <pre>24</pre></a>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>3</pre>
@@ -356,8 +346,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L25' href='#L25' id="L25">
-                    <pre>25</pre></a>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>3</pre>
@@ -388,8 +378,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L24' href='#L24' id="L24">
-                    <pre>24</pre></a>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -400,8 +390,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L25' href='#L25' id="L25">
-                    <pre>25</pre></a>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -432,8 +422,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L24' href='#L24' id="L24">
-                    <pre>24</pre></a>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -444,8 +434,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L25' href='#L25' id="L25">
-                    <pre>25</pre></a>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -476,8 +466,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L24' href='#L24' id="L24">
-                    <pre>24</pre></a>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>2</pre>
@@ -488,8 +478,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L25' href='#L25' id="L25">
-                    <pre>25</pre></a>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>2</pre>
@@ -520,8 +510,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L24' href='#L24' id="L24">
-                    <pre>24</pre></a>
+                    <a name='L23' href='#L23' id="L23">
+                    <pre>23</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -532,8 +522,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L25' href='#L25' id="L25">
-                    <pre>25</pre></a>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -549,12 +539,22 @@
       </tr>
       <tr>
         <td class='line-number'>
+          <a name='L25' href='#L25' id="L25">
+          <pre>25</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  RULE_OF_FIVE_COPY(LogDuration)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
           <a name='L26' href='#L26' id="L26">
           <pre>26</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  RULE_OF_FIVE_COPY(LogDuration)</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -564,7 +564,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>  template &lt;uint64_t Action, uint64_t... U, typename... Args&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -574,7 +574,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  template &lt;uint64_t Action, uint64_t... U, typename... Args&gt;</pre>
+          <pre>  [[nodiscard]] auto f(const RootType& classe, Args&amp;&amp;... args) const</pre>
         </td>
       </tr>
       <tr>
@@ -582,9 +582,11 @@
           <a name='L29' href='#L29' id="L29">
           <pre>29</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>82</pre>
+        </td>
         <td class='code'>
-          <pre>  [[nodiscard]] auto f(const RootType& classe, Args&amp;&amp;... args) const</pre>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -596,7 +598,7 @@
           <pre>82</pre>
         </td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>    const auto t_start = std::chrono::high_resolution_clock::now();</pre>
         </td>
       </tr>
       <tr>
@@ -604,11 +606,9 @@
           <a name='L31' href='#L31' id="L31">
           <pre>31</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>82</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    const auto t_start = std::chrono::high_resolution_clock::now();</pre>
+          <pre>    // cppcheck-suppress redundantInitialization</pre>
         </td>
       </tr>
       <tr>
@@ -616,9 +616,11 @@
           <a name='L32' href='#L32' id="L32">
           <pre>32</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>82</pre>
+        </td>
         <td class='code'>
-          <pre>    // cppcheck-suppress redundantInitialization</pre>
+          <pre>    auto retval =</pre>
         </td>
       </tr>
       <tr>
@@ -630,7 +632,7 @@
           <pre>82</pre>
         </td>
         <td class='code'>
-          <pre>    auto retval =</pre>
+          <pre>        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;Args&gt;(args)...);</pre>
         </td>
       </tr>
       <tr>
@@ -642,7 +644,7 @@
           <pre>82</pre>
         </td>
         <td class='code'>
-          <pre>        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;Args&gt;(args)...);</pre>
+          <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
         </td>
       </tr>
       <tr>
@@ -654,7 +656,7 @@
           <pre>82</pre>
         </td>
         <td class='code'>
-          <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
+          <pre>    const double elapsed_time_ms =</pre>
         </td>
       </tr>
       <tr>
@@ -666,7 +668,7 @@
           <pre>82</pre>
         </td>
         <td class='code'>
-          <pre>    const double elapsed_time_ms =</pre>
+          <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
         </td>
       </tr>
       <tr>
@@ -678,7 +680,7 @@
           <pre>82</pre>
         </td>
         <td class='code'>
-          <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
+          <pre>    log_-&gt;info("duration " + cfi_to_string(elapsed_time_ms) + " ms");</pre>
         </td>
       </tr>
       <tr>
@@ -690,25 +692,13 @@
           <pre>82</pre>
         </td>
         <td class='code'>
-          <pre>    log_-&gt;info("duration " + cfi_to_string(elapsed_time_ms) + " ms");</pre>
+          <pre>    return retval;</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L39' href='#L39' id="L39">
           <pre>39</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>82</pre>
-        </td>
-        <td class='code'>
-          <pre>    return retval;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L40' href='#L40' id="L40">
-          <pre>40</pre></a>
         </td>
         <td class='covered-line'>
           <pre>82</pre>
@@ -734,8 +724,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -746,8 +736,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -758,12 +748,24 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
+                    <a name='L31' href='#L31' id="L31">
+                    <pre>31</pre></a>
                   </td>
                   <td class='uncovered-line'></td>
                   <td class='code'>
                     <pre>    // cppcheck-suppress redundantInitialization</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L32' href='#L32' id="L32">
+                    <pre>32</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -775,7 +777,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    auto retval =</pre>
+                    <pre>        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -787,7 +789,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;Args&gt;(args)...);</pre>
+                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -799,7 +801,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
+                    <pre>    const double elapsed_time_ms =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -811,7 +813,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const double elapsed_time_ms =</pre>
+                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -823,7 +825,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
+                    <pre>    log_-&gt;info("duration " + cfi_to_string(elapsed_time_ms) + " ms");</pre>
                   </td>
                 </tr>
                 <tr>
@@ -835,25 +837,13 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    log_-&gt;info("duration " + cfi_to_string(elapsed_time_ms) + " ms");</pre>
+                    <pre>    return retval;</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L39' href='#L39' id="L39">
                     <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -884,8 +874,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>2</pre>
@@ -896,8 +886,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>2</pre>
@@ -908,12 +898,24 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
+                    <a name='L31' href='#L31' id="L31">
+                    <pre>31</pre></a>
                   </td>
                   <td class='uncovered-line'></td>
                   <td class='code'>
                     <pre>    // cppcheck-suppress redundantInitialization</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L32' href='#L32' id="L32">
+                    <pre>32</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -925,7 +927,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>    auto retval =</pre>
+                    <pre>        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -937,7 +939,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;Args&gt;(args)...);</pre>
+                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -949,7 +951,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
+                    <pre>    const double elapsed_time_ms =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -961,7 +963,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const double elapsed_time_ms =</pre>
+                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -973,7 +975,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
+                    <pre>    log_-&gt;info("duration " + cfi_to_string(elapsed_time_ms) + " ms");</pre>
                   </td>
                 </tr>
                 <tr>
@@ -985,25 +987,13 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>    log_-&gt;info("duration " + cfi_to_string(elapsed_time_ms) + " ms");</pre>
+                    <pre>    return retval;</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L39' href='#L39' id="L39">
                     <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>2</pre>
@@ -1034,8 +1024,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>5</pre>
@@ -1046,8 +1036,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>5</pre>
@@ -1058,12 +1048,24 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
+                    <a name='L31' href='#L31' id="L31">
+                    <pre>31</pre></a>
                   </td>
                   <td class='uncovered-line'></td>
                   <td class='code'>
                     <pre>    // cppcheck-suppress redundantInitialization</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L32' href='#L32' id="L32">
+                    <pre>32</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>5</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1075,7 +1077,7 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>    auto retval =</pre>
+                    <pre>        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1087,7 +1089,7 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;Args&gt;(args)...);</pre>
+                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1099,7 +1101,7 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
+                    <pre>    const double elapsed_time_ms =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1111,7 +1113,7 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const double elapsed_time_ms =</pre>
+                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1123,7 +1125,7 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
+                    <pre>    log_-&gt;info("duration " + cfi_to_string(elapsed_time_ms) + " ms");</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1135,25 +1137,13 @@
                     <pre>5</pre>
                   </td>
                   <td class='code'>
-                    <pre>    log_-&gt;info("duration " + cfi_to_string(elapsed_time_ms) + " ms");</pre>
+                    <pre>    return retval;</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L39' href='#L39' id="L39">
                     <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>5</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>5</pre>
@@ -1184,8 +1174,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>6</pre>
@@ -1196,8 +1186,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>6</pre>
@@ -1208,12 +1198,24 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
+                    <a name='L31' href='#L31' id="L31">
+                    <pre>31</pre></a>
                   </td>
                   <td class='uncovered-line'></td>
                   <td class='code'>
                     <pre>    // cppcheck-suppress redundantInitialization</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L32' href='#L32' id="L32">
+                    <pre>32</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>6</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1225,7 +1227,7 @@
                     <pre>6</pre>
                   </td>
                   <td class='code'>
-                    <pre>    auto retval =</pre>
+                    <pre>        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1237,7 +1239,7 @@
                     <pre>6</pre>
                   </td>
                   <td class='code'>
-                    <pre>        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;Args&gt;(args)...);</pre>
+                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1249,7 +1251,7 @@
                     <pre>6</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
+                    <pre>    const double elapsed_time_ms =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1261,7 +1263,7 @@
                     <pre>6</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const double elapsed_time_ms =</pre>
+                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1273,7 +1275,7 @@
                     <pre>6</pre>
                   </td>
                   <td class='code'>
-                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
+                    <pre>    log_-&gt;info("duration " + cfi_to_string(elapsed_time_ms) + " ms");</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1285,25 +1287,13 @@
                     <pre>6</pre>
                   </td>
                   <td class='code'>
-                    <pre>    log_-&gt;info("duration " + cfi_to_string(elapsed_time_ms) + " ms");</pre>
+                    <pre>    return retval;</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L39' href='#L39' id="L39">
                     <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>6</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>6</pre>
@@ -1334,8 +1324,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>10</pre>
@@ -1346,8 +1336,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>10</pre>
@@ -1358,12 +1348,24 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
+                    <a name='L31' href='#L31' id="L31">
+                    <pre>31</pre></a>
                   </td>
                   <td class='uncovered-line'></td>
                   <td class='code'>
                     <pre>    // cppcheck-suppress redundantInitialization</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L32' href='#L32' id="L32">
+                    <pre>32</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>10</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1375,7 +1377,7 @@
                     <pre>10</pre>
                   </td>
                   <td class='code'>
-                    <pre>    auto retval =</pre>
+                    <pre>        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1387,7 +1389,7 @@
                     <pre>10</pre>
                   </td>
                   <td class='code'>
-                    <pre>        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;Args&gt;(args)...);</pre>
+                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1399,7 +1401,7 @@
                     <pre>10</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
+                    <pre>    const double elapsed_time_ms =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1411,7 +1413,7 @@
                     <pre>10</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const double elapsed_time_ms =</pre>
+                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1423,7 +1425,7 @@
                     <pre>10</pre>
                   </td>
                   <td class='code'>
-                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
+                    <pre>    log_-&gt;info("duration " + cfi_to_string(elapsed_time_ms) + " ms");</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1435,25 +1437,13 @@
                     <pre>10</pre>
                   </td>
                   <td class='code'>
-                    <pre>    log_-&gt;info("duration " + cfi_to_string(elapsed_time_ms) + " ms");</pre>
+                    <pre>    return retval;</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L39' href='#L39' id="L39">
                     <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>10</pre>
@@ -1484,8 +1474,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>17</pre>
@@ -1496,8 +1486,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>17</pre>
@@ -1508,12 +1498,24 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
+                    <a name='L31' href='#L31' id="L31">
+                    <pre>31</pre></a>
                   </td>
                   <td class='uncovered-line'></td>
                   <td class='code'>
                     <pre>    // cppcheck-suppress redundantInitialization</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L32' href='#L32' id="L32">
+                    <pre>32</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>17</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1525,7 +1527,7 @@
                     <pre>17</pre>
                   </td>
                   <td class='code'>
-                    <pre>    auto retval =</pre>
+                    <pre>        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1537,7 +1539,7 @@
                     <pre>17</pre>
                   </td>
                   <td class='code'>
-                    <pre>        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;Args&gt;(args)...);</pre>
+                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1549,7 +1551,7 @@
                     <pre>17</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
+                    <pre>    const double elapsed_time_ms =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1561,7 +1563,7 @@
                     <pre>17</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const double elapsed_time_ms =</pre>
+                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1573,7 +1575,7 @@
                     <pre>17</pre>
                   </td>
                   <td class='code'>
-                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
+                    <pre>    log_-&gt;info("duration " + cfi_to_string(elapsed_time_ms) + " ms");</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1585,25 +1587,13 @@
                     <pre>17</pre>
                   </td>
                   <td class='code'>
-                    <pre>    log_-&gt;info("duration " + cfi_to_string(elapsed_time_ms) + " ms");</pre>
+                    <pre>    return retval;</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L39' href='#L39' id="L39">
                     <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>17</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>17</pre>
@@ -1634,8 +1624,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -1646,8 +1636,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -1658,12 +1648,24 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
+                    <a name='L31' href='#L31' id="L31">
+                    <pre>31</pre></a>
                   </td>
                   <td class='uncovered-line'></td>
                   <td class='code'>
                     <pre>    // cppcheck-suppress redundantInitialization</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L32' href='#L32' id="L32">
+                    <pre>32</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1675,7 +1677,7 @@
                     <pre>4</pre>
                   </td>
                   <td class='code'>
-                    <pre>    auto retval =</pre>
+                    <pre>        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1687,7 +1689,7 @@
                     <pre>4</pre>
                   </td>
                   <td class='code'>
-                    <pre>        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;Args&gt;(args)...);</pre>
+                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1699,7 +1701,7 @@
                     <pre>4</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
+                    <pre>    const double elapsed_time_ms =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1711,7 +1713,7 @@
                     <pre>4</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const double elapsed_time_ms =</pre>
+                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1723,7 +1725,7 @@
                     <pre>4</pre>
                   </td>
                   <td class='code'>
-                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
+                    <pre>    log_-&gt;info("duration " + cfi_to_string(elapsed_time_ms) + " ms");</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1735,25 +1737,13 @@
                     <pre>4</pre>
                   </td>
                   <td class='code'>
-                    <pre>    log_-&gt;info("duration " + cfi_to_string(elapsed_time_ms) + " ms");</pre>
+                    <pre>    return retval;</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L39' href='#L39' id="L39">
                     <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -1784,8 +1774,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>11</pre>
@@ -1796,8 +1786,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>11</pre>
@@ -1808,12 +1798,24 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
+                    <a name='L31' href='#L31' id="L31">
+                    <pre>31</pre></a>
                   </td>
                   <td class='uncovered-line'></td>
                   <td class='code'>
                     <pre>    // cppcheck-suppress redundantInitialization</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L32' href='#L32' id="L32">
+                    <pre>32</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>11</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1825,7 +1827,7 @@
                     <pre>11</pre>
                   </td>
                   <td class='code'>
-                    <pre>    auto retval =</pre>
+                    <pre>        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1837,7 +1839,7 @@
                     <pre>11</pre>
                   </td>
                   <td class='code'>
-                    <pre>        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;Args&gt;(args)...);</pre>
+                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1849,7 +1851,7 @@
                     <pre>11</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
+                    <pre>    const double elapsed_time_ms =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1861,7 +1863,7 @@
                     <pre>11</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const double elapsed_time_ms =</pre>
+                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1873,7 +1875,7 @@
                     <pre>11</pre>
                   </td>
                   <td class='code'>
-                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
+                    <pre>    log_-&gt;info("duration " + cfi_to_string(elapsed_time_ms) + " ms");</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1885,25 +1887,13 @@
                     <pre>11</pre>
                   </td>
                   <td class='code'>
-                    <pre>    log_-&gt;info("duration " + cfi_to_string(elapsed_time_ms) + " ms");</pre>
+                    <pre>    return retval;</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L39' href='#L39' id="L39">
                     <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>11</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>11</pre>
@@ -1934,8 +1924,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>11</pre>
@@ -1946,8 +1936,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>11</pre>
@@ -1958,12 +1948,24 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
+                    <a name='L31' href='#L31' id="L31">
+                    <pre>31</pre></a>
                   </td>
                   <td class='uncovered-line'></td>
                   <td class='code'>
                     <pre>    // cppcheck-suppress redundantInitialization</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L32' href='#L32' id="L32">
+                    <pre>32</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>11</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1975,7 +1977,7 @@
                     <pre>11</pre>
                   </td>
                   <td class='code'>
-                    <pre>    auto retval =</pre>
+                    <pre>        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1987,7 +1989,7 @@
                     <pre>11</pre>
                   </td>
                   <td class='code'>
-                    <pre>        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;Args&gt;(args)...);</pre>
+                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -1999,7 +2001,7 @@
                     <pre>11</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
+                    <pre>    const double elapsed_time_ms =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2011,7 +2013,7 @@
                     <pre>11</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const double elapsed_time_ms =</pre>
+                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2023,7 +2025,7 @@
                     <pre>11</pre>
                   </td>
                   <td class='code'>
-                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
+                    <pre>    log_-&gt;info("duration " + cfi_to_string(elapsed_time_ms) + " ms");</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2035,25 +2037,13 @@
                     <pre>11</pre>
                   </td>
                   <td class='code'>
-                    <pre>    log_-&gt;info("duration " + cfi_to_string(elapsed_time_ms) + " ms");</pre>
+                    <pre>    return retval;</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L39' href='#L39' id="L39">
                     <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>11</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>11</pre>
@@ -2084,8 +2074,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>9</pre>
@@ -2096,8 +2086,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>9</pre>
@@ -2108,12 +2098,24 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
+                    <a name='L31' href='#L31' id="L31">
+                    <pre>31</pre></a>
                   </td>
                   <td class='uncovered-line'></td>
                   <td class='code'>
                     <pre>    // cppcheck-suppress redundantInitialization</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L32' href='#L32' id="L32">
+                    <pre>32</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>9</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2125,7 +2127,7 @@
                     <pre>9</pre>
                   </td>
                   <td class='code'>
-                    <pre>    auto retval =</pre>
+                    <pre>        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2137,7 +2139,7 @@
                     <pre>9</pre>
                   </td>
                   <td class='code'>
-                    <pre>        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;Args&gt;(args)...);</pre>
+                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2149,7 +2151,7 @@
                     <pre>9</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
+                    <pre>    const double elapsed_time_ms =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2161,7 +2163,7 @@
                     <pre>9</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const double elapsed_time_ms =</pre>
+                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2173,7 +2175,7 @@
                     <pre>9</pre>
                   </td>
                   <td class='code'>
-                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
+                    <pre>    log_-&gt;info("duration " + cfi_to_string(elapsed_time_ms) + " ms");</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2185,25 +2187,13 @@
                     <pre>9</pre>
                   </td>
                   <td class='code'>
-                    <pre>    log_-&gt;info("duration " + cfi_to_string(elapsed_time_ms) + " ms");</pre>
+                    <pre>    return retval;</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L39' href='#L39' id="L39">
                     <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>9</pre>
@@ -2234,8 +2224,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>2</pre>
@@ -2246,8 +2236,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>2</pre>
@@ -2258,12 +2248,24 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
+                    <a name='L31' href='#L31' id="L31">
+                    <pre>31</pre></a>
                   </td>
                   <td class='uncovered-line'></td>
                   <td class='code'>
                     <pre>    // cppcheck-suppress redundantInitialization</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L32' href='#L32' id="L32">
+                    <pre>32</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2275,7 +2277,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>    auto retval =</pre>
+                    <pre>        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2287,7 +2289,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;Args&gt;(args)...);</pre>
+                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2299,7 +2301,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
+                    <pre>    const double elapsed_time_ms =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2311,7 +2313,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const double elapsed_time_ms =</pre>
+                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2323,7 +2325,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
+                    <pre>    log_-&gt;info("duration " + cfi_to_string(elapsed_time_ms) + " ms");</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2335,25 +2337,13 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>    log_-&gt;info("duration " + cfi_to_string(elapsed_time_ms) + " ms");</pre>
+                    <pre>    return retval;</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L39' href='#L39' id="L39">
                     <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>2</pre>
@@ -2384,8 +2374,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -2396,8 +2386,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -2408,12 +2398,24 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
+                    <a name='L31' href='#L31' id="L31">
+                    <pre>31</pre></a>
                   </td>
                   <td class='uncovered-line'></td>
                   <td class='code'>
                     <pre>    // cppcheck-suppress redundantInitialization</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L32' href='#L32' id="L32">
+                    <pre>32</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2425,7 +2427,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    auto retval =</pre>
+                    <pre>        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2437,7 +2439,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;Args&gt;(args)...);</pre>
+                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2449,7 +2451,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
+                    <pre>    const double elapsed_time_ms =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2461,7 +2463,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const double elapsed_time_ms =</pre>
+                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2473,7 +2475,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
+                    <pre>    log_-&gt;info("duration " + cfi_to_string(elapsed_time_ms) + " ms");</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2485,25 +2487,13 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    log_-&gt;info("duration " + cfi_to_string(elapsed_time_ms) + " ms");</pre>
+                    <pre>    return retval;</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L39' href='#L39' id="L39">
                     <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -2534,8 +2524,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>2</pre>
@@ -2546,8 +2536,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>2</pre>
@@ -2558,12 +2548,24 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
+                    <a name='L31' href='#L31' id="L31">
+                    <pre>31</pre></a>
                   </td>
                   <td class='uncovered-line'></td>
                   <td class='code'>
                     <pre>    // cppcheck-suppress redundantInitialization</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L32' href='#L32' id="L32">
+                    <pre>32</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>2</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2575,7 +2577,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>    auto retval =</pre>
+                    <pre>        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2587,7 +2589,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;Args&gt;(args)...);</pre>
+                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2599,7 +2601,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
+                    <pre>    const double elapsed_time_ms =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2611,7 +2613,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const double elapsed_time_ms =</pre>
+                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2623,7 +2625,7 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
+                    <pre>    log_-&gt;info("duration " + cfi_to_string(elapsed_time_ms) + " ms");</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2635,25 +2637,13 @@
                     <pre>2</pre>
                   </td>
                   <td class='code'>
-                    <pre>    log_-&gt;info("duration " + cfi_to_string(elapsed_time_ms) + " ms");</pre>
+                    <pre>    return retval;</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L39' href='#L39' id="L39">
                     <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>2</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>2</pre>
@@ -2684,8 +2674,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L30' href='#L30' id="L30">
-                    <pre>30</pre></a>
+                    <a name='L29' href='#L29' id="L29">
+                    <pre>29</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -2696,8 +2686,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -2708,12 +2698,24 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L32' href='#L32' id="L32">
-                    <pre>32</pre></a>
+                    <a name='L31' href='#L31' id="L31">
+                    <pre>31</pre></a>
                   </td>
                   <td class='uncovered-line'></td>
                   <td class='code'>
                     <pre>    // cppcheck-suppress redundantInitialization</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L32' href='#L32' id="L32">
+                    <pre>32</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>    auto retval =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2725,7 +2727,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    auto retval =</pre>
+                    <pre>        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;Args&gt;(args)...);</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2737,7 +2739,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>        t.template f&lt;Action, U...&gt;(classe, std::forward&lt;Args&gt;(args)...);</pre>
+                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2749,7 +2751,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const auto t_end = std::chrono::high_resolution_clock::now();</pre>
+                    <pre>    const double elapsed_time_ms =</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2761,7 +2763,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    const double elapsed_time_ms =</pre>
+                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2773,7 +2775,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>        std::chrono::duration&lt;double, std::milli&gt;(t_end - t_start).count();</pre>
+                    <pre>    log_-&gt;info("duration " + cfi_to_string(elapsed_time_ms) + " ms");</pre>
                   </td>
                 </tr>
                 <tr>
@@ -2785,25 +2787,13 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    log_-&gt;info("duration " + cfi_to_string(elapsed_time_ms) + " ms");</pre>
+                    <pre>    return retval;</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L39' href='#L39' id="L39">
                     <pre>39</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    return retval;</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -2819,12 +2809,22 @@
       </tr>
       <tr>
         <td class='line-number'>
+          <a name='L40' href='#L40' id="L40">
+          <pre>40</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
           <a name='L41' href='#L41' id="L41">
           <pre>41</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre> private:</pre>
         </td>
       </tr>
       <tr>
@@ -2834,7 +2834,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> private:</pre>
+          <pre>  T t;</pre>
         </td>
       </tr>
       <tr>
@@ -2844,7 +2844,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  T t;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -2854,7 +2854,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>  std::shared_ptr&lt;spdlog::logger&gt; log_;</pre>
         </td>
       </tr>
       <tr>
@@ -2864,23 +2864,13 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  std::shared_ptr&lt;spdlog::logger&gt; log_;</pre>
+          <pre>};</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L46' href='#L46' id="L46">
           <pre>46</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>};</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L47' href='#L47' id="L47">
-          <pre>47</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>

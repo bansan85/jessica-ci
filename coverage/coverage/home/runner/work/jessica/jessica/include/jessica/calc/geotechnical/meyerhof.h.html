@@ -86,7 +86,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;cereal/types/memory.hpp&gt;</pre>
+          <pre>#include &lt;jessica/compat.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -96,7 +96,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>#include &lt;jessica/data/geotechnical/foundation_strip.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -106,7 +106,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/compat.h&gt;</pre>
+          <pre>#include &lt;jessica/data/load/vertical_eccentric.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -116,7 +116,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/data/geotechnical/foundation_strip.h&gt;</pre>
+          <pre>#include &lt;jessica/helper/accessor.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -126,7 +126,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/data/load/vertical_eccentric.h&gt;</pre>
+          <pre>#include &lt;jessica/helper/clean/cereal/cereal.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -136,7 +136,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/helper/accessor.h&gt;</pre>
+          <pre>#include &lt;jessica/helper/template.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -146,7 +146,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/helper/template.h&gt;</pre>
+          <pre>#include &lt;jessica/util/decorator/macro.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -156,7 +156,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/util/decorator/macro.h&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -166,7 +166,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>namespace jessica</pre>
         </td>
       </tr>
       <tr>
@@ -176,7 +176,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>namespace jessica</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -186,7 +186,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>template &lt;typename T0, typename T1&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -196,7 +196,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>template &lt;typename T0, typename T1&gt;</pre>
+          <pre>class JESSICA_DLL_PUBLIC MeyerhofShallowFoundation final</pre>
         </td>
       </tr>
       <tr>
@@ -206,7 +206,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>class JESSICA_DLL_PUBLIC MeyerhofShallowFoundation final</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -216,23 +216,13 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre> public:</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L20' href='#L20' id="L20">
           <pre>20</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre> public:</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L21' href='#L21' id="L21">
-          <pre>21</pre></a>
         </td>
         <td class='covered-line'>
           <pre>6</pre>
@@ -243,12 +233,22 @@
       </tr>
       <tr>
         <td class='line-number'>
+          <a name='L21' href='#L21' id="L21">
+          <pre>21</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  MeyerhofShallowFoundation(std::shared_ptr&lt;T0&gt; load,</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
           <a name='L22' href='#L22' id="L22">
           <pre>22</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  MeyerhofShallowFoundation(std::shared_ptr&lt;T0&gt; load,</pre>
+          <pre>                            std::shared_ptr&lt;T1&gt; foundation)</pre>
         </td>
       </tr>
       <tr>
@@ -258,23 +258,13 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                            std::shared_ptr&lt;T1&gt; foundation)</pre>
+          <pre>      : load_(std::move(load)), foundation_(std::move(foundation))</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L24' href='#L24' id="L24">
           <pre>24</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>      : load_(std::move(load)), foundation_(std::move(foundation))</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L25' href='#L25' id="L25">
-          <pre>25</pre></a>
         </td>
         <td class='covered-line'>
           <pre>14</pre>
@@ -285,8 +275,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L26' href='#L26' id="L26">
-          <pre>26</pre></a>
+          <a name='L25' href='#L25' id="L25">
+          <pre>25</pre></a>
         </td>
         <td class='covered-line'>
           <pre>14</pre>
@@ -312,8 +302,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L25' href='#L25' id="L25">
-                    <pre>25</pre></a>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>10</pre>
@@ -324,8 +314,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L26' href='#L26' id="L26">
-                    <pre>26</pre></a>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>10</pre>
@@ -356,8 +346,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L25' href='#L25' id="L25">
-                    <pre>25</pre></a>
+                    <a name='L24' href='#L24' id="L24">
+                    <pre>24</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -368,8 +358,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L26' href='#L26' id="L26">
-                    <pre>26</pre></a>
+                    <a name='L25' href='#L25' id="L25">
+                    <pre>25</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -385,8 +375,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L27' href='#L27' id="L27">
-          <pre>27</pre></a>
+          <a name='L26' href='#L26' id="L26">
+          <pre>26</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -395,8 +385,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L28' href='#L28' id="L28">
-          <pre>28</pre></a>
+          <a name='L27' href='#L27' id="L27">
+          <pre>27</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -405,8 +395,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L29' href='#L29' id="L29">
-          <pre>29</pre></a>
+          <a name='L28' href='#L28' id="L28">
+          <pre>28</pre></a>
         </td>
         <td class='covered-line'>
           <pre>46</pre>
@@ -432,8 +422,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L29' href='#L29' id="L29">
-                    <pre>29</pre></a>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>10</pre>
@@ -464,8 +454,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L29' href='#L29' id="L29">
-                    <pre>29</pre></a>
+                    <a name='L28' href='#L28' id="L28">
+                    <pre>28</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>36</pre>
@@ -481,8 +471,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L30' href='#L30' id="L30">
-          <pre>30</pre></a>
+          <a name='L29' href='#L29' id="L29">
+          <pre>29</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -491,8 +481,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L31' href='#L31' id="L31">
-          <pre>31</pre></a>
+          <a name='L30' href='#L30' id="L30">
+          <pre>30</pre></a>
         </td>
         <td class='covered-line'>
           <pre>20</pre>
@@ -518,8 +508,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -550,8 +540,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L31' href='#L31' id="L31">
-                    <pre>31</pre></a>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>16</pre>
@@ -567,12 +557,22 @@
       </tr>
       <tr>
         <td class='line-number'>
+          <a name='L31' href='#L31' id="L31">
+          <pre>31</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
           <a name='L32' href='#L32' id="L32">
           <pre>32</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>  POCO_GET_FUNCTION(Foundation, foundation_)</pre>
         </td>
       </tr>
       <tr>
@@ -582,7 +582,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  POCO_GET_FUNCTION(Foundation, foundation_)</pre>
+          <pre>  // cppcheck-suppress redundantAssignment</pre>
         </td>
       </tr>
       <tr>
@@ -592,7 +592,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  // cppcheck-suppress redundantAssignment</pre>
+          <pre>  POCO_SET_FUNCTION(MeyerhofShallowFoundation, Foundation, foundation_)</pre>
         </td>
       </tr>
       <tr>
@@ -602,7 +602,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  POCO_SET_FUNCTION(MeyerhofShallowFoundation, Foundation, foundation_)</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -612,7 +612,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>  POCO_GET_FUNCTION(Load, load_)</pre>
         </td>
       </tr>
       <tr>
@@ -622,7 +622,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  POCO_GET_FUNCTION(Load, load_)</pre>
+          <pre>  // cppcheck-suppress redundantAssignment</pre>
         </td>
       </tr>
       <tr>
@@ -632,7 +632,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  // cppcheck-suppress redundantAssignment</pre>
+          <pre>  POCO_SET_FUNCTION(MeyerhofShallowFoundation, Load, load_)</pre>
         </td>
       </tr>
       <tr>
@@ -642,7 +642,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  POCO_SET_FUNCTION(MeyerhofShallowFoundation, Load, load_)</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -652,7 +652,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>  template &lt;class Archive&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -662,7 +662,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  template &lt;class Archive&gt;</pre>
+          <pre>  void serialize(Archive& ar)</pre>
         </td>
       </tr>
       <tr>
@@ -670,9 +670,11 @@
           <a name='L42' href='#L42' id="L42">
           <pre>42</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>9</pre>
+        </td>
         <td class='code'>
-          <pre>  void serialize(Archive& ar)</pre>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -684,7 +686,7 @@
           <pre>9</pre>
         </td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>    ar(cereal::make_nvp("load", load_),</pre>
         </td>
       </tr>
       <tr>
@@ -696,25 +698,13 @@
           <pre>9</pre>
         </td>
         <td class='code'>
-          <pre>    ar(cereal::make_nvp("load", load_),</pre>
+          <pre>       cereal::make_nvp("foundation", foundation_));</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L45' href='#L45' id="L45">
           <pre>45</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>9</pre>
-        </td>
-        <td class='code'>
-          <pre>       cereal::make_nvp("foundation", foundation_));</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L46' href='#L46' id="L46">
-          <pre>46</pre></a>
         </td>
         <td class='covered-line'>
           <pre>9</pre>
@@ -740,6 +730,18 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
+                    <a name='L42' href='#L42' id="L42">
+                    <pre>42</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
                     <a name='L43' href='#L43' id="L43">
                     <pre>43</pre></a>
                   </td>
@@ -747,7 +749,7 @@
                     <pre>4</pre>
                   </td>
                   <td class='code'>
-                    <pre>  {</pre>
+                    <pre>    ar(cereal::make_nvp("load", load_),</pre>
                   </td>
                 </tr>
                 <tr>
@@ -759,25 +761,13 @@
                     <pre>4</pre>
                   </td>
                   <td class='code'>
-                    <pre>    ar(cereal::make_nvp("load", load_),</pre>
+                    <pre>       cereal::make_nvp("foundation", foundation_));</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L45' href='#L45' id="L45">
                     <pre>45</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>       cereal::make_nvp("foundation", foundation_));</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L46' href='#L46' id="L46">
-                    <pre>46</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -808,6 +798,18 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
+                    <a name='L42' href='#L42' id="L42">
+                    <pre>42</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
                     <a name='L43' href='#L43' id="L43">
                     <pre>43</pre></a>
                   </td>
@@ -815,7 +817,7 @@
                     <pre>4</pre>
                   </td>
                   <td class='code'>
-                    <pre>  {</pre>
+                    <pre>    ar(cereal::make_nvp("load", load_),</pre>
                   </td>
                 </tr>
                 <tr>
@@ -827,25 +829,13 @@
                     <pre>4</pre>
                   </td>
                   <td class='code'>
-                    <pre>    ar(cereal::make_nvp("load", load_),</pre>
+                    <pre>       cereal::make_nvp("foundation", foundation_));</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L45' href='#L45' id="L45">
                     <pre>45</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>       cereal::make_nvp("foundation", foundation_));</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L46' href='#L46' id="L46">
-                    <pre>46</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -876,6 +866,18 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
+                    <a name='L42' href='#L42' id="L42">
+                    <pre>42</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>1</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  {</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
                     <a name='L43' href='#L43' id="L43">
                     <pre>43</pre></a>
                   </td>
@@ -883,7 +885,7 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>  {</pre>
+                    <pre>    ar(cereal::make_nvp("load", load_),</pre>
                   </td>
                 </tr>
                 <tr>
@@ -895,25 +897,13 @@
                     <pre>1</pre>
                   </td>
                   <td class='code'>
-                    <pre>    ar(cereal::make_nvp("load", load_),</pre>
+                    <pre>       cereal::make_nvp("foundation", foundation_));</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L45' href='#L45' id="L45">
                     <pre>45</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>1</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>       cereal::make_nvp("foundation", foundation_));</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L46' href='#L46' id="L46">
-                    <pre>46</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>1</pre>
@@ -929,12 +919,22 @@
       </tr>
       <tr>
         <td class='line-number'>
+          <a name='L46' href='#L46' id="L46">
+          <pre>46</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
           <a name='L47' href='#L47' id="L47">
           <pre>47</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre> private:</pre>
         </td>
       </tr>
       <tr>
@@ -944,7 +944,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> private:</pre>
+          <pre>  std::shared_ptr&lt;T0&gt; load_;</pre>
         </td>
       </tr>
       <tr>
@@ -954,7 +954,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  std::shared_ptr&lt;T0&gt; load_;</pre>
+          <pre>  std::shared_ptr&lt;T1&gt; foundation_;</pre>
         </td>
       </tr>
       <tr>
@@ -964,23 +964,13 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  std::shared_ptr&lt;T1&gt; foundation_;</pre>
+          <pre>};</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L51' href='#L51' id="L51">
           <pre>51</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>};</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L52' href='#L52' id="L52">
-          <pre>52</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>

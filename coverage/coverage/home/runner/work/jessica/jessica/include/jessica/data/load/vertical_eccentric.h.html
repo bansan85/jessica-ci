@@ -116,7 +116,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/helper/template.h&gt;</pre>
+          <pre>#include &lt;jessica/helper/clean/cereal/cereal.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -126,7 +126,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/util/decorator/macro.h&gt;</pre>
+          <pre>#include &lt;jessica/helper/template.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -136,7 +136,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>#include &lt;jessica/util/decorator/macro.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -146,7 +146,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>namespace jessica</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -156,7 +156,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>namespace jessica</pre>
         </td>
       </tr>
       <tr>
@@ -166,7 +166,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>class JESSICA_DLL_PUBLIC VerticalEccentric final</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -176,7 +176,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>class JESSICA_DLL_PUBLIC VerticalEccentric final</pre>
         </td>
       </tr>
       <tr>
@@ -186,13 +186,23 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> public:</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L17' href='#L17' id="L17">
           <pre>17</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre> public:</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L18' href='#L18' id="L18">
+          <pre>18</pre></a>
         </td>
         <td class='covered-line'>
           <pre>16</pre>
@@ -203,8 +213,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L18' href='#L18' id="L18">
-          <pre>18</pre></a>
+          <a name='L19' href='#L19' id="L19">
+          <pre>19</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -213,8 +223,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L19' href='#L19' id="L19">
-          <pre>19</pre></a>
+          <a name='L20' href='#L20' id="L20">
+          <pre>20</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -223,8 +233,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L20' href='#L20' id="L20">
-          <pre>20</pre></a>
+          <a name='L21' href='#L21' id="L21">
+          <pre>21</pre></a>
         </td>
         <td class='covered-line'>
           <pre>36</pre>
@@ -235,8 +245,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L21' href='#L21' id="L21">
-          <pre>21</pre></a>
+          <a name='L22' href='#L22' id="L22">
+          <pre>22</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -245,24 +255,12 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L22' href='#L22' id="L22">
-          <pre>22</pre></a>
+          <a name='L23' href='#L23' id="L23">
+          <pre>23</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
           <pre>  [[nodiscard]] std::shared_ptr&lt;VerticalEccentric&gt; SetV(const double v) const</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L23' href='#L23' id="L23">
-          <pre>23</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>8</pre>
-        </td>
-        <td class='code'>
-          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -274,7 +272,7 @@
           <pre>8</pre>
         </td>
         <td class='code'>
-          <pre>    auto retval = Clone();</pre>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -286,7 +284,7 @@
           <pre>8</pre>
         </td>
         <td class='code'>
-          <pre>    retval-&gt;v_ = v;</pre>
+          <pre>    auto retval = Clone();</pre>
         </td>
       </tr>
       <tr>
@@ -298,7 +296,7 @@
           <pre>8</pre>
         </td>
         <td class='code'>
-          <pre>    return retval;</pre>
+          <pre>    retval-&gt;v_ = v;</pre>
         </td>
       </tr>
       <tr>
@@ -310,13 +308,25 @@
           <pre>8</pre>
         </td>
         <td class='code'>
-          <pre>  }</pre>
+          <pre>    return retval;</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L28' href='#L28' id="L28">
           <pre>28</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>8</pre>
+        </td>
+        <td class='code'>
+          <pre>  }</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L29' href='#L29' id="L29">
+          <pre>29</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -325,8 +335,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L29' href='#L29' id="L29">
-          <pre>29</pre></a>
+          <a name='L30' href='#L30' id="L30">
+          <pre>30</pre></a>
         </td>
         <td class='covered-line'>
           <pre>62</pre>
@@ -337,8 +347,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L30' href='#L30' id="L30">
-          <pre>30</pre></a>
+          <a name='L31' href='#L31' id="L31">
+          <pre>31</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -347,24 +357,12 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L31' href='#L31' id="L31">
-          <pre>31</pre></a>
+          <a name='L32' href='#L32' id="L32">
+          <pre>32</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
           <pre>  [[nodiscard]] std::shared_ptr&lt;VerticalEccentric&gt; SetE(const double e) const</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L32' href='#L32' id="L32">
-          <pre>32</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>17</pre>
-        </td>
-        <td class='code'>
-          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -376,7 +374,7 @@
           <pre>17</pre>
         </td>
         <td class='code'>
-          <pre>    auto retval = Clone();</pre>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -388,7 +386,7 @@
           <pre>17</pre>
         </td>
         <td class='code'>
-          <pre>    retval-&gt;e_ = e;</pre>
+          <pre>    auto retval = Clone();</pre>
         </td>
       </tr>
       <tr>
@@ -400,7 +398,7 @@
           <pre>17</pre>
         </td>
         <td class='code'>
-          <pre>    return retval;</pre>
+          <pre>    retval-&gt;e_ = e;</pre>
         </td>
       </tr>
       <tr>
@@ -412,7 +410,7 @@
           <pre>17</pre>
         </td>
         <td class='code'>
-          <pre>  }</pre>
+          <pre>    return retval;</pre>
         </td>
       </tr>
       <tr>
@@ -420,9 +418,11 @@
           <a name='L37' href='#L37' id="L37">
           <pre>37</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>17</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre>  }</pre>
         </td>
       </tr>
       <tr>
@@ -432,7 +432,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  template &lt;class Archive&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -442,7 +442,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  void serialize(Archive& ar)</pre>
+          <pre>  template &lt;class Archive&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -450,11 +450,9 @@
           <a name='L40' href='#L40' id="L40">
           <pre>40</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>15</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>  void serialize(Archive& ar)</pre>
         </td>
       </tr>
       <tr>
@@ -466,13 +464,25 @@
           <pre>15</pre>
         </td>
         <td class='code'>
-          <pre>    ar(cereal::make_nvp("v", v_), cereal::make_nvp("e", e_));</pre>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L42' href='#L42' id="L42">
           <pre>42</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>15</pre>
+        </td>
+        <td class='code'>
+          <pre>    ar(cereal::make_nvp("v", v_), cereal::make_nvp("e", e_));</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L43' href='#L43' id="L43">
+          <pre>43</pre></a>
         </td>
         <td class='covered-line'>
           <pre>15</pre>
@@ -498,8 +508,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
+                    <a name='L41' href='#L41' id="L41">
+                    <pre>41</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>8</pre>
@@ -510,8 +520,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L41' href='#L41' id="L41">
-                    <pre>41</pre></a>
+                    <a name='L42' href='#L42' id="L42">
+                    <pre>42</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>8</pre>
@@ -522,8 +532,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L42' href='#L42' id="L42">
-                    <pre>42</pre></a>
+                    <a name='L43' href='#L43' id="L43">
+                    <pre>43</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>8</pre>
@@ -554,8 +564,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L40' href='#L40' id="L40">
-                    <pre>40</pre></a>
+                    <a name='L41' href='#L41' id="L41">
+                    <pre>41</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>7</pre>
@@ -566,8 +576,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L41' href='#L41' id="L41">
-                    <pre>41</pre></a>
+                    <a name='L42' href='#L42' id="L42">
+                    <pre>42</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>7</pre>
@@ -578,8 +588,8 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L42' href='#L42' id="L42">
-                    <pre>42</pre></a>
+                    <a name='L43' href='#L43' id="L43">
+                    <pre>43</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>7</pre>
@@ -595,22 +605,12 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L43' href='#L43' id="L43">
-          <pre>43</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
           <a name='L44' href='#L44' id="L44">
           <pre>44</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> private:</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -620,7 +620,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  double v_ = std::numeric_limits&lt;double&gt;::quiet_NaN();</pre>
+          <pre> private:</pre>
         </td>
       </tr>
       <tr>
@@ -630,7 +630,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  double e_ = std::numeric_limits&lt;double&gt;::quiet_NaN();</pre>
+          <pre>  double v_ = std::numeric_limits&lt;double&gt;::quiet_NaN();</pre>
         </td>
       </tr>
       <tr>
@@ -640,13 +640,23 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>};</pre>
+          <pre>  double e_ = std::numeric_limits&lt;double&gt;::quiet_NaN();</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L48' href='#L48' id="L48">
           <pre>48</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>};</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L49' href='#L49' id="L49">
+          <pre>49</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
