@@ -21,19 +21,19 @@ test 1
 
 [HANDLER_VERBOSE_OUTPUT] 
 
-1: Test command: /opt/hostedtoolcache/node/14.18.2/x64/bin/npm "run" "test" "--verbose"
+1: Test command: /opt/hostedtoolcache/node/14.19.0/x64/bin/npm "run" "test" "--verbose"
 
 1: Test timeout computed to be: 1500
 1: npm info it worked if it ends with ok
 1: npm verb cli [
-1: npm verb cli   '/opt/hostedtoolcache/node/14.18.2/x64/bin/node',
-1: npm verb cli   '/opt/hostedtoolcache/node/14.18.2/x64/bin/npm',
+1: npm verb cli   '/opt/hostedtoolcache/node/14.19.0/x64/bin/node',
+1: npm verb cli   '/opt/hostedtoolcache/node/14.19.0/x64/bin/npm',
 1: npm verb cli   'run',
 1: npm verb cli   'test',
 1: npm verb cli   '--verbose'
 1: npm verb cli ]
-1: npm info using npm@6.14.15
-1: npm info using node@v14.18.2
+1: npm info using npm@6.14.16
+1: npm info using node@v14.19.0
 1: npm verb run-script [ 'pretest', 'test', 'posttest' ]
 1: npm info lifecycle angular@0.0.0~pretest: angular@0.0.0
 1: npm info lifecycle angular@0.0.0~test: angular@0.0.0
@@ -41,100 +41,51 @@ test 1
 1: > angular@0.0.0 test /home/runner/work/jessica/jessica/src/angular
 1: > ng test --no-watch --no-progress --browsers=ChromeHeadless
 1: 
-1: 
-1: Compiling @angular/core : es2015 as esm2015
-1: 
-1: Compiling @angular/core/testing : es2015 as esm2015
-1: 
-1: Compiling @angular/common : es2015 as esm2015
-1: 
-1: Compiling @angular/platform-browser : es2015 as esm2015
-1: 
-1: Compiling @angular/platform-browser-dynamic : es2015 as esm2015
-1: 
-1: Compiling @angular/platform-browser/testing : es2015 as esm2015
-1: 
-1: Compiling @angular/compiler/testing : es2015 as esm2015
-1: 
-1: Compiling @angular/platform-browser-dynamic/testing : es2015 as esm2015
-1: 
-1: Compiling @angular/forms : es2015 as esm2015
-1: 
-1: Compiling @angular/common/http : es2015 as esm2015
-1: 
-1: Compiling @ngx-translate/core : es2015 as esm2015
-1: 31 12 2021 07:34:59.966:INFO [karma-server]: Karma v6.3.6 server started at http://localhost:9876/
-1: 31 12 2021 07:34:59.968:INFO [launcher]: Launching browsers ChromeHeadless with concurrency unlimited
-1: 31 12 2021 07:34:59.971:INFO [launcher]: Starting browser ChromeHeadless
-1: 31 12 2021 07:35:04.918:INFO [Chrome Headless 96.0.4664.110 (Linux x86_64)]: Connected on socket 86Nc9-oc36bxGxCzAAAB with id 15151026
-1: Chrome Headless 96.0.4664.110 (Linux x86_64): Executed 0 of 4 SUCCESS (0 secs / 0 secs)
-1: [1A[2KChrome Headless 96.0.4664.110 (Linux x86_64): Executed 1 of 4 SUCCESS (0 secs / 0.015 secs)
-1: [1A[2KChrome Headless 96.0.4664.110 (Linux x86_64): Executed 2 of 4 SUCCESS (0 secs / 0.019 secs)
-1: [1A[2KChrome Headless 96.0.4664.110 (Linux x86_64): Executed 3 of 4 SUCCESS (0 secs / 0.021 secs)
-1: [1A[2KChrome Headless 96.0.4664.110 (Linux x86_64): Executed 4 of 4 SUCCESS (0 secs / 0.039 secs)
-1: [1A[2KChrome Headless 96.0.4664.110 (Linux x86_64): Executed 4 of 4 SUCCESS (0.06 secs / 0.039 secs)
+1: 27 03 2022 02:40:41.821:INFO [karma-server]: Karma v6.3.17 server started at http://localhost:9876/
+1: 27 03 2022 02:40:41.823:INFO [launcher]: Launching browsers ChromeHeadless with concurrency unlimited
+1: 27 03 2022 02:40:41.826:INFO [launcher]: Starting browser ChromeHeadless
+1: 27 03 2022 02:40:46.136:INFO [Chrome Headless 98.0.4758.102 (Linux x86_64)]: Connected on socket htcujRkH_6vJInw1AAAB with id 4597005
+1: Chrome Headless 98.0.4758.102 (Linux x86_64): Executed 0 of 4 SUCCESS (0 secs / 0 secs)
+1: [1A[2KChrome Headless 98.0.4758.102 (Linux x86_64): Executed 1 of 4 SUCCESS (0 secs / 0.013 secs)
+1: [1A[2KChrome Headless 98.0.4758.102 (Linux x86_64): Executed 2 of 4 SUCCESS (0 secs / 0.018 secs)
+1: [1A[2KChrome Headless 98.0.4758.102 (Linux x86_64): Executed 3 of 4 SUCCESS (0 secs / 0.02 secs)
+1: [1A[2KChrome Headless 98.0.4758.102 (Linux x86_64): Executed 4 of 4 SUCCESS (0 secs / 0.038 secs)
+1: [1A[2KChrome Headless 98.0.4758.102 (Linux x86_64): Executed 4 of 4 SUCCESS (0.059 secs / 0.038 secs)
 1: TOTAL: 4 SUCCESS
-1: 
-1: Compiling @angular/core : es2015 as esm2015
-1: 
-1: Compiling @angular/core/testing : es2015 as esm2015
-1: 
-1: Compiling @angular/common : es2015 as esm2015
-1: 
-1: Compiling @angular/platform-browser : es2015 as esm2015
-1: 
-1: Compiling @angular/platform-browser-dynamic : es2015 as esm2015
-1: 
-1: Compiling @angular/platform-browser/testing : es2015 as esm2015
-1: 
-1: Compiling @angular/compiler/testing : es2015 as esm2015
-1: 
-1: Compiling @angular/platform-browser-dynamic/testing : es2015 as esm2015
-1: 
-1: Compiling @angular/forms : es2015 as esm2015
-1: 
-1: Compiling @ngx-translate/core : es2015 as esm2015
-1: 31 12 2021 07:35:17.167:INFO [karma-server]: Karma v6.3.6 server started at http://localhost:9876/
-1: 31 12 2021 07:35:17.168:INFO [launcher]: Launching browsers ChromeHeadless with concurrency unlimited
-1: 31 12 2021 07:35:17.169:INFO [launcher]: Starting browser ChromeHeadless
-1: 31 12 2021 07:35:23.302:INFO [Chrome Headless 96.0.4664.110 (Linux x86_64)]: Connected on socket doswt0kzdeDfVMz1AAAD with id 97935938
-1: Chrome Headless 96.0.4664.110 (Linux x86_64): Executed 0 of 7 SUCCESS (0 secs / 0 secs)
-1: [1A[2KChrome Headless 96.0.4664.110 (Linux x86_64): Executed 1 of 7 SUCCESS (0 secs / 0.021 secs)
-1: [1A[2KChrome Headless 96.0.4664.110 (Linux x86_64): Executed 2 of 7 SUCCESS (0 secs / 0.059 secs)
-1: [1A[2KChrome Headless 96.0.4664.110 (Linux x86_64): Executed 3 of 7 SUCCESS (0 secs / 0.064 secs)
-1: [1A[2KChrome Headless 96.0.4664.110 (Linux x86_64): Executed 4 of 7 SUCCESS (0 secs / 0.098 secs)
-1: [1A[2KChrome Headless 96.0.4664.110 (Linux x86_64): Executed 5 of 7 SUCCESS (0 secs / 0.11 secs)
-1: [1A[2KChrome Headless 96.0.4664.110 (Linux x86_64): Executed 6 of 7 SUCCESS (0 secs / 0.131 secs)
-1: [1A[2KChrome Headless 96.0.4664.110 (Linux x86_64): Executed 7 of 7 SUCCESS (0 secs / 0.136 secs)
-1: [1A[2KChrome Headless 96.0.4664.110 (Linux x86_64): Executed 7 of 7 SUCCESS (0.236 secs / 0.136 secs)
+1: 27 03 2022 02:41:01.685:INFO [karma-server]: Karma v6.3.17 server started at http://localhost:9876/
+1: 27 03 2022 02:41:01.686:INFO [launcher]: Launching browsers ChromeHeadless with concurrency unlimited
+1: 27 03 2022 02:41:01.688:INFO [launcher]: Starting browser ChromeHeadless
+1: 27 03 2022 02:41:01.935:INFO [Chrome Headless 98.0.4758.102 (Linux x86_64)]: Connected on socket XwaEaFDevRpBH-KoAAAD with id 10941622
+1: Chrome Headless 98.0.4758.102 (Linux x86_64): Executed 0 of 7 SUCCESS (0 secs / 0 secs)
+1: [1A[2KChrome Headless 98.0.4758.102 (Linux x86_64): Executed 1 of 7 SUCCESS (0 secs / 0.043 secs)
+1: [1A[2KChrome Headless 98.0.4758.102 (Linux x86_64): Executed 2 of 7 SUCCESS (0 secs / 0.054 secs)
+1: [1A[2KChrome Headless 98.0.4758.102 (Linux x86_64): Executed 3 of 7 SUCCESS (0 secs / 0.068 secs)
+1: [1A[2KChrome Headless 98.0.4758.102 (Linux x86_64): Executed 4 of 7 SUCCESS (0 secs / 0.071 secs)
+1: [1A[2KChrome Headless 98.0.4758.102 (Linux x86_64): Executed 5 of 7 SUCCESS (0 secs / 0.08 secs)
+1: [1A[2KChrome Headless 98.0.4758.102 (Linux x86_64): Executed 6 of 7 SUCCESS (0 secs / 0.083 secs)
+1: [1A[2KChrome Headless 98.0.4758.102 (Linux x86_64): Executed 7 of 7 SUCCESS (0 secs / 0.091 secs)
+1: [1A[2KChrome Headless 98.0.4758.102 (Linux x86_64): Executed 7 of 7 SUCCESS (0.193 secs / 0.091 secs)
 1: TOTAL: 7 SUCCESS
-1: 31 12 2021 07:35:26.344:WARN [proxy]: failed to proxy /base/assets/jessica-web.wasm (socket hang up)
-1: Compiling @angular/core/testing : es2015 as esm2015
-1: Compiling @angular/platform-browser/testing : es2015 as esm2015
-1: Compiling @angular/compiler/testing : es2015 as esm2015
-1: Compiling @angular/platform-browser-dynamic/testing : es2015 as esm2015
-1: Compiling @angular/common/testing : es2015 as esm2015
-1: Compiling @angular/router/testing : es2015 as esm2015
-1: 31 12 2021 07:35:34.302:INFO [karma-server]: Karma v6.3.6 server started at http://localhost:9876/
-1: 31 12 2021 07:35:34.303:INFO [launcher]: Launching browsers ChromeHeadless with concurrency unlimited
-1: 31 12 2021 07:35:34.304:INFO [launcher]: Starting browser ChromeHeadless
-1: 31 12 2021 07:35:39.734:INFO [Chrome Headless 96.0.4664.110 (Linux x86_64)]: Connected on socket OAmFrDDcRs0WG0T5AAAF with id 36145824
-1: Chrome Headless 96.0.4664.110 (Linux x86_64): Executed 0 of 3 SUCCESS (0 secs / 0 secs)
-1: [1A[2KChrome Headless 96.0.4664.110 (Linux x86_64): Executed 1 of 3 SUCCESS (0 secs / 0.072 secs)
-1: [1A[2KChrome Headless 96.0.4664.110 (Linux x86_64): Executed 2 of 3 SUCCESS (0 secs / 0.08 secs)
-1: [1A[2KChrome Headless 96.0.4664.110 (Linux x86_64): Executed 3 of 3 SUCCESS (0 secs / 0.098 secs)
-1: [1A[2KChrome Headless 96.0.4664.110 (Linux x86_64): Executed 3 of 3 SUCCESS (0.121 secs / 0.098 secs)
+1: 27 03 2022 02:41:17.914:INFO [karma-server]: Karma v6.3.17 server started at http://localhost:9876/
+1: 27 03 2022 02:41:17.914:INFO [launcher]: Launching browsers ChromeHeadless with concurrency unlimited
+1: 27 03 2022 02:41:17.916:INFO [launcher]: Starting browser ChromeHeadless
+1: 27 03 2022 02:41:18.140:INFO [Chrome Headless 98.0.4758.102 (Linux x86_64)]: Connected on socket a1B9YiyVo0eNWqUdAAAF with id 66052913
+1: Chrome Headless 98.0.4758.102 (Linux x86_64): Executed 0 of 3 SUCCESS (0 secs / 0 secs)
+1: [1A[2KChrome Headless 98.0.4758.102 (Linux x86_64): Executed 1 of 3 SUCCESS (0 secs / 0.054 secs)
+1: [1A[2KChrome Headless 98.0.4758.102 (Linux x86_64): Executed 2 of 3 SUCCESS (0 secs / 0.125 secs)
+1: [1A[2KChrome Headless 98.0.4758.102 (Linux x86_64): Executed 3 of 3 SUCCESS (0 secs / 0.144 secs)
+1: [1A[2KChrome Headless 98.0.4758.102 (Linux x86_64): Executed 3 of 3 SUCCESS (0.156 secs / 0.144 secs)
 1: TOTAL: 3 SUCCESS
 1: npm verb lifecycle angular@0.0.0~test: unsafe-perm in lifecycle true
-1: npm verb lifecycle angular@0.0.0~test: PATH: /opt/hostedtoolcache/node/14.18.2/x64/lib/node_modules/npm/node_modules/npm-lifecycle/node-gyp-bin:/home/runner/work/jessica/jessica/src/angular/node_modules/.bin:/home/runner/work/jessica/jessica/emsdk/upstream/emscripten:/home/runner/work/jessica/jessica/emsdk:/opt/hostedtoolcache/node/14.18.2/x64/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/usr/local/.ghcup/bin:/home/runner/.dotnet/tools:/snap/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+1: npm verb lifecycle angular@0.0.0~test: PATH: /opt/hostedtoolcache/node/14.19.0/x64/lib/node_modules/npm/node_modules/npm-lifecycle/node-gyp-bin:/home/runner/work/jessica/jessica/src/angular/node_modules/.bin:/home/runner/work/jessica/jessica/emsdk/upstream/emscripten:/home/runner/work/jessica/jessica/emsdk:/opt/hostedtoolcache/node/14.19.0/x64/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/usr/local/.ghcup/bin:/home/runner/.dotnet/tools:/snap/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 1: npm verb lifecycle angular@0.0.0~test: CWD: /home/runner/work/jessica/jessica/src/angular
 1: npm info lifecycle angular@0.0.0~posttest: angular@0.0.0
 1: npm verb exit [ 0, true ]
-1: npm timing npm Completed in 61615ms
+1: npm timing npm Completed in 55938ms
 1: npm info ok 
 [HANDLER_OUTPUT] 
 1/2 Test #1: NpmAngular .......................
-   Passed   61.89 sec
+   Passed   56.16 sec
 [HANDLER_VERBOSE_OUTPUT] 
 test 2
 
@@ -143,19 +94,19 @@ test 2
 
 [HANDLER_VERBOSE_OUTPUT] 
 
-2: Test command: /opt/hostedtoolcache/node/14.18.2/x64/bin/npm "run" "test" "--verbose"
+2: Test command: /opt/hostedtoolcache/node/14.19.0/x64/bin/npm "run" "test" "--verbose"
 
 2: Test timeout computed to be: 1500
 2: npm info it worked if it ends with ok
 2: npm verb cli [
-2: npm verb cli   '/opt/hostedtoolcache/node/14.18.2/x64/bin/node',
-2: npm verb cli   '/opt/hostedtoolcache/node/14.18.2/x64/bin/npm',
+2: npm verb cli   '/opt/hostedtoolcache/node/14.19.0/x64/bin/node',
+2: npm verb cli   '/opt/hostedtoolcache/node/14.19.0/x64/bin/npm',
 2: npm verb cli   'run',
 2: npm verb cli   'test',
 2: npm verb cli   '--verbose'
 2: npm verb cli ]
-2: npm info using npm@6.14.15
-2: npm info using node@v14.18.2
+2: npm info using npm@6.14.16
+2: npm info using node@v14.19.0
 2: npm verb run-script [ 'pretest', 'test', 'posttest' ]
 2: npm info lifecycle @~pretest: @
 2: npm info lifecycle @~test: @
@@ -164,47 +115,87 @@ test 2
 2: > node --trace-warnings --unhandled-rejections=strict node_modules/.bin/jest
 2: 
 2:   console.log
-2:     [2021-12-31 07:35:45.033] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
+2:     [2022-03-27 02:41:22.014] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
 2: 
-2:       at console.<anonymous> (node_modules/jest-mock/build/index.js:850:25)
-2: 
-2:   console.log
-2:     [2021-12-31 07:35:45.371] [log] [info] duration 0.0185 ms
-2: 
-2:       at console.<anonymous> (node_modules/jest-mock/build/index.js:850:25)
+2:       at console.<anonymous> (node_modules/jest-mock/build/index.js:854:25)
 2: 
 2:   console.log
-2:     [2021-12-31 07:35:45.373] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
+2:     [2022-03-27 02:41:22.357] [log] [info] duration 0.0187 ms
 2: 
-2:       at console.<anonymous> (node_modules/jest-mock/build/index.js:850:25)
+2:       at console.<anonymous> (node_modules/jest-mock/build/index.js:854:25)
 2: 
 2:   console.log
-2:     [2021-12-31 07:35:45.374] [log] [info] duration 0.006201 ms
+2:     [2022-03-27 02:41:22.360] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
 2: 
-2:       at console.<anonymous> (node_modules/jest-mock/build/index.js:850:25)
+2:       at console.<anonymous> (node_modules/jest-mock/build/index.js:854:25)
+2: 
+2:   console.log
+2:     [2022-03-27 02:41:22.362] [log] [info] duration 0.0062 ms
+2: 
+2:       at console.<anonymous> (node_modules/jest-mock/build/index.js:854:25)
 2: 
 2: PASS ./jessica.test.js
-2:   ✓ WarmUpJessica (215 ms)
-2:   ✓ VerticalEccentric (85 ms)
-2:   ✓ FoundationStrip (40 ms)
-2:   ✓ CalcMeyehof (402 ms)
+2:   ✓ WarmUpJessica (205 ms)
+2:   ✓ VerticalEccentric (95 ms)
+2:   ✓ FoundationStrip (42 ms)
+2:   ✓ CalcMeyehof (414 ms)
 2: 
 2: Test Suites: 1 passed, 1 total
 2: Tests:       4 passed, 4 total
 2: Snapshots:   0 total
-2: Time:        2.086 s
+2: Time:        2.014 s
 2: Ran all test suites.
+2:   console.warn
+2:     Embind found a leaked C++ instance FoundationStrip <0x50c968>.
+2:     We'll free it automatically in this case, but this functionality is not reliable across various environments.
+2:     Make sure to invoke .delete() manually once you're done with the instance instead.
+2:     Originally allocated
+2:         at FoundationStrip$clone (eval at new_ (/home/runner/work/jessica/jessica/build/src/javascript/wasm/jessica-node.js:2995:27), <anonymous>:9:19)
+2:         at FoundationStrip.clone (/home/runner/work/jessica/jessica/build/src/javascript/wasm/jessica-node.js:2466:68)
+2:         at /home/runner/work/jessica/jessica/build/test/javascript/jessica.test.js:34:37
+2: 
+2:       2360 |       // at run-time, not build-time.
+2:       2361 |       finalizationRegistry = new FinalizationRegistry((info) => {
+2:     > 2362 |           console.warn(info.leakWarning.stack.replace(/^Error: /, ''));
+2:            |                   ^
+2:       2363 |           releaseClassHandle(info.$$);
+2:       2364 |       });
+2:       2365 |       attachFinalizer = (handle) => {
+2: 
+2:       at ../../src/javascript/wasm/jessica-node.js:2362:19
+2:           at FinalizationRegistry.cleanupSome (<anonymous>)
+2: 
+2:   console.warn
+2:     Embind found a leaked C++ instance VerticalEccentric <0x50c9b0>.
+2:     We'll free it automatically in this case, but this functionality is not reliable across various environments.
+2:     Make sure to invoke .delete() manually once you're done with the instance instead.
+2:     Originally allocated
+2:         at VerticalEccentric$clone (eval at new_ (/home/runner/work/jessica/jessica/build/src/javascript/wasm/jessica-node.js:2995:27), <anonymous>:9:19)
+2:         at VerticalEccentric.clone (/home/runner/work/jessica/jessica/build/src/javascript/wasm/jessica-node.js:2466:68)
+2:         at /home/runner/work/jessica/jessica/build/test/javascript/jessica.test.js:22:25
+2: 
+2:       2360 |       // at run-time, not build-time.
+2:       2361 |       finalizationRegistry = new FinalizationRegistry((info) => {
+2:     > 2362 |           console.warn(info.leakWarning.stack.replace(/^Error: /, ''));
+2:            |                   ^
+2:       2363 |           releaseClassHandle(info.$$);
+2:       2364 |       });
+2:       2365 |       attachFinalizer = (handle) => {
+2: 
+2:       at ../../src/javascript/wasm/jessica-node.js:2362:19
+2:           at FinalizationRegistry.cleanupSome (<anonymous>)
+2: 
 2: npm verb lifecycle @~test: unsafe-perm in lifecycle true
-2: npm verb lifecycle @~test: PATH: /opt/hostedtoolcache/node/14.18.2/x64/lib/node_modules/npm/node_modules/npm-lifecycle/node-gyp-bin:/home/runner/work/jessica/jessica/build/test/javascript/node_modules/.bin:/home/runner/work/jessica/jessica/emsdk/upstream/emscripten:/home/runner/work/jessica/jessica/emsdk:/opt/hostedtoolcache/node/14.18.2/x64/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/usr/local/.ghcup/bin:/home/runner/.dotnet/tools:/snap/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+2: npm verb lifecycle @~test: PATH: /opt/hostedtoolcache/node/14.19.0/x64/lib/node_modules/npm/node_modules/npm-lifecycle/node-gyp-bin:/home/runner/work/jessica/jessica/build/test/javascript/node_modules/.bin:/home/runner/work/jessica/jessica/emsdk/upstream/emscripten:/home/runner/work/jessica/jessica/emsdk:/opt/hostedtoolcache/node/14.19.0/x64/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/usr/local/.ghcup/bin:/home/runner/.dotnet/tools:/snap/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 2: npm verb lifecycle @~test: CWD: /home/runner/work/jessica/jessica/build/test/javascript
 2: npm info lifecycle @~posttest: @
 2: npm verb exit [ 0, true ]
-2: npm timing npm Completed in 2806ms
+2: npm timing npm Completed in 2758ms
 2: npm info ok 
 [HANDLER_OUTPUT] 
 2/2 Test #2: NpmTest ..........................
-   Passed    2.95 sec
+   Passed    2.90 sec
 
 100% tests passed, 0 tests failed out of 2
 
-Total Test time (real) =  64.84 sec
+Total Test time (real) =  59.12 sec
