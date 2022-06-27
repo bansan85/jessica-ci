@@ -7,7 +7,7 @@
   'width=device-width,initial-scale=1'>
   <meta charset='UTF-8'>
   <link rel='stylesheet' type='text/css' href=
-  '../../../../../../../../../../../../style.css'>
+  '../../../../../../../../../../../../../style.css'>
   <title></title>
 </head>
 <body>
@@ -15,7 +15,7 @@
   <h4></h4>
   <div class='centered'>
     <div class='source-name-title'>
-      <pre>/home/runner/work/jessica/jessica/build/_deps/restbed-src/source/corvusoft/restbed/request.hpp</pre>
+      <pre>/home/runner/work/jessica/jessica/build/_deps/drogon-src/lib/inc/drogon/utils/string_view.h</pre>
     </div>
     <table>
       <tr>
@@ -26,7 +26,8 @@
           <pre>Count</pre>
         </td>
         <td>
-          <pre>Source</pre>
+          <pre>Source (<a href=
+          '#L37'>jump to first uncovered line</a>)</pre>
         </td>
       </tr>
       <tr>
@@ -36,7 +37,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>/*</pre>
+          <pre>/**</pre>
         </td>
       </tr>
       <tr>
@@ -46,7 +47,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> * Copyright 2013-2020, Corvusoft Ltd, All Rights Reserved.</pre>
+          <pre> *</pre>
         </td>
       </tr>
       <tr>
@@ -56,7 +57,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> */</pre>
+          <pre> *  @file string_view.h</pre>
         </td>
       </tr>
       <tr>
@@ -66,7 +67,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre> *  @author An Tao</pre>
         </td>
       </tr>
       <tr>
@@ -76,7 +77,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#pragma once</pre>
+          <pre> *</pre>
         </td>
       </tr>
       <tr>
@@ -86,7 +87,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre> *  Copyright 2018, An Tao.  All rights reserved.</pre>
         </td>
       </tr>
       <tr>
@@ -96,7 +97,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>//System Includes</pre>
+          <pre> *  https://github.com/an-tao/drogon</pre>
         </td>
       </tr>
       <tr>
@@ -106,7 +107,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;map&gt;</pre>
+          <pre> *  Use of this source code is governed by a MIT license</pre>
         </td>
       </tr>
       <tr>
@@ -116,7 +117,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;limits&gt;</pre>
+          <pre> *  that can be found in the License file.</pre>
         </td>
       </tr>
       <tr>
@@ -126,7 +127,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;string&gt;</pre>
+          <pre> *</pre>
         </td>
       </tr>
       <tr>
@@ -136,7 +137,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;memory&gt;</pre>
+          <pre> *  Drogon</pre>
         </td>
       </tr>
       <tr>
@@ -146,7 +147,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;cstdint&gt;</pre>
+          <pre> *</pre>
         </td>
       </tr>
       <tr>
@@ -156,7 +157,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;stdexcept&gt;</pre>
+          <pre> */</pre>
         </td>
       </tr>
       <tr>
@@ -166,7 +167,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;functional&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -176,7 +177,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;type_traits&gt;</pre>
+          <pre>#pragma once</pre>
         </td>
       </tr>
       <tr>
@@ -186,7 +187,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>#if __cplusplus &gt;= 201703L || (defined _MSC_VER &amp;& _MSC_VER &gt; 1900)</pre>
         </td>
       </tr>
       <tr>
@@ -196,7 +197,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>//Project Includes</pre>
+          <pre>#include &lt;string_view&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -206,7 +207,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;corvusoft/restbed/byte.hpp&gt;</pre>
+          <pre>#else</pre>
         </td>
       </tr>
       <tr>
@@ -216,7 +217,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;corvusoft/restbed/common.hpp&gt;</pre>
+          <pre>#include &lt;stdint.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -226,7 +227,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>#include &lt;boost/utility/string_view.hpp&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -236,7 +237,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>//External Includes</pre>
+          <pre>#include &lt;boost/functional/hash.hpp&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -246,7 +247,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>#endif</pre>
         </td>
       </tr>
       <tr>
@@ -256,7 +257,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>//Windows DLL Exports</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -266,7 +267,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#ifdef RESTBED_STATIC</pre>
+          <pre>#include &lt;trantor/utils/LogStream.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -276,7 +277,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  #define REQUEST_EXPORT</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -286,7 +287,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#elif defined(_WIN32) || defined(__WIN32__) || defined(WIN32) || defined(_WIN64)</pre>
+          <pre>namespace drogon</pre>
         </td>
       </tr>
       <tr>
@@ -296,7 +297,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  #ifdef WIN_DLL_EXPORT</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -306,7 +307,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    #define REQUEST_EXPORT __declspec(dllexport)</pre>
+          <pre>#if __cplusplus &gt;= 201703L || (defined _MSC_VER &amp;& _MSC_VER &gt; 1900)</pre>
         </td>
       </tr>
       <tr>
@@ -316,7 +317,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  #else</pre>
+          <pre>using std::string_view;</pre>
         </td>
       </tr>
       <tr>
@@ -326,7 +327,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    #define REQUEST_EXPORT __declspec(dllimport)</pre>
+          <pre>#else</pre>
         </td>
       </tr>
       <tr>
@@ -336,7 +337,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  #endif</pre>
+          <pre>using boost::string_view;</pre>
         </td>
       </tr>
       <tr>
@@ -346,7 +347,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#else</pre>
+          <pre>#endif</pre>
         </td>
       </tr>
       <tr>
@@ -356,7 +357,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  #define REQUEST_EXPORT __attribute__((visibility ("default")))</pre>
+          <pre>}  // namespace drogon</pre>
         </td>
       </tr>
       <tr>
@@ -366,7 +367,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#endif</pre>
+          <pre>namespace trantor</pre>
         </td>
       </tr>
       <tr>
@@ -376,7 +377,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -386,7 +387,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>//System Namespaces</pre>
+          <pre>inline LogStream &amp;operator&lt;&lt;(LogStream &amp;ls, const drogon::string_view &amp;v)</pre>
         </td>
       </tr>
       <tr>
@@ -394,9 +395,11 @@
           <a name='L37' href='#L37' id="L37">
           <pre>37</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre><span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -404,9 +407,12 @@
           <a name='L38' href='#L38' id="L38">
           <pre>38</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>//Project Namespaces</pre>
+          <pre><span class=
+          'red'>    ls.append(v.data(), v.length());</span></pre>
         </td>
       </tr>
       <tr>
@@ -414,9 +420,11 @@
           <a name='L39' href='#L39' id="L39">
           <pre>39</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre><span class='red'>    return ls;</span></pre>
         </td>
       </tr>
       <tr>
@@ -424,9 +432,11 @@
           <a name='L40' href='#L40' id="L40">
           <pre>40</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>//External Namespaces</pre>
+          <pre><span class='red'>}</span></pre>
         </td>
       </tr>
       <tr>
@@ -436,7 +446,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>}  // namespace trantor</pre>
         </td>
       </tr>
       <tr>
@@ -446,7 +456,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>namespace restbed</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -456,7 +466,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>#if __cplusplus &lt; 201703L &amp;& !(defined _MSC_VER &amp;& _MSC_VER &gt; 1900)</pre>
         </td>
       </tr>
       <tr>
@@ -466,7 +476,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    //Forward Declarations</pre>
+          <pre>namespace drogon</pre>
         </td>
       </tr>
       <tr>
@@ -476,7 +486,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    class Uri;</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -486,7 +496,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    class Http;</pre>
+          <pre>#ifndef _MSC_VER</pre>
         </td>
       </tr>
       <tr>
@@ -496,7 +506,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    class Session;</pre>
+          <pre>template &lt;size_t N&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -506,7 +516,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    class Response;</pre>
+          <pre>struct StringViewHasher;</pre>
         </td>
       </tr>
       <tr>
@@ -516,7 +526,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    </pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -526,7 +536,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    namespace detail</pre>
+          <pre>template &lt;&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -536,7 +546,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    {</pre>
+          <pre>struct StringViewHasher&lt;4&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -546,7 +556,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        class HttpImpl;</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -556,7 +566,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        class SessionImpl;</pre>
+          <pre>    size_t operator()(const drogon::string_view &amp;__str) const noexcept</pre>
         </td>
       </tr>
       <tr>
@@ -566,7 +576,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        class ServiceImpl;</pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -576,7 +586,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        struct RequestImpl;</pre>
+          <pre>        // Take from the memory header file</pre>
         </td>
       </tr>
       <tr>
@@ -586,7 +596,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        class WebSocketManagerImpl;</pre>
+          <pre>        //===-------------------------- memory</pre>
         </td>
       </tr>
       <tr>
@@ -596,7 +606,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    }</pre>
+          <pre>        //------------------------------------===//</pre>
         </td>
       </tr>
       <tr>
@@ -606,7 +616,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    </pre>
+          <pre>        //</pre>
         </td>
       </tr>
       <tr>
@@ -616,7 +626,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    class REQUEST_EXPORT Request</pre>
+          <pre>        //                     The LLVM Compiler Infrastructure</pre>
         </td>
       </tr>
       <tr>
@@ -626,7 +636,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    {</pre>
+          <pre>        //</pre>
         </td>
       </tr>
       <tr>
@@ -636,7 +646,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        public:</pre>
+          <pre>        // This file is dual licensed under the MIT and the University of</pre>
         </td>
       </tr>
       <tr>
@@ -646,7 +656,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Friends</pre>
+          <pre>        // Illinois Open Source Licenses. See LICENSE.TXT for details.</pre>
         </td>
       </tr>
       <tr>
@@ -656,7 +666,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        //</pre>
         </td>
       </tr>
       <tr>
@@ -666,7 +676,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Definitions</pre>
+          <pre>        //===----------------------------------------------------------------------===//</pre>
         </td>
       </tr>
       <tr>
@@ -676,7 +686,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        const uint32_t __m = 0x5bd1e995;</pre>
         </td>
       </tr>
       <tr>
@@ -686,7 +696,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Constructors</pre>
+          <pre>        const uint32_t __r = 24;</pre>
         </td>
       </tr>
       <tr>
@@ -696,7 +706,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            Request( void );</pre>
+          <pre>        uint32_t __h = __str.length();</pre>
         </td>
       </tr>
       <tr>
@@ -706,7 +716,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        auto __len = __h;</pre>
         </td>
       </tr>
       <tr>
@@ -716,7 +726,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            Request( const Uri& value );</pre>
+          <pre>        const unsigned char *__data = (const unsigned char *)(__str.data());</pre>
         </td>
       </tr>
       <tr>
@@ -726,7 +736,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        for (; __len &gt;= 4; __data += 4, __len -= 4)</pre>
         </td>
       </tr>
       <tr>
@@ -736,7 +746,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            virtual ~Request( void );</pre>
+          <pre>        {</pre>
         </td>
       </tr>
       <tr>
@@ -746,7 +756,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>            uint32_t __k = *((uint32_t *)__data);</pre>
         </td>
       </tr>
       <tr>
@@ -756,7 +766,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Functionality</pre>
+          <pre>            __k *= __m;</pre>
         </td>
       </tr>
       <tr>
@@ -766,7 +776,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            bool has_header( const std::string& name ) const;</pre>
+          <pre>            __k ^= __k &gt;&gt; __r;</pre>
         </td>
       </tr>
       <tr>
@@ -776,7 +786,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>            __k *= __m;</pre>
         </td>
       </tr>
       <tr>
@@ -786,7 +796,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            bool has_path_parameter( const std::string& name ) const;</pre>
+          <pre>            __h *= __m;</pre>
         </td>
       </tr>
       <tr>
@@ -796,7 +806,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>            __h ^= __k;</pre>
         </td>
       </tr>
       <tr>
@@ -806,7 +816,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            bool has_query_parameter( const std::string& name ) const;</pre>
+          <pre>        }</pre>
         </td>
       </tr>
       <tr>
@@ -816,7 +826,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        switch (__len)</pre>
         </td>
       </tr>
       <tr>
@@ -826,7 +836,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Getters</pre>
+          <pre>        {</pre>
         </td>
       </tr>
       <tr>
@@ -836,7 +846,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            uint16_t get_port( void ) const;</pre>
+          <pre>            case 3:</pre>
         </td>
       </tr>
       <tr>
@@ -846,7 +856,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>                __h ^= __data[2] &lt;&lt; 16;</pre>
         </td>
       </tr>
       <tr>
@@ -856,7 +866,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            double get_version( void ) const;</pre>
+          <pre>            case 2:</pre>
         </td>
       </tr>
       <tr>
@@ -866,7 +876,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>                __h ^= __data[1] &lt;&lt; 8;</pre>
         </td>
       </tr>
       <tr>
@@ -876,7 +886,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            const Bytes& get_body( void ) const;</pre>
+          <pre>            case 1:</pre>
         </td>
       </tr>
       <tr>
@@ -886,7 +896,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>                __h ^= __data[0];</pre>
         </td>
       </tr>
       <tr>
@@ -896,7 +906,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            const std::shared_ptr&lt; const Response &gt; get_response( void ) const;</pre>
+          <pre>                __h *= __m;</pre>
         </td>
       </tr>
       <tr>
@@ -906,7 +916,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        }</pre>
         </td>
       </tr>
       <tr>
@@ -916,7 +926,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::string get_host( const std::function&lt; std::string ( const std::string& ) &gt;& transform = nullptr ) const;</pre>
+          <pre>        __h ^= __h &gt;&gt; 13;</pre>
         </td>
       </tr>
       <tr>
@@ -926,7 +936,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        __h *= __m;</pre>
         </td>
       </tr>
       <tr>
@@ -936,7 +946,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::string get_path( const std::function&lt; std::string ( const std::string& ) &gt;& transform = nullptr ) const;</pre>
+          <pre>        __h ^= __h &gt;&gt; 15;</pre>
         </td>
       </tr>
       <tr>
@@ -946,7 +956,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        return __h;</pre>
         </td>
       </tr>
       <tr>
@@ -956,7 +966,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::string get_method( const std::function&lt; std::string ( const std::string& ) &gt;& transform = nullptr ) const;</pre>
+          <pre>    }</pre>
         </td>
       </tr>
       <tr>
@@ -966,7 +976,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>};</pre>
         </td>
       </tr>
       <tr>
@@ -976,7 +986,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::string get_protocol( const std::function&lt; std::string ( const std::string& ) &gt;& transform = nullptr ) const;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -986,7 +996,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>template &lt;&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -996,7 +1006,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            void get_body( std::string& body, const std::function&lt; std::string ( const Bytes& ) &gt;& transform = nullptr ) const;</pre>
+          <pre>struct StringViewHasher&lt;8&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -1006,7 +1016,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -1016,7 +1026,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::string get_header( const std::string& name, const std::string& default_value = "" ) const;</pre>
+          <pre>    static const size_t __k0 = 0xc3a5c85c97cb3127ULL;</pre>
         </td>
       </tr>
       <tr>
@@ -1026,7 +1036,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>    static const size_t __k1 = 0xb492b66fbe98f273ULL;</pre>
         </td>
       </tr>
       <tr>
@@ -1036,7 +1046,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::string get_header( const std::string& name, const std::function&lt; std::string ( const std::string& ) &gt;& transform ) const;</pre>
+          <pre>    static const size_t __k2 = 0x9ae16a3b2f90404fULL;</pre>
         </td>
       </tr>
       <tr>
@@ -1046,7 +1056,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>    static const size_t __k3 = 0xc949d7c7509e6557ULL;</pre>
         </td>
       </tr>
       <tr>
@@ -1056,7 +1066,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            template &lt;typename Type, std::enable_if_t&lt; std::is_arithmetic&lt; std::remove_reference_t&lt; Type &gt; &gt;::value &gt; * = nullptr&gt; inline</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1066,7 +1076,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            Type get_header( const std::string& name, const Type default_value ) const</pre>
+          <pre>    static size_t __rotate(size_t __val, int __shift)</pre>
         </td>
       </tr>
       <tr>
@@ -1074,11 +1084,9 @@
           <a name='L105' href='#L105' id="L105">
           <pre>105</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            {</pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -1086,11 +1094,9 @@
           <a name='L106' href='#L106' id="L106">
           <pre>106</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                return Common::parse_parameter( get_header( name ), default_value );</pre>
+          <pre>        return __shift == 0 ? __val</pre>
         </td>
       </tr>
       <tr>
@@ -1098,11 +1104,9 @@
           <a name='L107' href='#L107' id="L107">
           <pre>107</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            }</pre>
+          <pre>                            : ((__val &gt;&gt; __shift) | (__val &lt;&lt; (64 - __shift)));</pre>
         </td>
       </tr>
       <tr>
@@ -1112,7 +1116,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>    }</pre>
         </td>
       </tr>
       <tr>
@@ -1122,7 +1126,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::multimap&lt; std::string, std::string &gt; get_headers( const std::string& name = "" ) const;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1132,7 +1136,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>    static size_t __rotate_by_at_least_1(size_t __val, int __shift)</pre>
         </td>
       </tr>
       <tr>
@@ -1142,7 +1146,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::string get_query_parameter( const std::string& name, const std::string& default_value = "" ) const;</pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -1152,7 +1156,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        return (__val &gt;&gt; __shift) | (__val &lt;&lt; (64 - __shift));</pre>
         </td>
       </tr>
       <tr>
@@ -1162,7 +1166,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::string get_query_parameter( const std::string& name, const std::function&lt; std::string ( const std::string& ) &gt;& transform ) const;</pre>
+          <pre>    }</pre>
         </td>
       </tr>
       <tr>
@@ -1172,7 +1176,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1182,7 +1186,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            template &lt;typename Type, std::enable_if_t&lt; std::is_arithmetic&lt; std::remove_reference_t&lt; Type &gt; &gt;::value &gt; * = nullptr&gt; inline</pre>
+          <pre>    static size_t __shift_mix(size_t __val)</pre>
         </td>
       </tr>
       <tr>
@@ -1192,7 +1196,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            Type get_query_parameter( const std::string& name, const Type default_value ) const</pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -1202,7 +1206,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            {</pre>
+          <pre>        return __val ^ (__val &gt;&gt; 47);</pre>
         </td>
       </tr>
       <tr>
@@ -1212,7 +1216,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                return Common::parse_parameter( get_query_parameter( name ), default_value );</pre>
+          <pre>    }</pre>
         </td>
       </tr>
       <tr>
@@ -1222,7 +1226,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            }</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1232,7 +1236,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>    static size_t __hash_len_16(size_t __u, size_t __v)</pre>
         </td>
       </tr>
       <tr>
@@ -1242,7 +1246,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::multimap&lt; std::string, std::string &gt; get_query_parameters( const std::string& name = "" ) const;</pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -1252,7 +1256,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        const size_t __mul = 0x9ddfea08eb382d69ULL;</pre>
         </td>
       </tr>
       <tr>
@@ -1262,7 +1266,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::string get_path_parameter( const std::string& name, const std::string& default_value = "" ) const;</pre>
+          <pre>        size_t __a = (__u ^ __v) * __mul;</pre>
         </td>
       </tr>
       <tr>
@@ -1272,7 +1276,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        __a ^= (__a &gt;&gt; 47);</pre>
         </td>
       </tr>
       <tr>
@@ -1282,7 +1286,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::string get_path_parameter( const std::string& name, const std::function&lt; std::string ( const std::string& ) &gt;& transform ) const;</pre>
+          <pre>        size_t __b = (__v ^ __a) * __mul;</pre>
         </td>
       </tr>
       <tr>
@@ -1292,7 +1296,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        __b ^= (__b &gt;&gt; 47);</pre>
         </td>
       </tr>
       <tr>
@@ -1302,7 +1306,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            template &lt;typename Type, std::enable_if_t&lt; std::is_arithmetic&lt; std::remove_reference_t&lt; Type &gt; &gt;::value &gt; * = nullptr&gt; inline</pre>
+          <pre>        __b *= __mul;</pre>
         </td>
       </tr>
       <tr>
@@ -1312,7 +1316,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            Type get_path_parameter( const std::string& name, const Type default_value ) const</pre>
+          <pre>        return __b;</pre>
         </td>
       </tr>
       <tr>
@@ -1322,7 +1326,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            {</pre>
+          <pre>    }</pre>
         </td>
       </tr>
       <tr>
@@ -1332,7 +1336,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                return Common::parse_parameter( get_path_parameter( name ), default_value );</pre>
+          <pre>    template &lt;class Size&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -1342,7 +1346,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            }</pre>
+          <pre>    inline static Size __loadword(const void *__p)</pre>
         </td>
       </tr>
       <tr>
@@ -1352,7 +1356,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -1362,7 +1366,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::map&lt; std::string, std::string &gt; get_path_parameters( const std::string& name = "" ) const;</pre>
+          <pre>        Size __r;</pre>
         </td>
       </tr>
       <tr>
@@ -1372,7 +1376,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        std::memcpy(&amp;__r, __p, sizeof(__r));</pre>
         </td>
       </tr>
       <tr>
@@ -1382,7 +1386,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Setters</pre>
+          <pre>        return __r;</pre>
         </td>
       </tr>
       <tr>
@@ -1392,7 +1396,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            void set_body( const Bytes& value );</pre>
+          <pre>    }</pre>
         </td>
       </tr>
       <tr>
@@ -1402,7 +1406,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1412,7 +1416,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            void set_body( const std::string& value );</pre>
+          <pre>    static size_t __hash_len_0_to_16(const char *__s, size_t __len)</pre>
         </td>
       </tr>
       <tr>
@@ -1422,7 +1426,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -1432,7 +1436,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            void set_port( const uint16_t value );</pre>
+          <pre>        if (__len &gt; 8)</pre>
         </td>
       </tr>
       <tr>
@@ -1442,7 +1446,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        {</pre>
         </td>
       </tr>
       <tr>
@@ -1452,7 +1456,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            void set_version( const double value );</pre>
+          <pre>            const size_t __a = __loadword&lt;size_t&gt;(__s);</pre>
         </td>
       </tr>
       <tr>
@@ -1462,7 +1466,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>            const size_t __b = __loadword&lt;size_t&gt;(__s + __len - 8);</pre>
         </td>
       </tr>
       <tr>
@@ -1472,7 +1476,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            void set_path( const std::string& value );</pre>
+          <pre>            return __hash_len_16(__a,</pre>
         </td>
       </tr>
       <tr>
@@ -1482,7 +1486,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>                                 __rotate_by_at_least_1(__b + __len, __len)) ^</pre>
         </td>
       </tr>
       <tr>
@@ -1492,7 +1496,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            void set_host( const std::string& value );</pre>
+          <pre>                   __b;</pre>
         </td>
       </tr>
       <tr>
@@ -1502,7 +1506,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        }</pre>
         </td>
       </tr>
       <tr>
@@ -1512,7 +1516,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            void set_method( const std::string& value );</pre>
+          <pre>        if (__len &gt;= 4)</pre>
         </td>
       </tr>
       <tr>
@@ -1522,7 +1526,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        {</pre>
         </td>
       </tr>
       <tr>
@@ -1532,7 +1536,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            void set_protocol( const std::string& value );</pre>
+          <pre>            const uint32_t __a = __loadword&lt;uint32_t&gt;(__s);</pre>
         </td>
       </tr>
       <tr>
@@ -1542,7 +1546,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>            const uint32_t __b = __loadword&lt;uint32_t&gt;(__s + __len - 4);</pre>
         </td>
       </tr>
       <tr>
@@ -1552,7 +1556,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            void add_header( const std::string& name, const std::string& value );</pre>
+          <pre>            return __hash_len_16(__len + (__a &lt;&lt; 3), __b);</pre>
         </td>
       </tr>
       <tr>
@@ -1562,7 +1566,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        }</pre>
         </td>
       </tr>
       <tr>
@@ -1572,7 +1576,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            void set_header( const std::string& name, const std::string& value );</pre>
+          <pre>        if (__len &gt; 0)</pre>
         </td>
       </tr>
       <tr>
@@ -1582,7 +1586,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        {</pre>
         </td>
       </tr>
       <tr>
@@ -1592,7 +1596,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            void set_headers( const std::multimap&lt; std::string, std::string &gt;& values );</pre>
+          <pre>            const unsigned char __a = __s[0];</pre>
         </td>
       </tr>
       <tr>
@@ -1602,7 +1606,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>            const unsigned char __b = __s[__len &gt;&gt; 1];</pre>
         </td>
       </tr>
       <tr>
@@ -1612,7 +1616,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            void set_query_parameter( const std::string& name, const std::string& value );</pre>
+          <pre>            const unsigned char __c = __s[__len - 1];</pre>
         </td>
       </tr>
       <tr>
@@ -1622,7 +1626,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>            const uint32_t __y =</pre>
         </td>
       </tr>
       <tr>
@@ -1632,7 +1636,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            void set_query_parameters( const std::multimap&lt; std::string, std::string &gt;& values );</pre>
+          <pre>                static_cast&lt;uint32_t&gt;(__a) + (static_cast&lt;uint32_t&gt;(__b) &lt;&lt; 8);</pre>
         </td>
       </tr>
       <tr>
@@ -1642,7 +1646,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>            const uint32_t __z = __len + (static_cast&lt;uint32_t&gt;(__c) &lt;&lt; 2);</pre>
         </td>
       </tr>
       <tr>
@@ -1652,7 +1656,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Operators</pre>
+          <pre>            return __shift_mix(__y * __k2 ^ __z * __k3) * __k2;</pre>
         </td>
       </tr>
       <tr>
@@ -1662,7 +1666,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        }</pre>
         </td>
       </tr>
       <tr>
@@ -1672,7 +1676,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Properties</pre>
+          <pre>        return __k2;</pre>
         </td>
       </tr>
       <tr>
@@ -1682,7 +1686,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>    }</pre>
         </td>
       </tr>
       <tr>
@@ -1692,7 +1696,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        protected:</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1702,7 +1706,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Friends</pre>
+          <pre>    static size_t __hash_len_17_to_32(const char *__s, size_t __len)</pre>
         </td>
       </tr>
       <tr>
@@ -1712,7 +1716,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -1722,7 +1726,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Definitions</pre>
+          <pre>        const size_t __a = __loadword&lt;size_t&gt;(__s) * __k1;</pre>
         </td>
       </tr>
       <tr>
@@ -1732,7 +1736,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        const size_t __b = __loadword&lt;size_t&gt;(__s + 8);</pre>
         </td>
       </tr>
       <tr>
@@ -1742,7 +1746,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Constructors</pre>
+          <pre>        const size_t __c = __loadword&lt;size_t&gt;(__s + __len - 8) * __k2;</pre>
         </td>
       </tr>
       <tr>
@@ -1752,7 +1756,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        const size_t __d = __loadword&lt;size_t&gt;(__s + __len - 16) * __k0;</pre>
         </td>
       </tr>
       <tr>
@@ -1762,7 +1766,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Functionality</pre>
+          <pre>        return __hash_len_16(__rotate(__a - __b, 43) + __rotate(__c, 30) + __d,</pre>
         </td>
       </tr>
       <tr>
@@ -1772,7 +1776,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>                             __a + __rotate(__b ^ __k3, 20) - __c + __len);</pre>
         </td>
       </tr>
       <tr>
@@ -1782,7 +1786,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Getters</pre>
+          <pre>    }</pre>
         </td>
       </tr>
       <tr>
@@ -1792,7 +1796,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1802,7 +1806,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Setters</pre>
+          <pre>    // Return a 16-byte hash for 48 bytes.  Quick and dirty.</pre>
         </td>
       </tr>
       <tr>
@@ -1812,7 +1816,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>    // Callers do best to use "random-looking" values for a and b.</pre>
         </td>
       </tr>
       <tr>
@@ -1822,7 +1826,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Operators</pre>
+          <pre>    static std::pair&lt;size_t, size_t&gt; __weak_hash_len_32_with_seeds(size_t __w,</pre>
         </td>
       </tr>
       <tr>
@@ -1832,7 +1836,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>                                                                   size_t __x,</pre>
         </td>
       </tr>
       <tr>
@@ -1842,7 +1846,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Properties</pre>
+          <pre>                                                                   size_t __y,</pre>
         </td>
       </tr>
       <tr>
@@ -1852,7 +1856,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>                                                                   size_t __z,</pre>
         </td>
       </tr>
       <tr>
@@ -1862,7 +1866,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        private:</pre>
+          <pre>                                                                   size_t __a,</pre>
         </td>
       </tr>
       <tr>
@@ -1872,7 +1876,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Friends</pre>
+          <pre>                                                                   size_t __b)</pre>
         </td>
       </tr>
       <tr>
@@ -1882,7 +1886,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            friend Http;</pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -1892,7 +1896,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            friend Session;</pre>
+          <pre>        __a += __w;</pre>
         </td>
       </tr>
       <tr>
@@ -1902,7 +1906,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            friend detail::HttpImpl;</pre>
+          <pre>        __b = __rotate(__b + __a + __z, 21);</pre>
         </td>
       </tr>
       <tr>
@@ -1912,7 +1916,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            friend detail::SessionImpl;</pre>
+          <pre>        const size_t __c = __a;</pre>
         </td>
       </tr>
       <tr>
@@ -1922,7 +1926,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            friend detail::ServiceImpl;</pre>
+          <pre>        __a += __x;</pre>
         </td>
       </tr>
       <tr>
@@ -1932,7 +1936,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            friend detail::WebSocketManagerImpl;</pre>
+          <pre>        __a += __y;</pre>
         </td>
       </tr>
       <tr>
@@ -1942,7 +1946,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        __b += __rotate(__a, 44);</pre>
         </td>
       </tr>
       <tr>
@@ -1952,7 +1956,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Definitions</pre>
+          <pre>        return std::pair&lt;size_t, size_t&gt;(__a + __z, __b + __c);</pre>
         </td>
       </tr>
       <tr>
@@ -1962,7 +1966,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>    }</pre>
         </td>
       </tr>
       <tr>
@@ -1972,7 +1976,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Constructors</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1982,7 +1986,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            Request( const Request& original ) = delete;</pre>
+          <pre>    // Return a 16-byte hash for s[0] ... s[31], a, and b.  Quick and dirty.</pre>
         </td>
       </tr>
       <tr>
@@ -1992,7 +1996,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>    static std::pair&lt;size_t, size_t&gt; __weak_hash_len_32_with_seeds(</pre>
         </td>
       </tr>
       <tr>
@@ -2002,7 +2006,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Functionality</pre>
+          <pre>        const char *__s,</pre>
         </td>
       </tr>
       <tr>
@@ -2012,7 +2016,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        size_t __a,</pre>
         </td>
       </tr>
       <tr>
@@ -2022,7 +2026,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Getters</pre>
+          <pre>        size_t __b)</pre>
         </td>
       </tr>
       <tr>
@@ -2032,7 +2036,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -2042,7 +2046,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Setters</pre>
+          <pre>        return __weak_hash_len_32_with_seeds(__loadword&lt;size_t&gt;(__s),</pre>
         </td>
       </tr>
       <tr>
@@ -2052,7 +2056,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>                                             __loadword&lt;size_t&gt;(__s + 8),</pre>
         </td>
       </tr>
       <tr>
@@ -2062,7 +2066,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Operators</pre>
+          <pre>                                             __loadword&lt;size_t&gt;(__s + 16),</pre>
         </td>
       </tr>
       <tr>
@@ -2072,7 +2076,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            Request& operator =( const Request& value ) = delete;</pre>
+          <pre>                                             __loadword&lt;size_t&gt;(__s + 24),</pre>
         </td>
       </tr>
       <tr>
@@ -2082,7 +2086,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>                                             __a,</pre>
         </td>
       </tr>
       <tr>
@@ -2092,7 +2096,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Properties</pre>
+          <pre>                                             __b);</pre>
         </td>
       </tr>
       <tr>
@@ -2102,7 +2106,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::unique_ptr&lt; detail::RequestImpl &gt; m_pimpl;</pre>
+          <pre>    }</pre>
         </td>
       </tr>
       <tr>
@@ -2112,7 +2116,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    };</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -2122,7 +2126,1227 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>}</pre>
+          <pre>    // Return an 8-byte hash for 33 to 64 bytes.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L210' href='#L210' id="L210">
+          <pre>210</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    static size_t __hash_len_33_to_64(const char *__s, size_t __len)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L211' href='#L211' id="L211">
+          <pre>211</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L212' href='#L212' id="L212">
+          <pre>212</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        size_t __z = __loadword&lt;size_t&gt;(__s + 24);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L213' href='#L213' id="L213">
+          <pre>213</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        size_t __a = __loadword&lt;size_t&gt;(__s) +</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L214' href='#L214' id="L214">
+          <pre>214</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>                     (__len + __loadword&lt;size_t&gt;(__s + __len - 16)) * __k0;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L215' href='#L215' id="L215">
+          <pre>215</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        size_t __b = __rotate(__a + __z, 52);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L216' href='#L216' id="L216">
+          <pre>216</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        size_t __c = __rotate(__a, 37);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L217' href='#L217' id="L217">
+          <pre>217</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        __a += __loadword&lt;size_t&gt;(__s + 8);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L218' href='#L218' id="L218">
+          <pre>218</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        __c += __rotate(__a, 7);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L219' href='#L219' id="L219">
+          <pre>219</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        __a += __loadword&lt;size_t&gt;(__s + 16);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L220' href='#L220' id="L220">
+          <pre>220</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        size_t __vf = __a + __z;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L221' href='#L221' id="L221">
+          <pre>221</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        size_t __vs = __b + __rotate(__a, 31) + __c;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L222' href='#L222' id="L222">
+          <pre>222</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        __a =</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L223' href='#L223' id="L223">
+          <pre>223</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>            __loadword&lt;size_t&gt;(__s + 16) + __loadword&lt;size_t&gt;(__s + __len - 32);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L224' href='#L224' id="L224">
+          <pre>224</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        __z += __loadword&lt;size_t&gt;(__s + __len - 8);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L225' href='#L225' id="L225">
+          <pre>225</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        __b = __rotate(__a + __z, 52);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L226' href='#L226' id="L226">
+          <pre>226</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        __c = __rotate(__a, 37);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L227' href='#L227' id="L227">
+          <pre>227</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        __a += __loadword&lt;size_t&gt;(__s + __len - 24);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L228' href='#L228' id="L228">
+          <pre>228</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        __c += __rotate(__a, 7);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L229' href='#L229' id="L229">
+          <pre>229</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        __a += __loadword&lt;size_t&gt;(__s + __len - 16);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L230' href='#L230' id="L230">
+          <pre>230</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        size_t __wf = __a + __z;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L231' href='#L231' id="L231">
+          <pre>231</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        size_t __ws = __b + __rotate(__a, 31) + __c;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L232' href='#L232' id="L232">
+          <pre>232</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        size_t __r = __shift_mix((__vf + __ws) * __k2 + (__wf + __vs) * __k0);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L233' href='#L233' id="L233">
+          <pre>233</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        return __shift_mix(__r * __k0 + __vs) * __k2;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L234' href='#L234' id="L234">
+          <pre>234</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    }</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L235' href='#L235' id="L235">
+          <pre>235</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    size_t operator()(const drogon::string_view &amp;__str) const noexcept</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L236' href='#L236' id="L236">
+          <pre>236</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L237' href='#L237' id="L237">
+          <pre>237</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        size_t __len = __str.length();</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L238' href='#L238' id="L238">
+          <pre>238</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        const char *__s = static_cast&lt;const char *&gt;(__str.data());</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L239' href='#L239' id="L239">
+          <pre>239</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        if (__len &lt;= 32)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L240' href='#L240' id="L240">
+          <pre>240</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L241' href='#L241' id="L241">
+          <pre>241</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>            if (__len &lt;= 16)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L242' href='#L242' id="L242">
+          <pre>242</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>            {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L243' href='#L243' id="L243">
+          <pre>243</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>                return __hash_len_0_to_16(__s, __len);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L244' href='#L244' id="L244">
+          <pre>244</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>            }</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L245' href='#L245' id="L245">
+          <pre>245</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>            else</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L246' href='#L246' id="L246">
+          <pre>246</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>            {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L247' href='#L247' id="L247">
+          <pre>247</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>                return __hash_len_17_to_32(__s, __len);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L248' href='#L248' id="L248">
+          <pre>248</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>            }</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L249' href='#L249' id="L249">
+          <pre>249</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        }</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L250' href='#L250' id="L250">
+          <pre>250</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        else if (__len &lt;= 64)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L251' href='#L251' id="L251">
+          <pre>251</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L252' href='#L252' id="L252">
+          <pre>252</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>            return __hash_len_33_to_64(__s, __len);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L253' href='#L253' id="L253">
+          <pre>253</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        }</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L254' href='#L254' id="L254">
+          <pre>254</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L255' href='#L255' id="L255">
+          <pre>255</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        // For strings over 64 bytes we hash the end first, and then as we</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L256' href='#L256' id="L256">
+          <pre>256</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        // loop we keep 56 bytes of state: v, w, x, y, and z.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L257' href='#L257' id="L257">
+          <pre>257</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        size_t __x = __loadword&lt;size_t&gt;(__s + __len - 40);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L258' href='#L258' id="L258">
+          <pre>258</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        size_t __y = __loadword&lt;size_t&gt;(__s + __len - 16) +</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L259' href='#L259' id="L259">
+          <pre>259</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>                     __loadword&lt;size_t&gt;(__s + __len - 56);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L260' href='#L260' id="L260">
+          <pre>260</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        size_t __z = __hash_len_16(__loadword&lt;size_t&gt;(__s + __len - 48) + __len,</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L261' href='#L261' id="L261">
+          <pre>261</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>                                   __loadword&lt;size_t&gt;(__s + __len - 24));</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L262' href='#L262' id="L262">
+          <pre>262</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        std::pair&lt;size_t, size_t&gt; __v =</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L263' href='#L263' id="L263">
+          <pre>263</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>            __weak_hash_len_32_with_seeds(__s + __len - 64, __len, __z);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L264' href='#L264' id="L264">
+          <pre>264</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        std::pair&lt;size_t, size_t&gt; __w =</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L265' href='#L265' id="L265">
+          <pre>265</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>            __weak_hash_len_32_with_seeds(__s + __len - 32, __y + __k1, __x);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L266' href='#L266' id="L266">
+          <pre>266</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        __x = __x * __k1 + __loadword&lt;size_t&gt;(__s);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L267' href='#L267' id="L267">
+          <pre>267</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L268' href='#L268' id="L268">
+          <pre>268</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        // Decrease len to the nearest multiple of 64, and operate on 64-byte</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L269' href='#L269' id="L269">
+          <pre>269</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        // chunks.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L270' href='#L270' id="L270">
+          <pre>270</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        __len = (__len - 1) & ~static_cast&lt;size_t&gt;(63);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L271' href='#L271' id="L271">
+          <pre>271</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        do</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L272' href='#L272' id="L272">
+          <pre>272</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L273' href='#L273' id="L273">
+          <pre>273</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>            __x = __rotate(__x + __y + __v.first + __loadword&lt;size_t&gt;(__s + 8),</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L274' href='#L274' id="L274">
+          <pre>274</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>                           37) *</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L275' href='#L275' id="L275">
+          <pre>275</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>                  __k1;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L276' href='#L276' id="L276">
+          <pre>276</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>            __y =</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L277' href='#L277' id="L277">
+          <pre>277</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>                __rotate(__y + __v.second + __loadword&lt;size_t&gt;(__s + 48), 42) *</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L278' href='#L278' id="L278">
+          <pre>278</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>                __k1;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L279' href='#L279' id="L279">
+          <pre>279</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>            __x ^= __w.second;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L280' href='#L280' id="L280">
+          <pre>280</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>            __y += __v.first + __loadword&lt;size_t&gt;(__s + 40);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L281' href='#L281' id="L281">
+          <pre>281</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>            __z = __rotate(__z + __w.first, 33) * __k1;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L282' href='#L282' id="L282">
+          <pre>282</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>            __v = __weak_hash_len_32_with_seeds(__s,</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L283' href='#L283' id="L283">
+          <pre>283</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>                                                __v.second * __k1,</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L284' href='#L284' id="L284">
+          <pre>284</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>                                                __x + __w.first);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L285' href='#L285' id="L285">
+          <pre>285</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>            __w = __weak_hash_len_32_with_seeds(</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L286' href='#L286' id="L286">
+          <pre>286</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>                __s + 32, __z + __w.second, __y + __loadword&lt;size_t&gt;(__s + 16));</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L287' href='#L287' id="L287">
+          <pre>287</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>            std::swap(__z, __x);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L288' href='#L288' id="L288">
+          <pre>288</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>            __s += 64;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L289' href='#L289' id="L289">
+          <pre>289</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>            __len -= 64;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L290' href='#L290' id="L290">
+          <pre>290</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        } while (__len != 0);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L291' href='#L291' id="L291">
+          <pre>291</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        return __hash_len_16(__hash_len_16(__v.first, __w.first) +</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L292' href='#L292' id="L292">
+          <pre>292</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>                                 __shift_mix(__y) * __k1 + __z,</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L293' href='#L293' id="L293">
+          <pre>293</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>                             __hash_len_16(__v.second, __w.second) + __x);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L294' href='#L294' id="L294">
+          <pre>294</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    }</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L295' href='#L295' id="L295">
+          <pre>295</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>};</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L296' href='#L296' id="L296">
+          <pre>296</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>#else</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L297' href='#L297' id="L297">
+          <pre>297</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L298' href='#L298' id="L298">
+          <pre>298</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>// Taken and modified from https://stackoverflow.com/a/8317622/3687637</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L299' href='#L299' id="L299">
+          <pre>299</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>struct ShortStringViewHasher</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L300' href='#L300' id="L300">
+          <pre>300</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>{</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L301' href='#L301' id="L301">
+          <pre>301</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    size_t operator()(const string_view &amp;sv) const</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L302' href='#L302' id="L302">
+          <pre>302</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L303' href='#L303' id="L303">
+          <pre>303</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        const size_t initValue = 1049039;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L304' href='#L304' id="L304">
+          <pre>304</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        const size_t A = 6665339;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L305' href='#L305' id="L305">
+          <pre>305</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        const size_t B = 2534641;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L306' href='#L306' id="L306">
+          <pre>306</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        size_t h = initValue;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L307' href='#L307' id="L307">
+          <pre>307</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        for (char ch : sv)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L308' href='#L308' id="L308">
+          <pre>308</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>            h = (h * A) ^ (ch * B);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L309' href='#L309' id="L309">
+          <pre>309</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        return h;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L310' href='#L310' id="L310">
+          <pre>310</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    }</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L311' href='#L311' id="L311">
+          <pre>311</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>};</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L312' href='#L312' id="L312">
+          <pre>312</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>#endif</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L313' href='#L313' id="L313">
+          <pre>313</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>}  // namespace drogon</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L314' href='#L314' id="L314">
+          <pre>314</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>namespace std</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L315' href='#L315' id="L315">
+          <pre>315</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>{</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L316' href='#L316' id="L316">
+          <pre>316</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>template &lt;&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L317' href='#L317' id="L317">
+          <pre>317</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>struct hash&lt;drogon::string_view&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L318' href='#L318' id="L318">
+          <pre>318</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>{</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L319' href='#L319' id="L319">
+          <pre>319</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    size_t operator()(const drogon::string_view &amp;__str) const noexcept</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L320' href='#L320' id="L320">
+          <pre>320</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L321' href='#L321' id="L321">
+          <pre>321</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        // MSVC is having problems with non-aligned strings</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L322' href='#L322' id="L322">
+          <pre>322</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>#ifndef _MSC_VER</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L323' href='#L323' id="L323">
+          <pre>323</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        return drogon::StringViewHasher&lt;sizeof(size_t)&gt;()(__str);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L324' href='#L324' id="L324">
+          <pre>324</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>#else</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L325' href='#L325' id="L325">
+          <pre>325</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        return drogon::ShortStringViewHasher(__str);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L326' href='#L326' id="L326">
+          <pre>326</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>#endif</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L327' href='#L327' id="L327">
+          <pre>327</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    }</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L328' href='#L328' id="L328">
+          <pre>328</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>};</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L329' href='#L329' id="L329">
+          <pre>329</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>}  // namespace std</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L330' href='#L330' id="L330">
+          <pre>330</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L331' href='#L331' id="L331">
+          <pre>331</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>#endif</pre>
         </td>
       </tr>
     </table>

@@ -7,7 +7,7 @@
   'width=device-width,initial-scale=1'>
   <meta charset='UTF-8'>
   <link rel='stylesheet' type='text/css' href=
-  '../../../../../../../../../../../../style.css'>
+  '../../../../../../../../../../../../../style.css'>
   <title></title>
 </head>
 <body>
@@ -15,7 +15,7 @@
   <h4></h4>
   <div class='centered'>
     <div class='source-name-title'>
-      <pre>/home/runner/work/jessica/jessica/build/_deps/restbed-src/source/corvusoft/restbed/request.hpp</pre>
+      <pre>/home/runner/work/jessica/jessica/build/_deps/drogon-src/orm_lib/inc/drogon/orm/Field.h</pre>
     </div>
     <table>
       <tr>
@@ -26,7 +26,8 @@
           <pre>Count</pre>
         </td>
         <td>
-          <pre>Source</pre>
+          <pre>Source (<a href=
+          '#L65'>jump to first uncovered line</a>)</pre>
         </td>
       </tr>
       <tr>
@@ -36,7 +37,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>/*</pre>
+          <pre>/**</pre>
         </td>
       </tr>
       <tr>
@@ -46,7 +47,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> * Copyright 2013-2020, Corvusoft Ltd, All Rights Reserved.</pre>
+          <pre> *</pre>
         </td>
       </tr>
       <tr>
@@ -56,7 +57,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> */</pre>
+          <pre> *  @file Field.h</pre>
         </td>
       </tr>
       <tr>
@@ -66,7 +67,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre> *  @author An Tao</pre>
         </td>
       </tr>
       <tr>
@@ -76,7 +77,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#pragma once</pre>
+          <pre> *</pre>
         </td>
       </tr>
       <tr>
@@ -86,7 +87,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre> *  Copyright 2018, An Tao.  All rights reserved.</pre>
         </td>
       </tr>
       <tr>
@@ -96,7 +97,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>//System Includes</pre>
+          <pre> *  https://github.com/an-tao/drogon</pre>
         </td>
       </tr>
       <tr>
@@ -106,7 +107,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;map&gt;</pre>
+          <pre> *  Use of this source code is governed by a MIT license</pre>
         </td>
       </tr>
       <tr>
@@ -116,7 +117,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;limits&gt;</pre>
+          <pre> *  that can be found in the License file.</pre>
         </td>
       </tr>
       <tr>
@@ -126,7 +127,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;string&gt;</pre>
+          <pre> *</pre>
         </td>
       </tr>
       <tr>
@@ -136,7 +137,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;memory&gt;</pre>
+          <pre> *  Drogon</pre>
         </td>
       </tr>
       <tr>
@@ -146,7 +147,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;cstdint&gt;</pre>
+          <pre> *</pre>
         </td>
       </tr>
       <tr>
@@ -156,7 +157,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;stdexcept&gt;</pre>
+          <pre> */</pre>
         </td>
       </tr>
       <tr>
@@ -166,7 +167,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;functional&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -176,7 +177,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;type_traits&gt;</pre>
+          <pre>// Taken from libpqxx and modified.</pre>
         </td>
       </tr>
       <tr>
@@ -186,7 +187,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>// The license for libpqxx can be found in the COPYING file.</pre>
         </td>
       </tr>
       <tr>
@@ -196,7 +197,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>//Project Includes</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -206,7 +207,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;corvusoft/restbed/byte.hpp&gt;</pre>
+          <pre>#pragma once</pre>
         </td>
       </tr>
       <tr>
@@ -216,7 +217,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;corvusoft/restbed/common.hpp&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -226,7 +227,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>#include &lt;drogon/exports.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -236,7 +237,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>//External Includes</pre>
+          <pre>#include &lt;drogon/utils/string_view.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -246,7 +247,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>#include &lt;drogon/orm/ArrayParser.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -256,7 +257,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>//Windows DLL Exports</pre>
+          <pre>#include &lt;drogon/orm/Result.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -266,7 +267,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#ifdef RESTBED_STATIC</pre>
+          <pre>#include &lt;drogon/orm/Row.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -276,7 +277,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  #define REQUEST_EXPORT</pre>
+          <pre>#include &lt;trantor/utils/Logger.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -286,7 +287,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#elif defined(_WIN32) || defined(__WIN32__) || defined(WIN32) || defined(_WIN64)</pre>
+          <pre>#include &lt;memory&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -296,7 +297,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  #ifdef WIN_DLL_EXPORT</pre>
+          <pre>#include &lt;sstream&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -306,7 +307,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    #define REQUEST_EXPORT __declspec(dllexport)</pre>
+          <pre>#include &lt;string&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -316,7 +317,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  #else</pre>
+          <pre>#include &lt;vector&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -326,7 +327,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    #define REQUEST_EXPORT __declspec(dllimport)</pre>
+          <pre>#ifdef __linux__</pre>
         </td>
       </tr>
       <tr>
@@ -336,7 +337,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  #endif</pre>
+          <pre>#include &lt;arpa/inet.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -346,7 +347,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#else</pre>
+          <pre>#endif</pre>
         </td>
       </tr>
       <tr>
@@ -356,7 +357,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  #define REQUEST_EXPORT __attribute__((visibility ("default")))</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -366,7 +367,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#endif</pre>
+          <pre>namespace drogon</pre>
         </td>
       </tr>
       <tr>
@@ -376,7 +377,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -386,7 +387,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>//System Namespaces</pre>
+          <pre>namespace orm</pre>
         </td>
       </tr>
       <tr>
@@ -396,7 +397,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -406,7 +407,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>//Project Namespaces</pre>
+          <pre>/// Reference to a field in a result set.</pre>
         </td>
       </tr>
       <tr>
@@ -416,7 +417,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>/**</pre>
         </td>
       </tr>
       <tr>
@@ -426,7 +427,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>//External Namespaces</pre>
+          <pre> * A field represents one entry in a row.  It represents an actual value</pre>
         </td>
       </tr>
       <tr>
@@ -436,7 +437,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre> * in the result set, and can be converted to various types.</pre>
         </td>
       </tr>
       <tr>
@@ -446,7 +447,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>namespace restbed</pre>
+          <pre> */</pre>
         </td>
       </tr>
       <tr>
@@ -456,7 +457,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>class DROGON_EXPORT Field</pre>
         </td>
       </tr>
       <tr>
@@ -466,7 +467,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    //Forward Declarations</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -476,7 +477,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    class Uri;</pre>
+          <pre>  public:</pre>
         </td>
       </tr>
       <tr>
@@ -486,7 +487,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    class Http;</pre>
+          <pre>    using SizeType = unsigned long;</pre>
         </td>
       </tr>
       <tr>
@@ -496,7 +497,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    class Session;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -506,7 +507,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    class Response;</pre>
+          <pre>    /// Column name</pre>
         </td>
       </tr>
       <tr>
@@ -516,7 +517,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    </pre>
+          <pre>    const char *name() const;</pre>
         </td>
       </tr>
       <tr>
@@ -526,7 +527,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    namespace detail</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -536,7 +537,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    {</pre>
+          <pre>    /// Is this field's value null?</pre>
         </td>
       </tr>
       <tr>
@@ -546,7 +547,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        class HttpImpl;</pre>
+          <pre>    bool isNull() const;</pre>
         </td>
       </tr>
       <tr>
@@ -556,7 +557,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        class SessionImpl;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -566,7 +567,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        class ServiceImpl;</pre>
+          <pre>    /// Read as plain C string</pre>
         </td>
       </tr>
       <tr>
@@ -576,7 +577,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        struct RequestImpl;</pre>
+          <pre>    /**</pre>
         </td>
       </tr>
       <tr>
@@ -586,7 +587,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        class WebSocketManagerImpl;</pre>
+          <pre>     * Since the field's data is stored internally in the form of a</pre>
         </td>
       </tr>
       <tr>
@@ -596,7 +597,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    }</pre>
+          <pre>     * zero-terminated C string, this is the fastest way to read it.  Use the</pre>
         </td>
       </tr>
       <tr>
@@ -606,7 +607,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    </pre>
+          <pre>     * to() or as() functions to convert the string to other types such as</pre>
         </td>
       </tr>
       <tr>
@@ -616,7 +617,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    class REQUEST_EXPORT Request</pre>
+          <pre>     * @c int, or to C++ strings.</pre>
         </td>
       </tr>
       <tr>
@@ -626,7 +627,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    {</pre>
+          <pre>     */</pre>
         </td>
       </tr>
       <tr>
@@ -636,7 +637,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        public:</pre>
+          <pre>    const char *c_str() const;</pre>
         </td>
       </tr>
       <tr>
@@ -646,7 +647,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Friends</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -656,7 +657,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>    /// Get the length of the plain C string</pre>
         </td>
       </tr>
       <tr>
@@ -666,7 +667,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Definitions</pre>
+          <pre>    size_t length() const</pre>
         </td>
       </tr>
       <tr>
@@ -674,9 +675,11 @@
           <a name='L65' href='#L65' id="L65">
           <pre>65</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -684,9 +687,12 @@
           <a name='L66' href='#L66' id="L66">
           <pre>66</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>            //Constructors</pre>
+          <pre><span class=
+          'red'>        return result_.getLength(row_, column_);</span></pre>
         </td>
       </tr>
       <tr>
@@ -694,9 +700,11 @@
           <a name='L67' href='#L67' id="L67">
           <pre>67</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>            Request( void );</pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -706,7 +714,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -716,7 +724,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            Request( const Uri& value );</pre>
+          <pre>    /// Convert to a type T value</pre>
         </td>
       </tr>
       <tr>
@@ -726,7 +734,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>    template &lt;typename T&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -736,7 +744,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            virtual ~Request( void );</pre>
+          <pre>    T as() const</pre>
         </td>
       </tr>
       <tr>
@@ -746,7 +754,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -756,7 +764,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Functionality</pre>
+          <pre>        if (isNull())</pre>
         </td>
       </tr>
       <tr>
@@ -766,7 +774,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            bool has_header( const std::string& name ) const;</pre>
+          <pre>            return T();</pre>
         </td>
       </tr>
       <tr>
@@ -776,7 +784,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        auto data_ = result_.getValue(row_, column_);</pre>
         </td>
       </tr>
       <tr>
@@ -786,7 +794,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            bool has_path_parameter( const std::string& name ) const;</pre>
+          <pre>        // auto dataLength_ = result_.getLength(row_, column_);</pre>
         </td>
       </tr>
       <tr>
@@ -796,7 +804,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        // For binary format!</pre>
         </td>
       </tr>
       <tr>
@@ -806,7 +814,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            bool has_query_parameter( const std::string& name ) const;</pre>
+          <pre>        // if (dataLength_ == 1)</pre>
         </td>
       </tr>
       <tr>
@@ -816,7 +824,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        // {</pre>
         </td>
       </tr>
       <tr>
@@ -826,7 +834,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Getters</pre>
+          <pre>        //     return *data_;</pre>
         </td>
       </tr>
       <tr>
@@ -836,7 +844,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            uint16_t get_port( void ) const;</pre>
+          <pre>        // }</pre>
         </td>
       </tr>
       <tr>
@@ -846,7 +854,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        // else if (dataLength_ == 4)</pre>
         </td>
       </tr>
       <tr>
@@ -856,7 +864,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            double get_version( void ) const;</pre>
+          <pre>        // {</pre>
         </td>
       </tr>
       <tr>
@@ -866,7 +874,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        //     const int32_t *n = (int32_t *)data_;</pre>
         </td>
       </tr>
       <tr>
@@ -876,7 +884,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            const Bytes& get_body( void ) const;</pre>
+          <pre>        //     return ntohl(*n);</pre>
         </td>
       </tr>
       <tr>
@@ -886,7 +894,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        // }</pre>
         </td>
       </tr>
       <tr>
@@ -896,7 +904,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            const std::shared_ptr&lt; const Response &gt; get_response( void ) const;</pre>
+          <pre>        // else if (dataLength_ == 8)</pre>
         </td>
       </tr>
       <tr>
@@ -906,7 +914,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        // {</pre>
         </td>
       </tr>
       <tr>
@@ -916,7 +924,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::string get_host( const std::function&lt; std::string ( const std::string& ) &gt;& transform = nullptr ) const;</pre>
+          <pre>        //     const int64_t *n = (int64_t *)data_;</pre>
         </td>
       </tr>
       <tr>
@@ -926,7 +934,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        //     return ntohll(*n);</pre>
         </td>
       </tr>
       <tr>
@@ -936,7 +944,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::string get_path( const std::function&lt; std::string ( const std::string& ) &gt;& transform = nullptr ) const;</pre>
+          <pre>        // }</pre>
         </td>
       </tr>
       <tr>
@@ -946,7 +954,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        // return 0;</pre>
         </td>
       </tr>
       <tr>
@@ -956,7 +964,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::string get_method( const std::function&lt; std::string ( const std::string& ) &gt;& transform = nullptr ) const;</pre>
+          <pre>        T value = T();</pre>
         </td>
       </tr>
       <tr>
@@ -966,7 +974,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        if (data_)</pre>
         </td>
       </tr>
       <tr>
@@ -976,7 +984,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::string get_protocol( const std::function&lt; std::string ( const std::string& ) &gt;& transform = nullptr ) const;</pre>
+          <pre>        {</pre>
         </td>
       </tr>
       <tr>
@@ -986,7 +994,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>            try</pre>
         </td>
       </tr>
       <tr>
@@ -996,7 +1004,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            void get_body( std::string& body, const std::function&lt; std::string ( const Bytes& ) &gt;& transform = nullptr ) const;</pre>
+          <pre>            {</pre>
         </td>
       </tr>
       <tr>
@@ -1006,7 +1014,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>                std::stringstream ss(data_);</pre>
         </td>
       </tr>
       <tr>
@@ -1016,7 +1024,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::string get_header( const std::string& name, const std::string& default_value = "" ) const;</pre>
+          <pre>                ss &gt;&gt; value;</pre>
         </td>
       </tr>
       <tr>
@@ -1026,7 +1034,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>            }</pre>
         </td>
       </tr>
       <tr>
@@ -1036,7 +1044,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::string get_header( const std::string& name, const std::function&lt; std::string ( const std::string& ) &gt;& transform ) const;</pre>
+          <pre>            catch (...)</pre>
         </td>
       </tr>
       <tr>
@@ -1046,7 +1054,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>            {</pre>
         </td>
       </tr>
       <tr>
@@ -1056,7 +1064,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            template &lt;typename Type, std::enable_if_t&lt; std::is_arithmetic&lt; std::remove_reference_t&lt; Type &gt; &gt;::value &gt; * = nullptr&gt; inline</pre>
+          <pre>                LOG_DEBUG &lt;&lt; "Type error";</pre>
         </td>
       </tr>
       <tr>
@@ -1066,7 +1074,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            Type get_header( const std::string& name, const Type default_value ) const</pre>
+          <pre>            }</pre>
         </td>
       </tr>
       <tr>
@@ -1074,11 +1082,9 @@
           <a name='L105' href='#L105' id="L105">
           <pre>105</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            {</pre>
+          <pre>        }</pre>
         </td>
       </tr>
       <tr>
@@ -1086,11 +1092,9 @@
           <a name='L106' href='#L106' id="L106">
           <pre>106</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                return Common::parse_parameter( get_header( name ), default_value );</pre>
+          <pre>        return value;</pre>
         </td>
       </tr>
       <tr>
@@ -1098,11 +1102,9 @@
           <a name='L107' href='#L107' id="L107">
           <pre>107</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            }</pre>
+          <pre>    }</pre>
         </td>
       </tr>
       <tr>
@@ -1112,7 +1114,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1122,7 +1124,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::multimap&lt; std::string, std::string &gt; get_headers( const std::string& name = "" ) const;</pre>
+          <pre>    /// Parse the field as an SQL array.</pre>
         </td>
       </tr>
       <tr>
@@ -1132,7 +1134,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>    /**</pre>
         </td>
       </tr>
       <tr>
@@ -1142,7 +1144,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::string get_query_parameter( const std::string& name, const std::string& default_value = "" ) const;</pre>
+          <pre>     * Call the parser to retrieve values (and structure) from the array.</pre>
         </td>
       </tr>
       <tr>
@@ -1152,7 +1154,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>     *</pre>
         </td>
       </tr>
       <tr>
@@ -1162,7 +1164,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::string get_query_parameter( const std::string& name, const std::function&lt; std::string ( const std::string& ) &gt;& transform ) const;</pre>
+          <pre>     * Make sure the @c result object stays alive until parsing is finished.  If</pre>
         </td>
       </tr>
       <tr>
@@ -1172,7 +1174,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>     * you keep the @c row of @c field object alive, it will keep the @c result</pre>
         </td>
       </tr>
       <tr>
@@ -1182,7 +1184,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            template &lt;typename Type, std::enable_if_t&lt; std::is_arithmetic&lt; std::remove_reference_t&lt; Type &gt; &gt;::value &gt; * = nullptr&gt; inline</pre>
+          <pre>     * object alive as well.</pre>
         </td>
       </tr>
       <tr>
@@ -1192,7 +1194,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            Type get_query_parameter( const std::string& name, const Type default_value ) const</pre>
+          <pre>     */</pre>
         </td>
       </tr>
       <tr>
@@ -1202,7 +1204,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            {</pre>
+          <pre>    ArrayParser getArrayParser() const</pre>
         </td>
       </tr>
       <tr>
@@ -1210,9 +1212,11 @@
           <a name='L118' href='#L118' id="L118">
           <pre>118</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>                return Common::parse_parameter( get_query_parameter( name ), default_value );</pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -1220,9 +1224,12 @@
           <a name='L119' href='#L119' id="L119">
           <pre>119</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>            }</pre>
+          <pre><span class=
+          'red'>        return ArrayParser(result_.getValue(row_, column_));</span></pre>
         </td>
       </tr>
       <tr>
@@ -1230,9 +1237,11 @@
           <a name='L120' href='#L120' id="L120">
           <pre>120</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>            </pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -1242,7 +1251,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::multimap&lt; std::string, std::string &gt; get_query_parameters( const std::string& name = "" ) const;</pre>
+          <pre>    template &lt;typename T&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -1252,7 +1261,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>    std::vector&lt;std::shared_ptr&lt;T&gt;&gt; asArray() const</pre>
         </td>
       </tr>
       <tr>
@@ -1262,7 +1271,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::string get_path_parameter( const std::string& name, const std::string& default_value = "" ) const;</pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -1272,7 +1281,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        std::vector&lt;std::shared_ptr&lt;T&gt;&gt; ret;</pre>
         </td>
       </tr>
       <tr>
@@ -1282,7 +1291,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::string get_path_parameter( const std::string& name, const std::function&lt; std::string ( const std::string& ) &gt;& transform ) const;</pre>
+          <pre>        auto arrParser = getArrayParser();</pre>
         </td>
       </tr>
       <tr>
@@ -1292,7 +1301,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        while (1)</pre>
         </td>
       </tr>
       <tr>
@@ -1302,7 +1311,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            template &lt;typename Type, std::enable_if_t&lt; std::is_arithmetic&lt; std::remove_reference_t&lt; Type &gt; &gt;::value &gt; * = nullptr&gt; inline</pre>
+          <pre>        {</pre>
         </td>
       </tr>
       <tr>
@@ -1312,7 +1321,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            Type get_path_parameter( const std::string& name, const Type default_value ) const</pre>
+          <pre>            auto arrVal = arrParser.getNext();</pre>
         </td>
       </tr>
       <tr>
@@ -1322,7 +1331,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            {</pre>
+          <pre>            if (arrVal.first == ArrayParser::juncture::done)</pre>
         </td>
       </tr>
       <tr>
@@ -1332,7 +1341,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                return Common::parse_parameter( get_path_parameter( name ), default_value );</pre>
+          <pre>            {</pre>
         </td>
       </tr>
       <tr>
@@ -1342,7 +1351,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            }</pre>
+          <pre>                break;</pre>
         </td>
       </tr>
       <tr>
@@ -1352,7 +1361,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>            }</pre>
         </td>
       </tr>
       <tr>
@@ -1362,7 +1371,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::map&lt; std::string, std::string &gt; get_path_parameters( const std::string& name = "" ) const;</pre>
+          <pre>            if (arrVal.first == ArrayParser::juncture::string_value)</pre>
         </td>
       </tr>
       <tr>
@@ -1372,7 +1381,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>            {</pre>
         </td>
       </tr>
       <tr>
@@ -1382,7 +1391,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Setters</pre>
+          <pre>                T val;</pre>
         </td>
       </tr>
       <tr>
@@ -1392,7 +1401,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            void set_body( const Bytes& value );</pre>
+          <pre>                std::stringstream ss(std::move(arrVal.second));</pre>
         </td>
       </tr>
       <tr>
@@ -1402,7 +1411,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>                ss &gt;&gt; val;</pre>
         </td>
       </tr>
       <tr>
@@ -1412,7 +1421,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            void set_body( const std::string& value );</pre>
+          <pre>                ret.push_back(std::shared_ptr&lt;T&gt;(new T(val)));</pre>
         </td>
       </tr>
       <tr>
@@ -1422,7 +1431,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>            }</pre>
         </td>
       </tr>
       <tr>
@@ -1432,7 +1441,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            void set_port( const uint16_t value );</pre>
+          <pre>            else if (arrVal.first == ArrayParser::juncture::null_value)</pre>
         </td>
       </tr>
       <tr>
@@ -1442,7 +1451,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>            {</pre>
         </td>
       </tr>
       <tr>
@@ -1452,7 +1461,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            void set_version( const double value );</pre>
+          <pre>                ret.push_back(std::shared_ptr&lt;T&gt;());</pre>
         </td>
       </tr>
       <tr>
@@ -1462,7 +1471,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>            }</pre>
         </td>
       </tr>
       <tr>
@@ -1472,7 +1481,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            void set_path( const std::string& value );</pre>
+          <pre>        }</pre>
         </td>
       </tr>
       <tr>
@@ -1482,7 +1491,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>        return ret;</pre>
         </td>
       </tr>
       <tr>
@@ -1492,7 +1501,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            void set_host( const std::string& value );</pre>
+          <pre>    }</pre>
         </td>
       </tr>
       <tr>
@@ -1502,7 +1511,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1512,7 +1521,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            void set_method( const std::string& value );</pre>
+          <pre>  protected:</pre>
         </td>
       </tr>
       <tr>
@@ -1522,7 +1531,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>    Result::SizeType row_;</pre>
         </td>
       </tr>
       <tr>
@@ -1532,7 +1541,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            void set_protocol( const std::string& value );</pre>
+          <pre>    /**</pre>
         </td>
       </tr>
       <tr>
@@ -1542,7 +1551,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>     * Column number</pre>
         </td>
       </tr>
       <tr>
@@ -1552,7 +1561,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            void add_header( const std::string& name, const std::string& value );</pre>
+          <pre>     * You'd expect this to be a size_t, but due to the way reverse iterators</pre>
         </td>
       </tr>
       <tr>
@@ -1562,7 +1571,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>     * are related to regular iterators, it must be allowed to underflow to -1.</pre>
         </td>
       </tr>
       <tr>
@@ -1572,7 +1581,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            void set_header( const std::string& name, const std::string& value );</pre>
+          <pre>     */</pre>
         </td>
       </tr>
       <tr>
@@ -1582,7 +1591,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>    long column_;</pre>
         </td>
       </tr>
       <tr>
@@ -1592,7 +1601,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            void set_headers( const std::multimap&lt; std::string, std::string &gt;& values );</pre>
+          <pre>    friend class Row;</pre>
         </td>
       </tr>
       <tr>
@@ -1602,7 +1611,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>    Field(const Row &amp;row, Row::SizeType columnNum) noexcept;</pre>
         </td>
       </tr>
       <tr>
@@ -1612,7 +1621,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            void set_query_parameter( const std::string& name, const std::string& value );</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1622,7 +1631,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>  private:</pre>
         </td>
       </tr>
       <tr>
@@ -1632,7 +1641,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            void set_query_parameters( const std::multimap&lt; std::string, std::string &gt;& values );</pre>
+          <pre>    const Result result_;</pre>
         </td>
       </tr>
       <tr>
@@ -1642,7 +1651,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>};</pre>
         </td>
       </tr>
       <tr>
@@ -1652,7 +1661,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Operators</pre>
+          <pre>template &lt;&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -1662,7 +1671,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>DROGON_EXPORT std::string Field::as&lt;std::string&gt;() const;</pre>
         </td>
       </tr>
       <tr>
@@ -1672,7 +1681,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Properties</pre>
+          <pre>template &lt;&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -1682,7 +1691,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>DROGON_EXPORT const char *Field::as&lt;const char *&gt;() const;</pre>
         </td>
       </tr>
       <tr>
@@ -1692,7 +1701,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        protected:</pre>
+          <pre>template &lt;&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -1702,7 +1711,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Friends</pre>
+          <pre>DROGON_EXPORT char *Field::as&lt;char *&gt;() const;</pre>
         </td>
       </tr>
       <tr>
@@ -1712,7 +1721,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>template &lt;&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -1722,7 +1731,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Definitions</pre>
+          <pre>DROGON_EXPORT std::vector&lt;char&gt; Field::as&lt;std::vector&lt;char&gt;&gt;() const;</pre>
         </td>
       </tr>
       <tr>
@@ -1732,7 +1741,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>template &lt;&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -1742,7 +1751,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Constructors</pre>
+          <pre>inline drogon::string_view Field::as&lt;drogon::string_view&gt;() const</pre>
         </td>
       </tr>
       <tr>
@@ -1750,9 +1759,11 @@
           <a name='L172' href='#L172' id="L172">
           <pre>172</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>            </pre>
+          <pre><span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -1760,9 +1771,12 @@
           <a name='L173' href='#L173' id="L173">
           <pre>173</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>            //Functionality</pre>
+          <pre><span class=
+          'red'>    auto first = result_.getValue(row_, column_);</span></pre>
         </td>
       </tr>
       <tr>
@@ -1770,9 +1784,12 @@
           <a name='L174' href='#L174' id="L174">
           <pre>174</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>            </pre>
+          <pre><span class=
+          'red'>    auto length = result_.getLength(row_, column_);</span></pre>
         </td>
       </tr>
       <tr>
@@ -1780,9 +1797,12 @@
           <a name='L175' href='#L175' id="L175">
           <pre>175</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>            //Getters</pre>
+          <pre><span class=
+          'red'>    return drogon::string_view(first, length);</span></pre>
         </td>
       </tr>
       <tr>
@@ -1790,9 +1810,11 @@
           <a name='L176' href='#L176' id="L176">
           <pre>176</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>            </pre>
+          <pre><span class='red'>}</span></pre>
         </td>
       </tr>
       <tr>
@@ -1802,7 +1824,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Setters</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1812,7 +1834,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre>template &lt;&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -1822,7 +1844,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Operators</pre>
+          <pre>inline float Field::as&lt;float&gt;() const</pre>
         </td>
       </tr>
       <tr>
@@ -1830,9 +1852,11 @@
           <a name='L180' href='#L180' id="L180">
           <pre>180</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>            </pre>
+          <pre><span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -1840,9 +1864,11 @@
           <a name='L181' href='#L181' id="L181">
           <pre>181</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>            //Properties</pre>
+          <pre><span class='red'>    if (isNull())</span></pre>
         </td>
       </tr>
       <tr>
@@ -1850,9 +1876,11 @@
           <a name='L182' href='#L182' id="L182">
           <pre>182</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>            </pre>
+          <pre><span class='red'>        return 0.0;</span></pre>
         </td>
       </tr>
       <tr>
@@ -1860,9 +1888,12 @@
           <a name='L183' href='#L183' id="L183">
           <pre>183</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>        private:</pre>
+          <pre><span class=
+          'red'>    return std::stof(result_.getValue(row_, column_));</span></pre>
         </td>
       </tr>
       <tr>
@@ -1870,9 +1901,11 @@
           <a name='L184' href='#L184' id="L184">
           <pre>184</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>            //Friends</pre>
+          <pre><span class='red'>}</span></pre>
         </td>
       </tr>
       <tr>
@@ -1882,7 +1915,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            friend Http;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1892,7 +1925,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            friend Session;</pre>
+          <pre>template &lt;&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -1902,7 +1935,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            friend detail::HttpImpl;</pre>
+          <pre>inline double Field::as&lt;double&gt;() const</pre>
         </td>
       </tr>
       <tr>
@@ -1910,9 +1943,11 @@
           <a name='L188' href='#L188' id="L188">
           <pre>188</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>            friend detail::SessionImpl;</pre>
+          <pre><span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -1920,9 +1955,11 @@
           <a name='L189' href='#L189' id="L189">
           <pre>189</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>            friend detail::ServiceImpl;</pre>
+          <pre><span class='red'>    if (isNull())</span></pre>
         </td>
       </tr>
       <tr>
@@ -1930,9 +1967,11 @@
           <a name='L190' href='#L190' id="L190">
           <pre>190</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>            friend detail::WebSocketManagerImpl;</pre>
+          <pre><span class='red'>        return 0.0;</span></pre>
         </td>
       </tr>
       <tr>
@@ -1940,9 +1979,12 @@
           <a name='L191' href='#L191' id="L191">
           <pre>191</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>            </pre>
+          <pre><span class=
+          'red'>    return std::stod(result_.getValue(row_, column_));</span></pre>
         </td>
       </tr>
       <tr>
@@ -1950,9 +1992,11 @@
           <a name='L192' href='#L192' id="L192">
           <pre>192</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>            //Definitions</pre>
+          <pre><span class='red'>}</span></pre>
         </td>
       </tr>
       <tr>
@@ -1962,7 +2006,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            </pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1972,7 +2016,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Constructors</pre>
+          <pre>template &lt;&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -1982,7 +2026,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            Request( const Request& original ) = delete;</pre>
+          <pre>inline bool Field::as&lt;bool&gt;() const</pre>
         </td>
       </tr>
       <tr>
@@ -1990,9 +2034,11 @@
           <a name='L196' href='#L196' id="L196">
           <pre>196</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>            </pre>
+          <pre><span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -2000,9 +2046,12 @@
           <a name='L197' href='#L197' id="L197">
           <pre>197</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>            //Functionality</pre>
+          <pre><span class=
+          'red'>    if (result_.getLength(row_, column_) != 1)</span></pre>
         </td>
       </tr>
       <tr>
@@ -2010,9 +2059,11 @@
           <a name='L198' href='#L198' id="L198">
           <pre>198</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>            </pre>
+          <pre><span class='red'>    {</span></pre>
         </td>
       </tr>
       <tr>
@@ -2020,9 +2071,11 @@
           <a name='L199' href='#L199' id="L199">
           <pre>199</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>            //Getters</pre>
+          <pre><span class='red'>        return false;</span></pre>
         </td>
       </tr>
       <tr>
@@ -2030,9 +2083,11 @@
           <a name='L200' href='#L200' id="L200">
           <pre>200</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>            </pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -2040,9 +2095,12 @@
           <a name='L201' href='#L201' id="L201">
           <pre>201</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>            //Setters</pre>
+          <pre><span class=
+          'red'>    auto value = result_.getValue(row_, column_);</span></pre>
         </td>
       </tr>
       <tr>
@@ -2050,9 +2108,12 @@
           <a name='L202' href='#L202' id="L202">
           <pre>202</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>            </pre>
+          <pre><span class=
+          'red'>    if (*value == 't' || *value == '1')</span></pre>
         </td>
       </tr>
       <tr>
@@ -2060,9 +2121,11 @@
           <a name='L203' href='#L203' id="L203">
           <pre>203</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>            //Operators</pre>
+          <pre><span class='red'>        return true;</span></pre>
         </td>
       </tr>
       <tr>
@@ -2070,9 +2133,11 @@
           <a name='L204' href='#L204' id="L204">
           <pre>204</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>            Request& operator =( const Request& value ) = delete;</pre>
+          <pre><span class='red'>    return false;</span></pre>
         </td>
       </tr>
       <tr>
@@ -2080,9 +2145,11 @@
           <a name='L205' href='#L205' id="L205">
           <pre>205</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>            </pre>
+          <pre><span class='red'>}</span></pre>
         </td>
       </tr>
       <tr>
@@ -2092,7 +2159,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //Properties</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -2102,7 +2169,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::unique_ptr&lt; detail::RequestImpl &gt; m_pimpl;</pre>
+          <pre>template &lt;&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -2112,7 +2179,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    };</pre>
+          <pre>inline int Field::as&lt;int&gt;() const</pre>
         </td>
       </tr>
       <tr>
@@ -2120,9 +2187,770 @@
           <a name='L209' href='#L209' id="L209">
           <pre>209</pre></a>
         </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L210' href='#L210' id="L210">
+          <pre>210</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>    if (isNull())</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L211' href='#L211' id="L211">
+          <pre>211</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>        return 0;</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L212' href='#L212' id="L212">
+          <pre>212</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>    return std::stoi(result_.getValue(row_, column_));</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L213' href='#L213' id="L213">
+          <pre>213</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>}</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L214' href='#L214' id="L214">
+          <pre>214</pre></a>
+        </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>}</pre>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L215' href='#L215' id="L215">
+          <pre>215</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>template &lt;&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L216' href='#L216' id="L216">
+          <pre>216</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>inline long Field::as&lt;long&gt;() const</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L217' href='#L217' id="L217">
+          <pre>217</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L218' href='#L218' id="L218">
+          <pre>218</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>    if (isNull())</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L219' href='#L219' id="L219">
+          <pre>219</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>        return 0;</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L220' href='#L220' id="L220">
+          <pre>220</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>    return std::stol(result_.getValue(row_, column_));</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L221' href='#L221' id="L221">
+          <pre>221</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>}</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L222' href='#L222' id="L222">
+          <pre>222</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L223' href='#L223' id="L223">
+          <pre>223</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>template &lt;&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L224' href='#L224' id="L224">
+          <pre>224</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>inline int8_t Field::as&lt;int8_t&gt;() const</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L225' href='#L225' id="L225">
+          <pre>225</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L226' href='#L226' id="L226">
+          <pre>226</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>    if (isNull())</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L227' href='#L227' id="L227">
+          <pre>227</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>        return 0;</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L228' href='#L228' id="L228">
+          <pre>228</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>    return static_cast&lt;int8_t&gt;(atoi(result_.getValue(row_, column_)));</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L229' href='#L229' id="L229">
+          <pre>229</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>}</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L230' href='#L230' id="L230">
+          <pre>230</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L231' href='#L231' id="L231">
+          <pre>231</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>template &lt;&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L232' href='#L232' id="L232">
+          <pre>232</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>inline long long Field::as&lt;long long&gt;() const</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L233' href='#L233' id="L233">
+          <pre>233</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L234' href='#L234' id="L234">
+          <pre>234</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>    if (isNull())</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L235' href='#L235' id="L235">
+          <pre>235</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>        return 0;</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L236' href='#L236' id="L236">
+          <pre>236</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>    return atoll(result_.getValue(row_, column_));</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L237' href='#L237' id="L237">
+          <pre>237</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>}</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L238' href='#L238' id="L238">
+          <pre>238</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L239' href='#L239' id="L239">
+          <pre>239</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>template &lt;&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L240' href='#L240' id="L240">
+          <pre>240</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>inline unsigned int Field::as&lt;unsigned int&gt;() const</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L241' href='#L241' id="L241">
+          <pre>241</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L242' href='#L242' id="L242">
+          <pre>242</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>    if (isNull())</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L243' href='#L243' id="L243">
+          <pre>243</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>        return 0;</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L244' href='#L244' id="L244">
+          <pre>244</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>    return static_cast&lt;unsigned int&gt;(</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L245' href='#L245' id="L245">
+          <pre>245</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>        std::stoi(result_.getValue(row_, column_)));</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L246' href='#L246' id="L246">
+          <pre>246</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>}</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L247' href='#L247' id="L247">
+          <pre>247</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L248' href='#L248' id="L248">
+          <pre>248</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>template &lt;&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L249' href='#L249' id="L249">
+          <pre>249</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>inline unsigned long Field::as&lt;unsigned long&gt;() const</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L250' href='#L250' id="L250">
+          <pre>250</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L251' href='#L251' id="L251">
+          <pre>251</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>    if (isNull())</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L252' href='#L252' id="L252">
+          <pre>252</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>        return 0;</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L253' href='#L253' id="L253">
+          <pre>253</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>    return std::stoul(result_.getValue(row_, column_));</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L254' href='#L254' id="L254">
+          <pre>254</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>}</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L255' href='#L255' id="L255">
+          <pre>255</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L256' href='#L256' id="L256">
+          <pre>256</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>template &lt;&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L257' href='#L257' id="L257">
+          <pre>257</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>inline uint8_t Field::as&lt;uint8_t&gt;() const</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L258' href='#L258' id="L258">
+          <pre>258</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L259' href='#L259' id="L259">
+          <pre>259</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>    if (isNull())</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L260' href='#L260' id="L260">
+          <pre>260</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>        return 0;</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L261' href='#L261' id="L261">
+          <pre>261</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>    return static_cast&lt;uint8_t&gt;(atoi(result_.getValue(row_, column_)));</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L262' href='#L262' id="L262">
+          <pre>262</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>}</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L263' href='#L263' id="L263">
+          <pre>263</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L264' href='#L264' id="L264">
+          <pre>264</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>template &lt;&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L265' href='#L265' id="L265">
+          <pre>265</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>inline unsigned long long Field::as&lt;unsigned long long&gt;() const</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L266' href='#L266' id="L266">
+          <pre>266</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L267' href='#L267' id="L267">
+          <pre>267</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>    if (isNull())</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L268' href='#L268' id="L268">
+          <pre>268</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>        return 0;</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L269' href='#L269' id="L269">
+          <pre>269</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>    return std::stoull(result_.getValue(row_, column_));</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L270' href='#L270' id="L270">
+          <pre>270</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>}</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L271' href='#L271' id="L271">
+          <pre>271</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L272' href='#L272' id="L272">
+          <pre>272</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>// std::vector&lt;int32_t&gt; Field::as&lt;std::vector&lt;int32_t&gt;&gt;() const;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L273' href='#L273' id="L273">
+          <pre>273</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>// template &lt;&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L274' href='#L274' id="L274">
+          <pre>274</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>// std::vector&lt;int64_t&gt; Field::as&lt;std::vector&lt;int64_t&gt;&gt;() const;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L275' href='#L275' id="L275">
+          <pre>275</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>}  // namespace orm</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L276' href='#L276' id="L276">
+          <pre>276</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>}  // namespace drogon</pre>
         </td>
       </tr>
     </table>

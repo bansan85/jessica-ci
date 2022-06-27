@@ -7,7 +7,7 @@
   'width=device-width,initial-scale=1'>
   <meta charset='UTF-8'>
   <link rel='stylesheet' type='text/css' href=
-  '../../../../../../../../../../style.css'>
+  '../../../../../../../../../../../style.css'>
   <title></title>
 </head>
 <body>
@@ -15,7 +15,7 @@
   <h4></h4>
   <div class='centered'>
     <div class='source-name-title'>
-      <pre>/home/runner/work/jessica/jessica/include/jessica/data/load/vertical_eccentric.h</pre>
+      <pre>/home/runner/work/jessica/jessica/include/jessica/helper/adapter/webservice/drogon.h</pre>
     </div>
     <table>
       <tr>
@@ -56,7 +56,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;cstdint&gt;</pre>
+          <pre>#include &lt;map&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -66,7 +66,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;limits&gt;</pre>
+          <pre>#include &lt;string&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -76,7 +76,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;memory&gt;</pre>
+          <pre>#include &lt;utility&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -96,7 +96,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/compat.h&gt;</pre>
+          <pre>#include &lt;jessica/helper/clean/drogon/drogon.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -106,7 +106,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/helper/accessor.h&gt;</pre>
+          <pre>#include &lt;jessica/helper/constexpr.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -116,7 +116,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/helper/clean/cereal/cereal.h&gt;</pre>
+          <pre>#include &lt;jessica/helper/poo.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -126,7 +126,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/helper/template.h&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -136,7 +136,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/util/decorator/macro.h&gt;</pre>
+          <pre>namespace jessica</pre>
         </td>
       </tr>
       <tr>
@@ -146,7 +146,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -156,7 +156,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>namespace jessica</pre>
+          <pre>class DrogonWs</pre>
         </td>
       </tr>
       <tr>
@@ -176,7 +176,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>class JESSICA_DLL_PUBLIC VerticalEccentric final</pre>
+          <pre> public:</pre>
         </td>
       </tr>
       <tr>
@@ -186,7 +186,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>  DrogonWs();</pre>
         </td>
       </tr>
       <tr>
@@ -196,7 +196,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> public:</pre>
+          <pre>  RULE_OF_FIVE_NO_COPY(DrogonWs)</pre>
         </td>
       </tr>
       <tr>
@@ -204,11 +204,9 @@
           <a name='L18' href='#L18' id="L18">
           <pre>18</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>20</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  VerticalEccentric() = default;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -218,7 +216,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  RULE_OF_FIVE_COPY_AND_CLONE(VerticalEccentric)</pre>
+          <pre>  void AddPath(</pre>
         </td>
       </tr>
       <tr>
@@ -228,7 +226,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>      const std::string& method, const std::string& path,</pre>
         </td>
       </tr>
       <tr>
@@ -236,11 +234,9 @@
           <a name='L21' href='#L21' id="L21">
           <pre>21</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>38</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] double V() const { return v_; }</pre>
+          <pre>      const std::function&lt;std::pair&lt;int, std::string&gt;(const std::string&amp;)&gt;&</pre>
         </td>
       </tr>
       <tr>
@@ -250,7 +246,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>          func);</pre>
         </td>
       </tr>
       <tr>
@@ -260,7 +256,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] std::shared_ptr&lt;VerticalEccentric&gt; SetV(const double v) const</pre>
+          <pre>  void Start(unsigned short port);</pre>
         </td>
       </tr>
       <tr>
@@ -268,11 +264,9 @@
           <a name='L24' href='#L24' id="L24">
           <pre>24</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>10</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>  void WaitStarted();</pre>
         </td>
       </tr>
       <tr>
@@ -280,11 +274,9 @@
           <a name='L25' href='#L25' id="L25">
           <pre>25</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>10</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    auto retval = Clone();</pre>
+          <pre>  void Stop();</pre>
         </td>
       </tr>
       <tr>
@@ -292,11 +284,9 @@
           <a name='L26' href='#L26' id="L26">
           <pre>26</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>10</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    retval-&gt;v_ = v;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -304,11 +294,9 @@
           <a name='L27' href='#L27' id="L27">
           <pre>27</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>10</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    return retval;</pre>
+          <pre>  static constexpr drogon::HttpMethod</pre>
         </td>
       </tr>
       <tr>
@@ -316,11 +304,9 @@
           <a name='L28' href='#L28' id="L28">
           <pre>28</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>10</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  }</pre>
+          <pre>      GetHttpMethodFromString(std::string_view sv)</pre>
         </td>
       </tr>
       <tr>
@@ -328,9 +314,11 @@
           <a name='L29' href='#L29' id="L29">
           <pre>29</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>8</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -339,10 +327,10 @@
           <pre>30</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>65</pre>
+          <pre>8</pre>
         </td>
         <td class='code'>
-          <pre>  [[nodiscard]] double E() const { return e_; }</pre>
+          <pre>    constexpr auto map =</pre>
         </td>
       </tr>
       <tr>
@@ -350,9 +338,11 @@
           <a name='L31' href='#L31' id="L31">
           <pre>31</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>8</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre>        ConstExprMap&lt;std::string_view, drogon::HttpMethod, 7&gt;(http_method_);</pre>
         </td>
       </tr>
       <tr>
@@ -362,7 +352,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  [[nodiscard]] std::shared_ptr&lt;VerticalEccentric&gt; SetE(const double e) const</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -371,10 +361,10 @@
           <pre>33</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>19</pre>
+          <pre>8</pre>
         </td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>    return map.at(sv);</pre>
         </td>
       </tr>
       <tr>
@@ -383,10 +373,10 @@
           <pre>34</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>19</pre>
+          <pre>8</pre>
         </td>
         <td class='code'>
-          <pre>    auto retval = Clone();</pre>
+          <pre>  }</pre>
         </td>
       </tr>
       <tr>
@@ -394,11 +384,9 @@
           <a name='L35' href='#L35' id="L35">
           <pre>35</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>19</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    retval-&gt;e_ = e;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -406,11 +394,9 @@
           <a name='L36' href='#L36' id="L36">
           <pre>36</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>19</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    return retval;</pre>
+          <pre> private:</pre>
         </td>
       </tr>
       <tr>
@@ -418,11 +404,9 @@
           <a name='L37' href='#L37' id="L37">
           <pre>37</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>19</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  }</pre>
+          <pre>  static constexpr std::array&lt;std::pair&lt;std::string_view, drogon::HttpMethod&gt;,</pre>
         </td>
       </tr>
       <tr>
@@ -432,7 +416,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>                              7&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -442,7 +426,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  template &lt;class Archive&gt;</pre>
+          <pre>      http_method_{{{"GET", drogon::HttpMethod::Get},</pre>
         </td>
       </tr>
       <tr>
@@ -452,7 +436,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  void serialize(Archive& ar)</pre>
+          <pre>                    {"POST", drogon::HttpMethod::Post},</pre>
         </td>
       </tr>
       <tr>
@@ -460,11 +444,9 @@
           <a name='L41' href='#L41' id="L41">
           <pre>41</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>19</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>                    {"HEAD", drogon::HttpMethod::Head},</pre>
         </td>
       </tr>
       <tr>
@@ -472,11 +454,9 @@
           <a name='L42' href='#L42' id="L42">
           <pre>42</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>19</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    ar(cereal::make_nvp("v", v_), cereal::make_nvp("e", e_));</pre>
+          <pre>                    {"PUT", drogon::HttpMethod::Put},</pre>
         </td>
       </tr>
       <tr>
@@ -484,123 +464,9 @@
           <a name='L43' href='#L43' id="L43">
           <pre>43</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>19</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  }</pre>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7jessica17VerticalEccentric9serializeIN6cereal17JSONOutputArchiveEEEvRT_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L41' href='#L41' id="L41">
-                    <pre>41</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L42' href='#L42' id="L42">
-                    <pre>42</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    ar(cereal::make_nvp("v", v_), cereal::make_nvp("e", e_));</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L43' href='#L43' id="L43">
-                    <pre>43</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>10</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class='expansion-view'>
-            <div class='centered'>
-              <div class='source-name-title'>
-                <pre>_ZN7jessica17VerticalEccentric9serializeIN6cereal16JSONInputArchiveEEEvRT_</pre>
-              </div>
-              <table>
-                <tr>
-                  <td>
-                    <pre>Line</pre>
-                  </td>
-                  <td>
-                    <pre>Count</pre>
-                  </td>
-                  <td>
-                    <pre>Source</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L41' href='#L41' id="L41">
-                    <pre>41</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  {</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L42' href='#L42' id="L42">
-                    <pre>42</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>    ar(cereal::make_nvp("v", v_), cereal::make_nvp("e", e_));</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
-                    <a name='L43' href='#L43' id="L43">
-                    <pre>43</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>9</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>  }</pre>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
+          <pre>                    {"DELETE", drogon::HttpMethod::Delete},</pre>
         </td>
       </tr>
       <tr>
@@ -610,7 +476,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>                    {"OPTIONS", drogon::HttpMethod::Options},</pre>
         </td>
       </tr>
       <tr>
@@ -620,7 +486,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> private:</pre>
+          <pre>                    {"PATCH", drogon::HttpMethod::Patch}}};</pre>
         </td>
       </tr>
       <tr>
@@ -630,7 +496,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  double v_ = std::numeric_limits&lt;double&gt;::quiet_NaN();</pre>
+          <pre>  drogon::HttpAppFramework& app_;</pre>
         </td>
       </tr>
       <tr>
@@ -640,7 +506,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  double e_ = std::numeric_limits&lt;double&gt;::quiet_NaN();</pre>
+          <pre>};</pre>
         </td>
       </tr>
       <tr>
@@ -650,13 +516,103 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>};</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L49' href='#L49' id="L49">
           <pre>49</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>class DrogonRequest</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L50' href='#L50' id="L50">
+          <pre>50</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>{</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L51' href='#L51' id="L51">
+          <pre>51</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre> public:</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L52' href='#L52' id="L52">
+          <pre>52</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  static std::pair&lt;int, std::string&gt; Sync(const std::string& hostname,</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L53' href='#L53' id="L53">
+          <pre>53</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>                                          unsigned short port,</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L54' href='#L54' id="L54">
+          <pre>54</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>                                          const std::string& method,</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L55' href='#L55' id="L55">
+          <pre>55</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>                                          const std::string& path,</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L56' href='#L56' id="L56">
+          <pre>56</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>                                          const std::string& body);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L57' href='#L57' id="L57">
+          <pre>57</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>};</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L58' href='#L58' id="L58">
+          <pre>58</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
