@@ -1069,17 +1069,17 @@ var jessica = (() => {
       });
     }
 
-    if (!Object.getOwnPropertyDescriptor(Module['ready'], '___stdio_exit')) {
-      Object.defineProperty(Module['ready'], '___stdio_exit', {
+    if (!Object.getOwnPropertyDescriptor(Module['ready'], '_fflush')) {
+      Object.defineProperty(Module['ready'], '_fflush', {
         configurable: true,
         get: function () {
-          abort('You are getting ___stdio_exit on the Promise object, instead of the instance. Use .then() to get called back with the instance, see the MODULARIZE docs in src/settings.js');
+          abort('You are getting _fflush on the Promise object, instead of the instance. Use .then() to get called back with the instance, see the MODULARIZE docs in src/settings.js');
         }
       });
-      Object.defineProperty(Module['ready'], '___stdio_exit', {
+      Object.defineProperty(Module['ready'], '_fflush', {
         configurable: true,
         set: function () {
-          abort('You are setting ___stdio_exit on the Promise object, instead of the instance. Use .then() to get called back with the instance, see the MODULARIZE docs in src/settings.js');
+          abort('You are setting _fflush on the Promise object, instead of the instance. Use .then() to get called back with the instance, see the MODULARIZE docs in src/settings.js');
         }
       });
     }
@@ -1126,7 +1126,7 @@ var jessica = (() => {
     var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIRONMENT_IS_WORKER;
 
     if (Module['ENVIRONMENT']) {
-      throw new Error('Module.ENVIRONMENT has been deprecated. To force the environment, use the ENVIRONMENT compile-time option (for example, -s ENVIRONMENT=web or -s ENVIRONMENT=node)');
+      throw new Error('Module.ENVIRONMENT has been deprecated. To force the environment, use the ENVIRONMENT compile-time option (for example, -sENVIRONMENT=web or -sENVIRONMENT=node)');
     } // `/` should be present at the end if `scriptDirectory` is not empty
 
 
@@ -1332,8 +1332,8 @@ var jessica = (() => {
       abort('`alignMemory` is now a library function and not included by default; add it to your library.js __deps or to DEFAULT_LIBRARY_FUNCS_TO_INCLUDE on the command line');
     }
 
-    assert(!ENVIRONMENT_IS_NODE, "node environment detected but not enabled at build time.  Add 'node' to `-s ENVIRONMENT` to enable.");
-    assert(!ENVIRONMENT_IS_SHELL, "shell environment detected but not enabled at build time.  Add 'shell' to `-s ENVIRONMENT` to enable.");
+    assert(!ENVIRONMENT_IS_NODE, "node environment detected but not enabled at build time.  Add 'node' to `-sENVIRONMENT` to enable.");
+    assert(!ENVIRONMENT_IS_SHELL, "shell environment detected but not enabled at build time.  Add 'shell' to `-sENVIRONMENT` to enable.");
     var STACK_ALIGN = 16;
     var POINTER_SIZE = 4;
 
@@ -1341,15 +1341,19 @@ var jessica = (() => {
       switch (type) {
         case 'i1':
         case 'i8':
+        case 'u8':
           return 1;
 
         case 'i16':
+        case 'u16':
           return 2;
 
         case 'i32':
+        case 'u32':
           return 4;
 
         case 'i64':
+        case 'u64':
           return 8;
 
         case 'float':
@@ -1381,7 +1385,42 @@ var jessica = (() => {
         err(text);
       }
     } // include: runtime_functions.js
-    // Wraps a JS function as a wasm function with a given signature.
+    // This gives correct answers for everything less than 2^{14} = 16384
+    // I hope nobody is contemplating functions with 16384 arguments...
+
+
+    function uleb128Encode(n) {
+      assert(n < 16384);
+
+      if (n < 128) {
+        return [n];
+      }
+
+      return [n % 128 | 128, n >> 7];
+    } // Converts a signature like 'vii' into a description of the wasm types, like
+    // { parameters: ['i32', 'i32'], results: [] }.
+
+
+    function sigToWasmTypes(sig) {
+      var typeNames = {
+        'i': 'i32',
+        'j': 'i64',
+        'f': 'f32',
+        'd': 'f64',
+        'p': 'i32'
+      };
+      var type = {
+        parameters: [],
+        results: sig[0] == 'v' ? [] : [typeNames[sig[0]]]
+      };
+
+      for (var i = 1; i < sig.length; ++i) {
+        assert(sig[i] in typeNames, 'invalid signature char: ' + sig[i]);
+        type.parameters.push(typeNames[sig[i]]);
+      }
+
+      return type;
+    } // Wraps a JS function as a wasm function with a given signature.
 
 
     function convertJsFunctionToWasm(func, sig) {
@@ -1390,41 +1429,28 @@ var jessica = (() => {
       // Otherwise, construct a minimal wasm module importing the JS function and
       // re-exporting it.
       if (typeof WebAssembly.Function == "function") {
-        var typeNames = {
-          'i': 'i32',
-          'j': 'i64',
-          'f': 'f32',
-          'd': 'f64'
-        };
-        var type = {
-          parameters: [],
-          results: sig[0] == 'v' ? [] : [typeNames[sig[0]]]
-        };
-
-        for (var i = 1; i < sig.length; ++i) {
-          type.parameters.push(typeNames[sig[i]]);
-        }
-
-        return new WebAssembly.Function(type, func);
+        return new WebAssembly.Function(sigToWasmTypes(sig), func);
       } // The module is static, with the exception of the type section, which is
       // generated based on the signature passed in.
 
 
-      var typeSection = [0x01, 0x00, 0x01, 0x60 // form: func
+      var typeSection = [0x01, 0x60 // form: func
       ];
       var sigRet = sig.slice(0, 1);
       var sigParam = sig.slice(1);
       var typeCodes = {
         'i': 0x7f,
+        'p': 0x7f,
         'j': 0x7e,
         'f': 0x7d,
         'd': 0x7c // f64
 
       }; // Parameters, length + signatures
 
-      typeSection.push(sigParam.length);
+      typeSection = typeSection.concat(uleb128Encode(sigParam.length));
 
       for (var i = 0; i < sigParam.length; ++i) {
+        assert(sigParam[i] in typeCodes, 'invalid signature char: ' + sigParam[i]);
         typeSection.push(typeCodes[sigParam[i]]);
       } // Return values, length + signatures
       // With no multi-return in MVP, either 0 (void) or 1 (anything else)
@@ -1434,11 +1460,13 @@ var jessica = (() => {
         typeSection.push(0x00);
       } else {
         typeSection = typeSection.concat([0x01, typeCodes[sigRet]]);
-      } // Write the overall length of the type section back into the section header
-      // (excepting the 2 bytes for the section id and length)
+      } // Write the section code and overall length of the type section into the
+      // section header
 
 
-      typeSection[1] = typeSection.length - 2; // Rest of the module is static
+      typeSection = [0x01
+      /* Type section code */
+      ].concat(uleb128Encode(typeSection.length), typeSection); // Rest of the module is static
 
       var bytes = new Uint8Array([0x00, 0x61, 0x73, 0x6d, 0x01, 0x00, 0x00, 0x00 // version: 1
       ].concat(typeSection, [0x02, 0x07, // (import "e" "f" (func 0 (type 0)))
@@ -1557,7 +1585,7 @@ var jessica = (() => {
       var msg = "'" + sym + "' was not exported. add it to EXPORTED_RUNTIME_METHODS (see the FAQ)";
 
       if (isFSSybol) {
-        msg += '. Alternatively, forcing filesystem support (-s FORCE_FILESYSTEM=1) can export this for you';
+        msg += '. Alternatively, forcing filesystem support (-sFORCE_FILESYSTEM) can export this for you';
       }
 
       return msg;
@@ -1605,89 +1633,7 @@ var jessica = (() => {
 
     if (typeof WebAssembly != 'object') {
       abort('no native wasm support detected');
-    } // include: runtime_safe_heap.js
-    // In MINIMAL_RUNTIME, setValue() and getValue() are only available when building with safe heap enabled, for heap safety checking.
-    // In traditional runtime, setValue() and getValue() are always available (although their use is highly discouraged due to perf penalties)
-
-    /** @param {number} ptr
-        @param {number} value
-        @param {string} type
-        @param {number|boolean=} noSafe */
-
-
-    function setValue(ptr, value, type = 'i8', noSafe) {
-      if (type.charAt(type.length - 1) === '*') type = 'i32';
-
-      switch (type) {
-        case 'i1':
-          HEAP8[ptr >> 0] = value;
-          break;
-
-        case 'i8':
-          HEAP8[ptr >> 0] = value;
-          break;
-
-        case 'i16':
-          HEAP16[ptr >> 1] = value;
-          break;
-
-        case 'i32':
-          HEAP32[ptr >> 2] = value;
-          break;
-
-        case 'i64':
-          tempI64 = [value >>> 0, (tempDouble = value, +Math.abs(tempDouble) >= 1.0 ? tempDouble > 0.0 ? (Math.min(+Math.floor(tempDouble / 4294967296.0), 4294967295.0) | 0) >>> 0 : ~~+Math.ceil((tempDouble - +(~~tempDouble >>> 0)) / 4294967296.0) >>> 0 : 0)], HEAP32[ptr >> 2] = tempI64[0], HEAP32[ptr + 4 >> 2] = tempI64[1];
-          break;
-
-        case 'float':
-          HEAPF32[ptr >> 2] = value;
-          break;
-
-        case 'double':
-          HEAPF64[ptr >> 3] = value;
-          break;
-
-        default:
-          abort('invalid type for setValue: ' + type);
-      }
-    }
-    /** @param {number} ptr
-        @param {string} type
-        @param {number|boolean=} noSafe */
-
-
-    function getValue(ptr, type = 'i8', noSafe) {
-      if (type.charAt(type.length - 1) === '*') type = 'i32';
-
-      switch (type) {
-        case 'i1':
-          return HEAP8[ptr >> 0];
-
-        case 'i8':
-          return HEAP8[ptr >> 0];
-
-        case 'i16':
-          return HEAP16[ptr >> 1];
-
-        case 'i32':
-          return HEAP32[ptr >> 2];
-
-        case 'i64':
-          return HEAP32[ptr >> 2];
-
-        case 'float':
-          return HEAPF32[ptr >> 2];
-
-        case 'double':
-          return Number(HEAPF64[ptr >> 3]);
-
-        default:
-          abort('invalid type for getValue: ' + type);
-      }
-
-      return null;
-    } // end include: runtime_safe_heap.js
-    // Wasm globals
+    } // Wasm globals
 
 
     var wasmMemory; //========================================
@@ -1747,7 +1693,10 @@ var jessica = (() => {
       };
 
       function convertReturnValue(ret) {
-        if (returnType === 'string') return UTF8ToString(ret);
+        if (returnType === 'string') {
+          return UTF8ToString(ret);
+        }
+
         if (returnType === 'boolean') return Boolean(ret);
         return ret;
       }
@@ -1910,7 +1859,6 @@ var jessica = (() => {
 
 
     function UTF8ToString(ptr, maxBytesToRead) {
-      ;
       return ptr ? UTF8ArrayToString(HEAPU8, ptr, maxBytesToRead) : '';
     } // Copies the given Javascript String object 'str' to the given byte array at address 'outIdx',
     // encoded in UTF8 form and null-terminated. The copy will require at most str.length*4+1 bytes of space in the HEAP.
@@ -2278,8 +2226,8 @@ var jessica = (() => {
 
     assert(typeof Int32Array != 'undefined' && typeof Float64Array !== 'undefined' && Int32Array.prototype.subarray != undefined && Int32Array.prototype.set != undefined, 'JS engine does not provide full typed array support'); // If memory is defined in wasm, the user can't provide it.
 
-    assert(!Module['wasmMemory'], 'Use of `wasmMemory` detected.  Use -s IMPORTED_MEMORY to define wasmMemory externally');
-    assert(INITIAL_MEMORY == 16777216, 'Detected runtime INITIAL_MEMORY setting.  Use -s IMPORTED_MEMORY to define wasmMemory dynamically'); // include: runtime_init_table.js
+    assert(!Module['wasmMemory'], 'Use of `wasmMemory` detected.  Use -sIMPORTED_MEMORY to define wasmMemory externally');
+    assert(INITIAL_MEMORY == 16777216, 'Detected runtime INITIAL_MEMORY setting.  Use -sIMPORTED_MEMORY to define wasmMemory dynamically'); // include: runtime_init_table.js
     // In regular non-RELOCATABLE mode the table is exported
     // from the wasm module and this will be assigned once
     // the exports are available.
@@ -2298,7 +2246,7 @@ var jessica = (() => {
       HEAP32[max >> 2] = 0x2135467;
       HEAP32[max + 4 >> 2] = 0x89BACDFE; // Also test the global address 0 for integrity.
 
-      HEAP32[0] = 0x63736d65;
+      HEAPU32[0] = 0x63736d65;
       /* 'emsc' */
     }
 
@@ -2311,11 +2259,11 @@ var jessica = (() => {
       var cookie2 = HEAPU32[max + 4 >> 2];
 
       if (cookie1 != 0x2135467 || cookie2 != 0x89BACDFE) {
-        abort('Stack overflow! Stack cookie has been overwritten, expected hex dwords 0x89BACDFE and 0x2135467, but received 0x' + cookie2.toString(16) + ' 0x' + cookie1.toString(16));
+        abort('Stack overflow! Stack cookie has been overwritten at 0x' + max.toString(16) + ', expected hex dwords 0x89BACDFE and 0x2135467, but received 0x' + cookie2.toString(16) + ' 0x' + cookie1.toString(16));
       } // Also test the global address 0 for integrity.
 
 
-      if (HEAP32[0] !== 0x63736d65
+      if (HEAPU32[0] !== 0x63736d65
       /* 'emsc' */
       ) abort('Runtime error: The application has corrupted its heap memory area (address zero)!');
     } // end include: runtime_stack_check.js
@@ -2327,7 +2275,7 @@ var jessica = (() => {
       var h16 = new Int16Array(1);
       var h8 = new Int8Array(h16.buffer);
       h16[0] = 0x6373;
-      if (h8[0] !== 0x73 || h8[1] !== 0x63) throw 'Runtime error: expected the system to be little-endian! (Run with -s SUPPORT_BIG_ENDIAN=1 to bypass)';
+      if (h8[0] !== 0x73 || h8[1] !== 0x63) throw 'Runtime error: expected the system to be little-endian! (Run with -sSUPPORT_BIG_ENDIAN to bypass)';
     })(); // end include: runtime_assertions.js
 
 
@@ -2358,9 +2306,9 @@ var jessica = (() => {
     }
 
     function initRuntime() {
-      checkStackCookie();
       assert(!runtimeInitialized);
       runtimeInitialized = true;
+      checkStackCookie();
       callRuntimeCallbacks(__ATINIT__);
     }
 
@@ -2492,12 +2440,8 @@ var jessica = (() => {
         }
       }
     }
-
-    Module["preloadedImages"] = {}; // maps url to image data
-
-    Module["preloadedAudios"] = {}; // maps url to audio data
-
     /** @param {string|number=} what */
+
 
     function abort(what) {
       {
@@ -2513,6 +2457,11 @@ var jessica = (() => {
       EXITSTATUS = 1; // Use a wasm runtime error, because a JS error might be seen as a foreign
       // exception, which means we'd run destructors on it. We need the error to
       // simply make the program stop.
+      // FIXME This approach does not work in Wasm EH because it currently does not assume
+      // all RuntimeErrors are from traps; it decides whether a RuntimeError is from
+      // a trap or not based on a hidden field within the object. So at the moment
+      // we don't have a way of throwing a wasm trap from JS. TODO Make a JS API that
+      // allows this in the wasm spec.
       // Suppress closure compiler warning here. Closure compiler's builtin extern
       // defintion for WebAssembly.RuntimeError claims it takes no arguments even
       // though it can.
@@ -2534,7 +2483,7 @@ var jessica = (() => {
 
     var FS = {
       error: function () {
-        abort('Filesystem support (FS) was not included. The problem is that you are using files from JS, but files were not used from C/C++, so filesystem support was not auto-included. You can force-include filesystem support with  -s FORCE_FILESYSTEM=1');
+        abort('Filesystem support (FS) was not included. The problem is that you are using files from JS, but files were not used from C/C++, so filesystem support was not auto-included. You can force-include filesystem support with -sFORCE_FILESYSTEM');
       },
       init: function () {
         FS.error();
@@ -2847,6 +2796,43 @@ var jessica = (() => {
         return x === y ? x : y + ' [' + x + ']';
       });
     }
+    /**
+     * @param {number} ptr
+     * @param {string} type
+     */
+
+
+    function getValue(ptr, type = 'i8') {
+      if (type.endsWith('*')) type = 'i32';
+
+      switch (type) {
+        case 'i1':
+          return HEAP8[ptr >> 0];
+
+        case 'i8':
+          return HEAP8[ptr >> 0];
+
+        case 'i16':
+          return HEAP16[ptr >> 1];
+
+        case 'i32':
+          return HEAP32[ptr >> 2];
+
+        case 'i64':
+          return HEAP32[ptr >> 2];
+
+        case 'float':
+          return HEAPF32[ptr >> 2];
+
+        case 'double':
+          return Number(HEAPF64[ptr >> 3]);
+
+        default:
+          abort('invalid type for getValue: ' + type);
+      }
+
+      return null;
+    }
 
     var wasmTableMirror = [];
 
@@ -2879,8 +2865,8 @@ var jessica = (() => {
       var error = new Error();
 
       if (!error.stack) {
-        // IE10+ special cases: It does have callstack info, but it is only populated if an Error object is thrown,
-        // so try that as a special-case.
+        // IE10+ special cases: It does have callstack info, but it is only
+        // populated if an Error object is thrown, so try that as a special-case.
         try {
           throw new Error();
         } catch (e) {
@@ -2894,10 +2880,56 @@ var jessica = (() => {
 
       return error.stack.toString();
     }
+    /**
+     * @param {number} ptr
+     * @param {number} value
+     * @param {string} type
+     */
+
+
+    function setValue(ptr, value, type = 'i8') {
+      if (type.endsWith('*')) type = 'i32';
+
+      switch (type) {
+        case 'i1':
+          HEAP8[ptr >> 0] = value;
+          break;
+
+        case 'i8':
+          HEAP8[ptr >> 0] = value;
+          break;
+
+        case 'i16':
+          HEAP16[ptr >> 1] = value;
+          break;
+
+        case 'i32':
+          HEAP32[ptr >> 2] = value;
+          break;
+
+        case 'i64':
+          tempI64 = [value >>> 0, (tempDouble = value, +Math.abs(tempDouble) >= 1.0 ? tempDouble > 0.0 ? (Math.min(+Math.floor(tempDouble / 4294967296.0), 4294967295.0) | 0) >>> 0 : ~~+Math.ceil((tempDouble - +(~~tempDouble >>> 0)) / 4294967296.0) >>> 0 : 0)], HEAP32[ptr >> 2] = tempI64[0], HEAP32[ptr + 4 >> 2] = tempI64[1];
+          break;
+
+        case 'float':
+          HEAPF32[ptr >> 2] = value;
+          break;
+
+        case 'double':
+          HEAPF64[ptr >> 3] = value;
+          break;
+
+        default:
+          abort('invalid type for setValue: ' + type);
+      }
+    }
 
     function setWasmTableEntry(idx, func) {
-      wasmTable.set(idx, func);
-      wasmTableMirror[idx] = func;
+      wasmTable.set(idx, func); // With ABORT_ON_WASM_EXCEPTIONS wasmTable.get is overriden to return wrapped
+      // functions so we need to call it here to retrieve the potential wrapper correctly
+      // instead of just storing 'func' directly into wasmTableMirror
+
+      wasmTableMirror[idx] = wasmTable.get(idx);
     }
 
     function stackTrace() {
@@ -2906,31 +2938,35 @@ var jessica = (() => {
       return demangleAll(js);
     }
 
+    function ___assert_fail(condition, filename, line, func) {
+      abort('Assertion failed: ' + UTF8ToString(condition) + ', at: ' + [filename ? UTF8ToString(filename) : 'unknown filename', line, func ? UTF8ToString(func) : 'unknown function']);
+    }
+
     function ___cxa_allocate_exception(size) {
       // Thrown object is prepended by exception metadata block
-      return _malloc(size + 16) + 16;
+      return _malloc(size + 24) + 24;
     }
     /** @constructor */
 
 
     function ExceptionInfo(excPtr) {
       this.excPtr = excPtr;
-      this.ptr = excPtr - 16;
+      this.ptr = excPtr - 24;
 
       this.set_type = function (type) {
-        HEAP32[this.ptr + 4 >> 2] = type;
+        HEAPU32[this.ptr + 4 >> 2] = type;
       };
 
       this.get_type = function () {
-        return HEAP32[this.ptr + 4 >> 2];
+        return HEAPU32[this.ptr + 4 >> 2];
       };
 
       this.set_destructor = function (destructor) {
-        HEAP32[this.ptr + 8 >> 2] = destructor;
+        HEAPU32[this.ptr + 8 >> 2] = destructor;
       };
 
       this.get_destructor = function () {
-        return HEAP32[this.ptr + 8 >> 2];
+        return HEAPU32[this.ptr + 8 >> 2];
       };
 
       this.set_refcount = function (refcount) {
@@ -2957,6 +2993,7 @@ var jessica = (() => {
 
 
       this.init = function (type, destructor) {
+        this.set_adjusted_ptr(0);
         this.set_type(type);
         this.set_destructor(destructor);
         this.set_refcount(0);
@@ -2976,6 +3013,32 @@ var jessica = (() => {
         assert(prev > 0);
         return prev === 1;
       };
+
+      this.set_adjusted_ptr = function (adjustedPtr) {
+        HEAPU32[this.ptr + 16 >> 2] = adjustedPtr;
+      };
+
+      this.get_adjusted_ptr = function () {
+        return HEAPU32[this.ptr + 16 >> 2];
+      }; // Get pointer which is expected to be received by catch clause in C++ code. It may be adjusted
+      // when the pointer is casted to some of the exception object base classes (e.g. when virtual
+      // inheritance is used). When a pointer is thrown this method should return the thrown pointer
+      // itself.
+
+
+      this.get_exception_ptr = function () {
+        // Work around a fastcomp bug, this code is still included for some reason in a build without
+        // exceptions support.
+        var isPointer = ___cxa_is_pointer_type(this.get_type());
+
+        if (isPointer) {
+          return HEAPU32[this.excPtr >> 2];
+        }
+
+        var adjusted = this.get_adjusted_ptr();
+        if (adjusted !== 0) return adjusted;
+        return this.excPtr;
+      };
     }
 
     var exceptionLast = 0;
@@ -2987,7 +3050,7 @@ var jessica = (() => {
       info.init(type, destructor);
       exceptionLast = ptr;
       uncaughtExceptionCount++;
-      throw ptr + " - Exception catching is disabled, this exception cannot be caught. Compile with -s NO_DISABLE_EXCEPTION_CATCHING or -s EXCEPTION_CATCHING_ALLOWED=[..] to catch.";
+      throw ptr + " - Exception catching is disabled, this exception cannot be caught. Compile with -sNO_DISABLE_EXCEPTION_CATCHING or -sEXCEPTION_CATCHING_ALLOWED=[..] to catch.";
     }
 
     function __embind_register_bigint(primitiveType, name, size, minRange, maxRange) {}
@@ -4056,38 +4119,6 @@ var jessica = (() => {
       }
     }
 
-    function __embind_register_class_constructor(rawClassType, argCount, rawArgTypesAddr, invokerSignature, invoker, rawConstructor) {
-      assert(argCount > 0);
-      var rawArgTypes = heap32VectorToArray(argCount, rawArgTypesAddr);
-      invoker = embind__requireFunction(invokerSignature, invoker);
-      var args = [rawConstructor];
-      var destructors = [];
-      whenDependentTypesAreResolved([], [rawClassType], function (classType) {
-        classType = classType[0];
-        var humanName = 'constructor ' + classType.name;
-
-        if (undefined === classType.registeredClass.constructor_body) {
-          classType.registeredClass.constructor_body = [];
-        }
-
-        if (undefined !== classType.registeredClass.constructor_body[argCount - 1]) {
-          throw new BindingError("Cannot register multiple constructors with identical number of parameters (" + (argCount - 1) + ") for class '" + classType.name + "'! Overload resolution is currently only performed using the parameter count, not actual type info!");
-        }
-
-        classType.registeredClass.constructor_body[argCount - 1] = () => {
-          throwUnboundTypeError('Cannot construct ' + classType.name + ' due to unbound types', rawArgTypes);
-        };
-
-        whenDependentTypesAreResolved([], rawArgTypes, function (argTypes) {
-          // Insert empty slot for context type (argTypes[1]).
-          argTypes.splice(1, 0, null);
-          classType.registeredClass.constructor_body[argCount - 1] = craftInvokerFunction(humanName, argTypes, null, invoker, rawConstructor);
-          return [];
-        });
-        return [];
-      });
-    }
-
     function new_(constructor, argumentList) {
       if (!(constructor instanceof Function)) {
         throw new TypeError('new_ called with constructor type ' + typeof constructor + " which is not a function");
@@ -4203,6 +4234,38 @@ var jessica = (() => {
       args1.push(invokerFnBody);
       var invokerFunction = new_(Function, args1).apply(null, args2);
       return invokerFunction;
+    }
+
+    function __embind_register_class_constructor(rawClassType, argCount, rawArgTypesAddr, invokerSignature, invoker, rawConstructor) {
+      assert(argCount > 0);
+      var rawArgTypes = heap32VectorToArray(argCount, rawArgTypesAddr);
+      invoker = embind__requireFunction(invokerSignature, invoker);
+      var args = [rawConstructor];
+      var destructors = [];
+      whenDependentTypesAreResolved([], [rawClassType], function (classType) {
+        classType = classType[0];
+        var humanName = 'constructor ' + classType.name;
+
+        if (undefined === classType.registeredClass.constructor_body) {
+          classType.registeredClass.constructor_body = [];
+        }
+
+        if (undefined !== classType.registeredClass.constructor_body[argCount - 1]) {
+          throw new BindingError("Cannot register multiple constructors with identical number of parameters (" + (argCount - 1) + ") for class '" + classType.name + "'! Overload resolution is currently only performed using the parameter count, not actual type info!");
+        }
+
+        classType.registeredClass.constructor_body[argCount - 1] = () => {
+          throwUnboundTypeError('Cannot construct ' + classType.name + ' due to unbound types', rawArgTypes);
+        };
+
+        whenDependentTypesAreResolved([], rawArgTypes, function (argTypes) {
+          // Insert empty slot for context type (argTypes[1]).
+          argTypes.splice(1, 0, null);
+          classType.registeredClass.constructor_body[argCount - 1] = craftInvokerFunction(humanName, argTypes, null, invoker, rawConstructor);
+          return [];
+        });
+        return [];
+      });
     }
 
     function __embind_register_class_function(rawClassType, methodName, argCount, rawArgTypesAddr, // [ReturnType, ThisType, Args...]
@@ -4448,10 +4511,10 @@ var jessica = (() => {
     }
 
     function __embind_register_integer(primitiveType, name, size, minRange, maxRange) {
-      name = readLatin1String(name);
+      name = readLatin1String(name); // LLVM doesn't have signed and unsigned 32-bit types, so u32 literals come
+      // out as 'i32 -1'. Always treat those as max u32.
 
       if (maxRange === -1) {
-        // LLVM doesn't have signed and unsigned 32-bit types, so u32 literals come out as 'i32 -1'. Always treat those as max u32.
         maxRange = 4294967295;
       }
 
@@ -4754,11 +4817,11 @@ var jessica = (() => {
       return impl;
     }
 
-    function __emval_lookupTypes(argCount, argTypes) {
+    function emval_lookupTypes(argCount, argTypes) {
       var a = new Array(argCount);
 
       for (var i = 0; i < argCount; ++i) {
-        a[i] = requireRegisteredType(HEAP32[(argTypes >> 2) + i], "parameter " + i);
+        a[i] = requireRegisteredType(HEAPU32[argTypes + i * POINTER_SIZE >> 2], "parameter " + i);
       }
 
       return a;
@@ -4766,9 +4829,7 @@ var jessica = (() => {
 
     function __emval_call(handle, argCount, argTypes, argv) {
       handle = Emval.toValue(handle);
-
-      var types = __emval_lookupTypes(argCount, argTypes);
-
+      var types = emval_lookupTypes(argCount, argTypes);
       var args = new Array(argCount);
 
       for (var i = 0; i < argCount; ++i) {
@@ -4801,12 +4862,12 @@ var jessica = (() => {
       HEAPU8.copyWithin(dest, src, src + num);
     }
 
-    function _emscripten_get_heap_max() {
+    function getHeapMax() {
       return HEAPU8.length;
     }
 
     function abortOnCannotGrowMemory(requestedSize) {
-      abort('Cannot enlarge memory arrays to size ' + requestedSize + ' bytes (OOM). Either (1) compile with  -s INITIAL_MEMORY=X  with X higher than the current value ' + HEAP8.length + ', (2) compile with  -s ALLOW_MEMORY_GROWTH=1  which allows increasing the size at runtime, or (3) if you want malloc to return NULL (0) instead of this abort, compile with  -s ABORTING_MALLOC=0 ');
+      abort('Cannot enlarge memory arrays to size ' + requestedSize + ' bytes (OOM). Either (1) compile with -sINITIAL_MEMORY=X with X higher than the current value ' + HEAP8.length + ', (2) compile with -sALLOW_MEMORY_GROWTH which allows increasing the size at runtime, or (3) if you want malloc to return NULL (0) instead of this abort, compile with -sABORTING_MALLOC=0');
     }
 
     function _emscripten_resize_heap(requestedSize) {
@@ -4864,6 +4925,7 @@ var jessica = (() => {
     }
 
     var asmLibraryArg = {
+      "__assert_fail": ___assert_fail,
       "__cxa_allocate_exception": ___cxa_allocate_exception,
       "__cxa_throw": ___cxa_throw,
       "_embind_register_bigint": __embind_register_bigint,
@@ -4906,19 +4968,7 @@ var jessica = (() => {
     /** @type {function(...*):?} */
 
 
-    var ___stdio_exit = Module["___stdio_exit"] = createExportWrapper("__stdio_exit");
-    /** @type {function(...*):?} */
-
-
-    var _htonl = Module["_htonl"] = createExportWrapper("htonl");
-    /** @type {function(...*):?} */
-
-
-    var _htons = Module["_htons"] = createExportWrapper("htons");
-    /** @type {function(...*):?} */
-
-
-    var _ntohs = Module["_ntohs"] = createExportWrapper("ntohs");
+    var _fflush = Module["_fflush"] = createExportWrapper("fflush");
     /** @type {function(...*):?} */
 
 
@@ -4963,30 +5013,26 @@ var jessica = (() => {
     var stackAlloc = Module["stackAlloc"] = createExportWrapper("stackAlloc");
     /** @type {function(...*):?} */
 
-    var ___cxa_demangle = Module["___cxa_demangle"] = createExportWrapper("__cxa_demangle"); // === Auto-generated postamble setup entry stuff ===
+    var ___cxa_demangle = Module["___cxa_demangle"] = createExportWrapper("__cxa_demangle");
+    /** @type {function(...*):?} */
 
 
-    unexportedRuntimeFunction('intArrayFromString', false);
-    unexportedRuntimeFunction('intArrayToString', false);
+    var ___cxa_is_pointer_type = Module["___cxa_is_pointer_type"] = createExportWrapper("__cxa_is_pointer_type"); // === Auto-generated postamble setup entry stuff ===
+
+
     unexportedRuntimeFunction('ccall', false);
     unexportedRuntimeFunction('cwrap', false);
-    unexportedRuntimeFunction('setValue', false);
-    unexportedRuntimeFunction('getValue', false);
     unexportedRuntimeFunction('allocate', false);
     unexportedRuntimeFunction('UTF8ArrayToString', false);
     unexportedRuntimeFunction('UTF8ToString', false);
     unexportedRuntimeFunction('stringToUTF8Array', false);
     unexportedRuntimeFunction('stringToUTF8', false);
     unexportedRuntimeFunction('lengthBytesUTF8', false);
-    unexportedRuntimeFunction('stackTrace', false);
     unexportedRuntimeFunction('addOnPreRun', false);
     unexportedRuntimeFunction('addOnInit', false);
     unexportedRuntimeFunction('addOnPreMain', false);
     unexportedRuntimeFunction('addOnExit', false);
     unexportedRuntimeFunction('addOnPostRun', false);
-    unexportedRuntimeFunction('writeStringToMemory', false);
-    unexportedRuntimeFunction('writeArrayToMemory', false);
-    unexportedRuntimeFunction('writeAsciiToMemory', false);
     unexportedRuntimeFunction('addRunDependency', true);
     unexportedRuntimeFunction('removeRunDependency', true);
     unexportedRuntimeFunction('FS_createFolder', false);
@@ -5003,9 +5049,7 @@ var jessica = (() => {
     unexportedRuntimeFunction('registerFunctions', false);
     unexportedRuntimeFunction('addFunction', false);
     unexportedRuntimeFunction('removeFunction', false);
-    unexportedRuntimeFunction('getFuncWrapper', false);
     unexportedRuntimeFunction('prettyPrint', false);
-    unexportedRuntimeFunction('dynCall', false);
     unexportedRuntimeFunction('getCompilerSetting', false);
     unexportedRuntimeFunction('print', false);
     unexportedRuntimeFunction('printErr', false);
@@ -5014,8 +5058,33 @@ var jessica = (() => {
     unexportedRuntimeFunction('callMain', false);
     unexportedRuntimeFunction('abort', false);
     unexportedRuntimeFunction('keepRuntimeAlive', false);
+    unexportedRuntimeFunction('wasmMemory', false);
+    unexportedRuntimeFunction('warnOnce', false);
+    unexportedRuntimeFunction('stackSave', false);
+    unexportedRuntimeFunction('stackRestore', false);
+    unexportedRuntimeFunction('stackAlloc', false);
+    unexportedRuntimeFunction('AsciiToString', false);
+    unexportedRuntimeFunction('stringToAscii', false);
+    unexportedRuntimeFunction('UTF16ToString', false);
+    unexportedRuntimeFunction('stringToUTF16', false);
+    unexportedRuntimeFunction('lengthBytesUTF16', false);
+    unexportedRuntimeFunction('UTF32ToString', false);
+    unexportedRuntimeFunction('stringToUTF32', false);
+    unexportedRuntimeFunction('lengthBytesUTF32', false);
+    unexportedRuntimeFunction('allocateUTF8', false);
+    unexportedRuntimeFunction('allocateUTF8OnStack', false);
+    unexportedRuntimeFunction('ExitStatus', false);
+    unexportedRuntimeFunction('intArrayFromString', false);
+    unexportedRuntimeFunction('intArrayToString', false);
+    unexportedRuntimeFunction('writeStringToMemory', false);
+    unexportedRuntimeFunction('writeArrayToMemory', false);
+    unexportedRuntimeFunction('writeAsciiToMemory', false);
+    Module["writeStackCookie"] = writeStackCookie;
+    Module["checkStackCookie"] = checkStackCookie;
+    unexportedRuntimeFunction('ptrToString', false);
     unexportedRuntimeFunction('zeroMemory', false);
     unexportedRuntimeFunction('stringToNewUTF8', false);
+    unexportedRuntimeFunction('getHeapMax', false);
     unexportedRuntimeFunction('abortOnCannotGrowMemory', false);
     unexportedRuntimeFunction('emscripten_realloc_buffer', false);
     unexportedRuntimeFunction('ENV', false);
@@ -5057,10 +5126,23 @@ var jessica = (() => {
     unexportedRuntimeFunction('asyncLoad', false);
     unexportedRuntimeFunction('alignMemory', false);
     unexportedRuntimeFunction('mmapAlloc', false);
+    unexportedRuntimeFunction('writeI53ToI64', false);
+    unexportedRuntimeFunction('writeI53ToI64Clamped', false);
+    unexportedRuntimeFunction('writeI53ToI64Signaling', false);
+    unexportedRuntimeFunction('writeI53ToU64Clamped', false);
+    unexportedRuntimeFunction('writeI53ToU64Signaling', false);
+    unexportedRuntimeFunction('readI53FromI64', false);
+    unexportedRuntimeFunction('readI53FromU64', false);
+    unexportedRuntimeFunction('convertI32PairToI53', false);
+    unexportedRuntimeFunction('convertI32PairToI53Checked', false);
+    unexportedRuntimeFunction('convertU32PairToI53', false);
     unexportedRuntimeFunction('reallyNegative', false);
     unexportedRuntimeFunction('unSign', false);
+    unexportedRuntimeFunction('strLen', false);
     unexportedRuntimeFunction('reSign', false);
     unexportedRuntimeFunction('formatString', false);
+    unexportedRuntimeFunction('setValue', false);
+    unexportedRuntimeFunction('getValue', false);
     unexportedRuntimeFunction('PATH', false);
     unexportedRuntimeFunction('PATH_FS', false);
     unexportedRuntimeFunction('SYSCALLS', false);
@@ -5087,6 +5169,8 @@ var jessica = (() => {
     unexportedRuntimeFunction('registerOrientationChangeEventCallback', false);
     unexportedRuntimeFunction('fillFullscreenChangeEventData', false);
     unexportedRuntimeFunction('registerFullscreenChangeEventCallback', false);
+    unexportedRuntimeFunction('JSEvents_requestFullscreen', false);
+    unexportedRuntimeFunction('JSEvents_resizeCanvasForFullscreen', false);
     unexportedRuntimeFunction('registerRestoreOldStyle', false);
     unexportedRuntimeFunction('hideEverythingExceptGivenElement', false);
     unexportedRuntimeFunction('restoreHiddenElements', false);
@@ -5117,15 +5201,7 @@ var jessica = (() => {
     unexportedRuntimeFunction('getEnvStrings', false);
     unexportedRuntimeFunction('checkWasiClock', false);
     unexportedRuntimeFunction('flush_NO_FILESYSTEM', false);
-    unexportedRuntimeFunction('writeI53ToI64', false);
-    unexportedRuntimeFunction('writeI53ToI64Clamped', false);
-    unexportedRuntimeFunction('writeI53ToI64Signaling', false);
-    unexportedRuntimeFunction('writeI53ToU64Clamped', false);
-    unexportedRuntimeFunction('writeI53ToU64Signaling', false);
-    unexportedRuntimeFunction('readI53FromI64', false);
-    unexportedRuntimeFunction('readI53FromU64', false);
-    unexportedRuntimeFunction('convertI32PairToI53', false);
-    unexportedRuntimeFunction('convertU32PairToI53', false);
+    unexportedRuntimeFunction('dlopenMissingError', false);
     unexportedRuntimeFunction('setImmediateWrapped', false);
     unexportedRuntimeFunction('clearImmediateWrapped', false);
     unexportedRuntimeFunction('polyfillSetImmediate', false);
@@ -5133,12 +5209,9 @@ var jessica = (() => {
     unexportedRuntimeFunction('exceptionLast', false);
     unexportedRuntimeFunction('exceptionCaught', false);
     unexportedRuntimeFunction('ExceptionInfo', false);
-    unexportedRuntimeFunction('CatchInfo', false);
     unexportedRuntimeFunction('exception_addRef', false);
     unexportedRuntimeFunction('exception_decRef', false);
     unexportedRuntimeFunction('Browser', false);
-    unexportedRuntimeFunction('funcWrappers', false);
-    unexportedRuntimeFunction('getFuncWrapper', false);
     unexportedRuntimeFunction('setMainLoop', false);
     unexportedRuntimeFunction('wget', false);
     unexportedRuntimeFunction('FS', false);
@@ -5264,24 +5337,11 @@ var jessica = (() => {
     unexportedRuntimeFunction('emval_newers', false);
     unexportedRuntimeFunction('craftEmvalAllocator', false);
     unexportedRuntimeFunction('emval_get_global', false);
+    unexportedRuntimeFunction('emval_lookupTypes', false);
+    unexportedRuntimeFunction('emval_allocateDestructors', false);
     unexportedRuntimeFunction('emval_methodCallers', false);
+    unexportedRuntimeFunction('emval_addMethodCaller', false);
     unexportedRuntimeFunction('emval_registeredMethods', false);
-    unexportedRuntimeFunction('warnOnce', false);
-    unexportedRuntimeFunction('stackSave', false);
-    unexportedRuntimeFunction('stackRestore', false);
-    unexportedRuntimeFunction('stackAlloc', false);
-    unexportedRuntimeFunction('AsciiToString', false);
-    unexportedRuntimeFunction('stringToAscii', false);
-    unexportedRuntimeFunction('UTF16ToString', false);
-    unexportedRuntimeFunction('stringToUTF16', false);
-    unexportedRuntimeFunction('lengthBytesUTF16', false);
-    unexportedRuntimeFunction('UTF32ToString', false);
-    unexportedRuntimeFunction('stringToUTF32', false);
-    unexportedRuntimeFunction('lengthBytesUTF32', false);
-    unexportedRuntimeFunction('allocateUTF8', false);
-    unexportedRuntimeFunction('allocateUTF8OnStack', false);
-    Module["writeStackCookie"] = writeStackCookie;
-    Module["checkStackCookie"] = checkStackCookie;
     unexportedRuntimeSymbol('ALLOC_NORMAL', false);
     unexportedRuntimeSymbol('ALLOC_STACK', false);
     var calledRun;
@@ -5308,8 +5368,8 @@ var jessica = (() => {
       // This is normally called automatically during __wasm_call_ctors but need to
       // get these values before even running any of the ctors so we call it redundantly
       // here.
-      // TODO(sbc): Move writeStackCookie to native to to avoid this.
-      _emscripten_stack_init();
+      _emscripten_stack_init(); // TODO(sbc): Move writeStackCookie to native to to avoid this.
+
 
       writeStackCookie();
     }
@@ -5383,8 +5443,7 @@ var jessica = (() => {
 
       try {
         // it doesn't matter if it fails
-        var flush = null;
-        if (flush) flush();
+        _fflush(0);
       } catch (e) {}
 
       out = oldOut;
@@ -5392,7 +5451,7 @@ var jessica = (() => {
 
       if (has) {
         warnOnce('stdio streams had content in them that was not flushed. you should set EXIT_RUNTIME to 1 (see the FAQ), or make sure to emit a newline when you printf etc.');
-        warnOnce('(this may also be due to not including full filesystem support - try building with -s FORCE_FILESYSTEM=1)');
+        warnOnce('(this may also be due to not including full filesystem support - try building with -sFORCE_FILESYSTEM)');
       }
     }
     /** @param {boolean|number=} implicit */
