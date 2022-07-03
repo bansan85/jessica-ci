@@ -25,6 +25,8 @@ var Module = typeof jessica != 'undefined' ? jessica : {};
 
 // See https://caniuse.com/mdn-javascript_builtins_object_assign
 
+// See https://caniuse.com/mdn-javascript_builtins_bigint64array
+
 // Set up the promise that indicates the Module is initialized
 var readyPromiseResolve, readyPromiseReject;
 Module['ready'] = new Promise(function(resolve, reject) {
@@ -1631,26 +1633,8 @@ var ASM_CONSTS = {
 
   function callRuntimeCallbacks(callbacks) {
       while (callbacks.length > 0) {
-        var callback = callbacks.shift();
-        if (typeof callback == 'function') {
-          callback(Module); // Pass the module as the first argument.
-          continue;
-        }
-        var func = callback.func;
-        if (typeof func == 'number') {
-          if (callback.arg === undefined) {
-            // Run the wasm function ptr with signature 'v'. If no function
-            // with such signature was exported, this call does not need
-            // to be emitted (and would confuse Closure)
-            getWasmTableEntry(func)();
-          } else {
-            // If any function with signature 'vi' was exported, run
-            // the callback with that signature.
-            getWasmTableEntry(func)(callback.arg);
-          }
-        } else {
-          func(callback.arg === undefined ? null : callback.arg);
-        }
+        // Pass the module as the first argument.
+        callbacks.shift()(Module);
       }
     }
 
@@ -1707,7 +1691,7 @@ var ASM_CONSTS = {
      * @param {string} type
      */
   function getValue(ptr, type = 'i8') {
-      if (type.endsWith('*')) type = 'i32';
+      if (type.endsWith('*')) type = '*';
       switch (type) {
         case 'i1': return HEAP8[((ptr)>>0)];
         case 'i8': return HEAP8[((ptr)>>0)];
@@ -1715,7 +1699,8 @@ var ASM_CONSTS = {
         case 'i32': return HEAP32[((ptr)>>2)];
         case 'i64': return HEAP32[((ptr)>>2)];
         case 'float': return HEAPF32[((ptr)>>2)];
-        case 'double': return Number(HEAPF64[((ptr)>>3)]);
+        case 'double': return HEAPF64[((ptr)>>3)];
+        case '*': return HEAPU32[((ptr)>>2)];
         default: abort('invalid type for getValue: ' + type);
       }
       return null;
@@ -1768,7 +1753,7 @@ var ASM_CONSTS = {
      * @param {string} type
      */
   function setValue(ptr, value, type = 'i8') {
-      if (type.endsWith('*')) type = 'i32';
+      if (type.endsWith('*')) type = '*';
       switch (type) {
         case 'i1': HEAP8[((ptr)>>0)] = value; break;
         case 'i8': HEAP8[((ptr)>>0)] = value; break;
@@ -1777,6 +1762,7 @@ var ASM_CONSTS = {
         case 'i64': (tempI64 = [value>>>0,(tempDouble=value,(+(Math.abs(tempDouble))) >= 1.0 ? (tempDouble > 0.0 ? ((Math.min((+(Math.floor((tempDouble)/4294967296.0))), 4294967295.0))|0)>>>0 : (~~((+(Math.ceil((tempDouble - +(((~~(tempDouble)))>>>0))/4294967296.0)))))>>>0) : 0)],HEAP32[((ptr)>>2)] = tempI64[0],HEAP32[(((ptr)+(4))>>2)] = tempI64[1]); break;
         case 'float': HEAPF32[((ptr)>>2)] = value; break;
         case 'double': HEAPF64[((ptr)>>3)] = value; break;
+        case '*': HEAPU32[((ptr)>>2)] = value; break;
         default: abort('invalid type for setValue: ' + type);
       }
     }
@@ -2508,7 +2494,7 @@ var ASM_CONSTS = {
       }
   
       if (!handle.$$) {
-        throwBindingError('Cannot pass "' + _embind_repr(handle) + '" as a ' + this.name);
+        throwBindingError('Cannot pass "' + embindRepr(handle) + '" as a ' + this.name);
       }
       if (!handle.$$.ptr) {
         throwBindingError('Cannot pass deleted object as a pointer of type ' + this.name);
@@ -2537,7 +2523,7 @@ var ASM_CONSTS = {
       }
   
       if (!handle.$$) {
-        throwBindingError('Cannot pass "' + _embind_repr(handle) + '" as a ' + this.name);
+        throwBindingError('Cannot pass "' + embindRepr(handle) + '" as a ' + this.name);
       }
       if (!handle.$$.ptr) {
         throwBindingError('Cannot pass deleted object as a pointer of type ' + this.name);
@@ -2603,7 +2589,7 @@ var ASM_CONSTS = {
       }
   
       if (!handle.$$) {
-        throwBindingError('Cannot pass "' + _embind_repr(handle) + '" as a ' + this.name);
+        throwBindingError('Cannot pass "' + embindRepr(handle) + '" as a ' + this.name);
       }
       if (!handle.$$.ptr) {
         throwBindingError('Cannot pass deleted object as a pointer of type ' + this.name);
@@ -2617,7 +2603,7 @@ var ASM_CONSTS = {
     }
   
   function simpleReadValueFromPointer(pointer) {
-      return this['fromWireType'](HEAPU32[pointer >> 2]);
+      return this['fromWireType'](HEAP32[((pointer)>>2)]);
     }
   
   function RegisteredPointer_getPointee(ptr) {
@@ -2723,7 +2709,7 @@ var ASM_CONSTS = {
       } else {
         assert(sig.length == 1);
       }
-      var f = Module["dynCall_" + sig];
+      var f = Module['dynCall_' + sig];
       return args && args.length ? f.apply(null, [ptr].concat(args)) : f.call(null, ptr);
     }
   /** @param {Object=} args */
@@ -2735,10 +2721,11 @@ var ASM_CONSTS = {
         return dynCallLegacy(sig, ptr, args);
       }
       assert(getWasmTableEntry(ptr), 'missing table entry in dynCall: ' + ptr);
-      return getWasmTableEntry(ptr).apply(null, args)
+      var rtn = getWasmTableEntry(ptr).apply(null, args);
+      return rtn;
     }
   function getDynCaller(sig, ptr) {
-      assert(sig.includes('j'), 'getDynCaller should only be called with i64 sigs')
+      assert(sig.includes('j') || sig.includes('p'), 'getDynCaller should only be called with i64 sigs')
       var argCache = [];
       return function() {
         argCache.length = 0;
@@ -2898,7 +2885,9 @@ var ASM_CONSTS = {
   function heap32VectorToArray(count, firstElement) {
       var array = [];
       for (var i = 0; i < count; i++) {
-          array.push(HEAP32[(firstElement >> 2) + i]);
+          // TODO(https://github.com/emscripten-core/emscripten/issues/17310):
+          // Find a way to hoist the `>> 2` or `>> 3` out of this loop.
+          array.push(HEAPU32[(((firstElement)+(i * 4))>>2)]);
       }
       return array;
     }
@@ -3206,7 +3195,7 @@ var ASM_CONSTS = {
       });
     }
 
-  function _embind_repr(v) {
+  function embindRepr(v) {
       if (v === null) {
           return 'null';
       }
@@ -3240,7 +3229,7 @@ var ASM_CONSTS = {
           },
           'toWireType': function(destructors, value) {
               if (typeof value != "number" && typeof value != "boolean") {
-                  throw new TypeError('Cannot convert "' + _embind_repr(value) + '" to ' + this.name);
+                  throw new TypeError('Cannot convert "' + embindRepr(value) + '" to ' + this.name);
               }
               // The VM will perform JS to Wasm value conversion, according to the spec:
               // https://www.w3.org/TR/wasm-js-api-1/#towebassemblyvalue
@@ -3288,10 +3277,10 @@ var ASM_CONSTS = {
       var isUnsignedType = (name.includes('unsigned'));
       var checkAssertions = (value, toTypeName) => {
           if (typeof value != "number" && typeof value != "boolean") {
-              throw new TypeError('Cannot convert "' + _embind_repr(value) + '" to ' + toTypeName);
+              throw new TypeError('Cannot convert "' + embindRepr(value) + '" to ' + toTypeName);
           }
           if (value < minRange || value > maxRange) {
-              throw new TypeError('Passing a number "' + _embind_repr(value) + '" from JS side to C/C++ side to an argument of type "' + name + '", which is outside the valid range [' + minRange + ', ' + maxRange + ']!');
+              throw new TypeError('Passing a number "' + embindRepr(value) + '" from JS side to C/C++ side to an argument of type "' + name + '", which is outside the valid range [' + minRange + ', ' + maxRange + ']!');
           }
       }
       var toWireType;
@@ -3397,14 +3386,15 @@ var ASM_CONSTS = {
       registerType(rawType, {
           name: name,
           'fromWireType': function(value) {
-              var length = HEAPU32[value >> 2];
+              var length = HEAPU32[((value)>>2)];
+              var payload = value + 4;
   
               var str;
               if (stdStringIsUTF8) {
-                  var decodeStartPtr = value + 4;
+                  var decodeStartPtr = payload;
                   // Looping here to support possible embedded '0' bytes
                   for (var i = 0; i <= length; ++i) {
-                      var currentBytePtr = value + 4 + i;
+                      var currentBytePtr = payload + i;
                       if (i == length || HEAPU8[currentBytePtr] == 0) {
                           var maxRead = currentBytePtr - decodeStartPtr;
                           var stringSegment = UTF8ToString(decodeStartPtr, maxRead);
@@ -3420,7 +3410,7 @@ var ASM_CONSTS = {
               } else {
                   var a = new Array(length);
                   for (var i = 0; i < length; ++i) {
-                      a[i] = String.fromCharCode(HEAPU8[value + 4 + i]);
+                      a[i] = String.fromCharCode(HEAPU8[payload + i]);
                   }
                   str = a.join('');
               }
@@ -3434,24 +3424,24 @@ var ASM_CONSTS = {
                   value = new Uint8Array(value);
               }
   
-              var getLength;
+              var length;
               var valueIsOfTypeString = (typeof value == 'string');
   
               if (!(valueIsOfTypeString || value instanceof Uint8Array || value instanceof Uint8ClampedArray || value instanceof Int8Array)) {
                   throwBindingError('Cannot pass non-string to std::string');
               }
               if (stdStringIsUTF8 && valueIsOfTypeString) {
-                  getLength = () => lengthBytesUTF8(value);
+                  length = lengthBytesUTF8(value);
               } else {
-                  getLength = () => value.length;
+                  length = value.length;
               }
   
               // assumes 4-byte alignment
-              var length = getLength();
-              var ptr = _malloc(4 + length + 1);
-              HEAPU32[ptr >> 2] = length;
+              var base = _malloc(4 + length + 1);
+              var ptr = base + 4;
+              HEAPU32[((base)>>2)] = length;
               if (stdStringIsUTF8 && valueIsOfTypeString) {
-                  stringToUTF8(value, ptr + 4, length + 1);
+                  stringToUTF8(value, ptr, length + 1);
               } else {
                   if (valueIsOfTypeString) {
                       for (var i = 0; i < length; ++i) {
@@ -3460,19 +3450,19 @@ var ASM_CONSTS = {
                               _free(ptr);
                               throwBindingError('String has UTF-16 code units that do not fit in 8 bits');
                           }
-                          HEAPU8[ptr + 4 + i] = charCode;
+                          HEAPU8[ptr + i] = charCode;
                       }
                   } else {
                       for (var i = 0; i < length; ++i) {
-                          HEAPU8[ptr + 4 + i] = value[i];
+                          HEAPU8[ptr + i] = value[i];
                       }
                   }
               }
   
               if (destructors !== null) {
-                  destructors.push(_free, ptr);
+                  destructors.push(_free, base);
               }
-              return ptr;
+              return base;
           },
           'argPackAdvance': 8,
           'readValueFromPointer': simpleReadValueFromPointer,
@@ -3601,9 +3591,9 @@ var ASM_CONSTS = {
       }
     }
 
-  function __emval_take_value(type, argv) {
+  function __emval_take_value(type, arg) {
       type = requireRegisteredType(type, '_emval_take_value');
-      var v = type['readValueFromPointer'](argv);
+      var v = type['readValueFromPointer'](arg);
       return Emval.toHandle(v);
     }
 
@@ -3995,6 +3985,7 @@ unexportedRuntimeFunction('exposePublicSymbol', false);
 unexportedRuntimeFunction('replacePublicSymbol', false);
 unexportedRuntimeFunction('extendError', false);
 unexportedRuntimeFunction('createNamedFunction', false);
+unexportedRuntimeFunction('embindRepr', false);
 unexportedRuntimeFunction('registeredInstances', false);
 unexportedRuntimeFunction('getBasestPointer', false);
 unexportedRuntimeFunction('registerInheritedInstance', false);
