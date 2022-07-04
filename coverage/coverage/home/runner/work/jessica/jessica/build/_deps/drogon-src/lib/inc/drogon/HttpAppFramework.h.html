@@ -14012,7 +14012,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  private:</pre>
+          <pre>    virtual HttpAppFramework &amp;enableCompressedRequest(bool enable = true) = 0;</pre>
         </td>
       </tr>
       <tr>
@@ -14022,7 +14022,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    virtual void registerHttpController(</pre>
+          <pre>    virtual bool isCompressedRequestEnabled() const = 0;</pre>
         </td>
       </tr>
       <tr>
@@ -14032,7 +14032,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        const std::string &amp;pathPattern,</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -14042,7 +14042,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        const internal::HttpBinderBasePtr &amp;binder,</pre>
+          <pre>  private:</pre>
         </td>
       </tr>
       <tr>
@@ -14052,7 +14052,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        const std::vector&lt;HttpMethod&gt; &amp;validMethods = std::vector&lt;HttpMethod&gt;(),</pre>
+          <pre>    virtual void registerHttpController(</pre>
         </td>
       </tr>
       <tr>
@@ -14062,7 +14062,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        const std::vector&lt;std::string&gt; &amp;filters = std::vector&lt;std::string&gt;(),</pre>
+          <pre>        const std::string &amp;pathPattern,</pre>
         </td>
       </tr>
       <tr>
@@ -14072,7 +14072,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        const std::string &amp;handlerName = "") = 0;</pre>
+          <pre>        const internal::HttpBinderBasePtr &amp;binder,</pre>
         </td>
       </tr>
       <tr>
@@ -14082,7 +14082,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    virtual void registerHttpControllerViaRegex(</pre>
+          <pre>        const std::vector&lt;HttpMethod&gt; &amp;validMethods = std::vector&lt;HttpMethod&gt;(),</pre>
         </td>
       </tr>
       <tr>
@@ -14092,7 +14092,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        const std::string &amp;regExp,</pre>
+          <pre>        const std::vector&lt;std::string&gt; &amp;filters = std::vector&lt;std::string&gt;(),</pre>
         </td>
       </tr>
       <tr>
@@ -14102,7 +14102,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        const internal::HttpBinderBasePtr &amp;binder,</pre>
+          <pre>        const std::string &amp;handlerName = "") = 0;</pre>
         </td>
       </tr>
       <tr>
@@ -14112,7 +14112,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        const std::vector&lt;HttpMethod&gt; &amp;validMethods,</pre>
+          <pre>    virtual void registerHttpControllerViaRegex(</pre>
         </td>
       </tr>
       <tr>
@@ -14122,7 +14122,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        const std::vector&lt;std::string&gt; &amp;filters,</pre>
+          <pre>        const std::string &amp;regExp,</pre>
         </td>
       </tr>
       <tr>
@@ -14132,7 +14132,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        const std::string &amp;handlerName) = 0;</pre>
+          <pre>        const internal::HttpBinderBasePtr &amp;binder,</pre>
         </td>
       </tr>
       <tr>
@@ -14142,7 +14142,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>};</pre>
+          <pre>        const std::vector&lt;HttpMethod&gt; &amp;validMethods,</pre>
         </td>
       </tr>
       <tr>
@@ -14152,7 +14152,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>        const std::vector&lt;std::string&gt; &amp;filters,</pre>
         </td>
       </tr>
       <tr>
@@ -14162,7 +14162,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>/// A wrapper of the instance() method</pre>
+          <pre>        const std::string &amp;handlerName) = 0;</pre>
         </td>
       </tr>
       <tr>
@@ -14172,49 +14172,13 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>inline HttpAppFramework &amp;app()</pre>
+          <pre>};</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L1408' href='#L1408' id="L1408">
           <pre>1408</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>34</pre>
-        </td>
-        <td class='code'>
-          <pre>{</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L1409' href='#L1409' id="L1409">
-          <pre>1409</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>34</pre>
-        </td>
-        <td class='code'>
-          <pre>    return HttpAppFramework::instance();</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L1410' href='#L1410' id="L1410">
-          <pre>1410</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>34</pre>
-        </td>
-        <td class='code'>
-          <pre>}</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L1411' href='#L1411' id="L1411">
-          <pre>1411</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -14223,8 +14187,74 @@
       </tr>
       <tr>
         <td class='line-number'>
+          <a name='L1409' href='#L1409' id="L1409">
+          <pre>1409</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>/// A wrapper of the instance() method</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L1410' href='#L1410' id="L1410">
+          <pre>1410</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>inline HttpAppFramework &amp;app()</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L1411' href='#L1411' id="L1411">
+          <pre>1411</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>38</pre>
+        </td>
+        <td class='code'>
+          <pre>{</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
           <a name='L1412' href='#L1412' id="L1412">
           <pre>1412</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>38</pre>
+        </td>
+        <td class='code'>
+          <pre>    return HttpAppFramework::instance();</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L1413' href='#L1413' id="L1413">
+          <pre>1413</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>38</pre>
+        </td>
+        <td class='code'>
+          <pre>}</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L1414' href='#L1414' id="L1414">
+          <pre>1414</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L1415' href='#L1415' id="L1415">
+          <pre>1415</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
