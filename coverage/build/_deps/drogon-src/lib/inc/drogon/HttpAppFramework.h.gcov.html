@@ -1471,28 +1471,31 @@
 <a name="1388"><span class="lineNum">    1388</span>                 :             :         const std::string &amp;ext,</a>
 <a name="1389"><span class="lineNum">    1389</span>                 :             :         const std::string &amp;mime) = 0;</a>
 <a name="1390"><span class="lineNum">    1390</span>                 :             : </a>
-<a name="1391"><span class="lineNum">    1391</span>                 :             :   private:</a>
-<a name="1392"><span class="lineNum">    1392</span>                 :             :     virtual void registerHttpController(</a>
-<a name="1393"><span class="lineNum">    1393</span>                 :             :         const std::string &amp;pathPattern,</a>
-<a name="1394"><span class="lineNum">    1394</span>                 :             :         const internal::HttpBinderBasePtr &amp;binder,</a>
-<a name="1395"><span class="lineNum">    1395</span>                 :             :         const std::vector&lt;HttpMethod&gt; &amp;validMethods = std::vector&lt;HttpMethod&gt;(),</a>
-<a name="1396"><span class="lineNum">    1396</span>                 :             :         const std::vector&lt;std::string&gt; &amp;filters = std::vector&lt;std::string&gt;(),</a>
-<a name="1397"><span class="lineNum">    1397</span>                 :             :         const std::string &amp;handlerName = &quot;&quot;) = 0;</a>
-<a name="1398"><span class="lineNum">    1398</span>                 :             :     virtual void registerHttpControllerViaRegex(</a>
-<a name="1399"><span class="lineNum">    1399</span>                 :             :         const std::string &amp;regExp,</a>
-<a name="1400"><span class="lineNum">    1400</span>                 :             :         const internal::HttpBinderBasePtr &amp;binder,</a>
-<a name="1401"><span class="lineNum">    1401</span>                 :             :         const std::vector&lt;HttpMethod&gt; &amp;validMethods,</a>
-<a name="1402"><span class="lineNum">    1402</span>                 :             :         const std::vector&lt;std::string&gt; &amp;filters,</a>
-<a name="1403"><span class="lineNum">    1403</span>                 :             :         const std::string &amp;handlerName) = 0;</a>
-<a name="1404"><span class="lineNum">    1404</span>                 :             : };</a>
-<a name="1405"><span class="lineNum">    1405</span>                 :             : </a>
-<a name="1406"><span class="lineNum">    1406</span>                 :             : /// A wrapper of the instance() method</a>
-<a name="1407"><span class="lineNum">    1407</span>                 :<span class="tlaGNC">          51 : inline HttpAppFramework &amp;app()</span></a>
-<a name="1408"><span class="lineNum">    1408</span>                 :             : {</a>
-<a name="1409"><span class="lineNum">    1409</span>                 :<span class="tlaGNC">          51 :     return HttpAppFramework::instance();</span></a>
-<a name="1410"><span class="lineNum">    1410</span>                 :             : }</a>
-<a name="1411"><span class="lineNum">    1411</span>                 :             : </a>
-<a name="1412"><span class="lineNum">    1412</span>                 :             : }  // namespace drogon</a>
+<a name="1391"><span class="lineNum">    1391</span>                 :             :     virtual HttpAppFramework &amp;enableCompressedRequest(bool enable = true) = 0;</a>
+<a name="1392"><span class="lineNum">    1392</span>                 :             :     virtual bool isCompressedRequestEnabled() const = 0;</a>
+<a name="1393"><span class="lineNum">    1393</span>                 :             : </a>
+<a name="1394"><span class="lineNum">    1394</span>                 :             :   private:</a>
+<a name="1395"><span class="lineNum">    1395</span>                 :             :     virtual void registerHttpController(</a>
+<a name="1396"><span class="lineNum">    1396</span>                 :             :         const std::string &amp;pathPattern,</a>
+<a name="1397"><span class="lineNum">    1397</span>                 :             :         const internal::HttpBinderBasePtr &amp;binder,</a>
+<a name="1398"><span class="lineNum">    1398</span>                 :             :         const std::vector&lt;HttpMethod&gt; &amp;validMethods = std::vector&lt;HttpMethod&gt;(),</a>
+<a name="1399"><span class="lineNum">    1399</span>                 :             :         const std::vector&lt;std::string&gt; &amp;filters = std::vector&lt;std::string&gt;(),</a>
+<a name="1400"><span class="lineNum">    1400</span>                 :             :         const std::string &amp;handlerName = &quot;&quot;) = 0;</a>
+<a name="1401"><span class="lineNum">    1401</span>                 :             :     virtual void registerHttpControllerViaRegex(</a>
+<a name="1402"><span class="lineNum">    1402</span>                 :             :         const std::string &amp;regExp,</a>
+<a name="1403"><span class="lineNum">    1403</span>                 :             :         const internal::HttpBinderBasePtr &amp;binder,</a>
+<a name="1404"><span class="lineNum">    1404</span>                 :             :         const std::vector&lt;HttpMethod&gt; &amp;validMethods,</a>
+<a name="1405"><span class="lineNum">    1405</span>                 :             :         const std::vector&lt;std::string&gt; &amp;filters,</a>
+<a name="1406"><span class="lineNum">    1406</span>                 :             :         const std::string &amp;handlerName) = 0;</a>
+<a name="1407"><span class="lineNum">    1407</span>                 :             : };</a>
+<a name="1408"><span class="lineNum">    1408</span>                 :             : </a>
+<a name="1409"><span class="lineNum">    1409</span>                 :             : /// A wrapper of the instance() method</a>
+<a name="1410"><span class="lineNum">    1410</span>                 :<span class="tlaGNC">          57 : inline HttpAppFramework &amp;app()</span></a>
+<a name="1411"><span class="lineNum">    1411</span>                 :             : {</a>
+<a name="1412"><span class="lineNum">    1412</span>                 :<span class="tlaGNC">          57 :     return HttpAppFramework::instance();</span></a>
+<a name="1413"><span class="lineNum">    1413</span>                 :             : }</a>
+<a name="1414"><span class="lineNum">    1414</span>                 :             : </a>
+<a name="1415"><span class="lineNum">    1415</span>                 :             : }  // namespace drogon</a>
         </pre>
               </td>
             </tr>
