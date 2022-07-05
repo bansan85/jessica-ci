@@ -22,7 +22,7 @@ const routes = [{ path: '', component: _ui_main_main_component__WEBPACK_IMPORTED
 class AppRoutingModule {
     static ɵfac = function AppRoutingModule_Factory(t) { return new (t || AppRoutingModule)(); };
     static ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({ type: AppRoutingModule });
-    static ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({ imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterModule.forRoot(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterModule] });
+    static ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({ imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterModule.forRoot(routes), _angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterModule] });
 }
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterModule], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterModule] }); })();
 
@@ -137,7 +137,7 @@ class AppComponent {
 
           const _r0 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵreference"](6);
 
-          return ctx.changeLanguage(_r0.value);
+          return _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵresetView"](ctx.changeLanguage(_r0.value));
         });
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](7, AppComponent_option_7_Template, 2, 3, "option", 3);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()();
@@ -150,8 +150,7 @@ class AppComponent {
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngForOf", ctx.translate.getLangs());
       }
     },
-    directives: [_angular_router__WEBPACK_IMPORTED_MODULE_6__.RouterOutlet, _angular_common__WEBPACK_IMPORTED_MODULE_3__.NgForOf, _angular_forms__WEBPACK_IMPORTED_MODULE_7__.NgSelectOption, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["ɵNgSelectMultipleOption"]],
-    pipes: [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__.TranslatePipe],
+    dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_3__.NgForOf, _angular_router__WEBPACK_IMPORTED_MODULE_6__.RouterOutlet, _angular_forms__WEBPACK_IMPORTED_MODULE_7__.NgSelectOption, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["ɵNgSelectMultipleOption"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__.TranslatePipe],
     styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhcHAuY29tcG9uZW50LmNzcyJ9 */"]
   });
 }
@@ -202,21 +201,19 @@ function createTranslateLoader(http) {
 class AppModule {
     static ɵfac = function AppModule_Factory(t) { return new (t || AppModule)(); };
     static ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_1__.AppComponent] });
-    static ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineInjector"]({ providers: [], imports: [[
-                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__.BrowserModule,
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_6__.HttpClientModule,
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_0__.AppRoutingModule,
-                jessica__WEBPACK_IMPORTED_MODULE_7__.LibJessicaModule,
-                _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__.TranslateModule.forRoot({
-                    loader: {
-                        provide: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__.TranslateLoader,
-                        useFactory: createTranslateLoader,
-                        deps: [_angular_common_http__WEBPACK_IMPORTED_MODULE_6__.HttpClient]
-                    },
-                    defaultLanguage: 'en'
-                }),
-                _angular_forms__WEBPACK_IMPORTED_MODULE_9__.ReactiveFormsModule
-            ]] });
+    static ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineInjector"]({ imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__.BrowserModule,
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_6__.HttpClientModule,
+            _app_routing_module__WEBPACK_IMPORTED_MODULE_0__.AppRoutingModule,
+            jessica__WEBPACK_IMPORTED_MODULE_7__.LibJessicaModule,
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__.TranslateModule.forRoot({
+                loader: {
+                    provide: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__.TranslateLoader,
+                    useFactory: createTranslateLoader,
+                    deps: [_angular_common_http__WEBPACK_IMPORTED_MODULE_6__.HttpClient]
+                },
+                defaultLanguage: 'en'
+            }),
+            _angular_forms__WEBPACK_IMPORTED_MODULE_9__.ReactiveFormsModule] });
 }
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_1__.AppComponent, _ui_main_main_component__WEBPACK_IMPORTED_MODULE_2__.MainComponent], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__.BrowserModule,
         _angular_common_http__WEBPACK_IMPORTED_MODULE_6__.HttpClientModule,
@@ -309,7 +306,7 @@ class MainComponent {
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("formGroup", ctx.form);
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](3);
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate2"](" Form Values: qref: ", _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpipeBind3"](6, 6, ctx.result == null ? null : ctx.result.qref, undefined, ctx.translateEx.language), ", b': ", _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpipeBind3"](7, 10, ctx.result == null ? null : ctx.result.b_, undefined, ctx.translateEx.language), "\n");
-        } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.FormGroupDirective, jessica__WEBPACK_IMPORTED_MODULE_1__.MeyerhofCalcComponent, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.FormControlName], pipes: [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__.TranslatePipe, _angular_common__WEBPACK_IMPORTED_MODULE_6__.DecimalPipe], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJtYWluLmNvbXBvbmVudC5jc3MifQ== */"] });
+        } }, dependencies: [jessica__WEBPACK_IMPORTED_MODULE_1__.MeyerhofCalcComponent, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.FormGroupDirective, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.FormControlName, _angular_common__WEBPACK_IMPORTED_MODULE_6__.DecimalPipe, _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__.TranslatePipe], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJtYWluLmNvbXBvbmVudC5jc3MifQ== */"] });
 }
 
 
@@ -587,9 +584,7 @@ FoundationStripFormComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTE
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpipeBind1"](3, 2, "JESSICA.FONDATION-STRIP.WIDTH"));
     }
   },
-  directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormGroupDirective, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormControlName],
-  pipes: [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__.TranslatePipe],
-  styles: [""]
+  dependencies: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormGroupDirective, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormControlName, _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__.TranslatePipe]
 });
 
 (function () {
@@ -606,8 +601,7 @@ FoundationStripFormComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTE
         useExisting: (0,_angular_core__WEBPACK_IMPORTED_MODULE_1__.forwardRef)(() => FoundationStripFormComponent),
         multi: true
       }],
-      template: "<div [formGroup]=\"foundation\">\n  <label for=\"width\">{{ 'JESSICA.FONDATION-STRIP.WIDTH' | translate }}</label>\n  <input id=\"width\" type=\"text\" formControlName=\"width\" />\n</div>\n",
-      styles: [""]
+      template: "<div [formGroup]=\"foundation\">\n  <label for=\"width\">{{ 'JESSICA.FONDATION-STRIP.WIDTH' | translate }}</label>\n  <input id=\"width\" type=\"text\" formControlName=\"width\" />\n</div>\n"
     }]
   }], function () {
     return [{
@@ -700,9 +694,7 @@ VerticalEccentricFormComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPOR
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpipeBind1"](8, 5, "JESSICA.VERTICAL-ECCENTRIC.ECCENTRIC"));
     }
   },
-  directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormGroupDirective, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormControlName],
-  pipes: [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__.TranslatePipe],
-  styles: [""]
+  dependencies: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormGroupDirective, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormControlName, _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__.TranslatePipe]
 });
 
 (function () {
@@ -719,8 +711,7 @@ VerticalEccentricFormComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPOR
         useExisting: (0,_angular_core__WEBPACK_IMPORTED_MODULE_1__.forwardRef)(() => VerticalEccentricFormComponent),
         multi: true
       }],
-      template: "<div [formGroup]=\"load\">\n  <label for=\"load\">{{ 'JESSICA.VERTICAL-ECCENTRIC.LOAD' | translate }}</label>\n  <input id=\"load\" type=\"text\" formControlName=\"load\" />\n  <br />\n  <label for=\"eccentric\">{{\n    'JESSICA.VERTICAL-ECCENTRIC.ECCENTRIC' | translate\n  }}</label>\n  <input id=\"eccentric\" type=\"text\" formControlName=\"eccentric\" />\n</div>\n",
-      styles: [""]
+      template: "<div [formGroup]=\"load\">\n  <label for=\"load\">{{ 'JESSICA.VERTICAL-ECCENTRIC.LOAD' | translate }}</label>\n  <input id=\"load\" type=\"text\" formControlName=\"load\" />\n  <br />\n  <label for=\"eccentric\">{{\n    'JESSICA.VERTICAL-ECCENTRIC.ECCENTRIC' | translate\n  }}</label>\n  <input id=\"eccentric\" type=\"text\" formControlName=\"eccentric\" />\n</div>\n"
     }]
   }], function () {
     return [{
@@ -811,8 +802,7 @@ MeyerhofFormComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODUL
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("formGroup", ctx.form);
     }
   },
-  directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormGroupDirective, FoundationStripFormComponent, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormControlName, VerticalEccentricFormComponent],
-  styles: [""]
+  dependencies: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormGroupDirective, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormControlName, FoundationStripFormComponent, VerticalEccentricFormComponent]
 });
 
 (function () {
@@ -829,8 +819,7 @@ MeyerhofFormComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODUL
         useExisting: (0,_angular_core__WEBPACK_IMPORTED_MODULE_1__.forwardRef)(() => MeyerhofFormComponent),
         multi: true
       }],
-      template: "<div [formGroup]=\"form\">\n  <lib-foundation-strip-form\n    ngDefaultControl\n    formControlName=\"foundation\"\n  ></lib-foundation-strip-form>\n  <lib-vertical-eccentric-form\n    ngDefaultControl\n    formControlName=\"load\"\n  ></lib-vertical-eccentric-form>\n</div>\n",
-      styles: [""]
+      template: "<div [formGroup]=\"form\">\n  <lib-foundation-strip-form\n    ngDefaultControl\n    formControlName=\"foundation\"\n  ></lib-foundation-strip-form>\n  <lib-vertical-eccentric-form\n    ngDefaultControl\n    formControlName=\"load\"\n  ></lib-vertical-eccentric-form>\n</div>\n"
     }]
   }], function () {
     return [{
@@ -916,9 +905,7 @@ MeyerhofCalcComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODUL
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpipeBind1"](3, 2, "JESSICA.MEYERHOF-CALC-FORM.TITLE"));
     }
   },
-  directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormGroupDirective, MeyerhofFormComponent, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormControlName],
-  pipes: [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__.TranslatePipe],
-  styles: [""]
+  dependencies: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormGroupDirective, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormControlName, MeyerhofFormComponent, _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__.TranslatePipe]
 });
 
 (function () {
@@ -931,8 +918,7 @@ MeyerhofCalcComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODUL
         useExisting: (0,_angular_core__WEBPACK_IMPORTED_MODULE_1__.forwardRef)(() => MeyerhofCalcComponent),
         multi: true
       }],
-      template: "<form [formGroup]=\"form\">\n  <h1>{{ 'JESSICA.MEYERHOF-CALC-FORM.TITLE' | translate }}</h1>\n  <lib-meyerhof-form\n    ngDefaultControl\n    formControlName=\"meyerhof\"\n  ></lib-meyerhof-form>\n</form>\n",
-      styles: [""]
+      template: "<form [formGroup]=\"form\">\n  <h1>{{ 'JESSICA.MEYERHOF-CALC-FORM.TITLE' | translate }}</h1>\n  <lib-meyerhof-form\n    ngDefaultControl\n    formControlName=\"meyerhof\"\n  ></lib-meyerhof-form>\n</form>\n"
     }]
   }], function () {
     return [{
@@ -959,7 +945,7 @@ LibJessicaModule.ɵmod = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__
   type: LibJessicaModule
 });
 LibJessicaModule.ɵinj = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({
-  imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_6__.CommonModule, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormsModule, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.ReactiveFormsModule, _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__.TranslateModule], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__.TranslateModule]
+  imports: [_angular_common__WEBPACK_IMPORTED_MODULE_6__.CommonModule, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormsModule, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.ReactiveFormsModule, _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__.TranslateModule, _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__.TranslateModule]
 });
 
 (function () {
@@ -5621,177 +5607,252 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-class ToolboxService {
-}
-ToolboxService.ɵfac = function ToolboxService_Factory(t) { return new (t || ToolboxService)(); };
-ToolboxService.ɵprov = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineInjectable"]({ token: ToolboxService, factory: ToolboxService.ɵfac, providedIn: 'root' });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵsetClassMetadata"](ToolboxService, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_4__.Injectable,
-        args: [{
-                providedIn: 'root'
-            }]
-    }], null, null); })();
+class ToolboxService {}
 
-class ToolboxComponent {
-}
-ToolboxComponent.ɵfac = function ToolboxComponent_Factory(t) { return new (t || ToolboxComponent)(); };
-ToolboxComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineComponent"]({ type: ToolboxComponent, selectors: [["lib-toolbox"]], decls: 2, vars: 0, template: function ToolboxComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, "toolbox works!");
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
-    } }, encapsulation: 2 });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵsetClassMetadata"](ToolboxComponent, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_4__.Component,
-        args: [{
-                selector: 'lib-toolbox',
-                template: ` <p>toolbox works!</p> `,
-                styles: []
-            }]
-    }], null, null); })();
+ToolboxService.ɵfac = function ToolboxService_Factory(t) {
+  return new (t || ToolboxService)();
+};
 
-class ToolboxModule {
-}
-ToolboxModule.ɵfac = function ToolboxModule_Factory(t) { return new (t || ToolboxModule)(); };
-ToolboxModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineNgModule"]({ type: ToolboxModule });
-ToolboxModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineInjector"]({ imports: [[]] });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵsetClassMetadata"](ToolboxModule, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_4__.NgModule,
-        args: [{
-                declarations: [ToolboxComponent],
-                imports: [],
-                exports: [ToolboxComponent]
-            }]
-    }], null, null); })();
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵsetNgModuleScope"](ToolboxModule, { declarations: [ToolboxComponent], exports: [ToolboxComponent] }); })();
+ToolboxService.ɵprov = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineInjectable"]({
+  token: ToolboxService,
+  factory: ToolboxService.ɵfac,
+  providedIn: 'root'
+});
+
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵsetClassMetadata"](ToolboxService, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_4__.Injectable,
+    args: [{
+      providedIn: 'root'
+    }]
+  }], null, null);
+})();
+
+class ToolboxComponent {}
+
+ToolboxComponent.ɵfac = function ToolboxComponent_Factory(t) {
+  return new (t || ToolboxComponent)();
+};
+
+ToolboxComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineComponent"]({
+  type: ToolboxComponent,
+  selectors: [["lib-toolbox"]],
+  decls: 2,
+  vars: 0,
+  template: function ToolboxComponent_Template(rf, ctx) {
+    if (rf & 1) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "p");
+      _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, "toolbox works!");
+      _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+    }
+  },
+  encapsulation: 2
+});
+
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵsetClassMetadata"](ToolboxComponent, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_4__.Component,
+    args: [{
+      selector: 'lib-toolbox',
+      template: ` <p>toolbox works!</p> `
+    }]
+  }], null, null);
+})();
+
+class ToolboxModule {}
+
+ToolboxModule.ɵfac = function ToolboxModule_Factory(t) {
+  return new (t || ToolboxModule)();
+};
+
+ToolboxModule.ɵmod = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineNgModule"]({
+  type: ToolboxModule
+});
+ToolboxModule.ɵinj = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineInjector"]({});
+
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵsetClassMetadata"](ToolboxModule, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_4__.NgModule,
+    args: [{
+      declarations: [ToolboxComponent],
+      imports: [],
+      exports: [ToolboxComponent]
+    }]
+  }], null, null);
+})();
+
+(function () {
+  (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵsetNgModuleScope"](ToolboxModule, {
+    declarations: [ToolboxComponent],
+    exports: [ToolboxComponent]
+  });
+})();
 
 class MultiTranslateHttpLoader {
-    constructor(http, resources = [
-        {
-            prefix: './assets/i18n/',
-            suffix: '.json'
-        }
-    ]) {
-        this.http = http;
-        this.resources = resources;
-    }
-    getTranslation(lang) {
-        return (0,rxjs__WEBPACK_IMPORTED_MODULE_5__.forkJoin)(this.resources.map((config) => {
-            return this.http.get(`${config.prefix}${lang}${config.suffix}`);
-        })).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.map)((response) => {
-            return response.reduce((a, b) => {
-                return Object.assign(a, b);
-            });
-        }));
-    }
+  constructor(http, resources = [{
+    prefix: './assets/i18n/',
+    suffix: '.json'
+  }]) {
+    this.http = http;
+    this.resources = resources;
+  }
+
+  getTranslation(lang) {
+    return (0,rxjs__WEBPACK_IMPORTED_MODULE_5__.forkJoin)(this.resources.map(config => {
+      return this.http.get(`${config.prefix}${lang}${config.suffix}`);
+    })).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.map)(response => {
+      return response.reduce((a, b) => {
+        return Object.assign(a, b);
+      });
+    }));
+  }
+
 }
 
 class TranslateExService {
-    constructor(languages) {
-        this.languages = languages;
-        this._language = 'en';
-        this.Globalize = globalize__WEBPACK_IMPORTED_MODULE_2__;
-        this.Globalize.load([cldr_data_supplemental_likelySubtags_json__WEBPACK_IMPORTED_MODULE_0__, cldr_data_supplemental_numberingSystems_json__WEBPACK_IMPORTED_MODULE_1__]);
+  constructor(languages) {
+    this.languages = languages;
+    this._language = 'en';
+    this.Globalize = globalize__WEBPACK_IMPORTED_MODULE_2__;
+    this.Globalize.load([cldr_data_supplemental_likelySubtags_json__WEBPACK_IMPORTED_MODULE_0__, cldr_data_supplemental_numberingSystems_json__WEBPACK_IMPORTED_MODULE_1__]);
+  }
+
+  extractLanguage(language) {
+    if (this.languages.indexOf(language) != -1) {
+      return language;
     }
-    extractLanguage(language) {
-        if (this.languages.indexOf(language) != -1) {
-            return language;
-        }
-        const pos = language.indexOf('-');
-        const shortLang = pos === -1 ? language : language.substring(0, pos);
-        if (this.languages.indexOf(shortLang) != -1) {
-            return shortLang;
-        }
-        return 'en';
+
+    const pos = language.indexOf('-');
+    const shortLang = pos === -1 ? language : language.substring(0, pos);
+
+    if (this.languages.indexOf(shortLang) != -1) {
+      return shortLang;
     }
-    get language() {
-        return this._language;
-    }
-    set language(language) {
-        this._language = language;
-        this.Globalize.locale(language);
-        this._numberParser = this.Globalize.numberParser();
-    }
-    get numberParser() {
-        return this._numberParser;
-    }
-    validNumber() {
-        return (control) => {
-            // Before calling isNan, be sure value can't be empty or null.
-            if (isNaN(this._numberParser(control.value))) {
-                return {
-                    validNumber: {
-                        reason: 'invalid number',
-                        value: control.value
-                    }
-                };
-            }
-            return null;
+
+    return 'en';
+  }
+
+  get language() {
+    return this._language;
+  }
+
+  set language(language) {
+    this._language = language;
+    this.Globalize.locale(language);
+    this._numberParser = this.Globalize.numberParser();
+  }
+
+  get numberParser() {
+    return this._numberParser;
+  }
+
+  validNumber() {
+    return control => {
+      // Before calling isNan, be sure value can't be empty or null.
+      if (isNaN(this._numberParser(control.value))) {
+        return {
+          validNumber: {
+            reason: 'invalid number',
+            value: control.value
+          }
         };
+      }
+
+      return null;
+    };
+  }
+
+  i18nStringToNumber(obj, i18n, nbParse) {
+    /* eslint-disable security/detect-object-injection */
+    i18n.child?.map(ch => this.i18nStringToNumber(obj[ch], i18n[ch], nbParse));
+    i18n.number?.map(nb => obj[nb] = nbParse(obj[nb]));
+    /* eslint-enable security/detect-object-injection */
+  }
+
+  i18nStringChangeLocale(obj, i18n, from, to) {
+    let parserFrom;
+
+    if (typeof from === 'string') {
+      this.Globalize.locale(from);
+      parserFrom = this.Globalize.numberParser();
+    } else {
+      parserFrom = from;
     }
-    i18nStringToNumber(obj, i18n, nbParse) {
-        /* eslint-disable security/detect-object-injection */
-        i18n.child?.map((ch) => this.i18nStringToNumber(obj[ch], i18n[ch], nbParse));
-        i18n.number?.map((nb) => (obj[nb] = nbParse(obj[nb])));
-        /* eslint-enable security/detect-object-injection */
+
+    let parserTo;
+
+    if (typeof to === 'string') {
+      this.Globalize.locale(to);
+      parserTo = this.Globalize.numberFormatter();
+    } else {
+      parserTo = to;
     }
-    i18nStringChangeLocale(obj, i18n, from, to) {
-        let parserFrom;
-        if (typeof from === 'string') {
-            this.Globalize.locale(from);
-            parserFrom = this.Globalize.numberParser();
-        }
-        else {
-            parserFrom = from;
-        }
-        let parserTo;
-        if (typeof to === 'string') {
-            this.Globalize.locale(to);
-            parserTo = this.Globalize.numberFormatter();
-        }
-        else {
-            parserTo = to;
-        }
-        /* eslint-disable security/detect-object-injection */
-        i18n.child
-            ?.filter((ch) => obj[ch] !== '')
-            .map((ch) => this.i18nStringChangeLocale(obj[ch], i18n[ch], parserFrom, parserTo));
-        i18n.number
-            ?.filter((nb) => obj[nb] !== null &&
-            obj[nb] !== '' &&
-            !Number.isNaN(parserFrom(obj[nb])))
-            .map((nb) => (obj[nb] = parserTo(parserFrom(obj[nb]))));
-        /* eslint-enable security/detect-object-injection */
-    }
+    /* eslint-disable security/detect-object-injection */
+
+
+    i18n.child?.filter(ch => obj[ch] !== '').map(ch => this.i18nStringChangeLocale(obj[ch], i18n[ch], parserFrom, parserTo));
+    i18n.number?.filter(nb => obj[nb] !== null && obj[nb] !== '' && !Number.isNaN(parserFrom(obj[nb]))).map(nb => obj[nb] = parserTo(parserFrom(obj[nb])));
+    /* eslint-enable security/detect-object-injection */
+  }
+
 }
-TranslateExService.ɵfac = function TranslateExService_Factory(t) { return new (t || TranslateExService)(_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵinject"]('languages')); };
-TranslateExService.ɵprov = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineInjectable"]({ token: TranslateExService, factory: TranslateExService.ɵfac, providedIn: 'root' });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵsetClassMetadata"](TranslateExService, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_4__.Injectable,
-        args: [{
-                providedIn: 'root'
-            }]
-    }], function () { return [{ type: undefined, decorators: [{
-                type: _angular_core__WEBPACK_IMPORTED_MODULE_4__.Inject,
-                args: ['languages']
-            }] }]; }, null); })();
+
+TranslateExService.ɵfac = function TranslateExService_Factory(t) {
+  return new (t || TranslateExService)(_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵinject"]('languages'));
+};
+
+TranslateExService.ɵprov = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineInjectable"]({
+  token: TranslateExService,
+  factory: TranslateExService.ɵfac,
+  providedIn: 'root'
+});
+
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵsetClassMetadata"](TranslateExService, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_4__.Injectable,
+    args: [{
+      providedIn: 'root'
+    }]
+  }], function () {
+    return [{
+      type: undefined,
+      decorators: [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_4__.Inject,
+        args: ['languages']
+      }]
+    }];
+  }, null);
+})();
 
 class TranslateMockPipe {
-    constructor() {
-        this.name = 'translate';
-    }
-    transform(query) {
-        return query;
-    }
-}
-TranslateMockPipe.ɵfac = function TranslateMockPipe_Factory(t) { return new (t || TranslateMockPipe)(); };
-TranslateMockPipe.ɵpipe = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefinePipe"]({ name: "translate", type: TranslateMockPipe, pure: true });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵsetClassMetadata"](TranslateMockPipe, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_4__.Pipe,
-        args: [{
-                name: 'translate'
-            }]
-    }], null, null); })();
+  constructor() {
+    this.name = 'translate';
+  }
 
+  transform(query) {
+    return query;
+  }
+
+}
+
+TranslateMockPipe.ɵfac = function TranslateMockPipe_Factory(t) {
+  return new (t || TranslateMockPipe)();
+};
+
+TranslateMockPipe.ɵpipe = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefinePipe"]({
+  name: "translate",
+  type: TranslateMockPipe,
+  pure: true
+});
+
+(function () {
+  (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵsetClassMetadata"](TranslateMockPipe, [{
+    type: _angular_core__WEBPACK_IMPORTED_MODULE_4__.Pipe,
+    args: [{
+      name: 'translate'
+    }]
+  }], null, null);
+})();
 /*
  * Public API Surface of toolbox
  */
