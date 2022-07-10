@@ -496,7 +496,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>T cfi_to_number(const std::string_view text)</pre>
+          <pre>// cppcheck-suppress passedByValue</pre>
         </td>
       </tr>
       <tr>
@@ -504,11 +504,9 @@
           <a name='L23' href='#L23' id="L23">
           <pre>23</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>43</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>T cfi_to_number(const std::string_view text)</pre>
         </td>
       </tr>
       <tr>
@@ -520,7 +518,7 @@
           <pre>43</pre>
         </td>
         <td class='code'>
-          <pre>  std::stringstream s;</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -532,7 +530,7 @@
           <pre>43</pre>
         </td>
         <td class='code'>
-          <pre>  T num;</pre>
+          <pre>  std::stringstream s;</pre>
         </td>
       </tr>
       <tr>
@@ -544,7 +542,7 @@
           <pre>43</pre>
         </td>
         <td class='code'>
-          <pre>  s &lt;&lt; text;</pre>
+          <pre>  T num;</pre>
         </td>
       </tr>
       <tr>
@@ -556,7 +554,7 @@
           <pre>43</pre>
         </td>
         <td class='code'>
-          <pre>  s &gt;&gt; num;</pre>
+          <pre>  s &lt;&lt; text;</pre>
         </td>
       </tr>
       <tr>
@@ -568,13 +566,25 @@
           <pre>43</pre>
         </td>
         <td class='code'>
-          <pre>  return num;</pre>
+          <pre>  s &gt;&gt; num;</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L29' href='#L29' id="L29">
           <pre>29</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>43</pre>
+        </td>
+        <td class='code'>
+          <pre>  return num;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L30' href='#L30' id="L30">
+          <pre>30</pre></a>
         </td>
         <td class='covered-line'>
           <pre>43</pre>
@@ -600,18 +610,6 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L23' href='#L23' id="L23">
-                    <pre>23</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>39</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>{</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
                     <a name='L24' href='#L24' id="L24">
                     <pre>24</pre></a>
                   </td>
@@ -619,7 +617,7 @@
                     <pre>39</pre>
                   </td>
                   <td class='code'>
-                    <pre>  std::stringstream s;</pre>
+                    <pre>{</pre>
                   </td>
                 </tr>
                 <tr>
@@ -631,7 +629,7 @@
                     <pre>39</pre>
                   </td>
                   <td class='code'>
-                    <pre>  T num;</pre>
+                    <pre>  std::stringstream s;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -643,7 +641,7 @@
                     <pre>39</pre>
                   </td>
                   <td class='code'>
-                    <pre>  s &lt;&lt; text;</pre>
+                    <pre>  T num;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -655,7 +653,7 @@
                     <pre>39</pre>
                   </td>
                   <td class='code'>
-                    <pre>  s &gt;&gt; num;</pre>
+                    <pre>  s &lt;&lt; text;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -667,13 +665,25 @@
                     <pre>39</pre>
                   </td>
                   <td class='code'>
-                    <pre>  return num;</pre>
+                    <pre>  s &gt;&gt; num;</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L29' href='#L29' id="L29">
                     <pre>29</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>39</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  return num;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>39</pre>
@@ -704,18 +714,6 @@
                 </tr>
                 <tr>
                   <td class='line-number'>
-                    <a name='L23' href='#L23' id="L23">
-                    <pre>23</pre></a>
-                  </td>
-                  <td class='covered-line'>
-                    <pre>4</pre>
-                  </td>
-                  <td class='code'>
-                    <pre>{</pre>
-                  </td>
-                </tr>
-                <tr>
-                  <td class='line-number'>
                     <a name='L24' href='#L24' id="L24">
                     <pre>24</pre></a>
                   </td>
@@ -723,7 +721,7 @@
                     <pre>4</pre>
                   </td>
                   <td class='code'>
-                    <pre>  std::stringstream s;</pre>
+                    <pre>{</pre>
                   </td>
                 </tr>
                 <tr>
@@ -735,7 +733,7 @@
                     <pre>4</pre>
                   </td>
                   <td class='code'>
-                    <pre>  T num;</pre>
+                    <pre>  std::stringstream s;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -747,7 +745,7 @@
                     <pre>4</pre>
                   </td>
                   <td class='code'>
-                    <pre>  s &lt;&lt; text;</pre>
+                    <pre>  T num;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -759,7 +757,7 @@
                     <pre>4</pre>
                   </td>
                   <td class='code'>
-                    <pre>  s &gt;&gt; num;</pre>
+                    <pre>  s &lt;&lt; text;</pre>
                   </td>
                 </tr>
                 <tr>
@@ -771,13 +769,25 @@
                     <pre>4</pre>
                   </td>
                   <td class='code'>
-                    <pre>  return num;</pre>
+                    <pre>  s &gt;&gt; num;</pre>
                   </td>
                 </tr>
                 <tr>
                   <td class='line-number'>
                     <a name='L29' href='#L29' id="L29">
                     <pre>29</pre></a>
+                  </td>
+                  <td class='covered-line'>
+                    <pre>4</pre>
+                  </td>
+                  <td class='code'>
+                    <pre>  return num;</pre>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='line-number'>
+                    <a name='L30' href='#L30' id="L30">
+                    <pre>30</pre></a>
                   </td>
                   <td class='covered-line'>
                     <pre>4</pre>
@@ -793,8 +803,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L30' href='#L30' id="L30">
-          <pre>30</pre></a>
+          <a name='L31' href='#L31' id="L31">
+          <pre>31</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -803,8 +813,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L31' href='#L31' id="L31">
-          <pre>31</pre></a>
+          <a name='L32' href='#L32' id="L32">
+          <pre>32</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
