@@ -27,7 +27,7 @@
         </td>
         <td>
           <pre>Source (<a href=
-          '#L24'>jump to first uncovered line</a>)</pre>
+          '#L22'>jump to first uncovered line</a>)</pre>
         </td>
       </tr>
       <tr>
@@ -157,7 +157,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>template &lt;class Type&gt;</pre>
+          <pre>class JsonNlohmann</pre>
         </td>
       </tr>
       <tr>
@@ -167,7 +167,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>struct S;</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -177,33 +177,13 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>class JsonNlohmann</pre>
+          <pre> public:</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L16' href='#L16' id="L16">
           <pre>16</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>{</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L17' href='#L17' id="L17">
-          <pre>17</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre> public:</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L18' href='#L18' id="L18">
-          <pre>18</pre></a>
         </td>
         <td class='covered-line'>
           <pre>5</pre>
@@ -214,8 +194,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L19' href='#L19' id="L19">
-          <pre>19</pre></a>
+          <a name='L17' href='#L17' id="L17">
+          <pre>17</pre></a>
         </td>
         <td class='covered-line'>
           <pre>13</pre>
@@ -226,12 +206,32 @@
       </tr>
       <tr>
         <td class='line-number'>
+          <a name='L18' href='#L18' id="L18">
+          <pre>18</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  JsonNlohmann(JsonNlohmann&amp;&amp;) = default;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L19' href='#L19' id="L19">
+          <pre>19</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  JsonNlohmann& operator=(const JsonNlohmann&amp;) = delete;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
           <a name='L20' href='#L20' id="L20">
           <pre>20</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  JsonNlohmann(JsonNlohmann&amp;&amp;) = default;</pre>
+          <pre>  JsonNlohmann& operator=(JsonNlohmann&amp;&amp;) = delete;</pre>
         </td>
       </tr>
       <tr>
@@ -241,7 +241,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  JsonNlohmann& operator=(const JsonNlohmann&amp;) = delete;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -249,9 +249,12 @@
           <a name='L22' href='#L22' id="L22">
           <pre>22</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>  JsonNlohmann& operator=(JsonNlohmann&amp;&amp;) = delete;</pre>
+          <pre>  void ReadStr(const std::string& text) <span class=
+          'red'>{ doc = nlohmann::json::parse(text); }</span></pre>
         </td>
       </tr>
       <tr>
@@ -269,12 +272,9 @@
           <a name='L24' href='#L24' id="L24">
           <pre>24</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  void ReadStr(const std::string& text) <span class=
-          'red'>{ doc = nlohmann::json::parse(text); }</span></pre>
+          <pre>  void ReadFile(const std::string& file)</pre>
         </td>
       </tr>
       <tr>
@@ -282,9 +282,11 @@
           <a name='L25' href='#L25' id="L25">
           <pre>25</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>5</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -292,9 +294,11 @@
           <a name='L26' href='#L26' id="L26">
           <pre>26</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>5</pre>
+        </td>
         <td class='code'>
-          <pre>  void ReadFile(const std::string& file)</pre>
+          <pre>    std::ifstream ifs(file);</pre>
         </td>
       </tr>
       <tr>
@@ -306,7 +310,7 @@
           <pre>5</pre>
         </td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>    doc = nlohmann::json::parse(ifs);</pre>
         </td>
       </tr>
       <tr>
@@ -318,37 +322,13 @@
           <pre>5</pre>
         </td>
         <td class='code'>
-          <pre>    std::ifstream ifs(file);</pre>
+          <pre>  }</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L29' href='#L29' id="L29">
           <pre>29</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>5</pre>
-        </td>
-        <td class='code'>
-          <pre>    doc = nlohmann::json::parse(ifs);</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L30' href='#L30' id="L30">
-          <pre>30</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>5</pre>
-        </td>
-        <td class='code'>
-          <pre>  }</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L31' href='#L31' id="L31">
-          <pre>31</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -357,12 +337,36 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L32' href='#L32' id="L32">
-          <pre>32</pre></a>
+          <a name='L30' href='#L30' id="L30">
+          <pre>30</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
           <pre>  [[nodiscard]] std::string Get(const std::vector&lt;std::string&gt;& list) const</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L31' href='#L31' id="L31">
+          <pre>31</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>26</pre>
+        </td>
+        <td class='code'>
+          <pre>  {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L32' href='#L32' id="L32">
+          <pre>32</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>26</pre>
+        </td>
+        <td class='code'>
+          <pre>    std::string x = Get(doc, list, 0).dump();</pre>
         </td>
       </tr>
       <tr>
@@ -374,7 +378,7 @@
           <pre>26</pre>
         </td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>    return x;</pre>
         </td>
       </tr>
       <tr>
@@ -386,7 +390,7 @@
           <pre>26</pre>
         </td>
         <td class='code'>
-          <pre>    std::string x = Get(doc, list, 0).dump();</pre>
+          <pre>  }</pre>
         </td>
       </tr>
       <tr>
@@ -394,11 +398,9 @@
           <a name='L35' href='#L35' id="L35">
           <pre>35</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>26</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    return x;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -406,11 +408,9 @@
           <a name='L36' href='#L36' id="L36">
           <pre>36</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>26</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  }</pre>
+          <pre>  [[nodiscard]] JsonNlohmann Set(const std::vector&lt;std::string&gt;& list,</pre>
         </td>
       </tr>
       <tr>
@@ -420,7 +420,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>                                 const nlohmann::json& val) const</pre>
         </td>
       </tr>
       <tr>
@@ -428,9 +428,11 @@
           <a name='L38' href='#L38' id="L38">
           <pre>38</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>13</pre>
+        </td>
         <td class='code'>
-          <pre>  [[nodiscard]] JsonNlohmann Set(const std::vector&lt;std::string&gt;& list,</pre>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -438,9 +440,11 @@
           <a name='L39' href='#L39' id="L39">
           <pre>39</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>13</pre>
+        </td>
         <td class='code'>
-          <pre>                                 const nlohmann::json& val) const</pre>
+          <pre>    JsonNlohmann retval(*this);</pre>
         </td>
       </tr>
       <tr>
@@ -452,7 +456,7 @@
           <pre>13</pre>
         </td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>    Get(retval.doc, list, 0) = val;</pre>
         </td>
       </tr>
       <tr>
@@ -464,7 +468,7 @@
           <pre>13</pre>
         </td>
         <td class='code'>
-          <pre>    JsonNlohmann retval(*this);</pre>
+          <pre>    return retval;</pre>
         </td>
       </tr>
       <tr>
@@ -476,7 +480,7 @@
           <pre>13</pre>
         </td>
         <td class='code'>
-          <pre>    Get(retval.doc, list, 0) = val;</pre>
+          <pre>  }</pre>
         </td>
       </tr>
       <tr>
@@ -484,11 +488,9 @@
           <a name='L43' href='#L43' id="L43">
           <pre>43</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>13</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    return retval;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -497,10 +499,10 @@
           <pre>44</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>13</pre>
+          <pre>18</pre>
         </td>
         <td class='code'>
-          <pre>  }</pre>
+          <pre>  ~JsonNlohmann() = default;</pre>
         </td>
       </tr>
       <tr>
@@ -518,11 +520,9 @@
           <a name='L46' href='#L46' id="L46">
           <pre>46</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>18</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  ~JsonNlohmann() = default;</pre>
+          <pre> private:</pre>
         </td>
       </tr>
       <tr>
@@ -532,7 +532,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>  nlohmann::json doc;</pre>
         </td>
       </tr>
       <tr>
@@ -542,7 +542,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> private:</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -552,7 +552,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  nlohmann::json doc;</pre>
+          <pre>  // NOLINTNEXTLINE(misc-no-recursion)</pre>
         </td>
       </tr>
       <tr>
@@ -562,7 +562,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>  static const nlohmann::json& Get(const nlohmann::json& data,</pre>
         </td>
       </tr>
       <tr>
@@ -572,7 +572,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  // NOLINTNEXTLINE(misc-no-recursion)</pre>
+          <pre>                                   const std::vector&lt;std::string&gt;& list,</pre>
         </td>
       </tr>
       <tr>
@@ -582,7 +582,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  static const nlohmann::json& Get(const nlohmann::json& data,</pre>
+          <pre>                                   size_t i)</pre>
         </td>
       </tr>
       <tr>
@@ -590,9 +590,11 @@
           <a name='L53' href='#L53' id="L53">
           <pre>53</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>105</pre>
+        </td>
         <td class='code'>
-          <pre>                                   const std::vector&lt;std::string&gt;& list,</pre>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -600,9 +602,11 @@
           <a name='L54' href='#L54' id="L54">
           <pre>54</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>105</pre>
+        </td>
         <td class='code'>
-          <pre>                                   size_t i)</pre>
+          <pre>    const nlohmann::json* retval2 = [&amp;data, &amp;list, i]()</pre>
         </td>
       </tr>
       <tr>
@@ -614,7 +618,7 @@
           <pre>105</pre>
         </td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -626,7 +630,7 @@
           <pre>105</pre>
         </td>
         <td class='code'>
-          <pre>    const nlohmann::json* retval2 = [&amp;data, &amp;list, i]()</pre>
+          <pre>      const nlohmann::json* retval = &amp;data[list[i]];</pre>
         </td>
       </tr>
       <tr>
@@ -638,7 +642,7 @@
           <pre>105</pre>
         </td>
         <td class='code'>
-          <pre>    {</pre>
+          <pre>      auto decorator = retval-&gt;find("decorator");</pre>
         </td>
       </tr>
       <tr>
@@ -650,7 +654,7 @@
           <pre>105</pre>
         </td>
         <td class='code'>
-          <pre>      const nlohmann::json* retval = &amp;data[list[i]];</pre>
+          <pre>      if (decorator != retval-&gt;end())</pre>
         </td>
       </tr>
       <tr>
@@ -659,10 +663,10 @@
           <pre>59</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>105</pre>
+          <pre>24</pre>
         </td>
         <td class='code'>
-          <pre>      auto decorator = retval-&gt;find("decorator");</pre>
+          <pre>      {</pre>
         </td>
       </tr>
       <tr>
@@ -671,10 +675,10 @@
           <pre>60</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>105</pre>
+          <pre>24</pre>
         </td>
         <td class='code'>
-          <pre>      if (decorator != retval-&gt;end())</pre>
+          <pre>        return &amp;(*retval)["decorator"]["ptr_wrapper"]["data"];</pre>
         </td>
       </tr>
       <tr>
@@ -686,37 +690,13 @@
           <pre>24</pre>
         </td>
         <td class='code'>
-          <pre>      {</pre>
+          <pre>      }</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L62' href='#L62' id="L62">
           <pre>62</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>24</pre>
-        </td>
-        <td class='code'>
-          <pre>        return &amp;(*retval)["decorator"]["ptr_wrapper"]["data"];</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L63' href='#L63' id="L63">
-          <pre>63</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>24</pre>
-        </td>
-        <td class='code'>
-          <pre>      }</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L64' href='#L64' id="L64">
-          <pre>64</pre></a>
         </td>
         <td class='covered-line'>
           <pre>81</pre>
@@ -727,14 +707,38 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L65' href='#L65' id="L65">
-          <pre>65</pre></a>
+          <a name='L63' href='#L63' id="L63">
+          <pre>63</pre></a>
         </td>
         <td class='covered-line'>
           <pre>81</pre>
         </td>
         <td class='code'>
           <pre>      if (ptr_wrapper != retval-&gt;end())</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L64' href='#L64' id="L64">
+          <pre>64</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>27</pre>
+        </td>
+        <td class='code'>
+          <pre>      {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L65' href='#L65' id="L65">
+          <pre>65</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>27</pre>
+        </td>
+        <td class='code'>
+          <pre>        return &amp;(*retval)["ptr_wrapper"]["data"];</pre>
         </td>
       </tr>
       <tr>
@@ -746,37 +750,13 @@
           <pre>27</pre>
         </td>
         <td class='code'>
-          <pre>      {</pre>
+          <pre>      }</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L67' href='#L67' id="L67">
           <pre>67</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>27</pre>
-        </td>
-        <td class='code'>
-          <pre>        return &amp;(*retval)["ptr_wrapper"]["data"];</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L68' href='#L68' id="L68">
-          <pre>68</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>27</pre>
-        </td>
-        <td class='code'>
-          <pre>      }</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L69' href='#L69' id="L69">
-          <pre>69</pre></a>
         </td>
         <td class='covered-line'>
           <pre>54</pre>
@@ -787,8 +767,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L70' href='#L70' id="L70">
-          <pre>70</pre></a>
+          <a name='L68' href='#L68' id="L68">
+          <pre>68</pre></a>
         </td>
         <td class='covered-line'>
           <pre>81</pre>
@@ -799,8 +779,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L71' href='#L71' id="L71">
-          <pre>71</pre></a>
+          <a name='L69' href='#L69' id="L69">
+          <pre>69</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -809,14 +789,38 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L72' href='#L72' id="L72">
-          <pre>72</pre></a>
+          <a name='L70' href='#L70' id="L70">
+          <pre>70</pre></a>
         </td>
         <td class='covered-line'>
           <pre>105</pre>
         </td>
         <td class='code'>
           <pre>    if (i == list.size() - 1)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L71' href='#L71' id="L71">
+          <pre>71</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>39</pre>
+        </td>
+        <td class='code'>
+          <pre>    {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L72' href='#L72' id="L72">
+          <pre>72</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>39</pre>
+        </td>
+        <td class='code'>
+          <pre>      return *retval2;</pre>
         </td>
       </tr>
       <tr>
@@ -828,37 +832,13 @@
           <pre>39</pre>
         </td>
         <td class='code'>
-          <pre>    {</pre>
+          <pre>    }</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L74' href='#L74' id="L74">
           <pre>74</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>39</pre>
-        </td>
-        <td class='code'>
-          <pre>      return *retval2;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L75' href='#L75' id="L75">
-          <pre>75</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>39</pre>
-        </td>
-        <td class='code'>
-          <pre>    }</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L76' href='#L76' id="L76">
-          <pre>76</pre></a>
         </td>
         <td class='covered-line'>
           <pre>66</pre>
@@ -869,8 +849,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L77' href='#L77' id="L77">
-          <pre>77</pre></a>
+          <a name='L75' href='#L75' id="L75">
+          <pre>75</pre></a>
         </td>
         <td class='covered-line'>
           <pre>105</pre>
@@ -881,8 +861,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L78' href='#L78' id="L78">
-          <pre>78</pre></a>
+          <a name='L76' href='#L76' id="L76">
+          <pre>76</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -891,12 +871,34 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L79' href='#L79' id="L79">
-          <pre>79</pre></a>
+          <a name='L77' href='#L77' id="L77">
+          <pre>77</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
           <pre>  static nlohmann::json& Get(nlohmann::json& data,</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L78' href='#L78' id="L78">
+          <pre>78</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>                             const std::vector&lt;std::string&gt;& list, size_t i)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L79' href='#L79' id="L79">
+          <pre>79</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>13</pre>
+        </td>
+        <td class='code'>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -906,7 +908,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                             const std::vector&lt;std::string&gt;& list, size_t i)</pre>
+          <pre>    // NOLINTNEXTLINE(cppcoreguidelines-pro-type-const-cast)</pre>
         </td>
       </tr>
       <tr>
@@ -918,7 +920,7 @@
           <pre>13</pre>
         </td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>    return const_cast&lt;nlohmann::json&amp;&gt;(</pre>
         </td>
       </tr>
       <tr>
@@ -926,9 +928,11 @@
           <a name='L82' href='#L82' id="L82">
           <pre>82</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>13</pre>
+        </td>
         <td class='code'>
-          <pre>    // NOLINTNEXTLINE(cppcoreguidelines-pro-type-const-cast)</pre>
+          <pre>        Get(static_cast&lt;const nlohmann::json&amp;&gt;(data), list, i));</pre>
         </td>
       </tr>
       <tr>
@@ -940,7 +944,7 @@
           <pre>13</pre>
         </td>
         <td class='code'>
-          <pre>    return const_cast&lt;nlohmann::json&amp;&gt;(</pre>
+          <pre>  }</pre>
         </td>
       </tr>
       <tr>
@@ -948,11 +952,9 @@
           <a name='L84' href='#L84' id="L84">
           <pre>84</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>13</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        Get(static_cast&lt;const nlohmann::json&amp;&gt;(data), list, i));</pre>
+          <pre>};</pre>
         </td>
       </tr>
       <tr>
@@ -960,11 +962,9 @@
           <a name='L85' href='#L85' id="L85">
           <pre>85</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>13</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  }</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -974,23 +974,13 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>};</pre>
+          <pre>//static_assert(JsonParser&lt;JsonNlohmann, nlohmann::json&gt;);</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L87' href='#L87' id="L87">
           <pre>87</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>//static_assert(JsonParser&lt;JsonNlohmann, nlohmann::json&gt;);</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L88' href='#L88' id="L88">
-          <pre>88</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>

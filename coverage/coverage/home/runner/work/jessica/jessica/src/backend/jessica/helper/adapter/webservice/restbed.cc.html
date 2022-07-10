@@ -27,7 +27,7 @@
         </td>
         <td>
           <pre>Source (<a href=
-          '#L101'>jump to first uncovered line</a>)</pre>
+          '#L102'>jump to first uncovered line</a>)</pre>
         </td>
       </tr>
       <tr>
@@ -585,7 +585,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>void RestbedWs::Start(unsigned short port)</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -593,11 +593,9 @@
           <a name='L52' href='#L52' id="L52">
           <pre>52</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>2</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>void RestbedWs::Start(unsigned short port)</pre>
         </td>
       </tr>
       <tr>
@@ -609,7 +607,7 @@
           <pre>2</pre>
         </td>
         <td class='code'>
-          <pre>  auto settings = std::make_shared&lt;restbed::Settings&gt;();</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -621,7 +619,7 @@
           <pre>2</pre>
         </td>
         <td class='code'>
-          <pre>  settings-&gt;set_port(port);</pre>
+          <pre>  auto settings = std::make_shared&lt;restbed::Settings&gt;();</pre>
         </td>
       </tr>
       <tr>
@@ -633,7 +631,7 @@
           <pre>2</pre>
         </td>
         <td class='code'>
-          <pre>  settings-&gt;set_default_header("Connection", "close");</pre>
+          <pre>  settings-&gt;set_port(port);</pre>
         </td>
       </tr>
       <tr>
@@ -641,9 +639,11 @@
           <a name='L56' href='#L56' id="L56">
           <pre>56</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>2</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre>  settings-&gt;set_default_header("Connection", "close");</pre>
         </td>
       </tr>
       <tr>
@@ -651,11 +651,9 @@
           <a name='L57' href='#L57' id="L57">
           <pre>57</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>2</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  service_.start(settings);</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -667,13 +665,25 @@
           <pre>2</pre>
         </td>
         <td class='code'>
-          <pre>}</pre>
+          <pre>  service_.start(settings);</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L59' href='#L59' id="L59">
           <pre>59</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>2</pre>
+        </td>
+        <td class='code'>
+          <pre>}</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L60' href='#L60' id="L60">
+          <pre>60</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -682,8 +692,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L60' href='#L60' id="L60">
-          <pre>60</pre></a>
+          <a name='L61' href='#L61' id="L61">
+          <pre>61</pre></a>
         </td>
         <td class='covered-line'>
           <pre>2</pre>
@@ -694,8 +704,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L61' href='#L61' id="L61">
-          <pre>61</pre></a>
+          <a name='L62' href='#L62' id="L62">
+          <pre>62</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -704,8 +714,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L62' href='#L62' id="L62">
-          <pre>62</pre></a>
+          <a name='L63' href='#L63' id="L63">
+          <pre>63</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -714,8 +724,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L63' href='#L63' id="L63">
-          <pre>63</pre></a>
+          <a name='L64' href='#L64' id="L64">
+          <pre>64</pre></a>
         </td>
         <td class='covered-line'>
           <pre>2</pre>
@@ -726,26 +736,14 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L64' href='#L64' id="L64">
-          <pre>64</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>434k</pre>
-        </td>
-        <td class='code'>
-          <pre>  while (!service_.is_up())</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
           <a name='L65' href='#L65' id="L65">
           <pre>65</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>434k</pre>
+          <pre>349k</pre>
         </td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>  while (!service_.is_up())</pre>
         </td>
       </tr>
       <tr>
@@ -754,7 +752,19 @@
           <pre>66</pre></a>
         </td>
         <td class='covered-line'>
-          <pre>434k</pre>
+          <pre>349k</pre>
+        </td>
+        <td class='code'>
+          <pre>  {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L67' href='#L67' id="L67">
+          <pre>67</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>349k</pre>
         </td>
         <td class='code'>
           <pre>  }</pre>
@@ -762,8 +772,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L67' href='#L67' id="L67">
-          <pre>67</pre></a>
+          <a name='L68' href='#L68' id="L68">
+          <pre>68</pre></a>
         </td>
         <td class='covered-line'>
           <pre>2</pre>
@@ -774,22 +784,12 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L68' href='#L68' id="L68">
-          <pre>68</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
           <a name='L69' href='#L69' id="L69">
           <pre>69</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>std::pair&lt;int, std::string&gt; RestbedRequest::Sync(const std::string& hostname,</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -799,7 +799,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                                                 unsigned short port,</pre>
+          <pre>std::pair&lt;int, std::string&gt; RestbedRequest::Sync(const std::string& hostname,</pre>
         </td>
       </tr>
       <tr>
@@ -809,7 +809,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                                                 const std::string& method,</pre>
+          <pre>                                                 unsigned short port,</pre>
         </td>
       </tr>
       <tr>
@@ -819,7 +819,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                                                 const std::string& path,</pre>
+          <pre>                                                 const std::string& method,</pre>
         </td>
       </tr>
       <tr>
@@ -829,7 +829,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                                                 const std::string& body)</pre>
+          <pre>                                                 const std::string& path,</pre>
         </td>
       </tr>
       <tr>
@@ -837,11 +837,9 @@
           <a name='L74' href='#L74' id="L74">
           <pre>74</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>                                                 const std::string& body)</pre>
         </td>
       </tr>
       <tr>
@@ -853,7 +851,7 @@
           <pre>4</pre>
         </td>
         <td class='code'>
-          <pre>  auto request = std::make_shared&lt;restbed::Request&gt;();</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -865,7 +863,7 @@
           <pre>4</pre>
         </td>
         <td class='code'>
-          <pre>  request-&gt;set_method(method);</pre>
+          <pre>  auto request = std::make_shared&lt;restbed::Request&gt;();</pre>
         </td>
       </tr>
       <tr>
@@ -877,7 +875,7 @@
           <pre>4</pre>
         </td>
         <td class='code'>
-          <pre>  request-&gt;set_port(port);</pre>
+          <pre>  request-&gt;set_method(method);</pre>
         </td>
       </tr>
       <tr>
@@ -889,7 +887,7 @@
           <pre>4</pre>
         </td>
         <td class='code'>
-          <pre>  request-&gt;set_host(hostname);</pre>
+          <pre>  request-&gt;set_port(port);</pre>
         </td>
       </tr>
       <tr>
@@ -901,13 +899,25 @@
           <pre>4</pre>
         </td>
         <td class='code'>
-          <pre>  request-&gt;set_path(path);</pre>
+          <pre>  request-&gt;set_host(hostname);</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L80' href='#L80' id="L80">
           <pre>80</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>4</pre>
+        </td>
+        <td class='code'>
+          <pre>  request-&gt;set_path(path);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L81' href='#L81' id="L81">
+          <pre>81</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -916,8 +926,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L81' href='#L81' id="L81">
-          <pre>81</pre></a>
+          <a name='L82' href='#L82' id="L82">
+          <pre>82</pre></a>
         </td>
         <td class='covered-line'>
           <pre>4</pre>
@@ -928,8 +938,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L82' href='#L82' id="L82">
-          <pre>82</pre></a>
+          <a name='L83' href='#L83' id="L83">
+          <pre>83</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -938,8 +948,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L83' href='#L83' id="L83">
-          <pre>83</pre></a>
+          <a name='L84' href='#L84' id="L84">
+          <pre>84</pre></a>
         </td>
         <td class='covered-line'>
           <pre>4</pre>
@@ -950,8 +960,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L84' href='#L84' id="L84">
-          <pre>84</pre></a>
+          <a name='L85' href='#L85' id="L85">
+          <pre>85</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -960,8 +970,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L85' href='#L85' id="L85">
-          <pre>85</pre></a>
+          <a name='L86' href='#L86' id="L86">
+          <pre>86</pre></a>
         </td>
         <td class='covered-line'>
           <pre>4</pre>
@@ -972,24 +982,12 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L86' href='#L86' id="L86">
-          <pre>86</pre></a>
+          <a name='L87' href='#L87' id="L87">
+          <pre>87</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
           <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L87' href='#L87' id="L87">
-          <pre>87</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
-        <td class='code'>
-          <pre>  try</pre>
         </td>
       </tr>
       <tr>
@@ -1001,7 +999,7 @@
           <pre>4</pre>
         </td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>  try</pre>
         </td>
       </tr>
       <tr>
@@ -1013,7 +1011,7 @@
           <pre>4</pre>
         </td>
         <td class='code'>
-          <pre>    restbed::Http::fetch(</pre>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -1025,7 +1023,7 @@
           <pre>4</pre>
         </td>
         <td class='code'>
-          <pre>        cfi_to_number&lt;size_t&gt;(response-&gt;get_header("Content-Length")),</pre>
+          <pre>    restbed::Http::fetch(</pre>
         </td>
       </tr>
       <tr>
@@ -1037,13 +1035,25 @@
           <pre>4</pre>
         </td>
         <td class='code'>
-          <pre>        response);</pre>
+          <pre>        cfi_to_number&lt;size_t&gt;(response-&gt;get_header("Content-Length")),</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L92' href='#L92' id="L92">
           <pre>92</pre></a>
+        </td>
+        <td class='covered-line'>
+          <pre>4</pre>
+        </td>
+        <td class='code'>
+          <pre>        response);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L93' href='#L93' id="L93">
+          <pre>93</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1052,8 +1062,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L93' href='#L93' id="L93">
-          <pre>93</pre></a>
+          <a name='L94' href='#L94' id="L94">
+          <pre>94</pre></a>
         </td>
         <td class='covered-line'>
           <pre>4</pre>
@@ -1064,24 +1074,12 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L94' href='#L94' id="L94">
-          <pre>94</pre></a>
+          <a name='L95' href='#L95' id="L95">
+          <pre>95</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
           <pre>        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L95' href='#L95' id="L95">
-          <pre>95</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
-        <td class='code'>
-          <pre>        reinterpret_cast&lt;const char*&gt;(response-&gt;get_body().data()),</pre>
         </td>
       </tr>
       <tr>
@@ -1093,7 +1091,7 @@
           <pre>4</pre>
         </td>
         <td class='code'>
-          <pre>        response-&gt;get_body().size());</pre>
+          <pre>        reinterpret_cast&lt;const char*&gt;(response-&gt;get_body().data()),</pre>
         </td>
       </tr>
       <tr>
@@ -1101,9 +1099,11 @@
           <a name='L97' href='#L97' id="L97">
           <pre>97</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='covered-line'>
+          <pre>4</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre>        response-&gt;get_body().size());</pre>
         </td>
       </tr>
       <tr>
@@ -1111,11 +1111,9 @@
           <a name='L98' href='#L98' id="L98">
           <pre>98</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    return std::make_pair(response-&gt;get_status_code(), data);</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1127,7 +1125,7 @@
           <pre>4</pre>
         </td>
         <td class='code'>
-          <pre>  }</pre>
+          <pre>    return std::make_pair(response-&gt;get_status_code(), data);</pre>
         </td>
       </tr>
       <tr>
@@ -1139,7 +1137,7 @@
           <pre>4</pre>
         </td>
         <td class='code'>
-          <pre>  catch (const std::exception& e)</pre>
+          <pre>  }</pre>
         </td>
       </tr>
       <tr>
@@ -1151,7 +1149,7 @@
           <pre>4</pre>
         </td>
         <td class='code'>
-          <pre>  <span class='red'>{</span></pre>
+          <pre>  catch (const std::exception& e)</pre>
         </td>
       </tr>
       <tr>
@@ -1159,12 +1157,11 @@
           <a name='L102' href='#L102' id="L102">
           <pre>102</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
+        <td class='covered-line'>
+          <pre>4</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>    return {500, e.what()};</span></pre>
+          <pre>  <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -1176,13 +1173,26 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>  }</span></pre>
+          <pre><span class=
+          'red'>    return {500, e.what()};</span></pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L104' href='#L104' id="L104">
           <pre>104</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>  }</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L105' href='#L105' id="L105">
+          <pre>105</pre></a>
         </td>
         <td class='covered-line'>
           <pre>4</pre>
@@ -1193,8 +1203,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L105' href='#L105' id="L105">
-          <pre>105</pre></a>
+          <a name='L106' href='#L106' id="L106">
+          <pre>106</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1203,8 +1213,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L106' href='#L106' id="L106">
-          <pre>106</pre></a>
+          <a name='L107' href='#L107' id="L107">
+          <pre>107</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
