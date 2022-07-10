@@ -56,8 +56,8 @@
 </td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntryLo">20.8&nbsp;%</td>
-            <td class="headerCovTableEntry">24</td>
+            <td class="headerCovTableEntryLo">19.2&nbsp;%</td>
+            <td class="headerCovTableEntry">26</td>
             <td class="headerCovTableEntry">5</td>
           </tr>
                   <tr><td><img src="../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -183,7 +183,8 @@
 <a name="103"><span class="lineNum">     103</span>                 :<span class="tlaGNC">          15 :         registerClass()</span></a>
 <a name="104"><span class="lineNum">     104</span>                 :             :         {</a>
 <a name="105"><span class="lineNum">     105</span>   [<span class="tlaGBC" title="Branch 0 was taken 15 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span><span class="tlaGBC" title="Branch 2 was taken 15 times"> + </span><span class="tlaUNC" title="Branch 3 was not taken"> - </span>]:<span class="tlaGNC">          15 :             DrClassMap::registerClass(className(),</span></a>
-<a name="106"><span class="lineNum">     106</span>   [<span class="tlaUNC" title="Branch 0 was not executed"> # </span><span class="tlaUNC" title="Branch 1 was not executed"> # </span><span class="tlaUNC" title="Branch 2 was not executed"> # </span><span class="tlaUNC" title="Branch 3 was not executed"> # </span>]:<span class="tlaUNC">           0 :                                       []() -&gt; DrObjectBase * { return new T; });</span></a>
+<a name="106"><span class="lineNum">     106</span>   [<span class="tlaUNC" title="Branch 0 was not executed"> # </span><span class="tlaUNC" title="Branch 1 was not executed"> # </span><span class="tlaUNC" title="Branch 2 was not executed"> # </span><span class="tlaUNC" title="Branch 3 was not executed"> # </span> :<span class="tlaUNC">           0 :                                       []() -&gt; DrObjectBase * { return new T; });</span></a>
+<span class="lineNum">        </span>          <span class="tlaUNC" title="Branch 4 was not executed"> # </span><span class="tlaUNC" title="Branch 5 was not executed"> # </span>]
 <a name="107"><span class="lineNum">     107</span>                 :<span class="tlaGNC">          15 :         }</span></a>
 <a name="108"><span class="lineNum">     108</span>                 :             :         template &lt;typename D&gt;</a>
 <a name="109"><span class="lineNum">     109</span>                 :             :         typename std::enable_if&lt;!std::is_default_constructible&lt;D&gt;::value,</a>

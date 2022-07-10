@@ -57,8 +57,8 @@
             <td></td>
             <td class="headerItem">Branches:</td>
             <td class="headerCovTableEntryLo">50.0&nbsp;%</td>
-            <td class="headerCovTableEntry">8</td>
-            <td class="headerCovTableEntry">4</td>
+            <td class="headerCovTableEntry">10</td>
+            <td class="headerCovTableEntry">5</td>
           </tr>
                   <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
                 </table>
@@ -119,7 +119,7 @@
 <a name="41"><span class="lineNum">      41</span>                 :<span class="tlaGNC">          11 :   void serialize(Archive&amp; ar)</span></a>
 <a name="42"><span class="lineNum">      42</span>                 :             :   {</a>
 <a name="43"><span class="lineNum">      43</span>   [<span class="tlaGBC" title="Branch 0 was taken 11 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span><span class="tlaGBC" title="Branch 2 was taken 11 times"> + </span><span class="tlaUNC" title="Branch 3 was not taken"> - </span>]:<span class="tlaGNC">          11 :     ar(cereal::make_nvp(&quot;load&quot;, load_),</span></a>
-<a name="44"><span class="lineNum">      44</span>                 :<span class="tlaGNC">          11 :        cereal::make_nvp(&quot;foundation&quot;, foundation_));</span></a>
+<a name="44"><span class="lineNum">      44</span>         [<span class="tlaGBC" title="Branch 0 was taken 11 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span>]:<span class="tlaGNC">          11 :        cereal::make_nvp(&quot;foundation&quot;, foundation_));</span></a>
 <a name="45"><span class="lineNum">      45</span>                 :<span class="tlaGNC">          11 :   }</span></a>
 <a name="46"><span class="lineNum">      46</span>                 :             : </a>
 <a name="47"><span class="lineNum">      47</span>                 :             :  private:</a>

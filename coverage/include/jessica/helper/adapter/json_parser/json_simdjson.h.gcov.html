@@ -170,7 +170,7 @@
 <a name="92"><span class="lineNum">      92</span>                 :             :           const std::vector&lt;std::string&gt;&amp; list, size_t i)</a>
 <a name="93"><span class="lineNum">      93</span>                 :             :   {</a>
 <a name="94"><span class="lineNum">      94</span>                 :             :     simdjson::simdjson_result&lt;simdjson::fallback::ondemand::value&gt; retval2 =</a>
-<a name="95"><span class="lineNum">      95</span>                 :<span class="tlaGNC">          39 :         [&amp;data, &amp;list, i]()</span></a>
+<a name="95"><span class="lineNum">      95</span>                 :<span class="tlaGNC">         117 :         [&amp;data, &amp;list, i]()</span></a>
 <a name="96"><span class="lineNum">      96</span>                 :             :     {</a>
 <a name="97"><span class="lineNum">      97</span>                 :             :       simdjson::simdjson_result&lt;simdjson::fallback::ondemand::value&gt; retval =</a>
 <a name="98"><span class="lineNum">      98</span>                 :<span class="tlaGNC">          78 :           data[list[i]];</span></a>
@@ -192,8 +192,9 @@
 <a name="114"><span class="lineNum">     114</span>         [<span class="tlaGBC" title="Branch 0 was taken 24 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span>]:<span class="tlaGNC">          24 :     return Get(retval2, list, i + 1);</span></a>
 <a name="115"><span class="lineNum">     115</span>                 :             :   }</a>
 <a name="116"><span class="lineNum">     116</span>                 :             : };</a>
-<a name="117"><span class="lineNum">     117</span>                 :             : static_assert(JsonParserReader&lt;JsonSimdjson&gt;);</a>
-<a name="118"><span class="lineNum">     118</span>                 :             : }  // namespace jessica</a>
+<a name="117"><span class="lineNum">     117</span>                 :             : </a>
+<a name="118"><span class="lineNum">     118</span>                 :             : static_assert(JsonParserReader&lt;JsonSimdjson&gt;);</a>
+<a name="119"><span class="lineNum">     119</span>                 :             : }  // namespace jessica</a>
         </pre>
               </td>
             </tr>

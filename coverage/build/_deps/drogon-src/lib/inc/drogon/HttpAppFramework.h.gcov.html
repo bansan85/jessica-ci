@@ -536,7 +536,7 @@
 <a name="455"><span class="lineNum">     455</span>         [<span class="tlaGBC" title="Branch 0 was taken 6 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span>]:<span class="tlaGNC">           6 :         auto binder = std::make_shared&lt;internal::HttpBinder&lt;FUNCTION&gt;&gt;(</span></a>
 <a name="456"><span class="lineNum">     456</span>                 :             :             std::forward&lt;FUNCTION&gt;(function));</a>
 <a name="457"><span class="lineNum">     457</span>                 :             : </a>
-<a name="458"><span class="lineNum">     458</span>   [<span class="tlaGBC" title="Branch 0 was taken 6 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span><span class="tlaGBC" title="Branch 2 was taken 6 times"> + </span><span class="tlaUNC" title="Branch 3 was not taken"> - </span> :<span class="tlaGNC">          12 :         getLoop()-&gt;queueInLoop([binder]() { binder-&gt;createHandlerInstance(); });</span></a>
+<a name="458"><span class="lineNum">     458</span>   [<span class="tlaGBC" title="Branch 0 was taken 6 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span><span class="tlaGBC" title="Branch 2 was taken 6 times"> + </span><span class="tlaUNC" title="Branch 3 was not taken"> - </span> :<span class="tlaGNC">          18 :         getLoop()-&gt;queueInLoop([binder]() { binder-&gt;createHandlerInstance(); });</span></a>
 <span class="lineNum">        </span>          <span class="tlaGBC" title="Branch 4 was taken 6 times"> + </span><span class="tlaUNC" title="Branch 5 was not taken"> - </span>]
 <a name="459"><span class="lineNum">     459</span>                 :             : </a>
 <a name="460"><span class="lineNum">     460</span>                 :<span class="tlaGNC">           6 :         std::vector&lt;HttpMethod&gt; validMethods;</span></a>
@@ -562,7 +562,7 @@
 <a name="479"><span class="lineNum">     479</span>         [<span class="tlaGBC" title="Branch 0 was taken 6 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span>]:<span class="tlaGNC">           6 :         registerHttpController(</span></a>
 <a name="480"><span class="lineNum">     480</span>                 :             :             pathPattern, binder, validMethods, filters, handlerName);</a>
 <a name="481"><span class="lineNum">     481</span>                 :<span class="tlaGNC">           6 :         return *this;</span></a>
-<a name="482"><span class="lineNum">     482</span>                 :<span class="tlaGNC">           6 :     }</span></a>
+<a name="482"><span class="lineNum">     482</span>                 :<span class="tlaGNC">          12 :     }</span></a>
 <a name="483"><span class="lineNum">     483</span>                 :             :     /**</a>
 <a name="484"><span class="lineNum">     484</span>                 :             :      * @brief Register a handler into the framework via a regular expression.</a>
 <a name="485"><span class="lineNum">     485</span>                 :             :      *</a>

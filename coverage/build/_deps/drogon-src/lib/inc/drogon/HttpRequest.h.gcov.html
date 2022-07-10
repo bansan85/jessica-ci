@@ -56,9 +56,9 @@
 </td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntryHi">-</td>
-            <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntryLo">50.0&nbsp;%</td>
+            <td class="headerCovTableEntry">4</td>
+            <td class="headerCovTableEntry">2</td>
           </tr>
                   <tr><td><img src="../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
                 </table>
@@ -261,7 +261,7 @@
 <a name="183"><span class="lineNum">     183</span>                 :             :     /// request.</a>
 <a name="184"><span class="lineNum">     184</span>                 :<span class="tlaGNC">           6 :     string_view body() const</span></a>
 <a name="185"><span class="lineNum">     185</span>                 :             :     {</a>
-<a name="186"><span class="lineNum">     186</span>                 :<span class="tlaGNC">           6 :         return string_view(bodyData(), bodyLength());</span></a>
+<a name="186"><span class="lineNum">     186</span>   [<span class="tlaGBC" title="Branch 0 was taken 6 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span><span class="tlaGBC" title="Branch 2 was taken 6 times"> + </span><span class="tlaUNC" title="Branch 3 was not taken"> - </span>]:<span class="tlaGNC">           6 :         return string_view(bodyData(), bodyLength());</span></a>
 <a name="187"><span class="lineNum">     187</span>                 :             :     }</a>
 <a name="188"><span class="lineNum">     188</span>                 :             : </a>
 <a name="189"><span class="lineNum">     189</span>                 :             :     /// Get the content string of the request, which is the body part of the</a>
