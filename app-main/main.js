@@ -1025,66 +1025,14 @@ var jessica = (() => {
       readyPromiseResolve = resolve;
       readyPromiseReject = reject;
     });
-
-    if (!Object.getOwnPropertyDescriptor(Module['ready'], '___getTypeName')) {
-      Object.defineProperty(Module['ready'], '___getTypeName', {
-        configurable: true,
-        get: function () {
-          abort('You are getting ___getTypeName on the Promise object, instead of the instance. Use .then() to get called back with the instance, see the MODULARIZE docs in src/settings.js');
-        }
-      });
-      Object.defineProperty(Module['ready'], '___getTypeName', {
-        configurable: true,
-        set: function () {
-          abort('You are setting ___getTypeName on the Promise object, instead of the instance. Use .then() to get called back with the instance, see the MODULARIZE docs in src/settings.js');
-        }
-      });
-    }
-
-    if (!Object.getOwnPropertyDescriptor(Module['ready'], '___embind_register_native_and_builtin_types')) {
-      Object.defineProperty(Module['ready'], '___embind_register_native_and_builtin_types', {
-        configurable: true,
-        get: function () {
-          abort('You are getting ___embind_register_native_and_builtin_types on the Promise object, instead of the instance. Use .then() to get called back with the instance, see the MODULARIZE docs in src/settings.js');
-        }
-      });
-      Object.defineProperty(Module['ready'], '___embind_register_native_and_builtin_types', {
-        configurable: true,
-        set: function () {
-          abort('You are setting ___embind_register_native_and_builtin_types on the Promise object, instead of the instance. Use .then() to get called back with the instance, see the MODULARIZE docs in src/settings.js');
-        }
-      });
-    }
-
-    if (!Object.getOwnPropertyDescriptor(Module['ready'], '_fflush')) {
-      Object.defineProperty(Module['ready'], '_fflush', {
-        configurable: true,
-        get: function () {
-          abort('You are getting _fflush on the Promise object, instead of the instance. Use .then() to get called back with the instance, see the MODULARIZE docs in src/settings.js');
-        }
-      });
-      Object.defineProperty(Module['ready'], '_fflush', {
-        configurable: true,
-        set: function () {
-          abort('You are setting _fflush on the Promise object, instead of the instance. Use .then() to get called back with the instance, see the MODULARIZE docs in src/settings.js');
-        }
-      });
-    }
-
-    if (!Object.getOwnPropertyDescriptor(Module['ready'], 'onRuntimeInitialized')) {
-      Object.defineProperty(Module['ready'], 'onRuntimeInitialized', {
-        configurable: true,
-        get: function () {
-          abort('You are getting onRuntimeInitialized on the Promise object, instead of the instance. Use .then() to get called back with the instance, see the MODULARIZE docs in src/settings.js');
-        }
-      });
-      Object.defineProperty(Module['ready'], 'onRuntimeInitialized', {
-        configurable: true,
-        set: function () {
-          abort('You are setting onRuntimeInitialized on the Promise object, instead of the instance. Use .then() to get called back with the instance, see the MODULARIZE docs in src/settings.js');
-        }
-      });
-    } // --pre-jses are emitted after the Module integration code, so that they can
+    ["___getTypeName", "___embind_register_native_and_builtin_types", "_fflush", "onRuntimeInitialized"].forEach(prop => {
+      if (!Object.getOwnPropertyDescriptor(Module['ready'], prop)) {
+        Object.defineProperty(Module['ready'], prop, {
+          get: () => abort('You are getting ' + prop + ' on the Promise object, instead of the instance. Use .then() to get called back with the instance, see the MODULARIZE docs in src/settings.js'),
+          set: () => abort('You are setting ' + prop + ' on the Promise object, instead of the instance. Use .then() to get called back with the instance, see the MODULARIZE docs in src/settings.js')
+        });
+      }
+    }); // --pre-jses are emitted after the Module integration code, so that they can
     // refer to Module (if they choose; they can also define Module)
     // {{PRE_JSES}}
     // Sometimes an existing Module object exists with properties
@@ -1092,7 +1040,6 @@ var jessica = (() => {
     // we collect those properties and reapply _after_ we configure
     // the current environment's defaults to avoid having to be so
     // defensive during initialization.
-
 
     var moduleOverrides = Object.assign({}, Module);
     var arguments_ = [];
@@ -1314,11 +1261,6 @@ var jessica = (() => {
     var PROXYFS = 'PROXYFS is no longer included by default; build with -lproxyfs.js';
     var WORKERFS = 'WORKERFS is no longer included by default; build with -lworkerfs.js';
     var NODEFS = 'NODEFS is no longer included by default; build with -lnodefs.js';
-
-    function alignMemory() {
-      abort('`alignMemory` is now a library function and not included by default; add it to your library.js __deps or to DEFAULT_LIBRARY_FUNCS_TO_INCLUDE on the command line');
-    }
-
     assert(!ENVIRONMENT_IS_NODE, "node environment detected but not enabled at build time.  Add 'node' to `-sENVIRONMENT` to enable.");
     assert(!ENVIRONMENT_IS_SHELL, "shell environment detected but not enabled at build time.  Add 'shell' to `-sENVIRONMENT` to enable.");
     var STACK_ALIGN = 16;
@@ -1362,193 +1304,7 @@ var jessica = (() => {
             }
           }
       }
-    }
-
-    function warnOnce(text) {
-      if (!warnOnce.shown) warnOnce.shown = {};
-
-      if (!warnOnce.shown[text]) {
-        warnOnce.shown[text] = 1;
-        err(text);
-      }
-    } // include: runtime_functions.js
-    // This gives correct answers for everything less than 2^{14} = 16384
-    // I hope nobody is contemplating functions with 16384 arguments...
-
-
-    function uleb128Encode(n) {
-      assert(n < 16384);
-
-      if (n < 128) {
-        return [n];
-      }
-
-      return [n % 128 | 128, n >> 7];
-    } // Converts a signature like 'vii' into a description of the wasm types, like
-    // { parameters: ['i32', 'i32'], results: [] }.
-
-
-    function sigToWasmTypes(sig) {
-      var typeNames = {
-        'i': 'i32',
-        'j': 'i64',
-        'f': 'f32',
-        'd': 'f64',
-        'p': 'i32'
-      };
-      var type = {
-        parameters: [],
-        results: sig[0] == 'v' ? [] : [typeNames[sig[0]]]
-      };
-
-      for (var i = 1; i < sig.length; ++i) {
-        assert(sig[i] in typeNames, 'invalid signature char: ' + sig[i]);
-        type.parameters.push(typeNames[sig[i]]);
-      }
-
-      return type;
-    } // Wraps a JS function as a wasm function with a given signature.
-
-
-    function convertJsFunctionToWasm(func, sig) {
-      // If the type reflection proposal is available, use the new
-      // "WebAssembly.Function" constructor.
-      // Otherwise, construct a minimal wasm module importing the JS function and
-      // re-exporting it.
-      if (typeof WebAssembly.Function == "function") {
-        return new WebAssembly.Function(sigToWasmTypes(sig), func);
-      } // The module is static, with the exception of the type section, which is
-      // generated based on the signature passed in.
-
-
-      var typeSection = [0x01, 0x60 // form: func
-      ];
-      var sigRet = sig.slice(0, 1);
-      var sigParam = sig.slice(1);
-      var typeCodes = {
-        'i': 0x7f,
-        'p': 0x7f,
-        'j': 0x7e,
-        'f': 0x7d,
-        'd': 0x7c // f64
-
-      }; // Parameters, length + signatures
-
-      typeSection = typeSection.concat(uleb128Encode(sigParam.length));
-
-      for (var i = 0; i < sigParam.length; ++i) {
-        assert(sigParam[i] in typeCodes, 'invalid signature char: ' + sigParam[i]);
-        typeSection.push(typeCodes[sigParam[i]]);
-      } // Return values, length + signatures
-      // With no multi-return in MVP, either 0 (void) or 1 (anything else)
-
-
-      if (sigRet == 'v') {
-        typeSection.push(0x00);
-      } else {
-        typeSection = typeSection.concat([0x01, typeCodes[sigRet]]);
-      } // Write the section code and overall length of the type section into the
-      // section header
-
-
-      typeSection = [0x01
-      /* Type section code */
-      ].concat(uleb128Encode(typeSection.length), typeSection); // Rest of the module is static
-
-      var bytes = new Uint8Array([0x00, 0x61, 0x73, 0x6d, 0x01, 0x00, 0x00, 0x00 // version: 1
-      ].concat(typeSection, [0x02, 0x07, // (import "e" "f" (func 0 (type 0)))
-      0x01, 0x01, 0x65, 0x01, 0x66, 0x00, 0x00, 0x07, 0x05, // (export "f" (func 0 (type 0)))
-      0x01, 0x01, 0x66, 0x00, 0x00])); // We can compile this wasm module synchronously because it is very small.
-      // This accepts an import (at "e.f"), that it reroutes to an export (at "f")
-
-      var module = new WebAssembly.Module(bytes);
-      var instance = new WebAssembly.Instance(module, {
-        'e': {
-          'f': func
-        }
-      });
-      var wrappedFunc = instance.exports['f'];
-      return wrappedFunc;
-    }
-
-    var freeTableIndexes = []; // Weak map of functions in the table to their indexes, created on first use.
-
-    var functionsInTableMap;
-
-    function getEmptyTableSlot() {
-      // Reuse a free index if there is one, otherwise grow.
-      if (freeTableIndexes.length) {
-        return freeTableIndexes.pop();
-      } // Grow the table
-
-
-      try {
-        wasmTable.grow(1);
-      } catch (err) {
-        if (!(err instanceof RangeError)) {
-          throw err;
-        }
-
-        throw 'Unable to grow wasm table. Set ALLOW_TABLE_GROWTH.';
-      }
-
-      return wasmTable.length - 1;
-    }
-
-    function updateTableMap(offset, count) {
-      for (var i = offset; i < offset + count; i++) {
-        var item = getWasmTableEntry(i); // Ignore null values.
-
-        if (item) {
-          functionsInTableMap.set(item, i);
-        }
-      }
-    }
-    /**
-     * Add a function to the table.
-     * 'sig' parameter is required if the function being added is a JS function.
-     * @param {string=} sig
-     */
-
-
-    function addFunction(func, sig) {
-      assert(typeof func != 'undefined'); // Check if the function is already in the table, to ensure each function
-      // gets a unique index. First, create the map if this is the first use.
-
-      if (!functionsInTableMap) {
-        functionsInTableMap = new WeakMap();
-        updateTableMap(0, wasmTable.length);
-      }
-
-      if (functionsInTableMap.has(func)) {
-        return functionsInTableMap.get(func);
-      } // It's not in the table, add it now.
-
-
-      var ret = getEmptyTableSlot(); // Set the new value.
-
-      try {
-        // Attempting to call this with JS function will cause of table.set() to fail
-        setWasmTableEntry(ret, func);
-      } catch (err) {
-        if (!(err instanceof TypeError)) {
-          throw err;
-        }
-
-        assert(typeof sig != 'undefined', 'Missing signature argument to addFunction: ' + func);
-        var wrapped = convertJsFunctionToWasm(func, sig);
-        setWasmTableEntry(ret, wrapped);
-      }
-
-      functionsInTableMap.set(func, ret);
-      return ret;
-    }
-
-    function removeFunction(index) {
-      functionsInTableMap.delete(getWasmTableEntry(index));
-      freeTableIndexes.push(index);
-    } // end include: runtime_functions.js
-    // include: runtime_debug.js
+    } // include: runtime_debug.js
 
 
     function legacyModuleProp(prop, newName) {
@@ -1578,6 +1334,10 @@ var jessica = (() => {
       return msg;
     }
 
+    function missingLibraryFunc(sym) {
+      return () => abort('Call to `' + sym + '` which is a library function and not included by default; add it to your library.js __deps or to DEFAULT_LIBRARY_FUNCS_TO_INCLUDE on the command line');
+    }
+
     function unexportedRuntimeSymbol(sym, isFSSybol) {
       if (!Object.getOwnPropertyDescriptor(Module, sym)) {
         Object.defineProperty(Module, sym, {
@@ -1586,12 +1346,6 @@ var jessica = (() => {
             abort(unexportedMessage(sym, isFSSybol));
           }
         });
-      }
-    }
-
-    function unexportedRuntimeFunction(sym, isFSSybol) {
-      if (!Object.getOwnPropertyDescriptor(Module, sym)) {
-        Module[sym] = () => abort(unexportedMessage(sym, isFSSybol));
       }
     } // end include: runtime_debug.js
 
@@ -1640,128 +1394,8 @@ var jessica = (() => {
       if (!condition) {
         abort('Assertion failed' + (text ? ': ' + text : ''));
       }
-    } // Returns the C function with a specified identifier (for C++, you need to do manual name mangling)
-
-
-    function getCFunc(ident) {
-      var func = Module['_' + ident]; // closure exported function
-
-      assert(func, 'Cannot call unknown function ' + ident + ', make sure it is exported');
-      return func;
-    } // C calling interface.
-
-    /** @param {string|null=} returnType
-        @param {Array=} argTypes
-        @param {Arguments|Array=} args
-        @param {Object=} opts */
-
-
-    function ccall(ident, returnType, argTypes, args, opts) {
-      // For fast lookup of conversion functions
-      var toC = {
-        'string': function (str) {
-          var ret = 0;
-
-          if (str !== null && str !== undefined && str !== 0) {
-            // null string
-            // at most 4 bytes per UTF-8 code point, +1 for the trailing '\0'
-            var len = (str.length << 2) + 1;
-            ret = stackAlloc(len);
-            stringToUTF8(str, ret, len);
-          }
-
-          return ret;
-        },
-        'array': function (arr) {
-          var ret = stackAlloc(arr.length);
-          writeArrayToMemory(arr, ret);
-          return ret;
-        }
-      };
-
-      function convertReturnValue(ret) {
-        if (returnType === 'string') {
-          return UTF8ToString(ret);
-        }
-
-        if (returnType === 'boolean') return Boolean(ret);
-        return ret;
-      }
-
-      var func = getCFunc(ident);
-      var cArgs = [];
-      var stack = 0;
-      assert(returnType !== 'array', 'Return type should not be "array".');
-
-      if (args) {
-        for (var i = 0; i < args.length; i++) {
-          var converter = toC[argTypes[i]];
-
-          if (converter) {
-            if (stack === 0) stack = stackSave();
-            cArgs[i] = converter(args[i]);
-          } else {
-            cArgs[i] = args[i];
-          }
-        }
-      }
-
-      var ret = func.apply(null, cArgs);
-
-      function onDone(ret) {
-        if (stack !== 0) stackRestore(stack);
-        return convertReturnValue(ret);
-      }
-
-      ret = onDone(ret);
-      return ret;
-    }
-    /** @param {string=} returnType
-        @param {Array=} argTypes
-        @param {Object=} opts */
-
-
-    function cwrap(ident, returnType, argTypes, opts) {
-      return function () {
-        return ccall(ident, returnType, argTypes, arguments, opts);
-      };
     } // We used to include malloc/free by default in the past. Show a helpful error in
     // builds with assertions.
-    // include: runtime_legacy.js
-
-
-    var ALLOC_NORMAL = 0; // Tries to use _malloc()
-
-    var ALLOC_STACK = 1; // Lives for the duration of the current function call
-
-    /**
-     * allocate(): This function is no longer used by emscripten but is kept around to avoid
-     *             breaking external users.
-     *             You should normally not use allocate(), and instead allocate
-     *             memory using _malloc()/stackAlloc(), initialize it with
-     *             setValue(), and so forth.
-     * @param {(Uint8Array|Array<number>)} slab: An array of data.
-     * @param {number=} allocator : How to allocate memory, see ALLOC_*
-     */
-
-    function allocate(slab, allocator) {
-      var ret;
-      assert(typeof allocator == 'number', 'allocate no longer takes a type argument');
-      assert(typeof slab != 'number', 'allocate no longer takes a number as arg0');
-
-      if (allocator == ALLOC_STACK) {
-        ret = stackAlloc(slab.length);
-      } else {
-        ret = _malloc(slab.length);
-      }
-
-      if (!slab.subarray && !slab.slice) {
-        slab = new Uint8Array(slab);
-      }
-
-      HEAPU8.set(slab, ret);
-      return ret;
-    } // end include: runtime_legacy.js
     // include: runtime_strings.js
     // runtime_strings.js: Strings related runtime functions that are part of both MINIMAL_RUNTIME and regular runtime.
 
@@ -1929,247 +1563,6 @@ var jessica = (() => {
 
       return len;
     } // end include: runtime_strings.js
-    // include: runtime_strings_extra.js
-    // runtime_strings_extra.js: Strings related runtime functions that are available only in regular runtime.
-    // Given a pointer 'ptr' to a null-terminated ASCII-encoded string in the emscripten HEAP, returns
-    // a copy of that string as a Javascript String object.
-
-
-    function AsciiToString(ptr) {
-      var str = '';
-
-      while (1) {
-        var ch = HEAPU8[ptr++ >> 0];
-        if (!ch) return str;
-        str += String.fromCharCode(ch);
-      }
-    } // Copies the given Javascript String object 'str' to the emscripten HEAP at address 'outPtr',
-    // null-terminated and encoded in ASCII form. The copy will require at most str.length+1 bytes of space in the HEAP.
-
-
-    function stringToAscii(str, outPtr) {
-      return writeAsciiToMemory(str, outPtr, false);
-    } // Given a pointer 'ptr' to a null-terminated UTF16LE-encoded string in the emscripten HEAP, returns
-    // a copy of that string as a Javascript String object.
-
-
-    var UTF16Decoder = typeof TextDecoder != 'undefined' ? new TextDecoder('utf-16le') : undefined;
-
-    function UTF16ToString(ptr, maxBytesToRead) {
-      assert(ptr % 2 == 0, 'Pointer passed to UTF16ToString must be aligned to two bytes!');
-      var endPtr = ptr; // TextDecoder needs to know the byte length in advance, it doesn't stop on null terminator by itself.
-      // Also, use the length info to avoid running tiny strings through TextDecoder, since .subarray() allocates garbage.
-
-      var idx = endPtr >> 1;
-      var maxIdx = idx + maxBytesToRead / 2; // If maxBytesToRead is not passed explicitly, it will be undefined, and this
-      // will always evaluate to true. This saves on code size.
-
-      while (!(idx >= maxIdx) && HEAPU16[idx]) ++idx;
-
-      endPtr = idx << 1;
-
-      if (endPtr - ptr > 32 && UTF16Decoder) {
-        return UTF16Decoder.decode(HEAPU8.subarray(ptr, endPtr));
-      } else {
-        var str = ''; // If maxBytesToRead is not passed explicitly, it will be undefined, and the for-loop's condition
-        // will always evaluate to true. The loop is then terminated on the first null char.
-
-        for (var i = 0; !(i >= maxBytesToRead / 2); ++i) {
-          var codeUnit = HEAP16[ptr + i * 2 >> 1];
-          if (codeUnit == 0) break; // fromCharCode constructs a character from a UTF-16 code unit, so we can pass the UTF16 string right through.
-
-          str += String.fromCharCode(codeUnit);
-        }
-
-        return str;
-      }
-    } // Copies the given Javascript String object 'str' to the emscripten HEAP at address 'outPtr',
-    // null-terminated and encoded in UTF16 form. The copy will require at most str.length*4+2 bytes of space in the HEAP.
-    // Use the function lengthBytesUTF16() to compute the exact number of bytes (excluding null terminator) that this function will write.
-    // Parameters:
-    //   str: the Javascript string to copy.
-    //   outPtr: Byte address in Emscripten HEAP where to write the string to.
-    //   maxBytesToWrite: The maximum number of bytes this function can write to the array. This count should include the null
-    //                    terminator, i.e. if maxBytesToWrite=2, only the null terminator will be written and nothing else.
-    //                    maxBytesToWrite<2 does not write any bytes to the output, not even the null terminator.
-    // Returns the number of bytes written, EXCLUDING the null terminator.
-
-
-    function stringToUTF16(str, outPtr, maxBytesToWrite) {
-      assert(outPtr % 2 == 0, 'Pointer passed to stringToUTF16 must be aligned to two bytes!');
-      assert(typeof maxBytesToWrite == 'number', 'stringToUTF16(str, outPtr, maxBytesToWrite) is missing the third parameter that specifies the length of the output buffer!'); // Backwards compatibility: if max bytes is not specified, assume unsafe unbounded write is allowed.
-
-      if (maxBytesToWrite === undefined) {
-        maxBytesToWrite = 0x7FFFFFFF;
-      }
-
-      if (maxBytesToWrite < 2) return 0;
-      maxBytesToWrite -= 2; // Null terminator.
-
-      var startPtr = outPtr;
-      var numCharsToWrite = maxBytesToWrite < str.length * 2 ? maxBytesToWrite / 2 : str.length;
-
-      for (var i = 0; i < numCharsToWrite; ++i) {
-        // charCodeAt returns a UTF-16 encoded code unit, so it can be directly written to the HEAP.
-        var codeUnit = str.charCodeAt(i); // possibly a lead surrogate
-
-        HEAP16[outPtr >> 1] = codeUnit;
-        outPtr += 2;
-      } // Null-terminate the pointer to the HEAP.
-
-
-      HEAP16[outPtr >> 1] = 0;
-      return outPtr - startPtr;
-    } // Returns the number of bytes the given Javascript string takes if encoded as a UTF16 byte array, EXCLUDING the null terminator byte.
-
-
-    function lengthBytesUTF16(str) {
-      return str.length * 2;
-    }
-
-    function UTF32ToString(ptr, maxBytesToRead) {
-      assert(ptr % 4 == 0, 'Pointer passed to UTF32ToString must be aligned to four bytes!');
-      var i = 0;
-      var str = ''; // If maxBytesToRead is not passed explicitly, it will be undefined, and this
-      // will always evaluate to true. This saves on code size.
-
-      while (!(i >= maxBytesToRead / 4)) {
-        var utf32 = HEAP32[ptr + i * 4 >> 2];
-        if (utf32 == 0) break;
-        ++i; // Gotcha: fromCharCode constructs a character from a UTF-16 encoded code (pair), not from a Unicode code point! So encode the code point to UTF-16 for constructing.
-        // See http://unicode.org/faq/utf_bom.html#utf16-3
-
-        if (utf32 >= 0x10000) {
-          var ch = utf32 - 0x10000;
-          str += String.fromCharCode(0xD800 | ch >> 10, 0xDC00 | ch & 0x3FF);
-        } else {
-          str += String.fromCharCode(utf32);
-        }
-      }
-
-      return str;
-    } // Copies the given Javascript String object 'str' to the emscripten HEAP at address 'outPtr',
-    // null-terminated and encoded in UTF32 form. The copy will require at most str.length*4+4 bytes of space in the HEAP.
-    // Use the function lengthBytesUTF32() to compute the exact number of bytes (excluding null terminator) that this function will write.
-    // Parameters:
-    //   str: the Javascript string to copy.
-    //   outPtr: Byte address in Emscripten HEAP where to write the string to.
-    //   maxBytesToWrite: The maximum number of bytes this function can write to the array. This count should include the null
-    //                    terminator, i.e. if maxBytesToWrite=4, only the null terminator will be written and nothing else.
-    //                    maxBytesToWrite<4 does not write any bytes to the output, not even the null terminator.
-    // Returns the number of bytes written, EXCLUDING the null terminator.
-
-
-    function stringToUTF32(str, outPtr, maxBytesToWrite) {
-      assert(outPtr % 4 == 0, 'Pointer passed to stringToUTF32 must be aligned to four bytes!');
-      assert(typeof maxBytesToWrite == 'number', 'stringToUTF32(str, outPtr, maxBytesToWrite) is missing the third parameter that specifies the length of the output buffer!'); // Backwards compatibility: if max bytes is not specified, assume unsafe unbounded write is allowed.
-
-      if (maxBytesToWrite === undefined) {
-        maxBytesToWrite = 0x7FFFFFFF;
-      }
-
-      if (maxBytesToWrite < 4) return 0;
-      var startPtr = outPtr;
-      var endPtr = startPtr + maxBytesToWrite - 4;
-
-      for (var i = 0; i < str.length; ++i) {
-        // Gotcha: charCodeAt returns a 16-bit word that is a UTF-16 encoded code unit, not a Unicode code point of the character! We must decode the string to UTF-32 to the heap.
-        // See http://unicode.org/faq/utf_bom.html#utf16-3
-        var codeUnit = str.charCodeAt(i); // possibly a lead surrogate
-
-        if (codeUnit >= 0xD800 && codeUnit <= 0xDFFF) {
-          var trailSurrogate = str.charCodeAt(++i);
-          codeUnit = 0x10000 + ((codeUnit & 0x3FF) << 10) | trailSurrogate & 0x3FF;
-        }
-
-        HEAP32[outPtr >> 2] = codeUnit;
-        outPtr += 4;
-        if (outPtr + 4 > endPtr) break;
-      } // Null-terminate the pointer to the HEAP.
-
-
-      HEAP32[outPtr >> 2] = 0;
-      return outPtr - startPtr;
-    } // Returns the number of bytes the given Javascript string takes if encoded as a UTF16 byte array, EXCLUDING the null terminator byte.
-
-
-    function lengthBytesUTF32(str) {
-      var len = 0;
-
-      for (var i = 0; i < str.length; ++i) {
-        // Gotcha: charCodeAt returns a 16-bit word that is a UTF-16 encoded code unit, not a Unicode code point of the character! We must decode the string to UTF-32 to the heap.
-        // See http://unicode.org/faq/utf_bom.html#utf16-3
-        var codeUnit = str.charCodeAt(i);
-        if (codeUnit >= 0xD800 && codeUnit <= 0xDFFF) ++i; // possibly a lead surrogate, so skip over the tail surrogate.
-
-        len += 4;
-      }
-
-      return len;
-    } // Allocate heap space for a JS string, and write it there.
-    // It is the responsibility of the caller to free() that memory.
-
-
-    function allocateUTF8(str) {
-      var size = lengthBytesUTF8(str) + 1;
-
-      var ret = _malloc(size);
-
-      if (ret) stringToUTF8Array(str, HEAP8, ret, size);
-      return ret;
-    } // Allocate stack space for a JS string, and write it there.
-
-
-    function allocateUTF8OnStack(str) {
-      var size = lengthBytesUTF8(str) + 1;
-      var ret = stackAlloc(size);
-      stringToUTF8Array(str, HEAP8, ret, size);
-      return ret;
-    } // Deprecated: This function should not be called because it is unsafe and does not provide
-    // a maximum length limit of how many bytes it is allowed to write. Prefer calling the
-    // function stringToUTF8Array() instead, which takes in a maximum length that can be used
-    // to be secure from out of bounds writes.
-
-    /** @deprecated
-        @param {boolean=} dontAddNull */
-
-
-    function writeStringToMemory(string, buffer, dontAddNull) {
-      warnOnce('writeStringToMemory is deprecated and should not be called! Use stringToUTF8() instead!');
-      var
-      /** @type {number} */
-      lastChar,
-      /** @type {number} */
-      end;
-
-      if (dontAddNull) {
-        // stringToUTF8Array always appends null. If we don't want to do that, remember the
-        // character that existed at the location where the null will be placed, and restore
-        // that after the write (below).
-        end = buffer + lengthBytesUTF8(string);
-        lastChar = HEAP8[end];
-      }
-
-      stringToUTF8(string, buffer, Infinity);
-      if (dontAddNull) HEAP8[end] = lastChar; // Restore the value under the null character.
-    }
-
-    function writeArrayToMemory(array, buffer) {
-      assert(array.length >= 0, 'writeArrayToMemory array must have a length (should be an array or typed array)');
-      HEAP8.set(array, buffer);
-    }
-    /** @param {boolean=} dontAddNull */
-
-
-    function writeAsciiToMemory(str, buffer, dontAddNull) {
-      for (var i = 0; i < str.length; ++i) {
-        assert(str.charCodeAt(i) === (str.charCodeAt(i) & 0xff));
-        HEAP8[buffer++ >> 0] = str.charCodeAt(i);
-      } // Null-terminate the pointer to the HEAP.
-
-
-      if (!dontAddNull) HEAP8[buffer >> 0] = 0;
-    } // end include: runtime_strings_extra.js
     // Memory management
 
 
@@ -2704,6 +2097,13 @@ var jessica = (() => {
     var tempI64; // === Body ===
 
     var ASM_CONSTS = {};
+    /** @constructor */
+
+    function ExitStatus(status) {
+      this.name = 'ExitStatus';
+      this.message = 'Program terminated with exit(' + status + ')';
+      this.status = status;
+    }
 
     function callRuntimeCallbacks(callbacks) {
       while (callbacks.length > 0) {
@@ -2724,10 +2124,7 @@ var jessica = (() => {
       // This avoids an infinite recursion with malloc()->abort()->stackTrace()->demangle()->malloc()->...
       demangle.recursionGuard = (demangle.recursionGuard | 0) + 1;
       if (demangle.recursionGuard > 1) return func;
-
-      var __cxa_demangle_func = Module['___cxa_demangle'] || Module['__cxa_demangle'];
-
-      assert(__cxa_demangle_func);
+      assert(___cxa_demangle);
       return withStackSave(function () {
         try {
           var s = func;
@@ -2737,7 +2134,7 @@ var jessica = (() => {
           stringToUTF8(s, buf, len);
           var status = stackAlloc(4);
 
-          var ret = __cxa_demangle_func(buf, 0, 0, status);
+          var ret = ___cxa_demangle(buf, 0, 0, status);
 
           if (HEAP32[status >> 2] === 0 && ret) {
             return UTF8ToString(ret);
@@ -2800,20 +2197,6 @@ var jessica = (() => {
       }
 
       return null;
-    }
-
-    var wasmTableMirror = [];
-
-    function getWasmTableEntry(funcPtr) {
-      var func = wasmTableMirror[funcPtr];
-
-      if (!func) {
-        if (funcPtr >= wasmTableMirror.length) wasmTableMirror.length = funcPtr + 1;
-        wasmTableMirror[funcPtr] = func = wasmTable.get(funcPtr);
-      }
-
-      assert(wasmTable.get(funcPtr) == func, "JavaScript-side Wasm function table mirror is out of date!");
-      return func;
     }
 
     function handleException(e) {
@@ -2896,18 +2279,24 @@ var jessica = (() => {
       }
     }
 
-    function setWasmTableEntry(idx, func) {
-      wasmTable.set(idx, func); // With ABORT_ON_WASM_EXCEPTIONS wasmTable.get is overriden to return wrapped
-      // functions so we need to call it here to retrieve the potential wrapper correctly
-      // instead of just storing 'func' directly into wasmTableMirror
-
-      wasmTableMirror[idx] = wasmTable.get(idx);
-    }
-
     function stackTrace() {
       var js = jsStackTrace();
       if (Module['extraStackTrace']) js += '\n' + Module['extraStackTrace']();
       return demangleAll(js);
+    }
+
+    function warnOnce(text) {
+      if (!warnOnce.shown) warnOnce.shown = {};
+
+      if (!warnOnce.shown[text]) {
+        warnOnce.shown[text] = 1;
+        err(text);
+      }
+    }
+
+    function writeArrayToMemory(array, buffer) {
+      assert(array.length >= 0, 'writeArrayToMemory array must have a length (should be an array or typed array)');
+      HEAP8.set(array, buffer);
     }
 
     function ___assert_fail(condition, filename, line, func) {
@@ -3924,6 +3313,20 @@ var jessica = (() => {
       var f = Module['dynCall_' + sig];
       return args && args.length ? f.apply(null, [ptr].concat(args)) : f.call(null, ptr);
     }
+
+    var wasmTableMirror = [];
+
+    function getWasmTableEntry(funcPtr) {
+      var func = wasmTableMirror[funcPtr];
+
+      if (!func) {
+        if (funcPtr >= wasmTableMirror.length) wasmTableMirror.length = funcPtr + 1;
+        wasmTableMirror[funcPtr] = func = wasmTable.get(funcPtr);
+      }
+
+      assert(wasmTable.get(funcPtr) == func, "JavaScript-side Wasm function table mirror is out of date!");
+      return func;
+    }
     /** @param {Object=} args */
 
 
@@ -4686,6 +4089,140 @@ var jessica = (() => {
       });
     }
 
+    var UTF16Decoder = typeof TextDecoder != 'undefined' ? new TextDecoder('utf-16le') : undefined;
+    ;
+
+    function UTF16ToString(ptr, maxBytesToRead) {
+      assert(ptr % 2 == 0, 'Pointer passed to UTF16ToString must be aligned to two bytes!');
+      var endPtr = ptr; // TextDecoder needs to know the byte length in advance, it doesn't stop on null terminator by itself.
+      // Also, use the length info to avoid running tiny strings through TextDecoder, since .subarray() allocates garbage.
+
+      var idx = endPtr >> 1;
+      var maxIdx = idx + maxBytesToRead / 2; // If maxBytesToRead is not passed explicitly, it will be undefined, and this
+      // will always evaluate to true. This saves on code size.
+
+      while (!(idx >= maxIdx) && HEAPU16[idx]) ++idx;
+
+      endPtr = idx << 1;
+
+      if (endPtr - ptr > 32 && UTF16Decoder) {
+        return UTF16Decoder.decode(HEAPU8.subarray(ptr, endPtr));
+      } else {
+        var str = ''; // If maxBytesToRead is not passed explicitly, it will be undefined, and the for-loop's condition
+        // will always evaluate to true. The loop is then terminated on the first null char.
+
+        for (var i = 0; !(i >= maxBytesToRead / 2); ++i) {
+          var codeUnit = HEAP16[ptr + i * 2 >> 1];
+          if (codeUnit == 0) break; // fromCharCode constructs a character from a UTF-16 code unit, so we can pass the UTF16 string right through.
+
+          str += String.fromCharCode(codeUnit);
+        }
+
+        return str;
+      }
+    }
+
+    function stringToUTF16(str, outPtr, maxBytesToWrite) {
+      assert(outPtr % 2 == 0, 'Pointer passed to stringToUTF16 must be aligned to two bytes!');
+      assert(typeof maxBytesToWrite == 'number', 'stringToUTF16(str, outPtr, maxBytesToWrite) is missing the third parameter that specifies the length of the output buffer!'); // Backwards compatibility: if max bytes is not specified, assume unsafe unbounded write is allowed.
+
+      if (maxBytesToWrite === undefined) {
+        maxBytesToWrite = 0x7FFFFFFF;
+      }
+
+      if (maxBytesToWrite < 2) return 0;
+      maxBytesToWrite -= 2; // Null terminator.
+
+      var startPtr = outPtr;
+      var numCharsToWrite = maxBytesToWrite < str.length * 2 ? maxBytesToWrite / 2 : str.length;
+
+      for (var i = 0; i < numCharsToWrite; ++i) {
+        // charCodeAt returns a UTF-16 encoded code unit, so it can be directly written to the HEAP.
+        var codeUnit = str.charCodeAt(i); // possibly a lead surrogate
+
+        HEAP16[outPtr >> 1] = codeUnit;
+        outPtr += 2;
+      } // Null-terminate the pointer to the HEAP.
+
+
+      HEAP16[outPtr >> 1] = 0;
+      return outPtr - startPtr;
+    }
+
+    function lengthBytesUTF16(str) {
+      return str.length * 2;
+    }
+
+    function UTF32ToString(ptr, maxBytesToRead) {
+      assert(ptr % 4 == 0, 'Pointer passed to UTF32ToString must be aligned to four bytes!');
+      var i = 0;
+      var str = ''; // If maxBytesToRead is not passed explicitly, it will be undefined, and this
+      // will always evaluate to true. This saves on code size.
+
+      while (!(i >= maxBytesToRead / 4)) {
+        var utf32 = HEAP32[ptr + i * 4 >> 2];
+        if (utf32 == 0) break;
+        ++i; // Gotcha: fromCharCode constructs a character from a UTF-16 encoded code (pair), not from a Unicode code point! So encode the code point to UTF-16 for constructing.
+        // See http://unicode.org/faq/utf_bom.html#utf16-3
+
+        if (utf32 >= 0x10000) {
+          var ch = utf32 - 0x10000;
+          str += String.fromCharCode(0xD800 | ch >> 10, 0xDC00 | ch & 0x3FF);
+        } else {
+          str += String.fromCharCode(utf32);
+        }
+      }
+
+      return str;
+    }
+
+    function stringToUTF32(str, outPtr, maxBytesToWrite) {
+      assert(outPtr % 4 == 0, 'Pointer passed to stringToUTF32 must be aligned to four bytes!');
+      assert(typeof maxBytesToWrite == 'number', 'stringToUTF32(str, outPtr, maxBytesToWrite) is missing the third parameter that specifies the length of the output buffer!'); // Backwards compatibility: if max bytes is not specified, assume unsafe unbounded write is allowed.
+
+      if (maxBytesToWrite === undefined) {
+        maxBytesToWrite = 0x7FFFFFFF;
+      }
+
+      if (maxBytesToWrite < 4) return 0;
+      var startPtr = outPtr;
+      var endPtr = startPtr + maxBytesToWrite - 4;
+
+      for (var i = 0; i < str.length; ++i) {
+        // Gotcha: charCodeAt returns a 16-bit word that is a UTF-16 encoded code unit, not a Unicode code point of the character! We must decode the string to UTF-32 to the heap.
+        // See http://unicode.org/faq/utf_bom.html#utf16-3
+        var codeUnit = str.charCodeAt(i); // possibly a lead surrogate
+
+        if (codeUnit >= 0xD800 && codeUnit <= 0xDFFF) {
+          var trailSurrogate = str.charCodeAt(++i);
+          codeUnit = 0x10000 + ((codeUnit & 0x3FF) << 10) | trailSurrogate & 0x3FF;
+        }
+
+        HEAP32[outPtr >> 2] = codeUnit;
+        outPtr += 4;
+        if (outPtr + 4 > endPtr) break;
+      } // Null-terminate the pointer to the HEAP.
+
+
+      HEAP32[outPtr >> 2] = 0;
+      return outPtr - startPtr;
+    }
+
+    function lengthBytesUTF32(str) {
+      var len = 0;
+
+      for (var i = 0; i < str.length; ++i) {
+        // Gotcha: charCodeAt returns a 16-bit word that is a UTF-16 encoded code unit, not a Unicode code point of the character! We must decode the string to UTF-32 to the heap.
+        // See http://unicode.org/faq/utf_bom.html#utf16-3
+        var codeUnit = str.charCodeAt(i);
+        if (codeUnit >= 0xD800 && codeUnit <= 0xDFFF) ++i; // possibly a lead surrogate, so skip over the tail surrogate.
+
+        len += 4;
+      }
+
+      return len;
+    }
+
     function __embind_register_std_wstring(rawType, charSize, name) {
       name = readLatin1String(name);
       var decodeString, encodeString, getHeap, lengthBytesUTF, shift;
@@ -4851,21 +4388,270 @@ var jessica = (() => {
       abortOnCannotGrowMemory(requestedSize);
     }
 
-    embind_init_charCodes();
-    BindingError = Module['BindingError'] = extendError(Error, 'BindingError');
-    ;
-    InternalError = Module['InternalError'] = extendError(Error, 'InternalError');
-    ;
-    init_ClassHandle();
-    init_embind();
-    ;
-    init_RegisteredPointer();
-    UnboundTypeError = Module['UnboundTypeError'] = extendError(Error, 'UnboundTypeError');
-    ;
-    init_emval();
-    ;
-    var ASSERTIONS = true;
+    function uleb128Encode(n, target) {
+      assert(n < 16384);
+
+      if (n < 128) {
+        target.push(n);
+      } else {
+        target.push(n % 128 | 128, n >> 7);
+      }
+    }
+
+    function sigToWasmTypes(sig) {
+      var typeNames = {
+        'i': 'i32',
+        'j': 'i64',
+        'f': 'f32',
+        'd': 'f64',
+        'p': 'i32'
+      };
+      var type = {
+        parameters: [],
+        results: sig[0] == 'v' ? [] : [typeNames[sig[0]]]
+      };
+
+      for (var i = 1; i < sig.length; ++i) {
+        assert(sig[i] in typeNames, 'invalid signature char: ' + sig[i]);
+        type.parameters.push(typeNames[sig[i]]);
+      }
+
+      return type;
+    }
+
+    function convertJsFunctionToWasm(func, sig) {
+      // If the type reflection proposal is available, use the new
+      // "WebAssembly.Function" constructor.
+      // Otherwise, construct a minimal wasm module importing the JS function and
+      // re-exporting it.
+      if (typeof WebAssembly.Function == "function") {
+        return new WebAssembly.Function(sigToWasmTypes(sig), func);
+      } // The module is static, with the exception of the type section, which is
+      // generated based on the signature passed in.
+
+
+      var typeSectionBody = [0x01, 0x60 // form: func
+      ];
+      var sigRet = sig.slice(0, 1);
+      var sigParam = sig.slice(1);
+      var typeCodes = {
+        'i': 0x7f,
+        'p': 0x7f,
+        'j': 0x7e,
+        'f': 0x7d,
+        'd': 0x7c // f64
+
+      }; // Parameters, length + signatures
+
+      uleb128Encode(sigParam.length, typeSectionBody);
+
+      for (var i = 0; i < sigParam.length; ++i) {
+        assert(sigParam[i] in typeCodes, 'invalid signature char: ' + sigParam[i]);
+        typeSectionBody.push(typeCodes[sigParam[i]]);
+      } // Return values, length + signatures
+      // With no multi-return in MVP, either 0 (void) or 1 (anything else)
+
+
+      if (sigRet == 'v') {
+        typeSectionBody.push(0x00);
+      } else {
+        typeSectionBody.push(0x01, typeCodes[sigRet]);
+      } // Rest of the module is static
+
+
+      var bytes = [0x00, 0x61, 0x73, 0x6d, 0x01, 0x00, 0x00, 0x00, 0x01 // Type section code
+      ]; // Write the overall length of the type section followed by the body
+
+      uleb128Encode(typeSectionBody.length, bytes);
+      bytes.push.apply(bytes, typeSectionBody); // The rest of the module is static
+
+      bytes.push(0x02, 0x07, // import section
+      // (import "e" "f" (func 0 (type 0)))
+      0x01, 0x01, 0x65, 0x01, 0x66, 0x00, 0x00, 0x07, 0x05, // export section
+      // (export "f" (func 0 (type 0)))
+      0x01, 0x01, 0x66, 0x00, 0x00); // We can compile this wasm module synchronously because it is very small.
+      // This accepts an import (at "e.f"), that it reroutes to an export (at "f")
+
+      var module = new WebAssembly.Module(new Uint8Array(bytes));
+      var instance = new WebAssembly.Instance(module, {
+        'e': {
+          'f': func
+        }
+      });
+      var wrappedFunc = instance.exports['f'];
+      return wrappedFunc;
+    }
+
+    function updateTableMap(offset, count) {
+      if (functionsInTableMap) {
+        for (var i = offset; i < offset + count; i++) {
+          var item = getWasmTableEntry(i); // Ignore null values.
+
+          if (item) {
+            functionsInTableMap.set(item, i);
+          }
+        }
+      }
+    }
+
+    var functionsInTableMap = undefined;
+    var freeTableIndexes = [];
+
+    function getEmptyTableSlot() {
+      // Reuse a free index if there is one, otherwise grow.
+      if (freeTableIndexes.length) {
+        return freeTableIndexes.pop();
+      } // Grow the table
+
+
+      try {
+        wasmTable.grow(1);
+      } catch (err) {
+        if (!(err instanceof RangeError)) {
+          throw err;
+        }
+
+        throw 'Unable to grow wasm table. Set ALLOW_TABLE_GROWTH.';
+      }
+
+      return wasmTable.length - 1;
+    }
+
+    function setWasmTableEntry(idx, func) {
+      wasmTable.set(idx, func); // With ABORT_ON_WASM_EXCEPTIONS wasmTable.get is overriden to return wrapped
+      // functions so we need to call it here to retrieve the potential wrapper correctly
+      // instead of just storing 'func' directly into wasmTableMirror
+
+      wasmTableMirror[idx] = wasmTable.get(idx);
+    }
+    /** @param {string=} sig */
+
+
+    function addFunction(func, sig) {
+      assert(typeof func != 'undefined'); // Check if the function is already in the table, to ensure each function
+      // gets a unique index. First, create the map if this is the first use.
+
+      if (!functionsInTableMap) {
+        functionsInTableMap = new WeakMap();
+        updateTableMap(0, wasmTable.length);
+      }
+
+      if (functionsInTableMap.has(func)) {
+        return functionsInTableMap.get(func);
+      } // It's not in the table, add it now.
+
+
+      var ret = getEmptyTableSlot(); // Set the new value.
+
+      try {
+        // Attempting to call this with JS function will cause of table.set() to fail
+        setWasmTableEntry(ret, func);
+      } catch (err) {
+        if (!(err instanceof TypeError)) {
+          throw err;
+        }
+
+        assert(typeof sig != 'undefined', 'Missing signature argument to addFunction: ' + func);
+        var wrapped = convertJsFunctionToWasm(func, sig);
+        setWasmTableEntry(ret, wrapped);
+      }
+
+      functionsInTableMap.set(func, ret);
+      return ret;
+    }
+
+    function removeFunction(index) {
+      functionsInTableMap.delete(getWasmTableEntry(index));
+      freeTableIndexes.push(index);
+    }
+
+    var ALLOC_NORMAL = 0;
+    var ALLOC_STACK = 1;
+
+    function allocate(slab, allocator) {
+      var ret;
+      assert(typeof allocator == 'number', 'allocate no longer takes a type argument');
+      assert(typeof slab != 'number', 'allocate no longer takes a number as arg0');
+
+      if (allocator == ALLOC_STACK) {
+        ret = stackAlloc(slab.length);
+      } else {
+        ret = _malloc(slab.length);
+      }
+
+      if (!slab.subarray && !slab.slice) {
+        slab = new Uint8Array(slab);
+      }
+
+      HEAPU8.set(slab, ret);
+      return ret;
+    }
+
+    function AsciiToString(ptr) {
+      var str = '';
+
+      while (1) {
+        var ch = HEAPU8[ptr++ >> 0];
+        if (!ch) return str;
+        str += String.fromCharCode(ch);
+      }
+    }
+    /** @param {boolean=} dontAddNull */
+
+
+    function writeAsciiToMemory(str, buffer, dontAddNull) {
+      for (var i = 0; i < str.length; ++i) {
+        assert(str.charCodeAt(i) === (str.charCodeAt(i) & 0xff));
+        HEAP8[buffer++ >> 0] = str.charCodeAt(i);
+      } // Null-terminate the pointer to the HEAP.
+
+
+      if (!dontAddNull) HEAP8[buffer >> 0] = 0;
+    }
+
+    function stringToAscii(str, outPtr) {
+      return writeAsciiToMemory(str, outPtr, false);
+    }
+
+    function allocateUTF8(str) {
+      var size = lengthBytesUTF8(str) + 1;
+
+      var ret = _malloc(size);
+
+      if (ret) stringToUTF8Array(str, HEAP8, ret, size);
+      return ret;
+    }
+
+    function allocateUTF8OnStack(str) {
+      var size = lengthBytesUTF8(str) + 1;
+      var ret = stackAlloc(size);
+      stringToUTF8Array(str, HEAP8, ret, size);
+      return ret;
+    }
+    /** @deprecated @param {boolean=} dontAddNull */
+
+
+    function writeStringToMemory(string, buffer, dontAddNull) {
+      warnOnce('writeStringToMemory is deprecated and should not be called! Use stringToUTF8() instead!');
+      var
+      /** @type {number} */
+      lastChar,
+      /** @type {number} */
+      end;
+
+      if (dontAddNull) {
+        // stringToUTF8Array always appends null. If we don't want to do that, remember the
+        // character that existed at the location where the null will be placed, and restore
+        // that after the write (below).
+        end = buffer + lengthBytesUTF8(string);
+        lastChar = HEAP8[end];
+      }
+
+      stringToUTF8(string, buffer, Infinity);
+      if (dontAddNull) HEAP8[end] = lastChar; // Restore the value under the null character.
+    }
     /** @type {function(string, boolean=, number=)} */
+
 
     function intArrayFromString(stringy, dontAddNull, length) {
       var len = length > 0 ? length : lengthBytesUTF8(stringy) + 1;
@@ -4894,6 +4680,108 @@ var jessica = (() => {
 
       return ret.join('');
     }
+
+    function getCFunc(ident) {
+      var func = Module['_' + ident]; // closure exported function
+
+      assert(func, 'Cannot call unknown function ' + ident + ', make sure it is exported');
+      return func;
+    }
+    /**
+     * @param {string|null=} returnType
+     * @param {Array=} argTypes
+     * @param {Arguments|Array=} args
+     * @param {Object=} opts
+     */
+
+
+    function ccall(ident, returnType, argTypes, args, opts) {
+      // For fast lookup of conversion functions
+      var toC = {
+        'string': function (str) {
+          var ret = 0;
+
+          if (str !== null && str !== undefined && str !== 0) {
+            // null string
+            // at most 4 bytes per UTF-8 code point, +1 for the trailing '\0'
+            var len = (str.length << 2) + 1;
+            ret = stackAlloc(len);
+            stringToUTF8(str, ret, len);
+          }
+
+          return ret;
+        },
+        'array': function (arr) {
+          var ret = stackAlloc(arr.length);
+          writeArrayToMemory(arr, ret);
+          return ret;
+        }
+      };
+
+      function convertReturnValue(ret) {
+        if (returnType === 'string') {
+          return UTF8ToString(ret);
+        }
+
+        if (returnType === 'boolean') return Boolean(ret);
+        return ret;
+      }
+
+      var func = getCFunc(ident);
+      var cArgs = [];
+      var stack = 0;
+      assert(returnType !== 'array', 'Return type should not be "array".');
+
+      if (args) {
+        for (var i = 0; i < args.length; i++) {
+          var converter = toC[argTypes[i]];
+
+          if (converter) {
+            if (stack === 0) stack = stackSave();
+            cArgs[i] = converter(args[i]);
+          } else {
+            cArgs[i] = args[i];
+          }
+        }
+      }
+
+      var ret = func.apply(null, cArgs);
+
+      function onDone(ret) {
+        if (stack !== 0) stackRestore(stack);
+        return convertReturnValue(ret);
+      }
+
+      ret = onDone(ret);
+      return ret;
+    }
+    /**
+     * @param {string=} returnType
+     * @param {Array=} argTypes
+     * @param {Object=} opts
+     */
+
+
+    function cwrap(ident, returnType, argTypes, opts) {
+      return function () {
+        return ccall(ident, returnType, argTypes, arguments, opts);
+      };
+    }
+
+    embind_init_charCodes();
+    BindingError = Module['BindingError'] = extendError(Error, 'BindingError');
+    ;
+    InternalError = Module['InternalError'] = extendError(Error, 'InternalError');
+    ;
+    init_ClassHandle();
+    init_embind();
+    ;
+    init_RegisteredPointer();
+    UnboundTypeError = Module['UnboundTypeError'] = extendError(Error, 'UnboundTypeError');
+    ;
+    init_emval();
+    ;
+    var ASSERTIONS = true;
 
     function checkIncomingModuleAPI() {
       ignoredModuleProp('fetchSettings');
@@ -4995,343 +4883,471 @@ var jessica = (() => {
     var ___cxa_is_pointer_type = Module["___cxa_is_pointer_type"] = createExportWrapper("__cxa_is_pointer_type"); // === Auto-generated postamble setup entry stuff ===
 
 
-    unexportedRuntimeFunction('ccall', false);
-    unexportedRuntimeFunction('cwrap', false);
-    unexportedRuntimeFunction('allocate', false);
-    unexportedRuntimeFunction('UTF8ArrayToString', false);
-    unexportedRuntimeFunction('UTF8ToString', false);
-    unexportedRuntimeFunction('stringToUTF8Array', false);
-    unexportedRuntimeFunction('stringToUTF8', false);
-    unexportedRuntimeFunction('lengthBytesUTF8', false);
-    unexportedRuntimeFunction('addOnPreRun', false);
-    unexportedRuntimeFunction('addOnInit', false);
-    unexportedRuntimeFunction('addOnPreMain', false);
-    unexportedRuntimeFunction('addOnExit', false);
-    unexportedRuntimeFunction('addOnPostRun', false);
-    unexportedRuntimeFunction('addRunDependency', true);
-    unexportedRuntimeFunction('removeRunDependency', true);
-    unexportedRuntimeFunction('FS_createFolder', false);
-    unexportedRuntimeFunction('FS_createPath', true);
-    unexportedRuntimeFunction('FS_createDataFile', true);
-    unexportedRuntimeFunction('FS_createPreloadedFile', true);
-    unexportedRuntimeFunction('FS_createLazyFile', true);
-    unexportedRuntimeFunction('FS_createLink', false);
-    unexportedRuntimeFunction('FS_createDevice', true);
-    unexportedRuntimeFunction('FS_unlink', true);
-    unexportedRuntimeFunction('getLEB', false);
-    unexportedRuntimeFunction('getFunctionTables', false);
-    unexportedRuntimeFunction('alignFunctionTables', false);
-    unexportedRuntimeFunction('registerFunctions', false);
-    unexportedRuntimeFunction('addFunction', false);
-    unexportedRuntimeFunction('removeFunction', false);
-    unexportedRuntimeFunction('prettyPrint', false);
-    unexportedRuntimeFunction('getCompilerSetting', false);
-    unexportedRuntimeFunction('print', false);
-    unexportedRuntimeFunction('printErr', false);
-    unexportedRuntimeFunction('getTempRet0', false);
-    unexportedRuntimeFunction('setTempRet0', false);
-    unexportedRuntimeFunction('callMain', false);
-    unexportedRuntimeFunction('abort', false);
-    unexportedRuntimeFunction('keepRuntimeAlive', false);
-    unexportedRuntimeFunction('wasmMemory', false);
-    unexportedRuntimeFunction('warnOnce', false);
-    unexportedRuntimeFunction('stackSave', false);
-    unexportedRuntimeFunction('stackRestore', false);
-    unexportedRuntimeFunction('stackAlloc', false);
-    unexportedRuntimeFunction('AsciiToString', false);
-    unexportedRuntimeFunction('stringToAscii', false);
-    unexportedRuntimeFunction('UTF16ToString', false);
-    unexportedRuntimeFunction('stringToUTF16', false);
-    unexportedRuntimeFunction('lengthBytesUTF16', false);
-    unexportedRuntimeFunction('UTF32ToString', false);
-    unexportedRuntimeFunction('stringToUTF32', false);
-    unexportedRuntimeFunction('lengthBytesUTF32', false);
-    unexportedRuntimeFunction('allocateUTF8', false);
-    unexportedRuntimeFunction('allocateUTF8OnStack', false);
-    unexportedRuntimeFunction('ExitStatus', false);
-    unexportedRuntimeFunction('intArrayFromString', false);
-    unexportedRuntimeFunction('intArrayToString', false);
-    unexportedRuntimeFunction('writeStringToMemory', false);
-    unexportedRuntimeFunction('writeArrayToMemory', false);
-    unexportedRuntimeFunction('writeAsciiToMemory', false);
-    Module["writeStackCookie"] = writeStackCookie;
-    Module["checkStackCookie"] = checkStackCookie;
-    unexportedRuntimeFunction('ptrToString', false);
-    unexportedRuntimeFunction('zeroMemory', false);
-    unexportedRuntimeFunction('stringToNewUTF8', false);
-    unexportedRuntimeFunction('getHeapMax', false);
-    unexportedRuntimeFunction('abortOnCannotGrowMemory', false);
-    unexportedRuntimeFunction('emscripten_realloc_buffer', false);
-    unexportedRuntimeFunction('ENV', false);
-    unexportedRuntimeFunction('ERRNO_CODES', false);
-    unexportedRuntimeFunction('ERRNO_MESSAGES', false);
-    unexportedRuntimeFunction('setErrNo', false);
-    unexportedRuntimeFunction('inetPton4', false);
-    unexportedRuntimeFunction('inetNtop4', false);
-    unexportedRuntimeFunction('inetPton6', false);
-    unexportedRuntimeFunction('inetNtop6', false);
-    unexportedRuntimeFunction('readSockaddr', false);
-    unexportedRuntimeFunction('writeSockaddr', false);
-    unexportedRuntimeFunction('DNS', false);
-    unexportedRuntimeFunction('getHostByName', false);
-    unexportedRuntimeFunction('Protocols', false);
-    unexportedRuntimeFunction('Sockets', false);
-    unexportedRuntimeFunction('getRandomDevice', false);
-    unexportedRuntimeFunction('traverseStack', false);
-    unexportedRuntimeFunction('UNWIND_CACHE', false);
-    unexportedRuntimeFunction('convertPCtoSourceLocation', false);
-    unexportedRuntimeFunction('readAsmConstArgsArray', false);
-    unexportedRuntimeFunction('readAsmConstArgs', false);
-    unexportedRuntimeFunction('mainThreadEM_ASM', false);
-    unexportedRuntimeFunction('jstoi_q', false);
-    unexportedRuntimeFunction('jstoi_s', false);
-    unexportedRuntimeFunction('getExecutableName', false);
-    unexportedRuntimeFunction('listenOnce', false);
-    unexportedRuntimeFunction('autoResumeAudioContext', false);
-    unexportedRuntimeFunction('dynCallLegacy', false);
-    unexportedRuntimeFunction('getDynCaller', false);
-    unexportedRuntimeFunction('dynCall', false);
-    unexportedRuntimeFunction('handleException', false);
-    unexportedRuntimeFunction('runtimeKeepalivePush', false);
-    unexportedRuntimeFunction('runtimeKeepalivePop', false);
-    unexportedRuntimeFunction('callUserCallback', false);
-    unexportedRuntimeFunction('maybeExit', false);
-    unexportedRuntimeFunction('safeSetTimeout', false);
-    unexportedRuntimeFunction('asmjsMangle', false);
-    unexportedRuntimeFunction('asyncLoad', false);
-    unexportedRuntimeFunction('alignMemory', false);
-    unexportedRuntimeFunction('mmapAlloc', false);
-    unexportedRuntimeFunction('writeI53ToI64', false);
-    unexportedRuntimeFunction('writeI53ToI64Clamped', false);
-    unexportedRuntimeFunction('writeI53ToI64Signaling', false);
-    unexportedRuntimeFunction('writeI53ToU64Clamped', false);
-    unexportedRuntimeFunction('writeI53ToU64Signaling', false);
-    unexportedRuntimeFunction('readI53FromI64', false);
-    unexportedRuntimeFunction('readI53FromU64', false);
-    unexportedRuntimeFunction('convertI32PairToI53', false);
-    unexportedRuntimeFunction('convertI32PairToI53Checked', false);
-    unexportedRuntimeFunction('convertU32PairToI53', false);
-    unexportedRuntimeFunction('reallyNegative', false);
-    unexportedRuntimeFunction('unSign', false);
-    unexportedRuntimeFunction('strLen', false);
-    unexportedRuntimeFunction('reSign', false);
-    unexportedRuntimeFunction('formatString', false);
-    unexportedRuntimeFunction('setValue', false);
-    unexportedRuntimeFunction('getValue', false);
-    unexportedRuntimeFunction('PATH', false);
-    unexportedRuntimeFunction('PATH_FS', false);
-    unexportedRuntimeFunction('SYSCALLS', false);
-    unexportedRuntimeFunction('getSocketFromFD', false);
-    unexportedRuntimeFunction('getSocketAddress', false);
-    unexportedRuntimeFunction('JSEvents', false);
-    unexportedRuntimeFunction('registerKeyEventCallback', false);
-    unexportedRuntimeFunction('specialHTMLTargets', false);
-    unexportedRuntimeFunction('maybeCStringToJsString', false);
-    unexportedRuntimeFunction('findEventTarget', false);
-    unexportedRuntimeFunction('findCanvasEventTarget', false);
-    unexportedRuntimeFunction('getBoundingClientRect', false);
-    unexportedRuntimeFunction('fillMouseEventData', false);
-    unexportedRuntimeFunction('registerMouseEventCallback', false);
-    unexportedRuntimeFunction('registerWheelEventCallback', false);
-    unexportedRuntimeFunction('registerUiEventCallback', false);
-    unexportedRuntimeFunction('registerFocusEventCallback', false);
-    unexportedRuntimeFunction('fillDeviceOrientationEventData', false);
-    unexportedRuntimeFunction('registerDeviceOrientationEventCallback', false);
-    unexportedRuntimeFunction('fillDeviceMotionEventData', false);
-    unexportedRuntimeFunction('registerDeviceMotionEventCallback', false);
-    unexportedRuntimeFunction('screenOrientation', false);
-    unexportedRuntimeFunction('fillOrientationChangeEventData', false);
-    unexportedRuntimeFunction('registerOrientationChangeEventCallback', false);
-    unexportedRuntimeFunction('fillFullscreenChangeEventData', false);
-    unexportedRuntimeFunction('registerFullscreenChangeEventCallback', false);
-    unexportedRuntimeFunction('JSEvents_requestFullscreen', false);
-    unexportedRuntimeFunction('JSEvents_resizeCanvasForFullscreen', false);
-    unexportedRuntimeFunction('registerRestoreOldStyle', false);
-    unexportedRuntimeFunction('hideEverythingExceptGivenElement', false);
-    unexportedRuntimeFunction('restoreHiddenElements', false);
-    unexportedRuntimeFunction('setLetterbox', false);
-    unexportedRuntimeFunction('currentFullscreenStrategy', false);
-    unexportedRuntimeFunction('restoreOldWindowedStyle', false);
-    unexportedRuntimeFunction('softFullscreenResizeWebGLRenderTarget', false);
-    unexportedRuntimeFunction('doRequestFullscreen', false);
-    unexportedRuntimeFunction('fillPointerlockChangeEventData', false);
-    unexportedRuntimeFunction('registerPointerlockChangeEventCallback', false);
-    unexportedRuntimeFunction('registerPointerlockErrorEventCallback', false);
-    unexportedRuntimeFunction('requestPointerLock', false);
-    unexportedRuntimeFunction('fillVisibilityChangeEventData', false);
-    unexportedRuntimeFunction('registerVisibilityChangeEventCallback', false);
-    unexportedRuntimeFunction('registerTouchEventCallback', false);
-    unexportedRuntimeFunction('fillGamepadEventData', false);
-    unexportedRuntimeFunction('registerGamepadEventCallback', false);
-    unexportedRuntimeFunction('registerBeforeUnloadEventCallback', false);
-    unexportedRuntimeFunction('fillBatteryEventData', false);
-    unexportedRuntimeFunction('battery', false);
-    unexportedRuntimeFunction('registerBatteryEventCallback', false);
-    unexportedRuntimeFunction('setCanvasElementSize', false);
-    unexportedRuntimeFunction('getCanvasElementSize', false);
-    unexportedRuntimeFunction('demangle', false);
-    unexportedRuntimeFunction('demangleAll', false);
-    unexportedRuntimeFunction('jsStackTrace', false);
-    unexportedRuntimeFunction('stackTrace', false);
-    unexportedRuntimeFunction('getEnvStrings', false);
-    unexportedRuntimeFunction('checkWasiClock', false);
-    unexportedRuntimeFunction('flush_NO_FILESYSTEM', false);
-    unexportedRuntimeFunction('dlopenMissingError', false);
-    unexportedRuntimeFunction('setImmediateWrapped', false);
-    unexportedRuntimeFunction('clearImmediateWrapped', false);
-    unexportedRuntimeFunction('polyfillSetImmediate', false);
-    unexportedRuntimeFunction('uncaughtExceptionCount', false);
-    unexportedRuntimeFunction('exceptionLast', false);
-    unexportedRuntimeFunction('exceptionCaught', false);
-    unexportedRuntimeFunction('ExceptionInfo', false);
-    unexportedRuntimeFunction('exception_addRef', false);
-    unexportedRuntimeFunction('exception_decRef', false);
-    unexportedRuntimeFunction('Browser', false);
-    unexportedRuntimeFunction('setMainLoop', false);
-    unexportedRuntimeFunction('wget', false);
-    unexportedRuntimeFunction('FS', false);
-    unexportedRuntimeFunction('MEMFS', false);
-    unexportedRuntimeFunction('TTY', false);
-    unexportedRuntimeFunction('PIPEFS', false);
-    unexportedRuntimeFunction('SOCKFS', false);
-    unexportedRuntimeFunction('_setNetworkCallback', false);
-    unexportedRuntimeFunction('tempFixedLengthArray', false);
-    unexportedRuntimeFunction('miniTempWebGLFloatBuffers', false);
-    unexportedRuntimeFunction('heapObjectForWebGLType', false);
-    unexportedRuntimeFunction('heapAccessShiftForWebGLHeap', false);
-    unexportedRuntimeFunction('GL', false);
-    unexportedRuntimeFunction('emscriptenWebGLGet', false);
-    unexportedRuntimeFunction('computeUnpackAlignedImageSize', false);
-    unexportedRuntimeFunction('emscriptenWebGLGetTexPixelData', false);
-    unexportedRuntimeFunction('emscriptenWebGLGetUniform', false);
-    unexportedRuntimeFunction('webglGetUniformLocation', false);
-    unexportedRuntimeFunction('webglPrepareUniformLocationsBeforeFirstUse', false);
-    unexportedRuntimeFunction('webglGetLeftBracePos', false);
-    unexportedRuntimeFunction('emscriptenWebGLGetVertexAttrib', false);
-    unexportedRuntimeFunction('writeGLArray', false);
-    unexportedRuntimeFunction('AL', false);
-    unexportedRuntimeFunction('SDL_unicode', false);
-    unexportedRuntimeFunction('SDL_ttfContext', false);
-    unexportedRuntimeFunction('SDL_audio', false);
-    unexportedRuntimeFunction('SDL', false);
-    unexportedRuntimeFunction('SDL_gfx', false);
-    unexportedRuntimeFunction('GLUT', false);
-    unexportedRuntimeFunction('EGL', false);
-    unexportedRuntimeFunction('GLFW_Window', false);
-    unexportedRuntimeFunction('GLFW', false);
-    unexportedRuntimeFunction('GLEW', false);
-    unexportedRuntimeFunction('IDBStore', false);
-    unexportedRuntimeFunction('runAndAbortIfError', false);
-    unexportedRuntimeFunction('InternalError', false);
-    unexportedRuntimeFunction('BindingError', false);
-    unexportedRuntimeFunction('UnboundTypeError', false);
-    unexportedRuntimeFunction('PureVirtualError', false);
-    unexportedRuntimeFunction('init_embind', false);
-    unexportedRuntimeFunction('throwInternalError', false);
-    unexportedRuntimeFunction('throwBindingError', false);
-    unexportedRuntimeFunction('throwUnboundTypeError', false);
-    unexportedRuntimeFunction('ensureOverloadTable', false);
-    unexportedRuntimeFunction('exposePublicSymbol', false);
-    unexportedRuntimeFunction('replacePublicSymbol', false);
-    unexportedRuntimeFunction('extendError', false);
-    unexportedRuntimeFunction('createNamedFunction', false);
-    unexportedRuntimeFunction('embindRepr', false);
-    unexportedRuntimeFunction('registeredInstances', false);
-    unexportedRuntimeFunction('getBasestPointer', false);
-    unexportedRuntimeFunction('registerInheritedInstance', false);
-    unexportedRuntimeFunction('unregisterInheritedInstance', false);
-    unexportedRuntimeFunction('getInheritedInstance', false);
-    unexportedRuntimeFunction('getInheritedInstanceCount', false);
-    unexportedRuntimeFunction('getLiveInheritedInstances', false);
-    unexportedRuntimeFunction('registeredTypes', false);
-    unexportedRuntimeFunction('awaitingDependencies', false);
-    unexportedRuntimeFunction('typeDependencies', false);
-    unexportedRuntimeFunction('registeredPointers', false);
-    unexportedRuntimeFunction('registerType', false);
-    unexportedRuntimeFunction('whenDependentTypesAreResolved', false);
-    unexportedRuntimeFunction('embind_charCodes', false);
-    unexportedRuntimeFunction('embind_init_charCodes', false);
-    unexportedRuntimeFunction('readLatin1String', false);
-    unexportedRuntimeFunction('getTypeName', false);
-    unexportedRuntimeFunction('heap32VectorToArray', false);
-    unexportedRuntimeFunction('requireRegisteredType', false);
-    unexportedRuntimeFunction('getShiftFromSize', false);
-    unexportedRuntimeFunction('integerReadValueFromPointer', false);
-    unexportedRuntimeFunction('enumReadValueFromPointer', false);
-    unexportedRuntimeFunction('floatReadValueFromPointer', false);
-    unexportedRuntimeFunction('simpleReadValueFromPointer', false);
-    unexportedRuntimeFunction('runDestructors', false);
-    unexportedRuntimeFunction('new_', false);
-    unexportedRuntimeFunction('craftInvokerFunction', false);
-    unexportedRuntimeFunction('embind__requireFunction', false);
-    unexportedRuntimeFunction('tupleRegistrations', false);
-    unexportedRuntimeFunction('structRegistrations', false);
-    unexportedRuntimeFunction('genericPointerToWireType', false);
-    unexportedRuntimeFunction('constNoSmartPtrRawPointerToWireType', false);
-    unexportedRuntimeFunction('nonConstNoSmartPtrRawPointerToWireType', false);
-    unexportedRuntimeFunction('init_RegisteredPointer', false);
-    unexportedRuntimeFunction('RegisteredPointer', false);
-    unexportedRuntimeFunction('RegisteredPointer_getPointee', false);
-    unexportedRuntimeFunction('RegisteredPointer_destructor', false);
-    unexportedRuntimeFunction('RegisteredPointer_deleteObject', false);
-    unexportedRuntimeFunction('RegisteredPointer_fromWireType', false);
-    unexportedRuntimeFunction('runDestructor', false);
-    unexportedRuntimeFunction('releaseClassHandle', false);
-    unexportedRuntimeFunction('finalizationRegistry', false);
-    unexportedRuntimeFunction('detachFinalizer_deps', false);
-    unexportedRuntimeFunction('detachFinalizer', false);
-    unexportedRuntimeFunction('attachFinalizer', false);
-    unexportedRuntimeFunction('makeClassHandle', false);
-    unexportedRuntimeFunction('init_ClassHandle', false);
-    unexportedRuntimeFunction('ClassHandle', false);
-    unexportedRuntimeFunction('ClassHandle_isAliasOf', false);
-    unexportedRuntimeFunction('throwInstanceAlreadyDeleted', false);
-    unexportedRuntimeFunction('ClassHandle_clone', false);
-    unexportedRuntimeFunction('ClassHandle_delete', false);
-    unexportedRuntimeFunction('deletionQueue', false);
-    unexportedRuntimeFunction('ClassHandle_isDeleted', false);
-    unexportedRuntimeFunction('ClassHandle_deleteLater', false);
-    unexportedRuntimeFunction('flushPendingDeletes', false);
-    unexportedRuntimeFunction('delayFunction', false);
-    unexportedRuntimeFunction('setDelayFunction', false);
-    unexportedRuntimeFunction('RegisteredClass', false);
-    unexportedRuntimeFunction('shallowCopyInternalPointer', false);
-    unexportedRuntimeFunction('downcastPointer', false);
-    unexportedRuntimeFunction('upcastPointer', false);
-    unexportedRuntimeFunction('validateThis', false);
-    unexportedRuntimeFunction('char_0', false);
-    unexportedRuntimeFunction('char_9', false);
-    unexportedRuntimeFunction('makeLegalFunctionName', false);
-    unexportedRuntimeFunction('emval_handle_array', false);
-    unexportedRuntimeFunction('emval_free_list', false);
-    unexportedRuntimeFunction('emval_symbols', false);
-    unexportedRuntimeFunction('init_emval', false);
-    unexportedRuntimeFunction('count_emval_handles', false);
-    unexportedRuntimeFunction('get_first_emval', false);
-    unexportedRuntimeFunction('getStringOrSymbol', false);
-    unexportedRuntimeFunction('Emval', false);
-    unexportedRuntimeFunction('emval_newers', false);
-    unexportedRuntimeFunction('craftEmvalAllocator', false);
-    unexportedRuntimeFunction('emval_get_global', false);
-    unexportedRuntimeFunction('emval_lookupTypes', false);
-    unexportedRuntimeFunction('emval_allocateDestructors', false);
-    unexportedRuntimeFunction('emval_methodCallers', false);
-    unexportedRuntimeFunction('emval_addMethodCaller', false);
-    unexportedRuntimeFunction('emval_registeredMethods', false);
+    unexportedRuntimeSymbol('run', false);
+    unexportedRuntimeSymbol('UTF8ArrayToString', false);
+    unexportedRuntimeSymbol('UTF8ToString', false);
+    unexportedRuntimeSymbol('stringToUTF8Array', false);
+    unexportedRuntimeSymbol('stringToUTF8', false);
+    unexportedRuntimeSymbol('lengthBytesUTF8', false);
+    unexportedRuntimeSymbol('addOnPreRun', false);
+    unexportedRuntimeSymbol('addOnInit', false);
+    unexportedRuntimeSymbol('addOnPreMain', false);
+    unexportedRuntimeSymbol('addOnExit', false);
+    unexportedRuntimeSymbol('addOnPostRun', false);
+    unexportedRuntimeSymbol('addRunDependency', true);
+    unexportedRuntimeSymbol('removeRunDependency', true);
+    unexportedRuntimeSymbol('FS_createFolder', false);
+    unexportedRuntimeSymbol('FS_createPath', true);
+    unexportedRuntimeSymbol('FS_createDataFile', true);
+    unexportedRuntimeSymbol('FS_createPreloadedFile', true);
+    unexportedRuntimeSymbol('FS_createLazyFile', true);
+    unexportedRuntimeSymbol('FS_createLink', false);
+    unexportedRuntimeSymbol('FS_createDevice', true);
+    unexportedRuntimeSymbol('FS_unlink', true);
+    unexportedRuntimeSymbol('getLEB', false);
+    unexportedRuntimeSymbol('getFunctionTables', false);
+    unexportedRuntimeSymbol('alignFunctionTables', false);
+    unexportedRuntimeSymbol('registerFunctions', false);
+    unexportedRuntimeSymbol('prettyPrint', false);
+    unexportedRuntimeSymbol('getCompilerSetting', false);
+    unexportedRuntimeSymbol('print', false);
+    unexportedRuntimeSymbol('printErr', false);
+    unexportedRuntimeSymbol('getTempRet0', false);
+    unexportedRuntimeSymbol('setTempRet0', false);
+    unexportedRuntimeSymbol('callMain', false);
+    unexportedRuntimeSymbol('abort', false);
+    unexportedRuntimeSymbol('keepRuntimeAlive', false);
+    unexportedRuntimeSymbol('wasmMemory', false);
+    unexportedRuntimeSymbol('stackSave', false);
+    unexportedRuntimeSymbol('stackRestore', false);
+    unexportedRuntimeSymbol('stackAlloc', false);
+    unexportedRuntimeSymbol('writeStackCookie', false);
+    unexportedRuntimeSymbol('checkStackCookie', false);
+    unexportedRuntimeSymbol('ptrToString', false);
+    unexportedRuntimeSymbol('zeroMemory', false);
+    unexportedRuntimeSymbol('stringToNewUTF8', false);
+    unexportedRuntimeSymbol('exitJS', false);
+    unexportedRuntimeSymbol('getHeapMax', false);
+    unexportedRuntimeSymbol('abortOnCannotGrowMemory', false);
+    unexportedRuntimeSymbol('emscripten_realloc_buffer', false);
+    unexportedRuntimeSymbol('ENV', false);
+    unexportedRuntimeSymbol('ERRNO_CODES', false);
+    unexportedRuntimeSymbol('ERRNO_MESSAGES', false);
+    unexportedRuntimeSymbol('setErrNo', false);
+    unexportedRuntimeSymbol('inetPton4', false);
+    unexportedRuntimeSymbol('inetNtop4', false);
+    unexportedRuntimeSymbol('inetPton6', false);
+    unexportedRuntimeSymbol('inetNtop6', false);
+    unexportedRuntimeSymbol('readSockaddr', false);
+    unexportedRuntimeSymbol('writeSockaddr', false);
+    unexportedRuntimeSymbol('DNS', false);
+    unexportedRuntimeSymbol('getHostByName', false);
+    unexportedRuntimeSymbol('Protocols', false);
+    unexportedRuntimeSymbol('Sockets', false);
+    unexportedRuntimeSymbol('getRandomDevice', false);
+    unexportedRuntimeSymbol('warnOnce', false);
+    unexportedRuntimeSymbol('traverseStack', false);
+    unexportedRuntimeSymbol('UNWIND_CACHE', false);
+    unexportedRuntimeSymbol('convertPCtoSourceLocation', false);
+    unexportedRuntimeSymbol('readAsmConstArgsArray', false);
+    unexportedRuntimeSymbol('readAsmConstArgs', false);
+    unexportedRuntimeSymbol('mainThreadEM_ASM', false);
+    unexportedRuntimeSymbol('jstoi_q', false);
+    unexportedRuntimeSymbol('jstoi_s', false);
+    unexportedRuntimeSymbol('getExecutableName', false);
+    unexportedRuntimeSymbol('listenOnce', false);
+    unexportedRuntimeSymbol('autoResumeAudioContext', false);
+    unexportedRuntimeSymbol('dynCallLegacy', false);
+    unexportedRuntimeSymbol('getDynCaller', false);
+    unexportedRuntimeSymbol('dynCall', false);
+    unexportedRuntimeSymbol('handleException', false);
+    unexportedRuntimeSymbol('runtimeKeepalivePush', false);
+    unexportedRuntimeSymbol('runtimeKeepalivePop', false);
+    unexportedRuntimeSymbol('callUserCallback', false);
+    unexportedRuntimeSymbol('maybeExit', false);
+    unexportedRuntimeSymbol('safeSetTimeout', false);
+    unexportedRuntimeSymbol('asmjsMangle', false);
+    unexportedRuntimeSymbol('asyncLoad', false);
+    unexportedRuntimeSymbol('alignMemory', false);
+    unexportedRuntimeSymbol('mmapAlloc', false);
+    unexportedRuntimeSymbol('writeI53ToI64', false);
+    unexportedRuntimeSymbol('writeI53ToI64Clamped', false);
+    unexportedRuntimeSymbol('writeI53ToI64Signaling', false);
+    unexportedRuntimeSymbol('writeI53ToU64Clamped', false);
+    unexportedRuntimeSymbol('writeI53ToU64Signaling', false);
+    unexportedRuntimeSymbol('readI53FromI64', false);
+    unexportedRuntimeSymbol('readI53FromU64', false);
+    unexportedRuntimeSymbol('convertI32PairToI53', false);
+    unexportedRuntimeSymbol('convertI32PairToI53Checked', false);
+    unexportedRuntimeSymbol('convertU32PairToI53', false);
+    unexportedRuntimeSymbol('getCFunc', false);
+    unexportedRuntimeSymbol('ccall', false);
+    unexportedRuntimeSymbol('cwrap', false);
+    unexportedRuntimeSymbol('uleb128Encode', false);
+    unexportedRuntimeSymbol('sigToWasmTypes', false);
+    unexportedRuntimeSymbol('convertJsFunctionToWasm', false);
+    unexportedRuntimeSymbol('freeTableIndexes', false);
+    unexportedRuntimeSymbol('functionsInTableMap', false);
+    unexportedRuntimeSymbol('getEmptyTableSlot', false);
+    unexportedRuntimeSymbol('updateTableMap', false);
+    unexportedRuntimeSymbol('addFunction', false);
+    unexportedRuntimeSymbol('removeFunction', false);
+    unexportedRuntimeSymbol('reallyNegative', false);
+    unexportedRuntimeSymbol('unSign', false);
+    unexportedRuntimeSymbol('strLen', false);
+    unexportedRuntimeSymbol('reSign', false);
+    unexportedRuntimeSymbol('formatString', false);
+    unexportedRuntimeSymbol('setValue', false);
+    unexportedRuntimeSymbol('getValue', false);
+    unexportedRuntimeSymbol('PATH', false);
+    unexportedRuntimeSymbol('PATH_FS', false);
+    unexportedRuntimeSymbol('intArrayFromString', false);
+    unexportedRuntimeSymbol('intArrayToString', false);
+    unexportedRuntimeSymbol('AsciiToString', false);
+    unexportedRuntimeSymbol('stringToAscii', false);
+    unexportedRuntimeSymbol('UTF16Decoder', false);
+    unexportedRuntimeSymbol('UTF16ToString', false);
+    unexportedRuntimeSymbol('stringToUTF16', false);
+    unexportedRuntimeSymbol('lengthBytesUTF16', false);
+    unexportedRuntimeSymbol('UTF32ToString', false);
+    unexportedRuntimeSymbol('stringToUTF32', false);
+    unexportedRuntimeSymbol('lengthBytesUTF32', false);
+    unexportedRuntimeSymbol('allocateUTF8', false);
+    unexportedRuntimeSymbol('allocateUTF8OnStack', false);
+    unexportedRuntimeSymbol('writeStringToMemory', false);
+    unexportedRuntimeSymbol('writeArrayToMemory', false);
+    unexportedRuntimeSymbol('writeAsciiToMemory', false);
+    unexportedRuntimeSymbol('SYSCALLS', false);
+    unexportedRuntimeSymbol('getSocketFromFD', false);
+    unexportedRuntimeSymbol('getSocketAddress', false);
+    unexportedRuntimeSymbol('JSEvents', false);
+    unexportedRuntimeSymbol('registerKeyEventCallback', false);
+    unexportedRuntimeSymbol('specialHTMLTargets', false);
+    unexportedRuntimeSymbol('maybeCStringToJsString', false);
+    unexportedRuntimeSymbol('findEventTarget', false);
+    unexportedRuntimeSymbol('findCanvasEventTarget', false);
+    unexportedRuntimeSymbol('getBoundingClientRect', false);
+    unexportedRuntimeSymbol('fillMouseEventData', false);
+    unexportedRuntimeSymbol('registerMouseEventCallback', false);
+    unexportedRuntimeSymbol('registerWheelEventCallback', false);
+    unexportedRuntimeSymbol('registerUiEventCallback', false);
+    unexportedRuntimeSymbol('registerFocusEventCallback', false);
+    unexportedRuntimeSymbol('fillDeviceOrientationEventData', false);
+    unexportedRuntimeSymbol('registerDeviceOrientationEventCallback', false);
+    unexportedRuntimeSymbol('fillDeviceMotionEventData', false);
+    unexportedRuntimeSymbol('registerDeviceMotionEventCallback', false);
+    unexportedRuntimeSymbol('screenOrientation', false);
+    unexportedRuntimeSymbol('fillOrientationChangeEventData', false);
+    unexportedRuntimeSymbol('registerOrientationChangeEventCallback', false);
+    unexportedRuntimeSymbol('fillFullscreenChangeEventData', false);
+    unexportedRuntimeSymbol('registerFullscreenChangeEventCallback', false);
+    unexportedRuntimeSymbol('JSEvents_requestFullscreen', false);
+    unexportedRuntimeSymbol('JSEvents_resizeCanvasForFullscreen', false);
+    unexportedRuntimeSymbol('registerRestoreOldStyle', false);
+    unexportedRuntimeSymbol('hideEverythingExceptGivenElement', false);
+    unexportedRuntimeSymbol('restoreHiddenElements', false);
+    unexportedRuntimeSymbol('setLetterbox', false);
+    unexportedRuntimeSymbol('currentFullscreenStrategy', false);
+    unexportedRuntimeSymbol('restoreOldWindowedStyle', false);
+    unexportedRuntimeSymbol('softFullscreenResizeWebGLRenderTarget', false);
+    unexportedRuntimeSymbol('doRequestFullscreen', false);
+    unexportedRuntimeSymbol('fillPointerlockChangeEventData', false);
+    unexportedRuntimeSymbol('registerPointerlockChangeEventCallback', false);
+    unexportedRuntimeSymbol('registerPointerlockErrorEventCallback', false);
+    unexportedRuntimeSymbol('requestPointerLock', false);
+    unexportedRuntimeSymbol('fillVisibilityChangeEventData', false);
+    unexportedRuntimeSymbol('registerVisibilityChangeEventCallback', false);
+    unexportedRuntimeSymbol('registerTouchEventCallback', false);
+    unexportedRuntimeSymbol('fillGamepadEventData', false);
+    unexportedRuntimeSymbol('registerGamepadEventCallback', false);
+    unexportedRuntimeSymbol('registerBeforeUnloadEventCallback', false);
+    unexportedRuntimeSymbol('fillBatteryEventData', false);
+    unexportedRuntimeSymbol('battery', false);
+    unexportedRuntimeSymbol('registerBatteryEventCallback', false);
+    unexportedRuntimeSymbol('setCanvasElementSize', false);
+    unexportedRuntimeSymbol('getCanvasElementSize', false);
+    unexportedRuntimeSymbol('demangle', false);
+    unexportedRuntimeSymbol('demangleAll', false);
+    unexportedRuntimeSymbol('jsStackTrace', false);
+    unexportedRuntimeSymbol('stackTrace', false);
+    unexportedRuntimeSymbol('ExitStatus', false);
+    unexportedRuntimeSymbol('getEnvStrings', false);
+    unexportedRuntimeSymbol('checkWasiClock', false);
+    unexportedRuntimeSymbol('flush_NO_FILESYSTEM', false);
+    unexportedRuntimeSymbol('dlopenMissingError', false);
+    unexportedRuntimeSymbol('setImmediateWrapped', false);
+    unexportedRuntimeSymbol('clearImmediateWrapped', false);
+    unexportedRuntimeSymbol('polyfillSetImmediate', false);
+    unexportedRuntimeSymbol('uncaughtExceptionCount', false);
+    unexportedRuntimeSymbol('exceptionLast', false);
+    unexportedRuntimeSymbol('exceptionCaught', false);
+    unexportedRuntimeSymbol('ExceptionInfo', false);
+    unexportedRuntimeSymbol('exception_addRef', false);
+    unexportedRuntimeSymbol('exception_decRef', false);
+    unexportedRuntimeSymbol('Browser', false);
+    unexportedRuntimeSymbol('setMainLoop', false);
+    unexportedRuntimeSymbol('wget', false);
+    unexportedRuntimeSymbol('FS', false);
+    unexportedRuntimeSymbol('MEMFS', false);
+    unexportedRuntimeSymbol('TTY', false);
+    unexportedRuntimeSymbol('PIPEFS', false);
+    unexportedRuntimeSymbol('SOCKFS', false);
+    unexportedRuntimeSymbol('_setNetworkCallback', false);
+    unexportedRuntimeSymbol('tempFixedLengthArray', false);
+    unexportedRuntimeSymbol('miniTempWebGLFloatBuffers', false);
+    unexportedRuntimeSymbol('heapObjectForWebGLType', false);
+    unexportedRuntimeSymbol('heapAccessShiftForWebGLHeap', false);
+    unexportedRuntimeSymbol('GL', false);
+    unexportedRuntimeSymbol('emscriptenWebGLGet', false);
+    unexportedRuntimeSymbol('computeUnpackAlignedImageSize', false);
+    unexportedRuntimeSymbol('emscriptenWebGLGetTexPixelData', false);
+    unexportedRuntimeSymbol('emscriptenWebGLGetUniform', false);
+    unexportedRuntimeSymbol('webglGetUniformLocation', false);
+    unexportedRuntimeSymbol('webglPrepareUniformLocationsBeforeFirstUse', false);
+    unexportedRuntimeSymbol('webglGetLeftBracePos', false);
+    unexportedRuntimeSymbol('emscriptenWebGLGetVertexAttrib', false);
+    unexportedRuntimeSymbol('writeGLArray', false);
+    unexportedRuntimeSymbol('AL', false);
+    unexportedRuntimeSymbol('SDL_unicode', false);
+    unexportedRuntimeSymbol('SDL_ttfContext', false);
+    unexportedRuntimeSymbol('SDL_audio', false);
+    unexportedRuntimeSymbol('SDL', false);
+    unexportedRuntimeSymbol('SDL_gfx', false);
+    unexportedRuntimeSymbol('GLUT', false);
+    unexportedRuntimeSymbol('EGL', false);
+    unexportedRuntimeSymbol('GLFW_Window', false);
+    unexportedRuntimeSymbol('GLFW', false);
+    unexportedRuntimeSymbol('GLEW', false);
+    unexportedRuntimeSymbol('IDBStore', false);
+    unexportedRuntimeSymbol('runAndAbortIfError', false);
     unexportedRuntimeSymbol('ALLOC_NORMAL', false);
     unexportedRuntimeSymbol('ALLOC_STACK', false);
+    unexportedRuntimeSymbol('allocate', false);
+    unexportedRuntimeSymbol('InternalError', false);
+    unexportedRuntimeSymbol('BindingError', false);
+    unexportedRuntimeSymbol('UnboundTypeError', false);
+    unexportedRuntimeSymbol('PureVirtualError', false);
+    unexportedRuntimeSymbol('init_embind', false);
+    unexportedRuntimeSymbol('throwInternalError', false);
+    unexportedRuntimeSymbol('throwBindingError', false);
+    unexportedRuntimeSymbol('throwUnboundTypeError', false);
+    unexportedRuntimeSymbol('ensureOverloadTable', false);
+    unexportedRuntimeSymbol('exposePublicSymbol', false);
+    unexportedRuntimeSymbol('replacePublicSymbol', false);
+    unexportedRuntimeSymbol('extendError', false);
+    unexportedRuntimeSymbol('createNamedFunction', false);
+    unexportedRuntimeSymbol('embindRepr', false);
+    unexportedRuntimeSymbol('registeredInstances', false);
+    unexportedRuntimeSymbol('getBasestPointer', false);
+    unexportedRuntimeSymbol('registerInheritedInstance', false);
+    unexportedRuntimeSymbol('unregisterInheritedInstance', false);
+    unexportedRuntimeSymbol('getInheritedInstance', false);
+    unexportedRuntimeSymbol('getInheritedInstanceCount', false);
+    unexportedRuntimeSymbol('getLiveInheritedInstances', false);
+    unexportedRuntimeSymbol('registeredTypes', false);
+    unexportedRuntimeSymbol('awaitingDependencies', false);
+    unexportedRuntimeSymbol('typeDependencies', false);
+    unexportedRuntimeSymbol('registeredPointers', false);
+    unexportedRuntimeSymbol('registerType', false);
+    unexportedRuntimeSymbol('whenDependentTypesAreResolved', false);
+    unexportedRuntimeSymbol('embind_charCodes', false);
+    unexportedRuntimeSymbol('embind_init_charCodes', false);
+    unexportedRuntimeSymbol('readLatin1String', false);
+    unexportedRuntimeSymbol('getTypeName', false);
+    unexportedRuntimeSymbol('heap32VectorToArray', false);
+    unexportedRuntimeSymbol('requireRegisteredType', false);
+    unexportedRuntimeSymbol('getShiftFromSize', false);
+    unexportedRuntimeSymbol('integerReadValueFromPointer', false);
+    unexportedRuntimeSymbol('enumReadValueFromPointer', false);
+    unexportedRuntimeSymbol('floatReadValueFromPointer', false);
+    unexportedRuntimeSymbol('simpleReadValueFromPointer', false);
+    unexportedRuntimeSymbol('runDestructors', false);
+    unexportedRuntimeSymbol('new_', false);
+    unexportedRuntimeSymbol('craftInvokerFunction', false);
+    unexportedRuntimeSymbol('embind__requireFunction', false);
+    unexportedRuntimeSymbol('tupleRegistrations', false);
+    unexportedRuntimeSymbol('structRegistrations', false);
+    unexportedRuntimeSymbol('genericPointerToWireType', false);
+    unexportedRuntimeSymbol('constNoSmartPtrRawPointerToWireType', false);
+    unexportedRuntimeSymbol('nonConstNoSmartPtrRawPointerToWireType', false);
+    unexportedRuntimeSymbol('init_RegisteredPointer', false);
+    unexportedRuntimeSymbol('RegisteredPointer', false);
+    unexportedRuntimeSymbol('RegisteredPointer_getPointee', false);
+    unexportedRuntimeSymbol('RegisteredPointer_destructor', false);
+    unexportedRuntimeSymbol('RegisteredPointer_deleteObject', false);
+    unexportedRuntimeSymbol('RegisteredPointer_fromWireType', false);
+    unexportedRuntimeSymbol('runDestructor', false);
+    unexportedRuntimeSymbol('releaseClassHandle', false);
+    unexportedRuntimeSymbol('finalizationRegistry', false);
+    unexportedRuntimeSymbol('detachFinalizer_deps', false);
+    unexportedRuntimeSymbol('detachFinalizer', false);
+    unexportedRuntimeSymbol('attachFinalizer', false);
+    unexportedRuntimeSymbol('makeClassHandle', false);
+    unexportedRuntimeSymbol('init_ClassHandle', false);
+    unexportedRuntimeSymbol('ClassHandle', false);
+    unexportedRuntimeSymbol('ClassHandle_isAliasOf', false);
+    unexportedRuntimeSymbol('throwInstanceAlreadyDeleted', false);
+    unexportedRuntimeSymbol('ClassHandle_clone', false);
+    unexportedRuntimeSymbol('ClassHandle_delete', false);
+    unexportedRuntimeSymbol('deletionQueue', false);
+    unexportedRuntimeSymbol('ClassHandle_isDeleted', false);
+    unexportedRuntimeSymbol('ClassHandle_deleteLater', false);
+    unexportedRuntimeSymbol('flushPendingDeletes', false);
+    unexportedRuntimeSymbol('delayFunction', false);
+    unexportedRuntimeSymbol('setDelayFunction', false);
+    unexportedRuntimeSymbol('RegisteredClass', false);
+    unexportedRuntimeSymbol('shallowCopyInternalPointer', false);
+    unexportedRuntimeSymbol('downcastPointer', false);
+    unexportedRuntimeSymbol('upcastPointer', false);
+    unexportedRuntimeSymbol('validateThis', false);
+    unexportedRuntimeSymbol('char_0', false);
+    unexportedRuntimeSymbol('char_9', false);
+    unexportedRuntimeSymbol('makeLegalFunctionName', false);
+    unexportedRuntimeSymbol('emval_handle_array', false);
+    unexportedRuntimeSymbol('emval_free_list', false);
+    unexportedRuntimeSymbol('emval_symbols', false);
+    unexportedRuntimeSymbol('init_emval', false);
+    unexportedRuntimeSymbol('count_emval_handles', false);
+    unexportedRuntimeSymbol('get_first_emval', false);
+    unexportedRuntimeSymbol('getStringOrSymbol', false);
+    unexportedRuntimeSymbol('Emval', false);
+    unexportedRuntimeSymbol('emval_newers', false);
+    unexportedRuntimeSymbol('craftEmvalAllocator', false);
+    unexportedRuntimeSymbol('emval_get_global', false);
+    unexportedRuntimeSymbol('emval_lookupTypes', false);
+    unexportedRuntimeSymbol('emval_allocateDestructors', false);
+    unexportedRuntimeSymbol('emval_methodCallers', false);
+    unexportedRuntimeSymbol('emval_addMethodCaller', false);
+    unexportedRuntimeSymbol('emval_registeredMethods', false);
+    var ptrToString = missingLibraryFunc('ptrToString');
+    var zeroMemory = missingLibraryFunc('zeroMemory');
+    var stringToNewUTF8 = missingLibraryFunc('stringToNewUTF8');
+    var exitJS = missingLibraryFunc('exitJS');
+    var emscripten_realloc_buffer = missingLibraryFunc('emscripten_realloc_buffer');
+    var setErrNo = missingLibraryFunc('setErrNo');
+    var inetPton4 = missingLibraryFunc('inetPton4');
+    var inetNtop4 = missingLibraryFunc('inetNtop4');
+    var inetPton6 = missingLibraryFunc('inetPton6');
+    var inetNtop6 = missingLibraryFunc('inetNtop6');
+    var readSockaddr = missingLibraryFunc('readSockaddr');
+    var writeSockaddr = missingLibraryFunc('writeSockaddr');
+    var getHostByName = missingLibraryFunc('getHostByName');
+    var getRandomDevice = missingLibraryFunc('getRandomDevice');
+    var traverseStack = missingLibraryFunc('traverseStack');
+    var convertPCtoSourceLocation = missingLibraryFunc('convertPCtoSourceLocation');
+    var readAsmConstArgs = missingLibraryFunc('readAsmConstArgs');
+    var mainThreadEM_ASM = missingLibraryFunc('mainThreadEM_ASM');
+    var jstoi_q = missingLibraryFunc('jstoi_q');
+    var jstoi_s = missingLibraryFunc('jstoi_s');
+    var getExecutableName = missingLibraryFunc('getExecutableName');
+    var listenOnce = missingLibraryFunc('listenOnce');
+    var autoResumeAudioContext = missingLibraryFunc('autoResumeAudioContext');
+    var runtimeKeepalivePush = missingLibraryFunc('runtimeKeepalivePush');
+    var runtimeKeepalivePop = missingLibraryFunc('runtimeKeepalivePop');
+    var callUserCallback = missingLibraryFunc('callUserCallback');
+    var maybeExit = missingLibraryFunc('maybeExit');
+    var safeSetTimeout = missingLibraryFunc('safeSetTimeout');
+    var asmjsMangle = missingLibraryFunc('asmjsMangle');
+    var asyncLoad = missingLibraryFunc('asyncLoad');
+    var alignMemory = missingLibraryFunc('alignMemory');
+    var mmapAlloc = missingLibraryFunc('mmapAlloc');
+    var writeI53ToI64 = missingLibraryFunc('writeI53ToI64');
+    var writeI53ToI64Clamped = missingLibraryFunc('writeI53ToI64Clamped');
+    var writeI53ToI64Signaling = missingLibraryFunc('writeI53ToI64Signaling');
+    var writeI53ToU64Clamped = missingLibraryFunc('writeI53ToU64Clamped');
+    var writeI53ToU64Signaling = missingLibraryFunc('writeI53ToU64Signaling');
+    var readI53FromI64 = missingLibraryFunc('readI53FromI64');
+    var readI53FromU64 = missingLibraryFunc('readI53FromU64');
+    var convertI32PairToI53 = missingLibraryFunc('convertI32PairToI53');
+    var convertI32PairToI53Checked = missingLibraryFunc('convertI32PairToI53Checked');
+    var convertU32PairToI53 = missingLibraryFunc('convertU32PairToI53');
+    var reallyNegative = missingLibraryFunc('reallyNegative');
+    var unSign = missingLibraryFunc('unSign');
+    var strLen = missingLibraryFunc('strLen');
+    var reSign = missingLibraryFunc('reSign');
+    var formatString = missingLibraryFunc('formatString');
+    var getSocketFromFD = missingLibraryFunc('getSocketFromFD');
+    var getSocketAddress = missingLibraryFunc('getSocketAddress');
+    var registerKeyEventCallback = missingLibraryFunc('registerKeyEventCallback');
+    var maybeCStringToJsString = missingLibraryFunc('maybeCStringToJsString');
+    var findEventTarget = missingLibraryFunc('findEventTarget');
+    var findCanvasEventTarget = missingLibraryFunc('findCanvasEventTarget');
+    var getBoundingClientRect = missingLibraryFunc('getBoundingClientRect');
+    var fillMouseEventData = missingLibraryFunc('fillMouseEventData');
+    var registerMouseEventCallback = missingLibraryFunc('registerMouseEventCallback');
+    var registerWheelEventCallback = missingLibraryFunc('registerWheelEventCallback');
+    var registerUiEventCallback = missingLibraryFunc('registerUiEventCallback');
+    var registerFocusEventCallback = missingLibraryFunc('registerFocusEventCallback');
+    var fillDeviceOrientationEventData = missingLibraryFunc('fillDeviceOrientationEventData');
+    var registerDeviceOrientationEventCallback = missingLibraryFunc('registerDeviceOrientationEventCallback');
+    var fillDeviceMotionEventData = missingLibraryFunc('fillDeviceMotionEventData');
+    var registerDeviceMotionEventCallback = missingLibraryFunc('registerDeviceMotionEventCallback');
+    var screenOrientation = missingLibraryFunc('screenOrientation');
+    var fillOrientationChangeEventData = missingLibraryFunc('fillOrientationChangeEventData');
+    var registerOrientationChangeEventCallback = missingLibraryFunc('registerOrientationChangeEventCallback');
+    var fillFullscreenChangeEventData = missingLibraryFunc('fillFullscreenChangeEventData');
+    var registerFullscreenChangeEventCallback = missingLibraryFunc('registerFullscreenChangeEventCallback');
+    var JSEvents_requestFullscreen = missingLibraryFunc('JSEvents_requestFullscreen');
+    var JSEvents_resizeCanvasForFullscreen = missingLibraryFunc('JSEvents_resizeCanvasForFullscreen');
+    var registerRestoreOldStyle = missingLibraryFunc('registerRestoreOldStyle');
+    var hideEverythingExceptGivenElement = missingLibraryFunc('hideEverythingExceptGivenElement');
+    var restoreHiddenElements = missingLibraryFunc('restoreHiddenElements');
+    var setLetterbox = missingLibraryFunc('setLetterbox');
+    var softFullscreenResizeWebGLRenderTarget = missingLibraryFunc('softFullscreenResizeWebGLRenderTarget');
+    var doRequestFullscreen = missingLibraryFunc('doRequestFullscreen');
+    var fillPointerlockChangeEventData = missingLibraryFunc('fillPointerlockChangeEventData');
+    var registerPointerlockChangeEventCallback = missingLibraryFunc('registerPointerlockChangeEventCallback');
+    var registerPointerlockErrorEventCallback = missingLibraryFunc('registerPointerlockErrorEventCallback');
+    var requestPointerLock = missingLibraryFunc('requestPointerLock');
+    var fillVisibilityChangeEventData = missingLibraryFunc('fillVisibilityChangeEventData');
+    var registerVisibilityChangeEventCallback = missingLibraryFunc('registerVisibilityChangeEventCallback');
+    var registerTouchEventCallback = missingLibraryFunc('registerTouchEventCallback');
+    var fillGamepadEventData = missingLibraryFunc('fillGamepadEventData');
+    var registerGamepadEventCallback = missingLibraryFunc('registerGamepadEventCallback');
+    var registerBeforeUnloadEventCallback = missingLibraryFunc('registerBeforeUnloadEventCallback');
+    var fillBatteryEventData = missingLibraryFunc('fillBatteryEventData');
+    var battery = missingLibraryFunc('battery');
+    var registerBatteryEventCallback = missingLibraryFunc('registerBatteryEventCallback');
+    var setCanvasElementSize = missingLibraryFunc('setCanvasElementSize');
+    var getCanvasElementSize = missingLibraryFunc('getCanvasElementSize');
+    var getEnvStrings = missingLibraryFunc('getEnvStrings');
+    var checkWasiClock = missingLibraryFunc('checkWasiClock');
+    var flush_NO_FILESYSTEM = missingLibraryFunc('flush_NO_FILESYSTEM');
+    var setImmediateWrapped = missingLibraryFunc('setImmediateWrapped');
+    var clearImmediateWrapped = missingLibraryFunc('clearImmediateWrapped');
+    var polyfillSetImmediate = missingLibraryFunc('polyfillSetImmediate');
+    var exception_addRef = missingLibraryFunc('exception_addRef');
+    var exception_decRef = missingLibraryFunc('exception_decRef');
+    var setMainLoop = missingLibraryFunc('setMainLoop');
+
+    var _setNetworkCallback = missingLibraryFunc('_setNetworkCallback');
+
+    var heapObjectForWebGLType = missingLibraryFunc('heapObjectForWebGLType');
+    var heapAccessShiftForWebGLHeap = missingLibraryFunc('heapAccessShiftForWebGLHeap');
+    var emscriptenWebGLGet = missingLibraryFunc('emscriptenWebGLGet');
+    var computeUnpackAlignedImageSize = missingLibraryFunc('computeUnpackAlignedImageSize');
+    var emscriptenWebGLGetTexPixelData = missingLibraryFunc('emscriptenWebGLGetTexPixelData');
+    var emscriptenWebGLGetUniform = missingLibraryFunc('emscriptenWebGLGetUniform');
+    var webglGetUniformLocation = missingLibraryFunc('webglGetUniformLocation');
+    var webglPrepareUniformLocationsBeforeFirstUse = missingLibraryFunc('webglPrepareUniformLocationsBeforeFirstUse');
+    var webglGetLeftBracePos = missingLibraryFunc('webglGetLeftBracePos');
+    var emscriptenWebGLGetVertexAttrib = missingLibraryFunc('emscriptenWebGLGetVertexAttrib');
+    var writeGLArray = missingLibraryFunc('writeGLArray');
+    var SDL_unicode = missingLibraryFunc('SDL_unicode');
+    var SDL_ttfContext = missingLibraryFunc('SDL_ttfContext');
+    var SDL_audio = missingLibraryFunc('SDL_audio');
+    var GLFW_Window = missingLibraryFunc('GLFW_Window');
+    var runAndAbortIfError = missingLibraryFunc('runAndAbortIfError');
+    var registerInheritedInstance = missingLibraryFunc('registerInheritedInstance');
+    var unregisterInheritedInstance = missingLibraryFunc('unregisterInheritedInstance');
+    var enumReadValueFromPointer = missingLibraryFunc('enumReadValueFromPointer');
+    var validateThis = missingLibraryFunc('validateThis');
+    var getStringOrSymbol = missingLibraryFunc('getStringOrSymbol');
+    var craftEmvalAllocator = missingLibraryFunc('craftEmvalAllocator');
+    var emval_get_global = missingLibraryFunc('emval_get_global');
+    var emval_allocateDestructors = missingLibraryFunc('emval_allocateDestructors');
+    var emval_addMethodCaller = missingLibraryFunc('emval_addMethodCaller');
     var calledRun;
-    /**
-     * @constructor
-     * @this {ExitStatus}
-     */
-
-    function ExitStatus(status) {
-      this.name = "ExitStatus";
-      this.message = "Program terminated with exit(" + status + ")";
-      this.status = status;
-    }
-
     var calledMain = false;
 
     dependenciesFulfilled = function runCaller() {
@@ -5395,8 +5411,6 @@ var jessica = (() => {
       checkStackCookie();
     }
 
-    Module['run'] = run;
-
     function checkUnflushedContent() {
       // Compiler settings do not allow exiting the runtime, so flushing
       // the streams is not possible. but in ASSERTIONS mode we check
@@ -5429,32 +5443,6 @@ var jessica = (() => {
         warnOnce('stdio streams had content in them that was not flushed. you should set EXIT_RUNTIME to 1 (see the FAQ), or make sure to emit a newline when you printf etc.');
         warnOnce('(this may also be due to not including full filesystem support - try building with -sFORCE_FILESYSTEM)');
       }
-    }
-    /** @param {boolean|number=} implicit */
-
-
-    function exit(status, implicit) {
-      EXITSTATUS = status;
-      checkUnflushedContent(); // if exit() was called explicitly, warn the user if the runtime isn't actually being shut down
-
-      if (keepRuntimeAlive() && !implicit) {
-        var msg = 'program exited (with status: ' + status + '), but EXIT_RUNTIME is not set, so halting execution but not exiting the runtime or preventing further async execution (build with EXIT_RUNTIME=1, if you want a true shutdown)';
-        readyPromiseReject(msg);
-        err(msg);
-      }
-
-      procExit(status);
-    }
-
-    function procExit(code) {
-      EXITSTATUS = code;
-
-      if (!keepRuntimeAlive()) {
-        if (Module['onExit']) Module['onExit'](code);
-        ABORT = true;
-      }
-
-      quit_(code, new ExitStatus(code));
     }
 
     if (Module['preInit']) {
