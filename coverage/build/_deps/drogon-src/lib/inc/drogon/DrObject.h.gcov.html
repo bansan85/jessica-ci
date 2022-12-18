@@ -18,13 +18,13 @@
               <td width="100%">
                 <table cellpadding=1 border=0 width="100%">
           <tr>
-            <td class="headerItem" width="10%">Current view:</td>
-            <td width="10%" class="headerValue"><a href="../../../../../../index.html">top level</a> - <a href="index.html">build/_deps/drogon-src/lib/inc/drogon</a> - DrObject.h<span style="font-size: 80%;"> (source / <a href="DrObject.h.func-sort-c.html">functions</a>)</span></td>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td class="headerValue" width="10%"><a href="../../../../../../index.html">top level</a> - <a href="index.html">build/_deps/drogon-src/lib/inc/drogon</a> - DrObject.h<span style="font-size: 80%;"> (source / <a href="DrObject.h.func-sort-c.html">functions</a>)</span></td>
             <td width="5%"></td>
             <td width="5%"></td>
-            <td width="5%" class="headerCovTableHead">Coverage</td>
-            <td width="5%" class="headerCovTableHead" title="Covered + Uncovered code">Total</td>
-            <td title="Exercised code only" class="headerCovTableHead" width="5%">Hit</td>
+            <td class="headerCovTableHead" width="5%">Coverage</td>
+            <td title="Covered + Uncovered code" width="5%" class="headerCovTableHead">Total</td>
+            <td width="5%" class="headerCovTableHead" title="Exercised code only">Hit</td>
           </tr>
           <tr>
             <td class="headerItem">Test:</td>
@@ -143,7 +143,7 @@
 <a name="64"><span class="lineNum">      64</span>                 :             : class DrObject : public virtual DrObjectBase</a>
 <a name="65"><span class="lineNum">      65</span>                 :             : {</a>
 <a name="66"><span class="lineNum">      66</span>                 :             :   public:</a>
-<a name="67"><span class="lineNum">      67</span>                 :             :     virtual const std::string &amp;className() const override</a>
+<a name="67"><span class="lineNum">      67</span>                 :             :     const std::string &amp;className() const override</a>
 <a name="68"><span class="lineNum">      68</span>                 :             :     {</a>
 <a name="69"><span class="lineNum">      69</span>                 :             :         return alloc_.className();</a>
 <a name="70"><span class="lineNum">      70</span>                 :             :     }</a>
@@ -152,7 +152,7 @@
 <a name="73"><span class="lineNum">      73</span>                 :             :         return alloc_.className();</a>
 <a name="74"><span class="lineNum">      74</span>                 :             :     }</a>
 <a name="75"><span class="lineNum">      75</span>                 :             : </a>
-<a name="76"><span class="lineNum">      76</span>                 :             :     virtual bool isClass(const std::string &amp;class_name) const override</a>
+<a name="76"><span class="lineNum">      76</span>                 :             :     bool isClass(const std::string &amp;class_name) const override</a>
 <a name="77"><span class="lineNum">      77</span>                 :             :     {</a>
 <a name="78"><span class="lineNum">      78</span>                 :             :         return (className() == class_name);</a>
 <a name="79"><span class="lineNum">      79</span>                 :             :     }</a>

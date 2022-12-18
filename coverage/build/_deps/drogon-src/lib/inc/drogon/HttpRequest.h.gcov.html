@@ -18,13 +18,13 @@
               <td width="100%">
                 <table cellpadding=1 border=0 width="100%">
           <tr>
-            <td width="10%" class="headerItem">Current view:</td>
+            <td class="headerItem" width="10%">Current view:</td>
             <td class="headerValue" width="10%"><a href="../../../../../../index.html">top level</a> - <a href="index.html">build/_deps/drogon-src/lib/inc/drogon</a> - HttpRequest.h<span style="font-size: 80%;"> (source / <a href="HttpRequest.h.func-sort-c.html">functions</a>)</span></td>
             <td width="5%"></td>
             <td width="5%"></td>
             <td width="5%" class="headerCovTableHead">Coverage</td>
-            <td width="5%" class="headerCovTableHead" title="Covered + Uncovered code">Total</td>
-            <td title="Exercised code only" width="5%" class="headerCovTableHead">Hit</td>
+            <td title="Covered + Uncovered code" width="5%" class="headerCovTableHead">Total</td>
+            <td width="5%" class="headerCovTableHead" title="Exercised code only">Hit</td>
           </tr>
           <tr>
             <td class="headerItem">Test:</td>
@@ -226,338 +226,347 @@
 <a name="148"><span class="lineNum">     148</span>                 :             :     virtual const std::string &amp;getCookie(const std::string &amp;field) const = 0;</a>
 <a name="149"><span class="lineNum">     149</span>                 :             : </a>
 <a name="150"><span class="lineNum">     150</span>                 :             :     /// Get all headers of the request</a>
-<a name="151"><span class="lineNum">     151</span>                 :             :     virtual const std::unordered_map&lt;std::string, std::string&gt; &amp;headers()</a>
-<a name="152"><span class="lineNum">     152</span>                 :             :         const = 0;</a>
-<a name="153"><span class="lineNum">     153</span>                 :             : </a>
-<a name="154"><span class="lineNum">     154</span>                 :             :     /// Get all headers of the request</a>
-<a name="155"><span class="lineNum">     155</span>                 :             :     const std::unordered_map&lt;std::string, std::string&gt; &amp;getHeaders() const</a>
-<a name="156"><span class="lineNum">     156</span>                 :             :     {</a>
-<a name="157"><span class="lineNum">     157</span>                 :             :         return headers();</a>
-<a name="158"><span class="lineNum">     158</span>                 :             :     }</a>
-<a name="159"><span class="lineNum">     159</span>                 :             : </a>
-<a name="160"><span class="lineNum">     160</span>                 :             :     /// Get all cookies of the request</a>
-<a name="161"><span class="lineNum">     161</span>                 :             :     virtual const std::unordered_map&lt;std::string, std::string&gt; &amp;cookies()</a>
-<a name="162"><span class="lineNum">     162</span>                 :             :         const = 0;</a>
-<a name="163"><span class="lineNum">     163</span>                 :             : </a>
-<a name="164"><span class="lineNum">     164</span>                 :             :     /// Get all cookies of the request</a>
-<a name="165"><span class="lineNum">     165</span>                 :             :     const std::unordered_map&lt;std::string, std::string&gt; &amp;getCookies() const</a>
-<a name="166"><span class="lineNum">     166</span>                 :             :     {</a>
-<a name="167"><span class="lineNum">     167</span>                 :             :         return cookies();</a>
-<a name="168"><span class="lineNum">     168</span>                 :             :     }</a>
-<a name="169"><span class="lineNum">     169</span>                 :             : </a>
-<a name="170"><span class="lineNum">     170</span>                 :             :     /// Get the query string of the request.</a>
-<a name="171"><span class="lineNum">     171</span>                 :             :     /**</a>
-<a name="172"><span class="lineNum">     172</span>                 :             :      * The query string is the substring after the '?' in the URL string.</a>
-<a name="173"><span class="lineNum">     173</span>                 :             :      */</a>
-<a name="174"><span class="lineNum">     174</span>                 :             :     virtual const std::string &amp;query() const = 0;</a>
+<a name="151"><span class="lineNum">     151</span>                 :             :     virtual const std::</a>
+<a name="152"><span class="lineNum">     152</span>                 :             :         unordered_map&lt;std::string, std::string, utils::internal::SafeStringHash&gt;</a>
+<a name="153"><span class="lineNum">     153</span>                 :             :             &amp;headers() const = 0;</a>
+<a name="154"><span class="lineNum">     154</span>                 :             : </a>
+<a name="155"><span class="lineNum">     155</span>                 :             :     /// Get all headers of the request</a>
+<a name="156"><span class="lineNum">     156</span>                 :             :     const std::</a>
+<a name="157"><span class="lineNum">     157</span>                 :             :         unordered_map&lt;std::string, std::string, utils::internal::SafeStringHash&gt;</a>
+<a name="158"><span class="lineNum">     158</span>                 :             :             &amp;getHeaders() const</a>
+<a name="159"><span class="lineNum">     159</span>                 :             :     {</a>
+<a name="160"><span class="lineNum">     160</span>                 :             :         return headers();</a>
+<a name="161"><span class="lineNum">     161</span>                 :             :     }</a>
+<a name="162"><span class="lineNum">     162</span>                 :             : </a>
+<a name="163"><span class="lineNum">     163</span>                 :             :     /// Get all cookies of the request</a>
+<a name="164"><span class="lineNum">     164</span>                 :             :     virtual const std::</a>
+<a name="165"><span class="lineNum">     165</span>                 :             :         unordered_map&lt;std::string, std::string, utils::internal::SafeStringHash&gt;</a>
+<a name="166"><span class="lineNum">     166</span>                 :             :             &amp;cookies() const = 0;</a>
+<a name="167"><span class="lineNum">     167</span>                 :             : </a>
+<a name="168"><span class="lineNum">     168</span>                 :             :     /// Get all cookies of the request</a>
+<a name="169"><span class="lineNum">     169</span>                 :             :     const std::</a>
+<a name="170"><span class="lineNum">     170</span>                 :             :         unordered_map&lt;std::string, std::string, utils::internal::SafeStringHash&gt;</a>
+<a name="171"><span class="lineNum">     171</span>                 :             :             &amp;getCookies() const</a>
+<a name="172"><span class="lineNum">     172</span>                 :             :     {</a>
+<a name="173"><span class="lineNum">     173</span>                 :             :         return cookies();</a>
+<a name="174"><span class="lineNum">     174</span>                 :             :     }</a>
 <a name="175"><span class="lineNum">     175</span>                 :             : </a>
 <a name="176"><span class="lineNum">     176</span>                 :             :     /// Get the query string of the request.</a>
-<a name="177"><span class="lineNum">     177</span>                 :             :     const std::string &amp;getQuery() const</a>
-<a name="178"><span class="lineNum">     178</span>                 :             :     {</a>
-<a name="179"><span class="lineNum">     179</span>                 :             :         return query();</a>
-<a name="180"><span class="lineNum">     180</span>                 :             :     }</a>
+<a name="177"><span class="lineNum">     177</span>                 :             :     /**</a>
+<a name="178"><span class="lineNum">     178</span>                 :             :      * The query string is the substring after the '?' in the URL string.</a>
+<a name="179"><span class="lineNum">     179</span>                 :             :      */</a>
+<a name="180"><span class="lineNum">     180</span>                 :             :     virtual const std::string &amp;query() const = 0;</a>
 <a name="181"><span class="lineNum">     181</span>                 :             : </a>
-<a name="182"><span class="lineNum">     182</span>                 :             :     /// Get the content string of the request, which is the body part of the</a>
-<a name="183"><span class="lineNum">     183</span>                 :             :     /// request.</a>
-<a name="184"><span class="lineNum">     184</span>                 :<span class="tlaGNC">           6 :     string_view body() const</span></a>
-<a name="185"><span class="lineNum">     185</span>                 :             :     {</a>
-<a name="186"><span class="lineNum">     186</span>   [<span class="tlaGBC" title="Branch 0 was taken 6 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span><span class="tlaGBC" title="Branch 2 was taken 6 times"> + </span><span class="tlaUNC" title="Branch 3 was not taken"> - </span>]:<span class="tlaGNC">           6 :         return string_view(bodyData(), bodyLength());</span></a>
-<a name="187"><span class="lineNum">     187</span>                 :             :     }</a>
-<a name="188"><span class="lineNum">     188</span>                 :             : </a>
-<a name="189"><span class="lineNum">     189</span>                 :             :     /// Get the content string of the request, which is the body part of the</a>
-<a name="190"><span class="lineNum">     190</span>                 :             :     /// request.</a>
-<a name="191"><span class="lineNum">     191</span>                 :<span class="tlaGNC">           6 :     string_view getBody() const</span></a>
-<a name="192"><span class="lineNum">     192</span>                 :             :     {</a>
-<a name="193"><span class="lineNum">     193</span>                 :<span class="tlaGNC">           6 :         return body();</span></a>
-<a name="194"><span class="lineNum">     194</span>                 :             :     }</a>
-<a name="195"><span class="lineNum">     195</span>                 :             :     virtual const char *bodyData() const = 0;</a>
-<a name="196"><span class="lineNum">     196</span>                 :             :     virtual size_t bodyLength() const = 0;</a>
-<a name="197"><span class="lineNum">     197</span>                 :             : </a>
-<a name="198"><span class="lineNum">     198</span>                 :             :     /// Set the content string of the request.</a>
-<a name="199"><span class="lineNum">     199</span>                 :             :     virtual void setBody(const std::string &amp;body) = 0;</a>
-<a name="200"><span class="lineNum">     200</span>                 :             : </a>
-<a name="201"><span class="lineNum">     201</span>                 :             :     /// Set the content string of the request.</a>
-<a name="202"><span class="lineNum">     202</span>                 :             :     virtual void setBody(std::string &amp;&amp;body) = 0;</a>
+<a name="182"><span class="lineNum">     182</span>                 :             :     /// Get the query string of the request.</a>
+<a name="183"><span class="lineNum">     183</span>                 :             :     const std::string &amp;getQuery() const</a>
+<a name="184"><span class="lineNum">     184</span>                 :             :     {</a>
+<a name="185"><span class="lineNum">     185</span>                 :             :         return query();</a>
+<a name="186"><span class="lineNum">     186</span>                 :             :     }</a>
+<a name="187"><span class="lineNum">     187</span>                 :             : </a>
+<a name="188"><span class="lineNum">     188</span>                 :             :     /// Get the content string of the request, which is the body part of the</a>
+<a name="189"><span class="lineNum">     189</span>                 :             :     /// request.</a>
+<a name="190"><span class="lineNum">     190</span>                 :<span class="tlaGNC">           6 :     string_view body() const</span></a>
+<a name="191"><span class="lineNum">     191</span>                 :             :     {</a>
+<a name="192"><span class="lineNum">     192</span>   [<span class="tlaGBC" title="Branch 0 was taken 6 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span><span class="tlaGBC" title="Branch 2 was taken 6 times"> + </span><span class="tlaUNC" title="Branch 3 was not taken"> - </span>]:<span class="tlaGNC">           6 :         return string_view(bodyData(), bodyLength());</span></a>
+<a name="193"><span class="lineNum">     193</span>                 :             :     }</a>
+<a name="194"><span class="lineNum">     194</span>                 :             : </a>
+<a name="195"><span class="lineNum">     195</span>                 :             :     /// Get the content string of the request, which is the body part of the</a>
+<a name="196"><span class="lineNum">     196</span>                 :             :     /// request.</a>
+<a name="197"><span class="lineNum">     197</span>                 :<span class="tlaGNC">           6 :     string_view getBody() const</span></a>
+<a name="198"><span class="lineNum">     198</span>                 :             :     {</a>
+<a name="199"><span class="lineNum">     199</span>                 :<span class="tlaGNC">           6 :         return body();</span></a>
+<a name="200"><span class="lineNum">     200</span>                 :             :     }</a>
+<a name="201"><span class="lineNum">     201</span>                 :             :     virtual const char *bodyData() const = 0;</a>
+<a name="202"><span class="lineNum">     202</span>                 :             :     virtual size_t bodyLength() const = 0;</a>
 <a name="203"><span class="lineNum">     203</span>                 :             : </a>
-<a name="204"><span class="lineNum">     204</span>                 :             :     /// Get the path of the request.</a>
-<a name="205"><span class="lineNum">     205</span>                 :             :     virtual const std::string &amp;path() const = 0;</a>
+<a name="204"><span class="lineNum">     204</span>                 :             :     /// Set the content string of the request.</a>
+<a name="205"><span class="lineNum">     205</span>                 :             :     virtual void setBody(const std::string &amp;body) = 0;</a>
 <a name="206"><span class="lineNum">     206</span>                 :             : </a>
-<a name="207"><span class="lineNum">     207</span>                 :             :     /// Get the path of the request.</a>
-<a name="208"><span class="lineNum">     208</span>                 :             :     const std::string &amp;getPath() const</a>
-<a name="209"><span class="lineNum">     209</span>                 :             :     {</a>
-<a name="210"><span class="lineNum">     210</span>                 :             :         return path();</a>
-<a name="211"><span class="lineNum">     211</span>                 :             :     }</a>
+<a name="207"><span class="lineNum">     207</span>                 :             :     /// Set the content string of the request.</a>
+<a name="208"><span class="lineNum">     208</span>                 :             :     virtual void setBody(std::string &amp;&amp;body) = 0;</a>
+<a name="209"><span class="lineNum">     209</span>                 :             : </a>
+<a name="210"><span class="lineNum">     210</span>                 :             :     /// Get the path of the request.</a>
+<a name="211"><span class="lineNum">     211</span>                 :             :     virtual const std::string &amp;path() const = 0;</a>
 <a name="212"><span class="lineNum">     212</span>                 :             : </a>
-<a name="213"><span class="lineNum">     213</span>                 :             :     /// Get the matched path pattern after routing</a>
-<a name="214"><span class="lineNum">     214</span>                 :             :     string_view getMatchedPathPattern() const</a>
+<a name="213"><span class="lineNum">     213</span>                 :             :     /// Get the path of the request.</a>
+<a name="214"><span class="lineNum">     214</span>                 :             :     const std::string &amp;getPath() const</a>
 <a name="215"><span class="lineNum">     215</span>                 :             :     {</a>
-<a name="216"><span class="lineNum">     216</span>                 :             :         return matchedPathPattern();</a>
+<a name="216"><span class="lineNum">     216</span>                 :             :         return path();</a>
 <a name="217"><span class="lineNum">     217</span>                 :             :     }</a>
 <a name="218"><span class="lineNum">     218</span>                 :             : </a>
 <a name="219"><span class="lineNum">     219</span>                 :             :     /// Get the matched path pattern after routing</a>
-<a name="220"><span class="lineNum">     220</span>                 :             :     string_view matchedPathPattern() const</a>
+<a name="220"><span class="lineNum">     220</span>                 :             :     string_view getMatchedPathPattern() const</a>
 <a name="221"><span class="lineNum">     221</span>                 :             :     {</a>
-<a name="222"><span class="lineNum">     222</span>                 :             :         return string_view(matchedPathPatternData(),</a>
-<a name="223"><span class="lineNum">     223</span>                 :             :                            matchedPathPatternLength());</a>
-<a name="224"><span class="lineNum">     224</span>                 :             :     }</a>
-<a name="225"><span class="lineNum">     225</span>                 :             :     virtual const char *matchedPathPatternData() const = 0;</a>
-<a name="226"><span class="lineNum">     226</span>                 :             :     virtual size_t matchedPathPatternLength() const = 0;</a>
-<a name="227"><span class="lineNum">     227</span>                 :             : </a>
-<a name="228"><span class="lineNum">     228</span>                 :             :     /// Return the string of http version of request, such as HTTP/1.0,</a>
-<a name="229"><span class="lineNum">     229</span>                 :             :     /// HTTP/1.1, etc.</a>
-<a name="230"><span class="lineNum">     230</span>                 :             :     virtual const char *versionString() const = 0;</a>
-<a name="231"><span class="lineNum">     231</span>                 :             :     const char *getVersionString() const</a>
-<a name="232"><span class="lineNum">     232</span>                 :             :     {</a>
-<a name="233"><span class="lineNum">     233</span>                 :             :         return versionString();</a>
-<a name="234"><span class="lineNum">     234</span>                 :             :     }</a>
-<a name="235"><span class="lineNum">     235</span>                 :             : </a>
-<a name="236"><span class="lineNum">     236</span>                 :             :     /// Return the enum type version of the request.</a>
-<a name="237"><span class="lineNum">     237</span>                 :             :     /**</a>
-<a name="238"><span class="lineNum">     238</span>                 :             :      * kHttp10 means Http version is 1.0</a>
-<a name="239"><span class="lineNum">     239</span>                 :             :      * kHttp11 means Http verison is 1.1</a>
-<a name="240"><span class="lineNum">     240</span>                 :             :      */</a>
-<a name="241"><span class="lineNum">     241</span>                 :             :     virtual Version version() const = 0;</a>
-<a name="242"><span class="lineNum">     242</span>                 :             : </a>
-<a name="243"><span class="lineNum">     243</span>                 :             :     /// Return the enum type version of the request.</a>
-<a name="244"><span class="lineNum">     244</span>                 :             :     Version getVersion() const</a>
-<a name="245"><span class="lineNum">     245</span>                 :             :     {</a>
-<a name="246"><span class="lineNum">     246</span>                 :             :         return version();</a>
-<a name="247"><span class="lineNum">     247</span>                 :             :     }</a>
+<a name="222"><span class="lineNum">     222</span>                 :             :         return matchedPathPattern();</a>
+<a name="223"><span class="lineNum">     223</span>                 :             :     }</a>
+<a name="224"><span class="lineNum">     224</span>                 :             : </a>
+<a name="225"><span class="lineNum">     225</span>                 :             :     /// Get the matched path pattern after routing</a>
+<a name="226"><span class="lineNum">     226</span>                 :             :     string_view matchedPathPattern() const</a>
+<a name="227"><span class="lineNum">     227</span>                 :             :     {</a>
+<a name="228"><span class="lineNum">     228</span>                 :             :         return string_view(matchedPathPatternData(),</a>
+<a name="229"><span class="lineNum">     229</span>                 :             :                            matchedPathPatternLength());</a>
+<a name="230"><span class="lineNum">     230</span>                 :             :     }</a>
+<a name="231"><span class="lineNum">     231</span>                 :             :     virtual const char *matchedPathPatternData() const = 0;</a>
+<a name="232"><span class="lineNum">     232</span>                 :             :     virtual size_t matchedPathPatternLength() const = 0;</a>
+<a name="233"><span class="lineNum">     233</span>                 :             : </a>
+<a name="234"><span class="lineNum">     234</span>                 :             :     /// Return the string of http version of request, such as HTTP/1.0,</a>
+<a name="235"><span class="lineNum">     235</span>                 :             :     /// HTTP/1.1, etc.</a>
+<a name="236"><span class="lineNum">     236</span>                 :             :     virtual const char *versionString() const = 0;</a>
+<a name="237"><span class="lineNum">     237</span>                 :             :     const char *getVersionString() const</a>
+<a name="238"><span class="lineNum">     238</span>                 :             :     {</a>
+<a name="239"><span class="lineNum">     239</span>                 :             :         return versionString();</a>
+<a name="240"><span class="lineNum">     240</span>                 :             :     }</a>
+<a name="241"><span class="lineNum">     241</span>                 :             : </a>
+<a name="242"><span class="lineNum">     242</span>                 :             :     /// Return the enum type version of the request.</a>
+<a name="243"><span class="lineNum">     243</span>                 :             :     /**</a>
+<a name="244"><span class="lineNum">     244</span>                 :             :      * kHttp10 means Http version is 1.0</a>
+<a name="245"><span class="lineNum">     245</span>                 :             :      * kHttp11 means Http verison is 1.1</a>
+<a name="246"><span class="lineNum">     246</span>                 :             :      */</a>
+<a name="247"><span class="lineNum">     247</span>                 :             :     virtual Version version() const = 0;</a>
 <a name="248"><span class="lineNum">     248</span>                 :             : </a>
-<a name="249"><span class="lineNum">     249</span>                 :             :     /// Get the session to which the request belongs.</a>
-<a name="250"><span class="lineNum">     250</span>                 :             :     virtual const SessionPtr &amp;session() const = 0;</a>
-<a name="251"><span class="lineNum">     251</span>                 :             : </a>
-<a name="252"><span class="lineNum">     252</span>                 :             :     /// Get the session to which the request belongs.</a>
-<a name="253"><span class="lineNum">     253</span>                 :             :     const SessionPtr &amp;getSession() const</a>
-<a name="254"><span class="lineNum">     254</span>                 :             :     {</a>
-<a name="255"><span class="lineNum">     255</span>                 :             :         return session();</a>
-<a name="256"><span class="lineNum">     256</span>                 :             :     }</a>
+<a name="249"><span class="lineNum">     249</span>                 :             :     /// Return the enum type version of the request.</a>
+<a name="250"><span class="lineNum">     250</span>                 :             :     Version getVersion() const</a>
+<a name="251"><span class="lineNum">     251</span>                 :             :     {</a>
+<a name="252"><span class="lineNum">     252</span>                 :             :         return version();</a>
+<a name="253"><span class="lineNum">     253</span>                 :             :     }</a>
+<a name="254"><span class="lineNum">     254</span>                 :             : </a>
+<a name="255"><span class="lineNum">     255</span>                 :             :     /// Get the session to which the request belongs.</a>
+<a name="256"><span class="lineNum">     256</span>                 :             :     virtual const SessionPtr &amp;session() const = 0;</a>
 <a name="257"><span class="lineNum">     257</span>                 :             : </a>
-<a name="258"><span class="lineNum">     258</span>                 :             :     /// Get the attributes store, users can add/get any type of data to/from</a>
-<a name="259"><span class="lineNum">     259</span>                 :             :     /// this store</a>
-<a name="260"><span class="lineNum">     260</span>                 :             :     virtual const AttributesPtr &amp;attributes() const = 0;</a>
-<a name="261"><span class="lineNum">     261</span>                 :             : </a>
-<a name="262"><span class="lineNum">     262</span>                 :             :     /// Get the attributes store, users can add/get any type of data to/from</a>
-<a name="263"><span class="lineNum">     263</span>                 :             :     /// this store</a>
-<a name="264"><span class="lineNum">     264</span>                 :             :     const AttributesPtr &amp;getAttributes() const</a>
-<a name="265"><span class="lineNum">     265</span>                 :             :     {</a>
-<a name="266"><span class="lineNum">     266</span>                 :             :         return attributes();</a>
-<a name="267"><span class="lineNum">     267</span>                 :             :     }</a>
-<a name="268"><span class="lineNum">     268</span>                 :             : </a>
-<a name="269"><span class="lineNum">     269</span>                 :             :     /// Get parameters of the request.</a>
-<a name="270"><span class="lineNum">     270</span>                 :             :     virtual const std::unordered_map&lt;std::string, std::string&gt; &amp;parameters()</a>
-<a name="271"><span class="lineNum">     271</span>                 :             :         const = 0;</a>
-<a name="272"><span class="lineNum">     272</span>                 :             : </a>
-<a name="273"><span class="lineNum">     273</span>                 :             :     /// Get parameters of the request.</a>
-<a name="274"><span class="lineNum">     274</span>                 :             :     const std::unordered_map&lt;std::string, std::string&gt; &amp;getParameters() const</a>
-<a name="275"><span class="lineNum">     275</span>                 :             :     {</a>
-<a name="276"><span class="lineNum">     276</span>                 :             :         return parameters();</a>
-<a name="277"><span class="lineNum">     277</span>                 :             :     }</a>
-<a name="278"><span class="lineNum">     278</span>                 :             : </a>
-<a name="279"><span class="lineNum">     279</span>                 :             :     /// Get a parameter identified by the @param key</a>
-<a name="280"><span class="lineNum">     280</span>                 :             :     virtual const std::string &amp;getParameter(const std::string &amp;key) const = 0;</a>
-<a name="281"><span class="lineNum">     281</span>                 :             : </a>
-<a name="282"><span class="lineNum">     282</span>                 :             :     /**</a>
-<a name="283"><span class="lineNum">     283</span>                 :             :      * @brief Get the optional parameter identified by the @param key. if the</a>
-<a name="284"><span class="lineNum">     284</span>                 :             :      * parameter doesn't exist, or the original parameter can't be converted to</a>
-<a name="285"><span class="lineNum">     285</span>                 :             :      * a T type object, an empty optional object is returned.</a>
-<a name="286"><span class="lineNum">     286</span>                 :             :      *</a>
-<a name="287"><span class="lineNum">     287</span>                 :             :      * @tparam T</a>
-<a name="288"><span class="lineNum">     288</span>                 :             :      * @param key</a>
-<a name="289"><span class="lineNum">     289</span>                 :             :      * @return optional&lt;T&gt;</a>
-<a name="290"><span class="lineNum">     290</span>                 :             :      */</a>
-<a name="291"><span class="lineNum">     291</span>                 :             :     template &lt;typename T&gt;</a>
-<a name="292"><span class="lineNum">     292</span>                 :             :     optional&lt;T&gt; getOptionalParameter(const std::string &amp;key)</a>
-<a name="293"><span class="lineNum">     293</span>                 :             :     {</a>
-<a name="294"><span class="lineNum">     294</span>                 :             :         auto &amp;params = getParameters();</a>
-<a name="295"><span class="lineNum">     295</span>                 :             :         auto it = params.find(key);</a>
-<a name="296"><span class="lineNum">     296</span>                 :             :         if (it != params.end())</a>
-<a name="297"><span class="lineNum">     297</span>                 :             :         {</a>
-<a name="298"><span class="lineNum">     298</span>                 :             :             try</a>
-<a name="299"><span class="lineNum">     299</span>                 :             :             {</a>
-<a name="300"><span class="lineNum">     300</span>                 :             :                 return optional&lt;T&gt;(drogon::utils::fromString&lt;T&gt;(it-&gt;second));</a>
-<a name="301"><span class="lineNum">     301</span>                 :             :             }</a>
-<a name="302"><span class="lineNum">     302</span>                 :             :             catch (const std::exception &amp;e)</a>
-<a name="303"><span class="lineNum">     303</span>                 :             :             {</a>
-<a name="304"><span class="lineNum">     304</span>                 :             :                 LOG_ERROR &lt;&lt; e.what();</a>
-<a name="305"><span class="lineNum">     305</span>                 :             :                 return optional&lt;T&gt;{};</a>
-<a name="306"><span class="lineNum">     306</span>                 :             :             }</a>
-<a name="307"><span class="lineNum">     307</span>                 :             :         }</a>
-<a name="308"><span class="lineNum">     308</span>                 :             :         else</a>
-<a name="309"><span class="lineNum">     309</span>                 :             :         {</a>
-<a name="310"><span class="lineNum">     310</span>                 :             :             return optional&lt;T&gt;{};</a>
-<a name="311"><span class="lineNum">     311</span>                 :             :         }</a>
-<a name="312"><span class="lineNum">     312</span>                 :             :     }</a>
-<a name="313"><span class="lineNum">     313</span>                 :             : </a>
-<a name="314"><span class="lineNum">     314</span>                 :             :     /// Return the remote IP address and port</a>
-<a name="315"><span class="lineNum">     315</span>                 :             :     virtual const trantor::InetAddress &amp;peerAddr() const = 0;</a>
-<a name="316"><span class="lineNum">     316</span>                 :             :     const trantor::InetAddress &amp;getPeerAddr() const</a>
-<a name="317"><span class="lineNum">     317</span>                 :             :     {</a>
-<a name="318"><span class="lineNum">     318</span>                 :             :         return peerAddr();</a>
-<a name="319"><span class="lineNum">     319</span>                 :             :     }</a>
-<a name="320"><span class="lineNum">     320</span>                 :             : </a>
-<a name="321"><span class="lineNum">     321</span>                 :             :     /// Return the local IP address and port</a>
-<a name="322"><span class="lineNum">     322</span>                 :             :     virtual const trantor::InetAddress &amp;localAddr() const = 0;</a>
-<a name="323"><span class="lineNum">     323</span>                 :             :     const trantor::InetAddress &amp;getLocalAddr() const</a>
-<a name="324"><span class="lineNum">     324</span>                 :             :     {</a>
-<a name="325"><span class="lineNum">     325</span>                 :             :         return localAddr();</a>
-<a name="326"><span class="lineNum">     326</span>                 :             :     }</a>
-<a name="327"><span class="lineNum">     327</span>                 :             : </a>
-<a name="328"><span class="lineNum">     328</span>                 :             :     /// Return the creation timestamp set by the framework.</a>
-<a name="329"><span class="lineNum">     329</span>                 :             :     virtual const trantor::Date &amp;creationDate() const = 0;</a>
-<a name="330"><span class="lineNum">     330</span>                 :             :     const trantor::Date &amp;getCreationDate() const</a>
-<a name="331"><span class="lineNum">     331</span>                 :             :     {</a>
-<a name="332"><span class="lineNum">     332</span>                 :             :         return creationDate();</a>
-<a name="333"><span class="lineNum">     333</span>                 :             :     }</a>
-<a name="334"><span class="lineNum">     334</span>                 :             : </a>
-<a name="335"><span class="lineNum">     335</span>                 :             :     /// Get the Json object of the request</a>
-<a name="336"><span class="lineNum">     336</span>                 :             :     /**</a>
-<a name="337"><span class="lineNum">     337</span>                 :             :      * The content type of the request must be 'application/json',</a>
-<a name="338"><span class="lineNum">     338</span>                 :             :      * otherwise the method returns an empty shared_ptr object.</a>
-<a name="339"><span class="lineNum">     339</span>                 :             :      */</a>
-<a name="340"><span class="lineNum">     340</span>                 :             :     virtual const std::shared_ptr&lt;Json::Value&gt; &amp;jsonObject() const = 0;</a>
-<a name="341"><span class="lineNum">     341</span>                 :             : </a>
-<a name="342"><span class="lineNum">     342</span>                 :             :     /// Get the Json object of the request</a>
-<a name="343"><span class="lineNum">     343</span>                 :             :     const std::shared_ptr&lt;Json::Value&gt; &amp;getJsonObject() const</a>
-<a name="344"><span class="lineNum">     344</span>                 :             :     {</a>
-<a name="345"><span class="lineNum">     345</span>                 :             :         return jsonObject();</a>
-<a name="346"><span class="lineNum">     346</span>                 :             :     }</a>
-<a name="347"><span class="lineNum">     347</span>                 :             : </a>
-<a name="348"><span class="lineNum">     348</span>                 :             :     /**</a>
-<a name="349"><span class="lineNum">     349</span>                 :             :      * @brief Get the error message of parsing the JSON body received from peer.</a>
-<a name="350"><span class="lineNum">     350</span>                 :             :      * This method usually is called after getting a empty shared_ptr object</a>
-<a name="351"><span class="lineNum">     351</span>                 :             :      * by the getJsonObject() method.</a>
-<a name="352"><span class="lineNum">     352</span>                 :             :      *</a>
-<a name="353"><span class="lineNum">     353</span>                 :             :      * @return const std::string&amp; The error message. An empty string is returned</a>
-<a name="354"><span class="lineNum">     354</span>                 :             :      * when no error occurs.</a>
-<a name="355"><span class="lineNum">     355</span>                 :             :      */</a>
-<a name="356"><span class="lineNum">     356</span>                 :             :     virtual const std::string &amp;getJsonError() const = 0;</a>
-<a name="357"><span class="lineNum">     357</span>                 :             : </a>
-<a name="358"><span class="lineNum">     358</span>                 :             :     /// Get the content type</a>
-<a name="359"><span class="lineNum">     359</span>                 :             :     virtual ContentType contentType() const = 0;</a>
-<a name="360"><span class="lineNum">     360</span>                 :             :     ContentType getContentType() const</a>
-<a name="361"><span class="lineNum">     361</span>                 :             :     {</a>
-<a name="362"><span class="lineNum">     362</span>                 :             :         return contentType();</a>
-<a name="363"><span class="lineNum">     363</span>                 :             :     }</a>
-<a name="364"><span class="lineNum">     364</span>                 :             : </a>
-<a name="365"><span class="lineNum">     365</span>                 :             :     /// Set the Http method</a>
-<a name="366"><span class="lineNum">     366</span>                 :             :     virtual void setMethod(const HttpMethod method) = 0;</a>
-<a name="367"><span class="lineNum">     367</span>                 :             : </a>
-<a name="368"><span class="lineNum">     368</span>                 :             :     /// Set the path of the request</a>
-<a name="369"><span class="lineNum">     369</span>                 :             :     virtual void setPath(const std::string &amp;path) = 0;</a>
-<a name="370"><span class="lineNum">     370</span>                 :             : </a>
-<a name="371"><span class="lineNum">     371</span>                 :             :     /**</a>
-<a name="372"><span class="lineNum">     372</span>                 :             :      * @brief The default behavior is to encode the value of setPath</a>
-<a name="373"><span class="lineNum">     373</span>                 :             :      * using urlEncode. Setting the path encode to false avoid the</a>
-<a name="374"><span class="lineNum">     374</span>                 :             :      * value of path will be changed by the library</a>
-<a name="375"><span class="lineNum">     375</span>                 :             :      *</a>
-<a name="376"><span class="lineNum">     376</span>                 :             :      * @param bool true --&gt; the path will be url encoded</a>
-<a name="377"><span class="lineNum">     377</span>                 :             :      *             false --&gt; using value of path as it is set</a>
-<a name="378"><span class="lineNum">     378</span>                 :             :      */</a>
-<a name="379"><span class="lineNum">     379</span>                 :             :     virtual void setPathEncode(bool) = 0;</a>
-<a name="380"><span class="lineNum">     380</span>                 :             : </a>
-<a name="381"><span class="lineNum">     381</span>                 :             :     /// Set the parameter of the request</a>
-<a name="382"><span class="lineNum">     382</span>                 :             :     virtual void setParameter(const std::string &amp;key,</a>
-<a name="383"><span class="lineNum">     383</span>                 :             :                               const std::string &amp;value) = 0;</a>
-<a name="384"><span class="lineNum">     384</span>                 :             : </a>
-<a name="385"><span class="lineNum">     385</span>                 :             :     /// Set or get the content type</a>
-<a name="386"><span class="lineNum">     386</span>                 :             :     virtual void setContentTypeCode(const ContentType type) = 0;</a>
-<a name="387"><span class="lineNum">     387</span>                 :             : </a>
-<a name="388"><span class="lineNum">     388</span>                 :             :     /// Set the content-type string, The string may contain the header name and</a>
-<a name="389"><span class="lineNum">     389</span>                 :             :     /// CRLF. Or just the MIME type</a>
-<a name="390"><span class="lineNum">     390</span>                 :             :     //</a>
-<a name="391"><span class="lineNum">     391</span>                 :             :     /// For example, &quot;content-type: text/plain\r\n&quot; or &quot;text/plain&quot;</a>
-<a name="392"><span class="lineNum">     392</span>                 :             :     void setContentTypeString(const string_view &amp;typeString)</a>
-<a name="393"><span class="lineNum">     393</span>                 :             :     {</a>
-<a name="394"><span class="lineNum">     394</span>                 :             :         setContentTypeString(typeString.data(), typeString.size());</a>
-<a name="395"><span class="lineNum">     395</span>                 :             :     }</a>
+<a name="258"><span class="lineNum">     258</span>                 :             :     /// Get the session to which the request belongs.</a>
+<a name="259"><span class="lineNum">     259</span>                 :             :     const SessionPtr &amp;getSession() const</a>
+<a name="260"><span class="lineNum">     260</span>                 :             :     {</a>
+<a name="261"><span class="lineNum">     261</span>                 :             :         return session();</a>
+<a name="262"><span class="lineNum">     262</span>                 :             :     }</a>
+<a name="263"><span class="lineNum">     263</span>                 :             : </a>
+<a name="264"><span class="lineNum">     264</span>                 :             :     /// Get the attributes store, users can add/get any type of data to/from</a>
+<a name="265"><span class="lineNum">     265</span>                 :             :     /// this store</a>
+<a name="266"><span class="lineNum">     266</span>                 :             :     virtual const AttributesPtr &amp;attributes() const = 0;</a>
+<a name="267"><span class="lineNum">     267</span>                 :             : </a>
+<a name="268"><span class="lineNum">     268</span>                 :             :     /// Get the attributes store, users can add/get any type of data to/from</a>
+<a name="269"><span class="lineNum">     269</span>                 :             :     /// this store</a>
+<a name="270"><span class="lineNum">     270</span>                 :             :     const AttributesPtr &amp;getAttributes() const</a>
+<a name="271"><span class="lineNum">     271</span>                 :             :     {</a>
+<a name="272"><span class="lineNum">     272</span>                 :             :         return attributes();</a>
+<a name="273"><span class="lineNum">     273</span>                 :             :     }</a>
+<a name="274"><span class="lineNum">     274</span>                 :             : </a>
+<a name="275"><span class="lineNum">     275</span>                 :             :     /// Get parameters of the request.</a>
+<a name="276"><span class="lineNum">     276</span>                 :             :     virtual const std::</a>
+<a name="277"><span class="lineNum">     277</span>                 :             :         unordered_map&lt;std::string, std::string, utils::internal::SafeStringHash&gt;</a>
+<a name="278"><span class="lineNum">     278</span>                 :             :             &amp;parameters() const = 0;</a>
+<a name="279"><span class="lineNum">     279</span>                 :             : </a>
+<a name="280"><span class="lineNum">     280</span>                 :             :     /// Get parameters of the request.</a>
+<a name="281"><span class="lineNum">     281</span>                 :             :     const std::</a>
+<a name="282"><span class="lineNum">     282</span>                 :             :         unordered_map&lt;std::string, std::string, utils::internal::SafeStringHash&gt;</a>
+<a name="283"><span class="lineNum">     283</span>                 :             :             &amp;getParameters() const</a>
+<a name="284"><span class="lineNum">     284</span>                 :             :     {</a>
+<a name="285"><span class="lineNum">     285</span>                 :             :         return parameters();</a>
+<a name="286"><span class="lineNum">     286</span>                 :             :     }</a>
+<a name="287"><span class="lineNum">     287</span>                 :             : </a>
+<a name="288"><span class="lineNum">     288</span>                 :             :     /// Get a parameter identified by the @param key</a>
+<a name="289"><span class="lineNum">     289</span>                 :             :     virtual const std::string &amp;getParameter(const std::string &amp;key) const = 0;</a>
+<a name="290"><span class="lineNum">     290</span>                 :             : </a>
+<a name="291"><span class="lineNum">     291</span>                 :             :     /**</a>
+<a name="292"><span class="lineNum">     292</span>                 :             :      * @brief Get the optional parameter identified by the @param key. if the</a>
+<a name="293"><span class="lineNum">     293</span>                 :             :      * parameter doesn't exist, or the original parameter can't be converted to</a>
+<a name="294"><span class="lineNum">     294</span>                 :             :      * a T type object, an empty optional object is returned.</a>
+<a name="295"><span class="lineNum">     295</span>                 :             :      *</a>
+<a name="296"><span class="lineNum">     296</span>                 :             :      * @tparam T</a>
+<a name="297"><span class="lineNum">     297</span>                 :             :      * @param key</a>
+<a name="298"><span class="lineNum">     298</span>                 :             :      * @return optional&lt;T&gt;</a>
+<a name="299"><span class="lineNum">     299</span>                 :             :      */</a>
+<a name="300"><span class="lineNum">     300</span>                 :             :     template &lt;typename T&gt;</a>
+<a name="301"><span class="lineNum">     301</span>                 :             :     optional&lt;T&gt; getOptionalParameter(const std::string &amp;key)</a>
+<a name="302"><span class="lineNum">     302</span>                 :             :     {</a>
+<a name="303"><span class="lineNum">     303</span>                 :             :         auto &amp;params = getParameters();</a>
+<a name="304"><span class="lineNum">     304</span>                 :             :         auto it = params.find(key);</a>
+<a name="305"><span class="lineNum">     305</span>                 :             :         if (it != params.end())</a>
+<a name="306"><span class="lineNum">     306</span>                 :             :         {</a>
+<a name="307"><span class="lineNum">     307</span>                 :             :             try</a>
+<a name="308"><span class="lineNum">     308</span>                 :             :             {</a>
+<a name="309"><span class="lineNum">     309</span>                 :             :                 return optional&lt;T&gt;(drogon::utils::fromString&lt;T&gt;(it-&gt;second));</a>
+<a name="310"><span class="lineNum">     310</span>                 :             :             }</a>
+<a name="311"><span class="lineNum">     311</span>                 :             :             catch (const std::exception &amp;e)</a>
+<a name="312"><span class="lineNum">     312</span>                 :             :             {</a>
+<a name="313"><span class="lineNum">     313</span>                 :             :                 LOG_ERROR &lt;&lt; e.what();</a>
+<a name="314"><span class="lineNum">     314</span>                 :             :                 return optional&lt;T&gt;{};</a>
+<a name="315"><span class="lineNum">     315</span>                 :             :             }</a>
+<a name="316"><span class="lineNum">     316</span>                 :             :         }</a>
+<a name="317"><span class="lineNum">     317</span>                 :             :         else</a>
+<a name="318"><span class="lineNum">     318</span>                 :             :         {</a>
+<a name="319"><span class="lineNum">     319</span>                 :             :             return optional&lt;T&gt;{};</a>
+<a name="320"><span class="lineNum">     320</span>                 :             :         }</a>
+<a name="321"><span class="lineNum">     321</span>                 :             :     }</a>
+<a name="322"><span class="lineNum">     322</span>                 :             : </a>
+<a name="323"><span class="lineNum">     323</span>                 :             :     /// Return the remote IP address and port</a>
+<a name="324"><span class="lineNum">     324</span>                 :             :     virtual const trantor::InetAddress &amp;peerAddr() const = 0;</a>
+<a name="325"><span class="lineNum">     325</span>                 :             :     const trantor::InetAddress &amp;getPeerAddr() const</a>
+<a name="326"><span class="lineNum">     326</span>                 :             :     {</a>
+<a name="327"><span class="lineNum">     327</span>                 :             :         return peerAddr();</a>
+<a name="328"><span class="lineNum">     328</span>                 :             :     }</a>
+<a name="329"><span class="lineNum">     329</span>                 :             : </a>
+<a name="330"><span class="lineNum">     330</span>                 :             :     /// Return the local IP address and port</a>
+<a name="331"><span class="lineNum">     331</span>                 :             :     virtual const trantor::InetAddress &amp;localAddr() const = 0;</a>
+<a name="332"><span class="lineNum">     332</span>                 :             :     const trantor::InetAddress &amp;getLocalAddr() const</a>
+<a name="333"><span class="lineNum">     333</span>                 :             :     {</a>
+<a name="334"><span class="lineNum">     334</span>                 :             :         return localAddr();</a>
+<a name="335"><span class="lineNum">     335</span>                 :             :     }</a>
+<a name="336"><span class="lineNum">     336</span>                 :             : </a>
+<a name="337"><span class="lineNum">     337</span>                 :             :     /// Return the creation timestamp set by the framework.</a>
+<a name="338"><span class="lineNum">     338</span>                 :             :     virtual const trantor::Date &amp;creationDate() const = 0;</a>
+<a name="339"><span class="lineNum">     339</span>                 :             :     const trantor::Date &amp;getCreationDate() const</a>
+<a name="340"><span class="lineNum">     340</span>                 :             :     {</a>
+<a name="341"><span class="lineNum">     341</span>                 :             :         return creationDate();</a>
+<a name="342"><span class="lineNum">     342</span>                 :             :     }</a>
+<a name="343"><span class="lineNum">     343</span>                 :             : </a>
+<a name="344"><span class="lineNum">     344</span>                 :             :     /// Get the Json object of the request</a>
+<a name="345"><span class="lineNum">     345</span>                 :             :     /**</a>
+<a name="346"><span class="lineNum">     346</span>                 :             :      * The content type of the request must be 'application/json',</a>
+<a name="347"><span class="lineNum">     347</span>                 :             :      * otherwise the method returns an empty shared_ptr object.</a>
+<a name="348"><span class="lineNum">     348</span>                 :             :      */</a>
+<a name="349"><span class="lineNum">     349</span>                 :             :     virtual const std::shared_ptr&lt;Json::Value&gt; &amp;jsonObject() const = 0;</a>
+<a name="350"><span class="lineNum">     350</span>                 :             : </a>
+<a name="351"><span class="lineNum">     351</span>                 :             :     /// Get the Json object of the request</a>
+<a name="352"><span class="lineNum">     352</span>                 :             :     const std::shared_ptr&lt;Json::Value&gt; &amp;getJsonObject() const</a>
+<a name="353"><span class="lineNum">     353</span>                 :             :     {</a>
+<a name="354"><span class="lineNum">     354</span>                 :             :         return jsonObject();</a>
+<a name="355"><span class="lineNum">     355</span>                 :             :     }</a>
+<a name="356"><span class="lineNum">     356</span>                 :             : </a>
+<a name="357"><span class="lineNum">     357</span>                 :             :     /**</a>
+<a name="358"><span class="lineNum">     358</span>                 :             :      * @brief Get the error message of parsing the JSON body received from peer.</a>
+<a name="359"><span class="lineNum">     359</span>                 :             :      * This method usually is called after getting a empty shared_ptr object</a>
+<a name="360"><span class="lineNum">     360</span>                 :             :      * by the getJsonObject() method.</a>
+<a name="361"><span class="lineNum">     361</span>                 :             :      *</a>
+<a name="362"><span class="lineNum">     362</span>                 :             :      * @return const std::string&amp; The error message. An empty string is returned</a>
+<a name="363"><span class="lineNum">     363</span>                 :             :      * when no error occurs.</a>
+<a name="364"><span class="lineNum">     364</span>                 :             :      */</a>
+<a name="365"><span class="lineNum">     365</span>                 :             :     virtual const std::string &amp;getJsonError() const = 0;</a>
+<a name="366"><span class="lineNum">     366</span>                 :             : </a>
+<a name="367"><span class="lineNum">     367</span>                 :             :     /// Get the content type</a>
+<a name="368"><span class="lineNum">     368</span>                 :             :     virtual ContentType contentType() const = 0;</a>
+<a name="369"><span class="lineNum">     369</span>                 :             :     ContentType getContentType() const</a>
+<a name="370"><span class="lineNum">     370</span>                 :             :     {</a>
+<a name="371"><span class="lineNum">     371</span>                 :             :         return contentType();</a>
+<a name="372"><span class="lineNum">     372</span>                 :             :     }</a>
+<a name="373"><span class="lineNum">     373</span>                 :             : </a>
+<a name="374"><span class="lineNum">     374</span>                 :             :     /// Set the Http method</a>
+<a name="375"><span class="lineNum">     375</span>                 :             :     virtual void setMethod(const HttpMethod method) = 0;</a>
+<a name="376"><span class="lineNum">     376</span>                 :             : </a>
+<a name="377"><span class="lineNum">     377</span>                 :             :     /// Set the path of the request</a>
+<a name="378"><span class="lineNum">     378</span>                 :             :     virtual void setPath(const std::string &amp;path) = 0;</a>
+<a name="379"><span class="lineNum">     379</span>                 :             : </a>
+<a name="380"><span class="lineNum">     380</span>                 :             :     /**</a>
+<a name="381"><span class="lineNum">     381</span>                 :             :      * @brief The default behavior is to encode the value of setPath</a>
+<a name="382"><span class="lineNum">     382</span>                 :             :      * using urlEncode. Setting the path encode to false avoid the</a>
+<a name="383"><span class="lineNum">     383</span>                 :             :      * value of path will be changed by the library</a>
+<a name="384"><span class="lineNum">     384</span>                 :             :      *</a>
+<a name="385"><span class="lineNum">     385</span>                 :             :      * @param bool true --&gt; the path will be url encoded</a>
+<a name="386"><span class="lineNum">     386</span>                 :             :      *             false --&gt; using value of path as it is set</a>
+<a name="387"><span class="lineNum">     387</span>                 :             :      */</a>
+<a name="388"><span class="lineNum">     388</span>                 :             :     virtual void setPathEncode(bool) = 0;</a>
+<a name="389"><span class="lineNum">     389</span>                 :             : </a>
+<a name="390"><span class="lineNum">     390</span>                 :             :     /// Set the parameter of the request</a>
+<a name="391"><span class="lineNum">     391</span>                 :             :     virtual void setParameter(const std::string &amp;key,</a>
+<a name="392"><span class="lineNum">     392</span>                 :             :                               const std::string &amp;value) = 0;</a>
+<a name="393"><span class="lineNum">     393</span>                 :             : </a>
+<a name="394"><span class="lineNum">     394</span>                 :             :     /// Set or get the content type</a>
+<a name="395"><span class="lineNum">     395</span>                 :             :     virtual void setContentTypeCode(const ContentType type) = 0;</a>
 <a name="396"><span class="lineNum">     396</span>                 :             : </a>
-<a name="397"><span class="lineNum">     397</span>                 :             :     /// Set the request content-type string, The string</a>
-<a name="398"><span class="lineNum">     398</span>                 :             :     /// must contain the header name and CRLF.</a>
-<a name="399"><span class="lineNum">     399</span>                 :             :     /// For example, &quot;content-type: text/plain\r\n&quot;</a>
-<a name="400"><span class="lineNum">     400</span>                 :             :     virtual void setCustomContentTypeString(const std::string &amp;type) = 0;</a>
-<a name="401"><span class="lineNum">     401</span>                 :             : </a>
-<a name="402"><span class="lineNum">     402</span>                 :             :     /// Add a cookie</a>
-<a name="403"><span class="lineNum">     403</span>                 :             :     virtual void addCookie(const std::string &amp;key,</a>
-<a name="404"><span class="lineNum">     404</span>                 :             :                            const std::string &amp;value) = 0;</a>
+<a name="397"><span class="lineNum">     397</span>                 :             :     /// Set the content-type string, The string may contain the header name and</a>
+<a name="398"><span class="lineNum">     398</span>                 :             :     /// CRLF. Or just the MIME type</a>
+<a name="399"><span class="lineNum">     399</span>                 :             :     //</a>
+<a name="400"><span class="lineNum">     400</span>                 :             :     /// For example, &quot;content-type: text/plain\r\n&quot; or &quot;text/plain&quot;</a>
+<a name="401"><span class="lineNum">     401</span>                 :             :     void setContentTypeString(const string_view &amp;typeString)</a>
+<a name="402"><span class="lineNum">     402</span>                 :             :     {</a>
+<a name="403"><span class="lineNum">     403</span>                 :             :         setContentTypeString(typeString.data(), typeString.size());</a>
+<a name="404"><span class="lineNum">     404</span>                 :             :     }</a>
 <a name="405"><span class="lineNum">     405</span>                 :             : </a>
-<a name="406"><span class="lineNum">     406</span>                 :             :     /**</a>
-<a name="407"><span class="lineNum">     407</span>                 :             :      * @brief Set the request object to the pass-through mode or not. It's not</a>
-<a name="408"><span class="lineNum">     408</span>                 :             :      * by default when a new request object is created.</a>
-<a name="409"><span class="lineNum">     409</span>                 :             :      * In pass-through mode, no addtional headers (including user-agent,</a>
-<a name="410"><span class="lineNum">     410</span>                 :             :      * connection, etc.) are added to the request. This mode is useful for some</a>
-<a name="411"><span class="lineNum">     411</span>                 :             :      * applications such as a proxy.</a>
-<a name="412"><span class="lineNum">     412</span>                 :             :      *</a>
-<a name="413"><span class="lineNum">     413</span>                 :             :      * @param flag</a>
-<a name="414"><span class="lineNum">     414</span>                 :             :      */</a>
-<a name="415"><span class="lineNum">     415</span>                 :             :     virtual void setPassThrough(bool flag) = 0;</a>
-<a name="416"><span class="lineNum">     416</span>                 :             : </a>
-<a name="417"><span class="lineNum">     417</span>                 :             :     /// The following methods are a series of factory methods that help users</a>
-<a name="418"><span class="lineNum">     418</span>                 :             :     /// create request objects.</a>
-<a name="419"><span class="lineNum">     419</span>                 :             : </a>
-<a name="420"><span class="lineNum">     420</span>                 :             :     /// Create a normal request with http method Get and version Http1.1.</a>
-<a name="421"><span class="lineNum">     421</span>                 :             :     static HttpRequestPtr newHttpRequest();</a>
-<a name="422"><span class="lineNum">     422</span>                 :             : </a>
-<a name="423"><span class="lineNum">     423</span>                 :             :     /// Create a http request with:</a>
-<a name="424"><span class="lineNum">     424</span>                 :             :     /// Method: Get</a>
-<a name="425"><span class="lineNum">     425</span>                 :             :     /// Version: Http1.1</a>
-<a name="426"><span class="lineNum">     426</span>                 :             :     /// Content type: application/json, the @param data is serialized into the</a>
-<a name="427"><span class="lineNum">     427</span>                 :             :     /// content of the request.</a>
-<a name="428"><span class="lineNum">     428</span>                 :             :     static HttpRequestPtr newHttpJsonRequest(const Json::Value &amp;data);</a>
-<a name="429"><span class="lineNum">     429</span>                 :             : </a>
-<a name="430"><span class="lineNum">     430</span>                 :             :     /// Create a http request with:</a>
-<a name="431"><span class="lineNum">     431</span>                 :             :     /// Method: Post</a>
-<a name="432"><span class="lineNum">     432</span>                 :             :     /// Version: Http1.1</a>
-<a name="433"><span class="lineNum">     433</span>                 :             :     /// Content type: application/x-www-form-urlencoded</a>
-<a name="434"><span class="lineNum">     434</span>                 :             :     static HttpRequestPtr newHttpFormPostRequest();</a>
-<a name="435"><span class="lineNum">     435</span>                 :             : </a>
-<a name="436"><span class="lineNum">     436</span>                 :             :     /// Create a http file upload request with:</a>
-<a name="437"><span class="lineNum">     437</span>                 :             :     /// Method: Post</a>
-<a name="438"><span class="lineNum">     438</span>                 :             :     /// Version: Http1.1</a>
-<a name="439"><span class="lineNum">     439</span>                 :             :     /// Content type: multipart/form-data</a>
-<a name="440"><span class="lineNum">     440</span>                 :             :     /// The @param files represents pload files which are transferred to the</a>
-<a name="441"><span class="lineNum">     441</span>                 :             :     /// server via the multipart/form-data format</a>
-<a name="442"><span class="lineNum">     442</span>                 :             :     static HttpRequestPtr newFileUploadRequest(</a>
-<a name="443"><span class="lineNum">     443</span>                 :             :         const std::vector&lt;UploadFile&gt; &amp;files);</a>
+<a name="406"><span class="lineNum">     406</span>                 :             :     /// Set the request content-type string, The string</a>
+<a name="407"><span class="lineNum">     407</span>                 :             :     /// must contain the header name and CRLF.</a>
+<a name="408"><span class="lineNum">     408</span>                 :             :     /// For example, &quot;content-type: text/plain\r\n&quot;</a>
+<a name="409"><span class="lineNum">     409</span>                 :             :     virtual void setCustomContentTypeString(const std::string &amp;type) = 0;</a>
+<a name="410"><span class="lineNum">     410</span>                 :             : </a>
+<a name="411"><span class="lineNum">     411</span>                 :             :     /// Add a cookie</a>
+<a name="412"><span class="lineNum">     412</span>                 :             :     virtual void addCookie(const std::string &amp;key,</a>
+<a name="413"><span class="lineNum">     413</span>                 :             :                            const std::string &amp;value) = 0;</a>
+<a name="414"><span class="lineNum">     414</span>                 :             : </a>
+<a name="415"><span class="lineNum">     415</span>                 :             :     /**</a>
+<a name="416"><span class="lineNum">     416</span>                 :             :      * @brief Set the request object to the pass-through mode or not. It's not</a>
+<a name="417"><span class="lineNum">     417</span>                 :             :      * by default when a new request object is created.</a>
+<a name="418"><span class="lineNum">     418</span>                 :             :      * In pass-through mode, no addtional headers (including user-agent,</a>
+<a name="419"><span class="lineNum">     419</span>                 :             :      * connection, etc.) are added to the request. This mode is useful for some</a>
+<a name="420"><span class="lineNum">     420</span>                 :             :      * applications such as a proxy.</a>
+<a name="421"><span class="lineNum">     421</span>                 :             :      *</a>
+<a name="422"><span class="lineNum">     422</span>                 :             :      * @param flag</a>
+<a name="423"><span class="lineNum">     423</span>                 :             :      */</a>
+<a name="424"><span class="lineNum">     424</span>                 :             :     virtual void setPassThrough(bool flag) = 0;</a>
+<a name="425"><span class="lineNum">     425</span>                 :             : </a>
+<a name="426"><span class="lineNum">     426</span>                 :             :     /// The following methods are a series of factory methods that help users</a>
+<a name="427"><span class="lineNum">     427</span>                 :             :     /// create request objects.</a>
+<a name="428"><span class="lineNum">     428</span>                 :             : </a>
+<a name="429"><span class="lineNum">     429</span>                 :             :     /// Create a normal request with http method Get and version Http1.1.</a>
+<a name="430"><span class="lineNum">     430</span>                 :             :     static HttpRequestPtr newHttpRequest();</a>
+<a name="431"><span class="lineNum">     431</span>                 :             : </a>
+<a name="432"><span class="lineNum">     432</span>                 :             :     /// Create a http request with:</a>
+<a name="433"><span class="lineNum">     433</span>                 :             :     /// Method: Get</a>
+<a name="434"><span class="lineNum">     434</span>                 :             :     /// Version: Http1.1</a>
+<a name="435"><span class="lineNum">     435</span>                 :             :     /// Content type: application/json, the @param data is serialized into the</a>
+<a name="436"><span class="lineNum">     436</span>                 :             :     /// content of the request.</a>
+<a name="437"><span class="lineNum">     437</span>                 :             :     static HttpRequestPtr newHttpJsonRequest(const Json::Value &amp;data);</a>
+<a name="438"><span class="lineNum">     438</span>                 :             : </a>
+<a name="439"><span class="lineNum">     439</span>                 :             :     /// Create a http request with:</a>
+<a name="440"><span class="lineNum">     440</span>                 :             :     /// Method: Post</a>
+<a name="441"><span class="lineNum">     441</span>                 :             :     /// Version: Http1.1</a>
+<a name="442"><span class="lineNum">     442</span>                 :             :     /// Content type: application/x-www-form-urlencoded</a>
+<a name="443"><span class="lineNum">     443</span>                 :             :     static HttpRequestPtr newHttpFormPostRequest();</a>
 <a name="444"><span class="lineNum">     444</span>                 :             : </a>
-<a name="445"><span class="lineNum">     445</span>                 :             :     /**</a>
-<a name="446"><span class="lineNum">     446</span>                 :             :      * @brief Create a custom HTTP request object. For using this template,</a>
-<a name="447"><span class="lineNum">     447</span>                 :             :      * users must specialize the toRequest template.</a>
-<a name="448"><span class="lineNum">     448</span>                 :             :      */</a>
-<a name="449"><span class="lineNum">     449</span>                 :             :     template &lt;typename T&gt;</a>
-<a name="450"><span class="lineNum">     450</span>                 :             :     static HttpRequestPtr newCustomHttpRequest(T &amp;&amp;obj)</a>
-<a name="451"><span class="lineNum">     451</span>                 :             :     {</a>
-<a name="452"><span class="lineNum">     452</span>                 :             :         return toRequest(std::forward&lt;T&gt;(obj));</a>
-<a name="453"><span class="lineNum">     453</span>                 :             :     }</a>
-<a name="454"><span class="lineNum">     454</span>                 :             : </a>
-<a name="455"><span class="lineNum">     455</span>                 :             :     virtual bool isOnSecureConnection() const noexcept = 0;</a>
-<a name="456"><span class="lineNum">     456</span>                 :             :     virtual void setContentTypeString(const char *typeString,</a>
-<a name="457"><span class="lineNum">     457</span>                 :             :                                       size_t typeStringLength) = 0;</a>
-<a name="458"><span class="lineNum">     458</span>                 :             : </a>
-<a name="459"><span class="lineNum">     459</span>                 :             :     virtual ~HttpRequest()</a>
+<a name="445"><span class="lineNum">     445</span>                 :             :     /// Create a http file upload request with:</a>
+<a name="446"><span class="lineNum">     446</span>                 :             :     /// Method: Post</a>
+<a name="447"><span class="lineNum">     447</span>                 :             :     /// Version: Http1.1</a>
+<a name="448"><span class="lineNum">     448</span>                 :             :     /// Content type: multipart/form-data</a>
+<a name="449"><span class="lineNum">     449</span>                 :             :     /// The @param files represents pload files which are transferred to the</a>
+<a name="450"><span class="lineNum">     450</span>                 :             :     /// server via the multipart/form-data format</a>
+<a name="451"><span class="lineNum">     451</span>                 :             :     static HttpRequestPtr newFileUploadRequest(</a>
+<a name="452"><span class="lineNum">     452</span>                 :             :         const std::vector&lt;UploadFile&gt; &amp;files);</a>
+<a name="453"><span class="lineNum">     453</span>                 :             : </a>
+<a name="454"><span class="lineNum">     454</span>                 :             :     /**</a>
+<a name="455"><span class="lineNum">     455</span>                 :             :      * @brief Create a custom HTTP request object. For using this template,</a>
+<a name="456"><span class="lineNum">     456</span>                 :             :      * users must specialize the toRequest template.</a>
+<a name="457"><span class="lineNum">     457</span>                 :             :      */</a>
+<a name="458"><span class="lineNum">     458</span>                 :             :     template &lt;typename T&gt;</a>
+<a name="459"><span class="lineNum">     459</span>                 :             :     static HttpRequestPtr newCustomHttpRequest(T &amp;&amp;obj)</a>
 <a name="460"><span class="lineNum">     460</span>                 :             :     {</a>
-<a name="461"><span class="lineNum">     461</span>                 :             :     }</a>
-<a name="462"><span class="lineNum">     462</span>                 :             : };</a>
+<a name="461"><span class="lineNum">     461</span>                 :             :         return toRequest(std::forward&lt;T&gt;(obj));</a>
+<a name="462"><span class="lineNum">     462</span>                 :             :     }</a>
 <a name="463"><span class="lineNum">     463</span>                 :             : </a>
-<a name="464"><span class="lineNum">     464</span>                 :             : template &lt;&gt;</a>
-<a name="465"><span class="lineNum">     465</span>                 :             : inline HttpRequestPtr toRequest&lt;const Json::Value &amp;&gt;(const Json::Value &amp;pJson)</a>
-<a name="466"><span class="lineNum">     466</span>                 :             : {</a>
-<a name="467"><span class="lineNum">     467</span>                 :             :     return HttpRequest::newHttpJsonRequest(pJson);</a>
-<a name="468"><span class="lineNum">     468</span>                 :             : }</a>
-<a name="469"><span class="lineNum">     469</span>                 :             : </a>
-<a name="470"><span class="lineNum">     470</span>                 :             : template &lt;&gt;</a>
-<a name="471"><span class="lineNum">     471</span>                 :             : inline HttpRequestPtr toRequest(Json::Value &amp;&amp;pJson)</a>
-<a name="472"><span class="lineNum">     472</span>                 :             : {</a>
-<a name="473"><span class="lineNum">     473</span>                 :             :     return HttpRequest::newHttpJsonRequest(std::move(pJson));</a>
-<a name="474"><span class="lineNum">     474</span>                 :             : }</a>
-<a name="475"><span class="lineNum">     475</span>                 :             : </a>
-<a name="476"><span class="lineNum">     476</span>                 :             : template &lt;&gt;</a>
-<a name="477"><span class="lineNum">     477</span>                 :             : inline std::shared_ptr&lt;Json::Value&gt; fromRequest(const HttpRequest &amp;req)</a>
-<a name="478"><span class="lineNum">     478</span>                 :             : {</a>
-<a name="479"><span class="lineNum">     479</span>                 :             :     return req.getJsonObject();</a>
-<a name="480"><span class="lineNum">     480</span>                 :             : }</a>
-<a name="481"><span class="lineNum">     481</span>                 :             : </a>
-<a name="482"><span class="lineNum">     482</span>                 :             : }  // namespace drogon</a>
+<a name="464"><span class="lineNum">     464</span>                 :             :     virtual bool isOnSecureConnection() const noexcept = 0;</a>
+<a name="465"><span class="lineNum">     465</span>                 :             :     virtual void setContentTypeString(const char *typeString,</a>
+<a name="466"><span class="lineNum">     466</span>                 :             :                                       size_t typeStringLength) = 0;</a>
+<a name="467"><span class="lineNum">     467</span>                 :             : </a>
+<a name="468"><span class="lineNum">     468</span>                 :             :     virtual ~HttpRequest()</a>
+<a name="469"><span class="lineNum">     469</span>                 :             :     {</a>
+<a name="470"><span class="lineNum">     470</span>                 :             :     }</a>
+<a name="471"><span class="lineNum">     471</span>                 :             : };</a>
+<a name="472"><span class="lineNum">     472</span>                 :             : </a>
+<a name="473"><span class="lineNum">     473</span>                 :             : template &lt;&gt;</a>
+<a name="474"><span class="lineNum">     474</span>                 :             : inline HttpRequestPtr toRequest&lt;const Json::Value &amp;&gt;(const Json::Value &amp;pJson)</a>
+<a name="475"><span class="lineNum">     475</span>                 :             : {</a>
+<a name="476"><span class="lineNum">     476</span>                 :             :     return HttpRequest::newHttpJsonRequest(pJson);</a>
+<a name="477"><span class="lineNum">     477</span>                 :             : }</a>
+<a name="478"><span class="lineNum">     478</span>                 :             : </a>
+<a name="479"><span class="lineNum">     479</span>                 :             : template &lt;&gt;</a>
+<a name="480"><span class="lineNum">     480</span>                 :             : inline HttpRequestPtr toRequest(Json::Value &amp;&amp;pJson)</a>
+<a name="481"><span class="lineNum">     481</span>                 :             : {</a>
+<a name="482"><span class="lineNum">     482</span>                 :             :     return HttpRequest::newHttpJsonRequest(std::move(pJson));</a>
+<a name="483"><span class="lineNum">     483</span>                 :             : }</a>
+<a name="484"><span class="lineNum">     484</span>                 :             : </a>
+<a name="485"><span class="lineNum">     485</span>                 :             : template &lt;&gt;</a>
+<a name="486"><span class="lineNum">     486</span>                 :             : inline std::shared_ptr&lt;Json::Value&gt; fromRequest(const HttpRequest &amp;req)</a>
+<a name="487"><span class="lineNum">     487</span>                 :             : {</a>
+<a name="488"><span class="lineNum">     488</span>                 :             :     return req.getJsonObject();</a>
+<a name="489"><span class="lineNum">     489</span>                 :             : }</a>
+<a name="490"><span class="lineNum">     490</span>                 :             : </a>
+<a name="491"><span class="lineNum">     491</span>                 :             : }  // namespace drogon</a>
         </pre>
               </td>
             </tr>

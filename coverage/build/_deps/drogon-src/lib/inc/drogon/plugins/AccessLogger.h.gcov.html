@@ -18,12 +18,12 @@
               <td width="100%">
                 <table cellpadding=1 border=0 width="100%">
           <tr>
-            <td width="10%" class="headerItem">Current view:</td>
+            <td class="headerItem" width="10%">Current view:</td>
             <td class="headerValue" width="10%"><a href="../../../../../../../index.html">top level</a> - <a href="index.html">build/_deps/drogon-src/lib/inc/drogon/plugins</a> - AccessLogger.h<span style="font-size: 80%;"> (source / <a href="AccessLogger.h.func-sort-c.html">functions</a>)</span></td>
             <td width="5%"></td>
             <td width="5%"></td>
-            <td class="headerCovTableHead" width="5%">Coverage</td>
-            <td class="headerCovTableHead" width="5%" title="Covered + Uncovered code">Total</td>
+            <td width="5%" class="headerCovTableHead">Coverage</td>
+            <td title="Covered + Uncovered code" width="5%" class="headerCovTableHead">Total</td>
             <td class="headerCovTableHead" width="5%" title="Exercised code only">Hit</td>
           </tr>
           <tr>
@@ -109,174 +109,179 @@
 <a name="31"><span class="lineNum">      31</span>                 :             :             &quot;log_file&quot;: &quot;access.log&quot;,</a>
 <a name="32"><span class="lineNum">      32</span>                 :             :             &quot;log_size_limit&quot;: 0,</a>
 <a name="33"><span class="lineNum">      33</span>                 :             :             &quot;use_local_time&quot;: true,</a>
-<a name="34"><span class="lineNum">      34</span>                 :             :             // &quot;show_microseconds&quot;: true,</a>
-<a name="35"><span class="lineNum">      35</span>                 :             :             // &quot;custom_time_format&quot;: &quot;&quot;,</a>
-<a name="36"><span class="lineNum">      36</span>                 :             :             &quot;log_index&quot;: 0</a>
-<a name="37"><span class="lineNum">      37</span>                 :             :       }</a>
-<a name="38"><span class="lineNum">      38</span>                 :             :    }</a>
-<a name="39"><span class="lineNum">      39</span>                 :             :    @endcode</a>
-<a name="40"><span class="lineNum">      40</span>                 :             :  *</a>
-<a name="41"><span class="lineNum">      41</span>                 :             :  * log_format: a format string for access logging, there are several</a>
-<a name="42"><span class="lineNum">      42</span>                 :             :  * placeholders that represent particular data.</a>
-<a name="43"><span class="lineNum">      43</span>                 :             :  *     $date: the time when the log was printed.</a>
-<a name="44"><span class="lineNum">      44</span>                 :             :  *     $request_date: the time when the request was created.</a>
-<a name="45"><span class="lineNum">      45</span>                 :             :  *     $request_path|$path: the path of the request.</a>
-<a name="46"><span class="lineNum">      46</span>                 :             :  *     $request_query|$query: the query string of the request.</a>
-<a name="47"><span class="lineNum">      47</span>                 :             :  *     $request_url|$url: the URL of the request, equals to</a>
-<a name="48"><span class="lineNum">      48</span>                 :             :  *                   $request_path+&quot;?&quot;+$request_query.</a>
-<a name="49"><span class="lineNum">      49</span>                 :             :  *     $request_version|$version: the http version string.</a>
-<a name="50"><span class="lineNum">      50</span>                 :             :  *     $request: the full request line.</a>
-<a name="51"><span class="lineNum">      51</span>                 :             :  *     $remote_addr: the remote address</a>
-<a name="52"><span class="lineNum">      52</span>                 :             :  *     $local_addr: the local address</a>
-<a name="53"><span class="lineNum">      53</span>                 :             :  *     $request_len|$body_bytes_received: the content length of the request.</a>
-<a name="54"><span class="lineNum">      54</span>                 :             :  *     $method: the HTTP method of the request.</a>
-<a name="55"><span class="lineNum">      55</span>                 :             :  *     $thread: the current thread number.</a>
-<a name="56"><span class="lineNum">      56</span>                 :             :  *     $response_len|$body_bytes_sent: the content length of the response.</a>
-<a name="57"><span class="lineNum">      57</span>                 :             :  *     $http_[header_name]: the header of the request.</a>
-<a name="58"><span class="lineNum">      58</span>                 :             :  *     $cookie_[cookie_name]: the cookie of the request.</a>
-<a name="59"><span class="lineNum">      59</span>                 :             :  *     $upstream_http_[header_name]: the header of the response sent to the</a>
-<a name="60"><span class="lineNum">      60</span>                 :             :  *                                   client.</a>
-<a name="61"><span class="lineNum">      61</span>                 :             :  *     $status_code: the status code of the response.</a>
-<a name="62"><span class="lineNum">      62</span>                 :             :  *     $status: the status code and string of the response.</a>
-<a name="63"><span class="lineNum">      63</span>                 :             :  *     $processing_time: request processing time in seconds with a microseconds</a>
-<a name="64"><span class="lineNum">      64</span>                 :             :  *                       resolution; time elapsed between the request object was</a>
-<a name="65"><span class="lineNum">      65</span>                 :             :  *                       created and response object was created.</a>
-<a name="66"><span class="lineNum">      66</span>                 :             :  * @note If the format string is empty or not configured, a default value of</a>
-<a name="67"><span class="lineNum">      67</span>                 :             :  * &quot;$request_date $method $url [$body_bytes_received] ($remote_addr -</a>
-<a name="68"><span class="lineNum">      68</span>                 :             :  * $local_addr) $status $body_bytes_sent $processing_time&quot; is applied.</a>
-<a name="69"><span class="lineNum">      69</span>                 :             :  *</a>
-<a name="70"><span class="lineNum">      70</span>                 :             :  * log_path: Log file path, empty by default,in which case,logs are output to</a>
-<a name="71"><span class="lineNum">      71</span>                 :             :  * the regular log file (or stdout based on the log configuration).</a>
-<a name="72"><span class="lineNum">      72</span>                 :             :  *</a>
-<a name="73"><span class="lineNum">      73</span>                 :             :  * log_file: The access log file name, 'access.log' by default. if the file name</a>
-<a name="74"><span class="lineNum">      74</span>                 :             :  * does not contain a extension, the .log extension is used.</a>
-<a name="75"><span class="lineNum">      75</span>                 :             :  *</a>
-<a name="76"><span class="lineNum">      76</span>                 :             :  * log_size_limit: 0 bytes by default, when the log file size reaches</a>
-<a name="77"><span class="lineNum">      77</span>                 :             :  * &quot;log_size_limit&quot;, the log file is switched. Zero value means never switch</a>
-<a name="78"><span class="lineNum">      78</span>                 :             :  *</a>
-<a name="79"><span class="lineNum">      79</span>                 :             :  * log_index: The index of log output, 0 by default.</a>
-<a name="80"><span class="lineNum">      80</span>                 :             :  *</a>
-<a name="81"><span class="lineNum">      81</span>                 :             :  * show_microseconds: Whether print microsecond in time. True by default.</a>
-<a name="82"><span class="lineNum">      82</span>                 :             :  *</a>
-<a name="83"><span class="lineNum">      83</span>                 :             :  * custom_time_format: Provide a custom format for time. If not provided or</a>
-<a name="84"><span class="lineNum">      84</span>                 :             :  * empty, the default format is &quot;%Y%m%d %H:%M:%S&quot;, with microseonds followed if</a>
-<a name="85"><span class="lineNum">      85</span>                 :             :  * show_microseconds is true. For detailed information about formats, please</a>
-<a name="86"><span class="lineNum">      86</span>                 :             :  * refer to cpp reference about strftime().</a>
-<a name="87"><span class="lineNum">      87</span>                 :             :  *</a>
-<a name="88"><span class="lineNum">      88</span>                 :             :  * Enable the plugin by adding the configuration to the list of plugins in the</a>
-<a name="89"><span class="lineNum">      89</span>                 :             :  * configuration file.</a>
-<a name="90"><span class="lineNum">      90</span>                 :             :  *</a>
-<a name="91"><span class="lineNum">      91</span>                 :             :  */</a>
-<a name="92"><span class="lineNum">      92</span>                 :             : class DROGON_EXPORT AccessLogger : public drogon::Plugin&lt;AccessLogger&gt;</a>
-<a name="93"><span class="lineNum">      93</span>                 :             : {</a>
-<a name="94"><span class="lineNum">      94</span>                 :             :   public:</a>
-<a name="95"><span class="lineNum">      95</span>                 :<span class="tlaUNC">           0 :     AccessLogger()</span></a>
-<a name="96"><span class="lineNum">      96</span>   [<span class="tlaUNC" title="Branch 0 was not executed"> # </span><span class="tlaUNC" title="Branch 1 was not executed"> # </span><span class="tlaUNC" title="Branch 2 was not executed"> # </span><span class="tlaUNC" title="Branch 3 was not executed"> # </span>]:<span class="tlaUNC">           0 :     {</span></a>
-<a name="97"><span class="lineNum">      97</span>                 :<span class="tlaUNC">           0 :     }</span></a>
-<a name="98"><span class="lineNum">      98</span>                 :             :     void initAndStart(const Json::Value &amp;config) override;</a>
-<a name="99"><span class="lineNum">      99</span>                 :             :     void shutdown() override;</a>
-<a name="100"><span class="lineNum">     100</span>                 :             : </a>
-<a name="101"><span class="lineNum">     101</span>                 :             :   private:</a>
-<a name="102"><span class="lineNum">     102</span>                 :             :     trantor::AsyncFileLogger asyncFileLogger_;</a>
-<a name="103"><span class="lineNum">     103</span>                 :             :     int logIndex_{0};</a>
-<a name="104"><span class="lineNum">     104</span>                 :             :     bool useLocalTime_{true};</a>
-<a name="105"><span class="lineNum">     105</span>                 :             :     bool showMicroseconds_{true};</a>
-<a name="106"><span class="lineNum">     106</span>                 :             :     bool useCustomTimeFormat_{false};</a>
-<a name="107"><span class="lineNum">     107</span>                 :             :     std::string timeFormat_;</a>
-<a name="108"><span class="lineNum">     108</span>                 :             : </a>
-<a name="109"><span class="lineNum">     109</span>                 :             :     using LogFunction = std::function&lt;void(trantor::LogStream &amp;,</a>
-<a name="110"><span class="lineNum">     110</span>                 :             :                                            const drogon::HttpRequestPtr &amp;,</a>
-<a name="111"><span class="lineNum">     111</span>                 :             :                                            const drogon::HttpResponsePtr &amp;)&gt;;</a>
-<a name="112"><span class="lineNum">     112</span>                 :             :     std::vector&lt;LogFunction&gt; logFunctions_;</a>
-<a name="113"><span class="lineNum">     113</span>                 :             :     void logging(trantor::LogStream &amp;stream,</a>
-<a name="114"><span class="lineNum">     114</span>                 :             :                  const drogon::HttpRequestPtr &amp;req,</a>
-<a name="115"><span class="lineNum">     115</span>                 :             :                  const drogon::HttpResponsePtr &amp;resp);</a>
-<a name="116"><span class="lineNum">     116</span>                 :             :     void createLogFunctions(std::string format);</a>
-<a name="117"><span class="lineNum">     117</span>                 :             :     LogFunction newLogFunction(const std::string &amp;placeholder);</a>
-<a name="118"><span class="lineNum">     118</span>                 :             :     std::map&lt;std::string, LogFunction&gt; logFunctionMap_;</a>
-<a name="119"><span class="lineNum">     119</span>                 :             :     //$request_path</a>
-<a name="120"><span class="lineNum">     120</span>                 :             :     static void outputReqPath(trantor::LogStream &amp;,</a>
-<a name="121"><span class="lineNum">     121</span>                 :             :                               const drogon::HttpRequestPtr &amp;,</a>
-<a name="122"><span class="lineNum">     122</span>                 :             :                               const drogon::HttpResponsePtr &amp;);</a>
-<a name="123"><span class="lineNum">     123</span>                 :             :     //$request_query</a>
-<a name="124"><span class="lineNum">     124</span>                 :             :     static void outputReqQuery(trantor::LogStream &amp;,</a>
-<a name="125"><span class="lineNum">     125</span>                 :             :                                const drogon::HttpRequestPtr &amp;,</a>
-<a name="126"><span class="lineNum">     126</span>                 :             :                                const drogon::HttpResponsePtr &amp;);</a>
-<a name="127"><span class="lineNum">     127</span>                 :             :     //$request_url</a>
-<a name="128"><span class="lineNum">     128</span>                 :             :     static void outputReqURL(trantor::LogStream &amp;,</a>
-<a name="129"><span class="lineNum">     129</span>                 :             :                              const drogon::HttpRequestPtr &amp;,</a>
-<a name="130"><span class="lineNum">     130</span>                 :             :                              const drogon::HttpResponsePtr &amp;);</a>
-<a name="131"><span class="lineNum">     131</span>                 :             :     //$version</a>
-<a name="132"><span class="lineNum">     132</span>                 :             :     static void outputVersion(trantor::LogStream &amp;,</a>
-<a name="133"><span class="lineNum">     133</span>                 :             :                               const drogon::HttpRequestPtr &amp;,</a>
-<a name="134"><span class="lineNum">     134</span>                 :             :                               const drogon::HttpResponsePtr &amp;);</a>
-<a name="135"><span class="lineNum">     135</span>                 :             :     //$request</a>
-<a name="136"><span class="lineNum">     136</span>                 :             :     static void outputReqLine(trantor::LogStream &amp;,</a>
-<a name="137"><span class="lineNum">     137</span>                 :             :                               const drogon::HttpRequestPtr &amp;,</a>
-<a name="138"><span class="lineNum">     138</span>                 :             :                               const drogon::HttpResponsePtr &amp;);</a>
-<a name="139"><span class="lineNum">     139</span>                 :             :     //$date</a>
-<a name="140"><span class="lineNum">     140</span>                 :             :     void outputDate(trantor::LogStream &amp;,</a>
-<a name="141"><span class="lineNum">     141</span>                 :             :                     const drogon::HttpRequestPtr &amp;,</a>
-<a name="142"><span class="lineNum">     142</span>                 :             :                     const drogon::HttpResponsePtr &amp;) const;</a>
-<a name="143"><span class="lineNum">     143</span>                 :             :     //$request_date</a>
-<a name="144"><span class="lineNum">     144</span>                 :             :     void outputReqDate(trantor::LogStream &amp;,</a>
-<a name="145"><span class="lineNum">     145</span>                 :             :                        const drogon::HttpRequestPtr &amp;,</a>
-<a name="146"><span class="lineNum">     146</span>                 :             :                        const drogon::HttpResponsePtr &amp;) const;</a>
-<a name="147"><span class="lineNum">     147</span>                 :             :     //$remote_addr</a>
-<a name="148"><span class="lineNum">     148</span>                 :             :     static void outputRemoteAddr(trantor::LogStream &amp;,</a>
-<a name="149"><span class="lineNum">     149</span>                 :             :                                  const drogon::HttpRequestPtr &amp;,</a>
-<a name="150"><span class="lineNum">     150</span>                 :             :                                  const drogon::HttpResponsePtr &amp;);</a>
-<a name="151"><span class="lineNum">     151</span>                 :             :     //$local_addr</a>
-<a name="152"><span class="lineNum">     152</span>                 :             :     static void outputLocalAddr(trantor::LogStream &amp;,</a>
-<a name="153"><span class="lineNum">     153</span>                 :             :                                 const drogon::HttpRequestPtr &amp;,</a>
-<a name="154"><span class="lineNum">     154</span>                 :             :                                 const drogon::HttpResponsePtr &amp;);</a>
-<a name="155"><span class="lineNum">     155</span>                 :             :     //$request_len $body_bytes_received</a>
-<a name="156"><span class="lineNum">     156</span>                 :             :     static void outputReqLength(trantor::LogStream &amp;,</a>
-<a name="157"><span class="lineNum">     157</span>                 :             :                                 const drogon::HttpRequestPtr &amp;,</a>
-<a name="158"><span class="lineNum">     158</span>                 :             :                                 const drogon::HttpResponsePtr &amp;);</a>
-<a name="159"><span class="lineNum">     159</span>                 :             :     //$response_len $body_bytes_sent</a>
-<a name="160"><span class="lineNum">     160</span>                 :             :     static void outputRespLength(trantor::LogStream &amp;,</a>
-<a name="161"><span class="lineNum">     161</span>                 :             :                                  const drogon::HttpRequestPtr &amp;,</a>
-<a name="162"><span class="lineNum">     162</span>                 :             :                                  const drogon::HttpResponsePtr &amp;);</a>
-<a name="163"><span class="lineNum">     163</span>                 :             :     //$method</a>
-<a name="164"><span class="lineNum">     164</span>                 :             :     static void outputMethod(trantor::LogStream &amp;,</a>
-<a name="165"><span class="lineNum">     165</span>                 :             :                              const drogon::HttpRequestPtr &amp;,</a>
-<a name="166"><span class="lineNum">     166</span>                 :             :                              const drogon::HttpResponsePtr &amp;);</a>
-<a name="167"><span class="lineNum">     167</span>                 :             :     //$thread</a>
-<a name="168"><span class="lineNum">     168</span>                 :             :     static void outputThreadNumber(trantor::LogStream &amp;,</a>
-<a name="169"><span class="lineNum">     169</span>                 :             :                                    const drogon::HttpRequestPtr &amp;,</a>
-<a name="170"><span class="lineNum">     170</span>                 :             :                                    const drogon::HttpResponsePtr &amp;);</a>
-<a name="171"><span class="lineNum">     171</span>                 :             :     //$http_[header_name]</a>
-<a name="172"><span class="lineNum">     172</span>                 :             :     static void outputReqHeader(trantor::LogStream &amp;stream,</a>
-<a name="173"><span class="lineNum">     173</span>                 :             :                                 const drogon::HttpRequestPtr &amp;req,</a>
-<a name="174"><span class="lineNum">     174</span>                 :             :                                 const std::string &amp;headerName);</a>
-<a name="175"><span class="lineNum">     175</span>                 :             :     //$cookie_[cookie_name]</a>
-<a name="176"><span class="lineNum">     176</span>                 :             :     static void outputReqCookie(trantor::LogStream &amp;stream,</a>
-<a name="177"><span class="lineNum">     177</span>                 :             :                                 const drogon::HttpRequestPtr &amp;req,</a>
-<a name="178"><span class="lineNum">     178</span>                 :             :                                 const std::string &amp;cookie);</a>
-<a name="179"><span class="lineNum">     179</span>                 :             :     //$upstream_http_[header_name]</a>
-<a name="180"><span class="lineNum">     180</span>                 :             :     static void outputRespHeader(trantor::LogStream &amp;stream,</a>
-<a name="181"><span class="lineNum">     181</span>                 :             :                                  const drogon::HttpResponsePtr &amp;resp,</a>
-<a name="182"><span class="lineNum">     182</span>                 :             :                                  const std::string &amp;headerName);</a>
-<a name="183"><span class="lineNum">     183</span>                 :             :     //$status</a>
-<a name="184"><span class="lineNum">     184</span>                 :             :     static void outputStatusString(trantor::LogStream &amp;,</a>
-<a name="185"><span class="lineNum">     185</span>                 :             :                                    const drogon::HttpRequestPtr &amp;,</a>
-<a name="186"><span class="lineNum">     186</span>                 :             :                                    const drogon::HttpResponsePtr &amp;);</a>
-<a name="187"><span class="lineNum">     187</span>                 :             :     //$status_code</a>
-<a name="188"><span class="lineNum">     188</span>                 :             :     static void outputStatusCode(trantor::LogStream &amp;,</a>
-<a name="189"><span class="lineNum">     189</span>                 :             :                                  const drogon::HttpRequestPtr &amp;,</a>
-<a name="190"><span class="lineNum">     190</span>                 :             :                                  const drogon::HttpResponsePtr &amp;);</a>
-<a name="191"><span class="lineNum">     191</span>                 :             :     //$processing_time</a>
-<a name="192"><span class="lineNum">     192</span>                 :             :     static void outputProcessingTime(trantor::LogStream &amp;,</a>
-<a name="193"><span class="lineNum">     193</span>                 :             :                                      const drogon::HttpRequestPtr &amp;,</a>
-<a name="194"><span class="lineNum">     194</span>                 :             :                                      const drogon::HttpResponsePtr &amp;);</a>
-<a name="195"><span class="lineNum">     195</span>                 :             :     //$upstream_http_content-type $upstream_http_content_type</a>
-<a name="196"><span class="lineNum">     196</span>                 :             :     static void outputRespContentType(trantor::LogStream &amp;,</a>
-<a name="197"><span class="lineNum">     197</span>                 :             :                                       const drogon::HttpRequestPtr &amp;,</a>
-<a name="198"><span class="lineNum">     198</span>                 :             :                                       const drogon::HttpResponsePtr &amp;);</a>
-<a name="199"><span class="lineNum">     199</span>                 :             : };</a>
-<a name="200"><span class="lineNum">     200</span>                 :             : }  // namespace plugin</a>
-<a name="201"><span class="lineNum">     201</span>                 :             : }  // namespace drogon</a>
+<a name="34"><span class="lineNum">      34</span>                 :             :             &quot;log_index&quot;: 0,</a>
+<a name="35"><span class="lineNum">      35</span>                 :             :             // &quot;show_microseconds&quot;: true,</a>
+<a name="36"><span class="lineNum">      36</span>                 :             :             // &quot;custom_time_format&quot;: &quot;&quot;,</a>
+<a name="37"><span class="lineNum">      37</span>                 :             :             // &quot;use_real_ip&quot;: false</a>
+<a name="38"><span class="lineNum">      38</span>                 :             :       }</a>
+<a name="39"><span class="lineNum">      39</span>                 :             :    }</a>
+<a name="40"><span class="lineNum">      40</span>                 :             :    @endcode</a>
+<a name="41"><span class="lineNum">      41</span>                 :             :  *</a>
+<a name="42"><span class="lineNum">      42</span>                 :             :  * log_format: a format string for access logging, there are several</a>
+<a name="43"><span class="lineNum">      43</span>                 :             :  * placeholders that represent particular data.</a>
+<a name="44"><span class="lineNum">      44</span>                 :             :  *     $date: the time when the log was printed.</a>
+<a name="45"><span class="lineNum">      45</span>                 :             :  *     $request_date: the time when the request was created.</a>
+<a name="46"><span class="lineNum">      46</span>                 :             :  *     $request_path|$path: the path of the request.</a>
+<a name="47"><span class="lineNum">      47</span>                 :             :  *     $request_query|$query: the query string of the request.</a>
+<a name="48"><span class="lineNum">      48</span>                 :             :  *     $request_url|$url: the URL of the request, equals to</a>
+<a name="49"><span class="lineNum">      49</span>                 :             :  *                   $request_path+&quot;?&quot;+$request_query.</a>
+<a name="50"><span class="lineNum">      50</span>                 :             :  *     $request_version|$version: the http version string.</a>
+<a name="51"><span class="lineNum">      51</span>                 :             :  *     $request: the full request line.</a>
+<a name="52"><span class="lineNum">      52</span>                 :             :  *     $remote_addr: the remote address</a>
+<a name="53"><span class="lineNum">      53</span>                 :             :  *     $local_addr: the local address</a>
+<a name="54"><span class="lineNum">      54</span>                 :             :  *     $request_len|$body_bytes_received: the content length of the request.</a>
+<a name="55"><span class="lineNum">      55</span>                 :             :  *     $method: the HTTP method of the request.</a>
+<a name="56"><span class="lineNum">      56</span>                 :             :  *     $thread: the current thread number.</a>
+<a name="57"><span class="lineNum">      57</span>                 :             :  *     $response_len|$body_bytes_sent: the content length of the response.</a>
+<a name="58"><span class="lineNum">      58</span>                 :             :  *     $http_[header_name]: the header of the request.</a>
+<a name="59"><span class="lineNum">      59</span>                 :             :  *     $cookie_[cookie_name]: the cookie of the request.</a>
+<a name="60"><span class="lineNum">      60</span>                 :             :  *     $upstream_http_[header_name]: the header of the response sent to the</a>
+<a name="61"><span class="lineNum">      61</span>                 :             :  *                                   client.</a>
+<a name="62"><span class="lineNum">      62</span>                 :             :  *     $status_code: the status code of the response.</a>
+<a name="63"><span class="lineNum">      63</span>                 :             :  *     $status: the status code and string of the response.</a>
+<a name="64"><span class="lineNum">      64</span>                 :             :  *     $processing_time: request processing time in seconds with a microseconds</a>
+<a name="65"><span class="lineNum">      65</span>                 :             :  *                       resolution; time elapsed between the request object was</a>
+<a name="66"><span class="lineNum">      66</span>                 :             :  *                       created and response object was created.</a>
+<a name="67"><span class="lineNum">      67</span>                 :             :  * @note If the format string is empty or not configured, a default value of</a>
+<a name="68"><span class="lineNum">      68</span>                 :             :  * &quot;$request_date $method $url [$body_bytes_received] ($remote_addr -</a>
+<a name="69"><span class="lineNum">      69</span>                 :             :  * $local_addr) $status $body_bytes_sent $processing_time&quot; is applied.</a>
+<a name="70"><span class="lineNum">      70</span>                 :             :  *</a>
+<a name="71"><span class="lineNum">      71</span>                 :             :  * log_path: Log file path, empty by default,in which case,logs are output to</a>
+<a name="72"><span class="lineNum">      72</span>                 :             :  * the regular log file (or stdout based on the log configuration).</a>
+<a name="73"><span class="lineNum">      73</span>                 :             :  *</a>
+<a name="74"><span class="lineNum">      74</span>                 :             :  * log_file: The access log file name, 'access.log' by default. if the file name</a>
+<a name="75"><span class="lineNum">      75</span>                 :             :  * does not contain a extension, the .log extension is used.</a>
+<a name="76"><span class="lineNum">      76</span>                 :             :  *</a>
+<a name="77"><span class="lineNum">      77</span>                 :             :  * log_size_limit: 0 bytes by default, when the log file size reaches</a>
+<a name="78"><span class="lineNum">      78</span>                 :             :  * &quot;log_size_limit&quot;, the log file is switched. Zero value means never switch</a>
+<a name="79"><span class="lineNum">      79</span>                 :             :  *</a>
+<a name="80"><span class="lineNum">      80</span>                 :             :  * log_index: The index of log output, 0 by default.</a>
+<a name="81"><span class="lineNum">      81</span>                 :             :  *</a>
+<a name="82"><span class="lineNum">      82</span>                 :             :  * show_microseconds: Whether print microsecond in time. True by default.</a>
+<a name="83"><span class="lineNum">      83</span>                 :             :  *</a>
+<a name="84"><span class="lineNum">      84</span>                 :             :  * custom_time_format: Provide a custom format for time. If not provided or</a>
+<a name="85"><span class="lineNum">      85</span>                 :             :  * empty, the default format is &quot;%Y%m%d %H:%M:%S&quot;, with microseonds followed if</a>
+<a name="86"><span class="lineNum">      86</span>                 :             :  * show_microseconds is true. For detailed information about formats, please</a>
+<a name="87"><span class="lineNum">      87</span>                 :             :  * refer to cpp reference about strftime().</a>
+<a name="88"><span class="lineNum">      88</span>                 :             :  *</a>
+<a name="89"><span class="lineNum">      89</span>                 :             :  * use_real_ip: Log the real ip of peer. This option only takes effects when</a>
+<a name="90"><span class="lineNum">      90</span>                 :             :  * set to true and RealIpResolver is enabled. False by default.</a>
+<a name="91"><span class="lineNum">      91</span>                 :             :  *</a>
+<a name="92"><span class="lineNum">      92</span>                 :             :  * Enable the plugin by adding the configuration to the list of plugins in the</a>
+<a name="93"><span class="lineNum">      93</span>                 :             :  * configuration file.</a>
+<a name="94"><span class="lineNum">      94</span>                 :             :  *</a>
+<a name="95"><span class="lineNum">      95</span>                 :             :  */</a>
+<a name="96"><span class="lineNum">      96</span>                 :             : class DROGON_EXPORT AccessLogger : public drogon::Plugin&lt;AccessLogger&gt;</a>
+<a name="97"><span class="lineNum">      97</span>                 :             : {</a>
+<a name="98"><span class="lineNum">      98</span>                 :             :   public:</a>
+<a name="99"><span class="lineNum">      99</span>                 :<span class="tlaUNC">           0 :     AccessLogger()</span></a>
+<a name="100"><span class="lineNum">     100</span>   [<span class="tlaUNC" title="Branch 0 was not executed"> # </span><span class="tlaUNC" title="Branch 1 was not executed"> # </span><span class="tlaUNC" title="Branch 2 was not executed"> # </span><span class="tlaUNC" title="Branch 3 was not executed"> # </span>]:<span class="tlaUNC">           0 :     {</span></a>
+<a name="101"><span class="lineNum">     101</span>                 :<span class="tlaUNC">           0 :     }</span></a>
+<a name="102"><span class="lineNum">     102</span>                 :             :     void initAndStart(const Json::Value &amp;config) override;</a>
+<a name="103"><span class="lineNum">     103</span>                 :             :     void shutdown() override;</a>
+<a name="104"><span class="lineNum">     104</span>                 :             : </a>
+<a name="105"><span class="lineNum">     105</span>                 :             :   private:</a>
+<a name="106"><span class="lineNum">     106</span>                 :             :     trantor::AsyncFileLogger asyncFileLogger_;</a>
+<a name="107"><span class="lineNum">     107</span>                 :             :     int logIndex_{0};</a>
+<a name="108"><span class="lineNum">     108</span>                 :             :     bool useLocalTime_{true};</a>
+<a name="109"><span class="lineNum">     109</span>                 :             :     bool showMicroseconds_{true};</a>
+<a name="110"><span class="lineNum">     110</span>                 :             :     bool useCustomTimeFormat_{false};</a>
+<a name="111"><span class="lineNum">     111</span>                 :             :     std::string timeFormat_;</a>
+<a name="112"><span class="lineNum">     112</span>                 :             :     static bool useRealIp_;</a>
+<a name="113"><span class="lineNum">     113</span>                 :             : </a>
+<a name="114"><span class="lineNum">     114</span>                 :             :     using LogFunction = std::function&lt;void(trantor::LogStream &amp;,</a>
+<a name="115"><span class="lineNum">     115</span>                 :             :                                            const drogon::HttpRequestPtr &amp;,</a>
+<a name="116"><span class="lineNum">     116</span>                 :             :                                            const drogon::HttpResponsePtr &amp;)&gt;;</a>
+<a name="117"><span class="lineNum">     117</span>                 :             :     std::vector&lt;LogFunction&gt; logFunctions_;</a>
+<a name="118"><span class="lineNum">     118</span>                 :             :     void logging(trantor::LogStream &amp;stream,</a>
+<a name="119"><span class="lineNum">     119</span>                 :             :                  const drogon::HttpRequestPtr &amp;req,</a>
+<a name="120"><span class="lineNum">     120</span>                 :             :                  const drogon::HttpResponsePtr &amp;resp);</a>
+<a name="121"><span class="lineNum">     121</span>                 :             :     void createLogFunctions(std::string format);</a>
+<a name="122"><span class="lineNum">     122</span>                 :             :     LogFunction newLogFunction(const std::string &amp;placeholder);</a>
+<a name="123"><span class="lineNum">     123</span>                 :             :     std::map&lt;std::string, LogFunction&gt; logFunctionMap_;</a>
+<a name="124"><span class="lineNum">     124</span>                 :             :     //$request_path</a>
+<a name="125"><span class="lineNum">     125</span>                 :             :     static void outputReqPath(trantor::LogStream &amp;,</a>
+<a name="126"><span class="lineNum">     126</span>                 :             :                               const drogon::HttpRequestPtr &amp;,</a>
+<a name="127"><span class="lineNum">     127</span>                 :             :                               const drogon::HttpResponsePtr &amp;);</a>
+<a name="128"><span class="lineNum">     128</span>                 :             :     //$request_query</a>
+<a name="129"><span class="lineNum">     129</span>                 :             :     static void outputReqQuery(trantor::LogStream &amp;,</a>
+<a name="130"><span class="lineNum">     130</span>                 :             :                                const drogon::HttpRequestPtr &amp;,</a>
+<a name="131"><span class="lineNum">     131</span>                 :             :                                const drogon::HttpResponsePtr &amp;);</a>
+<a name="132"><span class="lineNum">     132</span>                 :             :     //$request_url</a>
+<a name="133"><span class="lineNum">     133</span>                 :             :     static void outputReqURL(trantor::LogStream &amp;,</a>
+<a name="134"><span class="lineNum">     134</span>                 :             :                              const drogon::HttpRequestPtr &amp;,</a>
+<a name="135"><span class="lineNum">     135</span>                 :             :                              const drogon::HttpResponsePtr &amp;);</a>
+<a name="136"><span class="lineNum">     136</span>                 :             :     //$version</a>
+<a name="137"><span class="lineNum">     137</span>                 :             :     static void outputVersion(trantor::LogStream &amp;,</a>
+<a name="138"><span class="lineNum">     138</span>                 :             :                               const drogon::HttpRequestPtr &amp;,</a>
+<a name="139"><span class="lineNum">     139</span>                 :             :                               const drogon::HttpResponsePtr &amp;);</a>
+<a name="140"><span class="lineNum">     140</span>                 :             :     //$request</a>
+<a name="141"><span class="lineNum">     141</span>                 :             :     static void outputReqLine(trantor::LogStream &amp;,</a>
+<a name="142"><span class="lineNum">     142</span>                 :             :                               const drogon::HttpRequestPtr &amp;,</a>
+<a name="143"><span class="lineNum">     143</span>                 :             :                               const drogon::HttpResponsePtr &amp;);</a>
+<a name="144"><span class="lineNum">     144</span>                 :             :     //$date</a>
+<a name="145"><span class="lineNum">     145</span>                 :             :     void outputDate(trantor::LogStream &amp;,</a>
+<a name="146"><span class="lineNum">     146</span>                 :             :                     const drogon::HttpRequestPtr &amp;,</a>
+<a name="147"><span class="lineNum">     147</span>                 :             :                     const drogon::HttpResponsePtr &amp;) const;</a>
+<a name="148"><span class="lineNum">     148</span>                 :             :     //$request_date</a>
+<a name="149"><span class="lineNum">     149</span>                 :             :     void outputReqDate(trantor::LogStream &amp;,</a>
+<a name="150"><span class="lineNum">     150</span>                 :             :                        const drogon::HttpRequestPtr &amp;,</a>
+<a name="151"><span class="lineNum">     151</span>                 :             :                        const drogon::HttpResponsePtr &amp;) const;</a>
+<a name="152"><span class="lineNum">     152</span>                 :             :     //$remote_addr</a>
+<a name="153"><span class="lineNum">     153</span>                 :             :     static void outputRemoteAddr(trantor::LogStream &amp;,</a>
+<a name="154"><span class="lineNum">     154</span>                 :             :                                  const drogon::HttpRequestPtr &amp;,</a>
+<a name="155"><span class="lineNum">     155</span>                 :             :                                  const drogon::HttpResponsePtr &amp;);</a>
+<a name="156"><span class="lineNum">     156</span>                 :             :     //$local_addr</a>
+<a name="157"><span class="lineNum">     157</span>                 :             :     static void outputLocalAddr(trantor::LogStream &amp;,</a>
+<a name="158"><span class="lineNum">     158</span>                 :             :                                 const drogon::HttpRequestPtr &amp;,</a>
+<a name="159"><span class="lineNum">     159</span>                 :             :                                 const drogon::HttpResponsePtr &amp;);</a>
+<a name="160"><span class="lineNum">     160</span>                 :             :     //$request_len $body_bytes_received</a>
+<a name="161"><span class="lineNum">     161</span>                 :             :     static void outputReqLength(trantor::LogStream &amp;,</a>
+<a name="162"><span class="lineNum">     162</span>                 :             :                                 const drogon::HttpRequestPtr &amp;,</a>
+<a name="163"><span class="lineNum">     163</span>                 :             :                                 const drogon::HttpResponsePtr &amp;);</a>
+<a name="164"><span class="lineNum">     164</span>                 :             :     //$response_len $body_bytes_sent</a>
+<a name="165"><span class="lineNum">     165</span>                 :             :     static void outputRespLength(trantor::LogStream &amp;,</a>
+<a name="166"><span class="lineNum">     166</span>                 :             :                                  const drogon::HttpRequestPtr &amp;,</a>
+<a name="167"><span class="lineNum">     167</span>                 :             :                                  const drogon::HttpResponsePtr &amp;);</a>
+<a name="168"><span class="lineNum">     168</span>                 :             :     //$method</a>
+<a name="169"><span class="lineNum">     169</span>                 :             :     static void outputMethod(trantor::LogStream &amp;,</a>
+<a name="170"><span class="lineNum">     170</span>                 :             :                              const drogon::HttpRequestPtr &amp;,</a>
+<a name="171"><span class="lineNum">     171</span>                 :             :                              const drogon::HttpResponsePtr &amp;);</a>
+<a name="172"><span class="lineNum">     172</span>                 :             :     //$thread</a>
+<a name="173"><span class="lineNum">     173</span>                 :             :     static void outputThreadNumber(trantor::LogStream &amp;,</a>
+<a name="174"><span class="lineNum">     174</span>                 :             :                                    const drogon::HttpRequestPtr &amp;,</a>
+<a name="175"><span class="lineNum">     175</span>                 :             :                                    const drogon::HttpResponsePtr &amp;);</a>
+<a name="176"><span class="lineNum">     176</span>                 :             :     //$http_[header_name]</a>
+<a name="177"><span class="lineNum">     177</span>                 :             :     static void outputReqHeader(trantor::LogStream &amp;stream,</a>
+<a name="178"><span class="lineNum">     178</span>                 :             :                                 const drogon::HttpRequestPtr &amp;req,</a>
+<a name="179"><span class="lineNum">     179</span>                 :             :                                 const std::string &amp;headerName);</a>
+<a name="180"><span class="lineNum">     180</span>                 :             :     //$cookie_[cookie_name]</a>
+<a name="181"><span class="lineNum">     181</span>                 :             :     static void outputReqCookie(trantor::LogStream &amp;stream,</a>
+<a name="182"><span class="lineNum">     182</span>                 :             :                                 const drogon::HttpRequestPtr &amp;req,</a>
+<a name="183"><span class="lineNum">     183</span>                 :             :                                 const std::string &amp;cookie);</a>
+<a name="184"><span class="lineNum">     184</span>                 :             :     //$upstream_http_[header_name]</a>
+<a name="185"><span class="lineNum">     185</span>                 :             :     static void outputRespHeader(trantor::LogStream &amp;stream,</a>
+<a name="186"><span class="lineNum">     186</span>                 :             :                                  const drogon::HttpResponsePtr &amp;resp,</a>
+<a name="187"><span class="lineNum">     187</span>                 :             :                                  const std::string &amp;headerName);</a>
+<a name="188"><span class="lineNum">     188</span>                 :             :     //$status</a>
+<a name="189"><span class="lineNum">     189</span>                 :             :     static void outputStatusString(trantor::LogStream &amp;,</a>
+<a name="190"><span class="lineNum">     190</span>                 :             :                                    const drogon::HttpRequestPtr &amp;,</a>
+<a name="191"><span class="lineNum">     191</span>                 :             :                                    const drogon::HttpResponsePtr &amp;);</a>
+<a name="192"><span class="lineNum">     192</span>                 :             :     //$status_code</a>
+<a name="193"><span class="lineNum">     193</span>                 :             :     static void outputStatusCode(trantor::LogStream &amp;,</a>
+<a name="194"><span class="lineNum">     194</span>                 :             :                                  const drogon::HttpRequestPtr &amp;,</a>
+<a name="195"><span class="lineNum">     195</span>                 :             :                                  const drogon::HttpResponsePtr &amp;);</a>
+<a name="196"><span class="lineNum">     196</span>                 :             :     //$processing_time</a>
+<a name="197"><span class="lineNum">     197</span>                 :             :     static void outputProcessingTime(trantor::LogStream &amp;,</a>
+<a name="198"><span class="lineNum">     198</span>                 :             :                                      const drogon::HttpRequestPtr &amp;,</a>
+<a name="199"><span class="lineNum">     199</span>                 :             :                                      const drogon::HttpResponsePtr &amp;);</a>
+<a name="200"><span class="lineNum">     200</span>                 :             :     //$upstream_http_content-type $upstream_http_content_type</a>
+<a name="201"><span class="lineNum">     201</span>                 :             :     static void outputRespContentType(trantor::LogStream &amp;,</a>
+<a name="202"><span class="lineNum">     202</span>                 :             :                                       const drogon::HttpRequestPtr &amp;,</a>
+<a name="203"><span class="lineNum">     203</span>                 :             :                                       const drogon::HttpResponsePtr &amp;);</a>
+<a name="204"><span class="lineNum">     204</span>                 :             : };</a>
+<a name="205"><span class="lineNum">     205</span>                 :             : }  // namespace plugin</a>
+<a name="206"><span class="lineNum">     206</span>                 :             : }  // namespace drogon</a>
         </pre>
               </td>
             </tr>

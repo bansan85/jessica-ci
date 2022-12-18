@@ -19,11 +19,11 @@
                 <table cellpadding=1 border=0 width="100%">
           <tr>
             <td class="headerItem" width="10%">Current view:</td>
-            <td width="10%" class="headerValue"><a href="../../../../../../index.html">top level</a> - <a href="index.html">build/_deps/drogon-src/lib/inc/drogon</a> - HttpResponse.h<span style="font-size: 80%;"> (source / <a href="HttpResponse.h.func-sort-c.html">functions</a>)</span></td>
+            <td class="headerValue" width="10%"><a href="../../../../../../index.html">top level</a> - <a href="index.html">build/_deps/drogon-src/lib/inc/drogon</a> - HttpResponse.h<span style="font-size: 80%;"> (source / <a href="HttpResponse.h.func-sort-c.html">functions</a>)</span></td>
             <td width="5%"></td>
             <td width="5%"></td>
-            <td class="headerCovTableHead" width="5%">Coverage</td>
-            <td width="5%" class="headerCovTableHead" title="Covered + Uncovered code">Total</td>
+            <td width="5%" class="headerCovTableHead">Coverage</td>
+            <td title="Covered + Uncovered code" class="headerCovTableHead" width="5%">Total</td>
             <td width="5%" class="headerCovTableHead" title="Exercised code only">Hit</td>
           </tr>
           <tr>
@@ -97,506 +97,514 @@
 <a name="19"><span class="lineNum">      19</span>                 :             : #include &lt;drogon/Cookie.h&gt;</a>
 <a name="20"><span class="lineNum">      20</span>                 :             : #include &lt;drogon/HttpTypes.h&gt;</a>
 <a name="21"><span class="lineNum">      21</span>                 :             : #include &lt;drogon/HttpViewData.h&gt;</a>
-<a name="22"><span class="lineNum">      22</span>                 :             : #include &lt;json/json.h&gt;</a>
-<a name="23"><span class="lineNum">      23</span>                 :             : #include &lt;memory&gt;</a>
-<a name="24"><span class="lineNum">      24</span>                 :             : #include &lt;string&gt;</a>
-<a name="25"><span class="lineNum">      25</span>                 :             : </a>
-<a name="26"><span class="lineNum">      26</span>                 :             : namespace drogon</a>
-<a name="27"><span class="lineNum">      27</span>                 :             : {</a>
-<a name="28"><span class="lineNum">      28</span>                 :             : /// Abstract class for webapp developer to get or set the Http response;</a>
-<a name="29"><span class="lineNum">      29</span>                 :             : class HttpResponse;</a>
-<a name="30"><span class="lineNum">      30</span>                 :             : using HttpResponsePtr = std::shared_ptr&lt;HttpResponse&gt;;</a>
-<a name="31"><span class="lineNum">      31</span>                 :             : </a>
-<a name="32"><span class="lineNum">      32</span>                 :             : /**</a>
-<a name="33"><span class="lineNum">      33</span>                 :             :  * @brief This template is used to convert a response object to a custom</a>
-<a name="34"><span class="lineNum">      34</span>                 :             :  * type object. Users must specialize the template for a particular type.</a>
-<a name="35"><span class="lineNum">      35</span>                 :             :  */</a>
-<a name="36"><span class="lineNum">      36</span>                 :             : template &lt;typename T&gt;</a>
-<a name="37"><span class="lineNum">      37</span>                 :             : T fromResponse(const HttpResponse &amp;resp)</a>
-<a name="38"><span class="lineNum">      38</span>                 :             : {</a>
-<a name="39"><span class="lineNum">      39</span>                 :             :     LOG_ERROR</a>
-<a name="40"><span class="lineNum">      40</span>                 :             :         &lt;&lt; &quot;You must specialize the fromResponse template for the type of &quot;</a>
-<a name="41"><span class="lineNum">      41</span>                 :             :         &lt;&lt; DrClassMap::demangle(typeid(T).name());</a>
-<a name="42"><span class="lineNum">      42</span>                 :             :     exit(1);</a>
-<a name="43"><span class="lineNum">      43</span>                 :             : }</a>
-<a name="44"><span class="lineNum">      44</span>                 :             : </a>
-<a name="45"><span class="lineNum">      45</span>                 :             : /**</a>
-<a name="46"><span class="lineNum">      46</span>                 :             :  * @brief This template is used to create a response object from a custom</a>
-<a name="47"><span class="lineNum">      47</span>                 :             :  * type object by calling the newCustomHttpResponse(). Users must specialize</a>
-<a name="48"><span class="lineNum">      48</span>                 :             :  * the template for a particular type.</a>
-<a name="49"><span class="lineNum">      49</span>                 :             :  */</a>
-<a name="50"><span class="lineNum">      50</span>                 :             : template &lt;typename T&gt;</a>
-<a name="51"><span class="lineNum">      51</span>                 :             : HttpResponsePtr toResponse(T &amp;&amp;)</a>
-<a name="52"><span class="lineNum">      52</span>                 :             : {</a>
-<a name="53"><span class="lineNum">      53</span>                 :             :     LOG_ERROR &lt;&lt; &quot;You must specialize the toResponse template for the type of &quot;</a>
-<a name="54"><span class="lineNum">      54</span>                 :             :               &lt;&lt; DrClassMap::demangle(typeid(T).name());</a>
-<a name="55"><span class="lineNum">      55</span>                 :             :     exit(1);</a>
-<a name="56"><span class="lineNum">      56</span>                 :             : }</a>
-<a name="57"><span class="lineNum">      57</span>                 :             : template &lt;&gt;</a>
-<a name="58"><span class="lineNum">      58</span>                 :             : HttpResponsePtr toResponse&lt;const Json::Value &amp;&gt;(const Json::Value &amp;pJson);</a>
-<a name="59"><span class="lineNum">      59</span>                 :             : template &lt;&gt;</a>
-<a name="60"><span class="lineNum">      60</span>                 :             : HttpResponsePtr toResponse(Json::Value &amp;&amp;pJson);</a>
-<a name="61"><span class="lineNum">      61</span>                 :             : template &lt;&gt;</a>
-<a name="62"><span class="lineNum">      62</span>                 :             : inline HttpResponsePtr toResponse&lt;Json::Value &amp;&gt;(Json::Value &amp;pJson)</a>
-<a name="63"><span class="lineNum">      63</span>                 :             : {</a>
-<a name="64"><span class="lineNum">      64</span>                 :             :     return toResponse((const Json::Value &amp;)pJson);</a>
-<a name="65"><span class="lineNum">      65</span>                 :             : }</a>
-<a name="66"><span class="lineNum">      66</span>                 :             : </a>
-<a name="67"><span class="lineNum">      67</span>                 :             : class DROGON_EXPORT HttpResponse</a>
-<a name="68"><span class="lineNum">      68</span>                 :             : {</a>
-<a name="69"><span class="lineNum">      69</span>                 :             :   public:</a>
-<a name="70"><span class="lineNum">      70</span>                 :             :     /**</a>
-<a name="71"><span class="lineNum">      71</span>                 :             :      * @brief This template enables automatic type conversion. For using this</a>
-<a name="72"><span class="lineNum">      72</span>                 :             :      * template, user must specialize the fromResponse template. For example a</a>
-<a name="73"><span class="lineNum">      73</span>                 :             :      * shared_ptr&lt;Json::Value&gt; specialization version is available above, so</a>
-<a name="74"><span class="lineNum">      74</span>                 :             :      * we can use the following code to get a json object:</a>
-<a name="75"><span class="lineNum">      75</span>                 :             :      * @code</a>
-<a name="76"><span class="lineNum">      76</span>                 :             :      *  std::shared_ptr&lt;Json::Value&gt; jsonPtr = *responsePtr;</a>
-<a name="77"><span class="lineNum">      77</span>                 :             :      *  @endcode</a>
-<a name="78"><span class="lineNum">      78</span>                 :             :      * With this template, user can use their favorite JSON library instead of</a>
-<a name="79"><span class="lineNum">      79</span>                 :             :      * the default jsoncpp library or convert the response to an object of any</a>
-<a name="80"><span class="lineNum">      80</span>                 :             :      * custom type.</a>
-<a name="81"><span class="lineNum">      81</span>                 :             :      */</a>
-<a name="82"><span class="lineNum">      82</span>                 :             :     template &lt;typename T&gt;</a>
-<a name="83"><span class="lineNum">      83</span>                 :             :     operator T() const</a>
-<a name="84"><span class="lineNum">      84</span>                 :             :     {</a>
-<a name="85"><span class="lineNum">      85</span>                 :             :         return fromResponse&lt;T&gt;(*this);</a>
-<a name="86"><span class="lineNum">      86</span>                 :             :     }</a>
-<a name="87"><span class="lineNum">      87</span>                 :             : </a>
-<a name="88"><span class="lineNum">      88</span>                 :             :     /**</a>
-<a name="89"><span class="lineNum">      89</span>                 :             :      * @brief This template enables explicit type conversion, see the above</a>
-<a name="90"><span class="lineNum">      90</span>                 :             :      * template.</a>
-<a name="91"><span class="lineNum">      91</span>                 :             :      */</a>
-<a name="92"><span class="lineNum">      92</span>                 :             :     template &lt;typename T&gt;</a>
-<a name="93"><span class="lineNum">      93</span>                 :             :     T as() const</a>
-<a name="94"><span class="lineNum">      94</span>                 :             :     {</a>
-<a name="95"><span class="lineNum">      95</span>                 :             :         return fromResponse&lt;T&gt;(*this);</a>
-<a name="96"><span class="lineNum">      96</span>                 :             :     }</a>
-<a name="97"><span class="lineNum">      97</span>                 :             : </a>
-<a name="98"><span class="lineNum">      98</span>                 :             :     /// Get the status code such as 200, 404</a>
-<a name="99"><span class="lineNum">      99</span>                 :             :     virtual HttpStatusCode statusCode() const = 0;</a>
-<a name="100"><span class="lineNum">     100</span>                 :             :     HttpStatusCode getStatusCode() const</a>
-<a name="101"><span class="lineNum">     101</span>                 :             :     {</a>
-<a name="102"><span class="lineNum">     102</span>                 :             :         return statusCode();</a>
-<a name="103"><span class="lineNum">     103</span>                 :             :     }</a>
-<a name="104"><span class="lineNum">     104</span>                 :             : </a>
-<a name="105"><span class="lineNum">     105</span>                 :             :     /// Set the status code of the response.</a>
-<a name="106"><span class="lineNum">     106</span>                 :             :     virtual void setStatusCode(HttpStatusCode code) = 0;</a>
-<a name="107"><span class="lineNum">     107</span>                 :             : </a>
-<a name="108"><span class="lineNum">     108</span>                 :             :     void setCustomStatusCode(int code, string_view message = string_view{})</a>
-<a name="109"><span class="lineNum">     109</span>                 :             :     {</a>
-<a name="110"><span class="lineNum">     110</span>                 :             :         setCustomStatusCode(code, message.data(), message.length());</a>
-<a name="111"><span class="lineNum">     111</span>                 :             :     }</a>
-<a name="112"><span class="lineNum">     112</span>                 :             : </a>
-<a name="113"><span class="lineNum">     113</span>                 :             :     /// Get the creation timestamp of the response.</a>
-<a name="114"><span class="lineNum">     114</span>                 :             :     virtual const trantor::Date &amp;creationDate() const = 0;</a>
-<a name="115"><span class="lineNum">     115</span>                 :             :     const trantor::Date &amp;getCreationDate() const</a>
-<a name="116"><span class="lineNum">     116</span>                 :             :     {</a>
-<a name="117"><span class="lineNum">     117</span>                 :             :         return creationDate();</a>
-<a name="118"><span class="lineNum">     118</span>                 :             :     }</a>
-<a name="119"><span class="lineNum">     119</span>                 :             : </a>
-<a name="120"><span class="lineNum">     120</span>                 :             :     /// Set the http version, http1.0 or http1.1</a>
-<a name="121"><span class="lineNum">     121</span>                 :             :     virtual void setVersion(const Version v) = 0;</a>
-<a name="122"><span class="lineNum">     122</span>                 :             : </a>
-<a name="123"><span class="lineNum">     123</span>                 :             :     /// Set if close the connection after the request is sent.</a>
-<a name="124"><span class="lineNum">     124</span>                 :             :     /**</a>
-<a name="125"><span class="lineNum">     125</span>                 :             :      * @param on if the parameter is false, the connection keeps alive on the</a>
-<a name="126"><span class="lineNum">     126</span>                 :             :      * condition that the client request has a 'keep-alive' head, otherwise it</a>
-<a name="127"><span class="lineNum">     127</span>                 :             :      * is closed immediately after sending the last byte of the response. It's</a>
-<a name="128"><span class="lineNum">     128</span>                 :             :      * false by default when the response is created.</a>
-<a name="129"><span class="lineNum">     129</span>                 :             :      */</a>
-<a name="130"><span class="lineNum">     130</span>                 :             :     virtual void setCloseConnection(bool on) = 0;</a>
-<a name="131"><span class="lineNum">     131</span>                 :             : </a>
-<a name="132"><span class="lineNum">     132</span>                 :             :     /// Get the status set by the setCloseConnection() method.</a>
-<a name="133"><span class="lineNum">     133</span>                 :             :     virtual bool ifCloseConnection() const = 0;</a>
-<a name="134"><span class="lineNum">     134</span>                 :             : </a>
-<a name="135"><span class="lineNum">     135</span>                 :             :     /// Set the response content type, such as text/html, text/plain, image/png</a>
-<a name="136"><span class="lineNum">     136</span>                 :             :     /// and so on. If the content type</a>
-<a name="137"><span class="lineNum">     137</span>                 :             :     /// is a text type, the character set is utf8.</a>
-<a name="138"><span class="lineNum">     138</span>                 :             :     virtual void setContentTypeCode(ContentType type) = 0;</a>
-<a name="139"><span class="lineNum">     139</span>                 :             : </a>
-<a name="140"><span class="lineNum">     140</span>                 :             :     /// Set the content-type string, The string may contain the header name and</a>
-<a name="141"><span class="lineNum">     141</span>                 :             :     /// CRLF. Or just the MIME type For example, &quot;content-type: text/plain\r\n&quot;</a>
-<a name="142"><span class="lineNum">     142</span>                 :             :     /// or &quot;text/plain&quot;</a>
-<a name="143"><span class="lineNum">     143</span>                 :             :     void setContentTypeString(const string_view &amp;typeString)</a>
-<a name="144"><span class="lineNum">     144</span>                 :             :     {</a>
-<a name="145"><span class="lineNum">     145</span>                 :             :         setContentTypeString(typeString.data(), typeString.size());</a>
-<a name="146"><span class="lineNum">     146</span>                 :             :     }</a>
-<a name="147"><span class="lineNum">     147</span>                 :             : </a>
-<a name="148"><span class="lineNum">     148</span>                 :             :     /// Set the response content type and the content-type string, The string</a>
-<a name="149"><span class="lineNum">     149</span>                 :             :     /// may contain the header name and CRLF. Or just the MIME type</a>
-<a name="150"><span class="lineNum">     150</span>                 :             :     /// For example, &quot;content-type: text/plain\r\n&quot; or &quot;text/plain&quot;</a>
-<a name="151"><span class="lineNum">     151</span>                 :             :     void setContentTypeCodeAndCustomString(ContentType type,</a>
-<a name="152"><span class="lineNum">     152</span>                 :             :                                            const string_view &amp;typeString)</a>
-<a name="153"><span class="lineNum">     153</span>                 :             :     {</a>
-<a name="154"><span class="lineNum">     154</span>                 :             :         setContentTypeCodeAndCustomString(type,</a>
-<a name="155"><span class="lineNum">     155</span>                 :             :                                           typeString.data(),</a>
-<a name="156"><span class="lineNum">     156</span>                 :             :                                           typeString.length());</a>
-<a name="157"><span class="lineNum">     157</span>                 :             :     }</a>
-<a name="158"><span class="lineNum">     158</span>                 :             :     template &lt;int N&gt;</a>
-<a name="159"><span class="lineNum">     159</span>                 :             :     void setContentTypeCodeAndCustomString(ContentType type,</a>
-<a name="160"><span class="lineNum">     160</span>                 :             :                                            const char (&amp;typeString)[N])</a>
-<a name="161"><span class="lineNum">     161</span>                 :             :     {</a>
-<a name="162"><span class="lineNum">     162</span>                 :             :         assert(N &gt; 0);</a>
-<a name="163"><span class="lineNum">     163</span>                 :             :         setContentTypeCodeAndCustomString(type, typeString, N - 1);</a>
-<a name="164"><span class="lineNum">     164</span>                 :             :     }</a>
-<a name="165"><span class="lineNum">     165</span>                 :             : </a>
-<a name="166"><span class="lineNum">     166</span>                 :             :     /// Set the reponse content type and the character set.</a>
-<a name="167"><span class="lineNum">     167</span>                 :             :     /// virtual void setContentTypeCodeAndCharacterSet(ContentType type, const</a>
-<a name="168"><span class="lineNum">     168</span>                 :             :     /// std::string &amp;charSet = &quot;utf-8&quot;) = 0;</a>
-<a name="169"><span class="lineNum">     169</span>                 :             : </a>
-<a name="170"><span class="lineNum">     170</span>                 :             :     /// Get the response content type.</a>
-<a name="171"><span class="lineNum">     171</span>                 :             :     virtual ContentType contentType() const = 0;</a>
-<a name="172"><span class="lineNum">     172</span>                 :             :     ContentType getContentType() const</a>
-<a name="173"><span class="lineNum">     173</span>                 :             :     {</a>
-<a name="174"><span class="lineNum">     174</span>                 :             :         return contentType();</a>
-<a name="175"><span class="lineNum">     175</span>                 :             :     }</a>
-<a name="176"><span class="lineNum">     176</span>                 :             : </a>
-<a name="177"><span class="lineNum">     177</span>                 :             :     /// Get the header string identified by the key parameter.</a>
-<a name="178"><span class="lineNum">     178</span>                 :             :     /**</a>
-<a name="179"><span class="lineNum">     179</span>                 :             :      * @note</a>
-<a name="180"><span class="lineNum">     180</span>                 :             :      * If there is no the header, a empty string is retured.</a>
-<a name="181"><span class="lineNum">     181</span>                 :             :      * The key is case insensitive</a>
-<a name="182"><span class="lineNum">     182</span>                 :             :      */</a>
-<a name="183"><span class="lineNum">     183</span>                 :             :     virtual const std::string &amp;getHeader(std::string key) const = 0;</a>
-<a name="184"><span class="lineNum">     184</span>                 :             : </a>
-<a name="185"><span class="lineNum">     185</span>                 :             :     /**</a>
-<a name="186"><span class="lineNum">     186</span>                 :             :      * @brief  Remove the header identified by the key parameter.</a>
-<a name="187"><span class="lineNum">     187</span>                 :             :      *</a>
-<a name="188"><span class="lineNum">     188</span>                 :             :      * @param key The key is case insensitive</a>
-<a name="189"><span class="lineNum">     189</span>                 :             :      */</a>
-<a name="190"><span class="lineNum">     190</span>                 :             :     virtual void removeHeader(std::string key) = 0;</a>
-<a name="191"><span class="lineNum">     191</span>                 :             : </a>
-<a name="192"><span class="lineNum">     192</span>                 :             :     /// Get all headers of the response</a>
-<a name="193"><span class="lineNum">     193</span>                 :             :     virtual const std::unordered_map&lt;std::string, std::string&gt; &amp;headers()</a>
-<a name="194"><span class="lineNum">     194</span>                 :             :         const = 0;</a>
-<a name="195"><span class="lineNum">     195</span>                 :             : </a>
-<a name="196"><span class="lineNum">     196</span>                 :             :     /// Get all headers of the response</a>
-<a name="197"><span class="lineNum">     197</span>                 :             :     const std::unordered_map&lt;std::string, std::string&gt; &amp;getHeaders() const</a>
-<a name="198"><span class="lineNum">     198</span>                 :             :     {</a>
-<a name="199"><span class="lineNum">     199</span>                 :             :         return headers();</a>
-<a name="200"><span class="lineNum">     200</span>                 :             :     }</a>
-<a name="201"><span class="lineNum">     201</span>                 :             : </a>
-<a name="202"><span class="lineNum">     202</span>                 :             :     /**</a>
-<a name="203"><span class="lineNum">     203</span>                 :             :      * @brief Set the header string identified by the field parameter</a>
-<a name="204"><span class="lineNum">     204</span>                 :             :      *</a>
-<a name="205"><span class="lineNum">     205</span>                 :             :      * @param field The field parameter is transformed to lower case before</a>
-<a name="206"><span class="lineNum">     206</span>                 :             :      * storing.</a>
-<a name="207"><span class="lineNum">     207</span>                 :             :      * @param value The value of the header.</a>
-<a name="208"><span class="lineNum">     208</span>                 :             :      */</a>
-<a name="209"><span class="lineNum">     209</span>                 :             :     virtual void addHeader(std::string field, const std::string &amp;value) = 0;</a>
-<a name="210"><span class="lineNum">     210</span>                 :             :     virtual void addHeader(std::string field, std::string &amp;&amp;value) = 0;</a>
-<a name="211"><span class="lineNum">     211</span>                 :             : </a>
-<a name="212"><span class="lineNum">     212</span>                 :             :     /// Add a cookie</a>
-<a name="213"><span class="lineNum">     213</span>                 :             :     virtual void addCookie(const std::string &amp;key,</a>
-<a name="214"><span class="lineNum">     214</span>                 :             :                            const std::string &amp;value) = 0;</a>
+<a name="22"><span class="lineNum">      22</span>                 :             : #include &lt;drogon/utils/Utilities.h&gt;</a>
+<a name="23"><span class="lineNum">      23</span>                 :             : #include &lt;json/json.h&gt;</a>
+<a name="24"><span class="lineNum">      24</span>                 :             : #include &lt;memory&gt;</a>
+<a name="25"><span class="lineNum">      25</span>                 :             : #include &lt;string&gt;</a>
+<a name="26"><span class="lineNum">      26</span>                 :             : </a>
+<a name="27"><span class="lineNum">      27</span>                 :             : namespace drogon</a>
+<a name="28"><span class="lineNum">      28</span>                 :             : {</a>
+<a name="29"><span class="lineNum">      29</span>                 :             : /// Abstract class for webapp developer to get or set the Http response;</a>
+<a name="30"><span class="lineNum">      30</span>                 :             : class HttpResponse;</a>
+<a name="31"><span class="lineNum">      31</span>                 :             : using HttpResponsePtr = std::shared_ptr&lt;HttpResponse&gt;;</a>
+<a name="32"><span class="lineNum">      32</span>                 :             : </a>
+<a name="33"><span class="lineNum">      33</span>                 :             : /**</a>
+<a name="34"><span class="lineNum">      34</span>                 :             :  * @brief This template is used to convert a response object to a custom</a>
+<a name="35"><span class="lineNum">      35</span>                 :             :  * type object. Users must specialize the template for a particular type.</a>
+<a name="36"><span class="lineNum">      36</span>                 :             :  */</a>
+<a name="37"><span class="lineNum">      37</span>                 :             : template &lt;typename T&gt;</a>
+<a name="38"><span class="lineNum">      38</span>                 :             : T fromResponse(const HttpResponse &amp;resp)</a>
+<a name="39"><span class="lineNum">      39</span>                 :             : {</a>
+<a name="40"><span class="lineNum">      40</span>                 :             :     LOG_ERROR</a>
+<a name="41"><span class="lineNum">      41</span>                 :             :         &lt;&lt; &quot;You must specialize the fromResponse template for the type of &quot;</a>
+<a name="42"><span class="lineNum">      42</span>                 :             :         &lt;&lt; DrClassMap::demangle(typeid(T).name());</a>
+<a name="43"><span class="lineNum">      43</span>                 :             :     exit(1);</a>
+<a name="44"><span class="lineNum">      44</span>                 :             : }</a>
+<a name="45"><span class="lineNum">      45</span>                 :             : </a>
+<a name="46"><span class="lineNum">      46</span>                 :             : /**</a>
+<a name="47"><span class="lineNum">      47</span>                 :             :  * @brief This template is used to create a response object from a custom</a>
+<a name="48"><span class="lineNum">      48</span>                 :             :  * type object by calling the newCustomHttpResponse(). Users must specialize</a>
+<a name="49"><span class="lineNum">      49</span>                 :             :  * the template for a particular type.</a>
+<a name="50"><span class="lineNum">      50</span>                 :             :  */</a>
+<a name="51"><span class="lineNum">      51</span>                 :             : template &lt;typename T&gt;</a>
+<a name="52"><span class="lineNum">      52</span>                 :             : HttpResponsePtr toResponse(T &amp;&amp;)</a>
+<a name="53"><span class="lineNum">      53</span>                 :             : {</a>
+<a name="54"><span class="lineNum">      54</span>                 :             :     LOG_ERROR &lt;&lt; &quot;You must specialize the toResponse template for the type of &quot;</a>
+<a name="55"><span class="lineNum">      55</span>                 :             :               &lt;&lt; DrClassMap::demangle(typeid(T).name());</a>
+<a name="56"><span class="lineNum">      56</span>                 :             :     exit(1);</a>
+<a name="57"><span class="lineNum">      57</span>                 :             : }</a>
+<a name="58"><span class="lineNum">      58</span>                 :             : template &lt;&gt;</a>
+<a name="59"><span class="lineNum">      59</span>                 :             : HttpResponsePtr toResponse&lt;const Json::Value &amp;&gt;(const Json::Value &amp;pJson);</a>
+<a name="60"><span class="lineNum">      60</span>                 :             : template &lt;&gt;</a>
+<a name="61"><span class="lineNum">      61</span>                 :             : HttpResponsePtr toResponse(Json::Value &amp;&amp;pJson);</a>
+<a name="62"><span class="lineNum">      62</span>                 :             : template &lt;&gt;</a>
+<a name="63"><span class="lineNum">      63</span>                 :             : inline HttpResponsePtr toResponse&lt;Json::Value &amp;&gt;(Json::Value &amp;pJson)</a>
+<a name="64"><span class="lineNum">      64</span>                 :             : {</a>
+<a name="65"><span class="lineNum">      65</span>                 :             :     return toResponse((const Json::Value &amp;)pJson);</a>
+<a name="66"><span class="lineNum">      66</span>                 :             : }</a>
+<a name="67"><span class="lineNum">      67</span>                 :             : </a>
+<a name="68"><span class="lineNum">      68</span>                 :             : class DROGON_EXPORT HttpResponse</a>
+<a name="69"><span class="lineNum">      69</span>                 :             : {</a>
+<a name="70"><span class="lineNum">      70</span>                 :             :   public:</a>
+<a name="71"><span class="lineNum">      71</span>                 :             :     /**</a>
+<a name="72"><span class="lineNum">      72</span>                 :             :      * @brief This template enables automatic type conversion. For using this</a>
+<a name="73"><span class="lineNum">      73</span>                 :             :      * template, user must specialize the fromResponse template. For example a</a>
+<a name="74"><span class="lineNum">      74</span>                 :             :      * shared_ptr&lt;Json::Value&gt; specialization version is available above, so</a>
+<a name="75"><span class="lineNum">      75</span>                 :             :      * we can use the following code to get a json object:</a>
+<a name="76"><span class="lineNum">      76</span>                 :             :      * @code</a>
+<a name="77"><span class="lineNum">      77</span>                 :             :      *  std::shared_ptr&lt;Json::Value&gt; jsonPtr = *responsePtr;</a>
+<a name="78"><span class="lineNum">      78</span>                 :             :      *  @endcode</a>
+<a name="79"><span class="lineNum">      79</span>                 :             :      * With this template, user can use their favorite JSON library instead of</a>
+<a name="80"><span class="lineNum">      80</span>                 :             :      * the default jsoncpp library or convert the response to an object of any</a>
+<a name="81"><span class="lineNum">      81</span>                 :             :      * custom type.</a>
+<a name="82"><span class="lineNum">      82</span>                 :             :      */</a>
+<a name="83"><span class="lineNum">      83</span>                 :             :     template &lt;typename T&gt;</a>
+<a name="84"><span class="lineNum">      84</span>                 :             :     operator T() const</a>
+<a name="85"><span class="lineNum">      85</span>                 :             :     {</a>
+<a name="86"><span class="lineNum">      86</span>                 :             :         return fromResponse&lt;T&gt;(*this);</a>
+<a name="87"><span class="lineNum">      87</span>                 :             :     }</a>
+<a name="88"><span class="lineNum">      88</span>                 :             : </a>
+<a name="89"><span class="lineNum">      89</span>                 :             :     /**</a>
+<a name="90"><span class="lineNum">      90</span>                 :             :      * @brief This template enables explicit type conversion, see the above</a>
+<a name="91"><span class="lineNum">      91</span>                 :             :      * template.</a>
+<a name="92"><span class="lineNum">      92</span>                 :             :      */</a>
+<a name="93"><span class="lineNum">      93</span>                 :             :     template &lt;typename T&gt;</a>
+<a name="94"><span class="lineNum">      94</span>                 :             :     T as() const</a>
+<a name="95"><span class="lineNum">      95</span>                 :             :     {</a>
+<a name="96"><span class="lineNum">      96</span>                 :             :         return fromResponse&lt;T&gt;(*this);</a>
+<a name="97"><span class="lineNum">      97</span>                 :             :     }</a>
+<a name="98"><span class="lineNum">      98</span>                 :             : </a>
+<a name="99"><span class="lineNum">      99</span>                 :             :     /// Get the status code such as 200, 404</a>
+<a name="100"><span class="lineNum">     100</span>                 :             :     virtual HttpStatusCode statusCode() const = 0;</a>
+<a name="101"><span class="lineNum">     101</span>                 :             :     HttpStatusCode getStatusCode() const</a>
+<a name="102"><span class="lineNum">     102</span>                 :             :     {</a>
+<a name="103"><span class="lineNum">     103</span>                 :             :         return statusCode();</a>
+<a name="104"><span class="lineNum">     104</span>                 :             :     }</a>
+<a name="105"><span class="lineNum">     105</span>                 :             : </a>
+<a name="106"><span class="lineNum">     106</span>                 :             :     /// Set the status code of the response.</a>
+<a name="107"><span class="lineNum">     107</span>                 :             :     virtual void setStatusCode(HttpStatusCode code) = 0;</a>
+<a name="108"><span class="lineNum">     108</span>                 :             : </a>
+<a name="109"><span class="lineNum">     109</span>                 :             :     void setCustomStatusCode(int code, string_view message = string_view{})</a>
+<a name="110"><span class="lineNum">     110</span>                 :             :     {</a>
+<a name="111"><span class="lineNum">     111</span>                 :             :         setCustomStatusCode(code, message.data(), message.length());</a>
+<a name="112"><span class="lineNum">     112</span>                 :             :     }</a>
+<a name="113"><span class="lineNum">     113</span>                 :             : </a>
+<a name="114"><span class="lineNum">     114</span>                 :             :     /// Get the creation timestamp of the response.</a>
+<a name="115"><span class="lineNum">     115</span>                 :             :     virtual const trantor::Date &amp;creationDate() const = 0;</a>
+<a name="116"><span class="lineNum">     116</span>                 :             :     const trantor::Date &amp;getCreationDate() const</a>
+<a name="117"><span class="lineNum">     117</span>                 :             :     {</a>
+<a name="118"><span class="lineNum">     118</span>                 :             :         return creationDate();</a>
+<a name="119"><span class="lineNum">     119</span>                 :             :     }</a>
+<a name="120"><span class="lineNum">     120</span>                 :             : </a>
+<a name="121"><span class="lineNum">     121</span>                 :             :     /// Set the http version, http1.0 or http1.1</a>
+<a name="122"><span class="lineNum">     122</span>                 :             :     virtual void setVersion(const Version v) = 0;</a>
+<a name="123"><span class="lineNum">     123</span>                 :             : </a>
+<a name="124"><span class="lineNum">     124</span>                 :             :     /// Set if close the connection after the request is sent.</a>
+<a name="125"><span class="lineNum">     125</span>                 :             :     /**</a>
+<a name="126"><span class="lineNum">     126</span>                 :             :      * @param on if the parameter is false, the connection keeps alive on the</a>
+<a name="127"><span class="lineNum">     127</span>                 :             :      * condition that the client request has a 'keep-alive' head, otherwise it</a>
+<a name="128"><span class="lineNum">     128</span>                 :             :      * is closed immediately after sending the last byte of the response. It's</a>
+<a name="129"><span class="lineNum">     129</span>                 :             :      * false by default when the response is created.</a>
+<a name="130"><span class="lineNum">     130</span>                 :             :      */</a>
+<a name="131"><span class="lineNum">     131</span>                 :             :     virtual void setCloseConnection(bool on) = 0;</a>
+<a name="132"><span class="lineNum">     132</span>                 :             : </a>
+<a name="133"><span class="lineNum">     133</span>                 :             :     /// Get the status set by the setCloseConnection() method.</a>
+<a name="134"><span class="lineNum">     134</span>                 :             :     virtual bool ifCloseConnection() const = 0;</a>
+<a name="135"><span class="lineNum">     135</span>                 :             : </a>
+<a name="136"><span class="lineNum">     136</span>                 :             :     /// Set the response content type, such as text/html, text/plain, image/png</a>
+<a name="137"><span class="lineNum">     137</span>                 :             :     /// and so on. If the content type</a>
+<a name="138"><span class="lineNum">     138</span>                 :             :     /// is a text type, the character set is utf8.</a>
+<a name="139"><span class="lineNum">     139</span>                 :             :     virtual void setContentTypeCode(ContentType type) = 0;</a>
+<a name="140"><span class="lineNum">     140</span>                 :             : </a>
+<a name="141"><span class="lineNum">     141</span>                 :             :     /// Set the content-type string, The string may contain the header name and</a>
+<a name="142"><span class="lineNum">     142</span>                 :             :     /// CRLF. Or just the MIME type For example, &quot;content-type: text/plain\r\n&quot;</a>
+<a name="143"><span class="lineNum">     143</span>                 :             :     /// or &quot;text/plain&quot;</a>
+<a name="144"><span class="lineNum">     144</span>                 :             :     void setContentTypeString(const string_view &amp;typeString)</a>
+<a name="145"><span class="lineNum">     145</span>                 :             :     {</a>
+<a name="146"><span class="lineNum">     146</span>                 :             :         setContentTypeString(typeString.data(), typeString.size());</a>
+<a name="147"><span class="lineNum">     147</span>                 :             :     }</a>
+<a name="148"><span class="lineNum">     148</span>                 :             : </a>
+<a name="149"><span class="lineNum">     149</span>                 :             :     /// Set the response content type and the content-type string, The string</a>
+<a name="150"><span class="lineNum">     150</span>                 :             :     /// may contain the header name and CRLF. Or just the MIME type</a>
+<a name="151"><span class="lineNum">     151</span>                 :             :     /// For example, &quot;content-type: text/plain\r\n&quot; or &quot;text/plain&quot;</a>
+<a name="152"><span class="lineNum">     152</span>                 :             :     void setContentTypeCodeAndCustomString(ContentType type,</a>
+<a name="153"><span class="lineNum">     153</span>                 :             :                                            const string_view &amp;typeString)</a>
+<a name="154"><span class="lineNum">     154</span>                 :             :     {</a>
+<a name="155"><span class="lineNum">     155</span>                 :             :         setContentTypeCodeAndCustomString(type,</a>
+<a name="156"><span class="lineNum">     156</span>                 :             :                                           typeString.data(),</a>
+<a name="157"><span class="lineNum">     157</span>                 :             :                                           typeString.length());</a>
+<a name="158"><span class="lineNum">     158</span>                 :             :     }</a>
+<a name="159"><span class="lineNum">     159</span>                 :             :     template &lt;int N&gt;</a>
+<a name="160"><span class="lineNum">     160</span>                 :             :     void setContentTypeCodeAndCustomString(ContentType type,</a>
+<a name="161"><span class="lineNum">     161</span>                 :             :                                            const char (&amp;typeString)[N])</a>
+<a name="162"><span class="lineNum">     162</span>                 :             :     {</a>
+<a name="163"><span class="lineNum">     163</span>                 :             :         assert(N &gt; 0);</a>
+<a name="164"><span class="lineNum">     164</span>                 :             :         setContentTypeCodeAndCustomString(type, typeString, N - 1);</a>
+<a name="165"><span class="lineNum">     165</span>                 :             :     }</a>
+<a name="166"><span class="lineNum">     166</span>                 :             : </a>
+<a name="167"><span class="lineNum">     167</span>                 :             :     /// Set the reponse content type and the character set.</a>
+<a name="168"><span class="lineNum">     168</span>                 :             :     /// virtual void setContentTypeCodeAndCharacterSet(ContentType type, const</a>
+<a name="169"><span class="lineNum">     169</span>                 :             :     /// std::string &amp;charSet = &quot;utf-8&quot;) = 0;</a>
+<a name="170"><span class="lineNum">     170</span>                 :             : </a>
+<a name="171"><span class="lineNum">     171</span>                 :             :     /// Get the response content type.</a>
+<a name="172"><span class="lineNum">     172</span>                 :             :     virtual ContentType contentType() const = 0;</a>
+<a name="173"><span class="lineNum">     173</span>                 :             :     ContentType getContentType() const</a>
+<a name="174"><span class="lineNum">     174</span>                 :             :     {</a>
+<a name="175"><span class="lineNum">     175</span>                 :             :         return contentType();</a>
+<a name="176"><span class="lineNum">     176</span>                 :             :     }</a>
+<a name="177"><span class="lineNum">     177</span>                 :             : </a>
+<a name="178"><span class="lineNum">     178</span>                 :             :     /// Get the header string identified by the key parameter.</a>
+<a name="179"><span class="lineNum">     179</span>                 :             :     /**</a>
+<a name="180"><span class="lineNum">     180</span>                 :             :      * @note</a>
+<a name="181"><span class="lineNum">     181</span>                 :             :      * If there is no the header, a empty string is retured.</a>
+<a name="182"><span class="lineNum">     182</span>                 :             :      * The key is case insensitive</a>
+<a name="183"><span class="lineNum">     183</span>                 :             :      */</a>
+<a name="184"><span class="lineNum">     184</span>                 :             :     virtual const std::string &amp;getHeader(std::string key) const = 0;</a>
+<a name="185"><span class="lineNum">     185</span>                 :             : </a>
+<a name="186"><span class="lineNum">     186</span>                 :             :     /**</a>
+<a name="187"><span class="lineNum">     187</span>                 :             :      * @brief  Remove the header identified by the key parameter.</a>
+<a name="188"><span class="lineNum">     188</span>                 :             :      *</a>
+<a name="189"><span class="lineNum">     189</span>                 :             :      * @param key The key is case insensitive</a>
+<a name="190"><span class="lineNum">     190</span>                 :             :      */</a>
+<a name="191"><span class="lineNum">     191</span>                 :             :     virtual void removeHeader(std::string key) = 0;</a>
+<a name="192"><span class="lineNum">     192</span>                 :             : </a>
+<a name="193"><span class="lineNum">     193</span>                 :             :     /// Get all headers of the response</a>
+<a name="194"><span class="lineNum">     194</span>                 :             :     virtual const std::</a>
+<a name="195"><span class="lineNum">     195</span>                 :             :         unordered_map&lt;std::string, std::string, utils::internal::SafeStringHash&gt;</a>
+<a name="196"><span class="lineNum">     196</span>                 :             :             &amp;headers() const = 0;</a>
+<a name="197"><span class="lineNum">     197</span>                 :             : </a>
+<a name="198"><span class="lineNum">     198</span>                 :             :     /// Get all headers of the response</a>
+<a name="199"><span class="lineNum">     199</span>                 :             :     const std::</a>
+<a name="200"><span class="lineNum">     200</span>                 :             :         unordered_map&lt;std::string, std::string, utils::internal::SafeStringHash&gt;</a>
+<a name="201"><span class="lineNum">     201</span>                 :             :             &amp;getHeaders() const</a>
+<a name="202"><span class="lineNum">     202</span>                 :             :     {</a>
+<a name="203"><span class="lineNum">     203</span>                 :             :         return headers();</a>
+<a name="204"><span class="lineNum">     204</span>                 :             :     }</a>
+<a name="205"><span class="lineNum">     205</span>                 :             : </a>
+<a name="206"><span class="lineNum">     206</span>                 :             :     /**</a>
+<a name="207"><span class="lineNum">     207</span>                 :             :      * @brief Set the header string identified by the field parameter</a>
+<a name="208"><span class="lineNum">     208</span>                 :             :      *</a>
+<a name="209"><span class="lineNum">     209</span>                 :             :      * @param field The field parameter is transformed to lower case before</a>
+<a name="210"><span class="lineNum">     210</span>                 :             :      * storing.</a>
+<a name="211"><span class="lineNum">     211</span>                 :             :      * @param value The value of the header.</a>
+<a name="212"><span class="lineNum">     212</span>                 :             :      */</a>
+<a name="213"><span class="lineNum">     213</span>                 :             :     virtual void addHeader(std::string field, const std::string &amp;value) = 0;</a>
+<a name="214"><span class="lineNum">     214</span>                 :             :     virtual void addHeader(std::string field, std::string &amp;&amp;value) = 0;</a>
 <a name="215"><span class="lineNum">     215</span>                 :             : </a>
 <a name="216"><span class="lineNum">     216</span>                 :             :     /// Add a cookie</a>
-<a name="217"><span class="lineNum">     217</span>                 :             :     virtual void addCookie(const Cookie &amp;cookie) = 0;</a>
-<a name="218"><span class="lineNum">     218</span>                 :             :     virtual void addCookie(Cookie &amp;&amp;cookie) = 0;</a>
+<a name="217"><span class="lineNum">     217</span>                 :             :     virtual void addCookie(const std::string &amp;key,</a>
+<a name="218"><span class="lineNum">     218</span>                 :             :                            const std::string &amp;value) = 0;</a>
 <a name="219"><span class="lineNum">     219</span>                 :             : </a>
-<a name="220"><span class="lineNum">     220</span>                 :             :     /// Get the cookie identified by the key parameter.</a>
-<a name="221"><span class="lineNum">     221</span>                 :             :     /// If there is no the cookie, the empty cookie is retured.</a>
-<a name="222"><span class="lineNum">     222</span>                 :             :     virtual const Cookie &amp;getCookie(const std::string &amp;key) const = 0;</a>
+<a name="220"><span class="lineNum">     220</span>                 :             :     /// Add a cookie</a>
+<a name="221"><span class="lineNum">     221</span>                 :             :     virtual void addCookie(const Cookie &amp;cookie) = 0;</a>
+<a name="222"><span class="lineNum">     222</span>                 :             :     virtual void addCookie(Cookie &amp;&amp;cookie) = 0;</a>
 <a name="223"><span class="lineNum">     223</span>                 :             : </a>
-<a name="224"><span class="lineNum">     224</span>                 :             :     /// Get all cookies.</a>
-<a name="225"><span class="lineNum">     225</span>                 :             :     virtual const std::unordered_map&lt;std::string, Cookie&gt; &amp;cookies() const = 0;</a>
-<a name="226"><span class="lineNum">     226</span>                 :             : </a>
-<a name="227"><span class="lineNum">     227</span>                 :             :     /// Get all cookies.</a>
-<a name="228"><span class="lineNum">     228</span>                 :             :     const std::unordered_map&lt;std::string, Cookie&gt; &amp;getCookies() const</a>
-<a name="229"><span class="lineNum">     229</span>                 :             :     {</a>
-<a name="230"><span class="lineNum">     230</span>                 :             :         return cookies();</a>
-<a name="231"><span class="lineNum">     231</span>                 :             :     }</a>
+<a name="224"><span class="lineNum">     224</span>                 :             :     /// Get the cookie identified by the key parameter.</a>
+<a name="225"><span class="lineNum">     225</span>                 :             :     /// If there is no the cookie, the empty cookie is retured.</a>
+<a name="226"><span class="lineNum">     226</span>                 :             :     virtual const Cookie &amp;getCookie(const std::string &amp;key) const = 0;</a>
+<a name="227"><span class="lineNum">     227</span>                 :             : </a>
+<a name="228"><span class="lineNum">     228</span>                 :             :     /// Get all cookies.</a>
+<a name="229"><span class="lineNum">     229</span>                 :             :     virtual const std::</a>
+<a name="230"><span class="lineNum">     230</span>                 :             :         unordered_map&lt;std::string, Cookie, utils::internal::SafeStringHash&gt;</a>
+<a name="231"><span class="lineNum">     231</span>                 :             :             &amp;cookies() const = 0;</a>
 <a name="232"><span class="lineNum">     232</span>                 :             : </a>
-<a name="233"><span class="lineNum">     233</span>                 :             :     /// Remove the cookie identified by the key parameter.</a>
-<a name="234"><span class="lineNum">     234</span>                 :             :     virtual void removeCookie(const std::string &amp;key) = 0;</a>
-<a name="235"><span class="lineNum">     235</span>                 :             : </a>
-<a name="236"><span class="lineNum">     236</span>                 :             :     /// Set the response body(content).</a>
-<a name="237"><span class="lineNum">     237</span>                 :             :     /**</a>
-<a name="238"><span class="lineNum">     238</span>                 :             :      * @note The body must match the content type</a>
-<a name="239"><span class="lineNum">     239</span>                 :             :      */</a>
-<a name="240"><span class="lineNum">     240</span>                 :             :     virtual void setBody(const std::string &amp;body) = 0;</a>
-<a name="241"><span class="lineNum">     241</span>                 :             : </a>
-<a name="242"><span class="lineNum">     242</span>                 :             :     /// Set the response body(content).</a>
-<a name="243"><span class="lineNum">     243</span>                 :             :     virtual void setBody(std::string &amp;&amp;body) = 0;</a>
-<a name="244"><span class="lineNum">     244</span>                 :             : </a>
-<a name="245"><span class="lineNum">     245</span>                 :             :     /// Set the response body(content).</a>
-<a name="246"><span class="lineNum">     246</span>                 :             :     template &lt;int N&gt;</a>
-<a name="247"><span class="lineNum">     247</span>                 :             :     void setBody(const char (&amp;body)[N])</a>
-<a name="248"><span class="lineNum">     248</span>                 :             :     {</a>
-<a name="249"><span class="lineNum">     249</span>                 :             :         assert(strnlen(body, N) == N - 1);</a>
-<a name="250"><span class="lineNum">     250</span>                 :             :         setBody(body, N - 1);</a>
-<a name="251"><span class="lineNum">     251</span>                 :             :     }</a>
+<a name="233"><span class="lineNum">     233</span>                 :             :     /// Get all cookies.</a>
+<a name="234"><span class="lineNum">     234</span>                 :             :     const std::</a>
+<a name="235"><span class="lineNum">     235</span>                 :             :         unordered_map&lt;std::string, Cookie, utils::internal::SafeStringHash&gt;</a>
+<a name="236"><span class="lineNum">     236</span>                 :             :             &amp;getCookies() const</a>
+<a name="237"><span class="lineNum">     237</span>                 :             :     {</a>
+<a name="238"><span class="lineNum">     238</span>                 :             :         return cookies();</a>
+<a name="239"><span class="lineNum">     239</span>                 :             :     }</a>
+<a name="240"><span class="lineNum">     240</span>                 :             : </a>
+<a name="241"><span class="lineNum">     241</span>                 :             :     /// Remove the cookie identified by the key parameter.</a>
+<a name="242"><span class="lineNum">     242</span>                 :             :     virtual void removeCookie(const std::string &amp;key) = 0;</a>
+<a name="243"><span class="lineNum">     243</span>                 :             : </a>
+<a name="244"><span class="lineNum">     244</span>                 :             :     /// Set the response body(content).</a>
+<a name="245"><span class="lineNum">     245</span>                 :             :     /**</a>
+<a name="246"><span class="lineNum">     246</span>                 :             :      * @note The body must match the content type</a>
+<a name="247"><span class="lineNum">     247</span>                 :             :      */</a>
+<a name="248"><span class="lineNum">     248</span>                 :             :     virtual void setBody(const std::string &amp;body) = 0;</a>
+<a name="249"><span class="lineNum">     249</span>                 :             : </a>
+<a name="250"><span class="lineNum">     250</span>                 :             :     /// Set the response body(content).</a>
+<a name="251"><span class="lineNum">     251</span>                 :             :     virtual void setBody(std::string &amp;&amp;body) = 0;</a>
 <a name="252"><span class="lineNum">     252</span>                 :             : </a>
-<a name="253"><span class="lineNum">     253</span>                 :             :     /// Get the response body.</a>
-<a name="254"><span class="lineNum">     254</span>                 :<span class="tlaGNC">          12 :     string_view body() const</span></a>
-<a name="255"><span class="lineNum">     255</span>                 :             :     {</a>
-<a name="256"><span class="lineNum">     256</span>   [<span class="tlaGBC" title="Branch 0 was taken 12 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span><span class="tlaGBC" title="Branch 2 was taken 12 times"> + </span><span class="tlaUNC" title="Branch 3 was not taken"> - </span>]:<span class="tlaGNC">          12 :         return string_view{getBodyData(), getBodyLength()};</span></a>
-<a name="257"><span class="lineNum">     257</span>                 :             :     }</a>
-<a name="258"><span class="lineNum">     258</span>                 :             : </a>
-<a name="259"><span class="lineNum">     259</span>                 :             :     /// Get the response body.</a>
-<a name="260"><span class="lineNum">     260</span>                 :             :     string_view getBody() const</a>
-<a name="261"><span class="lineNum">     261</span>                 :             :     {</a>
-<a name="262"><span class="lineNum">     262</span>                 :             :         return body();</a>
-<a name="263"><span class="lineNum">     263</span>                 :             :     }</a>
-<a name="264"><span class="lineNum">     264</span>                 :             : </a>
-<a name="265"><span class="lineNum">     265</span>                 :             :     /// Return the string of http version of request, such as HTTP/1.0,</a>
-<a name="266"><span class="lineNum">     266</span>                 :             :     /// HTTP/1.1, etc.</a>
-<a name="267"><span class="lineNum">     267</span>                 :             :     virtual const char *versionString() const = 0;</a>
-<a name="268"><span class="lineNum">     268</span>                 :             :     const char *getVersionString() const</a>
+<a name="253"><span class="lineNum">     253</span>                 :             :     /// Set the response body(content).</a>
+<a name="254"><span class="lineNum">     254</span>                 :             :     template &lt;int N&gt;</a>
+<a name="255"><span class="lineNum">     255</span>                 :             :     void setBody(const char (&amp;body)[N])</a>
+<a name="256"><span class="lineNum">     256</span>                 :             :     {</a>
+<a name="257"><span class="lineNum">     257</span>                 :             :         assert(strnlen(body, N) == N - 1);</a>
+<a name="258"><span class="lineNum">     258</span>                 :             :         setBody(body, N - 1);</a>
+<a name="259"><span class="lineNum">     259</span>                 :             :     }</a>
+<a name="260"><span class="lineNum">     260</span>                 :             : </a>
+<a name="261"><span class="lineNum">     261</span>                 :             :     /// Get the response body.</a>
+<a name="262"><span class="lineNum">     262</span>                 :<span class="tlaGNC">          12 :     string_view body() const</span></a>
+<a name="263"><span class="lineNum">     263</span>                 :             :     {</a>
+<a name="264"><span class="lineNum">     264</span>   [<span class="tlaGBC" title="Branch 0 was taken 12 times"> + </span><span class="tlaUNC" title="Branch 1 was not taken"> - </span><span class="tlaGBC" title="Branch 2 was taken 12 times"> + </span><span class="tlaUNC" title="Branch 3 was not taken"> - </span>]:<span class="tlaGNC">          12 :         return string_view{getBodyData(), getBodyLength()};</span></a>
+<a name="265"><span class="lineNum">     265</span>                 :             :     }</a>
+<a name="266"><span class="lineNum">     266</span>                 :             : </a>
+<a name="267"><span class="lineNum">     267</span>                 :             :     /// Get the response body.</a>
+<a name="268"><span class="lineNum">     268</span>                 :             :     string_view getBody() const</a>
 <a name="269"><span class="lineNum">     269</span>                 :             :     {</a>
-<a name="270"><span class="lineNum">     270</span>                 :             :         return versionString();</a>
+<a name="270"><span class="lineNum">     270</span>                 :             :         return body();</a>
 <a name="271"><span class="lineNum">     271</span>                 :             :     }</a>
 <a name="272"><span class="lineNum">     272</span>                 :             : </a>
-<a name="273"><span class="lineNum">     273</span>                 :             :     /// Return the enum type version of the response.</a>
-<a name="274"><span class="lineNum">     274</span>                 :             :     /**</a>
-<a name="275"><span class="lineNum">     275</span>                 :             :      * kHttp10 means Http version is 1.0</a>
-<a name="276"><span class="lineNum">     276</span>                 :             :      * kHttp11 means Http verison is 1.1</a>
-<a name="277"><span class="lineNum">     277</span>                 :             :      */</a>
-<a name="278"><span class="lineNum">     278</span>                 :             :     virtual Version version() const = 0;</a>
-<a name="279"><span class="lineNum">     279</span>                 :             : </a>
-<a name="280"><span class="lineNum">     280</span>                 :             :     /// Return the enum type version of the response.</a>
-<a name="281"><span class="lineNum">     281</span>                 :             :     Version getVersion() const</a>
-<a name="282"><span class="lineNum">     282</span>                 :             :     {</a>
-<a name="283"><span class="lineNum">     283</span>                 :             :         return version();</a>
-<a name="284"><span class="lineNum">     284</span>                 :             :     }</a>
-<a name="285"><span class="lineNum">     285</span>                 :             : </a>
-<a name="286"><span class="lineNum">     286</span>                 :             :     /// Reset the reponse object to its initial state</a>
-<a name="287"><span class="lineNum">     287</span>                 :             :     virtual void clear() = 0;</a>
-<a name="288"><span class="lineNum">     288</span>                 :             : </a>
-<a name="289"><span class="lineNum">     289</span>                 :             :     /// Set the expiration time of the response cache in memory.</a>
-<a name="290"><span class="lineNum">     290</span>                 :             :     /// in seconds, 0 means always cache, negative means not cache, default is</a>
-<a name="291"><span class="lineNum">     291</span>                 :             :     /// -1.</a>
-<a name="292"><span class="lineNum">     292</span>                 :             :     virtual void setExpiredTime(ssize_t expiredTime) = 0;</a>
+<a name="273"><span class="lineNum">     273</span>                 :             :     /// Return the string of http version of request, such as HTTP/1.0,</a>
+<a name="274"><span class="lineNum">     274</span>                 :             :     /// HTTP/1.1, etc.</a>
+<a name="275"><span class="lineNum">     275</span>                 :             :     virtual const char *versionString() const = 0;</a>
+<a name="276"><span class="lineNum">     276</span>                 :             :     const char *getVersionString() const</a>
+<a name="277"><span class="lineNum">     277</span>                 :             :     {</a>
+<a name="278"><span class="lineNum">     278</span>                 :             :         return versionString();</a>
+<a name="279"><span class="lineNum">     279</span>                 :             :     }</a>
+<a name="280"><span class="lineNum">     280</span>                 :             : </a>
+<a name="281"><span class="lineNum">     281</span>                 :             :     /// Return the enum type version of the response.</a>
+<a name="282"><span class="lineNum">     282</span>                 :             :     /**</a>
+<a name="283"><span class="lineNum">     283</span>                 :             :      * kHttp10 means Http version is 1.0</a>
+<a name="284"><span class="lineNum">     284</span>                 :             :      * kHttp11 means Http verison is 1.1</a>
+<a name="285"><span class="lineNum">     285</span>                 :             :      */</a>
+<a name="286"><span class="lineNum">     286</span>                 :             :     virtual Version version() const = 0;</a>
+<a name="287"><span class="lineNum">     287</span>                 :             : </a>
+<a name="288"><span class="lineNum">     288</span>                 :             :     /// Return the enum type version of the response.</a>
+<a name="289"><span class="lineNum">     289</span>                 :             :     Version getVersion() const</a>
+<a name="290"><span class="lineNum">     290</span>                 :             :     {</a>
+<a name="291"><span class="lineNum">     291</span>                 :             :         return version();</a>
+<a name="292"><span class="lineNum">     292</span>                 :             :     }</a>
 <a name="293"><span class="lineNum">     293</span>                 :             : </a>
-<a name="294"><span class="lineNum">     294</span>                 :             :     /// Get the expiration time of the response.</a>
-<a name="295"><span class="lineNum">     295</span>                 :             :     virtual ssize_t expiredTime() const = 0;</a>
-<a name="296"><span class="lineNum">     296</span>                 :             :     ssize_t getExpiredTime() const</a>
-<a name="297"><span class="lineNum">     297</span>                 :             :     {</a>
-<a name="298"><span class="lineNum">     298</span>                 :             :         return expiredTime();</a>
-<a name="299"><span class="lineNum">     299</span>                 :             :     }</a>
-<a name="300"><span class="lineNum">     300</span>                 :             : </a>
-<a name="301"><span class="lineNum">     301</span>                 :             :     /// Get the json object from the server response.</a>
-<a name="302"><span class="lineNum">     302</span>                 :             :     /// If the response is not in json format, then a empty shared_ptr is</a>
-<a name="303"><span class="lineNum">     303</span>                 :             :     /// retured.</a>
-<a name="304"><span class="lineNum">     304</span>                 :             :     virtual const std::shared_ptr&lt;Json::Value&gt; &amp;jsonObject() const = 0;</a>
-<a name="305"><span class="lineNum">     305</span>                 :             :     const std::shared_ptr&lt;Json::Value&gt; &amp;getJsonObject() const</a>
-<a name="306"><span class="lineNum">     306</span>                 :             :     {</a>
-<a name="307"><span class="lineNum">     307</span>                 :             :         return jsonObject();</a>
-<a name="308"><span class="lineNum">     308</span>                 :             :     }</a>
-<a name="309"><span class="lineNum">     309</span>                 :             : </a>
-<a name="310"><span class="lineNum">     310</span>                 :             :     /**</a>
-<a name="311"><span class="lineNum">     311</span>                 :             :      * @brief Get the error message of parsing the JSON body received from peer.</a>
-<a name="312"><span class="lineNum">     312</span>                 :             :      * This method usually is called after getting a empty shared_ptr object</a>
-<a name="313"><span class="lineNum">     313</span>                 :             :      * by the getJsonObject() method.</a>
-<a name="314"><span class="lineNum">     314</span>                 :             :      *</a>
-<a name="315"><span class="lineNum">     315</span>                 :             :      * @return const std::string&amp; The error message. An empty string is returned</a>
-<a name="316"><span class="lineNum">     316</span>                 :             :      * when no error occurs.</a>
-<a name="317"><span class="lineNum">     317</span>                 :             :      */</a>
-<a name="318"><span class="lineNum">     318</span>                 :             :     virtual const std::string &amp;getJsonError() const = 0;</a>
-<a name="319"><span class="lineNum">     319</span>                 :             : </a>
-<a name="320"><span class="lineNum">     320</span>                 :             :     /**</a>
-<a name="321"><span class="lineNum">     321</span>                 :             :      * @brief Set the reponse object to the pass-through mode or not. It's not</a>
-<a name="322"><span class="lineNum">     322</span>                 :             :      * by default when a new response object is created.</a>
-<a name="323"><span class="lineNum">     323</span>                 :             :      * In pass-through mode, no addtional headers (including server, date,</a>
-<a name="324"><span class="lineNum">     324</span>                 :             :      * content-type and content-length, etc.) are added to the response. This</a>
-<a name="325"><span class="lineNum">     325</span>                 :             :      * mode is useful for some applications such as a proxy.</a>
-<a name="326"><span class="lineNum">     326</span>                 :             :      *</a>
-<a name="327"><span class="lineNum">     327</span>                 :             :      * @param flag</a>
-<a name="328"><span class="lineNum">     328</span>                 :             :      */</a>
-<a name="329"><span class="lineNum">     329</span>                 :             :     virtual void setPassThrough(bool flag) = 0;</a>
-<a name="330"><span class="lineNum">     330</span>                 :             : </a>
-<a name="331"><span class="lineNum">     331</span>                 :             :     /* The following methods are a series of factory methods that help users</a>
-<a name="332"><span class="lineNum">     332</span>                 :             :      * create response objects. */</a>
-<a name="333"><span class="lineNum">     333</span>                 :             : </a>
-<a name="334"><span class="lineNum">     334</span>                 :             :     /// Create a normal response with a status code of 200ok and a content type</a>
-<a name="335"><span class="lineNum">     335</span>                 :             :     /// of text/html.</a>
-<a name="336"><span class="lineNum">     336</span>                 :             :     static HttpResponsePtr newHttpResponse();</a>
-<a name="337"><span class="lineNum">     337</span>                 :             :     /// Create a response which returns a 404 page.</a>
-<a name="338"><span class="lineNum">     338</span>                 :             :     static HttpResponsePtr newNotFoundResponse();</a>
-<a name="339"><span class="lineNum">     339</span>                 :             :     /// Create a response which returns a json object. Its content type is set</a>
-<a name="340"><span class="lineNum">     340</span>                 :             :     /// to set/json.</a>
-<a name="341"><span class="lineNum">     341</span>                 :             :     static HttpResponsePtr newHttpJsonResponse(const Json::Value &amp;data);</a>
-<a name="342"><span class="lineNum">     342</span>                 :             :     static HttpResponsePtr newHttpJsonResponse(Json::Value &amp;&amp;data);</a>
-<a name="343"><span class="lineNum">     343</span>                 :             :     /// Create a response that returns a page rendered by a view named</a>
-<a name="344"><span class="lineNum">     344</span>                 :             :     /// viewName.</a>
-<a name="345"><span class="lineNum">     345</span>                 :             :     /**</a>
-<a name="346"><span class="lineNum">     346</span>                 :             :      * @param viewName The name of the view</a>
-<a name="347"><span class="lineNum">     347</span>                 :             :      * @param data is the data displayed on the page.</a>
-<a name="348"><span class="lineNum">     348</span>                 :             :      * @note For more details, see the wiki pages, the &quot;View&quot; section.</a>
-<a name="349"><span class="lineNum">     349</span>                 :             :      */</a>
-<a name="350"><span class="lineNum">     350</span>                 :             :     static HttpResponsePtr newHttpViewResponse(</a>
-<a name="351"><span class="lineNum">     351</span>                 :             :         const std::string &amp;viewName,</a>
-<a name="352"><span class="lineNum">     352</span>                 :             :         const HttpViewData &amp;data = HttpViewData());</a>
-<a name="353"><span class="lineNum">     353</span>                 :             : </a>
-<a name="354"><span class="lineNum">     354</span>                 :             :     /// Create a response that returns a redirection page, redirecting to</a>
-<a name="355"><span class="lineNum">     355</span>                 :             :     /// another page located in the location parameter.</a>
-<a name="356"><span class="lineNum">     356</span>                 :             :     /**</a>
-<a name="357"><span class="lineNum">     357</span>                 :             :      * @param location The location to redirect</a>
-<a name="358"><span class="lineNum">     358</span>                 :             :      * @param status The HTTP status code, k302Found by default. Users could set</a>
-<a name="359"><span class="lineNum">     359</span>                 :             :      * it to one of the 301, 302, 303, 307, ...</a>
-<a name="360"><span class="lineNum">     360</span>                 :             :      */</a>
-<a name="361"><span class="lineNum">     361</span>                 :             :     static HttpResponsePtr newRedirectionResponse(</a>
-<a name="362"><span class="lineNum">     362</span>                 :             :         const std::string &amp;location,</a>
-<a name="363"><span class="lineNum">     363</span>                 :             :         HttpStatusCode status = k302Found);</a>
-<a name="364"><span class="lineNum">     364</span>                 :             : </a>
-<a name="365"><span class="lineNum">     365</span>                 :             :     /// Create a response that returns a file to the client.</a>
-<a name="366"><span class="lineNum">     366</span>                 :             :     /**</a>
-<a name="367"><span class="lineNum">     367</span>                 :             :      * @param fullPath is the full path to the file.</a>
-<a name="368"><span class="lineNum">     368</span>                 :             :      * @param attachmentFileName if the parameter is not empty, the browser</a>
-<a name="369"><span class="lineNum">     369</span>                 :             :      * does not open the file, but saves it as an attachment.</a>
-<a name="370"><span class="lineNum">     370</span>                 :             :      * @param type the content type code. If the parameter is CT_NONE, the</a>
-<a name="371"><span class="lineNum">     371</span>                 :             :      * content type is set by drogon based on the file extension and typeString.</a>
-<a name="372"><span class="lineNum">     372</span>                 :             :      * Set it to CT_CUSTOM when no drogon internal content type matches.</a>
-<a name="373"><span class="lineNum">     373</span>                 :             :      * @param typeString the MIME string of the content type.</a>
-<a name="374"><span class="lineNum">     374</span>                 :             :      */</a>
-<a name="375"><span class="lineNum">     375</span>                 :             :     static HttpResponsePtr newFileResponse(</a>
-<a name="376"><span class="lineNum">     376</span>                 :             :         const std::string &amp;fullPath,</a>
-<a name="377"><span class="lineNum">     377</span>                 :             :         const std::string &amp;attachmentFileName = &quot;&quot;,</a>
-<a name="378"><span class="lineNum">     378</span>                 :             :         ContentType type = CT_NONE,</a>
-<a name="379"><span class="lineNum">     379</span>                 :             :         const std::string &amp;typeString = &quot;&quot;);</a>
-<a name="380"><span class="lineNum">     380</span>                 :             : </a>
-<a name="381"><span class="lineNum">     381</span>                 :             :     /// Create a response that returns part of a file to the client.</a>
-<a name="382"><span class="lineNum">     382</span>                 :             :     /**</a>
-<a name="383"><span class="lineNum">     383</span>                 :             :      * @brief If offset and length can not be satisfied, statusCode will be set</a>
-<a name="384"><span class="lineNum">     384</span>                 :             :      * to k416RequestedRangeNotSatisfiable, and nothing else will be modified.</a>
-<a name="385"><span class="lineNum">     385</span>                 :             :      *</a>
-<a name="386"><span class="lineNum">     386</span>                 :             :      * @param fullPath is the full path to the file.</a>
-<a name="387"><span class="lineNum">     387</span>                 :             :      * @param offset is the offset to begin sending, in bytes.</a>
-<a name="388"><span class="lineNum">     388</span>                 :             :      * @param length is the total length to send, in bytes. In particular,</a>
-<a name="389"><span class="lineNum">     389</span>                 :             :      * length = 0 means send all content from offset till end of file.</a>
-<a name="390"><span class="lineNum">     390</span>                 :             :      * @param setContentRange whether set 'Content-Range' header automatically.</a>
-<a name="391"><span class="lineNum">     391</span>                 :             :      * @param attachmentFileName if the parameter is not empty, the browser</a>
-<a name="392"><span class="lineNum">     392</span>                 :             :      * does not open the file, but saves it as an attachment.</a>
-<a name="393"><span class="lineNum">     393</span>                 :             :      * @param type the content type code. If the parameter is CT_NONE, the</a>
-<a name="394"><span class="lineNum">     394</span>                 :             :      * content type is set by drogon based on the file extension and typeString.</a>
-<a name="395"><span class="lineNum">     395</span>                 :             :      * Set it to CT_CUSTOM when no drogon internal content type matches.</a>
-<a name="396"><span class="lineNum">     396</span>                 :             :      * @param typeString the MIME string of the content type.</a>
-<a name="397"><span class="lineNum">     397</span>                 :             :      */</a>
-<a name="398"><span class="lineNum">     398</span>                 :             :     static HttpResponsePtr newFileResponse(</a>
-<a name="399"><span class="lineNum">     399</span>                 :             :         const std::string &amp;fullPath,</a>
-<a name="400"><span class="lineNum">     400</span>                 :             :         size_t offset,</a>
-<a name="401"><span class="lineNum">     401</span>                 :             :         size_t length,</a>
-<a name="402"><span class="lineNum">     402</span>                 :             :         bool setContentRange = true,</a>
-<a name="403"><span class="lineNum">     403</span>                 :             :         const std::string &amp;attachmentFileName = &quot;&quot;,</a>
-<a name="404"><span class="lineNum">     404</span>                 :             :         ContentType type = CT_NONE,</a>
-<a name="405"><span class="lineNum">     405</span>                 :             :         const std::string &amp;typeString = &quot;&quot;);</a>
-<a name="406"><span class="lineNum">     406</span>                 :             : </a>
-<a name="407"><span class="lineNum">     407</span>                 :             :     /// Create a response that returns a file to the client from buffer in</a>
-<a name="408"><span class="lineNum">     408</span>                 :             :     /// memory/stack</a>
-<a name="409"><span class="lineNum">     409</span>                 :             :     /**</a>
-<a name="410"><span class="lineNum">     410</span>                 :             :      * @param pBuffer is a uint 8 bit flat buffer for object/files in memory</a>
-<a name="411"><span class="lineNum">     411</span>                 :             :      * @param bufferLength is the length of the expected buffer</a>
-<a name="412"><span class="lineNum">     412</span>                 :             :      * @param attachmentFileName if the parameter is not empty, the browser</a>
-<a name="413"><span class="lineNum">     413</span>                 :             :      * does not open the file, but saves it as an attachment.</a>
-<a name="414"><span class="lineNum">     414</span>                 :             :      * @param type the content type code. If the parameter is CT_NONE, the</a>
-<a name="415"><span class="lineNum">     415</span>                 :             :      * content type is set by drogon based on the file extension and typeString.</a>
-<a name="416"><span class="lineNum">     416</span>                 :             :      * Set it to CT_CUSTOM when no drogon internal content type matches.</a>
-<a name="417"><span class="lineNum">     417</span>                 :             :      * @param typeString the MIME string of the content type.</a>
-<a name="418"><span class="lineNum">     418</span>                 :             :      */</a>
-<a name="419"><span class="lineNum">     419</span>                 :             :     static HttpResponsePtr newFileResponse(</a>
-<a name="420"><span class="lineNum">     420</span>                 :             :         const unsigned char *pBuffer,</a>
-<a name="421"><span class="lineNum">     421</span>                 :             :         size_t bufferLength,</a>
-<a name="422"><span class="lineNum">     422</span>                 :             :         const std::string &amp;attachmentFileName = &quot;&quot;,</a>
-<a name="423"><span class="lineNum">     423</span>                 :             :         ContentType type = CT_NONE,</a>
-<a name="424"><span class="lineNum">     424</span>                 :             :         const std::string &amp;typeString = &quot;&quot;);</a>
-<a name="425"><span class="lineNum">     425</span>                 :             : </a>
-<a name="426"><span class="lineNum">     426</span>                 :             :     /// Create a response that returns a file to the client from a callback</a>
-<a name="427"><span class="lineNum">     427</span>                 :             :     /// function</a>
-<a name="428"><span class="lineNum">     428</span>                 :             :     /**</a>
-<a name="429"><span class="lineNum">     429</span>                 :             :      * @note if the Connection is keep-alive and the Content-Length header is</a>
-<a name="430"><span class="lineNum">     430</span>                 :             :      * not set, the stream data is sent with Transfer-Encoding: chunked.</a>
-<a name="431"><span class="lineNum">     431</span>                 :             :      * @param function to retrieve the stream data (stream ends when a zero size</a>
-<a name="432"><span class="lineNum">     432</span>                 :             :      * is returned) the callback will be called with nullptr when the send is</a>
-<a name="433"><span class="lineNum">     433</span>                 :             :      * finished/interruped so that it cleans up its internals.</a>
-<a name="434"><span class="lineNum">     434</span>                 :             :      * @param attachmentFileName if the parameter is not empty, the browser</a>
-<a name="435"><span class="lineNum">     435</span>                 :             :      *                           does not open the file, but saves it as an</a>
-<a name="436"><span class="lineNum">     436</span>                 :             :      * attachment.</a>
-<a name="437"><span class="lineNum">     437</span>                 :             :      * @param type the content type code. If the parameter is CT_NONE, the</a>
-<a name="438"><span class="lineNum">     438</span>                 :             :      *             content type is set by drogon based on the file extension and</a>
-<a name="439"><span class="lineNum">     439</span>                 :             :      * typeString. Set it to CT_CUSTOM when no drogon internal content type</a>
-<a name="440"><span class="lineNum">     440</span>                 :             :      * matches.</a>
-<a name="441"><span class="lineNum">     441</span>                 :             :      * @param typeString the MIME string of the content type.</a>
-<a name="442"><span class="lineNum">     442</span>                 :             :      */</a>
-<a name="443"><span class="lineNum">     443</span>                 :             :     static HttpResponsePtr newStreamResponse(</a>
-<a name="444"><span class="lineNum">     444</span>                 :             :         const std::function&lt;std::size_t(char *, std::size_t)&gt; &amp;callback,</a>
-<a name="445"><span class="lineNum">     445</span>                 :             :         const std::string &amp;attachmentFileName = &quot;&quot;,</a>
-<a name="446"><span class="lineNum">     446</span>                 :             :         ContentType type = CT_NONE,</a>
-<a name="447"><span class="lineNum">     447</span>                 :             :         const std::string &amp;typeString = &quot;&quot;);</a>
-<a name="448"><span class="lineNum">     448</span>                 :             : </a>
-<a name="449"><span class="lineNum">     449</span>                 :             :     /**</a>
-<a name="450"><span class="lineNum">     450</span>                 :             :      * @brief Create a custom HTTP response object. For using this template,</a>
-<a name="451"><span class="lineNum">     451</span>                 :             :      * users must specialize the toResponse template.</a>
-<a name="452"><span class="lineNum">     452</span>                 :             :      */</a>
-<a name="453"><span class="lineNum">     453</span>                 :             :     template &lt;typename T&gt;</a>
-<a name="454"><span class="lineNum">     454</span>                 :             :     static HttpResponsePtr newCustomHttpResponse(T &amp;&amp;obj)</a>
-<a name="455"><span class="lineNum">     455</span>                 :             :     {</a>
-<a name="456"><span class="lineNum">     456</span>                 :             :         return toResponse(std::forward&lt;T&gt;(obj));</a>
-<a name="457"><span class="lineNum">     457</span>                 :             :     }</a>
-<a name="458"><span class="lineNum">     458</span>                 :             : </a>
-<a name="459"><span class="lineNum">     459</span>                 :             :     /**</a>
-<a name="460"><span class="lineNum">     460</span>                 :             :      * @brief If the response is a file response (i.e. created by</a>
-<a name="461"><span class="lineNum">     461</span>                 :             :      * newFileResponse) returns the path on the filesystem. Otherwise a</a>
-<a name="462"><span class="lineNum">     462</span>                 :             :      * empty string.</a>
-<a name="463"><span class="lineNum">     463</span>                 :             :      */</a>
-<a name="464"><span class="lineNum">     464</span>                 :             :     virtual const std::string &amp;sendfileName() const = 0;</a>
-<a name="465"><span class="lineNum">     465</span>                 :             : </a>
-<a name="466"><span class="lineNum">     466</span>                 :             :     /**</a>
-<a name="467"><span class="lineNum">     467</span>                 :             :      * @brief Returns the range of the file response as a pair ot size_t</a>
-<a name="468"><span class="lineNum">     468</span>                 :             :      * (offset, length). Length of 0 means the entire file is sent. Behaivor of</a>
-<a name="469"><span class="lineNum">     469</span>                 :             :      * this function is undefined if the response if not a file response</a>
-<a name="470"><span class="lineNum">     470</span>                 :             :      */</a>
-<a name="471"><span class="lineNum">     471</span>                 :             :     using SendfileRange = std::pair&lt;size_t, size_t&gt;;  // { offset, length }</a>
-<a name="472"><span class="lineNum">     472</span>                 :             :     virtual const SendfileRange &amp;sendfileRange() const = 0;</a>
+<a name="294"><span class="lineNum">     294</span>                 :             :     /// Reset the reponse object to its initial state</a>
+<a name="295"><span class="lineNum">     295</span>                 :             :     virtual void clear() = 0;</a>
+<a name="296"><span class="lineNum">     296</span>                 :             : </a>
+<a name="297"><span class="lineNum">     297</span>                 :             :     /// Set the expiration time of the response cache in memory.</a>
+<a name="298"><span class="lineNum">     298</span>                 :             :     /// in seconds, 0 means always cache, negative means not cache, default is</a>
+<a name="299"><span class="lineNum">     299</span>                 :             :     /// -1.</a>
+<a name="300"><span class="lineNum">     300</span>                 :             :     virtual void setExpiredTime(ssize_t expiredTime) = 0;</a>
+<a name="301"><span class="lineNum">     301</span>                 :             : </a>
+<a name="302"><span class="lineNum">     302</span>                 :             :     /// Get the expiration time of the response.</a>
+<a name="303"><span class="lineNum">     303</span>                 :             :     virtual ssize_t expiredTime() const = 0;</a>
+<a name="304"><span class="lineNum">     304</span>                 :             :     ssize_t getExpiredTime() const</a>
+<a name="305"><span class="lineNum">     305</span>                 :             :     {</a>
+<a name="306"><span class="lineNum">     306</span>                 :             :         return expiredTime();</a>
+<a name="307"><span class="lineNum">     307</span>                 :             :     }</a>
+<a name="308"><span class="lineNum">     308</span>                 :             : </a>
+<a name="309"><span class="lineNum">     309</span>                 :             :     /// Get the json object from the server response.</a>
+<a name="310"><span class="lineNum">     310</span>                 :             :     /// If the response is not in json format, then a empty shared_ptr is</a>
+<a name="311"><span class="lineNum">     311</span>                 :             :     /// retured.</a>
+<a name="312"><span class="lineNum">     312</span>                 :             :     virtual const std::shared_ptr&lt;Json::Value&gt; &amp;jsonObject() const = 0;</a>
+<a name="313"><span class="lineNum">     313</span>                 :             :     const std::shared_ptr&lt;Json::Value&gt; &amp;getJsonObject() const</a>
+<a name="314"><span class="lineNum">     314</span>                 :             :     {</a>
+<a name="315"><span class="lineNum">     315</span>                 :             :         return jsonObject();</a>
+<a name="316"><span class="lineNum">     316</span>                 :             :     }</a>
+<a name="317"><span class="lineNum">     317</span>                 :             : </a>
+<a name="318"><span class="lineNum">     318</span>                 :             :     /**</a>
+<a name="319"><span class="lineNum">     319</span>                 :             :      * @brief Get the error message of parsing the JSON body received from peer.</a>
+<a name="320"><span class="lineNum">     320</span>                 :             :      * This method usually is called after getting a empty shared_ptr object</a>
+<a name="321"><span class="lineNum">     321</span>                 :             :      * by the getJsonObject() method.</a>
+<a name="322"><span class="lineNum">     322</span>                 :             :      *</a>
+<a name="323"><span class="lineNum">     323</span>                 :             :      * @return const std::string&amp; The error message. An empty string is returned</a>
+<a name="324"><span class="lineNum">     324</span>                 :             :      * when no error occurs.</a>
+<a name="325"><span class="lineNum">     325</span>                 :             :      */</a>
+<a name="326"><span class="lineNum">     326</span>                 :             :     virtual const std::string &amp;getJsonError() const = 0;</a>
+<a name="327"><span class="lineNum">     327</span>                 :             : </a>
+<a name="328"><span class="lineNum">     328</span>                 :             :     /**</a>
+<a name="329"><span class="lineNum">     329</span>                 :             :      * @brief Set the reponse object to the pass-through mode or not. It's not</a>
+<a name="330"><span class="lineNum">     330</span>                 :             :      * by default when a new response object is created.</a>
+<a name="331"><span class="lineNum">     331</span>                 :             :      * In pass-through mode, no addtional headers (including server, date,</a>
+<a name="332"><span class="lineNum">     332</span>                 :             :      * content-type and content-length, etc.) are added to the response. This</a>
+<a name="333"><span class="lineNum">     333</span>                 :             :      * mode is useful for some applications such as a proxy.</a>
+<a name="334"><span class="lineNum">     334</span>                 :             :      *</a>
+<a name="335"><span class="lineNum">     335</span>                 :             :      * @param flag</a>
+<a name="336"><span class="lineNum">     336</span>                 :             :      */</a>
+<a name="337"><span class="lineNum">     337</span>                 :             :     virtual void setPassThrough(bool flag) = 0;</a>
+<a name="338"><span class="lineNum">     338</span>                 :             : </a>
+<a name="339"><span class="lineNum">     339</span>                 :             :     /* The following methods are a series of factory methods that help users</a>
+<a name="340"><span class="lineNum">     340</span>                 :             :      * create response objects. */</a>
+<a name="341"><span class="lineNum">     341</span>                 :             : </a>
+<a name="342"><span class="lineNum">     342</span>                 :             :     /// Create a normal response with a status code of 200ok and a content type</a>
+<a name="343"><span class="lineNum">     343</span>                 :             :     /// of text/html.</a>
+<a name="344"><span class="lineNum">     344</span>                 :             :     static HttpResponsePtr newHttpResponse();</a>
+<a name="345"><span class="lineNum">     345</span>                 :             :     /// Create a response which returns a 404 page.</a>
+<a name="346"><span class="lineNum">     346</span>                 :             :     static HttpResponsePtr newNotFoundResponse();</a>
+<a name="347"><span class="lineNum">     347</span>                 :             :     /// Create a response which returns a json object. Its content type is set</a>
+<a name="348"><span class="lineNum">     348</span>                 :             :     /// to set/json.</a>
+<a name="349"><span class="lineNum">     349</span>                 :             :     static HttpResponsePtr newHttpJsonResponse(const Json::Value &amp;data);</a>
+<a name="350"><span class="lineNum">     350</span>                 :             :     static HttpResponsePtr newHttpJsonResponse(Json::Value &amp;&amp;data);</a>
+<a name="351"><span class="lineNum">     351</span>                 :             :     /// Create a response that returns a page rendered by a view named</a>
+<a name="352"><span class="lineNum">     352</span>                 :             :     /// viewName.</a>
+<a name="353"><span class="lineNum">     353</span>                 :             :     /**</a>
+<a name="354"><span class="lineNum">     354</span>                 :             :      * @param viewName The name of the view</a>
+<a name="355"><span class="lineNum">     355</span>                 :             :      * @param data is the data displayed on the page.</a>
+<a name="356"><span class="lineNum">     356</span>                 :             :      * @note For more details, see the wiki pages, the &quot;View&quot; section.</a>
+<a name="357"><span class="lineNum">     357</span>                 :             :      */</a>
+<a name="358"><span class="lineNum">     358</span>                 :             :     static HttpResponsePtr newHttpViewResponse(</a>
+<a name="359"><span class="lineNum">     359</span>                 :             :         const std::string &amp;viewName,</a>
+<a name="360"><span class="lineNum">     360</span>                 :             :         const HttpViewData &amp;data = HttpViewData());</a>
+<a name="361"><span class="lineNum">     361</span>                 :             : </a>
+<a name="362"><span class="lineNum">     362</span>                 :             :     /// Create a response that returns a redirection page, redirecting to</a>
+<a name="363"><span class="lineNum">     363</span>                 :             :     /// another page located in the location parameter.</a>
+<a name="364"><span class="lineNum">     364</span>                 :             :     /**</a>
+<a name="365"><span class="lineNum">     365</span>                 :             :      * @param location The location to redirect</a>
+<a name="366"><span class="lineNum">     366</span>                 :             :      * @param status The HTTP status code, k302Found by default. Users could set</a>
+<a name="367"><span class="lineNum">     367</span>                 :             :      * it to one of the 301, 302, 303, 307, ...</a>
+<a name="368"><span class="lineNum">     368</span>                 :             :      */</a>
+<a name="369"><span class="lineNum">     369</span>                 :             :     static HttpResponsePtr newRedirectionResponse(</a>
+<a name="370"><span class="lineNum">     370</span>                 :             :         const std::string &amp;location,</a>
+<a name="371"><span class="lineNum">     371</span>                 :             :         HttpStatusCode status = k302Found);</a>
+<a name="372"><span class="lineNum">     372</span>                 :             : </a>
+<a name="373"><span class="lineNum">     373</span>                 :             :     /// Create a response that returns a file to the client.</a>
+<a name="374"><span class="lineNum">     374</span>                 :             :     /**</a>
+<a name="375"><span class="lineNum">     375</span>                 :             :      * @param fullPath is the full path to the file.</a>
+<a name="376"><span class="lineNum">     376</span>                 :             :      * @param attachmentFileName if the parameter is not empty, the browser</a>
+<a name="377"><span class="lineNum">     377</span>                 :             :      * does not open the file, but saves it as an attachment.</a>
+<a name="378"><span class="lineNum">     378</span>                 :             :      * @param type the content type code. If the parameter is CT_NONE, the</a>
+<a name="379"><span class="lineNum">     379</span>                 :             :      * content type is set by drogon based on the file extension and typeString.</a>
+<a name="380"><span class="lineNum">     380</span>                 :             :      * Set it to CT_CUSTOM when no drogon internal content type matches.</a>
+<a name="381"><span class="lineNum">     381</span>                 :             :      * @param typeString the MIME string of the content type.</a>
+<a name="382"><span class="lineNum">     382</span>                 :             :      */</a>
+<a name="383"><span class="lineNum">     383</span>                 :             :     static HttpResponsePtr newFileResponse(</a>
+<a name="384"><span class="lineNum">     384</span>                 :             :         const std::string &amp;fullPath,</a>
+<a name="385"><span class="lineNum">     385</span>                 :             :         const std::string &amp;attachmentFileName = &quot;&quot;,</a>
+<a name="386"><span class="lineNum">     386</span>                 :             :         ContentType type = CT_NONE,</a>
+<a name="387"><span class="lineNum">     387</span>                 :             :         const std::string &amp;typeString = &quot;&quot;);</a>
+<a name="388"><span class="lineNum">     388</span>                 :             : </a>
+<a name="389"><span class="lineNum">     389</span>                 :             :     /// Create a response that returns part of a file to the client.</a>
+<a name="390"><span class="lineNum">     390</span>                 :             :     /**</a>
+<a name="391"><span class="lineNum">     391</span>                 :             :      * @brief If offset and length can not be satisfied, statusCode will be set</a>
+<a name="392"><span class="lineNum">     392</span>                 :             :      * to k416RequestedRangeNotSatisfiable, and nothing else will be modified.</a>
+<a name="393"><span class="lineNum">     393</span>                 :             :      *</a>
+<a name="394"><span class="lineNum">     394</span>                 :             :      * @param fullPath is the full path to the file.</a>
+<a name="395"><span class="lineNum">     395</span>                 :             :      * @param offset is the offset to begin sending, in bytes.</a>
+<a name="396"><span class="lineNum">     396</span>                 :             :      * @param length is the total length to send, in bytes. In particular,</a>
+<a name="397"><span class="lineNum">     397</span>                 :             :      * length = 0 means send all content from offset till end of file.</a>
+<a name="398"><span class="lineNum">     398</span>                 :             :      * @param setContentRange whether set 'Content-Range' header automatically.</a>
+<a name="399"><span class="lineNum">     399</span>                 :             :      * @param attachmentFileName if the parameter is not empty, the browser</a>
+<a name="400"><span class="lineNum">     400</span>                 :             :      * does not open the file, but saves it as an attachment.</a>
+<a name="401"><span class="lineNum">     401</span>                 :             :      * @param type the content type code. If the parameter is CT_NONE, the</a>
+<a name="402"><span class="lineNum">     402</span>                 :             :      * content type is set by drogon based on the file extension and typeString.</a>
+<a name="403"><span class="lineNum">     403</span>                 :             :      * Set it to CT_CUSTOM when no drogon internal content type matches.</a>
+<a name="404"><span class="lineNum">     404</span>                 :             :      * @param typeString the MIME string of the content type.</a>
+<a name="405"><span class="lineNum">     405</span>                 :             :      */</a>
+<a name="406"><span class="lineNum">     406</span>                 :             :     static HttpResponsePtr newFileResponse(</a>
+<a name="407"><span class="lineNum">     407</span>                 :             :         const std::string &amp;fullPath,</a>
+<a name="408"><span class="lineNum">     408</span>                 :             :         size_t offset,</a>
+<a name="409"><span class="lineNum">     409</span>                 :             :         size_t length,</a>
+<a name="410"><span class="lineNum">     410</span>                 :             :         bool setContentRange = true,</a>
+<a name="411"><span class="lineNum">     411</span>                 :             :         const std::string &amp;attachmentFileName = &quot;&quot;,</a>
+<a name="412"><span class="lineNum">     412</span>                 :             :         ContentType type = CT_NONE,</a>
+<a name="413"><span class="lineNum">     413</span>                 :             :         const std::string &amp;typeString = &quot;&quot;);</a>
+<a name="414"><span class="lineNum">     414</span>                 :             : </a>
+<a name="415"><span class="lineNum">     415</span>                 :             :     /// Create a response that returns a file to the client from buffer in</a>
+<a name="416"><span class="lineNum">     416</span>                 :             :     /// memory/stack</a>
+<a name="417"><span class="lineNum">     417</span>                 :             :     /**</a>
+<a name="418"><span class="lineNum">     418</span>                 :             :      * @param pBuffer is a uint 8 bit flat buffer for object/files in memory</a>
+<a name="419"><span class="lineNum">     419</span>                 :             :      * @param bufferLength is the length of the expected buffer</a>
+<a name="420"><span class="lineNum">     420</span>                 :             :      * @param attachmentFileName if the parameter is not empty, the browser</a>
+<a name="421"><span class="lineNum">     421</span>                 :             :      * does not open the file, but saves it as an attachment.</a>
+<a name="422"><span class="lineNum">     422</span>                 :             :      * @param type the content type code. If the parameter is CT_NONE, the</a>
+<a name="423"><span class="lineNum">     423</span>                 :             :      * content type is set by drogon based on the file extension and typeString.</a>
+<a name="424"><span class="lineNum">     424</span>                 :             :      * Set it to CT_CUSTOM when no drogon internal content type matches.</a>
+<a name="425"><span class="lineNum">     425</span>                 :             :      * @param typeString the MIME string of the content type.</a>
+<a name="426"><span class="lineNum">     426</span>                 :             :      */</a>
+<a name="427"><span class="lineNum">     427</span>                 :             :     static HttpResponsePtr newFileResponse(</a>
+<a name="428"><span class="lineNum">     428</span>                 :             :         const unsigned char *pBuffer,</a>
+<a name="429"><span class="lineNum">     429</span>                 :             :         size_t bufferLength,</a>
+<a name="430"><span class="lineNum">     430</span>                 :             :         const std::string &amp;attachmentFileName = &quot;&quot;,</a>
+<a name="431"><span class="lineNum">     431</span>                 :             :         ContentType type = CT_NONE,</a>
+<a name="432"><span class="lineNum">     432</span>                 :             :         const std::string &amp;typeString = &quot;&quot;);</a>
+<a name="433"><span class="lineNum">     433</span>                 :             : </a>
+<a name="434"><span class="lineNum">     434</span>                 :             :     /// Create a response that returns a file to the client from a callback</a>
+<a name="435"><span class="lineNum">     435</span>                 :             :     /// function</a>
+<a name="436"><span class="lineNum">     436</span>                 :             :     /**</a>
+<a name="437"><span class="lineNum">     437</span>                 :             :      * @note if the Connection is keep-alive and the Content-Length header is</a>
+<a name="438"><span class="lineNum">     438</span>                 :             :      * not set, the stream data is sent with Transfer-Encoding: chunked.</a>
+<a name="439"><span class="lineNum">     439</span>                 :             :      * @param function to retrieve the stream data (stream ends when a zero size</a>
+<a name="440"><span class="lineNum">     440</span>                 :             :      * is returned) the callback will be called with nullptr when the send is</a>
+<a name="441"><span class="lineNum">     441</span>                 :             :      * finished/interruped so that it cleans up its internals.</a>
+<a name="442"><span class="lineNum">     442</span>                 :             :      * @param attachmentFileName if the parameter is not empty, the browser</a>
+<a name="443"><span class="lineNum">     443</span>                 :             :      *                           does not open the file, but saves it as an</a>
+<a name="444"><span class="lineNum">     444</span>                 :             :      * attachment.</a>
+<a name="445"><span class="lineNum">     445</span>                 :             :      * @param type the content type code. If the parameter is CT_NONE, the</a>
+<a name="446"><span class="lineNum">     446</span>                 :             :      *             content type is set by drogon based on the file extension and</a>
+<a name="447"><span class="lineNum">     447</span>                 :             :      * typeString. Set it to CT_CUSTOM when no drogon internal content type</a>
+<a name="448"><span class="lineNum">     448</span>                 :             :      * matches.</a>
+<a name="449"><span class="lineNum">     449</span>                 :             :      * @param typeString the MIME string of the content type.</a>
+<a name="450"><span class="lineNum">     450</span>                 :             :      */</a>
+<a name="451"><span class="lineNum">     451</span>                 :             :     static HttpResponsePtr newStreamResponse(</a>
+<a name="452"><span class="lineNum">     452</span>                 :             :         const std::function&lt;std::size_t(char *, std::size_t)&gt; &amp;callback,</a>
+<a name="453"><span class="lineNum">     453</span>                 :             :         const std::string &amp;attachmentFileName = &quot;&quot;,</a>
+<a name="454"><span class="lineNum">     454</span>                 :             :         ContentType type = CT_NONE,</a>
+<a name="455"><span class="lineNum">     455</span>                 :             :         const std::string &amp;typeString = &quot;&quot;);</a>
+<a name="456"><span class="lineNum">     456</span>                 :             : </a>
+<a name="457"><span class="lineNum">     457</span>                 :             :     /**</a>
+<a name="458"><span class="lineNum">     458</span>                 :             :      * @brief Create a custom HTTP response object. For using this template,</a>
+<a name="459"><span class="lineNum">     459</span>                 :             :      * users must specialize the toResponse template.</a>
+<a name="460"><span class="lineNum">     460</span>                 :             :      */</a>
+<a name="461"><span class="lineNum">     461</span>                 :             :     template &lt;typename T&gt;</a>
+<a name="462"><span class="lineNum">     462</span>                 :             :     static HttpResponsePtr newCustomHttpResponse(T &amp;&amp;obj)</a>
+<a name="463"><span class="lineNum">     463</span>                 :             :     {</a>
+<a name="464"><span class="lineNum">     464</span>                 :             :         return toResponse(std::forward&lt;T&gt;(obj));</a>
+<a name="465"><span class="lineNum">     465</span>                 :             :     }</a>
+<a name="466"><span class="lineNum">     466</span>                 :             : </a>
+<a name="467"><span class="lineNum">     467</span>                 :             :     /**</a>
+<a name="468"><span class="lineNum">     468</span>                 :             :      * @brief If the response is a file response (i.e. created by</a>
+<a name="469"><span class="lineNum">     469</span>                 :             :      * newFileResponse) returns the path on the filesystem. Otherwise a</a>
+<a name="470"><span class="lineNum">     470</span>                 :             :      * empty string.</a>
+<a name="471"><span class="lineNum">     471</span>                 :             :      */</a>
+<a name="472"><span class="lineNum">     472</span>                 :             :     virtual const std::string &amp;sendfileName() const = 0;</a>
 <a name="473"><span class="lineNum">     473</span>                 :             : </a>
 <a name="474"><span class="lineNum">     474</span>                 :             :     /**</a>
-<a name="475"><span class="lineNum">     475</span>                 :             :      * @brief If the response is a stream response (i.e. created by</a>
-<a name="476"><span class="lineNum">     476</span>                 :             :      * newStreamResponse) returns the callback function. Otherwise a</a>
-<a name="477"><span class="lineNum">     477</span>                 :             :      * null function.</a>
+<a name="475"><span class="lineNum">     475</span>                 :             :      * @brief Returns the range of the file response as a pair ot size_t</a>
+<a name="476"><span class="lineNum">     476</span>                 :             :      * (offset, length). Length of 0 means the entire file is sent. Behaivor of</a>
+<a name="477"><span class="lineNum">     477</span>                 :             :      * this function is undefined if the response if not a file response</a>
 <a name="478"><span class="lineNum">     478</span>                 :             :      */</a>
-<a name="479"><span class="lineNum">     479</span>                 :             :     virtual const std::function&lt;std::size_t(char *, std::size_t)&gt;</a>
-<a name="480"><span class="lineNum">     480</span>                 :             :         &amp;streamCallback() const = 0;</a>
+<a name="479"><span class="lineNum">     479</span>                 :             :     using SendfileRange = std::pair&lt;size_t, size_t&gt;;  // { offset, length }</a>
+<a name="480"><span class="lineNum">     480</span>                 :             :     virtual const SendfileRange &amp;sendfileRange() const = 0;</a>
 <a name="481"><span class="lineNum">     481</span>                 :             : </a>
 <a name="482"><span class="lineNum">     482</span>                 :             :     /**</a>
-<a name="483"><span class="lineNum">     483</span>                 :             :      * @brief Returns the content type associated with the response</a>
-<a name="484"><span class="lineNum">     484</span>                 :             :      */</a>
-<a name="485"><span class="lineNum">     485</span>                 :             :     virtual std::string contentTypeString() const = 0;</a>
-<a name="486"><span class="lineNum">     486</span>                 :             : </a>
-<a name="487"><span class="lineNum">     487</span>                 :             :     virtual ~HttpResponse()</a>
-<a name="488"><span class="lineNum">     488</span>                 :             :     {</a>
-<a name="489"><span class="lineNum">     489</span>                 :             :     }</a>
-<a name="490"><span class="lineNum">     490</span>                 :             : </a>
-<a name="491"><span class="lineNum">     491</span>                 :             :   private:</a>
-<a name="492"><span class="lineNum">     492</span>                 :             :     virtual void setBody(const char *body, size_t len) = 0;</a>
-<a name="493"><span class="lineNum">     493</span>                 :             :     virtual const char *getBodyData() const = 0;</a>
-<a name="494"><span class="lineNum">     494</span>                 :             :     virtual size_t getBodyLength() const = 0;</a>
-<a name="495"><span class="lineNum">     495</span>                 :             :     virtual void setContentTypeCodeAndCustomString(ContentType type,</a>
-<a name="496"><span class="lineNum">     496</span>                 :             :                                                    const char *typeString,</a>
-<a name="497"><span class="lineNum">     497</span>                 :             :                                                    size_t typeStringLength) = 0;</a>
-<a name="498"><span class="lineNum">     498</span>                 :             :     virtual void setContentTypeString(const char *typeString,</a>
-<a name="499"><span class="lineNum">     499</span>                 :             :                                       size_t typeStringLength) = 0;</a>
-<a name="500"><span class="lineNum">     500</span>                 :             :     virtual void setCustomStatusCode(int code,</a>
-<a name="501"><span class="lineNum">     501</span>                 :             :                                      const char *message,</a>
-<a name="502"><span class="lineNum">     502</span>                 :             :                                      size_t messageLength) = 0;</a>
-<a name="503"><span class="lineNum">     503</span>                 :             : };</a>
-<a name="504"><span class="lineNum">     504</span>                 :             : template &lt;&gt;</a>
-<a name="505"><span class="lineNum">     505</span>                 :             : inline HttpResponsePtr toResponse&lt;const Json::Value &amp;&gt;(const Json::Value &amp;pJson)</a>
-<a name="506"><span class="lineNum">     506</span>                 :             : {</a>
-<a name="507"><span class="lineNum">     507</span>                 :             :     return HttpResponse::newHttpJsonResponse(pJson);</a>
-<a name="508"><span class="lineNum">     508</span>                 :             : }</a>
-<a name="509"><span class="lineNum">     509</span>                 :             : </a>
-<a name="510"><span class="lineNum">     510</span>                 :             : template &lt;&gt;</a>
-<a name="511"><span class="lineNum">     511</span>                 :             : inline HttpResponsePtr toResponse(Json::Value &amp;&amp;pJson)</a>
-<a name="512"><span class="lineNum">     512</span>                 :             : {</a>
-<a name="513"><span class="lineNum">     513</span>                 :             :     return HttpResponse::newHttpJsonResponse(std::move(pJson));</a>
-<a name="514"><span class="lineNum">     514</span>                 :             : }</a>
-<a name="515"><span class="lineNum">     515</span>                 :             : </a>
-<a name="516"><span class="lineNum">     516</span>                 :             : template &lt;&gt;</a>
-<a name="517"><span class="lineNum">     517</span>                 :             : inline std::shared_ptr&lt;Json::Value&gt; fromResponse(const HttpResponse &amp;resp)</a>
-<a name="518"><span class="lineNum">     518</span>                 :             : {</a>
-<a name="519"><span class="lineNum">     519</span>                 :             :     return resp.getJsonObject();</a>
-<a name="520"><span class="lineNum">     520</span>                 :             : }</a>
-<a name="521"><span class="lineNum">     521</span>                 :             : }  // namespace drogon</a>
+<a name="483"><span class="lineNum">     483</span>                 :             :      * @brief If the response is a stream response (i.e. created by</a>
+<a name="484"><span class="lineNum">     484</span>                 :             :      * newStreamResponse) returns the callback function. Otherwise a</a>
+<a name="485"><span class="lineNum">     485</span>                 :             :      * null function.</a>
+<a name="486"><span class="lineNum">     486</span>                 :             :      */</a>
+<a name="487"><span class="lineNum">     487</span>                 :             :     virtual const std::function&lt;std::size_t(char *, std::size_t)&gt;</a>
+<a name="488"><span class="lineNum">     488</span>                 :             :         &amp;streamCallback() const = 0;</a>
+<a name="489"><span class="lineNum">     489</span>                 :             : </a>
+<a name="490"><span class="lineNum">     490</span>                 :             :     /**</a>
+<a name="491"><span class="lineNum">     491</span>                 :             :      * @brief Returns the content type associated with the response</a>
+<a name="492"><span class="lineNum">     492</span>                 :             :      */</a>
+<a name="493"><span class="lineNum">     493</span>                 :             :     virtual std::string contentTypeString() const = 0;</a>
+<a name="494"><span class="lineNum">     494</span>                 :             : </a>
+<a name="495"><span class="lineNum">     495</span>                 :             :     virtual ~HttpResponse()</a>
+<a name="496"><span class="lineNum">     496</span>                 :             :     {</a>
+<a name="497"><span class="lineNum">     497</span>                 :             :     }</a>
+<a name="498"><span class="lineNum">     498</span>                 :             : </a>
+<a name="499"><span class="lineNum">     499</span>                 :             :   private:</a>
+<a name="500"><span class="lineNum">     500</span>                 :             :     virtual void setBody(const char *body, size_t len) = 0;</a>
+<a name="501"><span class="lineNum">     501</span>                 :             :     virtual const char *getBodyData() const = 0;</a>
+<a name="502"><span class="lineNum">     502</span>                 :             :     virtual size_t getBodyLength() const = 0;</a>
+<a name="503"><span class="lineNum">     503</span>                 :             :     virtual void setContentTypeCodeAndCustomString(ContentType type,</a>
+<a name="504"><span class="lineNum">     504</span>                 :             :                                                    const char *typeString,</a>
+<a name="505"><span class="lineNum">     505</span>                 :             :                                                    size_t typeStringLength) = 0;</a>
+<a name="506"><span class="lineNum">     506</span>                 :             :     virtual void setContentTypeString(const char *typeString,</a>
+<a name="507"><span class="lineNum">     507</span>                 :             :                                       size_t typeStringLength) = 0;</a>
+<a name="508"><span class="lineNum">     508</span>                 :             :     virtual void setCustomStatusCode(int code,</a>
+<a name="509"><span class="lineNum">     509</span>                 :             :                                      const char *message,</a>
+<a name="510"><span class="lineNum">     510</span>                 :             :                                      size_t messageLength) = 0;</a>
+<a name="511"><span class="lineNum">     511</span>                 :             : };</a>
+<a name="512"><span class="lineNum">     512</span>                 :             : template &lt;&gt;</a>
+<a name="513"><span class="lineNum">     513</span>                 :             : inline HttpResponsePtr toResponse&lt;const Json::Value &amp;&gt;(const Json::Value &amp;pJson)</a>
+<a name="514"><span class="lineNum">     514</span>                 :             : {</a>
+<a name="515"><span class="lineNum">     515</span>                 :             :     return HttpResponse::newHttpJsonResponse(pJson);</a>
+<a name="516"><span class="lineNum">     516</span>                 :             : }</a>
+<a name="517"><span class="lineNum">     517</span>                 :             : </a>
+<a name="518"><span class="lineNum">     518</span>                 :             : template &lt;&gt;</a>
+<a name="519"><span class="lineNum">     519</span>                 :             : inline HttpResponsePtr toResponse(Json::Value &amp;&amp;pJson)</a>
+<a name="520"><span class="lineNum">     520</span>                 :             : {</a>
+<a name="521"><span class="lineNum">     521</span>                 :             :     return HttpResponse::newHttpJsonResponse(std::move(pJson));</a>
+<a name="522"><span class="lineNum">     522</span>                 :             : }</a>
+<a name="523"><span class="lineNum">     523</span>                 :             : </a>
+<a name="524"><span class="lineNum">     524</span>                 :             : template &lt;&gt;</a>
+<a name="525"><span class="lineNum">     525</span>                 :             : inline std::shared_ptr&lt;Json::Value&gt; fromResponse(const HttpResponse &amp;resp)</a>
+<a name="526"><span class="lineNum">     526</span>                 :             : {</a>
+<a name="527"><span class="lineNum">     527</span>                 :             :     return resp.getJsonObject();</a>
+<a name="528"><span class="lineNum">     528</span>                 :             : }</a>
+<a name="529"><span class="lineNum">     529</span>                 :             : }  // namespace drogon</a>
         </pre>
               </td>
             </tr>
