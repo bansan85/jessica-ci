@@ -237,7 +237,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#define MICRO_SECONDS_PRE_SEC 1000000</pre>
+          <pre>#define MICRO_SECONDS_PRE_SEC 1000000LL</pre>
         </td>
       </tr>
       <tr>
@@ -809,7 +809,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    /**</pre>
+          <pre>    static int64_t timezoneOffset()</pre>
         </td>
       </tr>
       <tr>
@@ -817,9 +817,11 @@
           <a name='L78' href='#L78' id="L78">
           <pre>78</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>     * @brief Return a new Date instance that represents the time after some</pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -827,9 +829,12 @@
           <a name='L79' href='#L79' id="L79">
           <pre>79</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>     * seconds from *this.</pre>
+          <pre><span class=
+          'red'>        static int64_t offset =</span></pre>
         </td>
       </tr>
       <tr>
@@ -837,9 +842,12 @@
           <a name='L80' href='#L80' id="L80">
           <pre>80</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>     *</pre>
+          <pre><span class=
+          'red'>            -Date::fromDbStringLocal("1970-01-01 00:00:00").secondsSinceEpoch();</span></pre>
         </td>
       </tr>
       <tr>
@@ -847,9 +855,12 @@
           <a name='L81' href='#L81' id="L81">
           <pre>81</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>     * @param second</pre>
+          <pre><span class=
+          'red'>        return offset;</span></pre>
         </td>
       </tr>
       <tr>
@@ -857,9 +868,11 @@
           <a name='L82' href='#L82' id="L82">
           <pre>82</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>     * @return const Date</pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -869,7 +882,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     */</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -879,7 +892,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    const Date after(double second) const;</pre>
+          <pre>    /**</pre>
         </td>
       </tr>
       <tr>
@@ -889,7 +902,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>     * @brief Return a new Date instance that represents the time after some</pre>
         </td>
       </tr>
       <tr>
@@ -899,7 +912,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    /**</pre>
+          <pre>     * seconds from *this.</pre>
         </td>
       </tr>
       <tr>
@@ -909,7 +922,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @brief Return a new Date instance that equals to *this, but with zero</pre>
+          <pre>     *</pre>
         </td>
       </tr>
       <tr>
@@ -919,7 +932,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * microseconds.</pre>
+          <pre>     * @param second</pre>
         </td>
       </tr>
       <tr>
@@ -929,7 +942,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     *</pre>
+          <pre>     * @return const Date</pre>
         </td>
       </tr>
       <tr>
@@ -939,7 +952,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @return const Date</pre>
+          <pre>     */</pre>
         </td>
       </tr>
       <tr>
@@ -949,7 +962,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     */</pre>
+          <pre>    const Date after(double second) const;</pre>
         </td>
       </tr>
       <tr>
@@ -959,7 +972,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    const Date roundSecond() const;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -969,7 +982,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>    /**</pre>
         </td>
       </tr>
       <tr>
@@ -979,7 +992,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    /// Create a Date object equal to * this, but numbers of hours, minutes,</pre>
+          <pre>     * @brief Return a new Date instance that equals to *this, but with zero</pre>
         </td>
       </tr>
       <tr>
@@ -989,7 +1002,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    /// seconds and microseconds are zero.</pre>
+          <pre>     * microseconds.</pre>
         </td>
       </tr>
       <tr>
@@ -999,7 +1012,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>     *</pre>
         </td>
       </tr>
       <tr>
@@ -1009,7 +1022,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    /**</pre>
+          <pre>     * @return const Date</pre>
         </td>
       </tr>
       <tr>
@@ -1019,7 +1032,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @brief Return a new Date instance that equals to * this, but with zero</pre>
+          <pre>     */</pre>
         </td>
       </tr>
       <tr>
@@ -1029,7 +1042,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * hours, minutes, seconds and microseconds.</pre>
+          <pre>    const Date roundSecond() const;</pre>
         </td>
       </tr>
       <tr>
@@ -1039,7 +1052,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     *</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1049,7 +1062,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @return const Date</pre>
+          <pre>    /// Create a Date object equal to * this, but numbers of hours, minutes,</pre>
         </td>
       </tr>
       <tr>
@@ -1059,7 +1072,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     */</pre>
+          <pre>    /// seconds and microseconds are zero.</pre>
         </td>
       </tr>
       <tr>
@@ -1069,7 +1082,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    const Date roundDay() const;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1079,7 +1092,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>    /**</pre>
         </td>
       </tr>
       <tr>
@@ -1087,11 +1100,9 @@
           <a name='L105' href='#L105' id="L105">
           <pre>105</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    ~Date()<span class='red'>{}</span>;</pre>
+          <pre>     * @brief Return a new Date instance that equals to * this, but with zero</pre>
         </td>
       </tr>
       <tr>
@@ -1101,7 +1112,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>     * hours, minutes, seconds and microseconds.</pre>
         </td>
       </tr>
       <tr>
@@ -1111,7 +1122,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    /**</pre>
+          <pre>     *</pre>
         </td>
       </tr>
       <tr>
@@ -1121,7 +1132,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @brief Return true if the time point is equal to another.</pre>
+          <pre>     * @return const Date</pre>
         </td>
       </tr>
       <tr>
@@ -1131,7 +1142,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     *</pre>
+          <pre>     */</pre>
         </td>
       </tr>
       <tr>
@@ -1141,7 +1152,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     */</pre>
+          <pre>    const Date roundDay() const;</pre>
         </td>
       </tr>
       <tr>
@@ -1151,7 +1162,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    bool operator==(const Date &amp;date) const</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1163,13 +1174,85 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
+          <pre>    ~Date()<span class='red'>{}</span>;</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L113' href='#L113' id="L113">
           <pre>113</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L114' href='#L114' id="L114">
+          <pre>114</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    /**</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L115' href='#L115' id="L115">
+          <pre>115</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>     * @brief Return true if the time point is equal to another.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L116' href='#L116' id="L116">
+          <pre>116</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>     *</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L117' href='#L117' id="L117">
+          <pre>117</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>     */</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L118' href='#L118' id="L118">
+          <pre>118</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    bool operator==(const Date &amp;date) const</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L119' href='#L119' id="L119">
+          <pre>119</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre>    <span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L120' href='#L120' id="L120">
+          <pre>120</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -1181,8 +1264,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L114' href='#L114' id="L114">
-          <pre>114</pre></a>
+          <a name='L121' href='#L121' id="L121">
+          <pre>121</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -1193,8 +1276,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L115' href='#L115' id="L115">
-          <pre>115</pre></a>
+          <a name='L122' href='#L122' id="L122">
+          <pre>122</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1203,8 +1286,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L116' href='#L116' id="L116">
-          <pre>116</pre></a>
+          <a name='L123' href='#L123' id="L123">
+          <pre>123</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1213,8 +1296,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L117' href='#L117' id="L117">
-          <pre>117</pre></a>
+          <a name='L124' href='#L124' id="L124">
+          <pre>124</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1223,8 +1306,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L118' href='#L118' id="L118">
-          <pre>118</pre></a>
+          <a name='L125' href='#L125' id="L125">
+          <pre>125</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1233,8 +1316,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L119' href='#L119' id="L119">
-          <pre>119</pre></a>
+          <a name='L126' href='#L126' id="L126">
+          <pre>126</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1243,8 +1326,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L120' href='#L120' id="L120">
-          <pre>120</pre></a>
+          <a name='L127' href='#L127' id="L127">
+          <pre>127</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1253,8 +1336,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L121' href='#L121' id="L121">
-          <pre>121</pre></a>
+          <a name='L128' href='#L128' id="L128">
+          <pre>128</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -1265,8 +1348,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L122' href='#L122' id="L122">
-          <pre>122</pre></a>
+          <a name='L129' href='#L129' id="L129">
+          <pre>129</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -1278,8 +1361,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L123' href='#L123' id="L123">
-          <pre>123</pre></a>
+          <a name='L130' href='#L130' id="L130">
+          <pre>130</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -1290,8 +1373,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L124' href='#L124' id="L124">
-          <pre>124</pre></a>
+          <a name='L131' href='#L131' id="L131">
+          <pre>131</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1300,8 +1383,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L125' href='#L125' id="L125">
-          <pre>125</pre></a>
+          <a name='L132' href='#L132' id="L132">
+          <pre>132</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1310,8 +1393,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L126' href='#L126' id="L126">
-          <pre>126</pre></a>
+          <a name='L133' href='#L133' id="L133">
+          <pre>133</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1320,8 +1403,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L127' href='#L127' id="L127">
-          <pre>127</pre></a>
+          <a name='L134' href='#L134' id="L134">
+          <pre>134</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1330,8 +1413,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L128' href='#L128' id="L128">
-          <pre>128</pre></a>
+          <a name='L135' href='#L135' id="L135">
+          <pre>135</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1340,8 +1423,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L129' href='#L129' id="L129">
-          <pre>129</pre></a>
+          <a name='L136' href='#L136' id="L136">
+          <pre>136</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1350,8 +1433,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L130' href='#L130' id="L130">
-          <pre>130</pre></a>
+          <a name='L137' href='#L137' id="L137">
+          <pre>137</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -1362,8 +1445,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L131' href='#L131' id="L131">
-          <pre>131</pre></a>
+          <a name='L138' href='#L138' id="L138">
+          <pre>138</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -1375,8 +1458,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L132' href='#L132' id="L132">
-          <pre>132</pre></a>
+          <a name='L139' href='#L139' id="L139">
+          <pre>139</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -1387,8 +1470,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L133' href='#L133' id="L133">
-          <pre>133</pre></a>
+          <a name='L140' href='#L140' id="L140">
+          <pre>140</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1397,8 +1480,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L134' href='#L134' id="L134">
-          <pre>134</pre></a>
+          <a name='L141' href='#L141' id="L141">
+          <pre>141</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1407,8 +1490,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L135' href='#L135' id="L135">
-          <pre>135</pre></a>
+          <a name='L142' href='#L142' id="L142">
+          <pre>142</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1417,8 +1500,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L136' href='#L136' id="L136">
-          <pre>136</pre></a>
+          <a name='L143' href='#L143' id="L143">
+          <pre>143</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1427,8 +1510,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L137' href='#L137' id="L137">
-          <pre>137</pre></a>
+          <a name='L144' href='#L144' id="L144">
+          <pre>144</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1437,8 +1520,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L138' href='#L138' id="L138">
-          <pre>138</pre></a>
+          <a name='L145' href='#L145' id="L145">
+          <pre>145</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1447,8 +1530,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L139' href='#L139' id="L139">
-          <pre>139</pre></a>
+          <a name='L146' href='#L146' id="L146">
+          <pre>146</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -1459,8 +1542,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L140' href='#L140' id="L140">
-          <pre>140</pre></a>
+          <a name='L147' href='#L147' id="L147">
+          <pre>147</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -1472,8 +1555,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L141' href='#L141' id="L141">
-          <pre>141</pre></a>
+          <a name='L148' href='#L148' id="L148">
+          <pre>148</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -1484,8 +1567,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L142' href='#L142' id="L142">
-          <pre>142</pre></a>
+          <a name='L149' href='#L149' id="L149">
+          <pre>149</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1494,8 +1577,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L143' href='#L143' id="L143">
-          <pre>143</pre></a>
+          <a name='L150' href='#L150' id="L150">
+          <pre>150</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1504,8 +1587,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L144' href='#L144' id="L144">
-          <pre>144</pre></a>
+          <a name='L151' href='#L151' id="L151">
+          <pre>151</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1514,8 +1597,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L145' href='#L145' id="L145">
-          <pre>145</pre></a>
+          <a name='L152' href='#L152' id="L152">
+          <pre>152</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1524,8 +1607,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L146' href='#L146' id="L146">
-          <pre>146</pre></a>
+          <a name='L153' href='#L153' id="L153">
+          <pre>153</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1534,8 +1617,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L147' href='#L147' id="L147">
-          <pre>147</pre></a>
+          <a name='L154' href='#L154' id="L154">
+          <pre>154</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1544,8 +1627,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L148' href='#L148' id="L148">
-          <pre>148</pre></a>
+          <a name='L155' href='#L155' id="L155">
+          <pre>155</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -1556,8 +1639,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L149' href='#L149' id="L149">
-          <pre>149</pre></a>
+          <a name='L156' href='#L156' id="L156">
+          <pre>156</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -1569,8 +1652,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L150' href='#L150' id="L150">
-          <pre>150</pre></a>
+          <a name='L157' href='#L157' id="L157">
+          <pre>157</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -1581,8 +1664,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L151' href='#L151' id="L151">
-          <pre>151</pre></a>
+          <a name='L158' href='#L158' id="L158">
+          <pre>158</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1591,8 +1674,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L152' href='#L152' id="L152">
-          <pre>152</pre></a>
+          <a name='L159' href='#L159' id="L159">
+          <pre>159</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1601,8 +1684,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L153' href='#L153' id="L153">
-          <pre>153</pre></a>
+          <a name='L160' href='#L160' id="L160">
+          <pre>160</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1611,8 +1694,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L154' href='#L154' id="L154">
-          <pre>154</pre></a>
+          <a name='L161' href='#L161' id="L161">
+          <pre>161</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1621,8 +1704,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L155' href='#L155' id="L155">
-          <pre>155</pre></a>
+          <a name='L162' href='#L162' id="L162">
+          <pre>162</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1631,8 +1714,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L156' href='#L156' id="L156">
-          <pre>156</pre></a>
+          <a name='L163' href='#L163' id="L163">
+          <pre>163</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1641,8 +1724,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L157' href='#L157' id="L157">
-          <pre>157</pre></a>
+          <a name='L164' href='#L164' id="L164">
+          <pre>164</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -1653,8 +1736,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L158' href='#L158' id="L158">
-          <pre>158</pre></a>
+          <a name='L165' href='#L165' id="L165">
+          <pre>165</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -1666,8 +1749,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L159' href='#L159' id="L159">
-          <pre>159</pre></a>
+          <a name='L166' href='#L166' id="L166">
+          <pre>166</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -1678,8 +1761,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L160' href='#L160' id="L160">
-          <pre>160</pre></a>
+          <a name='L167' href='#L167' id="L167">
+          <pre>167</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1688,8 +1771,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L161' href='#L161' id="L161">
-          <pre>161</pre></a>
+          <a name='L168' href='#L168' id="L168">
+          <pre>168</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1698,8 +1781,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L162' href='#L162' id="L162">
-          <pre>162</pre></a>
+          <a name='L169' href='#L169' id="L169">
+          <pre>169</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1708,8 +1791,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L163' href='#L163' id="L163">
-          <pre>163</pre></a>
+          <a name='L170' href='#L170' id="L170">
+          <pre>170</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1718,8 +1801,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L164' href='#L164' id="L164">
-          <pre>164</pre></a>
+          <a name='L171' href='#L171' id="L171">
+          <pre>171</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1728,8 +1811,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L165' href='#L165' id="L165">
-          <pre>165</pre></a>
+          <a name='L172' href='#L172' id="L172">
+          <pre>172</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1738,8 +1821,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L166' href='#L166' id="L166">
-          <pre>166</pre></a>
+          <a name='L173' href='#L173' id="L173">
+          <pre>173</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1748,8 +1831,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L167' href='#L167' id="L167">
-          <pre>167</pre></a>
+          <a name='L174' href='#L174' id="L174">
+          <pre>174</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -1760,8 +1843,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L168' href='#L168' id="L168">
-          <pre>168</pre></a>
+          <a name='L175' href='#L175' id="L175">
+          <pre>175</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -1773,8 +1856,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L169' href='#L169' id="L169">
-          <pre>169</pre></a>
+          <a name='L176' href='#L176' id="L176">
+          <pre>176</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -1785,8 +1868,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L170' href='#L170' id="L170">
-          <pre>170</pre></a>
+          <a name='L177' href='#L177' id="L177">
+          <pre>177</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1795,8 +1878,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L171' href='#L171' id="L171">
-          <pre>171</pre></a>
+          <a name='L178' href='#L178' id="L178">
+          <pre>178</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1805,8 +1888,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L172' href='#L172' id="L172">
-          <pre>172</pre></a>
+          <a name='L179' href='#L179' id="L179">
+          <pre>179</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1815,8 +1898,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L173' href='#L173' id="L173">
-          <pre>173</pre></a>
+          <a name='L180' href='#L180' id="L180">
+          <pre>180</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1825,8 +1908,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L174' href='#L174' id="L174">
-          <pre>174</pre></a>
+          <a name='L181' href='#L181' id="L181">
+          <pre>181</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1835,8 +1918,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L175' href='#L175' id="L175">
-          <pre>175</pre></a>
+          <a name='L182' href='#L182' id="L182">
+          <pre>182</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1845,8 +1928,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L176' href='#L176' id="L176">
-          <pre>176</pre></a>
+          <a name='L183' href='#L183' id="L183">
+          <pre>183</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -1855,8 +1938,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L177' href='#L177' id="L177">
-          <pre>177</pre></a>
+          <a name='L184' href='#L184' id="L184">
+          <pre>184</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -1867,8 +1950,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L178' href='#L178' id="L178">
-          <pre>178</pre></a>
+          <a name='L185' href='#L185' id="L185">
+          <pre>185</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -1880,84 +1963,14 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L179' href='#L179' id="L179">
-          <pre>179</pre></a>
+          <a name='L186' href='#L186' id="L186">
+          <pre>186</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
         </td>
         <td class='code'>
           <pre><span class='red'>    }</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L180' href='#L180' id="L180">
-          <pre>180</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L181' href='#L181' id="L181">
-          <pre>181</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    /**</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L182' href='#L182' id="L182">
-          <pre>182</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>     * @brief Get the tm struct for the time point.</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L183' href='#L183' id="L183">
-          <pre>183</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>     *</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L184' href='#L184' id="L184">
-          <pre>184</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>     * @return struct tm</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L185' href='#L185' id="L185">
-          <pre>185</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>     */</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L186' href='#L186' id="L186">
-          <pre>186</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    struct tm tmStruct() const;</pre>
         </td>
       </tr>
       <tr>
@@ -1987,7 +2000,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @brief Generate a UTC time string</pre>
+          <pre>     * @brief Get the tm struct for the time point.</pre>
         </td>
       </tr>
       <tr>
@@ -1997,7 +2010,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @example:</pre>
+          <pre>     *</pre>
         </td>
       </tr>
       <tr>
@@ -2007,7 +2020,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * 20180101 10:10:25            //If the @param showMicroseconds is false</pre>
+          <pre>     * @return struct tm</pre>
         </td>
       </tr>
       <tr>
@@ -2017,7 +2030,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * 20180101 10:10:25:102414     //If the @param showMicroseconds is true</pre>
+          <pre>     */</pre>
         </td>
       </tr>
       <tr>
@@ -2027,7 +2040,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     */</pre>
+          <pre>    struct tm tmStruct() const;</pre>
         </td>
       </tr>
       <tr>
@@ -2037,7 +2050,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    std::string toFormattedString(bool showMicroseconds) const;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -2047,7 +2060,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>    /**</pre>
         </td>
       </tr>
       <tr>
@@ -2057,7 +2070,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    /**</pre>
+          <pre>     * @brief Generate a UTC time string</pre>
         </td>
       </tr>
       <tr>
@@ -2067,7 +2080,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @brief Generate a UTC time string formated by the @param fmtStr</pre>
+          <pre>     * @example:</pre>
         </td>
       </tr>
       <tr>
@@ -2077,7 +2090,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * The @param fmtStr is the format string for the function strftime()</pre>
+          <pre>     * 20180101 10:10:25            //If the @param showMicroseconds is false</pre>
         </td>
       </tr>
       <tr>
@@ -2087,7 +2100,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @example:</pre>
+          <pre>     * 20180101 10:10:25:102414     //If the @param showMicroseconds is true</pre>
         </td>
       </tr>
       <tr>
@@ -2097,7 +2110,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * 2018-01-01 10:10:25          //If the @param fmtStr is "%Y-%m-%d</pre>
+          <pre>     */</pre>
         </td>
       </tr>
       <tr>
@@ -2107,7 +2120,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * %H:%M:%S" and the @param showMicroseconds is false 2018-01-01</pre>
+          <pre>    std::string toFormattedString(bool showMicroseconds) const;</pre>
         </td>
       </tr>
       <tr>
@@ -2117,7 +2130,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * 10:10:25:102414   //If the @param fmtStr is "%Y-%m-%d %H:%M:%S" and the</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -2127,7 +2140,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @param showMicroseconds is true</pre>
+          <pre>    /**</pre>
         </td>
       </tr>
       <tr>
@@ -2137,7 +2150,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     */</pre>
+          <pre>     * @brief Generate a UTC time string formated by the @param fmtStr</pre>
         </td>
       </tr>
       <tr>
@@ -2147,7 +2160,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    std::string toCustomedFormattedString(const std::string &amp;fmtStr,</pre>
+          <pre>     * The @param fmtStr is the format string for the function strftime()</pre>
         </td>
       </tr>
       <tr>
@@ -2157,7 +2170,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                                          bool showMicroseconds = false) const;</pre>
+          <pre>     * @example:</pre>
         </td>
       </tr>
       <tr>
@@ -2167,7 +2180,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>     * 2018-01-01 10:10:25          //If the @param fmtStr is "%Y-%m-%d</pre>
         </td>
       </tr>
       <tr>
@@ -2177,7 +2190,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    /**</pre>
+          <pre>     * %H:%M:%S" and the @param showMicroseconds is false 2018-01-01</pre>
         </td>
       </tr>
       <tr>
@@ -2187,7 +2200,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @brief Generate a local time zone string, the format of the string is</pre>
+          <pre>     * 10:10:25:102414   //If the @param fmtStr is "%Y-%m-%d %H:%M:%S" and the</pre>
         </td>
       </tr>
       <tr>
@@ -2197,7 +2210,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * same as the mothed toFormattedString</pre>
+          <pre>     * @param showMicroseconds is true</pre>
         </td>
       </tr>
       <tr>
@@ -2207,7 +2220,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     *</pre>
+          <pre>     */</pre>
         </td>
       </tr>
       <tr>
@@ -2217,7 +2230,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @param showMicroseconds</pre>
+          <pre>    std::string toCustomedFormattedString(const std::string &amp;fmtStr,</pre>
         </td>
       </tr>
       <tr>
@@ -2227,7 +2240,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @return std::string</pre>
+          <pre>                                          bool showMicroseconds = false) const;</pre>
         </td>
       </tr>
       <tr>
@@ -2237,7 +2250,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     */</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -2247,7 +2260,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    std::string toFormattedStringLocal(bool showMicroseconds) const;</pre>
+          <pre>    /**</pre>
         </td>
       </tr>
       <tr>
@@ -2257,7 +2270,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>     * @brief Generate a local time zone string, the format of the string is</pre>
         </td>
       </tr>
       <tr>
@@ -2267,7 +2280,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    /**</pre>
+          <pre>     * same as the mothed toFormattedString</pre>
         </td>
       </tr>
       <tr>
@@ -2277,7 +2290,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @brief Generate a local time zone string formated by the @param fmtStr</pre>
+          <pre>     *</pre>
         </td>
       </tr>
       <tr>
@@ -2287,7 +2300,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     *</pre>
+          <pre>     * @param showMicroseconds</pre>
         </td>
       </tr>
       <tr>
@@ -2297,7 +2310,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @param fmtStr</pre>
+          <pre>     * @return std::string</pre>
         </td>
       </tr>
       <tr>
@@ -2307,7 +2320,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @param showMicroseconds</pre>
+          <pre>     */</pre>
         </td>
       </tr>
       <tr>
@@ -2317,7 +2330,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @return std::string</pre>
+          <pre>    std::string toFormattedStringLocal(bool showMicroseconds) const;</pre>
         </td>
       </tr>
       <tr>
@@ -2327,7 +2340,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     */</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -2337,7 +2350,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    std::string toCustomedFormattedStringLocal(</pre>
+          <pre>    /**</pre>
         </td>
       </tr>
       <tr>
@@ -2347,7 +2360,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        const std::string &amp;fmtStr,</pre>
+          <pre>     * @brief Generate a local time zone string formated by the @param fmtStr</pre>
         </td>
       </tr>
       <tr>
@@ -2357,7 +2370,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        bool showMicroseconds = false) const;</pre>
+          <pre>     *</pre>
         </td>
       </tr>
       <tr>
@@ -2367,7 +2380,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>     * @param fmtStr</pre>
         </td>
       </tr>
       <tr>
@@ -2377,7 +2390,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    /**</pre>
+          <pre>     * @param showMicroseconds</pre>
         </td>
       </tr>
       <tr>
@@ -2387,7 +2400,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @brief Generate a local time zone string for database.</pre>
+          <pre>     * @return std::string</pre>
         </td>
       </tr>
       <tr>
@@ -2397,7 +2410,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @example:</pre>
+          <pre>     */</pre>
         </td>
       </tr>
       <tr>
@@ -2407,7 +2420,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * 2018-01-01                   //If hours, minutes, seconds and</pre>
+          <pre>    std::string toCustomedFormattedStringLocal(</pre>
         </td>
       </tr>
       <tr>
@@ -2417,7 +2430,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * microseconds are zero 2018-01-01 10:10:25          //If the microsecond</pre>
+          <pre>        const std::string &amp;fmtStr,</pre>
         </td>
       </tr>
       <tr>
@@ -2427,7 +2440,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * is zero 2018-01-01 10:10:25:102414   //If the microsecond is not zero</pre>
+          <pre>        bool showMicroseconds = false) const;</pre>
         </td>
       </tr>
       <tr>
@@ -2437,7 +2450,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     */</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -2447,7 +2460,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    std::string toDbStringLocal() const;</pre>
+          <pre>    /**</pre>
         </td>
       </tr>
       <tr>
@@ -2457,7 +2470,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>     * @brief Generate a local time zone string for database.</pre>
         </td>
       </tr>
       <tr>
@@ -2467,7 +2480,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    /**</pre>
+          <pre>     * @example:</pre>
         </td>
       </tr>
       <tr>
@@ -2477,7 +2490,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @brief From DB string to trantor local time zone.</pre>
+          <pre>     * 2018-01-01                   //If hours, minutes, seconds and</pre>
         </td>
       </tr>
       <tr>
@@ -2487,7 +2500,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     *</pre>
+          <pre>     * microseconds are zero 2018-01-01 10:10:25          //If the microsecond</pre>
         </td>
       </tr>
       <tr>
@@ -2497,7 +2510,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * Inverse of toDbStringLocal()</pre>
+          <pre>     * is zero 2018-01-01 10:10:25:102414   //If the microsecond is not zero</pre>
         </td>
       </tr>
       <tr>
@@ -2517,7 +2530,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    static Date fromDbStringLocal(const std::string &amp;datetime);</pre>
+          <pre>    std::string toDbStringLocal() const;</pre>
         </td>
       </tr>
       <tr>
@@ -2527,7 +2540,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>    /**</pre>
         </td>
       </tr>
       <tr>
@@ -2537,7 +2550,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    /**</pre>
+          <pre>     * @brief Generate a UTC time string for database.</pre>
         </td>
       </tr>
       <tr>
@@ -2547,7 +2560,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @brief Generate a UTC time string.</pre>
+          <pre>     */</pre>
         </td>
       </tr>
       <tr>
@@ -2557,7 +2570,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     *</pre>
+          <pre>    std::string toDbString() const;</pre>
         </td>
       </tr>
       <tr>
@@ -2567,7 +2580,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @param fmtStr The format string.</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -2577,7 +2590,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @param str The string buffer for the generated time string.</pre>
+          <pre>    /**</pre>
         </td>
       </tr>
       <tr>
@@ -2587,7 +2600,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @param len The length of the string buffer.</pre>
+          <pre>     * @brief From DB string to trantor local time zone.</pre>
         </td>
       </tr>
       <tr>
@@ -2597,7 +2610,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     */</pre>
+          <pre>     *</pre>
         </td>
       </tr>
       <tr>
@@ -2607,7 +2620,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    void toCustomedFormattedString(const std::string &amp;fmtStr,</pre>
+          <pre>     * Inverse of toDbStringLocal()</pre>
         </td>
       </tr>
       <tr>
@@ -2617,7 +2630,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                                   char *str,</pre>
+          <pre>     */</pre>
         </td>
       </tr>
       <tr>
@@ -2627,7 +2640,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                                   size_t len) const;  // UTC</pre>
+          <pre>    static Date fromDbStringLocal(const std::string &amp;datetime);</pre>
         </td>
       </tr>
       <tr>
@@ -2637,7 +2650,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>    /**</pre>
         </td>
       </tr>
       <tr>
@@ -2647,7 +2660,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    /**</pre>
+          <pre>     * @brief From DB string to trantor UTC time.</pre>
         </td>
       </tr>
       <tr>
@@ -2657,7 +2670,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @brief Return true if the time point is in a same second as another.</pre>
+          <pre>     *</pre>
         </td>
       </tr>
       <tr>
@@ -2667,7 +2680,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     *</pre>
+          <pre>     * Inverse of toDbString()</pre>
         </td>
       </tr>
       <tr>
@@ -2677,7 +2690,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @param date</pre>
+          <pre>     */</pre>
         </td>
       </tr>
       <tr>
@@ -2687,7 +2700,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @return true</pre>
+          <pre>    static Date fromDbString(const std::string &amp;datetime);</pre>
         </td>
       </tr>
       <tr>
@@ -2697,7 +2710,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @return false</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -2707,7 +2720,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     */</pre>
+          <pre>    /**</pre>
         </td>
       </tr>
       <tr>
@@ -2717,13 +2730,183 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    bool isSameSecond(const Date &amp;date) const</pre>
+          <pre>     * @brief Generate a UTC time string.</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L263' href='#L263' id="L263">
           <pre>263</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>     *</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L264' href='#L264' id="L264">
+          <pre>264</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>     * @param fmtStr The format string.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L265' href='#L265' id="L265">
+          <pre>265</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>     * @param str The string buffer for the generated time string.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L266' href='#L266' id="L266">
+          <pre>266</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>     * @param len The length of the string buffer.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L267' href='#L267' id="L267">
+          <pre>267</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>     */</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L268' href='#L268' id="L268">
+          <pre>268</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    void toCustomedFormattedString(const std::string &amp;fmtStr,</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L269' href='#L269' id="L269">
+          <pre>269</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>                                   char *str,</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L270' href='#L270' id="L270">
+          <pre>270</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>                                   size_t len) const;  // UTC</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L271' href='#L271' id="L271">
+          <pre>271</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L272' href='#L272' id="L272">
+          <pre>272</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    /**</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L273' href='#L273' id="L273">
+          <pre>273</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>     * @brief Return true if the time point is in a same second as another.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L274' href='#L274' id="L274">
+          <pre>274</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>     *</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L275' href='#L275' id="L275">
+          <pre>275</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>     * @param date</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L276' href='#L276' id="L276">
+          <pre>276</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>     * @return true</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L277' href='#L277' id="L277">
+          <pre>277</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>     * @return false</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L278' href='#L278' id="L278">
+          <pre>278</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>     */</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L279' href='#L279' id="L279">
+          <pre>279</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    bool isSameSecond(const Date &amp;date) const</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L280' href='#L280' id="L280">
+          <pre>280</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -2734,8 +2917,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L264' href='#L264' id="L264">
-          <pre>264</pre></a>
+          <a name='L281' href='#L281' id="L281">
+          <pre>281</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -2747,8 +2930,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L265' href='#L265' id="L265">
-          <pre>265</pre></a>
+          <a name='L282' href='#L282' id="L282">
+          <pre>282</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -2760,8 +2943,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L266' href='#L266' id="L266">
-          <pre>266</pre></a>
+          <a name='L283' href='#L283' id="L283">
+          <pre>283</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -2772,8 +2955,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L267' href='#L267' id="L267">
-          <pre>267</pre></a>
+          <a name='L284' href='#L284' id="L284">
+          <pre>284</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -2782,8 +2965,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L268' href='#L268' id="L268">
-          <pre>268</pre></a>
+          <a name='L285' href='#L285' id="L285">
+          <pre>285</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -2792,8 +2975,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L269' href='#L269' id="L269">
-          <pre>269</pre></a>
+          <a name='L286' href='#L286' id="L286">
+          <pre>286</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -2802,8 +2985,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L270' href='#L270' id="L270">
-          <pre>270</pre></a>
+          <a name='L287' href='#L287' id="L287">
+          <pre>287</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -2812,8 +2995,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L271' href='#L271' id="L271">
-          <pre>271</pre></a>
+          <a name='L288' href='#L288' id="L288">
+          <pre>288</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -2822,8 +3005,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L272' href='#L272' id="L272">
-          <pre>272</pre></a>
+          <a name='L289' href='#L289' id="L289">
+          <pre>289</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -2832,8 +3015,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L273' href='#L273' id="L273">
-          <pre>273</pre></a>
+          <a name='L290' href='#L290' id="L290">
+          <pre>290</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -2842,8 +3025,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L274' href='#L274' id="L274">
-          <pre>274</pre></a>
+          <a name='L291' href='#L291' id="L291">
+          <pre>291</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -2854,8 +3037,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L275' href='#L275' id="L275">
-          <pre>275</pre></a>
+          <a name='L292' href='#L292' id="L292">
+          <pre>292</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -2867,8 +3050,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L276' href='#L276' id="L276">
-          <pre>276</pre></a>
+          <a name='L293' href='#L293' id="L293">
+          <pre>293</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -2879,8 +3062,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L277' href='#L277' id="L277">
-          <pre>277</pre></a>
+          <a name='L294' href='#L294' id="L294">
+          <pre>294</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -2889,8 +3072,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L278' href='#L278' id="L278">
-          <pre>278</pre></a>
+          <a name='L295' href='#L295' id="L295">
+          <pre>295</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -2899,8 +3082,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L279' href='#L279' id="L279">
-          <pre>279</pre></a>
+          <a name='L296' href='#L296' id="L296">
+          <pre>296</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -2909,8 +3092,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L280' href='#L280' id="L280">
-          <pre>280</pre></a>
+          <a name='L297' href='#L297' id="L297">
+          <pre>297</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -2919,8 +3102,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L281' href='#L281' id="L281">
-          <pre>281</pre></a>
+          <a name='L298' href='#L298' id="L298">
+          <pre>298</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>

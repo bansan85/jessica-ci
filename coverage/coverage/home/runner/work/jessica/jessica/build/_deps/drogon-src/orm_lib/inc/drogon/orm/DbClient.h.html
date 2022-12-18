@@ -27,7 +27,7 @@
         </td>
         <td>
           <pre>Source (<a href=
-          '#L52'>jump to first uncovered line</a>)</pre>
+          '#L53'>jump to first uncovered line</a>)</pre>
         </td>
       </tr>
       <tr>
@@ -537,7 +537,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    SqlAwaiter(internal::SqlBinder &amp;&amp;binder) : binder_(std::move(binder))</pre>
+          <pre>    explicit SqlAwaiter(internal::SqlBinder &amp;&amp;binder)</pre>
         </td>
       </tr>
       <tr>
@@ -545,11 +545,9 @@
           <a name='L52' href='#L52' id="L52">
           <pre>52</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
+          <pre>        : binder_(std::move(binder))</pre>
         </td>
       </tr>
       <tr>
@@ -561,7 +559,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>    }</span></pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -569,9 +567,11 @@
           <a name='L54' href='#L54' id="L54">
           <pre>54</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -581,7 +581,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    void await_suspend(std::coroutine_handle&lt;&gt; handle)</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -589,11 +589,9 @@
           <a name='L56' href='#L56' id="L56">
           <pre>56</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
+          <pre>    void await_suspend(std::coroutine_handle&lt;&gt; handle)</pre>
         </td>
       </tr>
       <tr>
@@ -605,8 +603,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>        binder_ &gt;&gt; [handle, this](const drogon::orm::Result &amp;result) {</span></pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -619,7 +616,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>            setValue(result);</span></pre>
+          'red'>        binder_ &gt;&gt; [handle, this](const drogon::orm::Result &amp;result) {</span></pre>
         </td>
       </tr>
       <tr>
@@ -632,7 +629,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>            handle.resume();</span></pre>
+          'red'>            setValue(result);</span></pre>
         </td>
       </tr>
       <tr>
@@ -644,7 +641,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>        };</span></pre>
+          <pre><span class=
+          'red'>            handle.resume();</span></pre>
         </td>
       </tr>
       <tr>
@@ -656,8 +654,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>        binder_ &gt;&gt; [handle, this](const std::exception_ptr &amp;e) {</span></pre>
+          <pre><span class='red'>        };</span></pre>
         </td>
       </tr>
       <tr>
@@ -670,7 +667,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>            setException(e);</span></pre>
+          'red'>        binder_ &gt;&gt; [handle, this](const std::exception_ptr &amp;e) {</span></pre>
         </td>
       </tr>
       <tr>
@@ -683,7 +680,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>            handle.resume();</span></pre>
+          'red'>            setException(e);</span></pre>
         </td>
       </tr>
       <tr>
@@ -695,7 +692,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>        };</span></pre>
+          <pre><span class=
+          'red'>            handle.resume();</span></pre>
         </td>
       </tr>
       <tr>
@@ -707,8 +705,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>        binder_.exec();</span></pre>
+          <pre><span class='red'>        };</span></pre>
         </td>
       </tr>
       <tr>
@@ -720,7 +717,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>    }</span></pre>
+          <pre><span class=
+          'red'>        binder_.exec();</span></pre>
         </td>
       </tr>
       <tr>
@@ -728,9 +726,11 @@
           <a name='L67' href='#L67' id="L67">
           <pre>67</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -740,7 +740,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  private:</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -750,7 +750,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    internal::SqlBinder binder_;</pre>
+          <pre>  private:</pre>
         </td>
       </tr>
       <tr>
@@ -760,7 +760,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>};</pre>
+          <pre>    internal::SqlBinder binder_;</pre>
         </td>
       </tr>
       <tr>
@@ -770,7 +770,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>};</pre>
         </td>
       </tr>
       <tr>
@@ -780,7 +780,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>struct [[nodiscard]] TransactionAwaiter</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -790,7 +790,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    : public CallbackAwaiter&lt;std::shared_ptr&lt;Transaction&gt; &gt;</pre>
+          <pre>struct [[nodiscard]] TransactionAwaiter</pre>
         </td>
       </tr>
       <tr>
@@ -800,7 +800,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>    : public CallbackAwaiter&lt;std::shared_ptr&lt;Transaction&gt; &gt;</pre>
         </td>
       </tr>
       <tr>
@@ -810,7 +810,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    TransactionAwaiter(DbClient *client) : client_(client)</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -818,11 +818,9 @@
           <a name='L76' href='#L76' id="L76">
           <pre>76</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
+          <pre>    explicit TransactionAwaiter(DbClient *client) : client_(client)</pre>
         </td>
       </tr>
       <tr>
@@ -834,7 +832,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>    }</span></pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -842,9 +840,11 @@
           <a name='L78' href='#L78' id="L78">
           <pre>78</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -854,7 +854,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    void await_suspend(std::coroutine_handle&lt;&gt; handle);</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -864,7 +864,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>    void await_suspend(std::coroutine_handle&lt;&gt; handle);</pre>
         </td>
       </tr>
       <tr>
@@ -874,7 +874,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  private:</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -884,7 +884,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    DbClient *client_;</pre>
+          <pre>  private:</pre>
         </td>
       </tr>
       <tr>
@@ -894,7 +894,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>};</pre>
+          <pre>    DbClient *client_;</pre>
         </td>
       </tr>
       <tr>
@@ -904,7 +904,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>};</pre>
         </td>
       </tr>
       <tr>
@@ -914,7 +914,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#endif</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -924,7 +924,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>#endif</pre>
         </td>
       </tr>
       <tr>
@@ -934,7 +934,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>}  // namespace internal</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -944,7 +944,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>}  // namespace internal</pre>
         </td>
       </tr>
       <tr>
@@ -954,7 +954,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>/// Database client abstract class</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -964,7 +964,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>class DROGON_EXPORT DbClient : public trantor::NonCopyable</pre>
+          <pre>/// Database client abstract class</pre>
         </td>
       </tr>
       <tr>
@@ -974,7 +974,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>class DROGON_EXPORT DbClient : public trantor::NonCopyable</pre>
         </td>
       </tr>
       <tr>
@@ -984,7 +984,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  public:</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -992,12 +992,9 @@
           <a name='L93' href='#L93' id="L93">
           <pre>93</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    virtual ~DbClient()<span class=
-          'red'>{}</span>;</pre>
+          <pre>  public:</pre>
         </td>
       </tr>
       <tr>
@@ -1007,7 +1004,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    /// Create a new database client with multiple connections;</pre>
+          <pre>    virtual ~DbClient();</pre>
         </td>
       </tr>
       <tr>
@@ -1017,7 +1014,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    /**</pre>
+          <pre>    /// Create a new database client with multiple connections;</pre>
         </td>
       </tr>
       <tr>
@@ -1027,7 +1024,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @param connInfo: Connection string with some parameters,</pre>
+          <pre>    /**</pre>
         </td>
       </tr>
       <tr>
@@ -1037,7 +1034,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * each parameter setting is in the form keyword = value. Spaces around the</pre>
+          <pre>     * @param connInfo: Connection string with some parameters,</pre>
         </td>
       </tr>
       <tr>
@@ -1047,7 +1044,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * equal sign are optional.</pre>
+          <pre>     * each parameter setting is in the form keyword = value. Spaces around the</pre>
         </td>
       </tr>
       <tr>
@@ -1057,7 +1054,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * To write an empty value, or a value containing spaces, surround it with</pre>
+          <pre>     * equal sign are optional.</pre>
         </td>
       </tr>
       <tr>
@@ -1067,7 +1064,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * single quotes, e.g.,</pre>
+          <pre>     * To write an empty value, or a value containing spaces, surround it with</pre>
         </td>
       </tr>
       <tr>
@@ -1077,7 +1074,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * keyword = 'a value'. Single quotes and backslashes within the value must</pre>
+          <pre>     * single quotes, e.g.,</pre>
         </td>
       </tr>
       <tr>
@@ -1087,7 +1084,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * be escaped with a backslash, i.e., \' and \\. Example: host=localhost</pre>
+          <pre>     * keyword = 'a value'. Single quotes and backslashes within the value must</pre>
         </td>
       </tr>
       <tr>
@@ -1097,7 +1094,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * port=5432 dbname=mydb connect_timeout=10 password='' The currently</pre>
+          <pre>     * be escaped with a backslash, i.e., \' and \\. Example: host=localhost</pre>
         </td>
       </tr>
       <tr>
@@ -1107,7 +1104,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * recognized parameter key words are:</pre>
+          <pre>     * port=5432 dbname=mydb connect_timeout=10 password='' The currently</pre>
         </td>
       </tr>
       <tr>
@@ -1117,7 +1114,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * - host: can be either a host name or an IP address.</pre>
+          <pre>     * recognized parameter key words are:</pre>
         </td>
       </tr>
       <tr>
@@ -1127,7 +1124,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * - port: Port number to connect to at the server host.</pre>
+          <pre>     * - host: can be either a host name or an IP address.</pre>
         </td>
       </tr>
       <tr>
@@ -1137,7 +1134,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * - dbname: The database name. Defaults to be the same as the user name.</pre>
+          <pre>     * - port: Port number to connect to at the server host.</pre>
         </td>
       </tr>
       <tr>
@@ -1147,7 +1144,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * - user:  user name to connect as. With PostgreSQL defaults to be the same</pre>
+          <pre>     * - dbname: The database name. Defaults to be the same as the user name.</pre>
         </td>
       </tr>
       <tr>
@@ -1157,7 +1154,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * as the operating system name of the user running the application.</pre>
+          <pre>     * - user:  user name to connect as. With PostgreSQL defaults to be the same</pre>
         </td>
       </tr>
       <tr>
@@ -1167,7 +1164,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * - password: Password to be used if the server demands password</pre>
+          <pre>     * as the operating system name of the user running the application.</pre>
         </td>
       </tr>
       <tr>
@@ -1177,7 +1174,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * authentication.</pre>
+          <pre>     * - password: Password to be used if the server demands password</pre>
         </td>
       </tr>
       <tr>
@@ -1187,7 +1184,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * - client_encoding: The character set to be used on database connections.</pre>
+          <pre>     * authentication.</pre>
         </td>
       </tr>
       <tr>
@@ -1197,7 +1194,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     *</pre>
+          <pre>     * - client_encoding: The character set to be used on database connections.</pre>
         </td>
       </tr>
       <tr>
@@ -1207,7 +1204,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * For other key words on PostgreSQL, see the PostgreSQL documentation.</pre>
+          <pre>     *</pre>
         </td>
       </tr>
       <tr>
@@ -1217,7 +1214,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * Only a pair of key values is valid for Sqlite3, and its keyword is</pre>
+          <pre>     * For other key words on PostgreSQL, see the PostgreSQL documentation.</pre>
         </td>
       </tr>
       <tr>
@@ -1227,7 +1224,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * 'filename'.</pre>
+          <pre>     * Only a pair of key values is valid for Sqlite3, and its keyword is</pre>
         </td>
       </tr>
       <tr>
@@ -1237,7 +1234,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     *</pre>
+          <pre>     * 'filename'.</pre>
         </td>
       </tr>
       <tr>
@@ -1247,7 +1244,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @param connNum: The number of connections to database server;</pre>
+          <pre>     *</pre>
         </td>
       </tr>
       <tr>
@@ -1257,7 +1254,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     */</pre>
+          <pre>     * @param connNum: The number of connections to database server;</pre>
         </td>
       </tr>
       <tr>
@@ -1267,7 +1264,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    static std::shared_ptr&lt;DbClient&gt; newPgClient(const std::string &amp;connInfo,</pre>
+          <pre>     */</pre>
         </td>
       </tr>
       <tr>
@@ -1277,7 +1274,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                                                 const size_t connNum,</pre>
+          <pre>    static std::shared_ptr&lt;DbClient&gt; newPgClient(const std::string &amp;connInfo,</pre>
         </td>
       </tr>
       <tr>
@@ -1287,7 +1284,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                                                 bool autoBatch = false);</pre>
+          <pre>                                                 size_t connNum,</pre>
         </td>
       </tr>
       <tr>
@@ -1297,7 +1294,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    static std::shared_ptr&lt;DbClient&gt; newMysqlClient(const std::string &amp;connInfo,</pre>
+          <pre>                                                 bool autoBatch = false);</pre>
         </td>
       </tr>
       <tr>
@@ -1307,7 +1304,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                                                    const size_t connNum);</pre>
+          <pre>    static std::shared_ptr&lt;DbClient&gt; newMysqlClient(const std::string &amp;connInfo,</pre>
         </td>
       </tr>
       <tr>
@@ -1317,7 +1314,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    static std::shared_ptr&lt;DbClient&gt; newSqlite3Client(</pre>
+          <pre>                                                    size_t connNum);</pre>
         </td>
       </tr>
       <tr>
@@ -1327,7 +1324,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        const std::string &amp;connInfo,</pre>
+          <pre>    static std::shared_ptr&lt;DbClient&gt; newSqlite3Client(</pre>
         </td>
       </tr>
       <tr>
@@ -1337,7 +1334,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        const size_t connNum);</pre>
+          <pre>        const std::string &amp;connInfo,</pre>
         </td>
       </tr>
       <tr>
@@ -1347,7 +1344,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>        size_t connNum);</pre>
         </td>
       </tr>
       <tr>
@@ -1357,7 +1354,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    /// Async and nonblocking method</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1367,7 +1364,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    /**</pre>
+          <pre>    /// Async and nonblocking method</pre>
         </td>
       </tr>
       <tr>
@@ -1377,7 +1374,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @param sql is the SQL statement to be executed;</pre>
+          <pre>    /**</pre>
         </td>
       </tr>
       <tr>
@@ -1387,7 +1384,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @param FUNCTION1 is usually the ResultCallback type;</pre>
+          <pre>     * @param sql is the SQL statement to be executed;</pre>
         </td>
       </tr>
       <tr>
@@ -1397,7 +1394,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @param FUNCTION2 is usually the ExceptionCallback type;</pre>
+          <pre>     * @param FUNCTION1 is usually the ResultCallback type;</pre>
         </td>
       </tr>
       <tr>
@@ -1407,7 +1404,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @param args are parameters that are bound to placeholders in the sql</pre>
+          <pre>     * @param FUNCTION2 is usually the ExceptionCallback type;</pre>
         </td>
       </tr>
       <tr>
@@ -1417,7 +1414,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * parameter;</pre>
+          <pre>     * @param args are parameters that are bound to placeholders in the sql</pre>
         </td>
       </tr>
       <tr>
@@ -1427,7 +1424,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     *</pre>
+          <pre>     * parameter;</pre>
         </td>
       </tr>
       <tr>
@@ -1437,7 +1434,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @note</pre>
+          <pre>     *</pre>
         </td>
       </tr>
       <tr>
@@ -1447,7 +1444,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     *</pre>
+          <pre>     * @note</pre>
         </td>
       </tr>
       <tr>
@@ -1457,7 +1454,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * If the number of args parameters is not zero, make sure that all criteria</pre>
+          <pre>     *</pre>
         </td>
       </tr>
       <tr>
@@ -1467,7 +1464,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * in the sql parameter set by bind parameters, for example:</pre>
+          <pre>     * If the number of args parameters is not zero, make sure that all criteria</pre>
         </td>
       </tr>
       <tr>
@@ -1477,7 +1474,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     *</pre>
+          <pre>     * in the sql parameter set by bind parameters, for example:</pre>
         </td>
       </tr>
       <tr>
@@ -1487,7 +1484,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     *   1. select * from users where user_id &gt; 10 limit 10 offset 10; //Not</pre>
+          <pre>     *</pre>
         </td>
       </tr>
       <tr>
@@ -1497,7 +1494,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * bad, no bind parameters are used.</pre>
+          <pre>     *   1. select * from users where user_id &gt; 10 limit 10 offset 10; //Not</pre>
         </td>
       </tr>
       <tr>
@@ -1507,7 +1504,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     *   2. select * from users where user_id &gt; ? limit ? offset ?; //Good,</pre>
+          <pre>     * bad, no bind parameters are used.</pre>
         </td>
       </tr>
       <tr>
@@ -1517,7 +1514,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * fully use bind parameters.</pre>
+          <pre>     *   2. select * from users where user_id &gt; ? limit ? offset ?; //Good,</pre>
         </td>
       </tr>
       <tr>
@@ -1527,7 +1524,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     *   3. select * from users where user_id &gt; ? limit ? offset 10; //Bad,</pre>
+          <pre>     * fully use bind parameters.</pre>
         </td>
       </tr>
       <tr>
@@ -1537,7 +1534,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * partially use bind parameters.</pre>
+          <pre>     *   3. select * from users where user_id &gt; ? limit ? offset 10; //Bad,</pre>
         </td>
       </tr>
       <tr>
@@ -1547,7 +1544,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     *</pre>
+          <pre>     * partially use bind parameters.</pre>
         </td>
       </tr>
       <tr>
@@ -1557,7 +1554,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * Strictly speaking, try not to splice SQL statements dynamically, Instead,</pre>
+          <pre>     *</pre>
         </td>
       </tr>
       <tr>
@@ -1567,7 +1564,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * use the constant sql string with placeholders and the bind parameters to</pre>
+          <pre>     * Strictly speaking, try not to splice SQL statements dynamically, Instead,</pre>
         </td>
       </tr>
       <tr>
@@ -1577,7 +1574,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * execute sql. This rule makes the sql execute faster and more securely,</pre>
+          <pre>     * use the constant sql string with placeholders and the bind parameters to</pre>
         </td>
       </tr>
       <tr>
@@ -1587,7 +1584,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * and users should follow this rule when calling all methods of DbClient.</pre>
+          <pre>     * execute sql. This rule makes the sql execute faster and more securely,</pre>
         </td>
       </tr>
       <tr>
@@ -1597,7 +1594,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     *</pre>
+          <pre>     * and users should follow this rule when calling all methods of DbClient.</pre>
         </td>
       </tr>
       <tr>
@@ -1607,7 +1604,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     */</pre>
+          <pre>     *</pre>
         </td>
       </tr>
       <tr>
@@ -1617,7 +1614,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    template &lt;typename FUNCTION1, typename FUNCTION2, typename... Arguments&gt;</pre>
+          <pre>     */</pre>
         </td>
       </tr>
       <tr>
@@ -1627,7 +1624,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    void execSqlAsync(const std::string &amp;sql,</pre>
+          <pre>    template &lt;typename FUNCTION1, typename FUNCTION2, typename... Arguments&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -1637,7 +1634,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                      FUNCTION1 &amp;&amp;rCallback,</pre>
+          <pre>    void execSqlAsync(const std::string &amp;sql,</pre>
         </td>
       </tr>
       <tr>
@@ -1647,7 +1644,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                      FUNCTION2 &amp;&amp;exceptCallback,</pre>
+          <pre>                      FUNCTION1 &amp;&amp;rCallback,</pre>
         </td>
       </tr>
       <tr>
@@ -1657,7 +1654,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                      Arguments &amp;&amp;...args) noexcept</pre>
+          <pre>                      FUNCTION2 &amp;&amp;exceptCallback,</pre>
         </td>
       </tr>
       <tr>
@@ -1667,7 +1664,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    {</pre>
+          <pre>                      Arguments &amp;&amp;...args) noexcept</pre>
         </td>
       </tr>
       <tr>
@@ -1677,7 +1674,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        auto binder = *this &lt;&lt; sql;</pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -1687,7 +1684,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        (void)std::initializer_list&lt;int&gt;{</pre>
+          <pre>        auto binder = *this &lt;&lt; sql;</pre>
         </td>
       </tr>
       <tr>
@@ -1697,7 +1694,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            (binder &lt;&lt; std::forward&lt;Arguments&gt;(args), 0)...};</pre>
+          <pre>        (void)std::initializer_list&lt;int&gt;{</pre>
         </td>
       </tr>
       <tr>
@@ -1707,7 +1704,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        binder &gt;&gt; std::forward&lt;FUNCTION1&gt;(rCallback);</pre>
+          <pre>            (binder &lt;&lt; std::forward&lt;Arguments&gt;(args), 0)...};</pre>
         </td>
       </tr>
       <tr>
@@ -1717,7 +1714,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        binder &gt;&gt; std::forward&lt;FUNCTION2&gt;(exceptCallback);</pre>
+          <pre>        binder &gt;&gt; std::forward&lt;FUNCTION1&gt;(rCallback);</pre>
         </td>
       </tr>
       <tr>
@@ -1727,7 +1724,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    }</pre>
+          <pre>        binder &gt;&gt; std::forward&lt;FUNCTION2&gt;(exceptCallback);</pre>
         </td>
       </tr>
       <tr>
@@ -1737,7 +1734,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>    }</pre>
         </td>
       </tr>
       <tr>
@@ -1747,7 +1744,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    /// Async and nonblocking method</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1757,7 +1754,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    template &lt;typename... Arguments&gt;</pre>
+          <pre>    /// Async and nonblocking method</pre>
         </td>
       </tr>
       <tr>
@@ -1767,7 +1764,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    std::future&lt;Result&gt; execSqlAsyncFuture(const std::string &amp;sql,</pre>
+          <pre>    template &lt;typename... Arguments&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -1777,7 +1774,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                                           Arguments &amp;&amp;...args) noexcept</pre>
+          <pre>    std::future&lt;Result&gt; execSqlAsyncFuture(const std::string &amp;sql,</pre>
         </td>
       </tr>
       <tr>
@@ -1787,7 +1784,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    {</pre>
+          <pre>                                           Arguments &amp;&amp;...args) noexcept</pre>
         </td>
       </tr>
       <tr>
@@ -1797,7 +1794,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        auto binder = *this &lt;&lt; sql;</pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -1807,7 +1804,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        (void)std::initializer_list&lt;int&gt;{</pre>
+          <pre>        auto binder = *this &lt;&lt; sql;</pre>
         </td>
       </tr>
       <tr>
@@ -1817,7 +1814,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            (binder &lt;&lt; std::forward&lt;Arguments&gt;(args), 0)...};</pre>
+          <pre>        (void)std::initializer_list&lt;int&gt;{</pre>
         </td>
       </tr>
       <tr>
@@ -1827,7 +1824,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        std::shared_ptr&lt;std::promise&lt;Result&gt; &gt; prom =</pre>
+          <pre>            (binder &lt;&lt; std::forward&lt;Arguments&gt;(args), 0)...};</pre>
         </td>
       </tr>
       <tr>
@@ -1837,7 +1834,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::make_shared&lt;std::promise&lt;Result&gt; &gt;();</pre>
+          <pre>        std::shared_ptr&lt;std::promise&lt;Result&gt; &gt; prom =</pre>
         </td>
       </tr>
       <tr>
@@ -1847,7 +1844,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        binder &gt;&gt; [prom](const Result &amp;r) { prom-&gt;set_value(r); };</pre>
+          <pre>            std::make_shared&lt;std::promise&lt;Result&gt; &gt;();</pre>
         </td>
       </tr>
       <tr>
@@ -1857,7 +1854,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        binder &gt;&gt;</pre>
+          <pre>        binder &gt;&gt; [prom](const Result &amp;r) { prom-&gt;set_value(r); };</pre>
         </td>
       </tr>
       <tr>
@@ -1867,7 +1864,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            [prom](const std::exception_ptr &amp;e) { prom-&gt;set_exception(e); };</pre>
+          <pre>        binder &gt;&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -1877,7 +1874,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        binder.exec();</pre>
+          <pre>            [prom](const std::exception_ptr &amp;e) { prom-&gt;set_exception(e); };</pre>
         </td>
       </tr>
       <tr>
@@ -1887,7 +1884,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        return prom-&gt;get_future();</pre>
+          <pre>        binder.exec();</pre>
         </td>
       </tr>
       <tr>
@@ -1897,7 +1894,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    }</pre>
+          <pre>        return prom-&gt;get_future();</pre>
         </td>
       </tr>
       <tr>
@@ -1907,7 +1904,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>    }</pre>
         </td>
       </tr>
       <tr>
@@ -1917,7 +1914,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    // Sync and blocking method</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1927,7 +1924,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    template &lt;typename... Arguments&gt;</pre>
+          <pre>    // Sync and blocking method</pre>
         </td>
       </tr>
       <tr>
@@ -1937,7 +1934,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    const Result execSqlSync(const std::string &amp;sql,</pre>
+          <pre>    template &lt;typename... Arguments&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -1947,7 +1944,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                             Arguments &amp;&amp;...args) noexcept(false)</pre>
+          <pre>    Result execSqlSync(const std::string &amp;sql,</pre>
         </td>
       </tr>
       <tr>
@@ -1957,7 +1954,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    {</pre>
+          <pre>                       Arguments &amp;&amp;...args) noexcept(false)</pre>
         </td>
       </tr>
       <tr>
@@ -1967,7 +1964,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        Result r(nullptr);</pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -1977,7 +1974,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        {</pre>
+          <pre>        Result r(nullptr);</pre>
         </td>
       </tr>
       <tr>
@@ -1987,7 +1984,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            auto binder = *this &lt;&lt; sql;</pre>
+          <pre>        {</pre>
         </td>
       </tr>
       <tr>
@@ -1997,7 +1994,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            (void)std::initializer_list&lt;int&gt;{</pre>
+          <pre>            auto binder = *this &lt;&lt; sql;</pre>
         </td>
       </tr>
       <tr>
@@ -2007,7 +2004,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                (binder &lt;&lt; std::forward&lt;Arguments&gt;(args), 0)...};</pre>
+          <pre>            (void)std::initializer_list&lt;int&gt;{</pre>
         </td>
       </tr>
       <tr>
@@ -2017,7 +2014,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            // Use blocking mode</pre>
+          <pre>                (binder &lt;&lt; std::forward&lt;Arguments&gt;(args), 0)...};</pre>
         </td>
       </tr>
       <tr>
@@ -2027,7 +2024,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            binder &lt;&lt; Mode::Blocking;</pre>
+          <pre>            // Use blocking mode</pre>
         </td>
       </tr>
       <tr>
@@ -2037,7 +2034,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>            binder &lt;&lt; Mode::Blocking;</pre>
         </td>
       </tr>
       <tr>
@@ -2047,7 +2044,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            binder &gt;&gt; [&amp;r](const Result &amp;result) { r = result; };</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -2057,7 +2054,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            binder.exec();  // exec may be throw exception;</pre>
+          <pre>            binder &gt;&gt; [&amp;r](const Result &amp;result) { r = result; };</pre>
         </td>
       </tr>
       <tr>
@@ -2067,7 +2064,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        }</pre>
+          <pre>            binder.exec();  // exec may be throw exception;</pre>
         </td>
       </tr>
       <tr>
@@ -2077,7 +2074,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        return r;</pre>
+          <pre>        }</pre>
         </td>
       </tr>
       <tr>
@@ -2087,7 +2084,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    }</pre>
+          <pre>        return r;</pre>
         </td>
       </tr>
       <tr>
@@ -2097,7 +2094,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>    }</pre>
         </td>
       </tr>
       <tr>
@@ -2107,7 +2104,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#ifdef __cpp_impl_coroutine</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -2117,7 +2114,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    template &lt;typename... Arguments&gt;</pre>
+          <pre>#ifdef __cpp_impl_coroutine</pre>
         </td>
       </tr>
       <tr>
@@ -2127,7 +2124,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    internal::SqlAwaiter execSqlCoro(const std::string &amp;sql,</pre>
+          <pre>    template &lt;typename... Arguments&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -2137,7 +2134,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                                     Arguments &amp;&amp;...args) noexcept</pre>
+          <pre>    internal::SqlAwaiter execSqlCoro(const std::string &amp;sql,</pre>
         </td>
       </tr>
       <tr>
@@ -2147,7 +2144,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    {</pre>
+          <pre>                                     Arguments &amp;&amp;...args) noexcept</pre>
         </td>
       </tr>
       <tr>
@@ -2157,7 +2154,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        auto binder = *this &lt;&lt; sql;</pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -2167,7 +2164,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        (void)std::initializer_list&lt;int&gt;{</pre>
+          <pre>        auto binder = *this &lt;&lt; sql;</pre>
         </td>
       </tr>
       <tr>
@@ -2177,7 +2174,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            (binder &lt;&lt; std::forward&lt;Arguments&gt;(args), 0)...};</pre>
+          <pre>        (void)std::initializer_list&lt;int&gt;{</pre>
         </td>
       </tr>
       <tr>
@@ -2187,7 +2184,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        return internal::SqlAwaiter(std::move(binder));</pre>
+          <pre>            (binder &lt;&lt; std::forward&lt;Arguments&gt;(args), 0)...};</pre>
         </td>
       </tr>
       <tr>
@@ -2197,7 +2194,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    }</pre>
+          <pre>        return internal::SqlAwaiter(std::move(binder));</pre>
         </td>
       </tr>
       <tr>
@@ -2207,7 +2204,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#endif</pre>
+          <pre>    }</pre>
         </td>
       </tr>
       <tr>
@@ -2217,7 +2214,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>#endif</pre>
         </td>
       </tr>
       <tr>
@@ -2227,7 +2224,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    /// Streaming-like method for sql execution. For more information, see the</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -2237,7 +2234,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    /// wiki page.</pre>
+          <pre>    /// Streaming-like method for sql execution. For more information, see the</pre>
         </td>
       </tr>
       <tr>
@@ -2247,7 +2244,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    internal::SqlBinder operator&lt;&lt;(const std::string &amp;sql);</pre>
+          <pre>    /// wiki page.</pre>
         </td>
       </tr>
       <tr>
@@ -2257,7 +2254,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    internal::SqlBinder operator&lt;&lt;(std::string &amp;&amp;sql);</pre>
+          <pre>    internal::SqlBinder operator&lt;&lt;(const std::string &amp;sql);</pre>
         </td>
       </tr>
       <tr>
@@ -2267,7 +2264,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    template &lt;int N&gt;</pre>
+          <pre>    internal::SqlBinder operator&lt;&lt;(std::string &amp;&amp;sql);</pre>
         </td>
       </tr>
       <tr>
@@ -2277,7 +2274,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    internal::SqlBinder operator&lt;&lt;(const char (&amp;sql)[N])</pre>
+          <pre>    template &lt;int N&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -2287,7 +2284,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    {</pre>
+          <pre>    internal::SqlBinder operator&lt;&lt;(const char (&amp;sql)[N])</pre>
         </td>
       </tr>
       <tr>
@@ -2297,7 +2294,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        return internal::SqlBinder(sql, N - 1, *this, type_);</pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -2307,7 +2304,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    }</pre>
+          <pre>        return internal::SqlBinder(sql, N - 1, *this, type_);</pre>
         </td>
       </tr>
       <tr>
@@ -2317,7 +2314,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    internal::SqlBinder operator&lt;&lt;(const string_view &amp;sql)</pre>
+          <pre>    }</pre>
         </td>
       </tr>
       <tr>
@@ -2325,11 +2322,9 @@
           <a name='L226' href='#L226' id="L226">
           <pre>226</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
+          <pre>    internal::SqlBinder operator&lt;&lt;(const string_view &amp;sql)</pre>
         </td>
       </tr>
       <tr>
@@ -2341,8 +2336,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>        return internal::SqlBinder(sql.data(), sql.length(), *this, type_);</span></pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -2354,7 +2348,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>    }</span></pre>
+          <pre><span class=
+          'red'>        return internal::SqlBinder(sql.data(), sql.length(), *this, type_);</span></pre>
         </td>
       </tr>
       <tr>
@@ -2362,9 +2357,11 @@
           <a name='L229' href='#L229' id="L229">
           <pre>229</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -2374,7 +2371,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    /// Create a transaction object.</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -2384,7 +2381,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    /**</pre>
+          <pre>    /// Create a transaction object.</pre>
         </td>
       </tr>
       <tr>
@@ -2394,7 +2391,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @param commitCallback: the callback with which user can get the</pre>
+          <pre>    /**</pre>
         </td>
       </tr>
       <tr>
@@ -2404,7 +2401,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * submitting result, The Boolean type parameter in the callback function</pre>
+          <pre>     * @param commitCallback: the callback with which user can get the</pre>
         </td>
       </tr>
       <tr>
@@ -2414,7 +2411,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * indicates whether the transaction was submitted successfully.</pre>
+          <pre>     * submitting result, The Boolean type parameter in the callback function</pre>
         </td>
       </tr>
       <tr>
@@ -2424,7 +2421,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     *</pre>
+          <pre>     * indicates whether the transaction was submitted successfully.</pre>
         </td>
       </tr>
       <tr>
@@ -2434,7 +2431,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @note The callback only indicates the result of the 'commit' command,</pre>
+          <pre>     *</pre>
         </td>
       </tr>
       <tr>
@@ -2444,7 +2441,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * which is the last step of the transaction. If the transaction has been</pre>
+          <pre>     * @note The callback only indicates the result of the 'commit' command,</pre>
         </td>
       </tr>
       <tr>
@@ -2454,7 +2451,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * automatically or manually rolled back, the callback will never be</pre>
+          <pre>     * which is the last step of the transaction. If the transaction has been</pre>
         </td>
       </tr>
       <tr>
@@ -2464,7 +2461,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * executed. You can also use the setCommitCallback() method of a</pre>
+          <pre>     * automatically or manually rolled back, the callback will never be</pre>
         </td>
       </tr>
       <tr>
@@ -2474,7 +2471,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * transaction object to set the callback.</pre>
+          <pre>     * executed. You can also use the setCommitCallback() method of a</pre>
         </td>
       </tr>
       <tr>
@@ -2484,7 +2481,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @note A TimeoutError exception is thrown if the operation is timed out.</pre>
+          <pre>     * transaction object to set the callback.</pre>
         </td>
       </tr>
       <tr>
@@ -2494,7 +2491,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     */</pre>
+          <pre>     * @note A TimeoutError exception is thrown if the operation is timed out.</pre>
         </td>
       </tr>
       <tr>
@@ -2504,7 +2501,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    virtual std::shared_ptr&lt;Transaction&gt; newTransaction(</pre>
+          <pre>     */</pre>
         </td>
       </tr>
       <tr>
@@ -2514,7 +2511,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        const std::function&lt;void(bool)&gt; &amp;commitCallback =</pre>
+          <pre>    virtual std::shared_ptr&lt;Transaction&gt; newTransaction(</pre>
         </td>
       </tr>
       <tr>
@@ -2524,7 +2521,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::function&lt;void(bool)&gt;()) noexcept(false) = 0;</pre>
+          <pre>        const std::function&lt;void(bool)&gt; &amp;commitCallback =</pre>
         </td>
       </tr>
       <tr>
@@ -2534,7 +2531,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>            std::function&lt;void(bool)&gt;()) noexcept(false) = 0;</pre>
         </td>
       </tr>
       <tr>
@@ -2544,7 +2541,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    /// Create a transaction object in asynchronous mode.</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -2554,7 +2551,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    /**</pre>
+          <pre>    /// Create a transaction object in asynchronous mode.</pre>
         </td>
       </tr>
       <tr>
@@ -2564,7 +2561,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @note An empty shared_ptr object is returned via the callback if the</pre>
+          <pre>    /**</pre>
         </td>
       </tr>
       <tr>
@@ -2574,7 +2571,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * operation is timed out.</pre>
+          <pre>     * @note An empty shared_ptr object is returned via the callback if the</pre>
         </td>
       </tr>
       <tr>
@@ -2584,7 +2581,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     */</pre>
+          <pre>     * operation is timed out.</pre>
         </td>
       </tr>
       <tr>
@@ -2594,7 +2591,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    virtual void newTransactionAsync(</pre>
+          <pre>     */</pre>
         </td>
       </tr>
       <tr>
@@ -2604,7 +2601,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        const std::function&lt;void(const std::shared_ptr&lt;Transaction&gt; &amp;)&gt;</pre>
+          <pre>    virtual void newTransactionAsync(</pre>
         </td>
       </tr>
       <tr>
@@ -2614,7 +2611,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            &amp;callback) = 0;</pre>
+          <pre>        const std::function&lt;void(const std::shared_ptr&lt;Transaction&gt; &amp;)&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -2624,7 +2621,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>            &amp;callback) = 0;</pre>
         </td>
       </tr>
       <tr>
@@ -2634,7 +2631,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#ifdef __cpp_impl_coroutine</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -2644,7 +2641,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    orm::internal::TransactionAwaiter newTransactionCoro()</pre>
+          <pre>#ifdef __cpp_impl_coroutine</pre>
         </td>
       </tr>
       <tr>
@@ -2652,11 +2649,9 @@
           <a name='L258' href='#L258' id="L258">
           <pre>258</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
+          <pre>    orm::internal::TransactionAwaiter newTransactionCoro()</pre>
         </td>
       </tr>
       <tr>
@@ -2668,8 +2663,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>        return orm::internal::TransactionAwaiter(this);</span></pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -2681,7 +2675,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>    }</span></pre>
+          <pre><span class=
+          'red'>        return orm::internal::TransactionAwaiter(this);</span></pre>
         </td>
       </tr>
       <tr>
@@ -2689,9 +2684,11 @@
           <a name='L261' href='#L261' id="L261">
           <pre>261</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>#endif</pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -2701,7 +2698,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>#endif</pre>
         </td>
       </tr>
       <tr>
@@ -2711,7 +2708,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    /**</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -2721,7 +2718,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @brief Check if there is a connection successfully established.</pre>
+          <pre>    /**</pre>
         </td>
       </tr>
       <tr>
@@ -2731,7 +2728,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     *</pre>
+          <pre>     * @brief Check if there is a connection successfully established.</pre>
         </td>
       </tr>
       <tr>
@@ -2741,7 +2738,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @return true</pre>
+          <pre>     *</pre>
         </td>
       </tr>
       <tr>
@@ -2751,7 +2748,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @return false</pre>
+          <pre>     * @return true</pre>
         </td>
       </tr>
       <tr>
@@ -2761,7 +2758,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     */</pre>
+          <pre>     * @return false</pre>
         </td>
       </tr>
       <tr>
@@ -2771,7 +2768,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    virtual bool hasAvailableConnections() const noexcept = 0;</pre>
+          <pre>     */</pre>
         </td>
       </tr>
       <tr>
@@ -2781,7 +2778,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>    virtual bool hasAvailableConnections() const noexcept = 0;</pre>
         </td>
       </tr>
       <tr>
@@ -2791,7 +2788,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    ClientType type() const</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -2799,11 +2796,9 @@
           <a name='L272' href='#L272' id="L272">
           <pre>272</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
+          <pre>    ClientType type() const</pre>
         </td>
       </tr>
       <tr>
@@ -2815,7 +2810,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>        return type_;</span></pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -2827,7 +2822,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>    }</span></pre>
+          <pre><span class='red'>        return type_;</span></pre>
         </td>
       </tr>
       <tr>
@@ -2835,9 +2830,11 @@
           <a name='L275' href='#L275' id="L275">
           <pre>275</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>    const std::string &amp;connectionInfo()</pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -2845,11 +2842,9 @@
           <a name='L276' href='#L276' id="L276">
           <pre>276</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
+          <pre>    const std::string &amp;connectionInfo() const</pre>
         </td>
       </tr>
       <tr>
@@ -2861,8 +2856,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>        return connectionInfo_;</span></pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -2874,7 +2868,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>    }</span></pre>
+          <pre><span class=
+          'red'>        return connectionInfo_;</span></pre>
         </td>
       </tr>
       <tr>
@@ -2882,9 +2877,11 @@
           <a name='L279' href='#L279' id="L279">
           <pre>279</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -2894,7 +2891,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    /**</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -2904,7 +2901,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @brief Set the Timeout value of execution of a SQL.</pre>
+          <pre>    /**</pre>
         </td>
       </tr>
       <tr>
@@ -2914,7 +2911,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     *</pre>
+          <pre>     * @brief Set the Timeout value of execution of a SQL.</pre>
         </td>
       </tr>
       <tr>
@@ -2924,7 +2921,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @param timeout in seconds, if the SQL result is not returned from the</pre>
+          <pre>     *</pre>
         </td>
       </tr>
       <tr>
@@ -2934,7 +2931,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * server within the timeout, a TimeoutError exception with "SQL execution</pre>
+          <pre>     * @param timeout in seconds, if the SQL result is not returned from the</pre>
         </td>
       </tr>
       <tr>
@@ -2944,7 +2941,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * timeout" string is generated and returned to the caller.</pre>
+          <pre>     * server within the timeout, a TimeoutError exception with "SQL execution</pre>
         </td>
       </tr>
       <tr>
@@ -2954,7 +2951,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @note set the timeout value to zero or negative for no limit on time. The</pre>
+          <pre>     * timeout" string is generated and returned to the caller.</pre>
         </td>
       </tr>
       <tr>
@@ -2964,7 +2961,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * default value is -1.0, this means there is no time limit if this method</pre>
+          <pre>     * @note set the timeout value to zero or negative for no limit on time. The</pre>
         </td>
       </tr>
       <tr>
@@ -2974,7 +2971,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * is not called.</pre>
+          <pre>     * default value is -1.0, this means there is no time limit if this method</pre>
         </td>
       </tr>
       <tr>
@@ -2984,7 +2981,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     */</pre>
+          <pre>     * is not called.</pre>
         </td>
       </tr>
       <tr>
@@ -2994,7 +2991,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    virtual void setTimeout(double timeout) = 0;</pre>
+          <pre>     */</pre>
         </td>
       </tr>
       <tr>
@@ -3004,7 +3001,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    /**</pre>
+          <pre>    virtual void setTimeout(double timeout) = 0;</pre>
         </td>
       </tr>
       <tr>
@@ -3014,7 +3011,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @brief Close all connections in the client. usually used by Drogon in the</pre>
+          <pre>    /**</pre>
         </td>
       </tr>
       <tr>
@@ -3024,7 +3021,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * quit() method.</pre>
+          <pre>     * @brief Close all connections in the client. usually used by Drogon in the</pre>
         </td>
       </tr>
       <tr>
@@ -3034,7 +3031,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * */</pre>
+          <pre>     * quit() method.</pre>
         </td>
       </tr>
       <tr>
@@ -3044,7 +3041,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    virtual void closeAll() = 0;</pre>
+          <pre>     * */</pre>
         </td>
       </tr>
       <tr>
@@ -3054,7 +3051,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>    virtual void closeAll() = 0;</pre>
         </td>
       </tr>
       <tr>
@@ -3064,7 +3061,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    /**</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -3074,7 +3071,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @brief Enable auto-batch mode.</pre>
+          <pre>    /**</pre>
         </td>
       </tr>
       <tr>
@@ -3084,7 +3081,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * This feature is available only for PostgreSQL 14+ version and the</pre>
+          <pre>     * @brief Enable auto-batch mode.</pre>
         </td>
       </tr>
       <tr>
@@ -3094,7 +3091,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * LIBPQ_BATCH_MODE option is CMakeLists.txt is ON.</pre>
+          <pre>     * This feature is available only for PostgreSQL 14+ version and the</pre>
         </td>
       </tr>
       <tr>
@@ -3104,7 +3101,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * When auto-batch mode is disabled (by default), every SQL query</pre>
+          <pre>     * LIBPQ_BATCH_MODE option is CMakeLists.txt is ON.</pre>
         </td>
       </tr>
       <tr>
@@ -3114,7 +3111,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * pipelined in a connection is automatically executed in an individual</pre>
+          <pre>     * When auto-batch mode is disabled (by default), every SQL query</pre>
         </td>
       </tr>
       <tr>
@@ -3124,7 +3121,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * implicit transaction, this behavior ensures that SQL queries cannot make</pre>
+          <pre>     * pipelined in a connection is automatically executed in an individual</pre>
         </td>
       </tr>
       <tr>
@@ -3134,7 +3131,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * side-effects to each other. Most databases client drivers execute SQL</pre>
+          <pre>     * implicit transaction, this behavior ensures that SQL queries cannot make</pre>
         </td>
       </tr>
       <tr>
@@ -3144,7 +3141,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * queries in this way.</pre>
+          <pre>     * side-effects to each other. Most databases client drivers execute SQL</pre>
         </td>
       </tr>
       <tr>
@@ -3154,7 +3151,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * When auto-batch mode is enabled, SQL queries are batched automatically to</pre>
+          <pre>     * queries in this way.</pre>
         </td>
       </tr>
       <tr>
@@ -3164,7 +3161,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * an implicit transaction, the synchronization point as the end of the</pre>
+          <pre>     * When auto-batch mode is enabled, SQL queries are batched automatically to</pre>
         </td>
       </tr>
       <tr>
@@ -3174,7 +3171,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * transaction is inserted when:</pre>
+          <pre>     * an implicit transaction, the synchronization point as the end of the</pre>
         </td>
       </tr>
       <tr>
@@ -3184,7 +3181,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * 1. The number of queries in the transaction has reached the upper limit;</pre>
+          <pre>     * transaction is inserted when:</pre>
         </td>
       </tr>
       <tr>
@@ -3194,7 +3191,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * 2. The last SQL query in the transaction contains some key words shows</pre>
+          <pre>     * 1. The number of queries in the transaction has reached the upper limit;</pre>
         </td>
       </tr>
       <tr>
@@ -3204,7 +3201,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * that the query make some changes on the database server;</pre>
+          <pre>     * 2. The last SQL query in the transaction contains some key words shows</pre>
         </td>
       </tr>
       <tr>
@@ -3214,7 +3211,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * 3. All SQL queries that are in the same call stack of the current</pre>
+          <pre>     * that the query make some changes on the database server;</pre>
         </td>
       </tr>
       <tr>
@@ -3224,7 +3221,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * event-loop are sent to the server;</pre>
+          <pre>     * 3. All SQL queries that are in the same call stack of the current</pre>
         </td>
       </tr>
       <tr>
@@ -3234,7 +3231,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @note the auto-batch mode is unsafe for general purpose scenarios.</pre>
+          <pre>     * event-loop are sent to the server;</pre>
         </td>
       </tr>
       <tr>
@@ -3244,7 +3241,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * While the framework is doing its best to reduce the side effects of this</pre>
+          <pre>     * @note the auto-batch mode is unsafe for general purpose scenarios.</pre>
         </td>
       </tr>
       <tr>
@@ -3254,7 +3251,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * implicit transaction, there are some risks that cannot be avoided, for</pre>
+          <pre>     * While the framework is doing its best to reduce the side effects of this</pre>
         </td>
       </tr>
       <tr>
@@ -3264,7 +3261,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * example:</pre>
+          <pre>     * implicit transaction, there are some risks that cannot be avoided, for</pre>
         </td>
       </tr>
       <tr>
@@ -3274,7 +3271,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * if a command is executed which happens to SELECT from a function (it</pre>
+          <pre>     * example:</pre>
         </td>
       </tr>
       <tr>
@@ -3284,7 +3281,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * makes some changes but don't cause a synchronization point), and around</pre>
+          <pre>     * if a command is executed which happens to SELECT from a function (it</pre>
         </td>
       </tr>
       <tr>
@@ -3294,7 +3291,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * the same time another unrelated command is executed which produces an</pre>
+          <pre>     * makes some changes but don't cause a synchronization point), and around</pre>
         </td>
       </tr>
       <tr>
@@ -3304,7 +3301,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * error (e.g. unique constraint violation), then any side-effects from the</pre>
+          <pre>     * the same time another unrelated command is executed which produces an</pre>
         </td>
       </tr>
       <tr>
@@ -3314,7 +3311,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * function may get rolled back, without any indication to the program that</pre>
+          <pre>     * error (e.g. unique constraint violation), then any side-effects from the</pre>
         </td>
       </tr>
       <tr>
@@ -3324,7 +3321,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * this happened. That is, the user code executing the function will</pre>
+          <pre>     * function may get rolled back, without any indication to the program that</pre>
         </td>
       </tr>
       <tr>
@@ -3334,7 +3331,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * continue as if the function completed successfully and its side effects</pre>
+          <pre>     * this happened. That is, the user code executing the function will</pre>
         </td>
       </tr>
       <tr>
@@ -3344,7 +3341,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * were committed, when in fact they were silently rolled back.</pre>
+          <pre>     * continue as if the function completed successfully and its side effects</pre>
         </td>
       </tr>
       <tr>
@@ -3354,7 +3351,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     *</pre>
+          <pre>     * were committed, when in fact they were silently rolled back.</pre>
         </td>
       </tr>
       <tr>
@@ -3364,7 +3361,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * So, users should ensure that all SQL requests sent by database clients</pre>
+          <pre>     *</pre>
         </td>
       </tr>
       <tr>
@@ -3374,7 +3371,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * with auto-batch mode are mutually safe, a viable strategy is to ensure</pre>
+          <pre>     * So, users should ensure that all SQL requests sent by database clients</pre>
         </td>
       </tr>
       <tr>
@@ -3384,7 +3381,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * that all SQL is read-only and does not interrupt the current transaction.</pre>
+          <pre>     * with auto-batch mode are mutually safe, a viable strategy is to ensure</pre>
         </td>
       </tr>
       <tr>
@@ -3394,7 +3391,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * Benefiting from the reduction in the number of transactions, the</pre>
+          <pre>     * that all SQL is read-only and does not interrupt the current transaction.</pre>
         </td>
       </tr>
       <tr>
@@ -3404,7 +3401,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * automatic batch mode has a certain performance improvement for some</pre>
+          <pre>     * Benefiting from the reduction in the number of transactions, the</pre>
         </td>
       </tr>
       <tr>
@@ -3414,7 +3411,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * high-concurrency scenarios. The auto-batch mode can only be enabled</pre>
+          <pre>     * automatic batch mode has a certain performance improvement for some</pre>
         </td>
       </tr>
       <tr>
@@ -3424,7 +3421,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * before the client is used, and enabling it during use will have uncertain</pre>
+          <pre>     * high-concurrency scenarios. The auto-batch mode can only be enabled</pre>
         </td>
       </tr>
       <tr>
@@ -3434,7 +3431,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * side effects. This feature can be enabled in the configuration file.</pre>
+          <pre>     * before the client is used, and enabling it during use will have uncertain</pre>
         </td>
       </tr>
       <tr>
@@ -3444,7 +3441,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * */</pre>
+          <pre>     * side effects. This feature can be enabled in the configuration file.</pre>
         </td>
       </tr>
       <tr>
@@ -3454,7 +3451,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    // virtual void enableAutoBatch() = 0;</pre>
+          <pre>     * */</pre>
         </td>
       </tr>
       <tr>
@@ -3464,7 +3461,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>    // virtual void enableAutoBatch() = 0;</pre>
         </td>
       </tr>
       <tr>
@@ -3474,7 +3471,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  private:</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -3484,7 +3481,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    friend internal::SqlBinder;</pre>
+          <pre>  private:</pre>
         </td>
       </tr>
       <tr>
@@ -3494,7 +3491,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    virtual void execSql(</pre>
+          <pre>    friend internal::SqlBinder;</pre>
         </td>
       </tr>
       <tr>
@@ -3504,7 +3501,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        const char *sql,</pre>
+          <pre>    virtual void execSql(</pre>
         </td>
       </tr>
       <tr>
@@ -3514,7 +3511,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        size_t sqlLength,</pre>
+          <pre>        const char *sql,</pre>
         </td>
       </tr>
       <tr>
@@ -3524,7 +3521,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        size_t paraNum,</pre>
+          <pre>        size_t sqlLength,</pre>
         </td>
       </tr>
       <tr>
@@ -3534,7 +3531,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        std::vector&lt;const char *&gt; &amp;&amp;parameters,</pre>
+          <pre>        size_t paraNum,</pre>
         </td>
       </tr>
       <tr>
@@ -3544,7 +3541,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        std::vector&lt;int&gt; &amp;&amp;length,</pre>
+          <pre>        std::vector&lt;const char *&gt; &amp;&amp;parameters,</pre>
         </td>
       </tr>
       <tr>
@@ -3554,7 +3551,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        std::vector&lt;int&gt; &amp;&amp;format,</pre>
+          <pre>        std::vector&lt;int&gt; &amp;&amp;length,</pre>
         </td>
       </tr>
       <tr>
@@ -3564,7 +3561,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        ResultCallback &amp;&amp;rcb,</pre>
+          <pre>        std::vector&lt;int&gt; &amp;&amp;format,</pre>
         </td>
       </tr>
       <tr>
@@ -3574,7 +3571,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        std::function&lt;void(const std::exception_ptr &amp;)&gt; &amp;&amp;exceptCallback) = 0;</pre>
+          <pre>        ResultCallback &amp;&amp;rcb,</pre>
         </td>
       </tr>
       <tr>
@@ -3584,7 +3581,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>        std::function&lt;void(const std::exception_ptr &amp;)&gt; &amp;&amp;exceptCallback) = 0;</pre>
         </td>
       </tr>
       <tr>
@@ -3594,7 +3591,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  protected:</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -3604,7 +3601,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    ClientType type_;</pre>
+          <pre>  protected:</pre>
         </td>
       </tr>
       <tr>
@@ -3614,7 +3611,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    std::string connectionInfo_;</pre>
+          <pre>    ClientType type_;</pre>
         </td>
       </tr>
       <tr>
@@ -3624,7 +3621,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>};</pre>
+          <pre>    std::string connectionInfo_;</pre>
         </td>
       </tr>
       <tr>
@@ -3634,7 +3631,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>using DbClientPtr = std::shared_ptr&lt;DbClient&gt;;</pre>
+          <pre>};</pre>
         </td>
       </tr>
       <tr>
@@ -3644,7 +3641,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>using DbClientPtr = std::shared_ptr&lt;DbClient&gt;;</pre>
         </td>
       </tr>
       <tr>
@@ -3654,7 +3651,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>class Transaction : public DbClient</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -3664,7 +3661,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>class Transaction : public DbClient</pre>
         </td>
       </tr>
       <tr>
@@ -3674,7 +3671,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  public:</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -3684,7 +3681,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    virtual void rollback() = 0;</pre>
+          <pre>  public:</pre>
         </td>
       </tr>
       <tr>
@@ -3694,7 +3691,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    // virtual void commit() = 0;</pre>
+          <pre>    virtual void rollback() = 0;</pre>
         </td>
       </tr>
       <tr>
@@ -3704,7 +3701,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    virtual void setCommitCallback(</pre>
+          <pre>    // virtual void commit() = 0;</pre>
         </td>
       </tr>
       <tr>
@@ -3714,7 +3711,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        const std::function&lt;void(bool)&gt; &amp;commitCallback) = 0;</pre>
+          <pre>    virtual void setCommitCallback(</pre>
         </td>
       </tr>
       <tr>
@@ -3724,7 +3721,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    void closeAll() override</pre>
+          <pre>        const std::function&lt;void(bool)&gt; &amp;commitCallback) = 0;</pre>
         </td>
       </tr>
       <tr>
@@ -3732,11 +3729,9 @@
           <a name='L364' href='#L364' id="L364">
           <pre>364</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
+          <pre>    void closeAll() override</pre>
         </td>
       </tr>
       <tr>
@@ -3748,7 +3743,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>    }</span></pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -3756,9 +3751,11 @@
           <a name='L366' href='#L366' id="L366">
           <pre>366</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>};</pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -3768,7 +3765,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>};</pre>
         </td>
       </tr>
       <tr>
@@ -3778,7 +3775,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#ifdef __cpp_impl_coroutine</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -3788,7 +3785,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>inline void internal::TransactionAwaiter::await_suspend(</pre>
+          <pre>#ifdef __cpp_impl_coroutine</pre>
         </td>
       </tr>
       <tr>
@@ -3798,7 +3795,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    std::coroutine_handle&lt;&gt; handle)</pre>
+          <pre>inline void internal::TransactionAwaiter::await_suspend(</pre>
         </td>
       </tr>
       <tr>
@@ -3806,11 +3803,9 @@
           <a name='L371' href='#L371' id="L371">
           <pre>371</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>{</span></pre>
+          <pre>    std::coroutine_handle&lt;&gt; handle)</pre>
         </td>
       </tr>
       <tr>
@@ -3822,8 +3817,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>    assert(client_ != nullptr);</span></pre>
+          <pre><span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -3836,7 +3830,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>    client_-&gt;newTransactionAsync(</span></pre>
+          'red'>    assert(client_ != nullptr);</span></pre>
         </td>
       </tr>
       <tr>
@@ -3849,7 +3843,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>        [this, handle](const std::shared_ptr&lt;Transaction&gt; &amp;transaction) {</span></pre>
+          'red'>    client_-&gt;newTransactionAsync(</span></pre>
         </td>
       </tr>
       <tr>
@@ -3862,7 +3856,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>            if (transaction == nullptr)</span></pre>
+          'red'>        [this, handle](const std::shared_ptr&lt;Transaction&gt; &amp;transaction) {</span></pre>
         </td>
       </tr>
       <tr>
@@ -3875,7 +3869,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>                setException(std::make_exception_ptr(TimeoutError(</span></pre>
+          'red'>            if (transaction == nullptr)</span></pre>
         </td>
       </tr>
       <tr>
@@ -3888,7 +3882,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>                    "Timeout, no connection available for transaction")));</span></pre>
+          'red'>                setException(std::make_exception_ptr(TimeoutError(</span></pre>
         </td>
       </tr>
       <tr>
@@ -3900,7 +3894,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>            else</span></pre>
+          <pre><span class=
+          'red'>                    "Timeout, no connection available for transaction")));</span></pre>
         </td>
       </tr>
       <tr>
@@ -3912,8 +3907,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>                setValue(transaction);</span></pre>
+          <pre><span class='red'>            else</span></pre>
         </td>
       </tr>
       <tr>
@@ -3926,7 +3920,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>            handle.resume();</span></pre>
+          'red'>                setValue(transaction);</span></pre>
         </td>
       </tr>
       <tr>
@@ -3938,7 +3932,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>        });</span></pre>
+          <pre><span class=
+          'red'>            handle.resume();</span></pre>
         </td>
       </tr>
       <tr>
@@ -3950,7 +3945,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>}</span></pre>
+          <pre><span class='red'>        });</span></pre>
         </td>
       </tr>
       <tr>
@@ -3958,9 +3953,11 @@
           <a name='L383' href='#L383' id="L383">
           <pre>383</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>#endif</pre>
+          <pre><span class='red'>}</span></pre>
         </td>
       </tr>
       <tr>
@@ -3970,7 +3967,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>#endif</pre>
         </td>
       </tr>
       <tr>
@@ -3980,13 +3977,23 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>}  // namespace orm</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L386' href='#L386' id="L386">
           <pre>386</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>}  // namespace orm</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L387' href='#L387' id="L387">
+          <pre>387</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>

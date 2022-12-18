@@ -1708,13 +1708,83 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    virtual ~CallbackHolderBase()</pre>
+          <pre>    virtual ~CallbackHolderBase() = default;</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L166' href='#L166' id="L166">
           <pre>166</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    virtual void execCallback(const Result &amp;result) = 0;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L167' href='#L167' id="L167">
+          <pre>167</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>};</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L168' href='#L168' id="L168">
+          <pre>168</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>template &lt;typename Function&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L169' href='#L169' id="L169">
+          <pre>169</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>class CallbackHolder : public CallbackHolderBase</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L170' href='#L170' id="L170">
+          <pre>170</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>{</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L171' href='#L171' id="L171">
+          <pre>171</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  public:</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L172' href='#L172' id="L172">
+          <pre>172</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    void execCallback(const Result &amp;result) override</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L173' href='#L173' id="L173">
+          <pre>173</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -1725,84 +1795,14 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L167' href='#L167' id="L167">
-          <pre>167</pre></a>
+          <a name='L174' href='#L174' id="L174">
+          <pre>174</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>    }</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L168' href='#L168' id="L168">
-          <pre>168</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    virtual void execCallback(const Result &amp;result) = 0;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L169' href='#L169' id="L169">
-          <pre>169</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>};</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L170' href='#L170' id="L170">
-          <pre>170</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>template &lt;typename Function&gt;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L171' href='#L171' id="L171">
-          <pre>171</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>class CallbackHolder : public CallbackHolderBase</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L172' href='#L172' id="L172">
-          <pre>172</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>{</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L173' href='#L173' id="L173">
-          <pre>173</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  public:</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L174' href='#L174' id="L174">
-          <pre>174</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    virtual void execCallback(const Result &amp;result)</pre>
+          <pre><span class='red'>        run(result);</span></pre>
         </td>
       </tr>
       <tr>
@@ -1814,7 +1814,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -1822,11 +1822,9 @@
           <a name='L176' href='#L176' id="L176">
           <pre>176</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>        run(result);</span></pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1834,11 +1832,9 @@
           <a name='L177' href='#L177' id="L177">
           <pre>177</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>    }</span></pre>
+          <pre>    template &lt;typename T&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -1848,7 +1844,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>    explicit CallbackHolder(T &amp;&amp;function) : function_(std::forward&lt;T&gt;(function))</pre>
         </td>
       </tr>
       <tr>
@@ -1858,7 +1854,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    template &lt;typename T&gt;</pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -1868,7 +1864,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    CallbackHolder(T &amp;&amp;function) : function_(std::forward&lt;T&gt;(function))</pre>
+          <pre>        static_assert(traits::isSqlCallback,</pre>
         </td>
       </tr>
       <tr>
@@ -1878,7 +1874,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    {</pre>
+          <pre>                      "Your sql callback function type is wrong!");</pre>
         </td>
       </tr>
       <tr>
@@ -1888,7 +1884,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        static_assert(traits::isSqlCallback,</pre>
+          <pre>    }</pre>
         </td>
       </tr>
       <tr>
@@ -1898,7 +1894,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                      "Your sql callback function type is wrong!");</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1908,7 +1904,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    }</pre>
+          <pre>  private:</pre>
         </td>
       </tr>
       <tr>
@@ -1918,7 +1914,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>    Function function_;</pre>
         </td>
       </tr>
       <tr>
@@ -1928,7 +1924,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  private:</pre>
+          <pre>    using traits = FunctionTraits&lt;Function&gt;;</pre>
         </td>
       </tr>
       <tr>
@@ -1938,7 +1934,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    Function function_;</pre>
+          <pre>    template &lt;std::size_t Index&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -1948,7 +1944,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    using traits = FunctionTraits&lt;Function&gt;;</pre>
+          <pre>    using NthArgumentType = typename traits::template argument&lt;Index&gt;;</pre>
         </td>
       </tr>
       <tr>
@@ -1958,7 +1954,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    template &lt;std::size_t Index&gt;</pre>
+          <pre>    static const size_t argumentCount = traits::arity;</pre>
         </td>
       </tr>
       <tr>
@@ -1968,7 +1964,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    using NthArgumentType = typename traits::template argument&lt;Index&gt;;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1978,7 +1974,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    static const size_t argumentCount = traits::arity;</pre>
+          <pre>    template &lt;bool isStep = traits::isStepResultCallback&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -1988,7 +1984,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>    typename std::enable_if&lt;isStep, void&gt;::type run(const Result &amp;result)</pre>
         </td>
       </tr>
       <tr>
@@ -1998,7 +1994,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    template &lt;bool isStep = traits::isStepResultCallback&gt;</pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -2008,7 +2004,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    typename std::enable_if&lt;isStep, void&gt;::type run(const Result &amp;result)</pre>
+          <pre>        if (result.empty())</pre>
         </td>
       </tr>
       <tr>
@@ -2018,7 +2014,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    {</pre>
+          <pre>        {</pre>
         </td>
       </tr>
       <tr>
@@ -2028,7 +2024,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        if (result.size() == 0)</pre>
+          <pre>            run(nullptr, true);</pre>
         </td>
       </tr>
       <tr>
@@ -2038,7 +2034,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        {</pre>
+          <pre>            return;</pre>
         </td>
       </tr>
       <tr>
@@ -2048,7 +2044,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            run(nullptr, true);</pre>
+          <pre>        }</pre>
         </td>
       </tr>
       <tr>
@@ -2058,7 +2054,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            return;</pre>
+          <pre>        for (auto const &amp;row : result)</pre>
         </td>
       </tr>
       <tr>
@@ -2068,7 +2064,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        }</pre>
+          <pre>        {</pre>
         </td>
       </tr>
       <tr>
@@ -2078,7 +2074,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        for (auto const &amp;row : result)</pre>
+          <pre>            run(&amp;row, false);</pre>
         </td>
       </tr>
       <tr>
@@ -2088,7 +2084,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        {</pre>
+          <pre>        }</pre>
         </td>
       </tr>
       <tr>
@@ -2098,7 +2094,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            run(&amp;row, false);</pre>
+          <pre>        run(nullptr, true);</pre>
         </td>
       </tr>
       <tr>
@@ -2108,7 +2104,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        }</pre>
+          <pre>    }</pre>
         </td>
       </tr>
       <tr>
@@ -2118,7 +2114,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        run(nullptr, true);</pre>
+          <pre>    template &lt;bool isStep = traits::isStepResultCallback&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -2128,7 +2124,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    }</pre>
+          <pre>    typename std::enable_if&lt;!isStep, void&gt;::type run(const Result &amp;result)</pre>
         </td>
       </tr>
       <tr>
@@ -2136,9 +2132,11 @@
           <a name='L207' href='#L207' id="L207">
           <pre>207</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>    template &lt;bool isStep = traits::isStepResultCallback&gt;</pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -2146,9 +2144,12 @@
           <a name='L208' href='#L208' id="L208">
           <pre>208</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>    typename std::enable_if&lt;!isStep, void&gt;::type run(const Result &amp;result)</pre>
+          <pre><span class=
+          'red'>        static_assert(argumentCount == 0,</span></pre>
         </td>
       </tr>
       <tr>
@@ -2160,7 +2161,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
+          <pre><span class=
+          'red'>                      "Your sql callback function type is wrong!");</span></pre>
         </td>
       </tr>
       <tr>
@@ -2173,7 +2175,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>        static_assert(argumentCount == 0,</span></pre>
+          'red'>        function_(result);</span></pre>
         </td>
       </tr>
       <tr>
@@ -2185,8 +2187,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>                      "Your sql callback function type is wrong!");</span></pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -2194,12 +2195,9 @@
           <a name='L212' href='#L212' id="L212">
           <pre>212</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class=
-          'red'>        function_(result);</span></pre>
+          <pre>    template &lt;typename... Values, std::size_t Boundary = argumentCount&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -2207,11 +2205,9 @@
           <a name='L213' href='#L213' id="L213">
           <pre>213</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>    }</span></pre>
+          <pre>    typename std::enable_if&lt;(sizeof...(Values) &lt; Boundary), void&gt;::type run(</pre>
         </td>
       </tr>
       <tr>
@@ -2221,7 +2217,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    template &lt;typename... Values, std::size_t Boundary = argumentCount&gt;</pre>
+          <pre>        const Row *const row,</pre>
         </td>
       </tr>
       <tr>
@@ -2231,7 +2227,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    typename std::enable_if&lt;(sizeof...(Values) &lt; Boundary), void&gt;::type run(</pre>
+          <pre>        bool isNull,</pre>
         </td>
       </tr>
       <tr>
@@ -2241,7 +2237,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        const Row *const row,</pre>
+          <pre>        Values &amp;&amp;...values)</pre>
         </td>
       </tr>
       <tr>
@@ -2251,7 +2247,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        bool isNull,</pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -2261,7 +2257,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        Values &amp;&amp;...values)</pre>
+          <pre>        // call this function recursively until parameter's count equals to the</pre>
         </td>
       </tr>
       <tr>
@@ -2271,7 +2267,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    {</pre>
+          <pre>        // count of target function parameters</pre>
         </td>
       </tr>
       <tr>
@@ -2281,7 +2277,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        // call this function recursively until parameter's count equals to the</pre>
+          <pre>        static_assert(</pre>
         </td>
       </tr>
       <tr>
@@ -2291,7 +2287,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        // count of target function parameters</pre>
+          <pre>            CallbackArgTypeTraits&lt;NthArgumentType&lt;sizeof...(Values)&gt;&gt;::isValid,</pre>
         </td>
       </tr>
       <tr>
@@ -2301,7 +2297,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        static_assert(</pre>
+          <pre>            "your sql callback function argument type must be value "</pre>
         </td>
       </tr>
       <tr>
@@ -2311,7 +2307,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            CallbackArgTypeTraits&lt;NthArgumentType&lt;sizeof...(Values)&gt;&gt;::isValid,</pre>
+          <pre>            "type or "</pre>
         </td>
       </tr>
       <tr>
@@ -2321,7 +2317,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            "your sql callback function argument type must be value "</pre>
+          <pre>            "const "</pre>
         </td>
       </tr>
       <tr>
@@ -2331,7 +2327,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            "type or "</pre>
+          <pre>            "left-reference type");</pre>
         </td>
       </tr>
       <tr>
@@ -2341,7 +2337,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            "const "</pre>
+          <pre>        using ValueType =</pre>
         </td>
       </tr>
       <tr>
@@ -2351,7 +2347,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            "left-reference type");</pre>
+          <pre>            typename std::remove_cv&lt;typename std::remove_reference&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -2361,7 +2357,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        using ValueType =</pre>
+          <pre>                NthArgumentType&lt;sizeof...(Values)&gt;&gt;::type&gt;::type;</pre>
         </td>
       </tr>
       <tr>
@@ -2371,7 +2367,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            typename std::remove_cv&lt;typename std::remove_reference&lt;</pre>
+          <pre>        ValueType value = ValueType();</pre>
         </td>
       </tr>
       <tr>
@@ -2381,7 +2377,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                NthArgumentType&lt;sizeof...(Values)&gt;&gt;::type&gt;::type;</pre>
+          <pre>        if (row &amp;& row-&gt;size() &gt; sizeof...(Values))</pre>
         </td>
       </tr>
       <tr>
@@ -2391,7 +2387,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        ValueType value = ValueType();</pre>
+          <pre>        {</pre>
         </td>
       </tr>
       <tr>
@@ -2401,7 +2397,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        if (row &amp;& row-&gt;size() &gt; sizeof...(Values))</pre>
+          <pre>            // if(!VectorTypeTraits&lt;ValueType&gt;::isVector)</pre>
         </td>
       </tr>
       <tr>
@@ -2411,7 +2407,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        {</pre>
+          <pre>            //     value = (*row)[sizeof...(Values)].as&lt;ValueType&gt;();</pre>
         </td>
       </tr>
       <tr>
@@ -2421,7 +2417,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            // if(!VectorTypeTraits&lt;ValueType&gt;::isVector)</pre>
+          <pre>            // else</pre>
         </td>
       </tr>
       <tr>
@@ -2431,7 +2427,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //     value = (*row)[sizeof...(Values)].as&lt;ValueType&gt;();</pre>
+          <pre>            //     ; // value =</pre>
         </td>
       </tr>
       <tr>
@@ -2441,7 +2437,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            // else</pre>
+          <pre>            //     (*row)[sizeof...(Values)].asArray&lt;VectorTypeTraits&lt;ValueType&gt;::ItemsType&gt;();</pre>
         </td>
       </tr>
       <tr>
@@ -2451,7 +2447,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //     ; // value =</pre>
+          <pre>            value =</pre>
         </td>
       </tr>
       <tr>
@@ -2461,7 +2457,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            //     (*row)[sizeof...(Values)].asArray&lt;VectorTypeTraits&lt;ValueType&gt;::ItemsType&gt;();</pre>
+          <pre>                makeValue&lt;ValueType&gt;((*row)[(Row::SizeType)sizeof...(Values)]);</pre>
         </td>
       </tr>
       <tr>
@@ -2471,7 +2467,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            value =</pre>
+          <pre>        }</pre>
         </td>
       </tr>
       <tr>
@@ -2481,7 +2477,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                makeValue&lt;ValueType&gt;((*row)[(Row::SizeType)sizeof...(Values)]);</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -2491,7 +2487,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        }</pre>
+          <pre>        run(row, isNull, std::forward&lt;Values&gt;(values)..., std::move(value));</pre>
         </td>
       </tr>
       <tr>
@@ -2501,7 +2497,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>    }</pre>
         </td>
       </tr>
       <tr>
@@ -2511,7 +2507,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        run(row, isNull, std::forward&lt;Values&gt;(values)..., std::move(value));</pre>
+          <pre>    template &lt;typename... Values, std::size_t Boundary = argumentCount&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -2521,7 +2517,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    }</pre>
+          <pre>    typename std::enable_if&lt;(sizeof...(Values) == Boundary), void&gt;::type run(</pre>
         </td>
       </tr>
       <tr>
@@ -2531,7 +2527,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    template &lt;typename... Values, std::size_t Boundary = argumentCount&gt;</pre>
+          <pre>        const Row *const,</pre>
         </td>
       </tr>
       <tr>
@@ -2541,7 +2537,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    typename std::enable_if&lt;(sizeof...(Values) == Boundary), void&gt;::type run(</pre>
+          <pre>        bool isNull,</pre>
         </td>
       </tr>
       <tr>
@@ -2551,7 +2547,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        const Row *const,</pre>
+          <pre>        Values &amp;&amp;...values)</pre>
         </td>
       </tr>
       <tr>
@@ -2561,7 +2557,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        bool isNull,</pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -2571,7 +2567,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        Values &amp;&amp;...values)</pre>
+          <pre>        function_(isNull, std::move(values)...);</pre>
         </td>
       </tr>
       <tr>
@@ -2581,7 +2577,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    {</pre>
+          <pre>    }</pre>
         </td>
       </tr>
       <tr>
@@ -2591,7 +2587,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        function_(isNull, std::move(values)...);</pre>
+          <pre>    template &lt;typename ValueType&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -2601,7 +2597,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    }</pre>
+          <pre>    typename std::enable_if&lt;VectorTypeTraits&lt;ValueType&gt;::isVector,</pre>
         </td>
       </tr>
       <tr>
@@ -2611,7 +2607,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    template &lt;typename ValueType&gt;</pre>
+          <pre>                            ValueType&gt;::type</pre>
         </td>
       </tr>
       <tr>
@@ -2621,7 +2617,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    typename std::enable_if&lt;VectorTypeTraits&lt;ValueType&gt;::isVector,</pre>
+          <pre>    makeValue(const Field &amp;field)</pre>
         </td>
       </tr>
       <tr>
@@ -2631,7 +2627,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                            ValueType&gt;::type</pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -2641,7 +2637,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    makeValue(const Field &amp;field)</pre>
+          <pre>        return field.asArray&lt;typename VectorTypeTraits&lt;ValueType&gt;::ItemsType&gt;();</pre>
         </td>
       </tr>
       <tr>
@@ -2651,7 +2647,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    {</pre>
+          <pre>    }</pre>
         </td>
       </tr>
       <tr>
@@ -2661,7 +2657,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        return field.asArray&lt;typename VectorTypeTraits&lt;ValueType&gt;::ItemsType&gt;();</pre>
+          <pre>    template &lt;typename ValueType&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -2671,7 +2667,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    }</pre>
+          <pre>    typename std::enable_if&lt;!VectorTypeTraits&lt;ValueType&gt;::isVector,</pre>
         </td>
       </tr>
       <tr>
@@ -2681,7 +2677,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    template &lt;typename ValueType&gt;</pre>
+          <pre>                            ValueType&gt;::type</pre>
         </td>
       </tr>
       <tr>
@@ -2691,7 +2687,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    typename std::enable_if&lt;!VectorTypeTraits&lt;ValueType&gt;::isVector,</pre>
+          <pre>    makeValue(const Field &amp;field)</pre>
         </td>
       </tr>
       <tr>
@@ -2701,7 +2697,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                            ValueType&gt;::type</pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -2711,7 +2707,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    makeValue(const Field &amp;field)</pre>
+          <pre>        return field.as&lt;ValueType&gt;();</pre>
         </td>
       </tr>
       <tr>
@@ -2721,7 +2717,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    {</pre>
+          <pre>    }</pre>
         </td>
       </tr>
       <tr>
@@ -2731,7 +2727,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        return field.as&lt;ValueType&gt;();</pre>
+          <pre>};</pre>
         </td>
       </tr>
       <tr>
@@ -2741,7 +2737,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    }</pre>
+          <pre>class DROGON_EXPORT SqlBinder : public trantor::NonCopyable</pre>
         </td>
       </tr>
       <tr>
@@ -2751,7 +2747,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>};</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -2761,7 +2757,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>class DROGON_EXPORT SqlBinder : public trantor::NonCopyable</pre>
+          <pre>    using self = SqlBinder;</pre>
         </td>
       </tr>
       <tr>
@@ -2771,7 +2767,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -2781,7 +2777,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    using self = SqlBinder;</pre>
+          <pre>  public:</pre>
         </td>
       </tr>
       <tr>
@@ -2791,7 +2787,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>    SqlBinder(const std::string &amp;sql, DbClient &amp;client, ClientType type)</pre>
         </td>
       </tr>
       <tr>
@@ -2801,7 +2797,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  public:</pre>
+          <pre>        : sqlPtr_(std::make_shared&lt;std::string&gt;(sql)),</pre>
         </td>
       </tr>
       <tr>
@@ -2811,7 +2807,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    friend class Dbclient;</pre>
+          <pre>          sqlViewPtr_(sqlPtr_-&gt;data()),</pre>
         </td>
       </tr>
       <tr>
@@ -2821,7 +2817,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>          sqlViewLength_(sqlPtr_-&gt;length()),</pre>
         </td>
       </tr>
       <tr>
@@ -2831,7 +2827,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    SqlBinder(const std::string &amp;sql, DbClient &amp;client, ClientType type)</pre>
+          <pre>          client_(client),</pre>
         </td>
       </tr>
       <tr>
@@ -2841,7 +2837,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        : sqlPtr_(std::make_shared&lt;std::string&gt;(sql)),</pre>
+          <pre>          type_(type)</pre>
         </td>
       </tr>
       <tr>
@@ -2849,9 +2845,11 @@
           <a name='L277' href='#L277' id="L277">
           <pre>277</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>          sqlViewPtr_(sqlPtr_-&gt;data()),</pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -2859,9 +2857,11 @@
           <a name='L278' href='#L278' id="L278">
           <pre>278</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>          sqlViewLength_(sqlPtr_-&gt;length()),</pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -2871,7 +2871,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>          client_(client),</pre>
+          <pre>    SqlBinder(std::string &amp;&amp;sql, DbClient &amp;client, ClientType type)</pre>
         </td>
       </tr>
       <tr>
@@ -2881,7 +2881,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>          type_(type)</pre>
+          <pre>        : sqlPtr_(std::make_shared&lt;std::string&gt;(std::move(sql))),</pre>
         </td>
       </tr>
       <tr>
@@ -2889,11 +2889,9 @@
           <a name='L281' href='#L281' id="L281">
           <pre>281</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
+          <pre>          sqlViewPtr_(sqlPtr_-&gt;data()),</pre>
         </td>
       </tr>
       <tr>
@@ -2901,11 +2899,9 @@
           <a name='L282' href='#L282' id="L282">
           <pre>282</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>    }</span></pre>
+          <pre>          sqlViewLength_(sqlPtr_-&gt;length()),</pre>
         </td>
       </tr>
       <tr>
@@ -2915,7 +2911,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    SqlBinder(std::string &amp;&amp;sql, DbClient &amp;client, ClientType type)</pre>
+          <pre>          client_(client),</pre>
         </td>
       </tr>
       <tr>
@@ -2925,7 +2921,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        : sqlPtr_(std::make_shared&lt;std::string&gt;(std::move(sql))),</pre>
+          <pre>          type_(type)</pre>
         </td>
       </tr>
       <tr>
@@ -2933,9 +2929,11 @@
           <a name='L285' href='#L285' id="L285">
           <pre>285</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>          sqlViewPtr_(sqlPtr_-&gt;data()),</pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -2943,9 +2941,11 @@
           <a name='L286' href='#L286' id="L286">
           <pre>286</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>          sqlViewLength_(sqlPtr_-&gt;length()),</pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -2955,7 +2955,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>          client_(client),</pre>
+          <pre>    SqlBinder(const char *sql,</pre>
         </td>
       </tr>
       <tr>
@@ -2965,7 +2965,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>          type_(type)</pre>
+          <pre>              size_t sqlLength,</pre>
         </td>
       </tr>
       <tr>
@@ -2973,11 +2973,9 @@
           <a name='L289' href='#L289' id="L289">
           <pre>289</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
+          <pre>              DbClient &amp;client,</pre>
         </td>
       </tr>
       <tr>
@@ -2985,11 +2983,9 @@
           <a name='L290' href='#L290' id="L290">
           <pre>290</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>    }</span></pre>
+          <pre>              ClientType type)</pre>
         </td>
       </tr>
       <tr>
@@ -2999,7 +2995,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    SqlBinder(const char *sql,</pre>
+          <pre>        : sqlViewPtr_(sql),</pre>
         </td>
       </tr>
       <tr>
@@ -3009,7 +3005,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>              size_t sqlLength,</pre>
+          <pre>          sqlViewLength_(sqlLength),</pre>
         </td>
       </tr>
       <tr>
@@ -3019,7 +3015,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>              DbClient &amp;client,</pre>
+          <pre>          client_(client),</pre>
         </td>
       </tr>
       <tr>
@@ -3029,53 +3025,13 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>              ClientType type)</pre>
+          <pre>          type_(type)</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L295' href='#L295' id="L295">
           <pre>295</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>        : sqlViewPtr_(sql),</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L296' href='#L296' id="L296">
-          <pre>296</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>          sqlViewLength_(sqlLength),</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L297' href='#L297' id="L297">
-          <pre>297</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>          client_(client),</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L298' href='#L298' id="L298">
-          <pre>298</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>          type_(type)</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L299' href='#L299' id="L299">
-          <pre>299</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -3086,8 +3042,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L300' href='#L300' id="L300">
-          <pre>300</pre></a>
+          <a name='L296' href='#L296' id="L296">
+          <pre>296</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -3098,12 +3054,52 @@
       </tr>
       <tr>
         <td class='line-number'>
+          <a name='L297' href='#L297' id="L297">
+          <pre>297</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    SqlBinder(SqlBinder &amp;&amp;that) noexcept</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L298' href='#L298' id="L298">
+          <pre>298</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        : sqlPtr_(std::move(that.sqlPtr_)),</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L299' href='#L299' id="L299">
+          <pre>299</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>          sqlViewPtr_(that.sqlViewPtr_),</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L300' href='#L300' id="L300">
+          <pre>300</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>          sqlViewLength_(that.sqlViewLength_),</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
           <a name='L301' href='#L301' id="L301">
           <pre>301</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    SqlBinder(SqlBinder &amp;&amp;that)</pre>
+          <pre>          client_(that.client_),</pre>
         </td>
       </tr>
       <tr>
@@ -3113,7 +3109,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        : sqlPtr_(std::move(that.sqlPtr_)),</pre>
+          <pre>          parametersNumber_(that.parametersNumber_),</pre>
         </td>
       </tr>
       <tr>
@@ -3123,7 +3119,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>          sqlViewPtr_(that.sqlViewPtr_),</pre>
+          <pre>          parameters_(std::move(that.parameters_)),</pre>
         </td>
       </tr>
       <tr>
@@ -3133,7 +3129,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>          sqlViewLength_(that.sqlViewLength_),</pre>
+          <pre>          lengths_(std::move(that.lengths_)),</pre>
         </td>
       </tr>
       <tr>
@@ -3143,7 +3139,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>          client_(that.client_),</pre>
+          <pre>          formats_(std::move(that.formats_)),</pre>
         </td>
       </tr>
       <tr>
@@ -3153,7 +3149,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>          parametersNumber_(that.parametersNumber_),</pre>
+          <pre>          objs_(std::move(that.objs_)),</pre>
         </td>
       </tr>
       <tr>
@@ -3163,7 +3159,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>          parameters_(std::move(that.parameters_)),</pre>
+          <pre>          mode_(that.mode_),</pre>
         </td>
       </tr>
       <tr>
@@ -3173,7 +3169,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>          lengths_(std::move(that.lengths_)),</pre>
+          <pre>          callbackHolder_(std::move(that.callbackHolder_)),</pre>
         </td>
       </tr>
       <tr>
@@ -3183,7 +3179,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>          formats_(std::move(that.formats_)),</pre>
+          <pre>          exceptionCallback_(std::move(that.exceptionCallback_)),</pre>
         </td>
       </tr>
       <tr>
@@ -3193,7 +3189,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>          objs_(std::move(that.objs_)),</pre>
+          <pre>          exceptionPtrCallback_(std::move(that.exceptionPtrCallback_)),</pre>
         </td>
       </tr>
       <tr>
@@ -3203,7 +3199,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>          mode_(that.mode_),</pre>
+          <pre>          execed_(that.execed_),</pre>
         </td>
       </tr>
       <tr>
@@ -3213,7 +3209,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>          callbackHolder_(std::move(that.callbackHolder_)),</pre>
+          <pre>          destructed_(that.destructed_),</pre>
         </td>
       </tr>
       <tr>
@@ -3223,7 +3219,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>          exceptionCallback_(std::move(that.exceptionCallback_)),</pre>
+          <pre>          isExceptionPtr_(that.isExceptionPtr_),</pre>
         </td>
       </tr>
       <tr>
@@ -3233,53 +3229,13 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>          exceptionPtrCallback_(std::move(that.exceptionPtrCallback_)),</pre>
+          <pre>          type_(that.type_)</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L315' href='#L315' id="L315">
           <pre>315</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>          execed_(that.execed_),</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L316' href='#L316' id="L316">
-          <pre>316</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>          destructed_(that.destructed_),</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L317' href='#L317' id="L317">
-          <pre>317</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>          isExceptionPtr_(that.isExceptionPtr_),</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L318' href='#L318' id="L318">
-          <pre>318</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>          type_(that.type_)</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L319' href='#L319' id="L319">
-          <pre>319</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -3290,8 +3246,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L320' href='#L320' id="L320">
-          <pre>320</pre></a>
+          <a name='L316' href='#L316' id="L316">
+          <pre>316</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -3303,8 +3259,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L321' href='#L321' id="L321">
-          <pre>321</pre></a>
+          <a name='L317' href='#L317' id="L317">
+          <pre>317</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -3316,8 +3272,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L322' href='#L322' id="L322">
-          <pre>322</pre></a>
+          <a name='L318' href='#L318' id="L318">
+          <pre>318</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -3328,12 +3284,52 @@
       </tr>
       <tr>
         <td class='line-number'>
+          <a name='L319' href='#L319' id="L319">
+          <pre>319</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    SqlBinder &amp;operator=(SqlBinder &amp;&amp;that) = delete;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L320' href='#L320' id="L320">
+          <pre>320</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    ~SqlBinder();</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L321' href='#L321' id="L321">
+          <pre>321</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    template &lt;typename CallbackType,</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L322' href='#L322' id="L322">
+          <pre>322</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>              typename traits =</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
           <a name='L323' href='#L323' id="L323">
           <pre>323</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    SqlBinder &amp;operator=(SqlBinder &amp;&amp;that) = delete;</pre>
+          <pre>                  FunctionTraits&lt;typename std::decay&lt;CallbackType&gt;::type&gt;&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -3343,7 +3339,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    ~SqlBinder();</pre>
+          <pre>    typename std::enable_if&lt;traits::isExceptCallback &amp;& traits::isPtr,</pre>
         </td>
       </tr>
       <tr>
@@ -3353,7 +3349,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    template &lt;typename CallbackType,</pre>
+          <pre>                            self&gt;::type &</pre>
         </td>
       </tr>
       <tr>
@@ -3363,53 +3359,13 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>              typename traits =</pre>
+          <pre>    operator&gt;&gt;(CallbackType &amp;&amp;callback)</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L327' href='#L327' id="L327">
           <pre>327</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>                  FunctionTraits&lt;typename std::decay&lt;CallbackType&gt;::type&gt;&gt;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L328' href='#L328' id="L328">
-          <pre>328</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    typename std::enable_if&lt;traits::isExceptCallback &amp;& traits::isPtr,</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L329' href='#L329' id="L329">
-          <pre>329</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>                            self&gt;::type &</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L330' href='#L330' id="L330">
-          <pre>330</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    operator&gt;&gt;(CallbackType &amp;&amp;callback)</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L331' href='#L331' id="L331">
-          <pre>331</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -3420,8 +3376,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L332' href='#L332' id="L332">
-          <pre>332</pre></a>
+          <a name='L328' href='#L328' id="L328">
+          <pre>328</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -3433,8 +3389,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L333' href='#L333' id="L333">
-          <pre>333</pre></a>
+          <a name='L329' href='#L329' id="L329">
+          <pre>329</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -3446,8 +3402,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L334' href='#L334' id="L334">
-          <pre>334</pre></a>
+          <a name='L330' href='#L330' id="L330">
+          <pre>330</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -3459,8 +3415,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L335' href='#L335' id="L335">
-          <pre>335</pre></a>
+          <a name='L331' href='#L331' id="L331">
+          <pre>331</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -3471,8 +3427,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L336' href='#L336' id="L336">
-          <pre>336</pre></a>
+          <a name='L332' href='#L332' id="L332">
+          <pre>332</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -3483,12 +3439,52 @@
       </tr>
       <tr>
         <td class='line-number'>
+          <a name='L333' href='#L333' id="L333">
+          <pre>333</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L334' href='#L334' id="L334">
+          <pre>334</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    template &lt;typename CallbackType,</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L335' href='#L335' id="L335">
+          <pre>335</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>              typename traits =</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L336' href='#L336' id="L336">
+          <pre>336</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>                  FunctionTraits&lt;typename std::decay&lt;CallbackType&gt;::type&gt;&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
           <a name='L337' href='#L337' id="L337">
           <pre>337</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>    typename std::enable_if&lt;traits::isExceptCallback &amp;& !traits::isPtr,</pre>
         </td>
       </tr>
       <tr>
@@ -3498,7 +3494,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    template &lt;typename CallbackType,</pre>
+          <pre>                            self&gt;::type &</pre>
         </td>
       </tr>
       <tr>
@@ -3508,7 +3504,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>              typename traits =</pre>
+          <pre>    operator&gt;&gt;(CallbackType &amp;&amp;callback)</pre>
         </td>
       </tr>
       <tr>
@@ -3518,7 +3514,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                  FunctionTraits&lt;typename std::decay&lt;CallbackType&gt;::type&gt;&gt;</pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -3528,7 +3524,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    typename std::enable_if&lt;traits::isExceptCallback &amp;& !traits::isPtr,</pre>
+          <pre>        isExceptionPtr_ = false;</pre>
         </td>
       </tr>
       <tr>
@@ -3538,7 +3534,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                            self&gt;::type &</pre>
+          <pre>        exceptionCallback_ = std::forward&lt;CallbackType&gt;(callback);</pre>
         </td>
       </tr>
       <tr>
@@ -3548,7 +3544,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    operator&gt;&gt;(CallbackType &amp;&amp;callback)</pre>
+          <pre>        return *this;</pre>
         </td>
       </tr>
       <tr>
@@ -3558,7 +3554,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    {</pre>
+          <pre>    }</pre>
         </td>
       </tr>
       <tr>
@@ -3568,7 +3564,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        isExceptionPtr_ = false;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -3578,7 +3574,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        exceptionCallback_ = std::forward&lt;CallbackType&gt;(callback);</pre>
+          <pre>    template &lt;typename CallbackType,</pre>
         </td>
       </tr>
       <tr>
@@ -3588,7 +3584,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        return *this;</pre>
+          <pre>              typename traits =</pre>
         </td>
       </tr>
       <tr>
@@ -3598,7 +3594,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    }</pre>
+          <pre>                  FunctionTraits&lt;typename std::decay&lt;CallbackType&gt;::type&gt;&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -3608,7 +3604,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>    typename std::enable_if&lt;traits::isSqlCallback, self&gt;::type &amp;operator&gt;&gt;(</pre>
         </td>
       </tr>
       <tr>
@@ -3618,53 +3614,13 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    template &lt;typename CallbackType,</pre>
+          <pre>        CallbackType &amp;&amp;callback)</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L351' href='#L351' id="L351">
           <pre>351</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>              typename traits =</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L352' href='#L352' id="L352">
-          <pre>352</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>                  FunctionTraits&lt;typename std::decay&lt;CallbackType&gt;::type&gt;&gt;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L353' href='#L353' id="L353">
-          <pre>353</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    typename std::enable_if&lt;traits::isSqlCallback, self&gt;::type &amp;operator&gt;&gt;(</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L354' href='#L354' id="L354">
-          <pre>354</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>        CallbackType &amp;&amp;callback)</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L355' href='#L355' id="L355">
-          <pre>355</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -3675,8 +3631,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L356' href='#L356' id="L356">
-          <pre>356</pre></a>
+          <a name='L352' href='#L352' id="L352">
+          <pre>352</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -3688,8 +3644,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L357' href='#L357' id="L357">
-          <pre>357</pre></a>
+          <a name='L353' href='#L353' id="L353">
+          <pre>353</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -3701,8 +3657,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L358' href='#L358' id="L358">
-          <pre>358</pre></a>
+          <a name='L354' href='#L354' id="L354">
+          <pre>354</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -3714,8 +3670,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L359' href='#L359' id="L359">
-          <pre>359</pre></a>
+          <a name='L355' href='#L355' id="L355">
+          <pre>355</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -3726,8 +3682,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L360' href='#L360' id="L360">
-          <pre>360</pre></a>
+          <a name='L356' href='#L356' id="L356">
+          <pre>356</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -3738,12 +3694,52 @@
       </tr>
       <tr>
         <td class='line-number'>
+          <a name='L357' href='#L357' id="L357">
+          <pre>357</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L358' href='#L358' id="L358">
+          <pre>358</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    template &lt;typename T&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L359' href='#L359' id="L359">
+          <pre>359</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    typename std::enable_if&lt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L360' href='#L360' id="L360">
+          <pre>360</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        !std::is_same&lt;typename std::remove_cv&lt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
           <a name='L361' href='#L361' id="L361">
           <pre>361</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>                          typename std::remove_reference&lt;T&gt;::type&gt;::type,</pre>
         </td>
       </tr>
       <tr>
@@ -3753,7 +3749,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    template &lt;typename T&gt;</pre>
+          <pre>                      trantor::Date&gt;::value,</pre>
         </td>
       </tr>
       <tr>
@@ -3763,7 +3759,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    typename std::enable_if&lt;</pre>
+          <pre>        self &amp;&gt;::type</pre>
         </td>
       </tr>
       <tr>
@@ -3773,7 +3769,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        !std::is_same&lt;typename std::remove_cv&lt;</pre>
+          <pre>    operator&lt;&lt;(T &amp;&amp;parameter)</pre>
         </td>
       </tr>
       <tr>
@@ -3781,9 +3777,11 @@
           <a name='L365' href='#L365' id="L365">
           <pre>365</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>                          typename std::remove_reference&lt;T&gt;::type&gt;::type,</pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -3791,9 +3789,12 @@
           <a name='L366' href='#L366' id="L366">
           <pre>366</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>                      trantor::Date&gt;::value,</pre>
+          <pre><span class=
+          'red'>        ++parametersNumber_;</span></pre>
         </td>
       </tr>
       <tr>
@@ -3801,9 +3802,12 @@
           <a name='L367' href='#L367' id="L367">
           <pre>367</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>        self &amp;&gt;::type</pre>
+          <pre><span class=
+          'red'>        using ParaType = typename std::remove_cv&lt;</span></pre>
         </td>
       </tr>
       <tr>
@@ -3811,9 +3815,12 @@
           <a name='L368' href='#L368' id="L368">
           <pre>368</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>    operator&lt;&lt;(T &amp;&amp;parameter)</pre>
+          <pre><span class=
+          'red'>            typename std::remove_reference&lt;T&gt;::type&gt;::type;</span></pre>
         </td>
       </tr>
       <tr>
@@ -3825,7 +3832,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
+          <pre><span class=
+          'red'>        std::shared_ptr&lt;void&gt; obj = std::make_shared&lt;ParaType&gt;(parameter);</span></pre>
         </td>
       </tr>
       <tr>
@@ -3838,7 +3846,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>        ++parametersNumber_;</span></pre>
+          'red'>        if (type_ == ClientType::PostgreSQL)</span></pre>
         </td>
       </tr>
       <tr>
@@ -3850,8 +3858,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>        using ParaType = typename std::remove_cv&lt;</span></pre>
+          <pre><span class='red'>        {</span></pre>
         </td>
       </tr>
       <tr>
@@ -3864,7 +3871,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>            typename std::remove_reference&lt;T&gt;::type&gt;::type;</span></pre>
+          'red'>            switch (sizeof(T))</span></pre>
         </td>
       </tr>
       <tr>
@@ -3876,8 +3883,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>        std::shared_ptr&lt;void&gt; obj = std::make_shared&lt;ParaType&gt;(parameter);</span></pre>
+          <pre><span class='red'>            {</span></pre>
         </td>
       </tr>
       <tr>
@@ -3890,7 +3896,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>        if (type_ == ClientType::PostgreSQL)</span></pre>
+          'red'>                case 2:</span></pre>
         </td>
       </tr>
       <tr>
@@ -3902,7 +3908,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>        {</span></pre>
+          <pre><span class=
+          'red'>                    *std::static_pointer_cast&lt;uint16_t&gt;(obj) = htons(parameter);</span></pre>
         </td>
       </tr>
       <tr>
@@ -3915,7 +3922,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>#if __cplusplus &gt;= 201703L || (defined _MSC_VER &amp;& _MSC_VER &gt; 1900)</span></pre>
+          'red'>                    break;</span></pre>
         </td>
       </tr>
       <tr>
@@ -3928,7 +3935,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>            const size_t size = sizeof(T);</span></pre>
+          'red'>                case 4:</span></pre>
         </td>
       </tr>
       <tr>
@@ -3941,7 +3948,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>            if constexpr (size == 2)</span></pre>
+          'red'>                    *std::static_pointer_cast&lt;uint32_t&gt;(obj) = htonl(parameter);</span></pre>
         </td>
       </tr>
       <tr>
@@ -3953,7 +3960,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>            {</span></pre>
+          <pre><span class=
+          'red'>                    break;</span></pre>
         </td>
       </tr>
       <tr>
@@ -3966,7 +3974,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>                *std::static_pointer_cast&lt;uint16_t&gt;(obj) = htons(parameter);</span></pre>
+          'red'>                case 8:</span></pre>
         </td>
       </tr>
       <tr>
@@ -3978,7 +3986,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>            }</span></pre>
+          <pre><span class=
+          'red'>                    *std::static_pointer_cast&lt;uint64_t&gt;(obj) =</span></pre>
         </td>
       </tr>
       <tr>
@@ -3991,7 +4000,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>            else if constexpr (size == 4)</span></pre>
+          'red'>                        htonll(parameter);</span></pre>
         </td>
       </tr>
       <tr>
@@ -4003,7 +4012,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>            {</span></pre>
+          <pre><span class=
+          'red'>                    break;</span></pre>
         </td>
       </tr>
       <tr>
@@ -4016,7 +4026,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>                *std::static_pointer_cast&lt;uint32_t&gt;(obj) = htonl(parameter);</span></pre>
+          'red'>                case 1:</span></pre>
         </td>
       </tr>
       <tr>
@@ -4028,7 +4038,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>            }</span></pre>
+          <pre><span class=
+          'red'>                default:</span></pre>
         </td>
       </tr>
       <tr>
@@ -4041,7 +4052,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>            else if constexpr (size == 8)</span></pre>
+          'red'>                    break;</span></pre>
         </td>
       </tr>
       <tr>
@@ -4053,7 +4064,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>            {</span></pre>
+          <pre><span class='red'>            }</span></pre>
         </td>
       </tr>
       <tr>
@@ -4066,7 +4077,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>                *std::static_pointer_cast&lt;uint64_t&gt;(obj) = htonll(parameter);</span></pre>
+          'red'>            objs_.push_back(obj);</span></pre>
         </td>
       </tr>
       <tr>
@@ -4078,7 +4089,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>            }</span></pre>
+          <pre><span class=
+          'red'>            parameters_.push_back((char *)obj.get());</span></pre>
         </td>
       </tr>
       <tr>
@@ -4090,7 +4102,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>#else</span></pre>
+          <pre><span class=
+          'red'>            lengths_.push_back(sizeof(T));</span></pre>
         </td>
       </tr>
       <tr>
@@ -4103,7 +4116,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>            switch (sizeof(T))</span></pre>
+          'red'>            formats_.push_back(1);</span></pre>
         </td>
       </tr>
       <tr>
@@ -4115,7 +4128,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>            {</span></pre>
+          <pre><span class='red'>        }</span></pre>
         </td>
       </tr>
       <tr>
@@ -4128,7 +4141,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>                case 2:</span></pre>
+          'red'>        else if (type_ == ClientType::Mysql)</span></pre>
         </td>
       </tr>
       <tr>
@@ -4140,8 +4153,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>                    *std::static_pointer_cast&lt;uint16_t&gt;(obj) = htons(parameter);</span></pre>
+          <pre><span class='red'>        {</span></pre>
         </td>
       </tr>
       <tr>
@@ -4154,7 +4166,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>                    break;</span></pre>
+          'red'>            objs_.push_back(obj);</span></pre>
         </td>
       </tr>
       <tr>
@@ -4167,7 +4179,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>                case 4:</span></pre>
+          'red'>            parameters_.push_back((char *)obj.get());</span></pre>
         </td>
       </tr>
       <tr>
@@ -4180,7 +4192,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>                    *std::static_pointer_cast&lt;uint32_t&gt;(obj) = htonl(parameter);</span></pre>
+          'red'>            lengths_.push_back(0);</span></pre>
         </td>
       </tr>
       <tr>
@@ -4193,7 +4205,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>                    break;</span></pre>
+          'red'>            formats_.push_back(getMysqlTypeBySize(sizeof(T)));</span></pre>
         </td>
       </tr>
       <tr>
@@ -4205,8 +4217,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>                case 8:</span></pre>
+          <pre><span class='red'>        }</span></pre>
         </td>
       </tr>
       <tr>
@@ -4219,7 +4230,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>                    *std::static_pointer_cast&lt;uint64_t&gt;(obj) =</span></pre>
+          'red'>        else if (type_ == ClientType::Sqlite3)</span></pre>
         </td>
       </tr>
       <tr>
@@ -4231,8 +4242,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>                        htonll(parameter);</span></pre>
+          <pre><span class='red'>        {</span></pre>
         </td>
       </tr>
       <tr>
@@ -4245,7 +4255,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>                    break;</span></pre>
+          'red'>            objs_.push_back(obj);</span></pre>
         </td>
       </tr>
       <tr>
@@ -4258,7 +4268,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>                case 1:</span></pre>
+          'red'>            parameters_.push_back((char *)obj.get());</span></pre>
         </td>
       </tr>
       <tr>
@@ -4271,7 +4281,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>                default:</span></pre>
+          'red'>            lengths_.push_back(0);</span></pre>
         </td>
       </tr>
       <tr>
@@ -4283,7 +4293,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'></span></pre>
+          <pre><span class=
+          'red'>            switch (sizeof(T))</span></pre>
         </td>
       </tr>
       <tr>
@@ -4295,8 +4306,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>                    break;</span></pre>
+          <pre><span class='red'>            {</span></pre>
         </td>
       </tr>
       <tr>
@@ -4308,7 +4318,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>            }</span></pre>
+          <pre><span class=
+          'red'>                case 1:</span></pre>
         </td>
       </tr>
       <tr>
@@ -4320,7 +4331,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>#endif</span></pre>
+          <pre><span class=
+          'red'>                    formats_.push_back(Sqlite3TypeChar);</span></pre>
         </td>
       </tr>
       <tr>
@@ -4333,7 +4345,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>            objs_.push_back(obj);</span></pre>
+          'red'>                    break;</span></pre>
         </td>
       </tr>
       <tr>
@@ -4346,7 +4358,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>            parameters_.push_back((char *)obj.get());</span></pre>
+          'red'>                case 2:</span></pre>
         </td>
       </tr>
       <tr>
@@ -4359,7 +4371,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>            lengths_.push_back(sizeof(T));</span></pre>
+          'red'>                    formats_.push_back(Sqlite3TypeShort);</span></pre>
         </td>
       </tr>
       <tr>
@@ -4372,7 +4384,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>            formats_.push_back(1);</span></pre>
+          'red'>                    break;</span></pre>
         </td>
       </tr>
       <tr>
@@ -4384,7 +4396,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>        }</span></pre>
+          <pre><span class=
+          'red'>                case 4:</span></pre>
         </td>
       </tr>
       <tr>
@@ -4397,7 +4410,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>        else if (type_ == ClientType::Mysql)</span></pre>
+          'red'>                    formats_.push_back(Sqlite3TypeInt);</span></pre>
         </td>
       </tr>
       <tr>
@@ -4409,7 +4422,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>        {</span></pre>
+          <pre><span class=
+          'red'>                    break;</span></pre>
         </td>
       </tr>
       <tr>
@@ -4422,7 +4436,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>            objs_.push_back(obj);</span></pre>
+          'red'>                case 8:</span></pre>
         </td>
       </tr>
       <tr>
@@ -4435,7 +4449,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>            parameters_.push_back((char *)obj.get());</span></pre>
+          'red'>                    formats_.push_back(Sqlite3TypeInt64);</span></pre>
         </td>
       </tr>
       <tr>
@@ -4448,7 +4462,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>            lengths_.push_back(0);</span></pre>
+          'red'>                default:</span></pre>
         </td>
       </tr>
       <tr>
@@ -4461,7 +4475,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>            formats_.push_back(getMysqlTypeBySize(sizeof(T)));</span></pre>
+          'red'>                    break;</span></pre>
         </td>
       </tr>
       <tr>
@@ -4473,7 +4487,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>        }</span></pre>
+          <pre><span class='red'>            }</span></pre>
         </td>
       </tr>
       <tr>
@@ -4485,8 +4499,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>        else if (type_ == ClientType::Sqlite3)</span></pre>
+          <pre><span class='red'>        }</span></pre>
         </td>
       </tr>
       <tr>
@@ -4498,7 +4511,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>        {</span></pre>
+          <pre><span class=
+          'red'>        // LOG_TRACE &lt;&lt; "Bind parameter:" &lt;&lt; parameter;</span></pre>
         </td>
       </tr>
       <tr>
@@ -4510,283 +4524,13 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>            objs_.push_back(obj);</span></pre>
+          <pre><span class='red'>        return *this;</span></pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L424' href='#L424' id="L424">
           <pre>424</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class=
-          'red'>            parameters_.push_back((char *)obj.get());</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L425' href='#L425' id="L425">
-          <pre>425</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class=
-          'red'>            lengths_.push_back(0);</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L426' href='#L426' id="L426">
-          <pre>426</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class=
-          'red'>            switch (sizeof(T))</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L427' href='#L427' id="L427">
-          <pre>427</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class='red'>            {</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L428' href='#L428' id="L428">
-          <pre>428</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class=
-          'red'>                case 1:</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L429' href='#L429' id="L429">
-          <pre>429</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class=
-          'red'>                    formats_.push_back(Sqlite3TypeChar);</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L430' href='#L430' id="L430">
-          <pre>430</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class=
-          'red'>                    break;</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L431' href='#L431' id="L431">
-          <pre>431</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class=
-          'red'>                case 2:</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L432' href='#L432' id="L432">
-          <pre>432</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class=
-          'red'>                    formats_.push_back(Sqlite3TypeShort);</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L433' href='#L433' id="L433">
-          <pre>433</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class=
-          'red'>                    break;</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L434' href='#L434' id="L434">
-          <pre>434</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class=
-          'red'>                case 4:</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L435' href='#L435' id="L435">
-          <pre>435</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class=
-          'red'>                    formats_.push_back(Sqlite3TypeInt);</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L436' href='#L436' id="L436">
-          <pre>436</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class=
-          'red'>                    break;</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L437' href='#L437' id="L437">
-          <pre>437</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class=
-          'red'>                case 8:</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L438' href='#L438' id="L438">
-          <pre>438</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class=
-          'red'>                    formats_.push_back(Sqlite3TypeInt64);</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L439' href='#L439' id="L439">
-          <pre>439</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class=
-          'red'>                default:</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L440' href='#L440' id="L440">
-          <pre>440</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class=
-          'red'>                    break;</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L441' href='#L441' id="L441">
-          <pre>441</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class='red'>            }</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L442' href='#L442' id="L442">
-          <pre>442</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class='red'>        }</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L443' href='#L443' id="L443">
-          <pre>443</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class=
-          'red'>        // LOG_TRACE &lt;&lt; "Bind parameter:" &lt;&lt; parameter;</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L444' href='#L444' id="L444">
-          <pre>444</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class='red'>        return *this;</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L445' href='#L445' id="L445">
-          <pre>445</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -4812,8 +4556,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L446' href='#L446' id="L446">
-          <pre>446</pre></a>
+          <a name='L425' href='#L425' id="L425">
+          <pre>425</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -4822,8 +4566,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L447' href='#L447' id="L447">
-          <pre>447</pre></a>
+          <a name='L426' href='#L426' id="L426">
+          <pre>426</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -4832,8 +4576,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L448' href='#L448' id="L448">
-          <pre>448</pre></a>
+          <a name='L427' href='#L427' id="L427">
+          <pre>427</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -4844,8 +4588,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L449' href='#L449' id="L449">
-          <pre>449</pre></a>
+          <a name='L428' href='#L428' id="L428">
+          <pre>428</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -4857,8 +4601,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L450' href='#L450' id="L450">
-          <pre>450</pre></a>
+          <a name='L429' href='#L429' id="L429">
+          <pre>429</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -4869,8 +4613,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L451' href='#L451' id="L451">
-          <pre>451</pre></a>
+          <a name='L430' href='#L430' id="L430">
+          <pre>430</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -4879,8 +4623,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L452' href='#L452' id="L452">
-          <pre>452</pre></a>
+          <a name='L431' href='#L431' id="L431">
+          <pre>431</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -4891,8 +4635,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L453' href='#L453' id="L453">
-          <pre>453</pre></a>
+          <a name='L432' href='#L432' id="L432">
+          <pre>432</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -4904,8 +4648,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L454' href='#L454' id="L454">
-          <pre>454</pre></a>
+          <a name='L433' href='#L433' id="L433">
+          <pre>433</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -4916,28 +4660,28 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L455' href='#L455' id="L455">
-          <pre>455</pre></a>
+          <a name='L434' href='#L434' id="L434">
+          <pre>434</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    self &amp;operator&lt;&lt;(const std::string &amp;str);</pre>
+          <pre>    self &amp;operator&lt;&lt;(const string_view &amp;str);</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L456' href='#L456' id="L456">
-          <pre>456</pre></a>
+          <a name='L435' href='#L435' id="L435">
+          <pre>435</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    self &amp;operator&lt;&lt;(std::string &amp;str)</pre>
+          <pre>    self &amp;operator&lt;&lt;(string_view &amp;&amp;str)</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L457' href='#L457' id="L457">
-          <pre>457</pre></a>
+          <a name='L436' href='#L436' id="L436">
+          <pre>436</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -4948,8 +4692,112 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L458' href='#L458' id="L458">
-          <pre>458</pre></a>
+          <a name='L437' href='#L437' id="L437">
+          <pre>437</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>        return operator&lt;&lt;((const string_view &amp;)str);</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L438' href='#L438' id="L438">
+          <pre>438</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>    }</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L439' href='#L439' id="L439">
+          <pre>439</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    self &amp;operator&lt;&lt;(string_view &amp;str)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L440' href='#L440' id="L440">
+          <pre>440</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre>    <span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L441' href='#L441' id="L441">
+          <pre>441</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>        return operator&lt;&lt;((const string_view &amp;)str);</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L442' href='#L442' id="L442">
+          <pre>442</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>    }</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L443' href='#L443' id="L443">
+          <pre>443</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    self &amp;operator&lt;&lt;(const std::string &amp;str);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L444' href='#L444' id="L444">
+          <pre>444</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    self &amp;operator&lt;&lt;(std::string &amp;str)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L445' href='#L445' id="L445">
+          <pre>445</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre>    <span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L446' href='#L446' id="L446">
+          <pre>446</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -4961,8 +4809,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L459' href='#L459' id="L459">
-          <pre>459</pre></a>
+          <a name='L447' href='#L447' id="L447">
+          <pre>447</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -4973,8 +4821,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L460' href='#L460' id="L460">
-          <pre>460</pre></a>
+          <a name='L448' href='#L448' id="L448">
+          <pre>448</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -4983,8 +4831,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L461' href='#L461' id="L461">
-          <pre>461</pre></a>
+          <a name='L449' href='#L449' id="L449">
+          <pre>449</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -4993,8 +4841,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L462' href='#L462' id="L462">
-          <pre>462</pre></a>
+          <a name='L450' href='#L450' id="L450">
+          <pre>450</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -5005,8 +4853,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L463' href='#L463' id="L463">
-          <pre>463</pre></a>
+          <a name='L451' href='#L451' id="L451">
+          <pre>451</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -5018,8 +4866,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L464' href='#L464' id="L464">
-          <pre>464</pre></a>
+          <a name='L452' href='#L452' id="L452">
+          <pre>452</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -5030,12 +4878,151 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L465' href='#L465' id="L465">
-          <pre>465</pre></a>
+          <a name='L453' href='#L453' id="L453">
+          <pre>453</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
           <pre>    self &amp;operator&lt;&lt;(const trantor::Date &amp;date)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L454' href='#L454' id="L454">
+          <pre>454</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre>    <span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L455' href='#L455' id="L455">
+          <pre>455</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>        return operator&lt;&lt;(date.toDbStringLocal());</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L456' href='#L456' id="L456">
+          <pre>456</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>    }</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L457' href='#L457' id="L457">
+          <pre>457</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    self &amp;operator&lt;&lt;(const std::vector&lt;char&gt; &amp;v);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L458' href='#L458' id="L458">
+          <pre>458</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    self &amp;operator&lt;&lt;(std::vector&lt;char&gt; &amp;v)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L459' href='#L459' id="L459">
+          <pre>459</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre>    <span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L460' href='#L460' id="L460">
+          <pre>460</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>        return operator&lt;&lt;((const std::vector&lt;char&gt; &amp;)v);</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L461' href='#L461' id="L461">
+          <pre>461</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>    }</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L462' href='#L462' id="L462">
+          <pre>462</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    self &amp;operator&lt;&lt;(std::vector&lt;char&gt; &amp;&amp;v);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L463' href='#L463' id="L463">
+          <pre>463</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    self &amp;operator&lt;&lt;(float f)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L464' href='#L464' id="L464">
+          <pre>464</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre>    <span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L465' href='#L465' id="L465">
+          <pre>465</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>        if (type_ == ClientType::Sqlite3)</span></pre>
         </td>
       </tr>
       <tr>
@@ -5047,7 +5034,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
+          <pre><span class='red'>        {</span></pre>
         </td>
       </tr>
       <tr>
@@ -5060,7 +5047,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>        return operator&lt;&lt;(date.toDbStringLocal());</span></pre>
+          'red'>            return operator&lt;&lt;((double)f);</span></pre>
         </td>
       </tr>
       <tr>
@@ -5072,152 +5059,13 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>    }</span></pre>
+          <pre><span class='red'>        }</span></pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L469' href='#L469' id="L469">
           <pre>469</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    self &amp;operator&lt;&lt;(const std::vector&lt;char&gt; &amp;v);</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L470' href='#L470' id="L470">
-          <pre>470</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    self &amp;operator&lt;&lt;(std::vector&lt;char&gt; &amp;v)</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L471' href='#L471' id="L471">
-          <pre>471</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L472' href='#L472' id="L472">
-          <pre>472</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class=
-          'red'>        return operator&lt;&lt;((const std::vector&lt;char&gt; &amp;)v);</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L473' href='#L473' id="L473">
-          <pre>473</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class='red'>    }</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L474' href='#L474' id="L474">
-          <pre>474</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    self &amp;operator&lt;&lt;(std::vector&lt;char&gt; &amp;&amp;v);</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L475' href='#L475' id="L475">
-          <pre>475</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    self &amp;operator&lt;&lt;(float f)</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L476' href='#L476' id="L476">
-          <pre>476</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L477' href='#L477' id="L477">
-          <pre>477</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class=
-          'red'>        if (type_ == ClientType::Sqlite3)</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L478' href='#L478' id="L478">
-          <pre>478</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class='red'>        {</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L479' href='#L479' id="L479">
-          <pre>479</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class=
-          'red'>            return operator&lt;&lt;((double)f);</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L480' href='#L480' id="L480">
-          <pre>480</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class='red'>        }</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L481' href='#L481' id="L481">
-          <pre>481</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -5229,8 +5077,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L482' href='#L482' id="L482">
-          <pre>482</pre></a>
+          <a name='L470' href='#L470' id="L470">
+          <pre>470</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -5241,12 +5089,148 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L483' href='#L483' id="L483">
-          <pre>483</pre></a>
+          <a name='L471' href='#L471' id="L471">
+          <pre>471</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
           <pre>    self &amp;operator&lt;&lt;(double f);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L472' href='#L472' id="L472">
+          <pre>472</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    self &amp;operator&lt;&lt;(std::nullptr_t);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L473' href='#L473' id="L473">
+          <pre>473</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    self &amp;operator&lt;&lt;(DefaultValue dv);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L474' href='#L474' id="L474">
+          <pre>474</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    self &amp;operator&lt;&lt;(const Mode &amp;mode)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L475' href='#L475' id="L475">
+          <pre>475</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre>    <span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L476' href='#L476' id="L476">
+          <pre>476</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>        mode_ = mode;</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L477' href='#L477' id="L477">
+          <pre>477</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>        return *this;</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L478' href='#L478' id="L478">
+          <pre>478</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>    }</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L479' href='#L479' id="L479">
+          <pre>479</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    self &amp;operator&lt;&lt;(Mode &amp;mode)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L480' href='#L480' id="L480">
+          <pre>480</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre>    <span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L481' href='#L481' id="L481">
+          <pre>481</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>        mode_ = mode;</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L482' href='#L482' id="L482">
+          <pre>482</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>        return *this;</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L483' href='#L483' id="L483">
+          <pre>483</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -5256,7 +5240,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    self &amp;operator&lt;&lt;(std::nullptr_t nullp);</pre>
+          <pre>    self &amp;operator&lt;&lt;(Mode &amp;&amp;mode)</pre>
         </td>
       </tr>
       <tr>
@@ -5264,9 +5248,11 @@
           <a name='L485' href='#L485' id="L485">
           <pre>485</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>    self &amp;operator&lt;&lt;(DefaultValue dv);</pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -5274,9 +5260,11 @@
           <a name='L486' href='#L486' id="L486">
           <pre>486</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>    self &amp;operator&lt;&lt;(const Mode &amp;mode)</pre>
+          <pre><span class='red'>        mode_ = mode;</span></pre>
         </td>
       </tr>
       <tr>
@@ -5288,7 +5276,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
+          <pre><span class='red'>        return *this;</span></pre>
         </td>
       </tr>
       <tr>
@@ -5300,7 +5288,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>        mode_ = mode;</span></pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -5308,11 +5296,9 @@
           <a name='L489' href='#L489' id="L489">
           <pre>489</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>        return *this;</span></pre>
+          <pre>    template &lt;typename T&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -5320,11 +5306,9 @@
           <a name='L490' href='#L490' id="L490">
           <pre>490</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>    }</span></pre>
+          <pre>    self &amp;operator&lt;&lt;(const optional&lt;T&gt; &amp;parameter)</pre>
         </td>
       </tr>
       <tr>
@@ -5334,7 +5318,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    self &amp;operator&lt;&lt;(Mode &amp;mode)</pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -5342,11 +5326,9 @@
           <a name='L492' href='#L492' id="L492">
           <pre>492</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
+          <pre>        if (parameter)</pre>
         </td>
       </tr>
       <tr>
@@ -5354,11 +5336,9 @@
           <a name='L493' href='#L493' id="L493">
           <pre>493</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>        mode_ = mode;</span></pre>
+          <pre>        {</pre>
         </td>
       </tr>
       <tr>
@@ -5366,11 +5346,9 @@
           <a name='L494' href='#L494' id="L494">
           <pre>494</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>        return *this;</span></pre>
+          <pre>            return *this &lt;&lt; parameter.value();</pre>
         </td>
       </tr>
       <tr>
@@ -5378,11 +5356,9 @@
           <a name='L495' href='#L495' id="L495">
           <pre>495</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>    }</span></pre>
+          <pre>        }</pre>
         </td>
       </tr>
       <tr>
@@ -5392,13 +5368,213 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    self &amp;operator&lt;&lt;(Mode &amp;&amp;mode)</pre>
+          <pre>        return *this &lt;&lt; nullptr;</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L497' href='#L497' id="L497">
           <pre>497</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    }</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L498' href='#L498' id="L498">
+          <pre>498</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    template &lt;typename T&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L499' href='#L499' id="L499">
+          <pre>499</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    self &amp;operator&lt;&lt;(optional&lt;T&gt; &amp;parameter)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L500' href='#L500' id="L500">
+          <pre>500</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L501' href='#L501' id="L501">
+          <pre>501</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        if (parameter)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L502' href='#L502' id="L502">
+          <pre>502</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L503' href='#L503' id="L503">
+          <pre>503</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>            return *this &lt;&lt; parameter.value();</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L504' href='#L504' id="L504">
+          <pre>504</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        }</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L505' href='#L505' id="L505">
+          <pre>505</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        return *this &lt;&lt; nullptr;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L506' href='#L506' id="L506">
+          <pre>506</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    }</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L507' href='#L507' id="L507">
+          <pre>507</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    template &lt;typename T&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L508' href='#L508' id="L508">
+          <pre>508</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    self &amp;operator&lt;&lt;(optional&lt;T&gt; &amp;&amp;parameter)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L509' href='#L509' id="L509">
+          <pre>509</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L510' href='#L510' id="L510">
+          <pre>510</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        if (parameter)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L511' href='#L511' id="L511">
+          <pre>511</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L512' href='#L512' id="L512">
+          <pre>512</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>            return *this &lt;&lt; std::move(parameter.value());</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L513' href='#L513' id="L513">
+          <pre>513</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        }</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L514' href='#L514' id="L514">
+          <pre>514</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        return *this &lt;&lt; nullptr;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L515' href='#L515' id="L515">
+          <pre>515</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    }</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L516' href='#L516' id="L516">
+          <pre>516</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    self &amp;operator&lt;&lt;(const Json::Value &amp;j) noexcept(true)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L517' href='#L517' id="L517">
+          <pre>517</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -5409,218 +5585,15 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L498' href='#L498' id="L498">
-          <pre>498</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class='red'>        mode_ = mode;</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L499' href='#L499' id="L499">
-          <pre>499</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class='red'>        return *this;</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L500' href='#L500' id="L500">
-          <pre>500</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class='red'>    }</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L501' href='#L501' id="L501">
-          <pre>501</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    template &lt;typename T&gt;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L502' href='#L502' id="L502">
-          <pre>502</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    self &amp;operator&lt;&lt;(const optional&lt;T&gt; &amp;parameter)</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L503' href='#L503' id="L503">
-          <pre>503</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    {</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L504' href='#L504' id="L504">
-          <pre>504</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>        if (parameter)</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L505' href='#L505' id="L505">
-          <pre>505</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>        {</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L506' href='#L506' id="L506">
-          <pre>506</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>            return *this &lt;&lt; parameter.value();</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L507' href='#L507' id="L507">
-          <pre>507</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>        }</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L508' href='#L508' id="L508">
-          <pre>508</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>        return *this &lt;&lt; nullptr;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L509' href='#L509' id="L509">
-          <pre>509</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    }</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L510' href='#L510' id="L510">
-          <pre>510</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    template &lt;typename T&gt;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L511' href='#L511' id="L511">
-          <pre>511</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    self &amp;operator&lt;&lt;(optional&lt;T&gt; &amp;parameter)</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L512' href='#L512' id="L512">
-          <pre>512</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    {</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L513' href='#L513' id="L513">
-          <pre>513</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>        if (parameter)</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L514' href='#L514' id="L514">
-          <pre>514</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>        {</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L515' href='#L515' id="L515">
-          <pre>515</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>            return *this &lt;&lt; parameter.value();</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L516' href='#L516' id="L516">
-          <pre>516</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>        }</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L517' href='#L517' id="L517">
-          <pre>517</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>        return *this &lt;&lt; nullptr;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
           <a name='L518' href='#L518' id="L518">
           <pre>518</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>    }</pre>
+          <pre><span class=
+          'red'>        switch (j.type())</span></pre>
         </td>
       </tr>
       <tr>
@@ -5628,9 +5601,11 @@
           <a name='L519' href='#L519' id="L519">
           <pre>519</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>    template &lt;typename T&gt;</pre>
+          <pre><span class='red'>        {</span></pre>
         </td>
       </tr>
       <tr>
@@ -5638,9 +5613,12 @@
           <a name='L520' href='#L520' id="L520">
           <pre>520</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>    self &amp;operator&lt;&lt;(optional&lt;T&gt; &amp;&amp;parameter)</pre>
+          <pre><span class=
+          'red'>            case Json::nullValue:</span></pre>
         </td>
       </tr>
       <tr>
@@ -5648,9 +5626,12 @@
           <a name='L521' href='#L521' id="L521">
           <pre>521</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>    {</pre>
+          <pre><span class=
+          'red'>                return *this &lt;&lt; nullptr;</span></pre>
         </td>
       </tr>
       <tr>
@@ -5658,9 +5639,12 @@
           <a name='L522' href='#L522' id="L522">
           <pre>522</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>        if (parameter)</pre>
+          <pre><span class=
+          'red'>            case Json::intValue:</span></pre>
         </td>
       </tr>
       <tr>
@@ -5668,9 +5652,12 @@
           <a name='L523' href='#L523' id="L523">
           <pre>523</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>        {</pre>
+          <pre><span class=
+          'red'>                return *this &lt;&lt; j.asInt64();</span></pre>
         </td>
       </tr>
       <tr>
@@ -5678,9 +5665,12 @@
           <a name='L524' href='#L524' id="L524">
           <pre>524</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>            return *this &lt;&lt; std::move(parameter.value());</pre>
+          <pre><span class=
+          'red'>            case Json::uintValue:</span></pre>
         </td>
       </tr>
       <tr>
@@ -5688,9 +5678,12 @@
           <a name='L525' href='#L525' id="L525">
           <pre>525</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>        }</pre>
+          <pre><span class=
+          'red'>                return *this &lt;&lt; j.asUInt64();</span></pre>
         </td>
       </tr>
       <tr>
@@ -5698,9 +5691,12 @@
           <a name='L526' href='#L526' id="L526">
           <pre>526</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>        return *this &lt;&lt; nullptr;</pre>
+          <pre><span class=
+          'red'>            case Json::realValue:</span></pre>
         </td>
       </tr>
       <tr>
@@ -5708,9 +5704,12 @@
           <a name='L527' href='#L527' id="L527">
           <pre>527</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>    }</pre>
+          <pre><span class=
+          'red'>                return *this &lt;&lt; j.asDouble();</span></pre>
         </td>
       </tr>
       <tr>
@@ -5718,9 +5717,12 @@
           <a name='L528' href='#L528' id="L528">
           <pre>528</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>    self &amp;operator&lt;&lt;(const Json::Value &amp;j) noexcept(true)</pre>
+          <pre><span class=
+          'red'>            case Json::stringValue:</span></pre>
         </td>
       </tr>
       <tr>
@@ -5732,7 +5734,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
+          <pre><span class=
+          'red'>                return *this &lt;&lt; j.asString();</span></pre>
         </td>
       </tr>
       <tr>
@@ -5745,7 +5748,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>        switch (j.type())</span></pre>
+          'red'>            case Json::booleanValue:</span></pre>
         </td>
       </tr>
       <tr>
@@ -5757,7 +5760,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>        {</span></pre>
+          <pre><span class=
+          'red'>                return *this &lt;&lt; j.asBool();</span></pre>
         </td>
       </tr>
       <tr>
@@ -5770,7 +5774,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>            case Json::nullValue:</span></pre>
+          'red'>            case Json::arrayValue:</span></pre>
         </td>
       </tr>
       <tr>
@@ -5783,7 +5787,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>                return *this &lt;&lt; nullptr;</span></pre>
+          'red'>            case Json::objectValue:</span></pre>
         </td>
       </tr>
       <tr>
@@ -5795,8 +5799,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>                break;</span></pre>
+          <pre><span class='red'>            default:</span></pre>
         </td>
       </tr>
       <tr>
@@ -5809,7 +5812,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>            case Json::intValue:</span></pre>
+          'red'>                LOG_ERROR &lt;&lt; "Bad Json type";</span></pre>
         </td>
       </tr>
       <tr>
@@ -5822,7 +5825,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>                return *this &lt;&lt; j.asInt64();</span></pre>
+          'red'>                return *this &lt;&lt; nullptr;</span></pre>
         </td>
       </tr>
       <tr>
@@ -5834,8 +5837,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>                break;</span></pre>
+          <pre><span class='red'>        }</span></pre>
         </td>
       </tr>
       <tr>
@@ -5847,8 +5849,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>            case Json::uintValue:</span></pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -5856,12 +5857,9 @@
           <a name='L539' href='#L539' id="L539">
           <pre>539</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class=
-          'red'>                return *this &lt;&lt; j.asUInt64();</span></pre>
+          <pre>    self &amp;operator&lt;&lt;(Json::Value &amp;j) noexcept(true)</pre>
         </td>
       </tr>
       <tr>
@@ -5873,8 +5871,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>                break;</span></pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -5887,7 +5884,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>            case Json::realValue:</span></pre>
+          'red'>        return *this &lt;&lt; static_cast&lt;const Json::Value &amp;&gt;(j);</span></pre>
         </td>
       </tr>
       <tr>
@@ -5899,8 +5896,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>                return *this &lt;&lt; j.asDouble();</span></pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -5908,12 +5904,9 @@
           <a name='L543' href='#L543' id="L543">
           <pre>543</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class=
-          'red'>                break;</span></pre>
+          <pre>    self &amp;operator&lt;&lt;(Json::Value &amp;&amp;j) noexcept(true)</pre>
         </td>
       </tr>
       <tr>
@@ -5925,8 +5918,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>            case Json::stringValue:</span></pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -5939,7 +5931,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>                return *this &lt;&lt; j.asString();</span></pre>
+          'red'>        return *this &lt;&lt; static_cast&lt;const Json::Value &amp;&gt;(j);</span></pre>
         </td>
       </tr>
       <tr>
@@ -5951,8 +5943,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>                break;</span></pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -5960,12 +5951,9 @@
           <a name='L547' href='#L547' id="L547">
           <pre>547</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class=
-          'red'>            case Json::booleanValue:</span></pre>
+          <pre>    void exec() noexcept(false);</pre>
         </td>
       </tr>
       <tr>
@@ -5973,12 +5961,9 @@
           <a name='L548' href='#L548' id="L548">
           <pre>548</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class=
-          'red'>                return *this &lt;&lt; j.asBool();</span></pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -5986,12 +5971,9 @@
           <a name='L549' href='#L549' id="L549">
           <pre>549</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class=
-          'red'>                break;</span></pre>
+          <pre>  private:</pre>
         </td>
       </tr>
       <tr>
@@ -5999,12 +5981,9 @@
           <a name='L550' href='#L550' id="L550">
           <pre>550</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class=
-          'red'>            case Json::arrayValue:</span></pre>
+          <pre>    static int getMysqlTypeBySize(size_t size);</pre>
         </td>
       </tr>
       <tr>
@@ -6012,12 +5991,9 @@
           <a name='L551' href='#L551' id="L551">
           <pre>551</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class=
-          'red'>            case Json::objectValue:</span></pre>
+          <pre>    std::shared_ptr&lt;std::string&gt; sqlPtr_;</pre>
         </td>
       </tr>
       <tr>
@@ -6025,11 +6001,9 @@
           <a name='L552' href='#L552' id="L552">
           <pre>552</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>            default:</span></pre>
+          <pre>    const char *sqlViewPtr_;</pre>
         </td>
       </tr>
       <tr>
@@ -6037,12 +6011,9 @@
           <a name='L553' href='#L553' id="L553">
           <pre>553</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class=
-          'red'>                LOG_ERROR &lt;&lt; "Bad Json type";</span></pre>
+          <pre>    size_t sqlViewLength_;</pre>
         </td>
       </tr>
       <tr>
@@ -6050,12 +6021,9 @@
           <a name='L554' href='#L554' id="L554">
           <pre>554</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class=
-          'red'>                return *this &lt;&lt; nullptr;</span></pre>
+          <pre>    DbClient &amp;client_;</pre>
         </td>
       </tr>
       <tr>
@@ -6063,12 +6031,9 @@
           <a name='L555' href='#L555' id="L555">
           <pre>555</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class=
-          'red'>                break;</span></pre>
+          <pre>    size_t parametersNumber_{0};</pre>
         </td>
       </tr>
       <tr>
@@ -6076,11 +6041,9 @@
           <a name='L556' href='#L556' id="L556">
           <pre>556</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>        }</span></pre>
+          <pre>    std::vector&lt;const char *&gt; parameters_;</pre>
         </td>
       </tr>
       <tr>
@@ -6088,11 +6051,9 @@
           <a name='L557' href='#L557' id="L557">
           <pre>557</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>    }</span></pre>
+          <pre>    std::vector&lt;int&gt; lengths_;</pre>
         </td>
       </tr>
       <tr>
@@ -6102,7 +6063,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    self &amp;operator&lt;&lt;(Json::Value &amp;j) noexcept(true)</pre>
+          <pre>    std::vector&lt;int&gt; formats_;</pre>
         </td>
       </tr>
       <tr>
@@ -6110,11 +6071,9 @@
           <a name='L559' href='#L559' id="L559">
           <pre>559</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
+          <pre>    std::vector&lt;std::shared_ptr&lt;void&gt;&gt; objs_;</pre>
         </td>
       </tr>
       <tr>
@@ -6122,12 +6081,9 @@
           <a name='L560' href='#L560' id="L560">
           <pre>560</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class=
-          'red'>        return *this &lt;&lt; static_cast&lt;const Json::Value &amp;&gt;(j);</span></pre>
+          <pre>    Mode mode_{Mode::NonBlocking};</pre>
         </td>
       </tr>
       <tr>
@@ -6135,11 +6091,9 @@
           <a name='L561' href='#L561' id="L561">
           <pre>561</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>    }</span></pre>
+          <pre>    std::shared_ptr&lt;CallbackHolderBase&gt; callbackHolder_;</pre>
         </td>
       </tr>
       <tr>
@@ -6149,7 +6103,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    self &amp;operator&lt;&lt;(Json::Value &amp;&amp;j) noexcept(true)</pre>
+          <pre>    DrogonDbExceptionCallback exceptionCallback_;</pre>
         </td>
       </tr>
       <tr>
@@ -6157,11 +6111,9 @@
           <a name='L563' href='#L563' id="L563">
           <pre>563</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
+          <pre>    ExceptPtrCallback exceptionPtrCallback_;</pre>
         </td>
       </tr>
       <tr>
@@ -6169,12 +6121,9 @@
           <a name='L564' href='#L564' id="L564">
           <pre>564</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class=
-          'red'>        return *this &lt;&lt; static_cast&lt;const Json::Value &amp;&gt;(j);</span></pre>
+          <pre>    bool execed_{false};</pre>
         </td>
       </tr>
       <tr>
@@ -6182,11 +6131,9 @@
           <a name='L565' href='#L565' id="L565">
           <pre>565</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>    }</span></pre>
+          <pre>    bool destructed_{false};</pre>
         </td>
       </tr>
       <tr>
@@ -6196,7 +6143,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    void exec() noexcept(false);</pre>
+          <pre>    bool isExceptionPtr_{false};</pre>
         </td>
       </tr>
       <tr>
@@ -6206,7 +6153,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>    ClientType type_;</pre>
         </td>
       </tr>
       <tr>
@@ -6216,7 +6163,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  private:</pre>
+          <pre>};</pre>
         </td>
       </tr>
       <tr>
@@ -6226,7 +6173,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    int getMysqlTypeBySize(size_t size);</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -6236,7 +6183,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    std::shared_ptr&lt;std::string&gt; sqlPtr_;</pre>
+          <pre>}  // namespace internal</pre>
         </td>
       </tr>
       <tr>
@@ -6246,203 +6193,13 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    const char *sqlViewPtr_;</pre>
+          <pre>}  // namespace orm</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L572' href='#L572' id="L572">
           <pre>572</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    size_t sqlViewLength_;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L573' href='#L573' id="L573">
-          <pre>573</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    DbClient &amp;client_;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L574' href='#L574' id="L574">
-          <pre>574</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    size_t parametersNumber_{0};</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L575' href='#L575' id="L575">
-          <pre>575</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    std::vector&lt;const char *&gt; parameters_;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L576' href='#L576' id="L576">
-          <pre>576</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    std::vector&lt;int&gt; lengths_;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L577' href='#L577' id="L577">
-          <pre>577</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    std::vector&lt;int&gt; formats_;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L578' href='#L578' id="L578">
-          <pre>578</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    std::vector&lt;std::shared_ptr&lt;void&gt;&gt; objs_;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L579' href='#L579' id="L579">
-          <pre>579</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    Mode mode_{Mode::NonBlocking};</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L580' href='#L580' id="L580">
-          <pre>580</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    std::shared_ptr&lt;CallbackHolderBase&gt; callbackHolder_;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L581' href='#L581' id="L581">
-          <pre>581</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    DrogonDbExceptionCallback exceptionCallback_;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L582' href='#L582' id="L582">
-          <pre>582</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    ExceptPtrCallback exceptionPtrCallback_;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L583' href='#L583' id="L583">
-          <pre>583</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    bool execed_{false};</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L584' href='#L584' id="L584">
-          <pre>584</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    bool destructed_{false};</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L585' href='#L585' id="L585">
-          <pre>585</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    bool isExceptionPtr_{false};</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L586' href='#L586' id="L586">
-          <pre>586</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    ClientType type_;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L587' href='#L587' id="L587">
-          <pre>587</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>};</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L588' href='#L588' id="L588">
-          <pre>588</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L589' href='#L589' id="L589">
-          <pre>589</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>}  // namespace internal</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L590' href='#L590' id="L590">
-          <pre>590</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>}  // namespace orm</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L591' href='#L591' id="L591">
-          <pre>591</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>

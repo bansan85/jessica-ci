@@ -15,7 +15,7 @@
   <h4></h4>
   <div class='centered'>
     <div class='source-name-title'>
-      <pre>/home/runner/work/jessica/jessica/build/_deps/drogon-src/lib/inc/drogon/HttpFilter.h</pre>
+      <pre>/home/runner/work/jessica/jessica/build/_deps/drogon-src/lib/inc/drogon/RateLimiter.h</pre>
     </div>
     <table>
       <tr>
@@ -27,7 +27,7 @@
         </td>
         <td>
           <pre>Source (<a href=
-          '#L47'>jump to first uncovered line</a>)</pre>
+          '#L16'>jump to first uncovered line</a>)</pre>
         </td>
       </tr>
       <tr>
@@ -37,7 +37,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>/**</pre>
+          <pre>#pragma once</pre>
         </td>
       </tr>
       <tr>
@@ -47,7 +47,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> *</pre>
+          <pre>#include &lt;drogon/exports.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -57,7 +57,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> *  @file HttpFilter.h</pre>
+          <pre>#include &lt;memory&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -67,7 +67,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> *  @author An Tao</pre>
+          <pre>#include &lt;chrono&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -77,7 +77,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> *</pre>
+          <pre>#include &lt;mutex&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -87,7 +87,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> *  Copyright 2018, An Tao.  All rights reserved.</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -97,7 +97,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> *  https://github.com/an-tao/drogon</pre>
+          <pre>namespace drogon</pre>
         </td>
       </tr>
       <tr>
@@ -107,7 +107,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> *  Use of this source code is governed by a MIT license</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -117,7 +117,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> *  that can be found in the License file.</pre>
+          <pre>enum class DROGON_EXPORT RateLimiterType</pre>
         </td>
       </tr>
       <tr>
@@ -127,7 +127,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> *</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -137,7 +137,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> *  Drogon</pre>
+          <pre>    kFixedWindow,</pre>
         </td>
       </tr>
       <tr>
@@ -147,7 +147,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> *</pre>
+          <pre>    kSlidingWindow,</pre>
         </td>
       </tr>
       <tr>
@@ -157,7 +157,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> */</pre>
+          <pre>    kTokenBucket</pre>
         </td>
       </tr>
       <tr>
@@ -167,7 +167,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>};</pre>
         </td>
       </tr>
       <tr>
@@ -177,7 +177,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#pragma once</pre>
+          <pre>inline RateLimiterType stringToRateLimiterType(const std::string &amp;type)</pre>
         </td>
       </tr>
       <tr>
@@ -185,9 +185,11 @@
           <a name='L16' href='#L16' id="L16">
           <pre>16</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre><span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -195,9 +197,12 @@
           <a name='L17' href='#L17' id="L17">
           <pre>17</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>#include &lt;drogon/DrObject.h&gt;</pre>
+          <pre><span class=
+          'red'>    if (type == "fixedWindow" || type == "fixed_window")</span></pre>
         </td>
       </tr>
       <tr>
@@ -205,9 +210,12 @@
           <a name='L18' href='#L18' id="L18">
           <pre>18</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>#include &lt;drogon/drogon_callbacks.h&gt;</pre>
+          <pre><span class=
+          'red'>        return RateLimiterType::kFixedWindow;</span></pre>
         </td>
       </tr>
       <tr>
@@ -215,9 +223,12 @@
           <a name='L19' href='#L19' id="L19">
           <pre>19</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>#include &lt;drogon/HttpRequest.h&gt;</pre>
+          <pre><span class=
+          'red'>    else if (type == "slidingWindow" || type == "sliding_window")</span></pre>
         </td>
       </tr>
       <tr>
@@ -225,9 +236,12 @@
           <a name='L20' href='#L20' id="L20">
           <pre>20</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>#include &lt;drogon/HttpResponse.h&gt;</pre>
+          <pre><span class=
+          'red'>        return RateLimiterType::kSlidingWindow;</span></pre>
         </td>
       </tr>
       <tr>
@@ -235,9 +249,12 @@
           <a name='L21' href='#L21' id="L21">
           <pre>21</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>#include &lt;memory&gt;</pre>
+          <pre><span class=
+          'red'>    return RateLimiterType::kTokenBucket;</span></pre>
         </td>
       </tr>
       <tr>
@@ -245,9 +262,11 @@
           <a name='L22' href='#L22' id="L22">
           <pre>22</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre><span class='red'>}</span></pre>
         </td>
       </tr>
       <tr>
@@ -257,7 +276,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>namespace drogon</pre>
+          <pre>class DROGON_EXPORT RateLimiter;</pre>
         </td>
       </tr>
       <tr>
@@ -267,7 +286,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>using RateLimiterPtr = std::shared_ptr&lt;RateLimiter&gt;;</pre>
         </td>
       </tr>
       <tr>
@@ -287,7 +306,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> * @brief The abstract base class for filters</pre>
+          <pre> * @brief This class is used to limit the number of requests per second</pre>
         </td>
       </tr>
       <tr>
@@ -297,7 +316,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> * For more details on the class, see the wiki site (the 'Filter' section)</pre>
+          <pre> *</pre>
         </td>
       </tr>
       <tr>
@@ -307,7 +326,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> */</pre>
+          <pre> * */</pre>
         </td>
       </tr>
       <tr>
@@ -317,7 +336,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>class DROGON_EXPORT HttpFilterBase : public virtual DrObjectBase</pre>
+          <pre>class DROGON_EXPORT RateLimiter</pre>
         </td>
       </tr>
       <tr>
@@ -347,7 +366,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    /// This virtual function should be overrided in subclasses.</pre>
+          <pre>    /**</pre>
         </td>
       </tr>
       <tr>
@@ -357,7 +376,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    /**</pre>
+          <pre>     * @brief Create a rate limiter</pre>
         </td>
       </tr>
       <tr>
@@ -367,7 +386,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * This method is an asynchronous interface, user should return the result</pre>
+          <pre>     * @param type The type of the rate limiter</pre>
         </td>
       </tr>
       <tr>
@@ -377,7 +396,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * via 'FilterCallback' or 'FilterChainCallback'.</pre>
+          <pre>     * @param capacity The maximum number of requests in the time unit.</pre>
         </td>
       </tr>
       <tr>
@@ -387,7 +406,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @param req is the request object processed by the filter</pre>
+          <pre>     * @param timeUnit The time unit of the rate limiter.</pre>
         </td>
       </tr>
       <tr>
@@ -397,7 +416,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @param fcb if this is called, the response object is send to the client</pre>
+          <pre>     * @return A rate limiter pointer</pre>
         </td>
       </tr>
       <tr>
@@ -407,7 +426,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * by the callback, and doFilter methods of next filters and the handler</pre>
+          <pre>     */</pre>
         </td>
       </tr>
       <tr>
@@ -417,7 +436,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * registed on the path are not called anymore.</pre>
+          <pre>    static RateLimiterPtr newRateLimiter(</pre>
         </td>
       </tr>
       <tr>
@@ -427,7 +446,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * @param fccb if this callback is called, the next filter's doFilter method</pre>
+          <pre>        RateLimiterType type,</pre>
         </td>
       </tr>
       <tr>
@@ -437,7 +456,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     * or the handler registered on the path is called.</pre>
+          <pre>        size_t capacity,</pre>
         </td>
       </tr>
       <tr>
@@ -447,7 +466,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>     */</pre>
+          <pre>        std::chrono::duration&lt;double&gt; timeUnit = std::chrono::seconds(60));</pre>
         </td>
       </tr>
       <tr>
@@ -457,7 +476,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    virtual void doFilter(const HttpRequestPtr &amp;req,</pre>
+          <pre>    /**</pre>
         </td>
       </tr>
       <tr>
@@ -467,7 +486,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                          FilterCallback &amp;&amp;fcb,</pre>
+          <pre>     * @brief Check if a request is allowed</pre>
         </td>
       </tr>
       <tr>
@@ -477,7 +496,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                          FilterChainCallback &amp;&amp;fccb) = 0;</pre>
+          <pre>     *</pre>
         </td>
       </tr>
       <tr>
@@ -487,13 +506,93 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    virtual ~HttpFilterBase()</pre>
+          <pre>     * @return true The request is allowed</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L47' href='#L47' id="L47">
           <pre>47</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>     * @return false The request is not allowed</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L48' href='#L48' id="L48">
+          <pre>48</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>     */</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L49' href='#L49' id="L49">
+          <pre>49</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    virtual bool isAllowed() = 0;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L50' href='#L50' id="L50">
+          <pre>50</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>};</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L51' href='#L51' id="L51">
+          <pre>51</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>class DROGON_EXPORT SafeRateLimiter : public RateLimiter</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L52' href='#L52' id="L52">
+          <pre>52</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>{</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L53' href='#L53' id="L53">
+          <pre>53</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>  public:</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L54' href='#L54' id="L54">
+          <pre>54</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    SafeRateLimiter(RateLimiterPtr limiter) : limiter_(limiter)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L55' href='#L55' id="L55">
+          <pre>55</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -504,8 +603,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L48' href='#L48' id="L48">
-          <pre>48</pre></a>
+          <a name='L56' href='#L56' id="L56">
+          <pre>56</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -516,92 +615,12 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L49' href='#L49' id="L49">
-          <pre>49</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>};</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L50' href='#L50' id="L50">
-          <pre>50</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L51' href='#L51' id="L51">
-          <pre>51</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>/**</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L52' href='#L52' id="L52">
-          <pre>52</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre> * @brief The reflection base class template for filters</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L53' href='#L53' id="L53">
-          <pre>53</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre> *</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L54' href='#L54' id="L54">
-          <pre>54</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre> * @tparam T The type of the implementation class</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L55' href='#L55' id="L55">
-          <pre>55</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre> * @tparam AutoCreation The flag for automatically creating, user can set this</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L56' href='#L56' id="L56">
-          <pre>56</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre> * flag to false for classes that have nondefault constructors.</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
           <a name='L57' href='#L57' id="L57">
           <pre>57</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> */</pre>
+          <pre>    bool isAllowed() override</pre>
         </td>
       </tr>
       <tr>
@@ -609,9 +628,11 @@
           <a name='L58' href='#L58' id="L58">
           <pre>58</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>template &lt;typename T, bool AutoCreation = true&gt;</pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -619,9 +640,12 @@
           <a name='L59' href='#L59' id="L59">
           <pre>59</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>class HttpFilter : public DrObject&lt;T&gt;, public HttpFilterBase</pre>
+          <pre><span class=
+          'red'>        std::lock_guard&lt;std::mutex&gt; lock(mutex_);</span></pre>
         </td>
       </tr>
       <tr>
@@ -629,9 +653,12 @@
           <a name='L60' href='#L60' id="L60">
           <pre>60</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>{</pre>
+          <pre><span class=
+          'red'>        return limiter_-&gt;isAllowed();</span></pre>
         </td>
       </tr>
       <tr>
@@ -639,9 +666,11 @@
           <a name='L61' href='#L61' id="L61">
           <pre>61</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>  public:</pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -651,7 +680,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    static constexpr bool isAutoCreation{AutoCreation};</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -661,7 +690,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    virtual ~HttpFilter()</pre>
+          <pre>  private:</pre>
         </td>
       </tr>
       <tr>
@@ -671,7 +700,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    {</pre>
+          <pre>    RateLimiterPtr limiter_;</pre>
         </td>
       </tr>
       <tr>
@@ -681,7 +710,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    }</pre>
+          <pre>    std::mutex mutex_;</pre>
         </td>
       </tr>
       <tr>

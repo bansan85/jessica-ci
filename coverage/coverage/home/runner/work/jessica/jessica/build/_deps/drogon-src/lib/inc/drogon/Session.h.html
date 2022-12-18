@@ -847,7 +847,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                    return optional&lt;T&gt;{*(any_cast&lt;T&gt;(&amp;(it-&gt;second)))};</pre>
+          <pre>                    return *(any_cast&lt;T&gt;(&amp;(it-&gt;second)));</pre>
         </td>
       </tr>
       <tr>
@@ -927,7 +927,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        return optional&lt;T&gt;{};</pre>
+          <pre>        return nullopt;</pre>
         </td>
       </tr>
       <tr>

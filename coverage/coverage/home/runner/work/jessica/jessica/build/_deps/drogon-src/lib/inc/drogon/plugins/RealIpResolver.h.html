@@ -7,7 +7,7 @@
   'width=device-width,initial-scale=1'>
   <meta charset='UTF-8'>
   <link rel='stylesheet' type='text/css' href=
-  '../../../../../../../../../../../../style.css'>
+  '../../../../../../../../../../../../../style.css'>
   <title></title>
 </head>
 <body>
@@ -15,7 +15,7 @@
   <h4></h4>
   <div class='centered'>
     <div class='source-name-title'>
-      <pre>/home/runner/work/jessica/jessica/src/backend/jessica/helper/adapter/webservice/drogon.cc</pre>
+      <pre>/home/runner/work/jessica/jessica/build/_deps/drogon-src/lib/inc/drogon/plugins/RealIpResolver.h</pre>
     </div>
     <table>
       <tr>
@@ -27,7 +27,7 @@
         </td>
         <td>
           <pre>Source (<a href=
-          '#L84'>jump to first uncovered line</a>)</pre>
+          '#L48'>jump to first uncovered line</a>)</pre>
         </td>
       </tr>
       <tr>
@@ -37,7 +37,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>// IWYU pragma: no_include &lt;cxxabi.h&gt;</pre>
+          <pre>/**</pre>
         </td>
       </tr>
       <tr>
@@ -47,7 +47,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre> *</pre>
         </td>
       </tr>
       <tr>
@@ -57,7 +57,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;chrono&gt;</pre>
+          <pre> *  RealIpResolver.h</pre>
         </td>
       </tr>
       <tr>
@@ -67,7 +67,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;exception&gt;</pre>
+          <pre> *</pre>
         </td>
       </tr>
       <tr>
@@ -77,7 +77,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;functional&gt;</pre>
+          <pre> */</pre>
         </td>
       </tr>
       <tr>
@@ -87,7 +87,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;future&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -97,7 +97,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;memory&gt;</pre>
+          <pre>#pragma once</pre>
         </td>
       </tr>
       <tr>
@@ -107,7 +107,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;string&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -117,7 +117,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;system_error&gt;</pre>
+          <pre>#include &lt;drogon/plugins/Plugin.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -127,7 +127,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;thread&gt;</pre>
+          <pre>#include &lt;trantor/net/InetAddress.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -137,7 +137,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;utility&gt;</pre>
+          <pre>#include &lt;drogon/HttpRequest.h&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -167,7 +167,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/helper/adapter/webservice/drogon.h&gt;</pre>
+          <pre>namespace drogon</pre>
         </td>
       </tr>
       <tr>
@@ -177,7 +177,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/helper/cfi.h&gt;</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -187,7 +187,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>#include &lt;jessica/helper/clean/drogon/drogon.h&gt;</pre>
+          <pre>namespace plugin</pre>
         </td>
       </tr>
       <tr>
@@ -197,7 +197,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -207,7 +207,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>namespace jessica</pre>
+          <pre>/**</pre>
         </td>
       </tr>
       <tr>
@@ -217,7 +217,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>* @brief This plugin is used to resolve client real ip from HTTP request.</pre>
         </td>
       </tr>
       <tr>
@@ -227,7 +227,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>* @note This plugin currently supports only ipv4 address or cidr.</pre>
         </td>
       </tr>
       <tr>
@@ -235,11 +235,9 @@
           <a name='L21' href='#L21' id="L21">
           <pre>21</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>2</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>DrogonWs::DrogonWs() : app_(drogon::app()) {}</pre>
+          <pre>*</pre>
         </td>
       </tr>
       <tr>
@@ -249,7 +247,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>* The json configuration is as follows:</pre>
         </td>
       </tr>
       <tr>
@@ -259,7 +257,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>void DrogonWs::AddPath(</pre>
+          <pre>*</pre>
         </td>
       </tr>
       <tr>
@@ -269,7 +267,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    const std::string& method, const std::string& path,</pre>
+          <pre>* @code</pre>
         </td>
       </tr>
       <tr>
@@ -279,7 +277,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    const std::function&lt;std::pair&lt;int, std::string&gt;(const std::string&amp;)&gt;& func)</pre>
+          <pre>  {</pre>
         </td>
       </tr>
       <tr>
@@ -287,11 +285,9 @@
           <a name='L26' href='#L26' id="L26">
           <pre>26</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>     "name": "drogon::plugin::RealIpResolver",</pre>
         </td>
       </tr>
       <tr>
@@ -299,11 +295,9 @@
           <a name='L27' href='#L27' id="L27">
           <pre>27</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  app_.registerHandler(</pre>
+          <pre>     "dependencies": [],</pre>
         </td>
       </tr>
       <tr>
@@ -311,11 +305,9 @@
           <a name='L28' href='#L28' id="L28">
           <pre>28</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      path,</pre>
+          <pre>     "config": {</pre>
         </td>
       </tr>
       <tr>
@@ -323,11 +315,9 @@
           <a name='L29' href='#L29' id="L29">
           <pre>29</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      [func](const drogon::HttpRequestPtr& req,</pre>
+          <pre>        // Trusted proxy ip or cidr</pre>
         </td>
       </tr>
       <tr>
@@ -335,11 +325,9 @@
           <a name='L30' href='#L30' id="L30">
           <pre>30</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>             std::function&lt;void(const drogon::HttpResponsePtr&amp;)&gt;&amp;& callback)</pre>
+          <pre>        "trust_ips": ["127.0.0.1", "172.16.0.0/12"],</pre>
         </td>
       </tr>
       <tr>
@@ -347,11 +335,9 @@
           <a name='L31' href='#L31' id="L31">
           <pre>31</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      {</pre>
+          <pre>        // Which header to parse ip form. Default is x-forwarded-for</pre>
         </td>
       </tr>
       <tr>
@@ -359,11 +345,9 @@
           <a name='L32' href='#L32' id="L32">
           <pre>32</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        const auto [status_code, retval] = func(std::string{req-&gt;getBody()});</pre>
+          <pre>        "from_header": "x-forwarded-for",</pre>
         </td>
       </tr>
       <tr>
@@ -373,7 +357,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>        // The result will be inserted to HttpRequest attribute map with this</pre>
         </td>
       </tr>
       <tr>
@@ -381,11 +365,9 @@
           <a name='L34' href='#L34' id="L34">
           <pre>34</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        auto resp = drogon::HttpResponse::newHttpResponse();</pre>
+          <pre>        // key. Default is "real-ip"</pre>
         </td>
       </tr>
       <tr>
@@ -393,11 +375,9 @@
           <a name='L35' href='#L35' id="L35">
           <pre>35</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        resp-&gt;setBody(retval);</pre>
+          <pre>        "attribute_key": "real-ip"</pre>
         </td>
       </tr>
       <tr>
@@ -405,11 +385,9 @@
           <a name='L36' href='#L36' id="L36">
           <pre>36</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        resp-&gt;setStatusCode(static_cast&lt;drogon::HttpStatusCode&gt;(status_code));</pre>
+          <pre>     }</pre>
         </td>
       </tr>
       <tr>
@@ -417,11 +395,9 @@
           <a name='L37' href='#L37' id="L37">
           <pre>37</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        callback(resp);</pre>
+          <pre>  }</pre>
         </td>
       </tr>
       <tr>
@@ -429,11 +405,9 @@
           <a name='L38' href='#L38' id="L38">
           <pre>38</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      },</pre>
+          <pre>  @endcode</pre>
         </td>
       </tr>
       <tr>
@@ -441,11 +415,9 @@
           <a name='L39' href='#L39' id="L39">
           <pre>39</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      {GetHttpMethodFromString(method)});</pre>
+          <pre>*</pre>
         </td>
       </tr>
       <tr>
@@ -453,11 +425,9 @@
           <a name='L40' href='#L40' id="L40">
           <pre>40</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>}</pre>
+          <pre>* Enable the plugin by adding the configuration to the list of plugins in the</pre>
         </td>
       </tr>
       <tr>
@@ -467,7 +437,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>* configuration file.</pre>
         </td>
       </tr>
       <tr>
@@ -477,7 +447,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>void DrogonWs::Start(unsigned short port)</pre>
+          <pre>*</pre>
         </td>
       </tr>
       <tr>
@@ -485,11 +455,9 @@
           <a name='L43' href='#L43' id="L43">
           <pre>43</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>2</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>*/</pre>
         </td>
       </tr>
       <tr>
@@ -497,11 +465,9 @@
           <a name='L44' href='#L44' id="L44">
           <pre>44</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>2</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  app_.addListener("0.0.0.0", port).run();</pre>
+          <pre>class DROGON_EXPORT RealIpResolver : public drogon::Plugin&lt;RealIpResolver&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -509,11 +475,9 @@
           <a name='L45' href='#L45' id="L45">
           <pre>45</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>2</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>}</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -523,7 +487,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>  public:</pre>
         </td>
       </tr>
       <tr>
@@ -531,17 +495,59 @@
           <a name='L47' href='#L47' id="L47">
           <pre>47</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>2</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>void DrogonWs::Stop() { app_.quit(); }</pre>
+          <pre>    RealIpResolver()</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L48' href='#L48' id="L48">
           <pre>48</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre>    <span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L49' href='#L49' id="L49">
+          <pre>49</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>    }</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L50' href='#L50' id="L50">
+          <pre>50</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    void initAndStart(const Json::Value &amp;config) override;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L51' href='#L51' id="L51">
+          <pre>51</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    void shutdown() override;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L52' href='#L52' id="L52">
+          <pre>52</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -550,60 +556,12 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L49' href='#L49' id="L49">
-          <pre>49</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>void DrogonWs::WaitStarted()</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L50' href='#L50' id="L50">
-          <pre>50</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>2</pre>
-        </td>
-        <td class='code'>
-          <pre>{</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L51' href='#L51' id="L51">
-          <pre>51</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>2</pre>
-        </td>
-        <td class='code'>
-          <pre>  using namespace std::chrono_literals;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L52' href='#L52' id="L52">
-          <pre>52</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>1.63M</pre>
-        </td>
-        <td class='code'>
-          <pre>  while (!app_.isRunning())</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
           <a name='L53' href='#L53' id="L53">
           <pre>53</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>1.63M</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  {</pre>
+          <pre>    static const trantor::InetAddress &amp;GetRealAddr(</pre>
         </td>
       </tr>
       <tr>
@@ -611,11 +569,9 @@
           <a name='L54' href='#L54' id="L54">
           <pre>54</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>1.63M</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  }</pre>
+          <pre>        const drogon::HttpRequestPtr &amp;req);</pre>
         </td>
       </tr>
       <tr>
@@ -635,7 +591,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  // If no sleep, error 500 for the first request.</pre>
+          <pre>  private:</pre>
         </td>
       </tr>
       <tr>
@@ -643,11 +599,9 @@
           <a name='L57' href='#L57' id="L57">
           <pre>57</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>2</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  std::this_thread::sleep_for(20ms);</pre>
+          <pre>    const trantor::InetAddress &amp;getRealAddr(</pre>
         </td>
       </tr>
       <tr>
@@ -655,11 +609,9 @@
           <a name='L58' href='#L58' id="L58">
           <pre>58</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>2</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>}</pre>
+          <pre>        const drogon::HttpRequestPtr &amp;req) const;</pre>
         </td>
       </tr>
       <tr>
@@ -669,7 +621,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>    bool matchCidr(const trantor::InetAddress &amp;addr) const;</pre>
         </td>
       </tr>
       <tr>
@@ -679,7 +631,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>std::pair&lt;int, std::string&gt; DrogonRequest::Sync(const std::string& hostname,</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -689,7 +641,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                                                unsigned short port,</pre>
+          <pre>    struct CIDR</pre>
         </td>
       </tr>
       <tr>
@@ -699,7 +651,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                                                const std::string& method,</pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -709,7 +661,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                                                const std::string& path,</pre>
+          <pre>        explicit CIDR(const std::string &amp;ipOrCidr);</pre>
         </td>
       </tr>
       <tr>
@@ -719,7 +671,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                                                const std::string& body)</pre>
+          <pre>        in_addr_t addr_{0};</pre>
         </td>
       </tr>
       <tr>
@@ -727,11 +679,9 @@
           <a name='L65' href='#L65' id="L65">
           <pre>65</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>        in_addr_t mask_{32};</pre>
         </td>
       </tr>
       <tr>
@@ -739,11 +689,9 @@
           <a name='L66' href='#L66' id="L66">
           <pre>66</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  using namespace std::chrono_literals;</pre>
+          <pre>    };</pre>
         </td>
       </tr>
       <tr>
@@ -751,11 +699,9 @@
           <a name='L67' href='#L67' id="L67">
           <pre>67</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  auto client =</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -763,11 +709,9 @@
           <a name='L68' href='#L68' id="L68">
           <pre>68</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>      drogon::HttpClient::newHttpClient(hostname + ":" + cfi_to_string(port),</pre>
+          <pre>    std::vector&lt;CIDR&gt; trustCIDRs_;</pre>
         </td>
       </tr>
       <tr>
@@ -775,11 +719,9 @@
           <a name='L69' href='#L69' id="L69">
           <pre>69</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                                        drogon::app().getLoop(), false, false);</pre>
+          <pre>    std::string fromHeader_;</pre>
         </td>
       </tr>
       <tr>
@@ -787,11 +729,9 @@
           <a name='L70' href='#L70' id="L70">
           <pre>70</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  auto req = drogon::HttpRequest::newHttpRequest();</pre>
+          <pre>    std::string attributeKey_;</pre>
         </td>
       </tr>
       <tr>
@@ -799,11 +739,9 @@
           <a name='L71' href='#L71' id="L71">
           <pre>71</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  req-&gt;setMethod(DrogonWs::GetHttpMethodFromString(method));</pre>
+          <pre>    bool useXForwardedFor_{false};</pre>
         </td>
       </tr>
       <tr>
@@ -811,11 +749,9 @@
           <a name='L72' href='#L72' id="L72">
           <pre>72</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  req-&gt;setPath(path);</pre>
+          <pre>};</pre>
         </td>
       </tr>
       <tr>
@@ -823,11 +759,9 @@
           <a name='L73' href='#L73' id="L73">
           <pre>73</pre></a>
         </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>  req-&gt;setBody(body);</pre>
+          <pre>}  // namespace plugin</pre>
         </td>
       </tr>
       <tr>
@@ -837,241 +771,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L75' href='#L75' id="L75">
-          <pre>75</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
-        <td class='code'>
-          <pre>  std::future&lt;std::pair&lt;int, std::string&gt;&gt; future = std::async(</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L76' href='#L76' id="L76">
-          <pre>76</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
-        <td class='code'>
-          <pre>      std::launch::async,</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L77' href='#L77' id="L77">
-          <pre>77</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
-        <td class='code'>
-          <pre>      [&amp;client, &amp;req]() -&gt; std::pair&lt;int, std::string&gt;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L78' href='#L78' id="L78">
-          <pre>78</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
-        <td class='code'>
-          <pre>      {</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L79' href='#L79' id="L79">
-          <pre>79</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
-        <td class='code'>
-          <pre>        auto [result, response] = client-&gt;sendRequest(req, 1.);</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L80' href='#L80' id="L80">
-          <pre>80</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
-        <td class='code'>
-          <pre>        return {response-&gt;statusCode(), std::string{response-&gt;body()}};</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L81' href='#L81' id="L81">
-          <pre>81</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
-        <td class='code'>
-          <pre>      });</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L82' href='#L82' id="L82">
-          <pre>82</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L83' href='#L83' id="L83">
-          <pre>83</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
-        <td class='code'>
-          <pre>  std::future_status status = future.wait_for(1s);</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L84' href='#L84' id="L84">
-          <pre>84</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
-        <td class='code'>
-          <pre>  if (status == std::future_status::timeout)</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L85' href='#L85' id="L85">
-          <pre>85</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre>  <span class='red'>{</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L86' href='#L86' id="L86">
-          <pre>86</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class='red'>    std::terminate();</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L87' href='#L87' id="L87">
-          <pre>87</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class='red'>  }</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L88' href='#L88' id="L88">
-          <pre>88</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
-        <td class='code'>
-          <pre>  else</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L89' href='#L89' id="L89">
-          <pre>89</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
-        <td class='code'>
-          <pre>  {</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L90' href='#L90' id="L90">
-          <pre>90</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
-        <td class='code'>
-          <pre>    return future.get();</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L91' href='#L91' id="L91">
-          <pre>91</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
-        <td class='code'>
-          <pre>  }</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L92' href='#L92' id="L92">
-          <pre>92</pre></a>
-        </td>
-        <td class='covered-line'>
-          <pre>4</pre>
-        </td>
-        <td class='code'>
-          <pre>}</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L93' href='#L93' id="L93">
-          <pre>93</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L94' href='#L94' id="L94">
-          <pre>94</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>}  // namespace jessica</pre>
+          <pre>}  // namespace drogon</pre>
         </td>
       </tr>
     </table>

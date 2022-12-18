@@ -4325,13 +4325,204 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>}  // namespace utils</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L412' href='#L412' id="L412">
           <pre>412</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>namespace internal</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L413' href='#L413' id="L413">
+          <pre>413</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>{</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L414' href='#L414' id="L414">
+          <pre>414</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>DROGON_EXPORT extern const size_t fixedRandomNumber;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L415' href='#L415' id="L415">
+          <pre>415</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>struct SafeStringHash</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L416' href='#L416' id="L416">
+          <pre>416</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>{</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L417' href='#L417' id="L417">
+          <pre>417</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    size_t operator()(const std::string &amp;str) const</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L418' href='#L418' id="L418">
+          <pre>418</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre>    <span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L419' href='#L419' id="L419">
+          <pre>419</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>        const size_t A = 6665339;</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L420' href='#L420' id="L420">
+          <pre>420</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>        const size_t B = 2534641;</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L421' href='#L421' id="L421">
+          <pre>421</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>        size_t h = fixedRandomNumber;</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L422' href='#L422' id="L422">
+          <pre>422</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>        for (char ch : str)</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L423' href='#L423' id="L423">
+          <pre>423</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>            h = (h * A) ^ (ch * B);</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L424' href='#L424' id="L424">
+          <pre>424</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>        return h;</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L425' href='#L425' id="L425">
+          <pre>425</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>    }</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L426' href='#L426' id="L426">
+          <pre>426</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>};</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L427' href='#L427' id="L427">
+          <pre>427</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>}  // namespace internal</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L428' href='#L428' id="L428">
+          <pre>428</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>}  // namespace utils</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L429' href='#L429' id="L429">
+          <pre>429</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>

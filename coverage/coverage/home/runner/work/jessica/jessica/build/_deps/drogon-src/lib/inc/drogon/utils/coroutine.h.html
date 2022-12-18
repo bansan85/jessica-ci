@@ -1927,7 +1927,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    bool await_ready() const</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -1937,7 +1937,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    {</pre>
+          <pre>    auto operator co_await() const &amp;noexcept</pre>
         </td>
       </tr>
       <tr>
@@ -1947,7 +1947,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        return !coro_ || coro_.done();</pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -1957,7 +1957,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    }</pre>
+          <pre>        struct awaiter</pre>
         </td>
       </tr>
       <tr>
@@ -1967,7 +1967,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    std::coroutine_handle&lt;&gt; await_suspend(std::coroutine_handle&lt;&gt; awaiting)</pre>
+          <pre>        {</pre>
         </td>
       </tr>
       <tr>
@@ -1977,7 +1977,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    {</pre>
+          <pre>          public:</pre>
         </td>
       </tr>
       <tr>
@@ -1987,7 +1987,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        coro_.promise().setContinuation(awaiting);</pre>
+          <pre>            explicit awaiter(handle_type coro) : coro_(coro)</pre>
         </td>
       </tr>
       <tr>
@@ -1997,7 +1997,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        return coro_;</pre>
+          <pre>            {</pre>
         </td>
       </tr>
       <tr>
@@ -2007,7 +2007,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    }</pre>
+          <pre>            }</pre>
         </td>
       </tr>
       <tr>
@@ -2017,7 +2017,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>            bool await_ready() noexcept</pre>
         </td>
       </tr>
       <tr>
@@ -2027,7 +2027,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    auto operator co_await() const &amp;noexcept</pre>
+          <pre>            {</pre>
         </td>
       </tr>
       <tr>
@@ -2037,7 +2037,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    {</pre>
+          <pre>                return !coro_ || coro_.done();</pre>
         </td>
       </tr>
       <tr>
@@ -2047,7 +2047,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        struct awaiter</pre>
+          <pre>            }</pre>
         </td>
       </tr>
       <tr>
@@ -2057,7 +2057,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        {</pre>
+          <pre>            auto await_suspend(std::coroutine_handle&lt;&gt; handle) noexcept</pre>
         </td>
       </tr>
       <tr>
@@ -2067,7 +2067,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>          public:</pre>
+          <pre>            {</pre>
         </td>
       </tr>
       <tr>
@@ -2077,7 +2077,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            explicit awaiter(handle_type coro) : coro_(coro)</pre>
+          <pre>                coro_.promise().setContinuation(handle);</pre>
         </td>
       </tr>
       <tr>
@@ -2087,7 +2087,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            {</pre>
+          <pre>                return coro_;</pre>
         </td>
       </tr>
       <tr>
@@ -2107,7 +2107,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            bool await_ready() noexcept</pre>
+          <pre>            T await_resume()</pre>
         </td>
       </tr>
       <tr>
@@ -2127,7 +2127,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                return !coro_ || coro_.done();</pre>
+          <pre>                auto &amp;&amp;v = coro_.promise().result();</pre>
         </td>
       </tr>
       <tr>
@@ -2137,7 +2137,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            }</pre>
+          <pre>                return std::move(v);</pre>
         </td>
       </tr>
       <tr>
@@ -2147,7 +2147,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            auto await_suspend(std::coroutine_handle&lt;&gt; handle) noexcept</pre>
+          <pre>            }</pre>
         </td>
       </tr>
       <tr>
@@ -2157,7 +2157,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            {</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -2167,7 +2167,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                coro_.promise().setContinuation(handle);</pre>
+          <pre>          private:</pre>
         </td>
       </tr>
       <tr>
@@ -2177,7 +2177,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                return coro_;</pre>
+          <pre>            handle_type coro_;</pre>
         </td>
       </tr>
       <tr>
@@ -2187,7 +2187,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            }</pre>
+          <pre>        };</pre>
         </td>
       </tr>
       <tr>
@@ -2197,7 +2197,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            T await_resume()</pre>
+          <pre>        return awaiter(coro_);</pre>
         </td>
       </tr>
       <tr>
@@ -2207,7 +2207,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            {</pre>
+          <pre>    }</pre>
         </td>
       </tr>
       <tr>
@@ -2217,7 +2217,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                auto &amp;&amp;v = coro_.promise().result();</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -2227,7 +2227,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                return std::move(v);</pre>
+          <pre>    auto operator co_await() const &amp;&amp;noexcept</pre>
         </td>
       </tr>
       <tr>
@@ -2237,7 +2237,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            }</pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -2247,7 +2247,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>        struct awaiter</pre>
         </td>
       </tr>
       <tr>
@@ -2257,7 +2257,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>          private:</pre>
+          <pre>        {</pre>
         </td>
       </tr>
       <tr>
@@ -2267,7 +2267,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            handle_type coro_;</pre>
+          <pre>          public:</pre>
         </td>
       </tr>
       <tr>
@@ -2277,7 +2277,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        };</pre>
+          <pre>            explicit awaiter(handle_type coro) : coro_(coro)</pre>
         </td>
       </tr>
       <tr>
@@ -2287,7 +2287,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        return awaiter(coro_);</pre>
+          <pre>            {</pre>
         </td>
       </tr>
       <tr>
@@ -2297,7 +2297,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    }</pre>
+          <pre>            }</pre>
         </td>
       </tr>
       <tr>
@@ -2307,7 +2307,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>            bool await_ready() noexcept</pre>
         </td>
       </tr>
       <tr>
@@ -2317,7 +2317,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    auto operator co_await() const &amp;&amp;noexcept</pre>
+          <pre>            {</pre>
         </td>
       </tr>
       <tr>
@@ -2327,7 +2327,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    {</pre>
+          <pre>                return !coro_ || coro_.done();</pre>
         </td>
       </tr>
       <tr>
@@ -2337,7 +2337,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        struct awaiter</pre>
+          <pre>            }</pre>
         </td>
       </tr>
       <tr>
@@ -2347,7 +2347,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        {</pre>
+          <pre>            auto await_suspend(std::coroutine_handle&lt;&gt; handle) noexcept</pre>
         </td>
       </tr>
       <tr>
@@ -2357,7 +2357,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>          public:</pre>
+          <pre>            {</pre>
         </td>
       </tr>
       <tr>
@@ -2367,7 +2367,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            explicit awaiter(handle_type coro) : coro_(coro)</pre>
+          <pre>                coro_.promise().setContinuation(handle);</pre>
         </td>
       </tr>
       <tr>
@@ -2377,7 +2377,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            {</pre>
+          <pre>                return coro_;</pre>
         </td>
       </tr>
       <tr>
@@ -2397,7 +2397,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            bool await_ready() noexcept</pre>
+          <pre>            T await_resume()</pre>
         </td>
       </tr>
       <tr>
@@ -2417,7 +2417,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                return !coro_ || coro_.done();</pre>
+          <pre>                return std::move(coro_.promise().result());</pre>
         </td>
       </tr>
       <tr>
@@ -2437,7 +2437,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            auto await_suspend(std::coroutine_handle&lt;&gt; handle) noexcept</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -2447,7 +2447,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            {</pre>
+          <pre>          private:</pre>
         </td>
       </tr>
       <tr>
@@ -2457,7 +2457,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                coro_.promise().setContinuation(handle);</pre>
+          <pre>            handle_type coro_;</pre>
         </td>
       </tr>
       <tr>
@@ -2467,7 +2467,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                return coro_;</pre>
+          <pre>        };</pre>
         </td>
       </tr>
       <tr>
@@ -2477,7 +2477,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            }</pre>
+          <pre>        return awaiter(coro_);</pre>
         </td>
       </tr>
       <tr>
@@ -2487,7 +2487,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            T await_resume()</pre>
+          <pre>    }</pre>
         </td>
       </tr>
       <tr>
@@ -2497,7 +2497,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            {</pre>
+          <pre>    handle_type coro_;</pre>
         </td>
       </tr>
       <tr>
@@ -2507,7 +2507,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                return std::move(coro_.promise().result());</pre>
+          <pre>};</pre>
         </td>
       </tr>
       <tr>
@@ -2517,7 +2517,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            }</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -2527,7 +2527,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>template &lt;&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -2537,7 +2537,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>          private:</pre>
+          <pre>struct [[nodiscard]] Task&lt;void&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -2547,7 +2547,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            handle_type coro_;</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -2557,7 +2557,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        };</pre>
+          <pre>    struct promise_type;</pre>
         </td>
       </tr>
       <tr>
@@ -2567,7 +2567,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        return awaiter(coro_);</pre>
+          <pre>    using handle_type = std::coroutine_handle&lt;promise_type&gt;;</pre>
         </td>
       </tr>
       <tr>
@@ -2577,7 +2577,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    }</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -2587,7 +2587,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    handle_type coro_;</pre>
+          <pre>    Task(handle_type handle) : coro_(handle)</pre>
         </td>
       </tr>
       <tr>
@@ -2595,9 +2595,11 @@
           <a name='L256' href='#L256' id="L256">
           <pre>256</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>};</pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -2605,9 +2607,11 @@
           <a name='L257' href='#L257' id="L257">
           <pre>257</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -2617,7 +2621,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>template &lt;&gt;</pre>
+          <pre>    Task(const Task &amp;) = delete;</pre>
         </td>
       </tr>
       <tr>
@@ -2627,7 +2631,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>struct [[nodiscard]] Task&lt;void&gt;</pre>
+          <pre>    Task(Task &amp;&amp;other)</pre>
         </td>
       </tr>
       <tr>
@@ -2635,9 +2639,11 @@
           <a name='L260' href='#L260' id="L260">
           <pre>260</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -2645,9 +2651,12 @@
           <a name='L261' href='#L261' id="L261">
           <pre>261</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>    struct promise_type;</pre>
+          <pre><span class=
+          'red'>        coro_ = other.coro_;</span></pre>
         </td>
       </tr>
       <tr>
@@ -2655,9 +2664,12 @@
           <a name='L262' href='#L262' id="L262">
           <pre>262</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>    using handle_type = std::coroutine_handle&lt;promise_type&gt;;</pre>
+          <pre><span class=
+          'red'>        other.coro_ = nullptr;</span></pre>
         </td>
       </tr>
       <tr>
@@ -2665,9 +2677,11 @@
           <a name='L263' href='#L263' id="L263">
           <pre>263</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -2677,7 +2691,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    Task(handle_type handle) : coro_(handle)</pre>
+          <pre>    ~Task()</pre>
         </td>
       </tr>
       <tr>
@@ -2701,7 +2715,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>    }</span></pre>
+          <pre><span class='red'>        if (coro_)</span></pre>
         </td>
       </tr>
       <tr>
@@ -2709,9 +2723,12 @@
           <a name='L267' href='#L267' id="L267">
           <pre>267</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>    Task(const Task &amp;) = delete;</pre>
+          <pre><span class=
+          'red'>            coro_.destroy();</span></pre>
         </td>
       </tr>
       <tr>
@@ -2719,9 +2736,11 @@
           <a name='L268' href='#L268' id="L268">
           <pre>268</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>    Task(Task &amp;&amp;other)</pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -2729,11 +2748,9 @@
           <a name='L269' href='#L269' id="L269">
           <pre>269</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
+          <pre>    Task &amp;operator=(const Task &amp;) = delete;</pre>
         </td>
       </tr>
       <tr>
@@ -2741,12 +2758,9 @@
           <a name='L270' href='#L270' id="L270">
           <pre>270</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class=
-          'red'>        coro_ = other.coro_;</span></pre>
+          <pre>    Task &amp;operator=(Task &amp;&amp;other)</pre>
         </td>
       </tr>
       <tr>
@@ -2758,8 +2772,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>        other.coro_ = nullptr;</span></pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -2771,117 +2784,14 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>    }</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L273' href='#L273' id="L273">
-          <pre>273</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    ~Task()</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L274' href='#L274' id="L274">
-          <pre>274</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L275' href='#L275' id="L275">
-          <pre>275</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class='red'>        if (coro_)</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L276' href='#L276' id="L276">
-          <pre>276</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class=
-          'red'>            coro_.destroy();</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L277' href='#L277' id="L277">
-          <pre>277</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class='red'>    }</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L278' href='#L278' id="L278">
-          <pre>278</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    Task &amp;operator=(const Task &amp;) = delete;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L279' href='#L279' id="L279">
-          <pre>279</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    Task &amp;operator=(Task &amp;&amp;other)</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L280' href='#L280' id="L280">
-          <pre>280</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L281' href='#L281' id="L281">
-          <pre>281</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
           <pre><span class=
           'red'>        if (std::addressof(other) == this)</span></pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L282' href='#L282' id="L282">
-          <pre>282</pre></a>
+          <a name='L273' href='#L273' id="L273">
+          <pre>273</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -2893,8 +2803,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L283' href='#L283' id="L283">
-          <pre>283</pre></a>
+          <a name='L274' href='#L274' id="L274">
+          <pre>274</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -2905,8 +2815,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L284' href='#L284' id="L284">
-          <pre>284</pre></a>
+          <a name='L275' href='#L275' id="L275">
+          <pre>275</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -2918,6 +2828,108 @@
       </tr>
       <tr>
         <td class='line-number'>
+          <a name='L276' href='#L276' id="L276">
+          <pre>276</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'></span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L277' href='#L277' id="L277">
+          <pre>277</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>        coro_ = other.coro_;</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L278' href='#L278' id="L278">
+          <pre>278</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>        other.coro_ = nullptr;</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L279' href='#L279' id="L279">
+          <pre>279</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>        return *this;</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L280' href='#L280' id="L280">
+          <pre>280</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>    }</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L281' href='#L281' id="L281">
+          <pre>281</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L282' href='#L282' id="L282">
+          <pre>282</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    struct promise_type</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L283' href='#L283' id="L283">
+          <pre>283</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L284' href='#L284' id="L284">
+          <pre>284</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        Task&lt;&gt; get_return_object()</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
           <a name='L285' href='#L285' id="L285">
           <pre>285</pre></a>
         </td>
@@ -2925,7 +2937,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'></span></pre>
+          <pre>        <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -2938,7 +2950,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>        coro_ = other.coro_;</span></pre>
+          'red'>            return Task&lt;&gt;{handle_type::from_promise(*this)};</span></pre>
         </td>
       </tr>
       <tr>
@@ -2950,8 +2962,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>        other.coro_ = nullptr;</span></pre>
+          <pre><span class='red'>        }</span></pre>
         </td>
       </tr>
       <tr>
@@ -2959,11 +2970,9 @@
           <a name='L288' href='#L288' id="L288">
           <pre>288</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>        return *this;</span></pre>
+          <pre>        std::suspend_always initial_suspend()</pre>
         </td>
       </tr>
       <tr>
@@ -2975,112 +2984,13 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>    }</span></pre>
+          <pre>        <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L290' href='#L290' id="L290">
           <pre>290</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L291' href='#L291' id="L291">
-          <pre>291</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    struct promise_type</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L292' href='#L292' id="L292">
-          <pre>292</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    {</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L293' href='#L293' id="L293">
-          <pre>293</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>        Task&lt;&gt; get_return_object()</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L294' href='#L294' id="L294">
-          <pre>294</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre>        <span class='red'>{</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L295' href='#L295' id="L295">
-          <pre>295</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class=
-          'red'>            return Task&lt;&gt;{handle_type::from_promise(*this)};</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L296' href='#L296' id="L296">
-          <pre>296</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class='red'>        }</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L297' href='#L297' id="L297">
-          <pre>297</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>        std::suspend_always initial_suspend()</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L298' href='#L298' id="L298">
-          <pre>298</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre>        <span class='red'>{</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L299' href='#L299' id="L299">
-          <pre>299</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -3092,8 +3002,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L300' href='#L300' id="L300">
-          <pre>300</pre></a>
+          <a name='L291' href='#L291' id="L291">
+          <pre>291</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -3104,12 +3014,118 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L301' href='#L301' id="L301">
-          <pre>301</pre></a>
+          <a name='L292' href='#L292' id="L292">
+          <pre>292</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
           <pre>        void return_void()</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L293' href='#L293' id="L293">
+          <pre>293</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre>        <span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L294' href='#L294' id="L294">
+          <pre>294</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>        }</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L295' href='#L295' id="L295">
+          <pre>295</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        auto final_suspend() noexcept</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L296' href='#L296' id="L296">
+          <pre>296</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre>        <span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L297' href='#L297' id="L297">
+          <pre>297</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>            return final_awaiter{};</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L298' href='#L298' id="L298">
+          <pre>298</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>        }</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L299' href='#L299' id="L299">
+          <pre>299</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        void unhandled_exception()</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L300' href='#L300' id="L300">
+          <pre>300</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre>        <span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L301' href='#L301' id="L301">
+          <pre>301</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>            exception_ = std::current_exception();</span></pre>
         </td>
       </tr>
       <tr>
@@ -3121,7 +3137,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>        <span class='red'>{</span></pre>
+          <pre><span class='red'>        }</span></pre>
         </td>
       </tr>
       <tr>
@@ -3129,11 +3145,9 @@
           <a name='L303' href='#L303' id="L303">
           <pre>303</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>        }</span></pre>
+          <pre>        void result()</pre>
         </td>
       </tr>
       <tr>
@@ -3141,9 +3155,11 @@
           <a name='L304' href='#L304' id="L304">
           <pre>304</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>        auto final_suspend() noexcept</pre>
+          <pre>        <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -3155,7 +3171,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>        <span class='red'>{</span></pre>
+          <pre><span class=
+          'red'>            if (exception_ != nullptr)</span></pre>
         </td>
       </tr>
       <tr>
@@ -3168,7 +3185,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>            return final_awaiter{};</span></pre>
+          'red'>                std::rethrow_exception(exception_);</span></pre>
         </td>
       </tr>
       <tr>
@@ -3190,7 +3207,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        void unhandled_exception()</pre>
+          <pre>        void setContinuation(std::coroutine_handle&lt;&gt; handle)</pre>
         </td>
       </tr>
       <tr>
@@ -3215,7 +3232,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>            exception_ = std::current_exception();</span></pre>
+          'red'>            continuation_ = handle;</span></pre>
         </td>
       </tr>
       <tr>
@@ -3237,7 +3254,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        void result()</pre>
+          <pre>        std::exception_ptr exception_;</pre>
         </td>
       </tr>
       <tr>
@@ -3245,11 +3262,9 @@
           <a name='L313' href='#L313' id="L313">
           <pre>313</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        <span class='red'>{</span></pre>
+          <pre>        std::coroutine_handle&lt;&gt; continuation_;</pre>
         </td>
       </tr>
       <tr>
@@ -3257,12 +3272,9 @@
           <a name='L314' href='#L314' id="L314">
           <pre>314</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class=
-          'red'>            if (exception_ != nullptr)</span></pre>
+          <pre>    };</pre>
         </td>
       </tr>
       <tr>
@@ -3270,12 +3282,9 @@
           <a name='L315' href='#L315' id="L315">
           <pre>315</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class=
-          'red'>                std::rethrow_exception(exception_);</span></pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -3283,11 +3292,9 @@
           <a name='L316' href='#L316' id="L316">
           <pre>316</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>        }</span></pre>
+          <pre>    auto operator co_await() const &amp;noexcept</pre>
         </td>
       </tr>
       <tr>
@@ -3295,9 +3302,11 @@
           <a name='L317' href='#L317' id="L317">
           <pre>317</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>        void setContinuation(std::coroutine_handle&lt;&gt; handle)</pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -3309,7 +3318,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>        <span class='red'>{</span></pre>
+          <pre><span class=
+          'red'>        struct awaiter</span></pre>
         </td>
       </tr>
       <tr>
@@ -3321,8 +3331,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>            continuation_ = handle;</span></pre>
+          <pre><span class='red'>        {</span></pre>
         </td>
       </tr>
       <tr>
@@ -3334,7 +3343,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>        }</span></pre>
+          <pre><span class='red'>          public:</span></pre>
         </td>
       </tr>
       <tr>
@@ -3342,9 +3351,12 @@
           <a name='L321' href='#L321' id="L321">
           <pre>321</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>        std::exception_ptr exception_;</pre>
+          <pre><span class=
+          'red'>            explicit awaiter(handle_type coro) : coro_(coro)</span></pre>
         </td>
       </tr>
       <tr>
@@ -3352,9 +3364,12 @@
           <a name='L322' href='#L322' id="L322">
           <pre>322</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>        std::coroutine_handle&lt;&gt; continuation_;</pre>
+          <pre><span class='red'>            </span><span class=
+          'red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -3362,9 +3377,12 @@
           <a name='L323' href='#L323' id="L323">
           <pre>323</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>    };</pre>
+          <pre><span class='red'>            }</span><span class=
+          'red'></span></pre>
         </td>
       </tr>
       <tr>
@@ -3372,9 +3390,12 @@
           <a name='L324' href='#L324' id="L324">
           <pre>324</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>    bool await_ready()</pre>
+          <pre><span class=
+          'red'>            bool await_ready() noexcept</span></pre>
         </td>
       </tr>
       <tr>
@@ -3386,7 +3407,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
+          <pre><span class='red'>            </span><span class=
+          'red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -3399,7 +3421,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>        return coro_.done();</span></pre>
+          'red'>                return !coro_ || coro_.done();</span></pre>
         </td>
       </tr>
       <tr>
@@ -3411,7 +3433,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>    }</span></pre>
+          <pre><span class='red'>            }</span><span class=
+          'red'></span></pre>
         </td>
       </tr>
       <tr>
@@ -3419,9 +3442,12 @@
           <a name='L328' href='#L328' id="L328">
           <pre>328</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>    std::coroutine_handle&lt;&gt; await_suspend(std::coroutine_handle&lt;&gt; awaiting)</pre>
+          <pre><span class=
+          'red'>            auto await_suspend(std::coroutine_handle&lt;&gt; handle) noexcept</span></pre>
         </td>
       </tr>
       <tr>
@@ -3433,7 +3459,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
+          <pre><span class='red'>            </span><span class=
+          'red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -3446,7 +3473,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>        coro_.promise().setContinuation(awaiting);</span></pre>
+          'red'>                coro_.promise().setContinuation(handle);</span></pre>
         </td>
       </tr>
       <tr>
@@ -3458,7 +3485,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>        return coro_;</span></pre>
+          <pre><span class=
+          'red'>                return coro_;</span></pre>
         </td>
       </tr>
       <tr>
@@ -3470,7 +3498,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>    }</span></pre>
+          <pre><span class='red'>            }</span><span class=
+          'red'></span></pre>
         </td>
       </tr>
       <tr>
@@ -3478,9 +3507,12 @@
           <a name='L333' href='#L333' id="L333">
           <pre>333</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>    auto operator co_await() const &amp;noexcept</pre>
+          <pre><span class=
+          'red'>            auto await_resume()</span></pre>
         </td>
       </tr>
       <tr>
@@ -3492,7 +3524,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
+          <pre><span class='red'>            </span><span class=
+          'red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -3505,7 +3538,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>        struct awaiter</span></pre>
+          'red'>                coro_.promise().result();</span></pre>
         </td>
       </tr>
       <tr>
@@ -3517,7 +3550,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>        {</span></pre>
+          <pre><span class='red'>            }</span><span class=
+          'red'></span></pre>
         </td>
       </tr>
       <tr>
@@ -3529,7 +3563,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>          public:</span></pre>
+          <pre><span class='red'></span></pre>
         </td>
       </tr>
       <tr>
@@ -3541,8 +3575,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>            explicit awaiter(handle_type coro) : coro_(coro)</span></pre>
+          <pre><span class='red'>          private:</span></pre>
         </td>
       </tr>
       <tr>
@@ -3554,8 +3587,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>            </span><span class=
-          'red'>{</span></pre>
+          <pre><span class=
+          'red'>            handle_type coro_;</span></pre>
         </td>
       </tr>
       <tr>
@@ -3567,8 +3600,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>            }</span><span class=
-          'red'></span></pre>
+          <pre><span class='red'>        };</span></pre>
         </td>
       </tr>
       <tr>
@@ -3581,7 +3613,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>            bool await_ready() noexcept</span></pre>
+          'red'>        return awaiter(coro_);</span></pre>
         </td>
       </tr>
       <tr>
@@ -3593,8 +3625,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>            </span><span class=
-          'red'>{</span></pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -3602,12 +3633,9 @@
           <a name='L343' href='#L343' id="L343">
           <pre>343</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class=
-          'red'>                return !coro_ || coro_.done();</span></pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -3615,12 +3643,9 @@
           <a name='L344' href='#L344' id="L344">
           <pre>344</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>            }</span><span class=
-          'red'></span></pre>
+          <pre>    auto operator co_await() const &amp;&amp;noexcept</pre>
         </td>
       </tr>
       <tr>
@@ -3632,8 +3657,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>            auto await_suspend(std::coroutine_handle&lt;&gt; handle) noexcept</span></pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -3645,8 +3669,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>            </span><span class=
-          'red'>{</span></pre>
+          <pre><span class=
+          'red'>        struct awaiter</span></pre>
         </td>
       </tr>
       <tr>
@@ -3658,8 +3682,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>                coro_.promise().setContinuation(handle);</span></pre>
+          <pre><span class='red'>        {</span></pre>
         </td>
       </tr>
       <tr>
@@ -3671,8 +3694,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>                return coro_;</span></pre>
+          <pre><span class='red'>          public:</span></pre>
         </td>
       </tr>
       <tr>
@@ -3684,8 +3706,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>            }</span><span class=
-          'red'></span></pre>
+          <pre><span class=
+          'red'>            explicit awaiter(handle_type coro) : coro_(coro)</span></pre>
         </td>
       </tr>
       <tr>
@@ -3697,8 +3719,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>            auto await_resume()</span></pre>
+          <pre><span class='red'>            </span><span class=
+          'red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -3710,8 +3732,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>            </span><span class=
-          'red'>{</span></pre>
+          <pre><span class='red'>            }</span><span class=
+          'red'></span></pre>
         </td>
       </tr>
       <tr>
@@ -3724,7 +3746,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>                coro_.promise().result();</span></pre>
+          'red'>            bool await_ready() noexcept</span></pre>
         </td>
       </tr>
       <tr>
@@ -3736,8 +3758,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>            }</span><span class=
-          'red'></span></pre>
+          <pre><span class='red'>            </span><span class=
+          'red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -3749,7 +3771,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'></span></pre>
+          <pre><span class=
+          'red'>                return false;</span></pre>
         </td>
       </tr>
       <tr>
@@ -3761,7 +3784,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>          private:</span></pre>
+          <pre><span class='red'>            }</span><span class=
+          'red'></span></pre>
         </td>
       </tr>
       <tr>
@@ -3774,7 +3798,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>            handle_type coro_;</span></pre>
+          'red'>            auto await_suspend(std::coroutine_handle&lt;&gt; handle) noexcept</span></pre>
         </td>
       </tr>
       <tr>
@@ -3786,7 +3810,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>        };</span></pre>
+          <pre><span class='red'>            </span><span class=
+          'red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -3799,7 +3824,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>        return awaiter(coro_);</span></pre>
+          'red'>                coro_.promise().setContinuation(handle);</span></pre>
         </td>
       </tr>
       <tr>
@@ -3811,7 +3836,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>    }</span></pre>
+          <pre><span class=
+          'red'>                return coro_;</span></pre>
         </td>
       </tr>
       <tr>
@@ -3819,9 +3845,12 @@
           <a name='L360' href='#L360' id="L360">
           <pre>360</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre><span class='red'>            }</span><span class=
+          'red'></span></pre>
         </td>
       </tr>
       <tr>
@@ -3829,9 +3858,12 @@
           <a name='L361' href='#L361' id="L361">
           <pre>361</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>    auto operator co_await() const &amp;&amp;noexcept</pre>
+          <pre><span class=
+          'red'>            void await_resume()</span></pre>
         </td>
       </tr>
       <tr>
@@ -3843,7 +3875,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
+          <pre><span class='red'>            </span><span class=
+          'red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -3856,7 +3889,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>        struct awaiter</span></pre>
+          'red'>                coro_.promise().result();</span></pre>
         </td>
       </tr>
       <tr>
@@ -3868,7 +3901,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>        {</span></pre>
+          <pre><span class='red'>            }</span><span class=
+          'red'></span></pre>
         </td>
       </tr>
       <tr>
@@ -3880,7 +3914,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>          public:</span></pre>
+          <pre><span class='red'></span></pre>
         </td>
       </tr>
       <tr>
@@ -3892,8 +3926,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>            explicit awaiter(handle_type coro) : coro_(coro)</span></pre>
+          <pre><span class='red'>          private:</span></pre>
         </td>
       </tr>
       <tr>
@@ -3905,8 +3938,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>            </span><span class=
-          'red'>{</span></pre>
+          <pre><span class=
+          'red'>            handle_type coro_;</span></pre>
         </td>
       </tr>
       <tr>
@@ -3918,8 +3951,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>            }</span><span class=
-          'red'></span></pre>
+          <pre><span class='red'>        };</span></pre>
         </td>
       </tr>
       <tr>
@@ -3932,7 +3964,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>            bool await_ready() noexcept</span></pre>
+          'red'>        return awaiter(coro_);</span></pre>
         </td>
       </tr>
       <tr>
@@ -3944,8 +3976,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>            </span><span class=
-          'red'>{</span></pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -3953,12 +3984,9 @@
           <a name='L371' href='#L371' id="L371">
           <pre>371</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class=
-          'red'>                return false;</span></pre>
+          <pre>    handle_type coro_;</pre>
         </td>
       </tr>
       <tr>
@@ -3966,12 +3994,9 @@
           <a name='L372' href='#L372' id="L372">
           <pre>372</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>            }</span><span class=
-          'red'></span></pre>
+          <pre>};</pre>
         </td>
       </tr>
       <tr>
@@ -3979,12 +4004,9 @@
           <a name='L373' href='#L373' id="L373">
           <pre>373</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class=
-          'red'>            auto await_suspend(std::coroutine_handle&lt;&gt; handle) noexcept</span></pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -3992,12 +4014,9 @@
           <a name='L374' href='#L374' id="L374">
           <pre>374</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>            </span><span class=
-          'red'>{</span></pre>
+          <pre>/// Fires a coroutine and doesn't force waiting nor deallocates upon promise</pre>
         </td>
       </tr>
       <tr>
@@ -4005,12 +4024,9 @@
           <a name='L375' href='#L375' id="L375">
           <pre>375</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class=
-          'red'>                coro_.promise().setContinuation(handle);</span></pre>
+          <pre>/// destructs</pre>
         </td>
       </tr>
       <tr>
@@ -4018,12 +4034,9 @@
           <a name='L376' href='#L376' id="L376">
           <pre>376</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class=
-          'red'>                return coro_;</span></pre>
+          <pre>// NOTE: AsyncTask is designed to be not awaitable. And kills the entire process</pre>
         </td>
       </tr>
       <tr>
@@ -4031,12 +4044,9 @@
           <a name='L377' href='#L377' id="L377">
           <pre>377</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>            }</span><span class=
-          'red'></span></pre>
+          <pre>// if exception escaped.</pre>
         </td>
       </tr>
       <tr>
@@ -4044,12 +4054,9 @@
           <a name='L378' href='#L378' id="L378">
           <pre>378</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class=
-          'red'>            void await_resume()</span></pre>
+          <pre>struct AsyncTask</pre>
         </td>
       </tr>
       <tr>
@@ -4057,12 +4064,9 @@
           <a name='L379' href='#L379' id="L379">
           <pre>379</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>            </span><span class=
-          'red'>{</span></pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -4070,12 +4074,9 @@
           <a name='L380' href='#L380' id="L380">
           <pre>380</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class=
-          'red'>                coro_.promise().result();</span></pre>
+          <pre>    struct promise_type;</pre>
         </td>
       </tr>
       <tr>
@@ -4083,12 +4084,9 @@
           <a name='L381' href='#L381' id="L381">
           <pre>381</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>            }</span><span class=
-          'red'></span></pre>
+          <pre>    using handle_type = std::coroutine_handle&lt;promise_type&gt;;</pre>
         </td>
       </tr>
       <tr>
@@ -4096,11 +4094,9 @@
           <a name='L382' href='#L382' id="L382">
           <pre>382</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'></span></pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -4108,11 +4104,9 @@
           <a name='L383' href='#L383' id="L383">
           <pre>383</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>          private:</span></pre>
+          <pre>    AsyncTask() = default;</pre>
         </td>
       </tr>
       <tr>
@@ -4120,12 +4114,9 @@
           <a name='L384' href='#L384' id="L384">
           <pre>384</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class=
-          'red'>            handle_type coro_;</span></pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -4133,11 +4124,9 @@
           <a name='L385' href='#L385' id="L385">
           <pre>385</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>        };</span></pre>
+          <pre>    AsyncTask(handle_type h) : coro_(h)</pre>
         </td>
       </tr>
       <tr>
@@ -4149,8 +4138,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>        return awaiter(coro_);</span></pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -4172,7 +4160,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    handle_type coro_;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -4182,7 +4170,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>};</pre>
+          <pre>    AsyncTask(const AsyncTask &amp;) = delete;</pre>
         </td>
       </tr>
       <tr>
@@ -4192,7 +4180,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>    AsyncTask(AsyncTask &amp;&amp;other)</pre>
         </td>
       </tr>
       <tr>
@@ -4200,191 +4188,17 @@
           <a name='L391' href='#L391' id="L391">
           <pre>391</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>/// Fires a coroutine and doesn't force waiting nor deallocates upon promise</pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L392' href='#L392' id="L392">
           <pre>392</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>/// destructs</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L393' href='#L393' id="L393">
-          <pre>393</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>// NOTE: AsyncTask is designed to be not awaitable. And kills the entire process</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L394' href='#L394' id="L394">
-          <pre>394</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>// if exception escaped.</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L395' href='#L395' id="L395">
-          <pre>395</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>struct AsyncTask</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L396' href='#L396' id="L396">
-          <pre>396</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>{</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L397' href='#L397' id="L397">
-          <pre>397</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    struct promise_type;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L398' href='#L398' id="L398">
-          <pre>398</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    using handle_type = std::coroutine_handle&lt;promise_type&gt;;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L399' href='#L399' id="L399">
-          <pre>399</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L400' href='#L400' id="L400">
-          <pre>400</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    AsyncTask() = default;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L401' href='#L401' id="L401">
-          <pre>401</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L402' href='#L402' id="L402">
-          <pre>402</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    AsyncTask(handle_type h) : coro_(h)</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L403' href='#L403' id="L403">
-          <pre>403</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L404' href='#L404' id="L404">
-          <pre>404</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class='red'>    }</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L405' href='#L405' id="L405">
-          <pre>405</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L406' href='#L406' id="L406">
-          <pre>406</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    AsyncTask(const AsyncTask &amp;) = delete;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L407' href='#L407' id="L407">
-          <pre>407</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    AsyncTask(AsyncTask &amp;&amp;other)</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L408' href='#L408' id="L408">
-          <pre>408</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L409' href='#L409' id="L409">
-          <pre>409</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -4396,8 +4210,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L410' href='#L410' id="L410">
-          <pre>410</pre></a>
+          <a name='L393' href='#L393' id="L393">
+          <pre>393</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -4409,8 +4223,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L411' href='#L411' id="L411">
-          <pre>411</pre></a>
+          <a name='L394' href='#L394' id="L394">
+          <pre>394</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -4421,8 +4235,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L412' href='#L412' id="L412">
-          <pre>412</pre></a>
+          <a name='L395' href='#L395' id="L395">
+          <pre>395</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -4431,8 +4245,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L413' href='#L413' id="L413">
-          <pre>413</pre></a>
+          <a name='L396' href='#L396' id="L396">
+          <pre>396</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -4441,8 +4255,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L414' href='#L414' id="L414">
-          <pre>414</pre></a>
+          <a name='L397' href='#L397' id="L397">
+          <pre>397</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -4451,8 +4265,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L415' href='#L415' id="L415">
-          <pre>415</pre></a>
+          <a name='L398' href='#L398' id="L398">
+          <pre>398</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -4463,8 +4277,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L416' href='#L416' id="L416">
-          <pre>416</pre></a>
+          <a name='L399' href='#L399' id="L399">
+          <pre>399</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -4476,8 +4290,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L417' href='#L417' id="L417">
-          <pre>417</pre></a>
+          <a name='L400' href='#L400' id="L400">
+          <pre>400</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -4489,8 +4303,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L418' href='#L418' id="L418">
-          <pre>418</pre></a>
+          <a name='L401' href='#L401' id="L401">
+          <pre>401</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -4501,8 +4315,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L419' href='#L419' id="L419">
-          <pre>419</pre></a>
+          <a name='L402' href='#L402' id="L402">
+          <pre>402</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -4514,8 +4328,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L420' href='#L420' id="L420">
-          <pre>420</pre></a>
+          <a name='L403' href='#L403' id="L403">
+          <pre>403</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -4527,8 +4341,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L421' href='#L421' id="L421">
-          <pre>421</pre></a>
+          <a name='L404' href='#L404' id="L404">
+          <pre>404</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -4539,8 +4353,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L422' href='#L422' id="L422">
-          <pre>422</pre></a>
+          <a name='L405' href='#L405' id="L405">
+          <pre>405</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -4551,8 +4365,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L423' href='#L423' id="L423">
-          <pre>423</pre></a>
+          <a name='L406' href='#L406' id="L406">
+          <pre>406</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -4561,8 +4375,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L424' href='#L424' id="L424">
-          <pre>424</pre></a>
+          <a name='L407' href='#L407' id="L407">
+          <pre>407</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -4571,8 +4385,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L425' href='#L425' id="L425">
-          <pre>425</pre></a>
+          <a name='L408' href='#L408' id="L408">
+          <pre>408</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -4581,8 +4395,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L426' href='#L426' id="L426">
-          <pre>426</pre></a>
+          <a name='L409' href='#L409' id="L409">
+          <pre>409</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -4591,8 +4405,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L427' href='#L427' id="L427">
-          <pre>427</pre></a>
+          <a name='L410' href='#L410' id="L410">
+          <pre>410</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -4601,8 +4415,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L428' href='#L428' id="L428">
-          <pre>428</pre></a>
+          <a name='L411' href='#L411' id="L411">
+          <pre>411</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -4611,8 +4425,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L429' href='#L429' id="L429">
-          <pre>429</pre></a>
+          <a name='L412' href='#L412' id="L412">
+          <pre>412</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -4623,8 +4437,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L430' href='#L430' id="L430">
-          <pre>430</pre></a>
+          <a name='L413' href='#L413' id="L413">
+          <pre>413</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -4636,8 +4450,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L431' href='#L431' id="L431">
-          <pre>431</pre></a>
+          <a name='L414' href='#L414' id="L414">
+          <pre>414</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -4648,8 +4462,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L432' href='#L432' id="L432">
-          <pre>432</pre></a>
+          <a name='L415' href='#L415' id="L415">
+          <pre>415</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -4658,8 +4472,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L433' href='#L433' id="L433">
-          <pre>433</pre></a>
+          <a name='L416' href='#L416' id="L416">
+          <pre>416</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -4668,8 +4482,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L434' href='#L434' id="L434">
-          <pre>434</pre></a>
+          <a name='L417' href='#L417' id="L417">
+          <pre>417</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -4680,8 +4494,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L435' href='#L435' id="L435">
-          <pre>435</pre></a>
+          <a name='L418' href='#L418' id="L418">
+          <pre>418</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -4693,8 +4507,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L436' href='#L436' id="L436">
-          <pre>436</pre></a>
+          <a name='L419' href='#L419' id="L419">
+          <pre>419</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -4705,8 +4519,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L437' href='#L437' id="L437">
-          <pre>437</pre></a>
+          <a name='L420' href='#L420' id="L420">
+          <pre>420</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -4715,12 +4529,208 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L438' href='#L438' id="L438">
-          <pre>438</pre></a>
+          <a name='L421' href='#L421' id="L421">
+          <pre>421</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
           <pre>        void unhandled_exception()</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L422' href='#L422' id="L422">
+          <pre>422</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre>        <span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L423' href='#L423' id="L423">
+          <pre>423</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>            LOG_FATAL &lt;&lt; "Exception escaping AsyncTask.";</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L424' href='#L424' id="L424">
+          <pre>424</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>            std::terminate();</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L425' href='#L425' id="L425">
+          <pre>425</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>        }</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L426' href='#L426' id="L426">
+          <pre>426</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L427' href='#L427' id="L427">
+          <pre>427</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        void return_void() noexcept</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L428' href='#L428' id="L428">
+          <pre>428</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre>        <span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L429' href='#L429' id="L429">
+          <pre>429</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>        }</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L430' href='#L430' id="L430">
+          <pre>430</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L431' href='#L431' id="L431">
+          <pre>431</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        void setContinuation(std::coroutine_handle&lt;&gt; handle)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L432' href='#L432' id="L432">
+          <pre>432</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre>        <span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L433' href='#L433' id="L433">
+          <pre>433</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>            continuation_ = handle;</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L434' href='#L434' id="L434">
+          <pre>434</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>        }</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L435' href='#L435' id="L435">
+          <pre>435</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L436' href='#L436' id="L436">
+          <pre>436</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        auto final_suspend() const noexcept</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L437' href='#L437' id="L437">
+          <pre>437</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre>        <span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L438' href='#L438' id="L438">
+          <pre>438</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>            // Can't simply use suspend_never because we need symmetric transfer</span></pre>
         </td>
       </tr>
       <tr>
@@ -4732,7 +4742,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>        <span class='red'>{</span></pre>
+          <pre><span class=
+          'red'>            struct awaiter final</span></pre>
         </td>
       </tr>
       <tr>
@@ -4744,8 +4755,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>            LOG_FATAL &lt;&lt; "Exception escaping AsyncTask.";</span></pre>
+          <pre><span class='red'>            {</span></pre>
         </td>
       </tr>
       <tr>
@@ -4758,7 +4768,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>            std::terminate();</span></pre>
+          'red'>                bool await_ready() const noexcept</span></pre>
         </td>
       </tr>
       <tr>
@@ -4770,7 +4780,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>        }</span></pre>
+          <pre><span class='red'>                </span><span class=
+          'red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -4778,9 +4789,12 @@
           <a name='L443' href='#L443' id="L443">
           <pre>443</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre><span class=
+          'red'>                    return true;</span></pre>
         </td>
       </tr>
       <tr>
@@ -4788,9 +4802,13 @@
           <a name='L444' href='#L444' id="L444">
           <pre>444</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>        void return_void() noexcept</pre>
+          <pre><span class=
+          'red'>                }</span><span class=
+          'red'></span></pre>
         </td>
       </tr>
       <tr>
@@ -4802,7 +4820,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>        <span class='red'>{</span></pre>
+          <pre><span class='red'></span></pre>
         </td>
       </tr>
       <tr>
@@ -4814,7 +4832,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>        }</span></pre>
+          <pre><span class=
+          'red'>                auto await_suspend(</span></pre>
         </td>
       </tr>
       <tr>
@@ -4822,9 +4841,12 @@
           <a name='L447' href='#L447' id="L447">
           <pre>447</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre><span class=
+          'red'>                    std::coroutine_handle&lt;promise_type&gt; coro) const noexcept</span></pre>
         </td>
       </tr>
       <tr>
@@ -4832,9 +4854,12 @@
           <a name='L448' href='#L448' id="L448">
           <pre>448</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>        void setContinuation(std::coroutine_handle&lt;&gt; handle)</pre>
+          <pre><span class='red'>                </span><span class=
+          'red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -4846,7 +4871,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>        <span class='red'>{</span></pre>
+          <pre><span class=
+          'red'>                    return coro.promise().continuation_;</span></pre>
         </td>
       </tr>
       <tr>
@@ -4859,7 +4885,8 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>            continuation_ = handle;</span></pre>
+          'red'>                }</span><span class=
+          'red'></span></pre>
         </td>
       </tr>
       <tr>
@@ -4871,7 +4898,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>        }</span></pre>
+          <pre><span class='red'></span></pre>
         </td>
       </tr>
       <tr>
@@ -4879,9 +4906,12 @@
           <a name='L452' href='#L452' id="L452">
           <pre>452</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre><span class=
+          'red'>                void await_resume() const noexcept</span></pre>
         </td>
       </tr>
       <tr>
@@ -4889,9 +4919,12 @@
           <a name='L453' href='#L453' id="L453">
           <pre>453</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>        auto final_suspend() const noexcept</pre>
+          <pre><span class='red'>                </span><span class=
+          'red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -4903,7 +4936,9 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre>        <span class='red'>{</span></pre>
+          <pre><span class=
+          'red'>                }</span><span class=
+          'red'></span></pre>
         </td>
       </tr>
       <tr>
@@ -4915,8 +4950,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>            // Can't simply use suspend_never because we need symmetric transfer</span></pre>
+          <pre><span class='red'>            };</span></pre>
         </td>
       </tr>
       <tr>
@@ -4929,7 +4963,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>            struct awaiter final</span></pre>
+          'red'>            return awaiter{};</span></pre>
         </td>
       </tr>
       <tr>
@@ -4941,7 +4975,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>            {</span></pre>
+          <pre><span class='red'>        }</span></pre>
         </td>
       </tr>
       <tr>
@@ -4949,12 +4983,9 @@
           <a name='L458' href='#L458' id="L458">
           <pre>458</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class=
-          'red'>                bool await_ready() const noexcept</span></pre>
+          <pre>    };</pre>
         </td>
       </tr>
       <tr>
@@ -4962,12 +4993,9 @@
           <a name='L459' href='#L459' id="L459">
           <pre>459</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>                </span><span class=
-          'red'>{</span></pre>
+          <pre>    bool await_ready() const noexcept</pre>
         </td>
       </tr>
       <tr>
@@ -4979,8 +5007,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>                    return true;</span></pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -4993,8 +5020,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>                }</span><span class=
-          'red'></span></pre>
+          'red'>        return coro_.done();</span></pre>
         </td>
       </tr>
       <tr>
@@ -5006,7 +5032,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'></span></pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -5014,12 +5040,9 @@
           <a name='L463' href='#L463' id="L463">
           <pre>463</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class=
-          'red'>                auto await_suspend(</span></pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -5027,12 +5050,9 @@
           <a name='L464' href='#L464' id="L464">
           <pre>464</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class=
-          'red'>                    std::coroutine_handle&lt;promise_type&gt; coro) const noexcept</span></pre>
+          <pre>    void await_resume() const noexcept</pre>
         </td>
       </tr>
       <tr>
@@ -5044,8 +5064,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>                </span><span class=
-          'red'>{</span></pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -5057,8 +5076,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>                    return coro.promise().continuation_;</span></pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -5066,13 +5084,9 @@
           <a name='L467' href='#L467' id="L467">
           <pre>467</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class=
-          'red'>                }</span><span class=
-          'red'></span></pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -5080,11 +5094,9 @@
           <a name='L468' href='#L468' id="L468">
           <pre>468</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'></span></pre>
+          <pre>    auto await_suspend(std::coroutine_handle&lt;&gt; coroutine) noexcept</pre>
         </td>
       </tr>
       <tr>
@@ -5096,8 +5108,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>                void await_resume() const noexcept</span></pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -5109,8 +5120,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>                </span><span class=
-          'red'>{</span></pre>
+          <pre><span class=
+          'red'>        coro_.promise().setContinuation(coroutine);</span></pre>
         </td>
       </tr>
       <tr>
@@ -5122,9 +5133,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>                }</span><span class=
-          'red'></span></pre>
+          <pre><span class='red'>        return coro_;</span></pre>
         </td>
       </tr>
       <tr>
@@ -5136,7 +5145,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>            };</span></pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -5144,12 +5153,9 @@
           <a name='L473' href='#L473' id="L473">
           <pre>473</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class=
-          'red'>            return awaiter{};</span></pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -5157,11 +5163,9 @@
           <a name='L474' href='#L474' id="L474">
           <pre>474</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>        }</span></pre>
+          <pre>    handle_type coro_;</pre>
         </td>
       </tr>
       <tr>
@@ -5171,7 +5175,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    };</pre>
+          <pre>};</pre>
         </td>
       </tr>
       <tr>
@@ -5181,7 +5185,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    bool await_ready() const noexcept</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -5189,11 +5193,9 @@
           <a name='L477' href='#L477' id="L477">
           <pre>477</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
+          <pre>/// Helper class that provides the infrastructure for turning callback into</pre>
         </td>
       </tr>
       <tr>
@@ -5201,12 +5203,9 @@
           <a name='L478' href='#L478' id="L478">
           <pre>478</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class=
-          'red'>        return coro_.done();</span></pre>
+          <pre>/// coroutines</pre>
         </td>
       </tr>
       <tr>
@@ -5214,11 +5213,9 @@
           <a name='L479' href='#L479' id="L479">
           <pre>479</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>    }</span></pre>
+          <pre>// The user is responsible to fill in `await_suspend()` and constructors.</pre>
         </td>
       </tr>
       <tr>
@@ -5228,7 +5225,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>template &lt;typename T = void&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -5238,7 +5235,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    void await_resume() const noexcept</pre>
+          <pre>struct CallbackAwaiter</pre>
         </td>
       </tr>
       <tr>
@@ -5246,11 +5243,9 @@
           <a name='L482' href='#L482' id="L482">
           <pre>482</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -5258,11 +5253,9 @@
           <a name='L483' href='#L483' id="L483">
           <pre>483</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>    }</span></pre>
+          <pre>    bool await_ready() noexcept</pre>
         </td>
       </tr>
       <tr>
@@ -5272,7 +5265,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -5282,7 +5275,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    auto await_suspend(std::coroutine_handle&lt;&gt; coroutine) noexcept</pre>
+          <pre>        return false;</pre>
         </td>
       </tr>
       <tr>
@@ -5290,11 +5283,9 @@
           <a name='L486' href='#L486' id="L486">
           <pre>486</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
+          <pre>    }</pre>
         </td>
       </tr>
       <tr>
@@ -5302,12 +5293,9 @@
           <a name='L487' href='#L487' id="L487">
           <pre>487</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class=
-          'red'>        coro_.promise().setContinuation(coroutine);</span></pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -5315,11 +5303,9 @@
           <a name='L488' href='#L488' id="L488">
           <pre>488</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>        return coro_;</span></pre>
+          <pre>    const T &amp;await_resume() const noexcept(false)</pre>
         </td>
       </tr>
       <tr>
@@ -5327,11 +5313,9 @@
           <a name='L489' href='#L489' id="L489">
           <pre>489</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>    }</span></pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -5341,7 +5325,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>        // await_resume() should always be called after co_await</pre>
         </td>
       </tr>
       <tr>
@@ -5351,7 +5335,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    handle_type coro_;</pre>
+          <pre>        // (await_suspend()) is called. Therefore the value should always be set</pre>
         </td>
       </tr>
       <tr>
@@ -5361,7 +5345,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>};</pre>
+          <pre>        // (or there's an exception)</pre>
         </td>
       </tr>
       <tr>
@@ -5371,7 +5355,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>        assert(result_.has_value() == true || exception_ != nullptr);</pre>
         </td>
       </tr>
       <tr>
@@ -5381,7 +5365,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>/// Helper class that provides the infrastructure for turning callback into</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -5391,7 +5375,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>/// coroutines</pre>
+          <pre>        if (exception_)</pre>
         </td>
       </tr>
       <tr>
@@ -5401,7 +5385,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>// The user is responsible to fill in `await_suspend()` and constructors.</pre>
+          <pre>            std::rethrow_exception(exception_);</pre>
         </td>
       </tr>
       <tr>
@@ -5411,7 +5395,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>template &lt;typename T = void&gt;</pre>
+          <pre>        return result_.value();</pre>
         </td>
       </tr>
       <tr>
@@ -5421,7 +5405,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>struct CallbackAwaiter</pre>
+          <pre>    }</pre>
         </td>
       </tr>
       <tr>
@@ -5431,7 +5415,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -5441,7 +5425,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    bool await_ready() noexcept</pre>
+          <pre>  private:</pre>
         </td>
       </tr>
       <tr>
@@ -5451,7 +5435,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    {</pre>
+          <pre>    // HACK: Not all desired types are default constructable. But we need the</pre>
         </td>
       </tr>
       <tr>
@@ -5461,7 +5445,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        return false;</pre>
+          <pre>    // entire struct to be constructed for awaiting. std::optional takes care of</pre>
         </td>
       </tr>
       <tr>
@@ -5471,7 +5455,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    }</pre>
+          <pre>    // that.</pre>
         </td>
       </tr>
       <tr>
@@ -5481,7 +5465,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>    optional&lt;T&gt; result_;</pre>
         </td>
       </tr>
       <tr>
@@ -5491,7 +5475,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    const T &amp;await_resume() const noexcept(false)</pre>
+          <pre>    std::exception_ptr exception_{nullptr};</pre>
         </td>
       </tr>
       <tr>
@@ -5501,7 +5485,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    {</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -5511,7 +5495,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        // await_resume() should always be called after co_await</pre>
+          <pre>  protected:</pre>
         </td>
       </tr>
       <tr>
@@ -5521,183 +5505,13 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        // (await_suspend()) is called. Therefore the value should always be set</pre>
+          <pre>    void setException(const std::exception_ptr &amp;e)</pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L509' href='#L509' id="L509">
           <pre>509</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>        // (or there's an exception)</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L510' href='#L510' id="L510">
-          <pre>510</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>        assert(result_.has_value() == true || exception_ != nullptr);</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L511' href='#L511' id="L511">
-          <pre>511</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L512' href='#L512' id="L512">
-          <pre>512</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>        if (exception_)</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L513' href='#L513' id="L513">
-          <pre>513</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>            std::rethrow_exception(exception_);</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L514' href='#L514' id="L514">
-          <pre>514</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>        return result_.value();</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L515' href='#L515' id="L515">
-          <pre>515</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    }</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L516' href='#L516' id="L516">
-          <pre>516</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L517' href='#L517' id="L517">
-          <pre>517</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  private:</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L518' href='#L518' id="L518">
-          <pre>518</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    // HACK: Not all desired types are default constructable. But we need the</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L519' href='#L519' id="L519">
-          <pre>519</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    // entire struct to be constructed for awaiting. std::optional takes care of</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L520' href='#L520' id="L520">
-          <pre>520</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    // that.</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L521' href='#L521' id="L521">
-          <pre>521</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    optional&lt;T&gt; result_;</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L522' href='#L522' id="L522">
-          <pre>522</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    std::exception_ptr exception_{nullptr};</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L523' href='#L523' id="L523">
-          <pre>523</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L524' href='#L524' id="L524">
-          <pre>524</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  protected:</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L525' href='#L525' id="L525">
-          <pre>525</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    void setException(const std::exception_ptr &amp;e)</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L526' href='#L526' id="L526">
-          <pre>526</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -5708,8 +5522,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L527' href='#L527' id="L527">
-          <pre>527</pre></a>
+          <a name='L510' href='#L510' id="L510">
+          <pre>510</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -5721,8 +5535,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L528' href='#L528' id="L528">
-          <pre>528</pre></a>
+          <a name='L511' href='#L511' id="L511">
+          <pre>511</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -5758,8 +5572,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L529' href='#L529' id="L529">
-          <pre>529</pre></a>
+          <a name='L512' href='#L512' id="L512">
+          <pre>512</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -5768,8 +5582,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L530' href='#L530' id="L530">
-          <pre>530</pre></a>
+          <a name='L513' href='#L513' id="L513">
+          <pre>513</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -5780,8 +5594,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L531' href='#L531' id="L531">
-          <pre>531</pre></a>
+          <a name='L514' href='#L514' id="L514">
+          <pre>514</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -5793,8 +5607,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L532' href='#L532' id="L532">
-          <pre>532</pre></a>
+          <a name='L515' href='#L515' id="L515">
+          <pre>515</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -5830,8 +5644,8 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L533' href='#L533' id="L533">
-          <pre>533</pre></a>
+          <a name='L516' href='#L516' id="L516">
+          <pre>516</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
@@ -5840,12 +5654,198 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L534' href='#L534' id="L534">
-          <pre>534</pre></a>
+          <a name='L517' href='#L517' id="L517">
+          <pre>517</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
           <pre>    {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L518' href='#L518' id="L518">
+          <pre>518</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        result_.emplace(std::move(v));</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L519' href='#L519' id="L519">
+          <pre>519</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    }</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L520' href='#L520' id="L520">
+          <pre>520</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>};</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L521' href='#L521' id="L521">
+          <pre>521</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L522' href='#L522' id="L522">
+          <pre>522</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>template &lt;&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L523' href='#L523' id="L523">
+          <pre>523</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>struct CallbackAwaiter&lt;void&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L524' href='#L524' id="L524">
+          <pre>524</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>{</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L525' href='#L525' id="L525">
+          <pre>525</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    bool await_ready() noexcept</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L526' href='#L526' id="L526">
+          <pre>526</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre>    <span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L527' href='#L527' id="L527">
+          <pre>527</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>        return false;</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L528' href='#L528' id="L528">
+          <pre>528</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>    }</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L529' href='#L529' id="L529">
+          <pre>529</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L530' href='#L530' id="L530">
+          <pre>530</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    void await_resume() noexcept(false)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L531' href='#L531' id="L531">
+          <pre>531</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre>    <span class='red'>{</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L532' href='#L532' id="L532">
+          <pre>532</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>        if (exception_)</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L533' href='#L533' id="L533">
+          <pre>533</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class=
+          'red'>            std::rethrow_exception(exception_);</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L534' href='#L534' id="L534">
+          <pre>534</pre></a>
+        </td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
+        <td class='code'>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -5855,7 +5855,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        result_.emplace(std::move(v));</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -5865,7 +5865,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    }</pre>
+          <pre>  private:</pre>
         </td>
       </tr>
       <tr>
@@ -5875,7 +5875,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>};</pre>
+          <pre>    std::exception_ptr exception_{nullptr};</pre>
         </td>
       </tr>
       <tr>
@@ -5895,7 +5895,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>template &lt;&gt;</pre>
+          <pre>  protected:</pre>
         </td>
       </tr>
       <tr>
@@ -5905,7 +5905,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>struct CallbackAwaiter&lt;void&gt;</pre>
+          <pre>    void setException(const std::exception_ptr &amp;e)</pre>
         </td>
       </tr>
       <tr>
@@ -5913,203 +5913,17 @@
           <a name='L541' href='#L541' id="L541">
           <pre>541</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
         <td class='line-number'>
           <a name='L542' href='#L542' id="L542">
           <pre>542</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    bool await_ready() noexcept</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L543' href='#L543' id="L543">
-          <pre>543</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L544' href='#L544' id="L544">
-          <pre>544</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class='red'>        return false;</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L545' href='#L545' id="L545">
-          <pre>545</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class='red'>    }</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L546' href='#L546' id="L546">
-          <pre>546</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L547' href='#L547' id="L547">
-          <pre>547</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    void await_resume() noexcept(false)</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L548' href='#L548' id="L548">
-          <pre>548</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L549' href='#L549' id="L549">
-          <pre>549</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class=
-          'red'>        if (exception_)</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L550' href='#L550' id="L550">
-          <pre>550</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class=
-          'red'>            std::rethrow_exception(exception_);</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L551' href='#L551' id="L551">
-          <pre>551</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre><span class='red'>    }</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L552' href='#L552' id="L552">
-          <pre>552</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L553' href='#L553' id="L553">
-          <pre>553</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  private:</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L554' href='#L554' id="L554">
-          <pre>554</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    std::exception_ptr exception_{nullptr};</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L555' href='#L555' id="L555">
-          <pre>555</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L556' href='#L556' id="L556">
-          <pre>556</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>  protected:</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L557' href='#L557' id="L557">
-          <pre>557</pre></a>
-        </td>
-        <td class='uncovered-line'></td>
-        <td class='code'>
-          <pre>    void setException(const std::exception_ptr &amp;e)</pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L558' href='#L558' id="L558">
-          <pre>558</pre></a>
-        </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
-        <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
-        </td>
-      </tr>
-      <tr>
-        <td class='line-number'>
-          <a name='L559' href='#L559' id="L559">
-          <pre>559</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
@@ -6121,14 +5935,184 @@
       </tr>
       <tr>
         <td class='line-number'>
-          <a name='L560' href='#L560' id="L560">
-          <pre>560</pre></a>
+          <a name='L543' href='#L543' id="L543">
+          <pre>543</pre></a>
         </td>
         <td class='uncovered-line'>
           <pre>0</pre>
         </td>
         <td class='code'>
           <pre><span class='red'>    }</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L544' href='#L544' id="L544">
+          <pre>544</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>};</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L545' href='#L545' id="L545">
+          <pre>545</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L546' href='#L546' id="L546">
+          <pre>546</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>// An ok implementation of sync_await. This allows one to call</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L547' href='#L547' id="L547">
+          <pre>547</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>// coroutines and wait for the result from a function.</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L548' href='#L548' id="L548">
+          <pre>548</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>template &lt;typename Await&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L549' href='#L549' id="L549">
+          <pre>549</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>auto sync_wait(Await &amp;&amp;await)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L550' href='#L550' id="L550">
+          <pre>550</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>{</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L551' href='#L551' id="L551">
+          <pre>551</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    static_assert(is_awaitable_v&lt;std::decay_t&lt;Await&gt;&gt;);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L552' href='#L552' id="L552">
+          <pre>552</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    using value_type = typename await_result&lt;Await&gt;::type;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L553' href='#L553' id="L553">
+          <pre>553</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    std::condition_variable cv;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L554' href='#L554' id="L554">
+          <pre>554</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    std::mutex mtx;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L555' href='#L555' id="L555">
+          <pre>555</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    std::atomic&lt;bool&gt; flag = false;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L556' href='#L556' id="L556">
+          <pre>556</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    std::exception_ptr exception_ptr;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L557' href='#L557' id="L557">
+          <pre>557</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    std::unique_lock lk(mtx);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L558' href='#L558' id="L558">
+          <pre>558</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L559' href='#L559' id="L559">
+          <pre>559</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    if constexpr (std::is_same_v&lt;value_type, void&gt;)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L560' href='#L560' id="L560">
+          <pre>560</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -6138,7 +6122,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>};</pre>
+          <pre>        auto task = [&amp;]() -&gt; AsyncTask {</pre>
         </td>
       </tr>
       <tr>
@@ -6148,7 +6132,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>            try</pre>
         </td>
       </tr>
       <tr>
@@ -6158,7 +6142,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>// An ok implementation of sync_await. This allows one to call</pre>
+          <pre>            {</pre>
         </td>
       </tr>
       <tr>
@@ -6168,7 +6152,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>// coroutines and wait for the result from a function.</pre>
+          <pre>                co_await await;</pre>
         </td>
       </tr>
       <tr>
@@ -6178,7 +6162,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>template &lt;typename Await&gt;</pre>
+          <pre>            }</pre>
         </td>
       </tr>
       <tr>
@@ -6188,7 +6172,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>auto sync_wait(Await &amp;&amp;await)</pre>
+          <pre>            catch (...)</pre>
         </td>
       </tr>
       <tr>
@@ -6198,7 +6182,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>            {</pre>
         </td>
       </tr>
       <tr>
@@ -6208,7 +6192,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    static_assert(is_awaitable_v&lt;std::decay_t&lt;Await&gt;&gt;);</pre>
+          <pre>                exception_ptr = std::current_exception();</pre>
         </td>
       </tr>
       <tr>
@@ -6218,7 +6202,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    using value_type = typename await_result&lt;Await&gt;::type;</pre>
+          <pre>            }</pre>
         </td>
       </tr>
       <tr>
@@ -6228,7 +6212,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    std::condition_variable cv;</pre>
+          <pre>            std::unique_lock lk(mtx);</pre>
         </td>
       </tr>
       <tr>
@@ -6238,7 +6222,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    std::mutex mtx;</pre>
+          <pre>            flag = true;</pre>
         </td>
       </tr>
       <tr>
@@ -6248,7 +6232,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    std::atomic&lt;bool&gt; flag = false;</pre>
+          <pre>            cv.notify_all();</pre>
         </td>
       </tr>
       <tr>
@@ -6258,7 +6242,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    std::exception_ptr exception_ptr;</pre>
+          <pre>        };</pre>
         </td>
       </tr>
       <tr>
@@ -6268,7 +6252,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    std::unique_lock lk(mtx);</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -6278,7 +6262,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>        std::thread thr([&amp;]() { task(); });</pre>
         </td>
       </tr>
       <tr>
@@ -6288,7 +6272,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    if constexpr (std::is_same_v&lt;value_type, void&gt;)</pre>
+          <pre>        cv.wait(lk, [&amp;]() { return (bool)flag; });</pre>
         </td>
       </tr>
       <tr>
@@ -6298,7 +6282,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    {</pre>
+          <pre>        thr.join();</pre>
         </td>
       </tr>
       <tr>
@@ -6308,7 +6292,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        auto task = [&amp;]() -&gt; AsyncTask {</pre>
+          <pre>        if (exception_ptr)</pre>
         </td>
       </tr>
       <tr>
@@ -6318,7 +6302,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            try</pre>
+          <pre>            std::rethrow_exception(exception_ptr);</pre>
         </td>
       </tr>
       <tr>
@@ -6328,7 +6312,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            {</pre>
+          <pre>    }</pre>
         </td>
       </tr>
       <tr>
@@ -6338,7 +6322,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                co_await await;</pre>
+          <pre>    else</pre>
         </td>
       </tr>
       <tr>
@@ -6348,7 +6332,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            }</pre>
+          <pre>    {</pre>
         </td>
       </tr>
       <tr>
@@ -6358,7 +6342,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            catch (...)</pre>
+          <pre>        optional&lt;value_type&gt; value;</pre>
         </td>
       </tr>
       <tr>
@@ -6368,7 +6352,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            {</pre>
+          <pre>        auto task = [&amp;]() -&gt; AsyncTask {</pre>
         </td>
       </tr>
       <tr>
@@ -6378,7 +6362,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                exception_ptr = std::current_exception();</pre>
+          <pre>            try</pre>
         </td>
       </tr>
       <tr>
@@ -6388,7 +6372,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            }</pre>
+          <pre>            {</pre>
         </td>
       </tr>
       <tr>
@@ -6398,7 +6382,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::unique_lock lk(mtx);</pre>
+          <pre>                value = co_await await;</pre>
         </td>
       </tr>
       <tr>
@@ -6408,7 +6392,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            flag = true;</pre>
+          <pre>            }</pre>
         </td>
       </tr>
       <tr>
@@ -6418,7 +6402,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            cv.notify_all();</pre>
+          <pre>            catch (...)</pre>
         </td>
       </tr>
       <tr>
@@ -6428,7 +6412,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        };</pre>
+          <pre>            {</pre>
         </td>
       </tr>
       <tr>
@@ -6438,7 +6422,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>                exception_ptr = std::current_exception();</pre>
         </td>
       </tr>
       <tr>
@@ -6448,7 +6432,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        std::thread thr([&amp;]() { task(); });</pre>
+          <pre>            }</pre>
         </td>
       </tr>
       <tr>
@@ -6458,7 +6442,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        cv.wait(lk, [&amp;]() { return (bool)flag; });</pre>
+          <pre>            std::unique_lock lk(mtx);</pre>
         </td>
       </tr>
       <tr>
@@ -6468,7 +6452,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        thr.join();</pre>
+          <pre>            flag = true;</pre>
         </td>
       </tr>
       <tr>
@@ -6478,7 +6462,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        if (exception_ptr)</pre>
+          <pre>            cv.notify_all();</pre>
         </td>
       </tr>
       <tr>
@@ -6488,7 +6472,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::rethrow_exception(exception_ptr);</pre>
+          <pre>        };</pre>
         </td>
       </tr>
       <tr>
@@ -6498,7 +6482,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    }</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -6508,7 +6492,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    else</pre>
+          <pre>        std::thread thr([&amp;]() { task(); });</pre>
         </td>
       </tr>
       <tr>
@@ -6518,7 +6502,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    {</pre>
+          <pre>        cv.wait(lk, [&amp;]() { return (bool)flag; });</pre>
         </td>
       </tr>
       <tr>
@@ -6528,7 +6512,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        optional&lt;value_type&gt; value;</pre>
+          <pre>        assert(value.has_value() == true || exception_ptr);</pre>
         </td>
       </tr>
       <tr>
@@ -6538,7 +6522,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        auto task = [&amp;]() -&gt; AsyncTask {</pre>
+          <pre>        thr.join();</pre>
         </td>
       </tr>
       <tr>
@@ -6548,7 +6532,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            try</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -6558,7 +6542,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            {</pre>
+          <pre>        if (exception_ptr)</pre>
         </td>
       </tr>
       <tr>
@@ -6568,7 +6552,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                value = co_await await;</pre>
+          <pre>            std::rethrow_exception(exception_ptr);</pre>
         </td>
       </tr>
       <tr>
@@ -6578,7 +6562,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            }</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -6588,7 +6572,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            catch (...)</pre>
+          <pre>        return std::move(value.value());</pre>
         </td>
       </tr>
       <tr>
@@ -6598,7 +6582,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            {</pre>
+          <pre>    }</pre>
         </td>
       </tr>
       <tr>
@@ -6608,7 +6592,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                exception_ptr = std::current_exception();</pre>
+          <pre>}</pre>
         </td>
       </tr>
       <tr>
@@ -6618,7 +6602,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            }</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -6628,7 +6612,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::unique_lock lk(mtx);</pre>
+          <pre>// Converts a task (or task like) promise into std::future for old-style async</pre>
         </td>
       </tr>
       <tr>
@@ -6638,7 +6622,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            flag = true;</pre>
+          <pre>template &lt;typename Await&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -6648,7 +6632,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            cv.notify_all();</pre>
+          <pre>inline auto co_future(Await &amp;&amp;await) noexcept</pre>
         </td>
       </tr>
       <tr>
@@ -6658,7 +6642,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        };</pre>
+          <pre>    -&gt; std::future&lt;await_result_t&lt;Await&gt;&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -6668,7 +6652,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -6678,7 +6662,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        std::thread thr([&amp;]() { task(); });</pre>
+          <pre>    using Result = await_result_t&lt;Await&gt;;</pre>
         </td>
       </tr>
       <tr>
@@ -6688,7 +6672,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        cv.wait(lk, [&amp;]() { return (bool)flag; });</pre>
+          <pre>    std::promise&lt;Result&gt; prom;</pre>
         </td>
       </tr>
       <tr>
@@ -6698,7 +6682,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        assert(value.has_value() == true || exception_ptr);</pre>
+          <pre>    auto fut = prom.get_future();</pre>
         </td>
       </tr>
       <tr>
@@ -6708,7 +6692,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        thr.join();</pre>
+          <pre>    [](std::promise&lt;Result&gt; prom, Await await) -&gt; AsyncTask {</pre>
         </td>
       </tr>
       <tr>
@@ -6718,7 +6702,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>        try</pre>
         </td>
       </tr>
       <tr>
@@ -6728,7 +6712,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        if (exception_ptr)</pre>
+          <pre>        {</pre>
         </td>
       </tr>
       <tr>
@@ -6738,7 +6722,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            std::rethrow_exception(exception_ptr);</pre>
+          <pre>            if constexpr (std::is_void_v&lt;Result&gt;)</pre>
         </td>
       </tr>
       <tr>
@@ -6748,7 +6732,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>            {</pre>
         </td>
       </tr>
       <tr>
@@ -6758,7 +6742,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        return std::move(value.value());</pre>
+          <pre>                co_await std::move(await);</pre>
         </td>
       </tr>
       <tr>
@@ -6768,7 +6752,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    }</pre>
+          <pre>                prom.set_value();</pre>
         </td>
       </tr>
       <tr>
@@ -6778,7 +6762,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>}</pre>
+          <pre>            }</pre>
         </td>
       </tr>
       <tr>
@@ -6788,7 +6772,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>            else</pre>
         </td>
       </tr>
       <tr>
@@ -6798,7 +6782,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>// Converts a task (or task like) promise into std::future for old-style async</pre>
+          <pre>                prom.set_value(co_await std::move(await));</pre>
         </td>
       </tr>
       <tr>
@@ -6808,7 +6792,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>template &lt;typename Await&gt;</pre>
+          <pre>        }</pre>
         </td>
       </tr>
       <tr>
@@ -6818,7 +6802,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>inline auto co_future(Await &amp;&amp;await) noexcept</pre>
+          <pre>        catch (...)</pre>
         </td>
       </tr>
       <tr>
@@ -6828,7 +6812,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    -&gt; std::future&lt;await_result_t&lt;Await&gt;&gt;</pre>
+          <pre>        {</pre>
         </td>
       </tr>
       <tr>
@@ -6838,7 +6822,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>            prom.set_exception(std::current_exception());</pre>
         </td>
       </tr>
       <tr>
@@ -6848,7 +6832,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    using Result = await_result_t&lt;Await&gt;;</pre>
+          <pre>        }</pre>
         </td>
       </tr>
       <tr>
@@ -6858,7 +6842,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    std::promise&lt;Result&gt; prom;</pre>
+          <pre>    }(std::move(prom), std::move(await));</pre>
         </td>
       </tr>
       <tr>
@@ -6868,7 +6852,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    auto fut = prom.get_future();</pre>
+          <pre>    return fut;</pre>
         </td>
       </tr>
       <tr>
@@ -6878,7 +6862,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    [](std::promise&lt;Result&gt; prom, Await await) -&gt; AsyncTask {</pre>
+          <pre>}</pre>
         </td>
       </tr>
       <tr>
@@ -6888,7 +6872,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        try</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -6898,7 +6882,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        {</pre>
+          <pre>namespace internal</pre>
         </td>
       </tr>
       <tr>
@@ -6908,7 +6892,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            if constexpr (std::is_void_v&lt;Result&gt;)</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -6918,7 +6902,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            {</pre>
+          <pre>struct [[nodiscard]] TimerAwaiter : CallbackAwaiter&lt;void&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -6928,7 +6912,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                co_await std::move(await);</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -6938,7 +6922,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                prom.set_value();</pre>
+          <pre>    TimerAwaiter(trantor::EventLoop *loop,</pre>
         </td>
       </tr>
       <tr>
@@ -6948,7 +6932,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            }</pre>
+          <pre>                 const std::chrono::duration&lt;double&gt; &amp;delay)</pre>
         </td>
       </tr>
       <tr>
@@ -6958,7 +6942,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>            else</pre>
+          <pre>        : loop_(loop), delay_(delay.count())</pre>
         </td>
       </tr>
       <tr>
@@ -6966,9 +6950,11 @@
           <a name='L644' href='#L644' id="L644">
           <pre>644</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>                prom.set_value(co_await std::move(await));</pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -6976,9 +6962,11 @@
           <a name='L645' href='#L645' id="L645">
           <pre>645</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>        }</pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -6988,7 +6976,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        catch (...)</pre>
+          <pre>    TimerAwaiter(trantor::EventLoop *loop, double delay)</pre>
         </td>
       </tr>
       <tr>
@@ -6998,7 +6986,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        {</pre>
+          <pre>        : loop_(loop), delay_(delay)</pre>
         </td>
       </tr>
       <tr>
@@ -7006,9 +6994,11 @@
           <a name='L648' href='#L648' id="L648">
           <pre>648</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>            prom.set_exception(std::current_exception());</pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -7016,9 +7006,11 @@
           <a name='L649' href='#L649' id="L649">
           <pre>649</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>        }</pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -7028,7 +7020,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    }(std::move(prom), std::move(await));</pre>
+          <pre>    void await_suspend(std::coroutine_handle&lt;&gt; handle)</pre>
         </td>
       </tr>
       <tr>
@@ -7036,9 +7028,11 @@
           <a name='L651' href='#L651' id="L651">
           <pre>651</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>    return fut;</pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -7046,9 +7040,12 @@
           <a name='L652' href='#L652' id="L652">
           <pre>652</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>}</pre>
+          <pre><span class=
+          'red'>        loop_-&gt;runAfter(delay_, [handle]() { handle.resume(); });</span></pre>
         </td>
       </tr>
       <tr>
@@ -7056,9 +7053,11 @@
           <a name='L653' href='#L653' id="L653">
           <pre>653</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -7068,7 +7067,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>namespace internal</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -7078,7 +7077,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>  private:</pre>
         </td>
       </tr>
       <tr>
@@ -7088,7 +7087,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>struct [[nodiscard]] TimerAwaiter : CallbackAwaiter&lt;void&gt;</pre>
+          <pre>    trantor::EventLoop *loop_;</pre>
         </td>
       </tr>
       <tr>
@@ -7098,7 +7097,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>    double delay_;</pre>
         </td>
       </tr>
       <tr>
@@ -7108,7 +7107,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    TimerAwaiter(trantor::EventLoop *loop,</pre>
+          <pre>};</pre>
         </td>
       </tr>
       <tr>
@@ -7118,7 +7117,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>                 const std::chrono::duration&lt;double&gt; &amp;delay)</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -7128,7 +7127,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        : loop_(loop), delay_(delay.count())</pre>
+          <pre>struct [[nodiscard]] LoopAwaiter : CallbackAwaiter&lt;void&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -7136,11 +7135,9 @@
           <a name='L661' href='#L661' id="L661">
           <pre>661</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -7148,11 +7145,9 @@
           <a name='L662' href='#L662' id="L662">
           <pre>662</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>    }</span></pre>
+          <pre>    LoopAwaiter(trantor::EventLoop *workLoop,</pre>
         </td>
       </tr>
       <tr>
@@ -7162,7 +7157,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    TimerAwaiter(trantor::EventLoop *loop, double delay)</pre>
+          <pre>                std::function&lt;void()&gt; &amp;&amp;taskFunc,</pre>
         </td>
       </tr>
       <tr>
@@ -7172,7 +7167,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        : loop_(loop), delay_(delay)</pre>
+          <pre>                trantor::EventLoop *resumeLoop = nullptr)</pre>
         </td>
       </tr>
       <tr>
@@ -7180,11 +7175,9 @@
           <a name='L665' href='#L665' id="L665">
           <pre>665</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    <span class='red'>{</span></pre>
+          <pre>        : workLoop_(workLoop),</pre>
         </td>
       </tr>
       <tr>
@@ -7192,11 +7185,9 @@
           <a name='L666' href='#L666' id="L666">
           <pre>666</pre></a>
         </td>
-        <td class='uncovered-line'>
-          <pre>0</pre>
-        </td>
+        <td class='uncovered-line'></td>
         <td class='code'>
-          <pre><span class='red'>    }</span></pre>
+          <pre>          resumeLoop_(resumeLoop),</pre>
         </td>
       </tr>
       <tr>
@@ -7206,7 +7197,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    void await_suspend(std::coroutine_handle&lt;&gt; handle)</pre>
+          <pre>          taskFunc_(std::move(taskFunc))</pre>
         </td>
       </tr>
       <tr>
@@ -7231,7 +7222,7 @@
         </td>
         <td class='code'>
           <pre><span class=
-          'red'>        loop_-&gt;runAfter(delay_, [handle]() { handle.resume(); });</span></pre>
+          'red'>        assert(workLoop);</span></pre>
         </td>
       </tr>
       <tr>
@@ -7253,7 +7244,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>    void await_suspend(std::coroutine_handle&lt;&gt; handle)</pre>
         </td>
       </tr>
       <tr>
@@ -7261,9 +7252,11 @@
           <a name='L672' href='#L672' id="L672">
           <pre>672</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>  private:</pre>
+          <pre>    <span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -7271,9 +7264,12 @@
           <a name='L673' href='#L673' id="L673">
           <pre>673</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>    trantor::EventLoop *loop_;</pre>
+          <pre><span class=
+          'red'>        workLoop_-&gt;queueInLoop([handle, this]() {</span></pre>
         </td>
       </tr>
       <tr>
@@ -7281,9 +7277,11 @@
           <a name='L674' href='#L674' id="L674">
           <pre>674</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>    double delay_;</pre>
+          <pre><span class='red'>            try</span></pre>
         </td>
       </tr>
       <tr>
@@ -7291,9 +7289,11 @@
           <a name='L675' href='#L675' id="L675">
           <pre>675</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>};</pre>
+          <pre><span class='red'>            {</span></pre>
         </td>
       </tr>
       <tr>
@@ -7301,9 +7301,12 @@
           <a name='L676' href='#L676' id="L676">
           <pre>676</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>}  // namespace internal</pre>
+          <pre><span class=
+          'red'>                taskFunc_();</span></pre>
         </td>
       </tr>
       <tr>
@@ -7311,9 +7314,12 @@
           <a name='L677' href='#L677' id="L677">
           <pre>677</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre><span class=
+          'red'>                if (resumeLoop_ &amp;& resumeLoop_ != workLoop_)</span></pre>
         </td>
       </tr>
       <tr>
@@ -7321,9 +7327,12 @@
           <a name='L678' href='#L678' id="L678">
           <pre>678</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>inline internal::TimerAwaiter sleepCoro(</pre>
+          <pre><span class=
+          'red'>                    resumeLoop_-&gt;queueInLoop([handle]() { handle.resume(); });</span></pre>
         </td>
       </tr>
       <tr>
@@ -7331,9 +7340,11 @@
           <a name='L679' href='#L679' id="L679">
           <pre>679</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>    trantor::EventLoop *loop,</pre>
+          <pre><span class='red'>                else</span></pre>
         </td>
       </tr>
       <tr>
@@ -7341,9 +7352,12 @@
           <a name='L680' href='#L680' id="L680">
           <pre>680</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>    const std::chrono::duration&lt;double&gt; &amp;delay) noexcept</pre>
+          <pre><span class=
+          'red'>                    handle.resume();</span></pre>
         </td>
       </tr>
       <tr>
@@ -7355,7 +7369,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>{</span></pre>
+          <pre><span class='red'>            }</span></pre>
         </td>
       </tr>
       <tr>
@@ -7367,7 +7381,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>    assert(loop);</span></pre>
+          <pre><span class=
+          'red'>            catch (...)</span></pre>
         </td>
       </tr>
       <tr>
@@ -7379,8 +7394,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>    return internal::TimerAwaiter(loop, delay);</span></pre>
+          <pre><span class='red'>            {</span></pre>
         </td>
       </tr>
       <tr>
@@ -7392,7 +7406,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>}</span></pre>
+          <pre><span class=
+          'red'>                setException(std::current_exception());</span></pre>
         </td>
       </tr>
       <tr>
@@ -7400,9 +7415,12 @@
           <a name='L685' href='#L685' id="L685">
           <pre>685</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre><span class=
+          'red'>                if (resumeLoop_ &amp;& resumeLoop_ != workLoop_)</span></pre>
         </td>
       </tr>
       <tr>
@@ -7410,9 +7428,12 @@
           <a name='L686' href='#L686' id="L686">
           <pre>686</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>inline internal::TimerAwaiter sleepCoro(trantor::EventLoop *loop,</pre>
+          <pre><span class=
+          'red'>                    resumeLoop_-&gt;queueInLoop([handle]() { handle.resume(); });</span></pre>
         </td>
       </tr>
       <tr>
@@ -7420,9 +7441,11 @@
           <a name='L687' href='#L687' id="L687">
           <pre>687</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>                                        double delay) noexcept</pre>
+          <pre><span class='red'>                else</span></pre>
         </td>
       </tr>
       <tr>
@@ -7434,7 +7457,8 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>{</span></pre>
+          <pre><span class=
+          'red'>                    handle.resume();</span></pre>
         </td>
       </tr>
       <tr>
@@ -7446,7 +7470,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>    assert(loop);</span></pre>
+          <pre><span class='red'>            }</span></pre>
         </td>
       </tr>
       <tr>
@@ -7458,8 +7482,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class=
-          'red'>    return internal::TimerAwaiter(loop, delay);</span></pre>
+          <pre><span class='red'>        });</span></pre>
         </td>
       </tr>
       <tr>
@@ -7471,7 +7494,7 @@
           <pre>0</pre>
         </td>
         <td class='code'>
-          <pre><span class='red'>}</span></pre>
+          <pre><span class='red'>    }</span></pre>
         </td>
       </tr>
       <tr>
@@ -7491,7 +7514,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>template &lt;typename T, typename = std::void_t&lt;&gt;&gt;</pre>
+          <pre>  private:</pre>
         </td>
       </tr>
       <tr>
@@ -7501,7 +7524,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>struct is_resumable : std::false_type</pre>
+          <pre>    trantor::EventLoop *workLoop_{nullptr};</pre>
         </td>
       </tr>
       <tr>
@@ -7511,7 +7534,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>    trantor::EventLoop *resumeLoop_{nullptr};</pre>
         </td>
       </tr>
       <tr>
@@ -7521,7 +7544,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>};</pre>
+          <pre>    std::function&lt;void()&gt; taskFunc_;</pre>
         </td>
       </tr>
       <tr>
@@ -7531,7 +7554,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>};</pre>
         </td>
       </tr>
       <tr>
@@ -7541,7 +7564,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>template &lt;typename T&gt;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -7551,7 +7574,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>struct is_resumable&lt;</pre>
+          <pre>}  // namespace internal</pre>
         </td>
       </tr>
       <tr>
@@ -7561,7 +7584,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    T,</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -7571,7 +7594,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    std::void_t&lt;decltype(internal::getAwaiter(std::declval&lt;T&gt;()))&gt;&gt;</pre>
+          <pre>inline internal::TimerAwaiter sleepCoro(</pre>
         </td>
       </tr>
       <tr>
@@ -7581,7 +7604,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    : std::true_type</pre>
+          <pre>    trantor::EventLoop *loop,</pre>
         </td>
       </tr>
       <tr>
@@ -7591,7 +7614,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre>    const std::chrono::duration&lt;double&gt; &amp;delay) noexcept</pre>
         </td>
       </tr>
       <tr>
@@ -7599,9 +7622,11 @@
           <a name='L704' href='#L704' id="L704">
           <pre>704</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>};</pre>
+          <pre><span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -7609,9 +7634,11 @@
           <a name='L705' href='#L705' id="L705">
           <pre>705</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre><span class='red'>    assert(loop);</span></pre>
         </td>
       </tr>
       <tr>
@@ -7619,9 +7646,12 @@
           <a name='L706' href='#L706' id="L706">
           <pre>706</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>template &lt;&gt;</pre>
+          <pre><span class=
+          'red'>    return {loop, delay};</span></pre>
         </td>
       </tr>
       <tr>
@@ -7629,9 +7659,11 @@
           <a name='L707' href='#L707' id="L707">
           <pre>707</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>struct is_resumable&lt;AsyncTask, std::void_t&lt;AsyncTask&gt;&gt; : std::true_type</pre>
+          <pre><span class='red'>}</span></pre>
         </td>
       </tr>
       <tr>
@@ -7641,7 +7673,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>{</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -7651,7 +7683,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>};</pre>
+          <pre>inline internal::TimerAwaiter sleepCoro(trantor::EventLoop *loop,</pre>
         </td>
       </tr>
       <tr>
@@ -7661,7 +7693,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>                                        double delay) noexcept</pre>
         </td>
       </tr>
       <tr>
@@ -7669,9 +7701,11 @@
           <a name='L711' href='#L711' id="L711">
           <pre>711</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>template &lt;typename T&gt;</pre>
+          <pre><span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -7679,9 +7713,11 @@
           <a name='L712' href='#L712' id="L712">
           <pre>712</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>constexpr bool is_resumable_v = is_resumable&lt;T&gt;::value;</pre>
+          <pre><span class='red'>    assert(loop);</span></pre>
         </td>
       </tr>
       <tr>
@@ -7689,9 +7725,12 @@
           <a name='L713' href='#L713' id="L713">
           <pre>713</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre></pre>
+          <pre><span class=
+          'red'>    return {loop, delay};</span></pre>
         </td>
       </tr>
       <tr>
@@ -7699,9 +7738,11 @@
           <a name='L714' href='#L714' id="L714">
           <pre>714</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>/**</pre>
+          <pre><span class='red'>}</span></pre>
         </td>
       </tr>
       <tr>
@@ -7711,7 +7752,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> * @brief Runs a coroutine from a regular function</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -7721,7 +7762,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> * @param coro A coroutine that is awaitable</pre>
+          <pre>inline internal::LoopAwaiter queueInLoopCoro(</pre>
         </td>
       </tr>
       <tr>
@@ -7731,7 +7772,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> */</pre>
+          <pre>    trantor::EventLoop *workLoop,</pre>
         </td>
       </tr>
       <tr>
@@ -7741,7 +7782,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>template &lt;typename Coro&gt;</pre>
+          <pre>    std::function&lt;void()&gt; taskFunc,</pre>
         </td>
       </tr>
       <tr>
@@ -7751,7 +7792,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>void async_run(Coro &amp;&amp;coro)</pre>
+          <pre>    trantor::EventLoop *resumeLoop = nullptr)</pre>
         </td>
       </tr>
       <tr>
@@ -7759,9 +7800,11 @@
           <a name='L720' href='#L720' id="L720">
           <pre>720</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>{</pre>
+          <pre><span class='red'>{</span></pre>
         </td>
       </tr>
       <tr>
@@ -7769,9 +7812,11 @@
           <a name='L721' href='#L721' id="L721">
           <pre>721</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>    using CoroValueType = std::decay_t&lt;Coro&gt;;</pre>
+          <pre><span class='red'>    assert(workLoop);</span></pre>
         </td>
       </tr>
       <tr>
@@ -7779,9 +7824,12 @@
           <a name='L722' href='#L722' id="L722">
           <pre>722</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>    auto functor = [](CoroValueType coro) -&gt; AsyncTask {</pre>
+          <pre><span class=
+          'red'>    return {workLoop, std::move(taskFunc), resumeLoop};</span></pre>
         </td>
       </tr>
       <tr>
@@ -7789,9 +7837,11 @@
           <a name='L723' href='#L723' id="L723">
           <pre>723</pre></a>
         </td>
-        <td class='uncovered-line'></td>
+        <td class='uncovered-line'>
+          <pre>0</pre>
+        </td>
         <td class='code'>
-          <pre>        auto frame = coro();</pre>
+          <pre><span class='red'>}</span></pre>
         </td>
       </tr>
       <tr>
@@ -7811,7 +7861,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        using FrameType = std::decay_t&lt;decltype(frame)&gt;;</pre>
+          <pre>template &lt;typename T, typename = std::void_t&lt;&gt;&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -7821,7 +7871,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        static_assert(is_awaitable_v&lt;FrameType&gt;);</pre>
+          <pre>struct is_resumable : std::false_type</pre>
         </td>
       </tr>
       <tr>
@@ -7831,7 +7881,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -7841,7 +7891,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        co_await frame;</pre>
+          <pre>};</pre>
         </td>
       </tr>
       <tr>
@@ -7851,7 +7901,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        co_return;</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -7861,7 +7911,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    };</pre>
+          <pre>template &lt;typename T&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -7871,7 +7921,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    functor(std::forward&lt;Coro&gt;(coro));</pre>
+          <pre>struct is_resumable&lt;</pre>
         </td>
       </tr>
       <tr>
@@ -7881,7 +7931,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>}</pre>
+          <pre>    T,</pre>
         </td>
       </tr>
       <tr>
@@ -7891,7 +7941,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre></pre>
+          <pre>    std::void_t&lt;decltype(internal::getAwaiter(std::declval&lt;T&gt;()))&gt;&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -7901,7 +7951,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>/**</pre>
+          <pre>    : std::true_type</pre>
         </td>
       </tr>
       <tr>
@@ -7911,7 +7961,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> * @brief returns a function that calls a coroutine</pre>
+          <pre>{</pre>
         </td>
       </tr>
       <tr>
@@ -7921,7 +7971,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> * @param Coro A coroutine that is awaitable</pre>
+          <pre>};</pre>
         </td>
       </tr>
       <tr>
@@ -7931,7 +7981,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre> */</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -7941,7 +7991,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>template &lt;typename Coro&gt;</pre>
+          <pre>template &lt;&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -7951,7 +8001,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>std::function&lt;void()&gt; async_func(Coro &amp;&amp;coro)</pre>
+          <pre>struct is_resumable&lt;AsyncTask, std::void_t&lt;AsyncTask&gt;&gt; : std::true_type</pre>
         </td>
       </tr>
       <tr>
@@ -7971,7 +8021,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    return [coro = std::forward&lt;Coro&gt;(coro)]() mutable {</pre>
+          <pre>};</pre>
         </td>
       </tr>
       <tr>
@@ -7981,7 +8031,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>        async_run(std::move(coro));</pre>
+          <pre></pre>
         </td>
       </tr>
       <tr>
@@ -7991,7 +8041,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>    };</pre>
+          <pre>template &lt;typename T&gt;</pre>
         </td>
       </tr>
       <tr>
@@ -8001,7 +8051,7 @@
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
-          <pre>}</pre>
+          <pre>constexpr bool is_resumable_v = is_resumable&lt;T&gt;::value;</pre>
         </td>
       </tr>
       <tr>
@@ -8018,6 +8068,326 @@
         <td class='line-number'>
           <a name='L746' href='#L746' id="L746">
           <pre>746</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>/**</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L747' href='#L747' id="L747">
+          <pre>747</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre> * @brief Runs a coroutine from a regular function</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L748' href='#L748' id="L748">
+          <pre>748</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre> * @param coro A coroutine that is awaitable</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L749' href='#L749' id="L749">
+          <pre>749</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre> */</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L750' href='#L750' id="L750">
+          <pre>750</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>template &lt;typename Coro&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L751' href='#L751' id="L751">
+          <pre>751</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>void async_run(Coro &amp;&amp;coro)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L752' href='#L752' id="L752">
+          <pre>752</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>{</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L753' href='#L753' id="L753">
+          <pre>753</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    using CoroValueType = std::decay_t&lt;Coro&gt;;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L754' href='#L754' id="L754">
+          <pre>754</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    auto functor = [](CoroValueType coro) -&gt; AsyncTask {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L755' href='#L755' id="L755">
+          <pre>755</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        auto frame = coro();</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L756' href='#L756' id="L756">
+          <pre>756</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L757' href='#L757' id="L757">
+          <pre>757</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        using FrameType = std::decay_t&lt;decltype(frame)&gt;;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L758' href='#L758' id="L758">
+          <pre>758</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        static_assert(is_awaitable_v&lt;FrameType&gt;);</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L759' href='#L759' id="L759">
+          <pre>759</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L760' href='#L760' id="L760">
+          <pre>760</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        co_await frame;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L761' href='#L761' id="L761">
+          <pre>761</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        co_return;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L762' href='#L762' id="L762">
+          <pre>762</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    };</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L763' href='#L763' id="L763">
+          <pre>763</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    functor(std::forward&lt;Coro&gt;(coro));</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L764' href='#L764' id="L764">
+          <pre>764</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>}</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L765' href='#L765' id="L765">
+          <pre>765</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L766' href='#L766' id="L766">
+          <pre>766</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>/**</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L767' href='#L767' id="L767">
+          <pre>767</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre> * @brief returns a function that calls a coroutine</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L768' href='#L768' id="L768">
+          <pre>768</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre> * @param Coro A coroutine that is awaitable</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L769' href='#L769' id="L769">
+          <pre>769</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre> */</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L770' href='#L770' id="L770">
+          <pre>770</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>template &lt;typename Coro&gt;</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L771' href='#L771' id="L771">
+          <pre>771</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>std::function&lt;void()&gt; async_func(Coro &amp;&amp;coro)</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L772' href='#L772' id="L772">
+          <pre>772</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>{</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L773' href='#L773' id="L773">
+          <pre>773</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    return [coro = std::forward&lt;Coro&gt;(coro)]() mutable {</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L774' href='#L774' id="L774">
+          <pre>774</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>        async_run(std::move(coro));</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L775' href='#L775' id="L775">
+          <pre>775</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>    };</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L776' href='#L776' id="L776">
+          <pre>776</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre>}</pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L777' href='#L777' id="L777">
+          <pre>777</pre></a>
+        </td>
+        <td class='uncovered-line'></td>
+        <td class='code'>
+          <pre></pre>
+        </td>
+      </tr>
+      <tr>
+        <td class='line-number'>
+          <a name='L778' href='#L778' id="L778">
+          <pre>778</pre></a>
         </td>
         <td class='uncovered-line'></td>
         <td class='code'>
