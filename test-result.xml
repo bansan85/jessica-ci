@@ -17,7 +17,7 @@ Checking test dependency graph...
 Checking test dependency graph end
 test 1
 [HANDLER_OUTPUT] 
-    Start 1: TestCalcMeyerhof
+    Start 1: test_calc_meyerhof
 
 [HANDLER_VERBOSE_OUTPUT] 
 
@@ -29,162 +29,162 @@ test 1
 1: [----------] Global test environment set-up.
 1: [----------] 6 tests from data
 1: [ RUN      ] data.CalcMeyehof
-1: [       OK ] data.CalcMeyehof (0 ms)
+1: [       OK ] data.CalcMeyehof (1 ms)
 1: [ RUN      ] data.CalcMeyehofAllDecorator
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0005 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0004 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0004 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_31DecoratorStartVerticalEccentricINS_7LogCallINS0_INS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEEEEEENS_29DecoratorStartFoundationStripINS4_INS0_INS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEEEEEEEEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0001 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0001 ms
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0128 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_31DecoratorStartVerticalEccentricINS_7LogCallINS0_INS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEEEEEENS_29DecoratorStartFoundationStripINS4_INS0_INS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEEEEEEEEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0001 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0 ms
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0181 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0002 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_31DecoratorStartVerticalEccentricINS_7LogCallINS0_INS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEEEEEENS_29DecoratorStartFoundationStripINS4_INS0_INS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEEEEEEEEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0001 ms
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0114 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_31DecoratorStartVerticalEccentricINS_7LogCallINS0_INS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEEEEEENS_29DecoratorStartFoundationStripINS4_INS0_INS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEEEEEEEEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0001 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0001 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0001 ms
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0169 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_31DecoratorStartVerticalEccentricINS_7LogCallINS0_INS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEEEEEENS_29DecoratorStartFoundationStripINS4_INS0_INS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEEEEEEEEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0001 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0 ms
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0112 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_31DecoratorStartVerticalEccentricINS_7LogCallINS0_INS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEEEEEENS_29DecoratorStartFoundationStripINS4_INS0_INS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEEEEEEEEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0 ms
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0106 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_31DecoratorStartVerticalEccentricINS_7LogCallINS0_INS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEEEEEENS_29DecoratorStartFoundationStripINS4_INS0_INS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEEEEEEEEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0001 ms
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0166 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_31DecoratorStartVerticalEccentricINS_7LogCallINS0_INS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEEEEEENS_29DecoratorStartFoundationStripINS4_INS0_INS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEEEEEEEEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0001 ms
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0171 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0002 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_31DecoratorStartVerticalEccentricINS_7LogCallINS0_INS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEEEEEENS_29DecoratorStartFoundationStripINS4_INS0_INS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEEEEEEEEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0 ms
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0108 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0002 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_31DecoratorStartVerticalEccentricINS_7LogCallINS0_INS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEEEEEENS_29DecoratorStartFoundationStripINS4_INS0_INS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEEEEEEEEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0001 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0 ms
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0113 ms
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0.0005 ms
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0.0004 ms
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0.0004 ms
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_31DecoratorStartVerticalEccentricINS_7LogCallINS0_INS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEEEEEENS_29DecoratorStartFoundationStripINS4_INS0_INS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEEEEEEEEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0.0001 ms
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0 ms
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0.0129 ms
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_31DecoratorStartVerticalEccentricINS_7LogCallINS0_INS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEEEEEENS_29DecoratorStartFoundationStripINS4_INS0_INS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEEEEEEEEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0.0001 ms
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0 ms
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0.0001 ms
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0.017 ms
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0.0002 ms
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_31DecoratorStartVerticalEccentricINS_7LogCallINS0_INS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEEEEEENS_29DecoratorStartFoundationStripINS4_INS0_INS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEEEEEEEEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0.0001 ms
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0 ms
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0.0111 ms
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_31DecoratorStartVerticalEccentricINS_7LogCallINS0_INS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEEEEEENS_29DecoratorStartFoundationStripINS4_INS0_INS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEEEEEEEEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0.0001 ms
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0 ms
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0 ms
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0.0175 ms
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_31DecoratorStartVerticalEccentricINS_7LogCallINS0_INS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEEEEEENS_29DecoratorStartFoundationStripINS4_INS0_INS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEEEEEEEEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0 ms
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0 ms
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0.0106 ms
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_31DecoratorStartVerticalEccentricINS_7LogCallINS0_INS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEEEEEENS_29DecoratorStartFoundationStripINS4_INS0_INS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEEEEEEEEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0.0001 ms
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0.0001 ms
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0.0107 ms
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_31DecoratorStartVerticalEccentricINS_7LogCallINS0_INS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEEEEEENS_29DecoratorStartFoundationStripINS4_INS0_INS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEEEEEEEEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0.0001 ms
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0.0001 ms
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0 ms
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0.0162 ms
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_31DecoratorStartVerticalEccentricINS_7LogCallINS0_INS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEEEEEENS_29DecoratorStartFoundationStripINS4_INS0_INS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEEEEEEEEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0.0001 ms
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0 ms
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0 ms
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0.0158 ms
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0.0002 ms
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_31DecoratorStartVerticalEccentricINS_7LogCallINS0_INS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEEEEEENS_29DecoratorStartFoundationStripINS4_INS0_INS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEEEEEEEEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0.0001 ms
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0 ms
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0.0139 ms
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0.0002 ms
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_31DecoratorStartVerticalEccentricINS_7LogCallINS0_INS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEEEEEENS_29DecoratorStartFoundationStripINS4_INS0_INS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEEEEEEEEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0.0001 ms
+1: [2022-12-18 04:28:13.483] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0.0001 ms
+1: [2022-12-18 04:28:13.483] [log] [info] duration 0.0109 ms
 1: [       OK ] data.CalcMeyehofAllDecorator (0 ms)
 1: [ RUN      ] data.CalcMeyehofMainDecorator
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0001 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0001 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0001 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0001 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0001 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0001 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0.0001 ms
-1: [2022-11-25 18:24:25.598] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
-1: [2022-11-25 18:24:25.598] [log] [info] duration 0 ms
-1: [2022-11-25 18:24:25.599] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
-1: [2022-11-25 18:24:25.599] [log] [info] duration 0.0002 ms
-1: [2022-11-25 18:24:25.599] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
-1: [2022-11-25 18:24:25.599] [log] [info] duration 0 ms
-1: [2022-11-25 18:24:25.599] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
-1: [2022-11-25 18:24:25.599] [log] [info] duration 0.0001 ms
-1: [2022-11-25 18:24:25.599] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
-1: [2022-11-25 18:24:25.599] [log] [info] duration 0.0001 ms
-1: [       OK ] data.CalcMeyehofMainDecorator (1 ms)
+1: [2022-12-18 04:28:13.484] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
+1: [2022-12-18 04:28:13.484] [log] [info] duration 0.0001 ms
+1: [2022-12-18 04:28:13.484] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
+1: [2022-12-18 04:28:13.484] [log] [info] duration 0.0001 ms
+1: [2022-12-18 04:28:13.484] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
+1: [2022-12-18 04:28:13.484] [log] [info] duration 0.0001 ms
+1: [2022-12-18 04:28:13.484] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
+1: [2022-12-18 04:28:13.484] [log] [info] duration 0.0001 ms
+1: [2022-12-18 04:28:13.484] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
+1: [2022-12-18 04:28:13.484] [log] [info] duration 0.0001 ms
+1: [2022-12-18 04:28:13.484] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
+1: [2022-12-18 04:28:13.484] [log] [info] duration 0.0001 ms
+1: [2022-12-18 04:28:13.484] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
+1: [2022-12-18 04:28:13.484] [log] [info] duration 0.0001 ms
+1: [2022-12-18 04:28:13.484] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
+1: [2022-12-18 04:28:13.484] [log] [info] duration 0 ms
+1: [2022-12-18 04:28:13.484] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
+1: [2022-12-18 04:28:13.484] [log] [info] duration 0 ms
+1: [2022-12-18 04:28:13.484] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
+1: [2022-12-18 04:28:13.484] [log] [info] duration 0 ms
+1: [2022-12-18 04:28:13.484] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
+1: [2022-12-18 04:28:13.484] [log] [info] duration 0.0001 ms
+1: [2022-12-18 04:28:13.484] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
+1: [2022-12-18 04:28:13.484] [log] [info] duration 0 ms
+1: [2022-12-18 04:28:13.484] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
+1: [2022-12-18 04:28:13.484] [log] [info] duration 0.0001 ms
+1: [2022-12-18 04:28:13.484] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
+1: [2022-12-18 04:28:13.484] [log] [info] duration 0.0001 ms
+1: [       OK ] data.CalcMeyehofMainDecorator (0 ms)
 1: [ RUN      ] data.CalcMeyehofChildrenAccess
-1: [2022-11-25 18:24:25.600] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
-1: [2022-11-25 18:24:25.600] [log] [info] duration 0.0011 ms
-1: [2022-11-25 18:24:25.600] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
-1: [2022-11-25 18:24:25.600] [log] [info] duration 0.0005 ms
-1: [2022-11-25 18:24:25.600] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
-1: [2022-11-25 18:24:25.600] [log] [info] duration 0.0009 ms
-1: [2022-11-25 18:24:25.600] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
-1: [2022-11-25 18:24:25.600] [log] [info] duration 0.0001 ms
-1: [2022-11-25 18:24:25.600] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
-1: [2022-11-25 18:24:25.600] [log] [info] duration 0.0001 ms
-1: [2022-11-25 18:24:25.600] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
-1: [2022-11-25 18:24:25.600] [log] [info] duration 0.0001 ms
-1: [2022-11-25 18:24:25.600] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
-1: [2022-11-25 18:24:25.600] [log] [info] duration 0.0001 ms
-1: [2022-11-25 18:24:25.600] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
-1: [2022-11-25 18:24:25.600] [log] [info] duration 0.0001 ms
-1: [2022-11-25 18:24:25.600] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
-1: [2022-11-25 18:24:25.600] [log] [info] duration 0.0002 ms
-1: [2022-11-25 18:24:25.600] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
-1: [2022-11-25 18:24:25.600] [log] [info] duration 0.0001 ms
-1: [2022-11-25 18:24:25.600] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
-1: [2022-11-25 18:24:25.600] [log] [info] duration 0.0001 ms
-1: [2022-11-25 18:24:25.600] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
-1: [2022-11-25 18:24:25.600] [log] [info] duration 0.0001 ms
-1: [       OK ] data.CalcMeyehofChildrenAccess (1 ms)
+1: [2022-12-18 04:28:13.484] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
+1: [2022-12-18 04:28:13.484] [log] [info] duration 0.001 ms
+1: [2022-12-18 04:28:13.484] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
+1: [2022-12-18 04:28:13.484] [log] [info] duration 0.0006 ms
+1: [2022-12-18 04:28:13.484] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
+1: [2022-12-18 04:28:13.484] [log] [info] duration 0.0008 ms
+1: [2022-12-18 04:28:13.484] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
+1: [2022-12-18 04:28:13.484] [log] [info] duration 0.0001 ms
+1: [2022-12-18 04:28:13.484] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
+1: [2022-12-18 04:28:13.484] [log] [info] duration 0.0001 ms
+1: [2022-12-18 04:28:13.484] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
+1: [2022-12-18 04:28:13.484] [log] [info] duration 0.0001 ms
+1: [2022-12-18 04:28:13.484] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
+1: [2022-12-18 04:28:13.484] [log] [info] duration 0.0001 ms
+1: [2022-12-18 04:28:13.484] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
+1: [2022-12-18 04:28:13.484] [log] [info] duration 0.0001 ms
+1: [2022-12-18 04:28:13.484] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
+1: [2022-12-18 04:28:13.484] [log] [info] duration 0.0001 ms
+1: [2022-12-18 04:28:13.484] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
+1: [2022-12-18 04:28:13.484] [log] [info] duration 0 ms
+1: [2022-12-18 04:28:13.484] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
+1: [2022-12-18 04:28:13.484] [log] [info] duration 0.0001 ms
+1: [2022-12-18 04:28:13.484] [log] [info] DecoratorLogger N7jessica11LogDurationINS_20DecoratorEndMeyerhofINS_25MeyerhofShallowFoundationINS_17VerticalEccentricENS_15FoundationStripEEEEEEE
+1: [2022-12-18 04:28:13.484] [log] [info] duration 0 ms
+1: [       OK ] data.CalcMeyehofChildrenAccess (0 ms)
 1: [ RUN      ] data.MeyerhofShallowFoundationWebServicesRestBed
-1: [       OK ] data.MeyerhofShallowFoundationWebServicesRestBed (12 ms)
+1: [       OK ] data.MeyerhofShallowFoundationWebServicesRestBed (30 ms)
 1: [ RUN      ] data.MeyerhofShallowFoundationWebServicesDrogon
-1: [       OK ] data.MeyerhofShallowFoundationWebServicesDrogon (40 ms)
-1: [----------] 6 tests from data (56 ms total)
+1: [       OK ] data.MeyerhofShallowFoundationWebServicesDrogon (32 ms)
+1: [----------] 6 tests from data (66 ms total)
 1: 
 1: [----------] Global test environment tear-down
-1: [==========] 6 tests from 1 test suite ran. (56 ms total)
+1: [==========] 6 tests from 1 test suite ran. (66 ms total)
 1: [  PASSED  ] 6 tests.
 [HANDLER_OUTPUT] 
-1/4 Test #1: TestCalcMeyerhof ..................
-   Passed    0.06 sec
+1/4 Test #1: test_calc_meyerhof ...................
+   Passed    0.07 sec
 [HANDLER_VERBOSE_OUTPUT] 
 test 2
 
 [HANDLER_OUTPUT] 
-    Start 2: TestGeotechnicalFoundationStrip
+    Start 2: test_geotechnical_foundation_strip
 
 [HANDLER_VERBOSE_OUTPUT] 
 
@@ -198,25 +198,25 @@ test 2
 2: [ RUN      ] data.FoundationStrip
 2: [       OK ] data.FoundationStrip (0 ms)
 2: [ RUN      ] data.FoundationStripDecorator
-2: [2022-11-25 18:24:25.663] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
-2: [2022-11-25 18:24:25.663] [log] [info] duration 0.0002 ms
-2: [2022-11-25 18:24:25.663] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
-2: [2022-11-25 18:24:25.663] [log] [info] duration 0.0004 ms
-2: [2022-11-25 18:24:25.663] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
-2: [2022-11-25 18:24:25.663] [log] [info] duration 0.0001 ms
-2: [2022-11-25 18:24:25.663] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
-2: [2022-11-25 18:24:25.663] [log] [info] duration 0.0001 ms
-2: [2022-11-25 18:24:25.663] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
-2: [2022-11-25 18:24:25.663] [log] [info] duration 0 ms
-2: [2022-11-25 18:24:25.663] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
-2: [2022-11-25 18:24:25.663] [log] [info] duration 0.0001 ms
-2: [2022-11-25 18:24:25.664] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
-2: [2022-11-25 18:24:25.664] [log] [info] duration 0 ms
-2: [2022-11-25 18:24:25.665] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
-2: [2022-11-25 18:24:25.665] [log] [info] duration 0 ms
-2: [       OK ] data.FoundationStripDecorator (2 ms)
+2: [2022-12-18 04:28:13.557] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
+2: [2022-12-18 04:28:13.558] [log] [info] duration 0.0001 ms
+2: [2022-12-18 04:28:13.558] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
+2: [2022-12-18 04:28:13.558] [log] [info] duration 0.0006 ms
+2: [2022-12-18 04:28:13.558] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
+2: [2022-12-18 04:28:13.558] [log] [info] duration 0.0001 ms
+2: [2022-12-18 04:28:13.558] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
+2: [2022-12-18 04:28:13.558] [log] [info] duration 0 ms
+2: [2022-12-18 04:28:13.558] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
+2: [2022-12-18 04:28:13.558] [log] [info] duration 0.0001 ms
+2: [2022-12-18 04:28:13.558] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
+2: [2022-12-18 04:28:13.558] [log] [info] duration 0.0001 ms
+2: [2022-12-18 04:28:13.558] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
+2: [2022-12-18 04:28:13.559] [log] [info] duration 0.0001 ms
+2: [2022-12-18 04:28:13.559] [log] [info] DecoratorLogger N7jessica11LogDurationINS_27DecoratorEndFoundationStripINS_15FoundationStripEEEEE
+2: [2022-12-18 04:28:13.559] [log] [info] duration 0 ms
+2: [       OK ] data.FoundationStripDecorator (1 ms)
 2: [ RUN      ] data.FoundationStripWebServicesRestBed
-2: [       OK ] data.FoundationStripWebServicesRestBed (6 ms)
+2: [       OK ] data.FoundationStripWebServicesRestBed (7 ms)
 2: [ RUN      ] data.FoundationStripWebServicesDrogon
 2: [       OK ] data.FoundationStripWebServicesDrogon (31 ms)
 2: [----------] 4 tests from data (41 ms total)
@@ -225,13 +225,13 @@ test 2
 2: [==========] 4 tests from 1 test suite ran. (41 ms total)
 2: [  PASSED  ] 4 tests.
 [HANDLER_OUTPUT] 
-2/4 Test #2: TestGeotechnicalFoundationStrip ...
+2/4 Test #2: test_geotechnical_foundation_strip ...
    Passed    0.05 sec
 [HANDLER_VERBOSE_OUTPUT] 
 test 3
 
 [HANDLER_OUTPUT] 
-    Start 3: TestLoadVerticalEccentric
+    Start 3: test_load_vertical_eccentric
 
 [HANDLER_VERBOSE_OUTPUT] 
 
@@ -245,56 +245,56 @@ test 3
 3: [ RUN      ] data.VerticalEccentric
 3: [       OK ] data.VerticalEccentric (0 ms)
 3: [ RUN      ] data.VerticalEccentricDecorator
-3: [2022-11-25 18:24:25.711] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-3: [2022-11-25 18:24:25.711] [log] [info] duration 0.0001 ms
-3: [2022-11-25 18:24:25.711] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-3: [2022-11-25 18:24:25.711] [log] [info] duration 0.0001 ms
-3: [2022-11-25 18:24:25.711] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-3: [2022-11-25 18:24:25.711] [log] [info] duration 0.0005 ms
-3: [2022-11-25 18:24:25.711] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-3: [2022-11-25 18:24:25.711] [log] [info] duration 0.0001 ms
-3: [2022-11-25 18:24:25.711] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-3: [2022-11-25 18:24:25.711] [log] [info] duration 0 ms
-3: [2022-11-25 18:24:25.711] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-3: [2022-11-25 18:24:25.711] [log] [info] duration 0.0004 ms
-3: [2022-11-25 18:24:25.711] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-3: [2022-11-25 18:24:25.711] [log] [info] duration 0 ms
-3: [2022-11-25 18:24:25.711] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-3: [2022-11-25 18:24:25.711] [log] [info] duration 0.0001 ms
-3: [2022-11-25 18:24:25.711] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-3: [2022-11-25 18:24:25.711] [log] [info] duration 0 ms
-3: [2022-11-25 18:24:25.711] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-3: [2022-11-25 18:24:25.711] [log] [info] duration 0.0001 ms
-3: [2022-11-25 18:24:25.711] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-3: [2022-11-25 18:24:25.711] [log] [info] duration 0.0001 ms
-3: [2022-11-25 18:24:25.711] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-3: [2022-11-25 18:24:25.711] [log] [info] duration 0.0001 ms
-3: [2022-11-25 18:24:25.711] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-3: [2022-11-25 18:24:25.711] [log] [info] duration 0.0001 ms
-3: [2022-11-25 18:24:25.711] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-3: [2022-11-25 18:24:25.711] [log] [info] duration 0 ms
-3: [2022-11-25 18:24:25.711] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-3: [2022-11-25 18:24:25.711] [log] [info] duration 0 ms
-3: [2022-11-25 18:24:25.711] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
-3: [2022-11-25 18:24:25.711] [log] [info] duration 0 ms
+3: [2022-12-18 04:28:13.606] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+3: [2022-12-18 04:28:13.606] [log] [info] duration 0.0001 ms
+3: [2022-12-18 04:28:13.606] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+3: [2022-12-18 04:28:13.606] [log] [info] duration 0.0001 ms
+3: [2022-12-18 04:28:13.606] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+3: [2022-12-18 04:28:13.606] [log] [info] duration 0.0005 ms
+3: [2022-12-18 04:28:13.606] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+3: [2022-12-18 04:28:13.606] [log] [info] duration 0 ms
+3: [2022-12-18 04:28:13.606] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+3: [2022-12-18 04:28:13.606] [log] [info] duration 0.0001 ms
+3: [2022-12-18 04:28:13.606] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+3: [2022-12-18 04:28:13.606] [log] [info] duration 0.0003 ms
+3: [2022-12-18 04:28:13.606] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+3: [2022-12-18 04:28:13.606] [log] [info] duration 0 ms
+3: [2022-12-18 04:28:13.606] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+3: [2022-12-18 04:28:13.606] [log] [info] duration 0 ms
+3: [2022-12-18 04:28:13.606] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+3: [2022-12-18 04:28:13.606] [log] [info] duration 0 ms
+3: [2022-12-18 04:28:13.606] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+3: [2022-12-18 04:28:13.606] [log] [info] duration 0 ms
+3: [2022-12-18 04:28:13.606] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+3: [2022-12-18 04:28:13.606] [log] [info] duration 0 ms
+3: [2022-12-18 04:28:13.606] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+3: [2022-12-18 04:28:13.606] [log] [info] duration 0 ms
+3: [2022-12-18 04:28:13.606] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+3: [2022-12-18 04:28:13.606] [log] [info] duration 0 ms
+3: [2022-12-18 04:28:13.606] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+3: [2022-12-18 04:28:13.606] [log] [info] duration 0 ms
+3: [2022-12-18 04:28:13.606] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+3: [2022-12-18 04:28:13.606] [log] [info] duration 0 ms
+3: [2022-12-18 04:28:13.606] [log] [info] DecoratorLogger N7jessica11LogDurationINS_29DecoratorEndVerticalEccentricINS_17VerticalEccentricEEEEE
+3: [2022-12-18 04:28:13.606] [log] [info] duration 0 ms
 3: [       OK ] data.VerticalEccentricDecorator (0 ms)
 3: [ RUN      ] data.VerticalEccentricWebServicesRestBed
-3: [       OK ] data.VerticalEccentricWebServicesRestBed (13 ms)
+3: [       OK ] data.VerticalEccentricWebServicesRestBed (8 ms)
 3: [ RUN      ] data.VerticalEccentricWebServicesDrogon
-3: [       OK ] data.VerticalEccentricWebServicesDrogon (26 ms)
-3: [----------] 4 tests from data (41 ms total)
+3: [       OK ] data.VerticalEccentricWebServicesDrogon (25 ms)
+3: [----------] 4 tests from data (35 ms total)
 3: 
 3: [----------] Global test environment tear-down
-3: [==========] 4 tests from 1 test suite ran. (41 ms total)
+3: [==========] 4 tests from 1 test suite ran. (35 ms total)
 3: [  PASSED  ] 4 tests.
 [HANDLER_OUTPUT] 
-3/4 Test #3: TestLoadVerticalEccentric .........
-   Passed    0.05 sec
+3/4 Test #3: test_load_vertical_eccentric .........
+   Passed    0.04 sec
 [HANDLER_VERBOSE_OUTPUT] 
 test 4
 
 [HANDLER_OUTPUT] 
-    Start 4: TestUtilDecorator
+    Start 4: test_util_decorator
 
 [HANDLER_VERBOSE_OUTPUT] 
 
@@ -316,9 +316,9 @@ test 4
 4: [==========] 1 test from 1 test suite ran. (0 ms total)
 4: [  PASSED  ] 1 test.
 [HANDLER_OUTPUT] 
-4/4 Test #4: TestUtilDecorator .................
+4/4 Test #4: test_util_decorator ..................
    Passed    0.01 sec
 
 100% tests passed, 0 tests failed out of 4
 
-Total Test time (real) =   0.29 sec
+Total Test time (real) =   0.21 sec
